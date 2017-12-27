@@ -14,7 +14,7 @@ $(function() {
     );
 });
     return(
-    <div class="card col s3 eachCard">
+    <div class="card col s3">
     <div class="card-image waves-effect waves-block waves-light">
       <img class="activator" src={require("../../../../Assets/Images/loginBackground.jpg")} alt="not available" height="200" width="215"/>
     </div>

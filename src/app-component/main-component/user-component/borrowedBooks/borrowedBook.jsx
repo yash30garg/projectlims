@@ -9,7 +9,8 @@ export const UserBooks=(props)=>
        <div className="bookHolder">
        {props.list.map(each=>
            {
-               return <Card key={each.isbn} data={each}/>;
+               return (
+                   <Card key={each.isbn} data={each}/>);
            })}
         </div>
        </div>
