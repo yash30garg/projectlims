@@ -1,0 +1,22 @@
+.eachCard
+{
+    border: 1px solid #eee;
+    color:#60003a;
+    box-shadow:0 5px 5px #ccc;
+    padding:15px;
+    display:inline-block;
+    width:250px;
+    margin:0px 20px 0px 20px;
+}
+.block
+{
+    border: 1px solid #eee;
+    box-shadow:0 5px 5px #ccc;
+    padding:50px;
+    margin:auto;
+}
+.bookHolder
+{
+    width:80%;
+    margin:auto;
+}
