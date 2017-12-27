@@ -1,0 +1,37 @@
+
+
+.searchform
+{
+    text-indent: 50px;   
+}
+
+.navbar1
+ {
+    background: linear-gradient(to bottom, #60003a, #8a0051);  
+}
+.navbar2
+{
+
+background: linear-gradient(to top, #60003a, #8a0051); 
+
+}
+#mindtree{
+margin-top: 30px;
+color: white;
+font-size: 50px;
+}
+
+#button3
+{
+    margin-top: -10px;
+}
+
+#whatsnew
+{
+ color: white;   
+}
+
+#options
+{
+    color : white;
+}

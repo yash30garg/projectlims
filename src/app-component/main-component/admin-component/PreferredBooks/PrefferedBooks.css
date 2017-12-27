@@ -1,0 +1,31 @@
+/*.item{
+    text-align: center;
+    width: auto;
+}*/
+
+.bs-example{
+    margin: 10px;
+}
+
+.item {
+height: 300px; 
+
+ width: 100%;
+/* This is your slider height */
+
+
+}
+.carousel {
+width:90%;
+margin:0 auto;
+ } /* center your carousel if other than 100% */ 
+
+
+#tp
+{
+    font-size : 50px;
+    margin-bottom: 80px;
+    
+    
+  
+}
