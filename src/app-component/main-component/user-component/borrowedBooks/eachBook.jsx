@@ -14,17 +14,17 @@ $(function() {
     );
 });
     return(
-    <div class="card col s3">
-    <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator" src={require("../../../../Assets/Images/loginBackground.jpg")} alt="not available" height="200" width="215"/>
+    <div className="card col s3">
+    <div className="card-image waves-effect waves-block waves-light">
+      <img className="activator" src={require("../../../../Assets/Images/loginBackground.jpg")} alt="not available" height="200" width="215"/>
     </div>
-    <div class="card-content">
+    <div className="card-content">
 
         <b>Title: </b><span>{props.data.details.title}</span><br/>
         <b>Return Date: </b><span>{props.data.details.returnDate}</span>
     </div>
-    <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4">Book Details<i class="material-icons right">close</i></span>
+    <div className="card-reveal">
+      <span className="card-title grey-text text-darken-4">Book Details<i className="material-icons right">close</i></span>
         <b>ISBN: </b><span>{props.data.isbn}</span><br/>
         <b>Title: </b><span>{props.data.details.title}</span><br/>
         <b>Issued Date: </b><span></span>{props.data.details.borrowedDate}<br/>
