@@ -3,6 +3,7 @@ import './css/isssuedSlider.css'
 import $ from 'jquery';
 export const Card=(props)=>
 {
+     
     return(
     <div class="card col s3 eachCard">
     <div class="card-image waves-effect waves-block waves-light">
