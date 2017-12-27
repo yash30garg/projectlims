@@ -27,7 +27,7 @@ export class BorrowedSlider extends Component
         return(<UserBooks key={result.user.mid} list={result.userBooks}/>);
      });
      return(
-       <div>
+       <div className="row">
        {outputs}
        </div>
      );
