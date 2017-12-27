@@ -3,7 +3,16 @@ import './css/isssuedSlider.css'
 import $ from 'jquery';
 export const Card=(props)=>
 {
-     
+          
+$(function() {
+    $('.card').hover(
+        function() {
+            $(this).find('> .card-image > img.activator').click();
+        }, function() {
+            $(this).find('> .card-reveal > .card-title').click();
+        }
+    );
+});
     return(
     <div class="card col s3 eachCard">
     <div class="card-image waves-effect waves-block waves-light">
