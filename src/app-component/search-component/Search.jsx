@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Rx from 'rxjs';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
-import { BrowserRouter, Route, Link } from 'react-router-dom';
+// import { BrowserRouter, Route, Link } from 'react-router-dom';
 import 'rxjs/add/operator/filter';
 import SearchResults from './../main-component/user-component/SearchResults';
 var debounce = require('debounce');
@@ -185,33 +185,33 @@ export default class Search extends Component {
         this.setState({ temp: 1 })
     }
     fiveRated() {
-        this.state.sortedData = this.state.sortedData.filter((data) =>
+        processedData = processedData.filter((data) =>
             data.details.rating === "5")
-        processedData = this.state.sortedData;
+        // processedData = this.state.sortedData;
         console.log(processedData)
         console.log("Sorted by five rated");
         this.setState({ temp: 2 })
     }
     fourRated() {
-        this.state.sortedData = this.state.sortedData.filter((data) =>
+        processedData = processedData.filter((data) =>
             (data.details.rating <= "5") && (data.details.rating >= "4"))
-        processedData = this.state.sortedData;
+        // processedData = this.state.sortedData;
         console.log(processedData)
         console.log("Sorted by four rated");
         this.setState({ temp: 2 })
     }
     threeRated() {
-        this.state.sortedData = this.state.sortedData.filter((data) =>
+        processedData = processedData.filter((data) =>
             (data.details.rating <= "5") && (data.details.rating >= "3"))
-        processedData = this.state.sortedData;
+        // processedData = this.state.sortedData;
         console.log(processedData)
         console.log("Sorted by three rated");
         this.setState({ temp: 2 })
     }
     twoRated() {
-        this.state.sortedData = this.state.sortedData.filter((data) =>
+        processedData = processedData.filter((data) =>
             (data.details.rating <= "5") && (data.details.rating >= "2"))
-        processedData = this.state.sortedData;
+        // processedData = this.state.sortedData;
         console.log(processedData)
         console.log("Sorted by two rated");
         this.setState({ temp: 2 })

@@ -55,7 +55,7 @@ class Header extends Component {
 
           <nav className="nav-extended">
             <div className="nav-wrapper">
-              <a ><img className="App-logo" src={"https://www.mindtree.com/themes/custom/mindtree_theme/logo.svg"} alt="My logo" align="left" /></a>
+              {/*<a ><img className="App-logo" src={"https://www.mindtree.com/themes/custom/mindtree_theme/logo.svg"} alt="My logo" align="left" /></a>*/}
               <a href="#!" className="brand-logo center">Mindtree Library</a>
               <ul className="right hide-on-med-and-down">
                 <Link to="/Search">

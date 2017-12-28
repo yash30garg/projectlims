@@ -2,10 +2,6 @@ import React,{Component} from 'react';
 import { processedData } from './../../search-component/Search';
 class SearchResults extends Component
  {
-     constructor(props)
-     {
-     super(props);
-    }
      render()
      {
          const b=this.props.result[0];
@@ -16,7 +12,7 @@ class SearchResults extends Component
          //console.log(this.props.result.details);
          return(
              <div>
-            
+            {b}
              </div>
          );
      }

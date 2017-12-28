@@ -56,15 +56,15 @@ class Login extends Component {
 
                         <div className="input-field col s12">
                             <input ref="email" id="email" type="email" className="validate" />
-                            <label for="email">Email</label>
+                            <label htmlFor="email">Email</label>
                         </div>
                         <div className="input-field col s12">
                             <input id="password" type="password" className="validate" />
-                            <label for="password">Password</label>
+                            <label htmlFor="password">Password</label>
                         </div>
                         <div className="checkbox-container">
                             {/*<input type="checkbox"></input>*/}
-                            <input type="checkbox" id="test5" /><label for="test5" />
+                            <input type="checkbox" id="test5" /><label htmlFor="test5" />
                             <div className="text-checkbox">I agree with the terms of service.</div>
                         </div>
 
