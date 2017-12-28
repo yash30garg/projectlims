@@ -13,10 +13,12 @@ $(function() {
         }
     );
 });
+
+
     return(
-    <div class="card col s4 m3 offset-m1 heigh">
+    <div class="card col s6 m2 offset-m1">
     <div class=" card-image waves-effect waves-block waves-light">
-      <img class="activator" src={require("../../../../Assets/Images/loginBackground.jpg")} alt="not available" width="100" height="250" />
+      <img class="activator" src={require("../../../../Assets/Images/loginBackground.jpg")} alt="not available" width="100" height="150" />
     </div>
     <div className="card-content">
 
