@@ -11,7 +11,6 @@ export class User extends Component
     {
         return(
             <div>
-                {console.log(email)}
             <Header/>
             <Pbooks/>
             <BorrowedSlider/>

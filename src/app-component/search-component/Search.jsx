@@ -6,7 +6,7 @@ import { BrowserRouter, Route, Link } from 'react-router-dom';
 import 'rxjs/add/operator/filter';
 import SearchResults from './../main-component/user-component/SearchResults';
 var debounce = require('debounce');
-export var processedData;
+export var processedData="";
 
 export default class Search extends Component {
     constructor() {
@@ -52,9 +52,10 @@ export default class Search extends Component {
                 data3.details.category.indexOf(value) >= 0) &&
             value !== '');
         this.dataOrg = this.datax;
-        this.setState({ sortedData: this.datax })
-        processedData = this.state.sortedData;
+        processedData = this.datax;
         console.log(processedData)
+        this.setState({ sortedData: this.datax })
+        // console.log(this.state.sortedData)
         console.log(this.state.sortedData)
     }
     selectSort = () => {
@@ -263,7 +264,7 @@ export default class Search extends Component {
                         </div>
                     </div>
                 </div>
-                <SearchResults/>
+                <SearchResults result={this.state.sortedData}/>
             </div>
              
 
@@ -287,6 +288,7 @@ export default class Search extends Component {
         );
     }
 }
+
 // https://api.myjson.com/bins/agk87
 // https://api.myjson.com/bins/q3n27
 // https://api.myjson.com/bins/eobyn 

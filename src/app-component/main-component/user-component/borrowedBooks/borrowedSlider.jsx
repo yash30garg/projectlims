@@ -10,7 +10,10 @@ export class BorrowedSlider extends Component
      constructor(props)
      {
          super(props);
+<<<<<<< HEAD
+=======
          //console.log(this.props.mids);
+>>>>>>> 450a098b582b56bc542a78feed90391292de19e1
 
      }
       state={
