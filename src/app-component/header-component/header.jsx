@@ -33,7 +33,7 @@ class Header extends Component {
 
         <ul id="dropdown1" className="dropdown-content">
           <li><a href="#!">one</a></li>
-          <li><a href="#!">two</a></li>
+          <li><a href="#yy!">two</a></li>
           <li className="divider"></li>
           <li><a href="#!">three</a></li>
         </ul>
@@ -65,8 +65,6 @@ class Header extends Component {
                 <li><a className="dropdown-button" href="#!" data-activates="dropdown1">Profile <i class="material-icons right">arrow_drop_down</i></a></li>
               </ul>
             </div>
-
-
           </nav>
         </nav>
 

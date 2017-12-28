@@ -4,6 +4,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/filter';
 var debounce = require('debounce');
+export var processedData;
 
 export default class Search extends Component {
     constructor() {
@@ -14,29 +15,27 @@ export default class Search extends Component {
             sortedData: '',
             filteredData: ''
         }
-        Rx.Observable.fromPromise(fetch('https://api.myjson.com/bins/agk87'))
+        Rx.Observable.fromPromise(fetch('https://api.myjson.com/bins/eobyn'))
             .flatMap((response) => response.json())
             .subscribe(values => {
                 this.setState({ data: values })
                 console.log(this.state.data.booksArray[0])
             })
     }
-    dataOrg;
-    datax;
     search = (event) => {
         let value = document.getElementById("search").value;
         console.log(document.getElementById("search").value)
-            console.log(this.state.data)
-                        this.datax = this.state.data.booksArray.filter((data3) =>
-                            (data3.details.title.indexOf(value) >= 0 || 
-                            data3.details.author.indexOf(value) >= 0 || 
-                            data3.details.publisher.indexOf(value) >= 0 || 
-                            data3.details.category.indexOf(value) >= 0) && 
-                            value !== '');
-                        this.dataOrg = this.datax;
-                        this.setState({ sortedData : this.datax})
-                        this.setState({ filteredData : this.datax})
-                        console.log(this.state.sortedData)
+        console.log(this.state.data)
+        this.datax = this.state.data.booksArray.filter((data3) =>
+            (data3.details.title.indexOf(value) >= 0 ||
+                data3.details.author.indexOf(value) >= 0 ||
+                data3.details.publisher.indexOf(value) >= 0 ||
+                data3.details.category.indexOf(value) >= 0) &&
+            value !== '');
+        this.dataOrg = this.datax;
+        this.setState({ sortedData: this.datax })
+        this.setState({ filteredData: this.datax })
+        console.log(this.state.sortedData)
         this.setState({ searchTerm: document.getElementById("search").value })
     }
     selectSort = () => {
@@ -88,7 +87,8 @@ export default class Search extends Component {
             return 0;
         }
         )
-        console.log(this.state.sortedData)
+        processedData = this.state.sortedData;
+        console.log(processedData)
         console.log("Sorted by Title");
     }
     sortAuthor() {
@@ -110,7 +110,8 @@ export default class Search extends Component {
             return 0;
         }
         )
-        console.log(this.state.sortedData)
+        processedData = this.state.sortedData;
+        console.log(processedData)
         console.log("Sorted by Author");
     }
     sortPublish() {
@@ -132,7 +133,8 @@ export default class Search extends Component {
             return 0;
         }
         )
-        console.log(this.state.sortedData)
+        processedData = this.state.sortedData;
+        console.log(processedData)
         console.log("Sorted by Publisher");
     }
     sortRating() {
@@ -154,33 +156,37 @@ export default class Search extends Component {
             return 0;
         }
         )
-        console.log(this.state.sortedData)
+        processedData = this.state.sortedData;
+        console.log(processedData)
         console.log("Sorted by Rating");
 
     }
-    newData
     fiveRated() {
-        this.newData = this.state.sortedData.filter((data) =>
+        this.state.sortedData = this.state.sortedData.filter((data) =>
             data.details.rating === "5")
-        console.log(this.newData)
+        processedData = this.state.sortedData;
+        console.log(processedData)
         console.log("Sorted by five rated");
     }
     fourRated() {
-        this.newData = this.state.sortedData.filter((data) =>
+        this.state.sortedData = this.state.sortedData.filter((data) =>
             (data.details.rating <= "5") && (data.details.rating >= "4"))
-        console.log(this.newData)
+        processedData = this.state.sortedData;
+        console.log(processedData)
         console.log("Sorted by four rated");
     }
     threeRated() {
-        this.newData = this.state.sortedData.filter((data) =>
+        this.state.sortedData = this.state.sortedData.filter((data) =>
             (data.details.rating <= "5") && (data.details.rating >= "3"))
-        console.log(this.newData)
+        processedData = this.state.sortedData;
+        console.log(processedData)
         console.log("Sorted by three rated");
     }
     twoRated() {
-        this.newData = this.state.sortedData.filter((data) =>
+        this.state.sortedData = this.state.sortedData.filter((data) =>
             (data.details.rating <= "5") && (data.details.rating >= "2"))
-        console.log(this.newData)
+        processedData = this.state.sortedData;
+        console.log(processedData)
         console.log("Sorted by two rated");
     }
 
@@ -188,16 +194,16 @@ export default class Search extends Component {
         return (
             <div className="row">
                 <nav>
-          <div class="nav-wrapper">
-            <form>
-              <div class="input-field">
-                <input id="search" type="search" onKeyUp={debounce(this.search,1000)} required />
-                <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                <i class="material-icons">close</i>
-              </div>
-            </form>
-          </div>
-        </nav>
+                    <div class="nav-wrapper">
+                        <form>
+                            <div class="input-field">
+                                <input id="search" type="search" onKeyUp={debounce(this.search, 1000)} required />
+                                <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                                <i class="material-icons">close</i>
+                            </div>
+                        </form>
+                    </div>
+                </nav>
 
                 <div className="col-md-4 col-md-offset-6">
                 </div>
@@ -219,8 +225,8 @@ export default class Search extends Component {
                     <div className="btn-group">
                         <div className="dropdown">
                             <select className="btn btn-secondary dropdown-toggle" id="filter" onChange={this.selectFilter} data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                               
-                            {/*<div className="dropdown-menu" aria-labelledby="dropdownMenu2">*/}
+
+                                {/*<div className="dropdown-menu" aria-labelledby="dropdownMenu2">*/}
                                 <option className="dropdown-item" >Filter By</option>
                                 <option className="dropdown-item" onClick={this.fiveRated}>5 Rated</option>
                                 <option className="dropdown-item" onClick={this.fourRated}>4 and above Rated </option>
@@ -256,3 +262,4 @@ export default class Search extends Component {
 }
 // https://api.myjson.com/bins/agk87
 // https://api.myjson.com/bins/q3n27
+// https://api.myjson.com/bins/eobyn 
