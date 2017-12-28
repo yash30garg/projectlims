@@ -1,4 +1,4 @@
-[
+{"booksArray":[
     {
         "isbn":"1",
         "details":
@@ -9,7 +9,7 @@
              "publisher":"publisher1",
              "rating":"5",
              "copies":"10",
-             "url" : "../Images/HP.jpeg"
+             "url" : "http://whatpixel.com/images/2017/05/pro-js-for-webdev.jpg "
         }
 
     },
@@ -23,7 +23,7 @@
              "publisher":"publisher2",
              "rating":"3",
              "copies":"20",
-             "url": "https://images-na.ssl-images-amazon.com/images/I/81Gt5Bnpr%2BL.jpg"
+             "url": "http://whatpixel.com/images/2016/08/book-cover-pro-typescript.jpg"
        }
 
     },
@@ -37,7 +37,7 @@
              "publisher":"publisher1",
              "rating":"4",
              "copies":"30",
-             "url":"http://www.jdandj.com/uploads/8/0/0/8/80083458/dc-a5-v2-poster-front-copy-min_orig.jpg"
+             "url":"http://whatpixel.com/images/2016/09/reactjs-essentials-book-cover.jpg"
        }
 
     },
@@ -52,7 +52,7 @@
              "publisher":"publisher1",
              "rating":"2",
              "copies":"40",
-             "url":"http://1.bp.blogspot.com/-L5YhCCilu24/VjlnikQYm0I/AAAAAAAAMmQ/aUBhxej4shk/s1600/dell%2Bfc%2B331%2Badvertising%2Bposter%2B28x44%2Bblog.jpg "
+             "url":"https://hsto.org/files/91f/710/349/91f710349f7143d59266ce4a6cdb75f4.jpg"
        }
 
     },
@@ -67,7 +67,7 @@
              "publisher":"publisher2",
              "rating":"3",
              "copies":"10",
-              "url":"http://www.dreadcentral.com/wp-content/uploads/2017/07/itsalivebook-2.jpg"
+              "url":"https://images-na.ssl-images-amazon.com/images/I/51TmSyyUiJL.jpg"
        }
 
     },
@@ -82,7 +82,7 @@
              "publisher":"publisher3",
              "rating":"3",
              "copies":"20",
-             "url" : "https://sep.yimg.com/ay/pomegranate/america-by-rail-book-of-postcards-83.jpg"
+             "url" : "https://www.packtpub.com/sites/default/files/1820OS.jpg"
        }
 
     },
@@ -96,7 +96,8 @@
              "category":"Javascript",
              "publisher":"publisher1",
              "rating":"3",
-             "copies":"4"
+             "copies":"4",
+             "url" : "http://www.kidslovepc.com/javascript/images/javascript_book_thomas.jpg"
        }
 
     },
@@ -110,7 +111,8 @@
              "category":"angular",
              "publisher":"publisher2",
              "rating":"2",
-             "copies":"13"
+             "copies":"13",
+             "url" : "http://www.mactale.com/images/javascript-books/JavaScript-Step-by-Step.jpg"
        }
 
     },
@@ -124,7 +126,8 @@
              "category":"react",
              "publisher":"publisher3",
              "rating":"3",
-             "copies":"20"
+             "copies":"20",
+             "url" : "https://dz13w8afd47il.cloudfront.net/sites/default/files/imagecache/featured_book_block/B06928.png"
        }
 
     },
@@ -138,7 +141,8 @@
              "category":"Javascript",
              "publisher":"publisher1",
              "rating":"1",
-             "copies":"4"
+             "copies":"4",
+             "url" : "http://whatpixel.com/images/2017/05/pro-mern-stack.jpg"
        }
 
     },
@@ -153,7 +157,7 @@
              "publisher":"publisher2",
              "rating":"5",
              "copies":"7",
-             "url" : "https://images-na.ssl-images-amazon.com/images/I/71YDLQYO6tL._SY550_.jpg" 
+             "url" : "https://d255esdrn735hr.cloudfront.net/sites/default/files/imagecache/featured_book_block/9781785889288.png" 
        }
 
     },
@@ -168,7 +172,7 @@
              "publisher":"publisher3",
              "rating":"4",
              "copies":"9",
-             "url":"http://www.jdandj.com/uploads/8/0/0/8/80083458/poster-for-an-author_orig.jpg"
+             "url":"_https://blog.mariusschulz.com/content/images/ngbook.jpg"
        }
 
     },
@@ -182,7 +186,8 @@
              "category":"javascript",
              "publisher":"publisher1",
              "rating":"3",
-             "copies":"10"
+             "copies":"10",
+             "url" : "http://whatpixel.com/images/2017/05/nodejs-mongo-angular-book.jpg"
        }
 
     },
@@ -196,7 +201,8 @@
              "category":"angular",
              "publisher":"publisher2",
              "rating":"2",
-             "copies":"15"
+             "copies":"15",
+             "url" : "https://images-na.ssl-images-amazon.com/images/I/41%2BdUssXgmL._SX331_BO1,204,203,200_.jpg"
        }
 
     },
@@ -210,8 +216,10 @@
              "category":"react",
              "publisher":"publisher3",
              "rating":"3",
-             "copies":"20"
+             "copies":"20",
+             "url" : "https://images-na.ssl-images-amazon.com/images/I/51cyqvVe3fL._SX342_QL70_.jpg"
        }
 
     }
 ]
+}
