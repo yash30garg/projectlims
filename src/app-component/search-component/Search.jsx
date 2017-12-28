@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import Rx from 'rxjs';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import { BrowserRouter, Route, Link } from 'react-router-dom';
 import 'rxjs/add/operator/filter';
+import SearchResults from './../main-component/user-component/SearchResults';
 var debounce = require('debounce');
 export var processedData;
 
@@ -13,7 +15,8 @@ export default class Search extends Component {
             searchTerm: '',
             data: '',
             sortedData: '',
-            filteredData: ''
+            filteredData: '',
+            temp:0
         }
         Rx.Observable.fromPromise(fetch('https://api.myjson.com/bins/eobyn'))
             .flatMap((response) => response.json())
@@ -25,6 +28,24 @@ export default class Search extends Component {
     search = (event) => {
         let value = document.getElementById("search").value;
         console.log(document.getElementById("search").value)
+<<<<<<< HEAD
+            console.log(this.state.data)
+                        this.datax = this.state.data.booksArray.filter((data3) =>
+                            (data3.details.title.indexOf(value) >= 0 || 
+                            data3.details.author.indexOf(value) >= 0 || 
+                            data3.details.publisher.indexOf(value) >= 0 || 
+                            data3.details.category.indexOf(value) >= 0) && 
+                            value !== '');
+                        this.dataOrg = this.datax;
+                        this.setState({ sortedData : this.datax})
+                        this.setState({ filteredData : this.datax})
+                        console.log(this.state.sortedData);
+                        // <Link to="/results">
+                        // <button className="btn-primary">Search</button>
+                        //     </Link>
+
+        this.setState({ searchTerm: document.getElementById("search").value })
+=======
         console.log(this.state.data)
         this.datax = this.state.data.booksArray.filter((data3) =>
             (data3.details.title.indexOf(value) >= 0 ||
@@ -34,9 +55,10 @@ export default class Search extends Component {
             value !== '');
         this.dataOrg = this.datax;
         this.setState({ sortedData: this.datax })
-        this.setState({ filteredData: this.datax })
+        processedData = this.state.sortedData;
+        console.log(processedData)
         console.log(this.state.sortedData)
-        this.setState({ searchTerm: document.getElementById("search").value })
+>>>>>>> d23025e358cfcd17b05db6edd9e90d15bbf37201
     }
     selectSort = () => {
         if (document.getElementById("sort").value === "Title") {
@@ -85,11 +107,12 @@ export default class Search extends Component {
                     return -1;
             }
             return 0;
-        }
+        }    
         )
         processedData = this.state.sortedData;
         console.log(processedData)
         console.log("Sorted by Title");
+        this.setState({ temp: 1 })
     }
     sortAuthor() {
         this.flag = !this.flag;
@@ -113,6 +136,7 @@ export default class Search extends Component {
         processedData = this.state.sortedData;
         console.log(processedData)
         console.log("Sorted by Author");
+        this.setState({ temp: 1 })
     }
     sortPublish() {
         this.flag = !this.flag;
@@ -136,6 +160,7 @@ export default class Search extends Component {
         processedData = this.state.sortedData;
         console.log(processedData)
         console.log("Sorted by Publisher");
+        this.setState({ temp: 1 })
     }
     sortRating() {
         this.flag = !this.flag;
@@ -159,7 +184,7 @@ export default class Search extends Component {
         processedData = this.state.sortedData;
         console.log(processedData)
         console.log("Sorted by Rating");
-
+        this.setState({ temp: 1 })
     }
     fiveRated() {
         this.state.sortedData = this.state.sortedData.filter((data) =>
@@ -167,6 +192,7 @@ export default class Search extends Component {
         processedData = this.state.sortedData;
         console.log(processedData)
         console.log("Sorted by five rated");
+        this.setState({ temp: 2 })
     }
     fourRated() {
         this.state.sortedData = this.state.sortedData.filter((data) =>
@@ -174,6 +200,7 @@ export default class Search extends Component {
         processedData = this.state.sortedData;
         console.log(processedData)
         console.log("Sorted by four rated");
+        this.setState({ temp: 2 })
     }
     threeRated() {
         this.state.sortedData = this.state.sortedData.filter((data) =>
@@ -181,6 +208,7 @@ export default class Search extends Component {
         processedData = this.state.sortedData;
         console.log(processedData)
         console.log("Sorted by three rated");
+        this.setState({ temp: 2 })
     }
     twoRated() {
         this.state.sortedData = this.state.sortedData.filter((data) =>
@@ -188,6 +216,7 @@ export default class Search extends Component {
         processedData = this.state.sortedData;
         console.log(processedData)
         console.log("Sorted by two rated");
+        this.setState({ temp: 2 })
     }
 
     render() {
@@ -237,8 +266,9 @@ export default class Search extends Component {
                         </div>
                     </div>
                 </div>
+                <SearchResults/>
             </div>
-
+             
 
             //         <div class="card-columns">
             // <div *ngFor = 'let index of datax'>

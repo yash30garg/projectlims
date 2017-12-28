@@ -14,15 +14,27 @@ class PBooks extends Component {
         }
     }
     clickPrevious = () => {
-        if (this.state.indexStart - 4 >= 0) {
-            this.setState({ indexStart: ((this.state.indexStart) - 4) });
-            this.setState({ indexEnd: ((this.state.indexEnd) - 4) });
+
+        if (this.state.indexStart - 3 >= 0) {
+            this.setState({ indexStart: ((this.state.indexStart) - 3) });
+            this.setState({ indexEnd: ((this.state.indexEnd) - 3) });
         }
     }
+    // clickNext = () => {
+    //     if (this.state.indexEnd <= this.state.posts.length) {
+    //         this.setState({ indexStart: ((this.state.indexStart) + 3) });
+    //         this.setState({ indexEnd: ((this.state.indexEnd) + 3) });
+
+    //     if (this.state.indexStart - 4 >= 0) {
+    //         this.setState({ indexStart: ((this.state.indexStart) - 4) });
+    //         this.setState({ indexEnd: ((this.state.indexEnd) - 4) });
+    //     }
+    // }
     clickNext = () => {
         if (this.state.indexEnd <= this.state.display.length) {
             this.setState({ indexStart: ((this.state.indexStart) + 4) });
             this.setState({ indexEnd: ((this.state.indexEnd) + 4) });
+
         }
     }
 
@@ -30,8 +42,9 @@ class PBooks extends Component {
 
 
 
-    componentDidMount() {
-        axios.get('https://api.myjson.com/bins/eobyn')
+    componentDidMount() 
+    {
+        axios.get('https://api.myjson.com/bins/b20lr')
             .then(res => {
                 this.setState({ display: res.data.booksArray });
 
@@ -41,26 +54,36 @@ class PBooks extends Component {
 
 
             })
+    
 
         // $('.carousel.carousel-slider').carousel({fullWidth: true});
 
-        $(document).ready(function () {
-            $('.carousel').carousel({
-                dist: 0,
-                shift: 0,
-                padding: 20,
+        // $(document).ready(function () {
+        //     $('.carousel').carousel({
+        //         dist: 0,
+        //         shift: 0,
+        //         padding: 20,
 
 
-            });
+        //     });
 
-        });
+        // });
     }
     //        $(document).ready(function(){
     //   $('.carousel').carousel();
     // });
 
 
+<<<<<<< HEAD
     render() {
+=======
+    render() 
+    {
+
+
+
+
+>>>>>>> 7b01147c77f73c647a947dd6b53683fe952d54da
         /*const a = this.state.display.map((result) => {
             if (result.details.rating >= 4) {
                 return (
