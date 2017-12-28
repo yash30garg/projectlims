@@ -35,6 +35,11 @@ font-size: 50px;
 {
     color : white;
 }
-.brand-logo {
-    align-content: left
+
+.input-field {
+    width: 50%;
+    padding-left: 100px
+}
+.label-icon {
+    width:50%;
 }

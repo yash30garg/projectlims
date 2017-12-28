@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../../logo.svg';
 import '../App.css';
+import Search from '../search-component/Search';
 // import './header.css';
 // import PBooks from '../main-component/admin-component/PreferredBooks/PrefferdBooks.jsx';
 import Footer from '../footer-component/footer.jsx';
@@ -20,7 +21,7 @@ class Header extends Component {
       // START OPEN
     });
 
-     $(".nav-wrapper").css("background-color", ' #8a0051');
+    $(".nav-wrapper").css("background-color", ' #8a0051');
 
   }
 
@@ -37,7 +38,7 @@ class Header extends Component {
           <li><a href="#!">three</a></li>
         </ul>
 
-         <ul id="dropdown2" className="dropdown-content">
+        <ul id="dropdown2" className="dropdown-content">
           <li><a href="#!">one</a></li>
           <li><a href="#!">two</a></li>
           <li className="divider"></li>
@@ -52,42 +53,43 @@ class Header extends Component {
 
 
           <nav className="nav-extended">
-          <div className="nav-wrapper">
-             <a ><img className="App-logo" src={"https://www.mindtree.com/themes/custom/mindtree_theme/logo.svg"} alt="My logo" align="left" /></a>
-            <a href="#!" className="brand-logo center">Mindtree Library</a>
-            <ul className="right hide-on-med-and-down">
-              <li><a href="sass.html">What's New?</a></li>
-            
-            <li><a className="dropdown-button" href="#!" data-activates="dropdown2">Book Categories <i class="material-icons right">arrow_drop_down</i></a></li>
-              
+            <div className="nav-wrapper">
+              <a ><img className="App-logo" src={"https://www.mindtree.com/themes/custom/mindtree_theme/logo.svg"} alt="My logo" align="left" /></a>
+              <a href="#!" className="brand-logo center">Mindtree Library</a>
+              <ul className="right hide-on-med-and-down">
+                <li><a href="sass.html">What's New?</a></li>
 
-              <li><a className="dropdown-button" href="#!" data-activates="dropdown1">Profile <i class="material-icons right">arrow_drop_down</i></a></li>
-            </ul>
+                <li><a className="dropdown-button" href="#!" data-activates="dropdown2">Book Categories <i class="material-icons right">arrow_drop_down</i></a></li>
+
+
+                <li><a className="dropdown-button" href="#!" data-activates="dropdown1">Profile <i class="material-icons right">arrow_drop_down</i></a></li>
+              </ul>
+            </div>
+
+
+          </nav>
+        </nav>
+
+        {/*<nav>
+          <div class="nav-wrapper">
+            <form>
+              <div class="input-field">
+                <input id="search" type="search" required />
+                <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                <i class="material-icons">close</i>
+              </div>
+            </form>
           </div>
+        </nav>*/}
+        <Search />
+        {/*<Pbooks />*/}
 
-          
-        </nav>
-        </nav>
-
-          <nav>
-    <div class="nav-wrapper">
-      <form>
-        <div class="input-field">
-          <input id="search" type="search" required />
-          <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-          <i class="material-icons">close</i>
-        </div>
-      </form>
-    </div>
-  </nav>
-{/*<Pbooks />*/}
-        
-<ul id="dropdown1" className="dropdown-content">
-  <li><a href="#!">one</a></li>
-  <li><a href="#!">two</a></li>
-  <li className="divider"></li>
-  <li><a href="#!">three</a></li>
-</ul>
+        <ul id="dropdown1" className="dropdown-content">
+          <li><a href="#!">one</a></li>
+          <li><a href="#!">two</a></li>
+          <li className="divider"></li>
+          <li><a href="#!">three</a></li>
+        </ul>
       </div>
     );
   }
