@@ -4,6 +4,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/filter';
 var debounce = require('debounce');
+export var processedData;
 
 export default class Search extends Component {
     constructor() {
@@ -14,7 +15,7 @@ export default class Search extends Component {
             sortedData: '',
             filteredData: ''
         }
-        Rx.Observable.fromPromise(fetch('https://api.myjson.com/bins/agk87'))
+        Rx.Observable.fromPromise(fetch('https://api.myjson.com/bins/eobyn'))
             .flatMap((response) => response.json())
             .subscribe(values => {
                 this.setState({ data: values })
@@ -88,7 +89,8 @@ export default class Search extends Component {
             return 0;
         }
         )
-        console.log(this.state.sortedData)
+        processedData = this.state.sortedData;
+        console.log(processedData)
         console.log("Sorted by Title");
     }
     sortAuthor() {
@@ -110,7 +112,8 @@ export default class Search extends Component {
             return 0;
         }
         )
-        console.log(this.state.sortedData)
+        processedData = this.state.sortedData;
+        console.log(processedData)
         console.log("Sorted by Author");
     }
     sortPublish() {
@@ -132,7 +135,8 @@ export default class Search extends Component {
             return 0;
         }
         )
-        console.log(this.state.sortedData)
+        processedData = this.state.sortedData;
+        console.log(processedData)
         console.log("Sorted by Publisher");
     }
     sortRating() {
@@ -154,33 +158,37 @@ export default class Search extends Component {
             return 0;
         }
         )
-        console.log(this.state.sortedData)
+        processedData = this.state.sortedData;
+        console.log(processedData)
         console.log("Sorted by Rating");
 
     }
-    newData
     fiveRated() {
-        this.newData = this.state.sortedData.filter((data) =>
+        this.state.sortedData = this.state.sortedData.filter((data) =>
             data.details.rating === "5")
-        console.log(this.newData)
+        processedData = this.state.sortedData;
+        console.log(processedData)
         console.log("Sorted by five rated");
     }
     fourRated() {
-        this.newData = this.state.sortedData.filter((data) =>
+        this.state.sortedData = this.state.sortedData.filter((data) =>
             (data.details.rating <= "5") && (data.details.rating >= "4"))
-        console.log(this.newData)
+        processedData = this.state.sortedData;
+        console.log(processedData)
         console.log("Sorted by four rated");
     }
     threeRated() {
-        this.newData = this.state.sortedData.filter((data) =>
+        this.state.sortedData = this.state.sortedData.filter((data) =>
             (data.details.rating <= "5") && (data.details.rating >= "3"))
-        console.log(this.newData)
+        processedData = this.state.sortedData;
+        console.log(processedData)
         console.log("Sorted by three rated");
     }
     twoRated() {
-        this.newData = this.state.sortedData.filter((data) =>
+        this.state.sortedData = this.state.sortedData.filter((data) =>
             (data.details.rating <= "5") && (data.details.rating >= "2"))
-        console.log(this.newData)
+        processedData = this.state.sortedData;
+        console.log(processedData)
         console.log("Sorted by two rated");
     }
 
@@ -256,3 +264,4 @@ export default class Search extends Component {
 }
 // https://api.myjson.com/bins/agk87
 // https://api.myjson.com/bins/q3n27
+// https://api.myjson.com/bins/eobyn 

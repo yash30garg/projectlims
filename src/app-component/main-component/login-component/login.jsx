@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Link } from 'react-router-dom';
 import axios from 'axios';
 import Form from 'react-validation/build/form';
 import Input from 'react-validation/build/input';
+export var email, mid;
 
 class Login extends Component {
 
@@ -19,6 +20,11 @@ class Login extends Component {
             .then(res => {
                 this.setState({ display: res.data });
             })
+    }
+    validate = () =>
+    {
+        email = this.refs.email.value
+        console.log(email)
     }
 
 
@@ -44,7 +50,7 @@ class Login extends Component {
                         <div className="h2">Login</div>
 
                         <div class="input-field col s12">
-                            <input id="email" type="email" class="validate" />
+                            <input ref="email" id="email" type="email" class="validate" />
                             <label for="email">Email</label>
                         </div>
                         <div class="input-field col s12">
