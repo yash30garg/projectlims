@@ -1,7 +1,6 @@
 import React,{Component} from 'react';
 import {UserBooks}from './borrowedBook'
 import axios from 'axios';
-import $ from 'jquery';
 import {BrowserRouter,Route,Link } from 'react-router-dom';
 
 export class BorrowedSlider extends Component
@@ -17,20 +16,13 @@ export class BorrowedSlider extends Component
  } 
  componentDidMount()
  {
-     $(function() {
-    $('.card').hover(
-        function() {
-            $(this).find('> .card-image > img.activator').click();
-        }, function() {
-            $(this).find('> .card-reveal > .card-title').click();
-        }
-    );
-});
+     
      axios.get('https://api.myjson.com/bins/ds48n')
      .then(res=>{
          this.setState({output:res.data});
         });
  }
+
 
  render()
  {
