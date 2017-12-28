@@ -8,7 +8,8 @@
              "category":"javascript",
              "publisher":"publisher1",
              "rating":"5",
-             "copies":"10"
+             "copies":"10",
+             "url" : "../Images/HP.jpeg"
         }
 
     },
@@ -21,7 +22,8 @@
              "category":"angular",
              "publisher":"publisher2",
              "rating":"3",
-             "copies":"20"
+             "copies":"20",
+             "url": "https://images-na.ssl-images-amazon.com/images/I/81Gt5Bnpr%2BL.jpg"
        }
 
     },
@@ -34,7 +36,8 @@
              "category":"react",
              "publisher":"publisher1",
              "rating":"4",
-             "copies":"30"
+             "copies":"30",
+             "url":"http://www.jdandj.com/uploads/8/0/0/8/80083458/dc-a5-v2-poster-front-copy-min_orig.jpg"
        }
 
     },
@@ -48,7 +51,8 @@
              "category":"javascript",
              "publisher":"publisher1",
              "rating":"2",
-             "copies":"40"
+             "copies":"40",
+             "url":"http://1.bp.blogspot.com/-L5YhCCilu24/VjlnikQYm0I/AAAAAAAAMmQ/aUBhxej4shk/s1600/dell%2Bfc%2B331%2Badvertising%2Bposter%2B28x44%2Bblog.jpg "
        }
 
     },
@@ -62,7 +66,8 @@
              "category":"angular",
              "publisher":"publisher2",
              "rating":"3",
-             "copies":"10"
+             "copies":"10",
+              "url":"http://www.dreadcentral.com/wp-content/uploads/2017/07/itsalivebook-2.jpg"
        }
 
     },
@@ -76,7 +81,8 @@
              "category":"react",
              "publisher":"publisher3",
              "rating":"3",
-             "copies":"20"
+             "copies":"20",
+             "url" : "https://sep.yimg.com/ay/pomegranate/america-by-rail-book-of-postcards-83.jpg"
        }
 
     },
@@ -146,7 +152,8 @@
              "category":"angular",
              "publisher":"publisher2",
              "rating":"5",
-             "copies":"7"
+             "copies":"7",
+             "url" : "https://images-na.ssl-images-amazon.com/images/I/71YDLQYO6tL._SY550_.jpg" 
        }
 
     },
@@ -160,7 +167,8 @@
              "category":"react",
              "publisher":"publisher3",
              "rating":"4",
-             "copies":"9"
+             "copies":"9",
+             "url":"http://www.jdandj.com/uploads/8/0/0/8/80083458/poster-for-an-author_orig.jpg"
        }
 
     },
