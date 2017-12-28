@@ -4,7 +4,7 @@ import '../App.css';
 import Search from '../search-component/Search';
 // import './header.css';
 // import PBooks from '../main-component/admin-component/PreferredBooks/PrefferdBooks.jsx';
-import Footer from '../footer-component/footer.jsx';
+//import Footer from '../footer-component/footer.jsx';
 import $ from 'jquery';
 class Header extends Component {
 
