@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Rx from 'rxjs';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import { BrowserRouter, Route, Link } from 'react-router-dom';
 import 'rxjs/add/operator/filter';
 var debounce = require('debounce');
 export var processedData;
@@ -37,7 +38,11 @@ export default class Search extends Component {
                         this.dataOrg = this.datax;
                         this.setState({ sortedData : this.datax})
                         this.setState({ filteredData : this.datax})
-                        console.log(this.state.sortedData)
+                        console.log(this.state.sortedData);
+                        // <Link to="/results">
+                        // <button className="btn-primary">Search</button>
+                        //     </Link>
+
         this.setState({ searchTerm: document.getElementById("search").value })
     }
     selectSort = () => {

@@ -7,6 +7,7 @@ import './App.css';
 import Login from './main-component/login-component/login.jsx';
 import {BrowserRouter, Route, Link,Switch} from 'react-router-dom';
 import {User} from './main-component/user-component/user'
+import {SearchResults} from './main-component/user-component/SearchResults-Component/results'
 class App extends Component {
   render() {
     return (
@@ -15,6 +16,8 @@ class App extends Component {
         <Switch>
       <Route path="/" exact component={Login}/>
       <Route path="/home" exact component={User}/>
+      <Route path="/results" exact component={SearchResults}/>
+
         </Switch>
       </div>
       </BrowserRouter>

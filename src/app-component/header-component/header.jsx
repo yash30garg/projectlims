@@ -76,7 +76,7 @@ class Header extends Component {
                 <label class="label-icon" for="search"><i class="material-icons">search</i></label>
                 <i class="material-icons">close</i>
               </div>
-            </form>
+            </form> 
           </div>
         </nav>*/}
         <Search />
