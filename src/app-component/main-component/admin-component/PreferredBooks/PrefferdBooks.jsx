@@ -74,16 +74,12 @@ class PBooks extends Component {
     // });
 
 
-<<<<<<< HEAD
-    render() {
-=======
+
     render() 
     {
 
 
 
-
->>>>>>> 7b01147c77f73c647a947dd6b53683fe952d54da
         /*const a = this.state.display.map((result) => {
             if (result.details.rating >= 4) {
                 return (

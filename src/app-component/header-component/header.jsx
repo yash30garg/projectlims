@@ -59,7 +59,7 @@ class Header extends Component {
               <a href="#!" className="brand-logo center">Mindtree Library</a>
               <ul className="right hide-on-med-and-down">
                 <Link to="/Search">
-                <li><a>Search</a></li>
+                <li>Search</li>
                 </Link>
                 <li><a href="sass.html">What's New?</a></li>
 

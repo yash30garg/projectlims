@@ -28,7 +28,6 @@ export default class Search extends Component {
     search = (event) => {
         let value = document.getElementById("search").value;
         console.log(document.getElementById("search").value)
-<<<<<<< HEAD
             console.log(this.state.data)
                         this.datax = this.state.data.booksArray.filter((data3) =>
                             (data3.details.title.indexOf(value) >= 0 || 
@@ -45,7 +44,6 @@ export default class Search extends Component {
                         //     </Link>
 
         this.setState({ searchTerm: document.getElementById("search").value })
-=======
         console.log(this.state.data)
         this.datax = this.state.data.booksArray.filter((data3) =>
             (data3.details.title.indexOf(value) >= 0 ||
@@ -58,7 +56,6 @@ export default class Search extends Component {
         processedData = this.state.sortedData;
         console.log(processedData)
         console.log(this.state.sortedData)
->>>>>>> d23025e358cfcd17b05db6edd9e90d15bbf37201
     }
     selectSort = () => {
         if (document.getElementById("sort").value === "Title") {
