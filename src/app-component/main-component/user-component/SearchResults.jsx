@@ -6,11 +6,14 @@ class SearchResults extends Component
      {
      super(props);
     }
-    
      render()
      {
-         console.log('hello');
-         console.log(processedData);
+         const b=this.props.result[0];
+         if(processedData.length!==0){
+             console.log(processedData);
+        console.log(processedData[0]);
+         }
+         //console.log(this.props.result.details);
          return(
              <div>
             
