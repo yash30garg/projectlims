@@ -22,22 +22,20 @@ export default class Search extends Component {
                 console.log(this.state.data.booksArray[0])
             })
     }
-    dataOrg;
-    datax;
     search = (event) => {
         let value = document.getElementById("search").value;
         console.log(document.getElementById("search").value)
-            console.log(this.state.data)
-                        this.datax = this.state.data.booksArray.filter((data3) =>
-                            (data3.details.title.indexOf(value) >= 0 || 
-                            data3.details.author.indexOf(value) >= 0 || 
-                            data3.details.publisher.indexOf(value) >= 0 || 
-                            data3.details.category.indexOf(value) >= 0) && 
-                            value !== '');
-                        this.dataOrg = this.datax;
-                        this.setState({ sortedData : this.datax})
-                        this.setState({ filteredData : this.datax})
-                        console.log(this.state.sortedData)
+        console.log(this.state.data)
+        this.datax = this.state.data.booksArray.filter((data3) =>
+            (data3.details.title.indexOf(value) >= 0 ||
+                data3.details.author.indexOf(value) >= 0 ||
+                data3.details.publisher.indexOf(value) >= 0 ||
+                data3.details.category.indexOf(value) >= 0) &&
+            value !== '');
+        this.dataOrg = this.datax;
+        this.setState({ sortedData: this.datax })
+        this.setState({ filteredData: this.datax })
+        console.log(this.state.sortedData)
         this.setState({ searchTerm: document.getElementById("search").value })
     }
     selectSort = () => {
@@ -196,16 +194,16 @@ export default class Search extends Component {
         return (
             <div className="row">
                 <nav>
-          <div class="nav-wrapper">
-            <form>
-              <div class="input-field">
-                <input id="search" type="search" onKeyUp={debounce(this.search,1000)} required />
-                <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                <i class="material-icons">close</i>
-              </div>
-            </form>
-          </div>
-        </nav>
+                    <div class="nav-wrapper">
+                        <form>
+                            <div class="input-field">
+                                <input id="search" type="search" onKeyUp={debounce(this.search, 1000)} required />
+                                <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                                <i class="material-icons">close</i>
+                            </div>
+                        </form>
+                    </div>
+                </nav>
 
                 <div className="col-md-4 col-md-offset-6">
                 </div>
@@ -227,8 +225,8 @@ export default class Search extends Component {
                     <div className="btn-group">
                         <div className="dropdown">
                             <select className="btn btn-secondary dropdown-toggle" id="filter" onChange={this.selectFilter} data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                               
-                            {/*<div className="dropdown-menu" aria-labelledby="dropdownMenu2">*/}
+
+                                {/*<div className="dropdown-menu" aria-labelledby="dropdownMenu2">*/}
                                 <option className="dropdown-item" >Filter By</option>
                                 <option className="dropdown-item" onClick={this.fiveRated}>5 Rated</option>
                                 <option className="dropdown-item" onClick={this.fourRated}>4 and above Rated </option>
