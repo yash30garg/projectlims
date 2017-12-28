@@ -13,15 +13,15 @@ class PBooks extends Component {
         }
     }
     clickPrevious = () => {
-        if (this.state.indexStart - 5 >= 0) {
-            this.setState({ indexStart: ((this.state.indexStart) - 5) });
-            this.setState({ indexEnd: ((this.state.indexEnd) - 5) });
+        if (this.state.indexStart - 3 >= 0) {
+            this.setState({ indexStart: ((this.state.indexStart) - 3) });
+            this.setState({ indexEnd: ((this.state.indexEnd) - 3) });
         }
     }
     clickNext = () => {
         if (this.state.indexEnd <= this.state.posts.length) {
-            this.setState({ indexStart: ((this.state.indexStart) + 5) });
-            this.setState({ indexEnd: ((this.state.indexEnd) + 5) });
+            this.setState({ indexStart: ((this.state.indexStart) + 3) });
+            this.setState({ indexEnd: ((this.state.indexEnd) + 3) });
         }
     }
 
