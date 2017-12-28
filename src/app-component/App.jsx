@@ -18,12 +18,8 @@ class App extends Component {
         <Switch>
       <Route path="/" exact component={Login}/>
       <Route path="/home" exact component={User}/>
-<<<<<<< HEAD
       <Route path="/Search" exact component={Search}/>      
-=======
-      <Route path="/results" exact component={SearchResults}/>
 
->>>>>>> 7b01147c77f73c647a947dd6b53683fe952d54da
         </Switch>
       </div>
       </BrowserRouter>
