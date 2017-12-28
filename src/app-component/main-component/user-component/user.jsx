@@ -4,6 +4,7 @@ import Pbooks from '../admin-component/PreferredBooks/PrefferdBooks.jsx';
 import Footer from '../../footer-component/footer.jsx';
 import { BorrowedSlider } from './borrowedBooks/borrowedSlider';
 import {email,mid} from '../login-component/login.jsx'
+import SearchResults from './SearchResults'
 export class User extends Component
 {
     render()
@@ -12,7 +13,7 @@ export class User extends Component
             <div>
                 {console.log(email)}
             <Header/>
-           <Pbooks/>
+            <Pbooks/>
             <BorrowedSlider/>
             <Footer />
             </div>
