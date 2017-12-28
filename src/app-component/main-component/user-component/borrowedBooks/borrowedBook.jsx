@@ -1,18 +1,18 @@
 import React from 'react';
-import {Card} from './eachBook'
+import Card from './eachBook'
 import './css/isssuedSlider.css'
 
 export const UserBooks=(props)=>
 {
    return(
-       <div className="row block">
-       <div className="bookHolder">
+      
+       <div className="container">
        {props.list.map(each=>
            {
                return (
                    <Card key={each.isbn} data={each}/>);
            })}
         </div>
-       </div>
+       
    );
 }

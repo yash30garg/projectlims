@@ -5,7 +5,8 @@ import $ from 'jquery';
 import {BrowserRouter,Route,Link } from 'react-router-dom';
 
 export class BorrowedSlider extends Component
- { constructor(props)
+ { 
+     constructor(props)
      {
          super(props);
          console.log(this.props.mids);

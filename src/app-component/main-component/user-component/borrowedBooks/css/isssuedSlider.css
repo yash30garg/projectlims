@@ -10,13 +10,22 @@
 }
 .block
 {
-    border: 1px solid #eee;
-    box-shadow:0 5px 5px #ccc;
-    padding:50px;
-    margin:auto;
+    /*border: 1px solid #eee;
+    box-shadow:0 5px 5px #ccc;*/
+    padding:50px 200px 50px 200px;
+    /*margin:auto;*/
 }
 .bookHolder
 {
     width:80%;
     margin:auto;
+}
+@media only screen and (max-width: 500px) {
+    body {
+        background-color: lightblue;
+    }
+    .heigh
+    {
+        height: 200px;
+    }
 }
