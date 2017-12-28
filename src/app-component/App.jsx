@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import Search from './search-component/Search'
 //import Header from '../app-component/header-component/header.jsx';
 // import Pbooks from '../app-component/main-component/admin-component/PreferredBooks/PrefferdBooks.jsx';
 // import Footer from '../app-component/footer-component/footer.jsx';
@@ -16,6 +17,7 @@ class App extends Component {
         <Switch>
       <Route path="/" exact component={Login}/>
       <Route path="/home" exact component={User}/>
+      <Route path="/Search" exact component={Search}/>      
         </Switch>
       </div>
       </BrowserRouter>

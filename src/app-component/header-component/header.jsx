@@ -6,6 +6,7 @@ import Search from '../search-component/Search';
 // import PBooks from '../main-component/admin-component/PreferredBooks/PrefferdBooks.jsx';
 //import Footer from '../footer-component/footer.jsx';
 import $ from 'jquery';
+import {Link} from 'react-router-dom';
 class Header extends Component {
 
   componentDidMount() {
@@ -49,7 +50,7 @@ class Header extends Component {
           <ul id="slide-out" className="side-nav">
             <li><a href="#!">abcd</a></li>
           </ul>
-          <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+          <a href="#" data-activates="slide-out" className="button-collapse"><i className="material-icons">menu</i></a>
 
 
           <nav className="nav-extended">
@@ -57,12 +58,15 @@ class Header extends Component {
               <a ><img className="App-logo" src={"https://www.mindtree.com/themes/custom/mindtree_theme/logo.svg"} alt="My logo" align="left" /></a>
               <a href="#!" className="brand-logo center">Mindtree Library</a>
               <ul className="right hide-on-med-and-down">
+                <Link to="/Search">
+                <li><a>Search</a></li>
+                </Link>
                 <li><a href="sass.html">What's New?</a></li>
 
-                <li><a className="dropdown-button" href="#!" data-activates="dropdown2">Book Categories <i class="material-icons right">arrow_drop_down</i></a></li>
+                <li><a className="dropdown-button" href="#!" data-activates="dropdown2">Book Categories <i className="material-icons right">arrow_drop_down</i></a></li>
 
 
-                <li><a className="dropdown-button" href="#!" data-activates="dropdown1">Profile <i class="material-icons right">arrow_drop_down</i></a></li>
+                <li><a className="dropdown-button" href="#!" data-activates="dropdown1">Profile <i className="material-icons right">arrow_drop_down</i></a></li>
               </ul>
             </div>
           </nav>
@@ -79,7 +83,7 @@ class Header extends Component {
             </form>
           </div>
         </nav>*/}
-        <Search />
+        {/*<Search />*/}
         {/*<Pbooks />*/}
 
         <ul id="dropdown1" className="dropdown-content">
