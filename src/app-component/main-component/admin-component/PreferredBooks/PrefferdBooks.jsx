@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import PrefferedBooks from './PrefferedBooks.css';
-import $ from 'jquery';
+// import PrefferedBooks from './PrefferedBooks.css';
+// import $ from 'jquery';
 
 class PBooks extends Component {
 
@@ -47,12 +47,7 @@ class PBooks extends Component {
         axios.get('https://api.myjson.com/bins/b20lr')
             .then(res => {
                 this.setState({ display: res.data.booksArray });
-
-
-
                 console.log(this.state.display)
-
-
             })
     
 
