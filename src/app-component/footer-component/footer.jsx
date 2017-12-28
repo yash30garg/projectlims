@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Pbooks from '../../app-component/main-component/admin-component/PreferredBooks/PrefferdBooks.jsx';
+
 import $ from 'jquery';
 class Footer extends Component {
 
@@ -16,7 +16,6 @@ $(".page-footer").css("background-color", ' #60003a');
     {
         return(
 <div>
-<Pbooks />
     <footer class="page-footer">
           <div class="container">
             <div class="row">

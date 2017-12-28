@@ -1,5 +1,7 @@
 import React, {Component}from 'react';
 import Header from './../../header-component/header';
+import Pbooks from '../admin-component/PreferredBooks/PrefferdBooks.jsx';
+import Footer from '../../footer-component/footer.jsx';
 import { BorrowedSlider } from './borrowedBooks/borrowedSlider';
 
 export class User extends Component
@@ -9,7 +11,9 @@ export class User extends Component
         return(
             <div>
             <Header/>
+           <Pbooks/>
             <BorrowedSlider/>
+            <Footer />
             </div>
         );
     }

@@ -30,8 +30,6 @@ class Header extends Component {
     return (
       <div>
 
-<<<<<<< HEAD
-
         <ul id="dropdown1" className="dropdown-content">
           <li><a href="#!">one</a></li>
           <li><a href="#!">two</a></li>
@@ -83,8 +81,6 @@ class Header extends Component {
     </div>
   </nav>
 {/*<Pbooks />*/}
-<Footer />
-=======
         
 <ul id="dropdown1" className="dropdown-content">
   <li><a href="#!">one</a></li>
@@ -92,24 +88,6 @@ class Header extends Component {
   <li className="divider"></li>
   <li><a href="#!">three</a></li>
 </ul>
-<nav>
-
-   <ul id="slide-out" className="side-nav">
-     <li><a href="#!">abcd</a></li>
-    </ul>
-    <a href="#" data-activates="slide-out" className="button-collapse"><i className="material-icons">menu</i></a>
-
-  <div className="nav-wrapper">
-    <a href="#!" className="brand-logo">Logo</a>
-    <ul className="right hide-on-med-and-down">
-      <li><a href="sass.html">Sass</a></li>
-      <li><a href="badges.html">Components</a></li>
-    
-      <li><a className="dropdown-button" href="#!" data-activates="dropdown1">Dropdown<i className="material-icons right">arrow_drop_down</i></a></li>
-    </ul>
-  </div>
-</nav>
->>>>>>> 6f7498e234c4654c31c0ec60a0e64a7d1dc23941
       </div>
     );
   }
