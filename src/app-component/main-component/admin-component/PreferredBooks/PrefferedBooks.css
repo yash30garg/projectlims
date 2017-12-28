@@ -3,22 +3,40 @@
     width: auto;
 }*/
 
+
+/*.eachCard
+{
+    border: 1px solid #eee;
+    color:#60003a;
+    box-shadow:0 5px 5px #ccc;
+    padding:15px;
+    display:inline-block;
+    width:250px;
+    margin:0px 20px 0px 20px;
+}*/
+
+
 .bs-example{
     margin: 10px;
 }
 
 .item {
 height: 300px; 
-
  width: 100%;
+}
 /* This is your slider height */
 
-
-}
+/*.carousel-item {
+    z-index: -2; 
+    opacity: 0.2; 
+    display: block; 
+    transform: translateX(229px) translateY(100px) translateX(-420px) translateZ(0px);
+}*/
 .carousel {
 width:90%;
 margin:0 auto;
  } /* center your carousel if other than 100% */ 
+
 
 
 #tp
