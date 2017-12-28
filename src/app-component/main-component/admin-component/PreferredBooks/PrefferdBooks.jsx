@@ -106,10 +106,10 @@ class PBooks extends Component {
                     
                     {this.state.display.filter((book, index) => { return index >= this.state.indexStart && index <= this.state.indexEnd && book.details.rating >= 4 }).map(book =>
 
-                        <div key={book.ISBN} className="container">
+                        <div key={book.isbn} className="container">
                             <div className="card col s3">
                                 <div className="card-image">
-                                    <img src={book.details.url} height="200px" />
+                                    <img src={book.details.url} alt="" height="200px" />
                                     <span className="card-title">Card Title</span>
                                     <div className="card-content">
                                         <p><b>Title :</b> {book.details.title}</p>

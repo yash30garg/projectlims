@@ -1,11 +1,12 @@
 
 import React, { Component } from 'react';
 import './login.css';
-import Header from '../../header-component/header';
-import { BrowserRouter, Route, Link } from 'react-router-dom';
+// import Header from '../../header-component/header';
+// import { BrowserRouter, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
-import Form from 'react-validation/build/form';
-import Input from 'react-validation/build/input';
+// import Form from 'react-validation/build/form';
+// import Input from 'react-validation/build/input';
 export var email, mid;
 
 class Login extends Component {
@@ -47,18 +48,18 @@ class Login extends Component {
 
                 <div className="login-wrapper" id="lw">
                     <div className="login-left">
-                        <img src="http://res.cloudinary.com/dzqowkhxu/image/upload/v1513679279/bg-login_bxxfkf.png" onClick={handleClick}></img>
+                        <img src="http://res.cloudinary.com/dzqowkhxu/image/upload/v1513679279/bg-login_bxxfkf.png" alt="" onClick={handleClick}></img>
                         <div className="h1" onClick={handleClick}>Enter Mindtree Library</div>
                     </div>
                     <div className="login-right">
                         <div className="h2">Login</div>
 
-                        <div class="input-field col s12">
-                            <input ref="email" id="email" type="email" class="validate" />
+                        <div className="input-field col s12">
+                            <input ref="email" id="email" type="email" className="validate" />
                             <label for="email">Email</label>
                         </div>
-                        <div class="input-field col s12">
-                            <input id="password" type="password" class="validate" />
+                        <div className="input-field col s12">
+                            <input id="password" type="password" className="validate" />
                             <label for="password">Password</label>
                         </div>
                         <div className="checkbox-container">

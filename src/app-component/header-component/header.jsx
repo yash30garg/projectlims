@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../../logo.svg';
 import '../App.css';
-import Search from '../search-component/Search';
+// import Search from '../search-component/Search';
 // import './header.css';
 // import PBooks from '../main-component/admin-component/PreferredBooks/PrefferdBooks.jsx';
 //import Footer from '../footer-component/footer.jsx';
@@ -50,7 +50,7 @@ class Header extends Component {
           <ul id="slide-out" className="side-nav">
             <li><a href="#!">abcd</a></li>
           </ul>
-          <a href="#" data-activates="slide-out" className="button-collapse"><i className="material-icons">menu</i></a>
+          <a href="!#" data-activates="slide-out" className="button-collapse"><i className="material-icons">menu</i></a>
 
 
           <nav className="nav-extended">
