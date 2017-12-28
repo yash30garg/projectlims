@@ -3,10 +3,10 @@
         "isbn":"1",
         "details":
         {
-             "title":"title1",
-             "author":"author1",
-             "category":"javascript",
-             "publisher":"publisher1",
+             "title":"Professional JavaScript for Web Developers",
+             "author":"Nicholas C. Zakas",
+             "category":"Javascript",
+             "publisher":"John Wiley & Sons",
              "rating":"5",
              "copies":"10",
              "url" : "http://whatpixel.com/images/2017/05/pro-js-for-webdev.jpg"

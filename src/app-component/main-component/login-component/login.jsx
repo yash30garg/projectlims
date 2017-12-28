@@ -24,7 +24,11 @@ class Login extends Component {
     validate = () =>
     {
         email = this.refs.email.value
-        console.log(email)
+        //console.log(email)
+        //console.log(this.state.display)
+        //const a=this.state.display.filter((user)=>user.user.mid===email)
+           //console.log(user.user.mid)
+        //console.log(a[0].user.name);
     }
 
 

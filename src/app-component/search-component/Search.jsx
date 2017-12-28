@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Rx from 'rxjs';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import { BrowserRouter, Route, Link } from 'react-router-dom';
 import 'rxjs/add/operator/filter';
 import SearchResults from './../main-component/user-component/SearchResults';
 var debounce = require('debounce');
@@ -27,6 +28,24 @@ export default class Search extends Component {
     search = (event) => {
         let value = document.getElementById("search").value;
         console.log(document.getElementById("search").value)
+<<<<<<< HEAD
+            console.log(this.state.data)
+                        this.datax = this.state.data.booksArray.filter((data3) =>
+                            (data3.details.title.indexOf(value) >= 0 || 
+                            data3.details.author.indexOf(value) >= 0 || 
+                            data3.details.publisher.indexOf(value) >= 0 || 
+                            data3.details.category.indexOf(value) >= 0) && 
+                            value !== '');
+                        this.dataOrg = this.datax;
+                        this.setState({ sortedData : this.datax})
+                        this.setState({ filteredData : this.datax})
+                        console.log(this.state.sortedData);
+                        // <Link to="/results">
+                        // <button className="btn-primary">Search</button>
+                        //     </Link>
+
+        this.setState({ searchTerm: document.getElementById("search").value })
+=======
         console.log(this.state.data)
         this.datax = this.state.data.booksArray.filter((data3) =>
             (data3.details.title.indexOf(value) >= 0 ||
@@ -37,8 +56,13 @@ export default class Search extends Component {
         this.dataOrg = this.datax;
         processedData = this.datax;
         console.log(processedData)
+<<<<<<< HEAD
         this.setState({ sortedData: this.datax })
         // console.log(this.state.sortedData)
+=======
+        console.log(this.state.sortedData)
+>>>>>>> d23025e358cfcd17b05db6edd9e90d15bbf37201
+>>>>>>> 450a098b582b56bc542a78feed90391292de19e1
     }
     selectSort = () => {
         if (document.getElementById("sort").value === "Title") {
@@ -203,12 +227,12 @@ export default class Search extends Component {
         return (
             <div className="row">
                 <nav>
-                    <div class="nav-wrapper">
+                    <div className="nav-wrapper">
                         <form>
-                            <div class="input-field">
+                            <div className="input-field">
                                 <input id="search" type="search" onKeyUp={debounce(this.search, 1000)} required />
-                                <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                                <i class="material-icons">close</i>
+                                <label className="label-icon" htmlFor="search"><i className="material-icons">search</i></label>
+                                <i className="material-icons">close</i>
                             </div>
                         </form>
                     </div>

@@ -69,22 +69,21 @@ class PBooks extends Component {
 
         // });
     }
-
-
-
-
-
     //        $(document).ready(function(){
     //   $('.carousel').carousel();
     // });
 
 
+<<<<<<< HEAD
+    render() {
+=======
     render() 
     {
 
 
 
 
+>>>>>>> 7b01147c77f73c647a947dd6b53683fe952d54da
         /*const a = this.state.display.map((result) => {
             if (result.details.rating >= 4) {
                 return (
@@ -101,10 +100,6 @@ class PBooks extends Component {
 
                         </div>
                     </div>
-
-
-
-
                 )
             }
         })*/
@@ -116,11 +111,11 @@ class PBooks extends Component {
 
             <div>
 
-                <div class="row">
+                <div className="row">
                     
-                    {this.state.display.filter((book, index) => { return index >= this.state.indexStart && index <= this.state.indexEnd && book.details.rating >= 3 }).map(book =>
+                    {this.state.display.filter((book, index) => { return index >= this.state.indexStart && index <= this.state.indexEnd && book.details.rating >= 4 }).map(book =>
 
-                        <div className="container">
+                        <div key={book.ISBN} className="container">
                             <div className="card col s3">
                                 <div className="card-image">
                                     <img src={book.details.url} height="200px" />
