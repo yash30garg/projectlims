@@ -92,8 +92,8 @@ class PBooks extends Component {
                     )}
                 </div>
 
-                <input className="button" type="button" id="prev" value="Prev" onClick={this.clickPrevious} />
-                <input className="button" type="button" id="next" value="Next" onClick={this.clickNext} />
+                <button class="btn waves-effect waves-light" id="prev" value="Prev" onClick={this.clickPrevious} ><i class="material-icons left">send</i></button>
+                <button class="btn waves-effect waves-light" id="next" value="Next" onClick={this.clickNext} ><i class="material-icons right">send</i></button>
 
             </div>
 
