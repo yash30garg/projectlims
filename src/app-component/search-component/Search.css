@@ -48,3 +48,20 @@
   left: initial;
   font-size: 14px;
 }
+.setDropdown
+{
+  width:200px;
+  display: inline-block;
+  margin-left: 10px;
+  margin-right:10px;
+   
+}
+.setInput
+{
+  width:500px;
+ display: inline-block;
+}
+.setLabel
+{
+  margin-left: 450px;
+}

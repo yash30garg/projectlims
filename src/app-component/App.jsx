@@ -9,7 +9,6 @@ import Search from './search-component/Search'
 import Login from './main-component/login-component/login.jsx';
 import {BrowserRouter, Route, Link,Switch} from 'react-router-dom';
 import {User} from './main-component/user-component/user'
-import {SearchResults} from './main-component/user-component/SearchResults-Component/results'
 class App extends Component {
   render() {
     return (

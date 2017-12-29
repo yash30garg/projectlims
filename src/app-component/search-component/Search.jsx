@@ -4,9 +4,10 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 import 'rxjs/add/operator/filter';
-import SearchResults from './../main-component/user-component/SearchResults';
+import SearchResults from './../main-component/user-component/SearchResults-Component/SearchResults';
+import './Search.css'
 var debounce = require('debounce');
-export var processedData="";
+export var processedData=[];
 
 export default class Search extends Component {
     constructor() {
@@ -22,7 +23,7 @@ export default class Search extends Component {
             .flatMap((response) => response.json())
             .subscribe(values => {
                 this.setState({ data: values })
-                console.log(this.state.data.booksArray[0])
+                console.log(this.state.data.booksArray);
             })
     }
     search = (event) => {
@@ -223,45 +224,39 @@ export default class Search extends Component {
     render() {
         return (
             <div className="row">
-                <nav>
-                    <div className="nav-wrapper">
+                                 
                         <form>
-                            <div className="input-field">
-                                <input id="search" type="search" onKeyUp={debounce(this.search, 1000)} required />
-                                <label className="label-icon" htmlFor="search"><i className="material-icons">search</i></label>
-                                <i className="material-icons">close</i>
+                            <div className="input-field setInput">
+                                <input id="search" placeholder="Enter your search here" type="search" onKeyUp={debounce(this.search, 100)} required />
+                                <label className="label-icon setLabel" htmlFor="search"><i className="material-icons">search</i></label>
                             </div>
-                        </form>
-                    </div>
-                </nav>
+                        </form>      
 
                 <div className="col-md-4 col-md-offset-6">
-                </div>
-                <div className="col-md-4 col-md-offset-6">
-                    <div className="btn-group">
+                    <div className="btn-group setDropdown">
                         <div className="dropdown">
                             <select className="btn btn-secondary dropdown-toggle" type="button" id="sort" onChange={this.selectSort} data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
                                 {/*<div className="dropdown-menu" aria-labelledby="dropdownMenu2">*/}
                                 <option className="dropdown-item" >Sort By</option>
-                                <option className="dropdown-item" onKeyUp={this.sortTitle}>Title</option>
-                                <option className="dropdown-item" onClick={this.sortAuthor}>Author</option>
-                                <option className="dropdown-item" onClick={this.sortPublish}>Publisher</option>
-                                <option className="dropdown-item" onClick={this.sortRating}>Rating</option>
+                                <option className="dropdown-item">Title</option>
+                                <option className="dropdown-item">Author</option>
+                                <option className="dropdown-item">Publisher</option>
+                                <option className="dropdown-item">Rating</option>
                                 {/*</div>*/}
                             </select>
                         </div>
                     </div>
-                    <div className="btn-group">
+                    <div className="btn-group setDropdown">
                         <div className="dropdown">
                             <select className="btn btn-secondary dropdown-toggle" id="filter" onChange={this.selectFilter} data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
                                 {/*<div className="dropdown-menu" aria-labelledby="dropdownMenu2">*/}
                                 <option className="dropdown-item" >Filter By</option>
-                                <option className="dropdown-item" onClick={this.fiveRated}>5 Rated</option>
-                                <option className="dropdown-item" onClick={this.fourRated}>4 and above Rated </option>
-                                <option className="dropdown-item" onClick={this.threeRated}>3 and above Rated</option>
-                                <option className="dropdown-item" onClick={this.twoRated}>2 and above Rated</option>
+                                <option className="dropdown-item">5 Rated</option>
+                                <option className="dropdown-item">4 and above Rated </option>
+                                <option className="dropdown-item" >3 and above Rated</option>
+                                <option className="dropdown-item">2 and above Rated</option>
                             </select>
                             {/*</div>*/}
                         </div>
