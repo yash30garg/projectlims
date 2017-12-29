@@ -237,10 +237,11 @@ export default class Search extends Component {
                                  
                         <form>
                             <div className="input-field setInput">
-                                <input id="search" placeholder="Enter your search here" type="search" onKeyUp={debounce(this.search, 700)} required />
+                                <input id="search" placeholder="Enter your search here" type="search" onKeyUp={debounce(this.search, 700)}  required />
                                 <label className="label-icon setLabel" htmlFor="search"><i className="material-icons">search</i></label>
                             </div>
                         </form>      
+
 
                 <div className="col-md-4 col-md-offset-6">
                     <div className="btn-group setDropdown">

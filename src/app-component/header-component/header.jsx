@@ -5,26 +5,10 @@ import '../App.css';
 // import './header.css';
 // import PBooks from '../main-component/admin-component/PreferredBooks/PrefferdBooks.jsx';
 //import Footer from '../footer-component/footer.jsx';
-import $ from 'jquery';
+
 import { Link } from 'react-router-dom';
 class Header extends Component {
 
-  componentDidMount() {
-    $(".dropdown-button").dropdown();
-    $(document).ready(function () {
-      $('.button-collapse').sideNav({
-        menuWidth: 300, // Default is 300
-        edge: 'left', // Choose the horizontal origin
-        closeOnClick: false, // Closes side-nav on <a> clicks, useful for Angular/Meteor
-        draggable: true // Choose whether you can drag to open on touch screens
-      }
-      );
-      // START OPEN
-    });
-
-    $(".nav-wrapper").css("background-color", ' #8a0051');
-
-  }
   handleCategory = () => {
     if (document.getElementById("cat").style.display === "none")
       document.getElementById("cat").style.display = "block";
@@ -118,9 +102,6 @@ class Header extends Component {
         </nav>
 
 
-
-        {/*<Search />*/}
-        {/*<Pbooks />*/}
       </div>
     );
   }
