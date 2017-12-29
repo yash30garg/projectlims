@@ -7,7 +7,7 @@ import Search from './search-component/Search'
 // import BorrowedBooks from './main-component/admin-component/booksDisplay.jsx';
 
 import Login from './main-component/login-component/login.jsx';
-import {BrowserRouter, Route, Link,Switch} from 'react-router-dom';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import {User} from './main-component/user-component/user'
 import {SearchResults} from './main-component/user-component/SearchResults-Component/results'
 class App extends Component {
@@ -18,11 +18,16 @@ class App extends Component {
         <Switch>
       <Route path="/" exact component={Login}/>
       <Route path="/home" exact component={User}/>
+<<<<<<< HEAD
 
       <Route path="/Search" exact component={Search}/>      
 
       <Route path="/results" exact component={SearchResults}/>
 
+=======
+      <Route path="/Search" exact component={Search}/>     
+      <Route path="/results" exact component={SearchResults}/>
+>>>>>>> 3f86151b6e0470885da87d5830ece1e5fcae4e8e
         </Switch>
       </div>
       </BrowserRouter>

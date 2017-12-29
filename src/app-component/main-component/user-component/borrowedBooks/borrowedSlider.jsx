@@ -1,8 +1,10 @@
 import React,{Component} from 'react';
 import {UserBooks}from './borrowedBook'
 import axios from 'axios';
-import {email,mid} from '../../login-component/login'
-import {BrowserRouter,Route,Link } from 'react-router-dom';
+// import {email,mid} from '../../login-component/login'
+import {email} from '../../login-component/login'
+
+// import {BrowserRouter,Route,Link } from 'react-router-dom';
 let id;
 
 export class BorrowedSlider extends Component
@@ -10,6 +12,7 @@ export class BorrowedSlider extends Component
      constructor(props)
      {
          super(props);
+<<<<<<< HEAD
 
 
          //console.log(this.props.mids);
@@ -17,8 +20,13 @@ export class BorrowedSlider extends Component
 
      }
       state={
+=======
+         //console.log(this.props.mids);
+      this.state={
+>>>>>>> 3f86151b6e0470885da87d5830ece1e5fcae4e8e
      output:[],
- } 
+      }
+    } 
  componentDidMount()
  {
      
