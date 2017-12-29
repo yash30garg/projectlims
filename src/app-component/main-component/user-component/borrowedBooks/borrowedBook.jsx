@@ -6,7 +6,7 @@ export const UserBooks=(props)=>
 {
    return(
       
-       <div className="container">
+       <div className="row">
        {props.list.map(each=>
            {
                return (
