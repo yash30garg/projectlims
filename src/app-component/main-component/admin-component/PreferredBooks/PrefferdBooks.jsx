@@ -15,13 +15,33 @@ class PBooks extends Component {
             pb:[]
         }
     }
-    clickPrevious = () => {
+    // clickPrevious = () => {
 
-        if (this.state.indexStart - 2>= 0) {
-            this.setState({ indexStart: ((this.state.indexStart) - 2) });
-            this.setState({ indexEnd: ((this.state.indexEnd) - 2) });
-        }
-    }
+    //     if (this.state.indexStart - 2>= 0) {
+    //         this.setState({ indexStart: ((this.state.indexStart) - 2) });
+    //         this.setState({ indexEnd: ((this.state.indexEnd) - 2) });
+    //     }
+    // }
+    // clickNext = () => {
+    //     if (this.state.indexEnd <= this.state.posts.length) {
+    //         this.setState({ indexStart: ((this.state.indexStart) + 3) });
+    //         this.setState({ indexEnd: ((this.state.indexEnd) + 3) });
+
+    //     if (this.state.indexStart - 4 >= 0) {
+    //         this.setState({ indexStart: ((this.state.indexStart) - 4) });
+    //         this.setState({ indexEnd: ((this.state.indexEnd) - 4) });
+    //     }
+    // }
+    // clickNext = () => {
+    //     if (this.state.indexEnd < this.state.pb.length) {
+    //         this.setState({ indexStart: ((this.state.indexStart) + 2) });
+    //         this.setState({ indexEnd: ((this.state.indexEnd) + 2) });
+
+        // if (this.state.indexStart - 2>= 0) {
+        //     this.setState({ indexStart: ((this.state.indexStart) - 2) });
+        //     this.setState({ indexEnd: ((this.state.indexEnd) - 2) });
+        // }
+    
     // // clickNext = () => {
     // //     if (this.state.indexEnd <= this.state.posts.length) {
     // //         this.setState({ indexStart: ((this.state.indexStart) + 3) });
@@ -32,13 +52,13 @@ class PBooks extends Component {
     // //         this.setState({ indexEnd: ((this.state.indexEnd) - 4) });
     // //     }
     // // }
-    clickNext = () => {
-        if (this.state.indexEnd < this.state.pb.length) {
-            this.setState({ indexStart: ((this.state.indexStart) + 2) });
-            this.setState({ indexEnd: ((this.state.indexEnd) + 2) });
+    // clickNext = () => {
+    //     if (this.state.indexEnd < this.state.pb.length) {
+    //         this.setState({ indexStart: ((this.state.indexStart) + 2) });
+    //         this.setState({ indexEnd: ((this.state.indexEnd) + 2) });
 
-        }
-    }
+    //     }
+    // }
 
     
 
@@ -47,23 +67,26 @@ class PBooks extends Component {
             .then(res => {
                 this.setState({ display: res.data.booksArray });
                 console.log(this.state.display)
-                prefBooks();
-                console.log(preferredBooks)
+                // prefBooks();
+                // console.log(preferredBooks)
             })
         var prefBooks = () => {
             this.state.display.map((result) => {
                 if (result.details.rating >= 3) {
-                    console.log(result)
-                    preferredBooks.push(result)
+                    // console.log(result)
+                    // preferredBooks.push(result)
                 }
             })
-            this.setState({pb:preferredBooks})
-            return console.log(preferredBooks);
+            // this.setState({pb:preferredBooks})
+            // return console.log(preferredBooks);
         }
         
       
     }
 
+
+
+                /*<div className="row">
 
     render() {
 
@@ -71,6 +94,7 @@ class PBooks extends Component {
             <div>
 
                 <div className="row">
+
 
                 <div className="container">
                     {this.state.pb.filter((book, index) => { return index >= this.state.indexStart && index <= this.state.indexEnd }).map(book =>
@@ -91,21 +115,61 @@ class PBooks extends Component {
                         
                     )}
 
+                </div>*
+
                       
                     </div>
                 
 
                 </div>
 
+
                 
-                {/*<input className="button" type="button" id="prev" value="Prev" onClick={this.clickPrevious} />
-            <input className="button" type="button" id="next" value="Next" onClick={this.clickNext} />*/}
+                /*<input className="button" type="button" id="prev" value="Prev" onClick={this.clickPrevious} />
+            <input className="button" type="button" id="next" value="Next" onClick={this.clickNext} />*/
 
 
-                <button class="btn waves-effect waves-light" id="prev" value="Prev" onClick={this.clickPrevious} ><i class="material-icons left">send</i></button>
-                <button class="btn waves-effect waves-light" id="next" value="Next" onClick={this.clickNext} ><i class="material-icons right">send</i></button>
+                // <button class="btn waves-effect waves-light" id="prev" value="Prev" onClick={this.clickPrevious} ><i class="material-icons left">send</i></button>
+                // <button class="btn waves-effect waves-light" id="next" value="Next" onClick={this.clickNext} ><i class="material-icons right">send</i></button>
 
-            </div>
+            // </div>
+
+              render()
+               {
+
+        return (
+
+<div>
+
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner" role="listbox">
+    <div class="carousel-item active">
+      <img class="d-block img-fluid" src="..." alt="First slide" />
+    </div>
+    <div class="carousel-item">
+      <img class="d-block img-fluid" src="..." alt="Second slide" />
+    </div>
+    <div class="carousel-item">
+      <img class="d-block img-fluid" src="..." alt="Third slide" />
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+
+</div>
 
         )
     }
