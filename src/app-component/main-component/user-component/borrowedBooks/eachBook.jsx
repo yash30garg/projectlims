@@ -16,7 +16,7 @@ $(function() {
 
 
     return(
-    <div className="card col s6 m2 offset-m1">
+    <div className="card col s12 m6 l3">
     <div className=" card-image waves-effect waves-block waves-light">
       <img className="activator" src={require("../../../../Assets/Images/loginBackground.jpg")} alt="not available" width="100" height="150" />
     </div>
