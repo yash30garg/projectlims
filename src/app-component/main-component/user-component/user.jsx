@@ -13,7 +13,7 @@ export class User extends Component
         return(
             <div>
             <Header/>
-            <Pbooks/>
+            {/*<Pbooks/>*/}
             <BorrowedSlider/>
             <Footer />
             </div>

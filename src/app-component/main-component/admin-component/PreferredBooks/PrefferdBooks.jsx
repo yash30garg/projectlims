@@ -37,9 +37,30 @@ class PBooks extends Component {
     //         this.setState({ indexStart: ((this.state.indexStart) + 2) });
     //         this.setState({ indexEnd: ((this.state.indexEnd) + 2) });
 
+        // if (this.state.indexStart - 2>= 0) {
+        //     this.setState({ indexStart: ((this.state.indexStart) - 2) });
+        //     this.setState({ indexEnd: ((this.state.indexEnd) - 2) });
+        // }
+    
+    // // clickNext = () => {
+    // //     if (this.state.indexEnd <= this.state.posts.length) {
+    // //         this.setState({ indexStart: ((this.state.indexStart) + 3) });
+    // //         this.setState({ indexEnd: ((this.state.indexEnd) + 3) });
+
+    // //     if (this.state.indexStart - 4 >= 0) {
+    // //         this.setState({ indexStart: ((this.state.indexStart) - 4) });
+    // //         this.setState({ indexEnd: ((this.state.indexEnd) - 4) });
+    // //     }
+    // // }
+    // clickNext = () => {
+    //     if (this.state.indexEnd < this.state.pb.length) {
+    //         this.setState({ indexStart: ((this.state.indexStart) + 2) });
+    //         this.setState({ indexEnd: ((this.state.indexEnd) + 2) });
+
     //     }
     // }
 
+    
 
     componentDidMount() {
         axios.get('https://api.myjson.com/bins/b20lr')
@@ -64,7 +85,17 @@ class PBooks extends Component {
     }
 
 
+
                 /*<div className="row">
+
+    render() {
+
+        return (
+            <div>
+
+                <div className="row">
+
+
                 <div className="container">
                     {this.state.pb.filter((book, index) => { return index >= this.state.indexStart && index <= this.state.indexEnd }).map(book =>
                         <div key={book.isbn} className="container">
@@ -83,7 +114,16 @@ class PBooks extends Component {
                             </div>
                         
                     )}
-                </div>*/
+
+                </div>*
+
+                      
+                    </div>
+                
+
+                </div>
+
+
                 
                 /*<input className="button" type="button" id="prev" value="Prev" onClick={this.clickPrevious} />
             <input className="button" type="button" id="next" value="Next" onClick={this.clickNext} />*/
