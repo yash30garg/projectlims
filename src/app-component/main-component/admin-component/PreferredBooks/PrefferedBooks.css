@@ -1,4 +1,4 @@
-/*.item{
+/*/*.item{
     text-align: center;
     width: auto;
 }*/
@@ -16,14 +16,14 @@
 }*/
 
 
-.bs-example{
+/*.bs-example{
     margin: 10px;
 }
 
 .item {
 height: 300px; 
  width: 100%;
-}
+}*/
 /* This is your slider height */
 
 /*.carousel-item {
@@ -32,18 +32,30 @@ height: 300px;
     display: block; 
     transform: translateX(229px) translateY(100px) translateX(-420px) translateZ(0px);
 }*/
-.carousel {
+/*.carousel {
 width:90%;
 margin:0 auto;
- } /* center your carousel if other than 100% */ 
+ }  center your carousel if other than 100%  */
 
 
 
-#tp
+/*#tp
 {
     font-size : 50px;
     margin-bottom: 80px;
     
-    
-  
+      
+}*/
+.arrow_left
+{
+    cursor: pointer;
+    float: left;
+    margin-top: 100px;
+}
+.arrow_right
+{
+    cursor: pointer;
+    float: left;
+    margin-top: 100px;
+    margin-left: 50px;
 }
