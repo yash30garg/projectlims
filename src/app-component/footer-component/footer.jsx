@@ -3,136 +3,139 @@ import './footer.css'
 import $ from 'jquery';
 class Footer extends Component {
 
-    
-    render()
-    {
-        return(
 
-<div>
+  render() {
+    return (
+
+      <div>
 
 
-<footer class="mt-5">
-  <div class="container-fluid bg-faded mt-5">
-    <div class="container">
-      <div class="row py-3">
-        {/*<!-- footer column 1 start -->*/}
-        <div class="col-md-4">
-          {/*<!-- row start -->*/}
-          <div class="row py-2">
-            <div class="col-sm-3 hidden-md-down">
-              <a class="bg-circle bg-info" href="https://twitter.com/ ">
-                <i class="fa fa-2x fa-fw fa-twitter" aria-hidden="true "></i>
-              </a>
-            </div>
-            <div class="col-sm-9">
-              <h4>Tweets</h4>
-              Embed here?
+        <footer class="footer1">
+          <div class="container">
+
+            <div class="row">
+
+              <div class="col-lg-4 col-md-4">
+                <ul class="list-unstyled clear-margins">
+
+                  <li class="widget-container widget_nav_menu">
+
+                    <h1 class="title-widget">Useful links</h1>
+
+                    <ul>
+                      <li><a href="#"><i class="fa fa-angle-double-right"></i> About Us</a></li>
+                      <li><a href="#"><i class="fa fa-angle-double-right"></i> Contact Us</a></li>
+
+                    </ul>
+
+                  </li>
+
+                </ul>
+
+
+              </div>
+
+
+
+              <div class="col-lg-4 col-md-4">
+
+                <ul class="list-unstyled clear-margins">
+
+                  <li class="widget-container widget_nav_menu">
+
+                    <h1 class="title-widget">Useful links</h1>
+
+                    <ul>
+
+                      <li><a href="#"><i class="fa fa-angle-double-right"></i>  UG Courses</a></li>
+                      <li><a href="#"><i class="fa fa-angle-double-right"></i>  Satellite Education</a></li>
+                      <li><a href="#"><i class="fa fa-angle-double-right"></i>  Study Centres</a></li>
+
+
+                    </ul>
+
+                  </li>
+
+                </ul>
+
+
+              </div>
+
+
+
+
+              <div class="col-lg-4 col-md-4">
+
+
+
+                <ul class="list-unstyled clear-margins">
+
+                  <li class="widget-container widget_recent_news">
+
+                    <h1 class="title-widget">Contact Detail </h1>
+
+                    <div class="footerp">
+
+                      <h2 class="title-median">Mindtree. Ltd.</h2>
+                      <p><b>Email id:</b> <a href="mailto:info@webenlance.com">info@mindtree.com</a></p>
+                     
+                    </div>
+
+                    <div class="social-icons">
+
+                      <ul class="nomargin">
+
+                        <a href="https://www.facebook.com/bootsnipp"><i class="fa fa-facebook-square fa-3x social-fb" id="social"></i></a>
+                        <a href="https://twitter.com/bootsnipp"><i class="fa fa-twitter-square fa-3x social-tw" id="social"></i></a>
+                        <a href="https://plus.google.com/+Bootsnipp-page"><i class="fa fa-google-plus-square fa-3x social-gp" id="social"></i></a>
+                        <a href="mailto:bootsnipp@gmail.com"><i class="fa fa-envelope-square fa-3x social-em" id="social"></i></a>
+
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
-          {/*<!-- row end -->*/}
+        </footer>
+
+
+        <div class="footer-bottom">
+
+          <div class="container">
+
+            <div class="row">
+
+              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+
+                <div class="copyright">
+
+                  © 2017, Mindtree, All rights reserved
+
+				</div>
+
+              </div>
+
+              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+
+                <div class="design">
+
+                  <a href="#">LiMS </a> |  <a target="_blank" href="http://www.webenlance.com">Web Design & Development by Mindtree</a>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
         </div>
-        {/*<!-- footer column 1 end -->*/}
-        {/*<!-- footer column 2 start -->*/}
-        <div class="col-md-4">
-          {/*<!-- row start -->*/}
-          <div class="row py-2">
-            <div class="col-sm-3 hidden-md-down">
-              <a class="bg-circle bg-info" href="#">
-                <i class="fa fa-2x fa-fw fa-address-card" aria-hidden="true "></i>
-              </a>
-            </div>
-            <div class="col-sm-9">
-              <h4>Contact us</h4>
-              <p>Why not?</p>
-            </div>
-          </div>
-          {/*<!-- row end -->*/}
-          {/*<!-- row start -->*/}
-          <div class="row py-2">
-            <div class="col-sm-3 hidden-md-down">
-              <a class="bg-circle bg-info" href="#">
-                <i class="fa fa-2x fa-fw fa-laptop" aria-hidden="true "></i>
-              </a>
-            </div>
-            <div class="col-sm-9">
-              <h4>Cookie policy</h4>
-              <p class=" ">We use <a class=" " href="/# ">cookies </a></p>
-            </div>
-          </div>
-          {/*<!-- row end -->*/}
-        </div>
-        {/*<!-- footer column 2 end -->*/}
-        {/*<!-- footer column 3 start -->*/}
-        <div class="col-md-4">
-          {/*<!-- row starting  -->*/}
-          <div class="row py-2">
-            <div class="col-sm-3 hidden-md-down">
-              <a class="bg-circle bg-danger" href="# ">
-                <i class="fa fa-2x fa-fw fa-file-pdf-o" aria-hidden="true "></i>
-              </a>
-            </div>
-            <div class="col-sm-9">
-              <h4>Download pdf</h4>
-              <p> You like print?
-                
-                </p>
 
-            </div>
-          </div>
-          {/*<!-- row ended -->*/}
-          {/*<!-- row starting  -->*/}
-          <div class="row py-2">
-            <div class="col-sm-3 hidden-md-down">
-              <a class="bg-circle bg-info" href="https://twitter.com/ ">
-                <i class="fa fa-2x fa-fw fa-info" aria-hidden="true "></i>
-              </a>
-            </div>
-            <div class="col-sm-9">
-              <h4>Info</h4>
-              About us.
-            </div>
-          </div>
-          {/*<!-- row ended -->*/}
-        </div>
-        {/*<!-- footer column 3 end -->*/}
       </div>
-    </div>
-  </div>
 
-
-  <div class="container-fluid bg-primary py-3">
-    <div class="container">
-      <div class="row py-3">
-        <div class="col-md-9">
-          <p class="text-white">Lorem ipsum.</p>
-        </div>
-        <div class="col-md-3">
-          <div class="d-inline-block">
-            <div class="bg-circle-outline d-inline-block">
-              <a href="https://www.facebook.com/" class="text-white"><i class="fa fa-2x fa-fw fa-facebook"></i>
-		</a>
-            </div>
-
-            <div class="bg-circle-outline d-inline-block">
-              <a href="https://twitter.com/" class="text-white">
-                <i class="fa fa-2x fa-fw fa-twitter"></i></a>
-            </div>
-
-            <div class="bg-circle-outline d-inline-block">
-              <a href="https://www.linkedin.com/company/" class="text-white">
-                <i class="fa fa-2x fa-fw fa-linkedin"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</footer>
-
-  </div>
-
-        )
-    }
+    )
+  }
 }
 
 export default Footer;
