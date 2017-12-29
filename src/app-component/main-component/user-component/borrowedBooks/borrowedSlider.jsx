@@ -20,6 +20,8 @@ export class BorrowedSlider extends Component
    
 
          //console.log(this.props.mids);
+     
+        //console.log(this.props.mids);
       this.state={
 
      output:[],

@@ -100,7 +100,7 @@ class Header extends Component {
 
           <nav>
             <div className="nav-wrapper hide-on-med-and-down">
-              {/*<a ><img className="App-logo" src={"https://www.mindtree.com/themes/custom/mindtree_theme/logo.svg"} alt="My logo" align="left" /></a>*/}
+              <a ><img className="App-logo" src={"https://www.mindtree.com/themes/custom/mindtree_theme/logo.svg"} alt="My logo" align="left" /></a>
               <ul className="left hide-on-med-and-down"><a href="#!" className="brand-logo" style={{ paddingLeft: "10px" }}>Mindtree Library</a></ul>
               <ul className="right hide-on-med-and-down">
                 <li><Link to="/Search">

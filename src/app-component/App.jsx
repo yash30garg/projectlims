@@ -9,7 +9,6 @@ import Search from './search-component/Search'
 import Login from './main-component/login-component/login.jsx';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import {User} from './main-component/user-component/user'
-import {SearchResults} from './main-component/user-component/SearchResults-Component/results'
 class App extends Component {
   render() {
     return (
@@ -19,13 +18,15 @@ class App extends Component {
       <Route path="/" exact component={Login}/>
       <Route path="/home" exact component={User}/>
 
-
       <Route path="/Search" exact component={Search}/>      
 
       <Route path="/results" exact component={SearchResults}/>
 
       <Route path="/Search" exact component={Search}/>     
       <Route path="/results" exact component={SearchResults}/>
+
+
+      <Route path="/Search" exact component={Search}/>
 
         </Switch>
       </div>
