@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import { processedData } from '../../../search-component/Search';
+import { processedData } from './Search';
 import $ from 'jquery';
 class SearchResults extends Component
  {

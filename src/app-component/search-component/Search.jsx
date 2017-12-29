@@ -4,7 +4,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 // import { BrowserRouter, Route, Link } from 'react-router-dom';
 import 'rxjs/add/operator/filter';
-import SearchResults from './../main-component/user-component/SearchResults-Component/SearchResults';
+import SearchResults from '../search-component/SearchResults';
 import './Search.css'
 var debounce = require('debounce');
 export var processedData=[];
@@ -228,7 +228,7 @@ export default class Search extends Component {
                                  
                         <form>
                             <div className="input-field setInput">
-                                <input id="search" placeholder="Enter your search here" type="search" onKeyUp={debounce(this.search, 100)} required />
+                                <input id="search" placeholder="Enter your search here" type="search" onKeyUp={debounce(this.search, 700)} required />
                                 <label className="label-icon setLabel" htmlFor="search"><i className="material-icons">search</i></label>
                             </div>
                         </form>      
