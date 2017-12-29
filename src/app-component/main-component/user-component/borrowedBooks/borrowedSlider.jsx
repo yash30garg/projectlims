@@ -12,10 +12,18 @@ export class BorrowedSlider extends Component
      constructor(props)
      {
          super(props);
+
+
+         //console.log(this.props.mids);
+
+
+   
+
          //console.log(this.props.mids);
      
         //console.log(this.props.mids);
       this.state={
+
      output:[],
       }
     } 

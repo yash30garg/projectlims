@@ -63,52 +63,11 @@ class PBooks extends Component {
             return console.log(preferredBooks);
         }
         
-        // console.log(preferredBooks)
-
-
-        // $('.carousel.carousel-slider').carousel({fullWidth: true});
-
-        // $(document).ready(function () {
-        //     $('.carousel').carousel({
-        //         dist: 0,
-        //         shift: 0,
-        //         padding: 20,
-
-
-        //     });
-
-        // });
+      
     }
-    //        $(document).ready(function(){
-    //   $('.carousel').carousel();
-    // });
+
 
     render() {
-
-
-
-        /*const a = this.state.display.map((result) => {
-            if (result.details.rating >= 4) {
-                return (
-
-                    <div class="card col s6">
-                        <div class="card-image">
-
-                            <img src={result.details.url} height="400px" />
-                            <span class="card-title">Card Title</span>
-
-                            <div class="card-content">
-                                <p>{result.details.title}</p>
-                            </div>
-
-                        </div>
-                    </div>
-                )
-            }
-        })*/
-
-        // const b=a.filter(out=> out.details.rating > 4);
-        // console.log(b);
 
         return (
 
