@@ -68,12 +68,10 @@ class PBooks extends Component {
     render() {
 
         return (
+            <div>
 
                 <div className="row">
-<<<<<<< HEAD
-               
-=======
->>>>>>> 7aa8c5ca6e0d491282142b7f9e14a03688acfd9e
+
                 <div className="container">
                     {this.state.pb.filter((book, index) => { return index >= this.state.indexStart && index <= this.state.indexEnd }).map(book =>
                         <div key={book.isbn} className="container">
@@ -92,13 +90,13 @@ class PBooks extends Component {
                             </div>
                         
                     )}
-<<<<<<< HEAD
+
                       
                     </div>
                 
-=======
+
                 </div>
->>>>>>> 7aa8c5ca6e0d491282142b7f9e14a03688acfd9e
+
                 
                 {/*<input className="button" type="button" id="prev" value="Prev" onClick={this.clickPrevious} />
             <input className="button" type="button" id="next" value="Next" onClick={this.clickNext} />*/}
