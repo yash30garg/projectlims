@@ -22,16 +22,16 @@ class PBooks extends Component {
             this.setState({ indexEnd: ((this.state.indexEnd) - 2) });
         }
     }
-    // clickNext = () => {
-    //     if (this.state.indexEnd <= this.state.posts.length) {
-    //         this.setState({ indexStart: ((this.state.indexStart) + 3) });
-    //         this.setState({ indexEnd: ((this.state.indexEnd) + 3) });
+    // // clickNext = () => {
+    // //     if (this.state.indexEnd <= this.state.posts.length) {
+    // //         this.setState({ indexStart: ((this.state.indexStart) + 3) });
+    // //         this.setState({ indexEnd: ((this.state.indexEnd) + 3) });
 
-    //     if (this.state.indexStart - 4 >= 0) {
-    //         this.setState({ indexStart: ((this.state.indexStart) - 4) });
-    //         this.setState({ indexEnd: ((this.state.indexEnd) - 4) });
-    //     }
-    // }
+    // //     if (this.state.indexStart - 4 >= 0) {
+    // //         this.setState({ indexStart: ((this.state.indexStart) - 4) });
+    // //         this.setState({ indexEnd: ((this.state.indexEnd) - 4) });
+    // //     }
+    // // }
     clickNext = () => {
         if (this.state.indexEnd < this.state.pb.length) {
             this.setState({ indexStart: ((this.state.indexStart) + 2) });
@@ -40,6 +40,7 @@ class PBooks extends Component {
         }
     }
 
+    
 
     componentDidMount() {
         axios.get('https://api.myjson.com/bins/b20lr')
