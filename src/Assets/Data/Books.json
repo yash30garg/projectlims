@@ -1,42 +1,42 @@
 {"booksArray":[
     {
-        "isbn":"1",
+        "isbn":"07645790881",
         "details":
         {
              "title":"Professional JavaScript for Web Developers",
              "author":"Nicholas C. Zakas",
              "category":"Javascript",
              "publisher":"John Wiley & Sons",
-             "rating":"5",
-             "copies":"10",
+             "rating":5,
+             "copies":10,
              "url" : "http://whatpixel.com/images/2017/05/pro-js-for-webdev.jpg"
         }
 
     },
 
     {
-        "isbn":"2",
+        "isbn":"1484232496",
         "details":{
-             "title":"title2",
-             "author":"author2",
-             "category":"angular",
-             "publisher":"publisher2",
-             "rating":"3",
-             "copies":"20",
+             "title":"Pro TypeScript - Application Style JavaScript Development",
+             "author":"Steve Fenton",
+             "category":"JavaScript",
+             "publisher":"Apress1484232496",
+             "rating":3,
+             "copies":20,
              "url": "http://whatpixel.com/images/2016/08/book-cover-pro-typescript.jpg"
        }
 
     },
 
     {
-        "isbn":"3",
+        "isbn":"1783551623",
         "details":{
-             "title":"title3",
-             "author":"author3",
-             "category":"react",
-             "publisher":"publisher1",
-             "rating":"4",
-             "copies":"30",
+             "title":"React.js Essentials",
+             "author":"Artemij Fedosejev",
+             "category":"React",
+             "publisher":"Packt Publishing",
+             "rating":4,
+             "copies":30,
              "url":"http://whatpixel.com/images/2016/09/reactjs-essentials-book-cover.jpg"
        }
 
@@ -44,29 +44,29 @@
 
     
     {
-        "isbn":"4",
+        "isbn":"1491931779",
         "details":{
-             "title":"title4",
-             "author":"author1",
-             "category":"javascript",
-             "publisher":"publisher1",
-             "rating":"2",
-             "copies":"40",
-             "url":"https://hsto.org/files/91f/710/349/91f710349f7143d59266ce4a6cdb75f4.jpg"
+             "title":"React: Up & Running",
+             "author":"Stoyan Stefanov",
+             "category":"React",
+             "publisher":"O'Reilly Media",
+             "rating":2,
+             "copies":40,
+             "url":"http://whatpixel.com/images/2016/09/react-up-and-running.jpg"
        }
 
     },
     
   
     {
-        "isbn":"5",
+        "isbn":"01345465395",
         "details":{
-             "title":"title5",
-             "author":"author2",
-             "category":"angular",
-             "publisher":"publisher2",
-             "rating":"3",
-             "copies":"10",
+             "title":"Learning React",
+             "author":"Kirupa Chinnathambi",
+             "category":"React",
+             "publisher":"Addison-Wesley Professional",
+             "rating":3,
+             "copies":10,
               "url":"https://images-na.ssl-images-amazon.com/images/I/51TmSyyUiJL.jpg"
        }
 
@@ -74,14 +74,14 @@
 
     
     {
-        "isbn":"6",
+        "isbn":"17821618216",
         "details":{
-             "title":"title6",
-             "author":"author3",
-             "category":"react",
-             "publisher":"publisher3",
-             "rating":"3",
-             "copies":"20",
+             "title":"Mastering Web Application Development with AngularJS",
+             "author":"Pawel Kozlowski & Peter Bacon Darwin",
+             "category":"Angular",
+             "publisher":"Packt Publishing",
+             "rating":3,
+             "copies":20,
              "url" : "https://www.packtpub.com/sites/default/files/1820OS.jpg"
        }
 
@@ -89,14 +89,14 @@
 
 
     {
-        "isbn":"7",
+        "isbn":"0071741208",
         "details":{
-             "title":"title7",
-             "author":"author1",
+             "title":"JavaScript The Complete Reference",
+             "author":"Thomas Powell & Fritz Schneider",
              "category":"Javascript",
-             "publisher":"publisher1",
-             "rating":"3",
-             "copies":"4",
+             "publisher":"McGraw Hill Professional",
+             "rating":3,
+             "copies":4,
              "url" : "http://www.kidslovepc.com/javascript/images/javascript_book_thomas.jpg"
        }
 
@@ -104,14 +104,14 @@
 
     
     {
-        "isbn":"8",
+        "isbn":"0735624496",
         "details":{
-             "title":"title8",
-             "author":"author2",
-             "category":"angular",
-             "publisher":"publisher2",
-             "rating":"2",
-             "copies":"13",
+             "title":"JavaScript Step by Step",
+             "author":"Steve Suehring",
+             "category":"JavaScript",
+             "publisher":"Microsoft",
+             "rating":2,
+             "copies":13,
              "url" : "http://www.mactale.com/images/javascript-books/JavaScript-Step-by-Step.jpg"
        }
 
@@ -119,14 +119,14 @@
 
     
     {
-        "isbn":"9",
+        "isbn":"9781787129795",
         "details":{
-             "title":"title9",
-             "author":"author3",
-             "category":"react",
-             "publisher":"publisher3",
-             "rating":"3",
-             "copies":"20",
+             "title":"React Native - Building Mobile Apps with JavaScript",
+             "author":"Vladimir Novick",
+             "category":"React, JavaScript",
+             "publisher":"Packt Publishing",
+             "rating":3,
+             "copies":20,
              "url" : "https://dz13w8afd47il.cloudfront.net/sites/default/files/imagecache/featured_book_block/B06928.png"
        }
 
@@ -134,14 +134,14 @@
 
     
     {
-        "isbn":"10",
+        "isbn":"1484226526",
         "details":{
-             "title":"title10",
-             "author":"author1",
-             "category":"Javascript",
-             "publisher":"publisher1",
-             "rating":"1",
-             "copies":"4",
+             "title":"Pro MERN Stack",
+             "author":"Vasan Subramanian",
+             "category":"React",
+             "publisher":"Apress",
+             "rating":1,
+             "copies":4,
              "url" : "http://whatpixel.com/images/2017/05/pro-mern-stack.jpg"
        }
 
@@ -149,44 +149,59 @@
 
     
     {
-        "isbn":"11",
+        "isbn":"1785889281",
         "details":{
-             "title":"title11",
-             "author":"author2",
-             "category":"angular",
-             "publisher":"publisher2",
-             "rating":"5",
-             "copies":"7",
-             "url" : "https://d255esdrn735hr.cloudfront.net/sites/default/files/imagecache/featured_book_block/9781785889288.png" 
+             "title":"React Components",
+             "author":"Christopher Pitt",
+             "category":"React",
+             "publisher":"Packt Publishing",
+             "rating":5,
+             "copies":7,
+             "url" : "https://images-na.ssl-images-amazon.com/images/I/41cIrmJHcDL._SX258_BO1,204,203,200_.jpg" 
        }
 
     },
 
     
     {
-        "isbn":"12",
+        "isbn":"099134460X",
         "details":{
-             "title":"title12",
-             "author":"author3",
-             "category":"react",
-             "publisher":"publisher3",
-             "rating":"4",
-             "copies":"9",
-             "url":"_https://blog.mariusschulz.com/content/images/ngbook.jpg"
+             "title":"Ng-Book - the Complete Book on Angularjs",
+             "author":"Ari Lerner",
+             "category":"Angular",
+             "publisher":"Fullstack.io",
+             "rating":4,
+             "copies":9,
+             "url":"https://blog.mariusschulz.com/content/images/ngbook.jpg"
        }
 
     },
 
     
     {
-        "isbn":"13",
+        "isbn":"1542873150",
         "details":{
-             "title":"title13",
-             "author":"author1",
-             "category":"javascript",
-             "publisher":"publisher1",
-             "rating":"3",
-             "copies":"10",
+             "title":"JavaScript: 2 Books in 1",
+             "author":"Charlie Masterson",
+             "category":"Javascript",
+             "publisher":"CreateSpace Independent Publishing Platform",
+             "rating":3,
+             "copies":10,
+             "url" : "https://images-na.ssl-images-amazon.com/images/I/41d%2BHmI4CmL._SX331_BO1,204,203,200_.jpg"
+       }
+
+    },
+
+    
+    {
+        "isbn":"013384434X",
+        "details":{
+             "title":"Node.js, MongoDB, and AngularJS Web Development",
+             "author":"Brad Dayley",
+             "category":"Angular",
+             "publisher":"Addison-Wesley Professiona",
+             "rating":2,
+             "copies":15,
              "url" : "http://whatpixel.com/images/2017/05/nodejs-mongo-angular-book.jpg"
        }
 
@@ -194,29 +209,14 @@
 
     
     {
-        "isbn":"14",
+        "isbn":"9781786462169",
         "details":{
-             "title":"title14",
-             "author":"author2",
-             "category":"angular",
-             "publisher":"publisher2",
-             "rating":"2",
-             "copies":"15",
-             "url" : "https://images-na.ssl-images-amazon.com/images/I/41%2BdUssXgmL._SX331_BO1,204,203,200_.jpg"
-       }
-
-    },
-
-    
-    {
-        "isbn":"15",
-        "details":{
-             "title":"title15",
-             "author":"author3",
+             "title":"TensorFlow Machine Learning - CookBook",
+             "author":"Nick McClure",
              "category":"react",
-             "publisher":"publisher3",
-             "rating":"3",
-             "copies":"20",
+             "publisher":"Packt Publishing",
+             "rating":3,
+             "copies":20,
              "url" : "https://images-na.ssl-images-amazon.com/images/I/51cyqvVe3fL._SX342_QL70_.jpg"
        }
 
