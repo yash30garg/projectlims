@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './PrefferedBooks.css';
 // import $ from 'jquery';
-var preferredBooks = [];
+// var preferredBooks = [];
 
 class PBooks extends Component {
 
@@ -10,9 +10,9 @@ class PBooks extends Component {
         super();
         this.state = {
             display: [],
-            indexStart: 0,
-            indexEnd: 2,
-            pb:[]
+            // indexStart: 0,
+            // indexEnd: 2,
+            // pb:[]
         }
     }
     // clickPrevious = () => {
@@ -70,19 +70,10 @@ class PBooks extends Component {
                 // prefBooks();
                 // console.log(preferredBooks)
             })
-        var prefBooks = () => {
-            this.state.display.map((result) => {
-                if (result.details.rating >= 3) {
-                    // console.log(result)
-                    // preferredBooks.push(result)
-                }
-            })
-            // this.setState({pb:preferredBooks})
-            // return console.log(preferredBooks);
-        }
+    }
         
       
-    }
+    
 
 
 
@@ -136,27 +127,44 @@ class PBooks extends Component {
 
               render()
                {
+const a = 
+            this.state.display.map((result) => {
+                if (result.details.rating >= 4) {
+                    // console.log(result)
+                    // preferredBooks.push(result)
+                    return(
 
+
+<div class="carousel-item">
+      <img class="d-block img-fluid" src={result.details.url} height="200"  width="1300"/>
+    </div>
+
+                    )
+
+                }
+            })
+            // this.setState({pb:preferredBooks})
+            // return console.log(preferredBooks);
+        
+        
         return (
 
 <div>
 
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
+  {/*<ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-  </ol>
+  </ol>*/}
   <div class="carousel-inner" role="listbox">
-    <div class="carousel-item active">
-      <img class="d-block img-fluid" src="..." alt="First slide" />
+       <div class="carousel-item active">
+      <img class="d-block img-fluid" src="http://bookloverbookreviews.dhvdjqudnc8k2lygmnqz.maxcdn-edge.com/wp-content/uploads/2017/07/BEST-BOOKS-of-2017-so-far.png" alt="First slide" height ="200" wodth="1300" />
     </div>
-    <div class="carousel-item">
-      <img class="d-block img-fluid" src="..." alt="Second slide" />
-    </div>
-    <div class="carousel-item">
-      <img class="d-block img-fluid" src="..." alt="Third slide" />
-    </div>
+
+    
+    {a}
+    
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
