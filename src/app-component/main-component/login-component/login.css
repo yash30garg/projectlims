@@ -82,10 +82,10 @@ input:placeholder-shown  + label {
           transform: translateY(15px);
 }
 
-.h1 {
+.header {
   color:white;
   opacity: 0.8;
-  font-size: 20px;
+  font-size: 30px;
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.2405em;
@@ -95,13 +95,15 @@ input:placeholder-shown  + label {
   position: absolute;
 }
 
-.open .h1 {
-  -webkit-transform: translateX(200px) translateZ(0);
-          transform: translateX(200px) translateZ(0);
+
+.open .header {
+
+  -webkit-transform: translateX(800px) translateZ(0);
+          transform: translateX(800px) translateZ(0);
 }
 
 .h2 {
-  color: #000;
+  color: purple;
   font-size: 20px;
   letter-spacing: -0.00933333em;
   font-weight: 600;
