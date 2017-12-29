@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Search from './search-component/Search'
-import SearchResults from '../app-component/main-component/user-component/SearchResults-Component/SearchResults.jsx'
+import SearchResults from '../app-component/search-component/SearchResults.jsx';
 
 
 import Login from './main-component/login-component/login.jsx';
