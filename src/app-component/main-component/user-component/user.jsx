@@ -14,7 +14,7 @@ export class User extends Component
             <div>
             <Header/>
             <Pbooks/>
-            {/*<BorrowedSlider/>*/}
+            <BorrowedSlider/>
             <Footer />
             </div>
         );

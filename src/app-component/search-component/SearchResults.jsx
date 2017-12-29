@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import { processedData } from './Search';
 import $ from 'jquery';
+import './Search.css';
 class SearchResults extends Component
  {
      constructor(props)
@@ -23,30 +24,30 @@ class SearchResults extends Component
 
          const a=processedData.map(res=>{
              return(
-                     <div class="card col s6 m3">
-    <div class=" card-image waves-effect waves-block waves-light">
-      <img class="activator" src={res.details.url} alt="not available" width="250" height="200" />
-    </div>
-    <div className="card-content">
-
+        <div className="card col-md-6 col-sm-12 col-lg-3" style={{ width: '20rem' }}>
+      <img className="card-img-top" src={res.details.url} alt="not available" height="200vh"/>
+    <div className="card-block">
         <b>Title: </b><span>{res.details.title}</span><br/>
         <b>Category: </b><span>{res.details.category}</span>
     </div>
-    <div className="card-reveal">
-      <span className="card-title grey-text text-darken-4">Book Details<i className="material-icons right">close</i></span>
-        <b>ISBN: </b><span>{res.isbn}</span><br/>
-        <b>Author: </b><span>{res.details.author}</span><br/>
-        <b>Publisher: </b><span></span>{res.details.publisher}<br/>
-        <b>Rating: </b><span>{res.details.rating}</span><br/>
-        <b>Copies available: </b><span>{res.details.copies}</span>
-    </div>
   </div>
              );
+
+//     <div class="card" style="width: 20rem;">
+//   <img class="card-img-top" src="..." alt="Card image cap">
+//   <div class="card-block">
+//     <h4 class="card-title">Card title</h4>
+//     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+//     <a href="#" class="btn btn-primary">Go somewhere</a>
+//   </div>
+// </div>
          })
 
          return(
-             <div className="container row">
+             <div className="container">
+             <div className="row">
              {a}
+             </div>
              </div>
          );
      }

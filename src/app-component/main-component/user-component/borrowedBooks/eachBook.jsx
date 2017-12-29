@@ -16,9 +16,9 @@ $(function() {
 
 
     return(
-    <div className="card col m3" style={{ width: '20rem' }}>
+    <div className="card col-md-6 col-sm-12 col-lg-3" style={{ width: '20rem' }}>
     
-      <img className="card-img-top" src={require("../../../../Assets/Images/loginBackground.jpg")} alt="not available" />
+      <img className="card-img" src={require("../../../../Assets/Images/loginBackground.jpg")} alt="not available" height="200vh"/>
 
     <div className="card-block">
 
@@ -28,13 +28,6 @@ $(function() {
   </div>
     );
 
-//     <div class="card" style="width: 20rem;">
-//   <img class="card-img-top" src="..." alt="Card image cap">
-//   <div class="card-block">
-//     <h4 class="card-title">Card title</h4>
-//     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-//     <a href="#" class="btn btn-primary">Go somewhere</a>
-//   </div>
-// </div>
+
 }
 export default Card;
