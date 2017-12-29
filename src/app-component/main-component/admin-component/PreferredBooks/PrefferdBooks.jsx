@@ -84,13 +84,6 @@ class PBooks extends Component {
     // });
 
 
-<<<<<<< HEAD
-
-    render() 
-    {
-=======
->>>>>>> 3f86151b6e0470885da87d5830ece1e5fcae4e8e
-
     render() {
 
 

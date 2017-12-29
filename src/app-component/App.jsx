@@ -18,16 +18,15 @@ class App extends Component {
         <Switch>
       <Route path="/" exact component={Login}/>
       <Route path="/home" exact component={User}/>
-<<<<<<< HEAD
+
 
       <Route path="/Search" exact component={Search}/>      
 
       <Route path="/results" exact component={SearchResults}/>
 
-=======
       <Route path="/Search" exact component={Search}/>     
       <Route path="/results" exact component={SearchResults}/>
->>>>>>> 3f86151b6e0470885da87d5830ece1e5fcae4e8e
+
         </Switch>
       </div>
       </BrowserRouter>
