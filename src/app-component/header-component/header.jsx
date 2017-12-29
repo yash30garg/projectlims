@@ -15,6 +15,7 @@ class Header extends Component {
     return (
       <div>
 
+<<<<<<< HEAD
  
         <ul id="dropdown1" className="dropdown-content">
           <li><a href="#!">Web-Tech</a></li>
@@ -118,10 +119,42 @@ class Header extends Component {
   </div>
 </nav>
 >>>>>>> 441aa0fbde3b09dec923f00cf4cd5243e96ef777
+=======
+        <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+          <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a ><img className="App-logo" src={"https://www.mindtree.com/themes/custom/mindtree_theme/logo.svg"} alt="My logo" align="left" /></a>
+          <a class="navbar-brand" href="#">LiMS</a>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                <Link to="/Search">
+                  <a class="nav-link" href="#">Search <span class="sr-only">(current)</span></a>
+                </Link>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Wishlist  </a>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Profile </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="#">Action</a>
+                  <a class="dropdown-item" href="#">Another action</a>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </nav>
+>>>>>>> 7aa8c5ca6e0d491282142b7f9e14a03688acfd9e
 
       </div>
-    
 
-    )}}
+
+    )
+  }
+}
 
 export default Header;

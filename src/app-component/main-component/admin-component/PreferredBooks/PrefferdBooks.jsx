@@ -70,9 +70,13 @@ class PBooks extends Component {
         return (
 
                 <div className="row">
+<<<<<<< HEAD
                
+=======
+>>>>>>> 7aa8c5ca6e0d491282142b7f9e14a03688acfd9e
                 <div className="container">
                     {this.state.pb.filter((book, index) => { return index >= this.state.indexStart && index <= this.state.indexEnd }).map(book =>
+                        <div key={book.isbn} className="container">
                             <div  key={book.isbn} className="card col s12 m6 l4" >
                                 <div className="card-image">
                                     <img src={book.details.url} alt="" height="200vh" width="0%" />
@@ -85,11 +89,16 @@ class PBooks extends Component {
                                     </div>
                                 </div>
                             </div>
+                            </div>
                         
                     )}
+<<<<<<< HEAD
                       
                     </div>
                 
+=======
+                </div>
+>>>>>>> 7aa8c5ca6e0d491282142b7f9e14a03688acfd9e
                 
                 {/*<input className="button" type="button" id="prev" value="Prev" onClick={this.clickPrevious} />
             <input className="button" type="button" id="next" value="Next" onClick={this.clickNext} />*/}
