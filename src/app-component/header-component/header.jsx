@@ -9,20 +9,6 @@ import '../App.css';
 import { Link } from 'react-router-dom';
 class Header extends Component {
 
-  handleCategory = () => {
-    if (document.getElementById("cat").style.display === "none")
-      document.getElementById("cat").style.display = "block";
-    else
-      document.getElementById("cat").style.display = "none"
-  }
-  handleProfile = () => {
-    if (document.getElementById("pro").style.display === "none")
-      document.getElementById("pro").style.display = "block";
-    else
-      document.getElementById("pro").style.display = "none"
-  }
-  
-
   render() {
 
 
@@ -107,21 +93,20 @@ class Header extends Component {
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand" href="#">Navbar</a>
+   <a ><img className="App-logo" src={"https://www.mindtree.com/themes/custom/mindtree_theme/logo.svg"} alt="My logo" align="left" /></a>
+  <a class="navbar-brand" href="#">Mindtree Library</a>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="#">Search <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Features</a>
+        <a class="nav-link" href="#">Wishlist  </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Pricing</a>
-      </li>
+      
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown link
+          Profile
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="#">Action</a>

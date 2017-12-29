@@ -6,7 +6,7 @@ import SearchResults from '../app-component/search-component/SearchResults.jsx';
 
 import Login from './main-component/login-component/login.jsx';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { User } from './main-component/user-component/user'
+import { User } from './main-component/user-component/user';
 class App extends Component {
   render() {
     return (

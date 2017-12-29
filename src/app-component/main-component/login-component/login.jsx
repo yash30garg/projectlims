@@ -46,39 +46,37 @@ class Login extends Component {
 
             <div className="setColor" >
 
-                <div className="login-wrapper" id="lw">
+                
+
+                       
+
+    <div className="login-wrapper" id="lw">
                     <div className="login-left">
                         <img src="http://res.cloudinary.com/dzqowkhxu/image/upload/v1513679279/bg-login_bxxfkf.png" alt="" onClick={handleClick}></img>
-                        <div className="h1" onClick={handleClick}>Click Here to Enter Mindtree Library</div>
+                        <div className="header" onClick={handleClick}>Click Here to Enter</div>
                     </div>
                     <div className="login-right">
                         <div className="h2">Login</div>
-
-                        <div className="input-field col s12">
-                            <input ref="email" id="email" type="email" className="validate" />
-                            <label htmlFor="email">Email</label>
-                        </div>
-                        <div className="input-field col s12">
-                            <input id="password" type="password" className="validate" />
-                            <label htmlFor="password">Password</label>
-                        </div>
-                        <div className="checkbox-container">
-                            {/*<input type="checkbox"></input>*/}
-                            <input type="checkbox" id="test5" /><label htmlFor="test5" />
-                            <div className="text-checkbox">I agree with the terms of service.</div>
-                        </div>
-
-                        <div className="button-area">
-                            {/*<Link to="/home"> */}
-                            <Link to="/home">
-                                <button className="btn-primary" onClick={this.validate}>Login</button>
-                            </Link>
-                            {/*</Link>*/}
-
-
-                        </div>
-                    </div>
-                </div>
+   
+    <div class="form-group">
+      <input type="text" id="Email" placeholder="Email" />
+         
+    </div>
+    <div class="form-group">
+      <input type="password" id="Password" placeholder="Password" />
+         
+    </div>
+    <div class="checkbox-container">
+      <input type="checkbox" />
+      <div class="text-checkbox">     I agree with the terms of service.</div>
+    </div> 
+    <div class="button-area">
+         <Link to="/home">
+      <button class="btn-primary">Login</button>
+      </Link>
+    </div>
+  </div>
+</div>
 
             </div>
 
