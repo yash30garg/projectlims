@@ -107,7 +107,10 @@ class Header extends Component {
                   <i className="material-icons left">search</i>Search
                 </Link></li>
                 <li><a href="sass.html">What's New?</a></li>
-                <li><a className="dropdown-button" href="#!" data-activates="dropdown1">Book Categories <i className="material-icons right">arrow_drop_down</i></a></li>
+               <li><a className="dropdown-button" href="#!" data-activates="dropdown1" >Book Categories <i className="material-icons right">arrow_drop_down</i></a></li>
+         
+              
+              
                 <li><a className="dropdown-button" href="#!" data-activates="profile">Profile <i className="material-icons right">arrow_drop_down</i></a></li>
               </ul>
             </div>
