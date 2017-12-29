@@ -133,30 +133,12 @@ class PBooks extends Component {
                     )}
                 </div>
 
-
-
-
-
-
                 <input className="button" type="button" id="prev" value="Prev" onClick={this.clickPrevious} />
                 <input className="button" type="button" id="next" value="Next" onClick={this.clickNext} />
 
-
-
             </div>
 
-
-
-
         )
-
-
-
-
-
-
-
-
     }
 
 }
