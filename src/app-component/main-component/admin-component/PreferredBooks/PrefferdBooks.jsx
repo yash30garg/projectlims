@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-// import PrefferedBooks from './PrefferedBooks.css';
+import './PrefferedBooks.css';
 // import $ from 'jquery';
 var preferredBooks = [];
 
@@ -41,9 +41,6 @@ class PBooks extends Component {
     }
 
 
-
-
-
     componentDidMount() {
         axios.get('https://api.myjson.com/bins/b20lr')
             .then(res => {
@@ -71,14 +68,13 @@ class PBooks extends Component {
 
         return (
 
-            <div>
-
                 <div className="row">
+                 <img className="arrow_left" src={require("../../../../Assets/Images/arrow_left.jpg")} onClick={this.clickNext} width="100"/>
+                <div className="container">
                     {this.state.pb.filter((book, index) => { return index >= this.state.indexStart && index <= this.state.indexEnd }).map(book =>
-                        <div key={book.isbn} className="container">
-                            <div className="card col s4" >
+                            <div  key={book.isbn} className="card col s12 m6 l4" >
                                 <div className="card-image">
-                                    <img src={book.details.url} alt="" height="200px" />
+                                    <img src={book.details.url} alt="" height="200vh" width="0%" />
                                     <span className="card-title">Card Title</span>
                                     <div className="card-content">
                                         <p><b>Title :</b> {book.details.title}</p>
@@ -88,12 +84,16 @@ class PBooks extends Component {
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        
                     )}
-                </div>
+                      
+                    </div>
+                <img className="arrow_right" src={require("../../../../Assets/Images/arrow_right.jpg")} onClick={this.clickNext} width="100"/>
+                
+                {/*<input className="button" type="button" id="prev" value="Prev" onClick={this.clickPrevious} />
+            <input className="button" type="button" id="next" value="Next" onClick={this.clickNext} />*/}
+ 
 
-                <input className="button" type="button" id="prev" value="Prev" onClick={this.clickPrevious} />
-                <input className="button" type="button" id="next" value="Next" onClick={this.clickNext} />
 
             </div>
 
