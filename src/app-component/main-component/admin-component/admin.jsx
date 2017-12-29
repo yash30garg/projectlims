@@ -11,7 +11,7 @@ export default class Admin extends Component
             <Header/>
             {/*<Pbooks/>*/}
             {/*<BorrowedSlider/>*/}
-            <Footer />
+            {/*<Footer />*/}
             </div>
         );
     }
