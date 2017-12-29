@@ -42,7 +42,7 @@ export class BorrowedSlider extends Component
      if(email===""){
      id="1042948";
     }
-    else id=email;
+    else id="1042948";
      const outputs=this.state.output.filter(temp=>temp.user.mid===id).map(result=>{
         return(<UserBooks key={result.user.mid} list={result.userBooks}/>);
      });
