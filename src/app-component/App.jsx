@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import Search from './search-component/Search'
-//import Header from '../app-component/header-component/header.jsx';
-// import Pbooks from '../app-component/main-component/admin-component/PreferredBooks/PrefferdBooks.jsx';
-// import Footer from '../app-component/footer-component/footer.jsx';
-// import BorrowedBooks from './main-component/admin-component/booksDisplay.jsx';
+import SearchResults from '../app-component/main-component/user-component/SearchResults-Component/SearchResults.jsx'
+
 
 import Login from './main-component/login-component/login.jsx';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
@@ -22,11 +20,7 @@ class App extends Component {
 
       <Route path="/results" exact component={SearchResults}/>
 
-      <Route path="/Search" exact component={Search}/>     
-      <Route path="/results" exact component={SearchResults}/>
-
-
-      <Route path="/Search" exact component={Search}/>
+      
 
         </Switch>
       </div>
