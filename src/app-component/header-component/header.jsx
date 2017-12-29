@@ -13,7 +13,7 @@ class Header extends Component {
 
 
     return (
-      <div className="bs-example">
+      <div>
 
         <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
           <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
