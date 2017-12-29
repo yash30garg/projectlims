@@ -74,6 +74,9 @@ class Login extends Component {
                                 <button className="btn-primary" onClick={this.validate}>Login</button>
                             </Link>
                             {/*</Link>*/}
+                            <Link to="/admin">
+                                <button className="btn-primary" onClick={this.validate}>Admin</button>
+                            </Link>
 
 
                         </div>

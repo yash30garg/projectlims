@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import './footer.css'
 import $ from 'jquery';
 class Footer extends Component {
 
@@ -15,7 +15,7 @@ $(".page-footer").css("background-color", ' #60003a');
     render()
     {
         return(
-<div>
+<div className="fixed">
     <footer className="page-footer">
           <div className="container">
             <div className="row">

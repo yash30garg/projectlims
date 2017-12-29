@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Search from './search-component/Search'
+import Admin from './main-component/admin-component/admin'
 import SearchResults from '../app-component/search-component/SearchResults.jsx';
 
 
@@ -19,6 +20,7 @@ class App extends Component {
             <Route path="/Search" exact component={Search} />
 
             <Route path="/results" exact component={SearchResults} />
+            <Route path="/admin" exact component={Admin} />            
 
           </Switch>
         </div>

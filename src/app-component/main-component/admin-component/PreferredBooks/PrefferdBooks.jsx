@@ -76,7 +76,7 @@ class PBooks extends Component {
                 <div className="row">
                     {this.state.pb.filter((book, index) => { return index >= this.state.indexStart && index <= this.state.indexEnd }).map(book =>
                         <div key={book.isbn} className="container">
-                            <div className="card col s4" >
+                            <div className="card col s12 m4 l4" >
                                 <div className="card-image">
                                     <img src={book.details.url} alt="" height="200px" />
                                     <span className="card-title">Card Title</span>
