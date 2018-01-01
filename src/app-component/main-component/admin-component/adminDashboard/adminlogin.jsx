@@ -8,6 +8,10 @@ import '../../../App.css';
 import { Link } from 'react-router-dom';
 class AdminLogin extends Component {
 
+componentDidMount() {
+
+}
+
 
     render() {
 
@@ -15,46 +19,30 @@ class AdminLogin extends Component {
 
             <div>
 
-                <div class="slideDown">
+ <div className="loginpage">
+	<div class="login">
+		<div class="login-screen">
+			<div class="app-title">
+				<h1>Login</h1>
+			</div>
 
-  <div class="wrapper">
-    <h1>Welcome Back</h1>
-    <div class="line"></div>
-    <div class="line2"></div>
-    <div class="circle">
-      <a href="#">
-        <div id="profile-image" alt="My logo">
-            
-        </div>
-      </a>
-    </div>
+			<div class="login-form">
+				<div class="control-group">
+				<input type="text" class="login-field" value="" placeholder="username" id="login-name" />
+				<label class="login-field-icon fui-user" for="login-name"></label>
+				</div>
 
-    <div class="formz">
-
-      <form method="link">
-        <input type="text" placeholder="username" />
-
-        <input type="password" placeholder="password" />
-
-<Link to="/admindash">
-        <input type="submit" value="LOG IN" />
-</Link>
-      </form>
-      <a class="forgotPw" href="#">Forgot Password?</a>
-
-    </div>
-    <div class="line3"></div>
-    <div class="wrapper2">
-      <span id="social-login">Sign in using your social media account</span>
-      <div class="social-icons">
-        <a href="#" class="facebook-holder"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-        <a href="#" class="google-holder">
-          <i class="fa fa-google-plus" aria-hidden="true"></i></a>
-        <a href="#" class="twitter-holder"><i class="fa fa-twitter" aria-hidden="true"></i></a></div>
-    </div>
-
-  </div>
+				<div class="control-group">
+				<input type="password" class="login-field" value="" placeholder="password" id="login-pass" />
+				<label class="login-field-icon fui-lock" for="login-pass"></label>
+				</div>
+               
+				<a class="login-link" href="#">Lost your password?</a>
+			</div>
+		</div>
+	</div>
 </div>
+
             </div>
 
 

@@ -73,9 +73,11 @@ class Login extends Component {
                             <Link to="/home">
                                 <button class="btn-primary">Login</button>
                             </Link>
-                            <Link to="/admin">
+                            <Link to="/adminDash">
                                 <button class="btn-primary">Admin</button>
                             </Link>
+
+                            
                         </div>
                     </div>
                 </div>
