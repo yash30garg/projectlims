@@ -26,12 +26,17 @@ class PBooks extends Component {
     {
         console.log(this.state.storeId);
         var modal = document.getElementById('myModal');
-        var img = document.getElementById(arg);
+        var img = document.getElementById(arg.isbn);
         var modalImg = document.getElementById("img01");
         var captionText = document.getElementById("caption");                
         modal.style.display = "block";
-        modalImg.src = this.src;
-        captionText.innerHTML = this.alt;
+        modalImg.src = arg.details.url;
+        captionText.innerHTML = `<b>Title: </b>${arg.details.title}<br>
+        <b>Category: </b>${arg.details.category}</b>
+        <b>Author: </b>${arg.details.author}</b>
+        <b>Publisher: </b>${arg.details.publisher}</b>
+        <b>Rating: </b>${arg.details.rating}</b>
+        <b>Category: </b>${arg.details.copies}</b>`;
         var span = document.getElementsByClassName("close")[0];
         span.onclick = function() { 
           modal.style.display = "none";
@@ -49,7 +54,7 @@ class PBooks extends Component {
            s1=<div className="carousel-item">
                {b.slice(0,4).map((r)=>{
              return(
-             <div id={r.isbn} className="card" style={{ width: '20rem' }} onClick={this.callModal.bind(this,r.isbn)}>
+             <div id={r.isbn} className="card" style={{ width: '20rem' }} onClick={this.callModal.bind(this,r)}>
              <img className="d-block card-img" src={r.details.url} height="150px"/> 
                  <div className="card-block text-block">
                  <b>Title: </b><span>{r.details.title}</span><br/>
@@ -62,7 +67,7 @@ class PBooks extends Component {
                        s2=<div className="carousel-item">
                {b.slice(4,8).map((r)=>{
              return(
-             <div id={r.isbn} className="card" style={{ width: '20rem'}} onClick={this.callModal.bind(this,r.isbn)}>
+             <div id={r.isbn} className="card" style={{ width: '20rem'}} onClick={this.callModal.bind(this,r)}>
              <img className="d-block card-img" src={r.details.url} height="150px" /> 
                  <div className="card-block text-block">
                  <b>Title: </b><span>{r.details.title}</span><br/>
@@ -74,7 +79,7 @@ class PBooks extends Component {
                        s3=<div className="carousel-item">
                {b.slice(8,12).map((r)=>{
              return(
-             <div id={r.isbn} className="card" style={{ width: '20rem' }} onClick={this.callModal.bind(this,r.isbn)}>
+             <div id={r.isbn} className="card" style={{ width: '20rem' }} onClick={this.callModal.bind(this,r)}>
              <img className="d-block card-img" src={r.details.url} height="150px"/> 
                  <div className="card-block text-block">
                  <b>Title: </b><span>{r.details.title}</span><br/>
@@ -121,7 +126,20 @@ class PBooks extends Component {
     <span class="sr-only arrow">Next</span>
   </a>
 </div>
-
+<div id="myModal" class="modal">
+  <span class="close">&times;</span>
+  <div className="container">
+  <div className="row">
+  <div className="col-md-6">
+  <img class="modal-content" id="img01" height="500px" width="400px"/>
+  </div>
+  <div className="col-md-6">
+  <div id="caption">
+  </div>
+  </div>
+  </div>
+  </div>
+</div>
 </div>
 
         )

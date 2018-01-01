@@ -91,11 +91,8 @@ margin:0 auto;
 }
 
 /* Modal Content (image) */
-.modal-content {
-    margin: auto;
-    display: block;
-    width: 80%;
-    max-width: 700px;
+.modal-content{
+
 }
 
 /* Caption of Modal Image */
@@ -104,10 +101,11 @@ margin:0 auto;
     display: block;
     width: 80%;
     max-width: 700px;
-    text-align: center;
     color: #ccc;
     padding: 10px 0;
     height: 150px;
+    color:lightblue;
+    font-size:25px;
 }
 
 /* Add Animation */
