@@ -47,12 +47,12 @@ class PBooks extends Component {
                {
 
 
-                   let s1,s2,s3;
+                   let s1,s2,s3,s4;
             if(this.state.display.length!=0)
             {
             let b=this.state.display.filter((res)=>res.details.rating>=1) ;
            s1=<div className="carousel-item">
-               {b.slice(0,4).map((r)=>{
+               {b.slice(0,3).map((r)=>{
              return(
              <div id={r.isbn} className="card" style={{ width: '20rem' }} onClick={this.callModal.bind(this,r)}>
              <img className="d-block card-img" src={r.details.url} height="150px"/> 
@@ -65,7 +65,7 @@ class PBooks extends Component {
             })}
             </div>
                        s2=<div className="carousel-item">
-               {b.slice(4,8).map((r)=>{
+               {b.slice(3,6).map((r)=>{
              return(
              <div id={r.isbn} className="card" style={{ width: '20rem'}} onClick={this.callModal.bind(this,r)}>
              <img className="d-block card-img" src={r.details.url} height="150px" /> 
@@ -77,7 +77,20 @@ class PBooks extends Component {
             })}
             </div>
                        s3=<div className="carousel-item">
-               {b.slice(8,12).map((r)=>{
+               {b.slice(6,9).map((r)=>{
+             return(
+             <div id={r.isbn} className="card" style={{ width: '20rem' }} onClick={this.callModal.bind(this,r)}>
+             <img className="d-block card-img" src={r.details.url} height="150px"/> 
+                 <div className="card-block text-block">
+                 <b>Title: </b><span>{r.details.title}</span><br/>
+                 <b>Author: </b><span>{r.details.author}</span>
+                </div>
+             </div>); 
+            })}
+            </div>
+
+                        s4=<div className="carousel-item">
+               {b.slice(9,12).map((r)=>{
              return(
              <div id={r.isbn} className="card" style={{ width: '20rem' }} onClick={this.callModal.bind(this,r)}>
              <img className="d-block card-img" src={r.details.url} height="150px"/> 
@@ -95,7 +108,7 @@ class PBooks extends Component {
         return (
 <div>
 
-<h1 className="heading">Top rated books:</h1>
+
 <div className="seperate"></div>
 <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel"  >
   <ol class="carousel-indicators">
@@ -114,6 +127,7 @@ class PBooks extends Component {
     {s1}
     {s2}
     {s3}
+    {s4}
   </div>
   </div>
   </div>

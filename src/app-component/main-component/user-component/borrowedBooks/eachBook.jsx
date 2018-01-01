@@ -4,8 +4,8 @@ import $ from 'jquery';
  const Card=(props)=>
 {
     return(
-    <div className="col-md-6 col-sm-12 col-lg-3">    
-    <div className="card" style={{ width: '20rem' }}>
+    <div className="col-md-4" style={{ paddingBottom : "10px" }}>    
+    <div className="card" style={{ width: '20rem', paddingBottom : "5px" }}>
    
       <img  className="card-img-top" src={require("../../../../Assets/Images/loginBackground.jpg")} alt="not available" height="150px"/>
     

@@ -7,7 +7,7 @@ import {email} from '../../login-component/login'
 // import {BrowserRouter,Route,Link } from 'react-router-dom';
 let id;
 
-export class BorrowedSlider extends Component
+class BorrowedSlider extends Component
  { 
      constructor(props)
      {

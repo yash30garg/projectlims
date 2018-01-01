@@ -39,8 +39,8 @@ count =0;
             <div>
 
                 <nav class="navbar navbar-toggleable-md navbar-default">
-                    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
+                    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation" >
+                        <span class="navbar-toggler-icon" ></span>
                     </button>
                     <a class="navbar-brand" href="#">Admin Strap</a>
 
@@ -91,8 +91,8 @@ count =0;
                             </div>
                             <div className="col-md-2">
 
-                                <div class="dropdown create">
-                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <div className="dropdown create">
+                                    <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Create Content <span className="caret" /></button>
 
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -124,9 +124,9 @@ count =0;
                                 <div className="list-group">
                                     <a href="#" class="list-group-item active">
                                         <span class="fa fa-cog" aria-hidden="true" ></span>  DashBoard</a>
-                                    <a href="#" class="list-group-item  list-group-item-action"> <span class="fa fa-list-alt" aria-hidden="true"></span>Total Books<span class="badge  badge-pill badge-warning">100</span></a>
-                                    <a href="#" class="list-group-item  list-group-item-action"> <span class="fa fa-pencil" aria-hidden="true"></span>Books available<span className="badge badge-pill badge-warning">75</span></a>
-                                    <a href="#" class="list-group-item  list-group-item-action"> <span class="fa fa-user" aria-hidden="true"></span>Users<span className="badge badge-pill badge-warning">{count}</span></a>
+                                    <a href="#" class="list-group-item  list-group-item-action"> <span class="fa fa-list-alt" aria-hidden="true"></span>Total Books<div className='mov' style={{paddingRight : "170px"}} /><span class="badge  badge-pill badge-warning">100</span></a>
+                                    <a href="#" class="list-group-item  list-group-item-action"> <span class="fa fa-pencil" aria-hidden="true"></span>Books available<div className='mov' style={{paddingRight : "150px"}} /><span className="badge badge-pill badge-warning">75</span></a>
+                                    <a href="#" class="list-group-item  list-group-item-action"> <span class="fa fa-user" aria-hidden="true"></span>Users<div className='mov' style={{paddingRight : "227px"}} /><span className="badge badge-pill badge-warning mov">{count}</span></a>
                                     {/*<a href="#" class="list-group-item list-group-item-action disabled">Vestibulum at eros</a>*/}
                                 </div>
 
