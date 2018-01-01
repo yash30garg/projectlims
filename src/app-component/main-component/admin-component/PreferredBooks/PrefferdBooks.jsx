@@ -20,27 +20,6 @@ class PBooks extends Component {
                 this.setState({ display: res.data.booksArray });
                 console.log(this.state.display);
             })
-
-                    console.log(this.state.storeId);
-                    var modal = document.getElementById('myModal');
-                    var img = document.getElementById(this.state.storeId);
-                    var modalImg = document.getElementById("img01");
-                    var captionText = document.getElementById("caption");
-                    img.onclick = function(){
-                    modal.style.display = "block";
-                    modalImg.src = this.src;
-                    captionText.innerHTML = this.alt;
-}
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() { 
-    modal.style.display = "none";
-}
-
-
     }
 
     // callModal=(arg)=>
@@ -104,10 +83,13 @@ span.onclick = function() {
              </div>); 
             })}
             </div>
-        }    
+        }   
+    
+
 
         return (
 <div>
+
 <h1 className="heading">Top rated books:</h1>
 <div className="seperate"></div>
 <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel"  >
@@ -118,12 +100,17 @@ span.onclick = function() {
     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>    
   </ol>
   <div style={{ height:'300px' }} class="carousel-inner" role="listbox">
+ <div class="carousel-inner" role="listbox">
+
+      <div class="carousel-cell">
        <div class="carousel-item active">
     <img className="d-block activeImage" id="imga" style={{ margin:'auto' }}src="http://bookloverbookreviews.dhvdjqudnc8k2lygmnqz.maxcdn-edge.com/wp-content/uploads/2017/07/BEST-BOOKS-of-2017-so-far.png" alt="First slide" height ="300" width="700" />
     </div>
     {s1}
     {s2}
     {s3}
+  </div>
+  </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
     <span aria-hidden="true"><img src={require("../../../../Assets/Images/arrow_left.png")} height="20" width="20"/></span>
@@ -135,16 +122,11 @@ span.onclick = function() {
   </a>
 </div>
 
-<div id="myModal" class="modal">
-  <span class="close">&times;</span>
-  <img class="modal-content" id="img01"></img>
-  <div id="caption"></div>
-</div>
 </div>
 
         )
     }
-
 }
+
 export default PBooks;
 
