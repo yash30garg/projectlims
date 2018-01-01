@@ -30,9 +30,10 @@ export class BorrowedSlider extends Component
  componentDidMount()
  {
      
-     axios.get('https://api.myjson.com/bins/ds48n')
+     axios.get('https://api.myjson.com/bins/u3i5f')
      .then(res=>{
          this.setState({output:res.data});
+
         });
  }
 
@@ -47,7 +48,9 @@ export class BorrowedSlider extends Component
         return(<UserBooks key={result.user.mid} list={result.userBooks}/>);
      });
      return(
-       <div className="container">
+       <div className="issued-container">
+       <h1 className="heading">Issued books:</h1>
+       <div className="seperate"></div>
        {outputs}
        </div>
      );
