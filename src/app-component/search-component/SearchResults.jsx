@@ -24,12 +24,14 @@ class SearchResults extends Component
 
          const a=processedData.map(res=>{
              return(
-        <div className="card col-md-6 col-sm-12 col-lg-3" style={{ width: '20rem' }}>
+                 <div className="col-md-6 col-sm-12 col-lg-3 each">
+        <div className="card" style={{ width: '20rem' }}>
       <img className="card-img-top" src={res.details.url} alt="not available" height="200vh"/>
-    <div className="card-block">
+    <div className="card-block text-block">
         <b>Title: </b><span>{res.details.title}</span><br/>
         <b>Category: </b><span>{res.details.category}</span>
     </div>
+  </div>
   </div>
              );
 
@@ -44,10 +46,8 @@ class SearchResults extends Component
          })
 
          return(
-             <div className="container">
-             <div className="row">
+             <div className="row eachRow">
              {a}
-             </div>
              </div>
          );
      }

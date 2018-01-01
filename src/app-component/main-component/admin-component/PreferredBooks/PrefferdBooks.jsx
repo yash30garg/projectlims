@@ -10,181 +10,141 @@ class PBooks extends Component {
         super();
         this.state = {
             display: [],
-            // indexStart: 0,
-            // indexEnd: 2,
-            // pb:[]
+            storeId:"imga"
         }
     }
-    // clickPrevious = () => {
-
-    //     if (this.state.indexStart - 2>= 0) {
-    //         this.setState({ indexStart: ((this.state.indexStart) - 2) });
-    //         this.setState({ indexEnd: ((this.state.indexEnd) - 2) });
-    //     }
-    // }
-    // clickNext = () => {
-    //     if (this.state.indexEnd <= this.state.posts.length) {
-    //         this.setState({ indexStart: ((this.state.indexStart) + 3) });
-    //         this.setState({ indexEnd: ((this.state.indexEnd) + 3) });
-
-    //     if (this.state.indexStart - 4 >= 0) {
-    //         this.setState({ indexStart: ((this.state.indexStart) - 4) });
-    //         this.setState({ indexEnd: ((this.state.indexEnd) - 4) });
-    //     }
-    // }
-    // clickNext = () => {
-    //     if (this.state.indexEnd < this.state.pb.length) {
-    //         this.setState({ indexStart: ((this.state.indexStart) + 2) });
-    //         this.setState({ indexEnd: ((this.state.indexEnd) + 2) });
-
-        // if (this.state.indexStart - 2>= 0) {
-        //     this.setState({ indexStart: ((this.state.indexStart) - 2) });
-        //     this.setState({ indexEnd: ((this.state.indexEnd) - 2) });
-        // }
     
-    // // clickNext = () => {
-    // //     if (this.state.indexEnd <= this.state.posts.length) {
-    // //         this.setState({ indexStart: ((this.state.indexStart) + 3) });
-    // //         this.setState({ indexEnd: ((this.state.indexEnd) + 3) });
-
-    // //     if (this.state.indexStart - 4 >= 0) {
-    // //         this.setState({ indexStart: ((this.state.indexStart) - 4) });
-    // //         this.setState({ indexEnd: ((this.state.indexEnd) - 4) });
-    // //     }
-    // // }
-    // clickNext = () => {
-    //     if (this.state.indexEnd < this.state.pb.length) {
-    //         this.setState({ indexStart: ((this.state.indexStart) + 2) });
-    //         this.setState({ indexEnd: ((this.state.indexEnd) + 2) });
-
-    //     }
-    // }
-
-    
-
     componentDidMount() {
-        axios.get('https://api.myjson.com/bins/b20lr')
+        axios.get('https://api.myjson.com/bins/19krvn')
             .then(res => {
                 this.setState({ display: res.data.booksArray });
-                console.log(this.state.display)
-                // prefBooks();
-                // console.log(preferredBooks)
+                console.log(this.state.display);
             })
+
+                    console.log(this.state.storeId);
+                    var modal = document.getElementById('myModal');
+                    var img = document.getElementById(this.state.storeId);
+                    var modalImg = document.getElementById("img01");
+                    var captionText = document.getElementById("caption");
+                    img.onclick = function(){
+                    modal.style.display = "block";
+                    modalImg.src = this.src;
+                    captionText.innerHTML = this.alt;
+}
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() { 
+    modal.style.display = "none";
+}
+
+
     }
-        
-      
-    
 
-
-
-                /*<div className="row">
-
-    render() {
-
-        return (
-            <div>
-
-                <div className="row">
-
-
-                <div className="container">
-                    {this.state.pb.filter((book, index) => { return index >= this.state.indexStart && index <= this.state.indexEnd }).map(book =>
-                        <div key={book.isbn} className="container">
-                            <div  key={book.isbn} className="card col s12 m6 l4" >
-                                <div className="card-image">
-                                    <img src={book.details.url} alt="" height="200vh" width="0%" />
-                                    <span className="card-title">Card Title</span>
-                                    <div className="card-content">
-                                        <p><b>Title :</b> {book.details.title}</p>
-                                        <p><b>Author :</b> {book.details.author}</p>
-                                        <p><b>Categories :</b> {book.details.categories}</p>
-                                        <p><b>Quantity :</b> {book.details.copies}</p>
-                                    </div>
-                                </div>
-                            </div>
-                            </div>
-                        
-                    )}
-
-                </div>*
-
-                      
-                    </div>
-                
-
-                </div>
-
-
-                
-                /*<input className="button" type="button" id="prev" value="Prev" onClick={this.clickPrevious} />
-            <input className="button" type="button" id="next" value="Next" onClick={this.clickNext} />*/
-
-
-                // <button class="btn waves-effect waves-light" id="prev" value="Prev" onClick={this.clickPrevious} ><i class="material-icons left">send</i></button>
-                // <button class="btn waves-effect waves-light" id="next" value="Next" onClick={this.clickNext} ><i class="material-icons right">send</i></button>
-
-            // </div>
+    // callModal=(arg)=>
+    // {
+    //     console.log(this.state.storeId);
+    //     var modal = document.getElementById('myModal');
+    //     var img = document.getElementById(arg);
+    //     var modalImg = document.getElementById("img01");
+    //     var captionText = document.getElementById("caption");                
+    //     modal.style.display = "block";
+    //     modalImg.src = this.src;
+    //     captionText.innerHTML = this.alt;
+    //     var span = document.getElementsByClassName("close")[0];
+    //     span.onclick = function() { 
+    //       modal.style.display = "none";
+    //     }
+    // }
 
               render()
                {
-const a = 
-            this.state.display.map((result) => {
-                if (result.details.rating >= 4) {
-                    // console.log(result)
-                    // preferredBooks.push(result)
-                    return(
 
 
-<div class="carousel-item">
-      <img class="d-block img-fluid" src={result.details.url} height="200"  width="1300"/>
-    </div>
+                   let s1,s2,s3;
+            if(this.state.display.length!=0)
+            {
+            let b=this.state.display.filter((res)=>res.details.rating>=1) ;
+           s1=<div className="carousel-item">
+               {b.slice(0,4).map((r)=>{
+             return(
+             <div id={r.isbn} className="card" style={{ width: '20rem' }}>
+             <img className="d-block card-img" src={r.details.url} height="150px"/> 
+                 <div className="card-block text-block">
+                 <b>Title: </b><span>{r.details.title}</span><br/>
+                 <b>Author: </b><span>{r.details.author}</span>
+                </div>
+             </div>);        
+              
+            })}
+            </div>
+                       s2=<div className="carousel-item">
+               {b.slice(4,8).map((r)=>{
+             return(
+             <div id={r.isbn} className="card" style={{ width: '20rem'}}>
+             <img className="d-block card-img" src={r.details.url} height="150px" /> 
+                 <div className="card-block text-block">
+                 <b>Title: </b><span>{r.details.title}</span><br/>
+                 <b>Author: </b><span>{r.details.author}</span>
+                </div>
+             </div>); 
+            })}
+            </div>
+                       s3=<div className="carousel-item">
+               {b.slice(8,12).map((r)=>{
+             return(
+             <div id={r.isbn} className="card" style={{ width: '20rem' }}>
+             <img className="d-block card-img" src={r.details.url} height="150px"/> 
+                 <div className="card-block text-block">
+                 <b>Title: </b><span>{r.details.title}</span><br/>
+                 <b>Author: </b><span>{r.details.author}</span>
+                </div>
+             </div>); 
+            })}
+            </div>
+        }    
 
-                    )
-
-                }
-            })
-            // this.setState({pb:preferredBooks})
-            // return console.log(preferredBooks);
-        
-        
         return (
-
 <div>
-
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-  {/*<ol class="carousel-indicators">
+<h1 className="heading">Top rated books:</h1>
+<div className="seperate"></div>
+<div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel"  >
+  <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-  </ol>*/}
-  <div class="carousel-inner" role="listbox">
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>    
+  </ol>
+  <div style={{ height:'300px' }} class="carousel-inner" role="listbox">
        <div class="carousel-item active">
-      <img class="d-block img-fluid" src="http://bookloverbookreviews.dhvdjqudnc8k2lygmnqz.maxcdn-edge.com/wp-content/uploads/2017/07/BEST-BOOKS-of-2017-so-far.png" alt="First slide" height ="200" wodth="1300" />
+    <img className="d-block activeImage" id="imga" style={{ margin:'auto' }}src="http://bookloverbookreviews.dhvdjqudnc8k2lygmnqz.maxcdn-edge.com/wp-content/uploads/2017/07/BEST-BOOKS-of-2017-so-far.png" alt="First slide" height ="300" width="700" />
     </div>
-
-    
-    {a}
-    
+    {s1}
+    {s2}
+    {s3}
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span aria-hidden="true"><img src={require("../../../../Assets/Images/arrow_left.png")} height="20" width="20"/></span>
     <span class="sr-only">Previous</span>
   </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next" >
+    <span class="arrow" aria-hidden="true"><img src={require("../../../../Assets/Images/arrow_right.png")} height="20" width="20"/></span>
+    <span class="sr-only arrow">Next</span>
   </a>
 </div>
 
-
+<div id="myModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="img01"></img>
+  <div id="caption"></div>
+</div>
 </div>
 
         )
     }
 
 }
-
-
-
 export default PBooks;
 

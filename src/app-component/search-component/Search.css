@@ -118,5 +118,19 @@ body{
 }
 .card
 {
-  margin:auto;
+    border: 1px solid #eee;
+    color:#60003a;
+    box-shadow:0 5px 5px #ccc;
+    margin:auto;
+}
+.each{
+  margin-bottom: 30px;
+}
+.text-block
+{
+    height:120px;
+}
+.card
+{
+    cursor: pointer;
 }
