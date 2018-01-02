@@ -33,19 +33,22 @@ class Header extends Component {
             alt="My logo"
             align="left" /></a>
           <a className="navbar-brand" href="#">Mindtree Library</a>
-          <div className="collapse navbar-collapse" id="navbarNavDropdown">
+            <Link to="/Search">
             <div className="col-lg-9">
               <div className="row offset-md-3">
                 <div className="input-group">
-                  <input type="text" id="key" className="form-control" placeholder="Search for..." />
+                  <input type="text" id="key" className="form-control" size="800" style={{alignSelf: "center"}} placeholder="Search for..." />
                   <span className="input-group-btn">
-                    <Link to="/Search">
-                      <button className="btn btn-primary" onClick={this.handle} type="button">Go!</button>
-                    </Link>
+                    
+                      <button className="btn btn-outline-secondary" onClick={this.handle} type="button">Go!</button>
+                    
                   </span>
                 </div>
               </div>
             </div>
+            </Link>
+          <div className="collapse navbar-collapse" id="navbarNavDropdown">
+            
             <ul className="navbar-nav ml-auto">
 
               <li className="nav-item active"></li>
