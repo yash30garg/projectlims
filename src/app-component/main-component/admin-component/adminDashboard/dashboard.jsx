@@ -39,8 +39,8 @@ count =0;
             <div>
 
                 <nav class="navbar navbar-toggleable-md navbar-default">
-                    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation" >
-                        <span class="navbar-toggler-icon" ></span>
+                    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation"   >
+                        <span class="navbar-toggler-icon"  style={{backgroundColor : "black"}}></span>
                     </button>
                     <a class="navbar-brand" href="#">Admin Strap</a>
 
@@ -87,7 +87,7 @@ count =0;
                     <div className="conatainer">
                         <div className="row">
                             <div className="col-md-10">
-                                <h1 className="dd"><span className="fa fa-cog" aria-hidden="true"></span>DashBoard <small> Manage LiMS</small></h1>
+                                <h1 className="dd" style={{textAlign : "left"}}><span className="fa fa-cog" aria-hidden="true"></span>DashBoard <small> Manage LiMS</small></h1>
                             </div>
                             <div className="col-md-2">
 
@@ -111,7 +111,7 @@ count =0;
                 <section id="breadcrumb">
                     <div className="container-fluid">
                         <ol className="breadcrumb">
-                            <li className="active">DashBoard</li>
+                            <li className="active" style={{color : "black", fontSize:"20px"}}><b>DashBoard</b></li>
                         </ol>
                     </div>
                 </section>
