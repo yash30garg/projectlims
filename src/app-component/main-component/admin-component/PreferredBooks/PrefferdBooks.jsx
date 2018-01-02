@@ -119,13 +119,7 @@ class PBooks extends Component {
 <div>
 
 <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel"  >
-  <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>  
-    <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>   
-  </ol>
+ 
   <div style={{ height:'300px' }} class="carousel-inner" role="listbox">
  <div class="carousel-inner" role="listbox" >
 
@@ -136,7 +130,21 @@ class PBooks extends Component {
     {s1}
     {s2}
     {s3}
+<<<<<<< HEAD
+=======
+    {s4}
+    
+>>>>>>> 39c8bc551b86c5170aa104a8b38569f4a77f4767
   </div>
+  <br />
+  {/*<br/>*/}
+   <ol class="carousel-indicators" >
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active" style={{color : "purple"}} ></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1" style={{color : "purple"}}></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2" style={{color : "purple"}}></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>  
+    <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>   
+  </ol>
   </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
