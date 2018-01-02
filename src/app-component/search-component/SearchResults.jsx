@@ -11,7 +11,17 @@ class SearchResults extends Component
     {
         super(props);
     }
-
+    componentDidMount()
+    {
+        axios
+            .get('https://api.myjson.com/bins/ds48n')
+            .then(res => {
+                this.setState({output: res.data});
+                users = this.state.output;
+        const b = users.filter((res) => res.user.mid === "1042948")
+        books=b[0].userBooks.length
+            });
+    }
     /*openModal=(arg)=>
     {
         var modal = document.getElementById('myModal');
@@ -32,7 +42,7 @@ class SearchResults extends Component
         }
     }*/
     request() {
-        if (books < 5) {
+        if (books < 6) {
             books++;
             alert("The Requested Book has been allotted to you..Please Collect It from the Library");
         } else {
@@ -76,6 +86,7 @@ class SearchResults extends Component
                             </td>
                             </tr>
                             </table>
+                            <button class="btn btn-primary mt-5" onClick={this.request}>Request Book</button>
                             </div>
                         </div>
                     </div>
