@@ -54,7 +54,7 @@ class PBooks extends Component {
            s1=<div className="carousel-item">
                {b.slice(0,3).map((r)=>{
              return(
-
+                 
              <div id={r.isbn} className="card" style={{ width: '20rem' }} onClick={this.callModal.bind(this,r)}>
 
               <img  className="d-block card-img" src={r.details.url} height="150px"/> 
@@ -65,8 +65,9 @@ class PBooks extends Component {
                 </div>
 
 
-             </div>);        
-
+             </div>
+             );        
+     
 
              <div id={r.isbn} className="card particular" style={{ width: '20rem' }} >
              <img className="d-block card-img" src={r.details.url} height="220px"/> 
