@@ -39,8 +39,8 @@ count =0;
             <div>
 
                 <nav class="navbar navbar-toggleable-md navbar-default">
-                    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation" >
-                        <span class="navbar-toggler-icon" ></span>
+                    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation"   >
+                        <span class="navbar-toggler-icon"  style={{backgroundColor : "black"}}></span>
                     </button>
                     <a class="navbar-brand" href="#">Admin Strap</a>
 
