@@ -108,8 +108,6 @@ class PBooks extends Component {
         return (
 <div>
 
-
-<div className="seperate"></div>
 <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel"  >
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -118,7 +116,7 @@ class PBooks extends Component {
     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>    
   </ol>
   <div style={{ height:'300px' }} class="carousel-inner" role="listbox">
- <div class="carousel-inner" role="listbox">
+ <div class="carousel-inner" role="listbox" >
 
       <div class="carousel-cell">
        <div class="carousel-item active">

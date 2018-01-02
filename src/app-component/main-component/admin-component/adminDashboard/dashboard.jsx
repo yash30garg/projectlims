@@ -242,8 +242,9 @@ count =0;
                         </div>
                     </div>
                 </section>
-
+                <br /><br />
                 <Footer />
+                
             </div>
 
 

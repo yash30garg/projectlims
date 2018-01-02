@@ -32,7 +32,7 @@ handle(){
             src={"https://www.mindtree.com/themes/custom/mindtree_theme/logo.svg"}
             alt="My logo"
             align="left"/></a>
-          <a class="navbar-brand" href="#">LiMS</a>
+          <a class="navbar-brand" href="#">Mindtree Library</a>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <div class="col-lg-9">
           <div className="row offset-md-3">
