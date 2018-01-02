@@ -3,9 +3,15 @@ import {Cards} from './eachbook.jsx';
 export const UserBooks =(props) =>
 {
 return(
-    <div>
+    <div className="row">
         {props.list.map(each =>{
-            return <Cards key={each.isbn} data={each} />
+            return (
+                <div className="col-md-6 col-sm-12 col-lg-4">
+                <div className="particular">
+                <Cards key={each.isbn} data={each} />
+                </div>
+                </div>
+                )
         })}
         </div>
 

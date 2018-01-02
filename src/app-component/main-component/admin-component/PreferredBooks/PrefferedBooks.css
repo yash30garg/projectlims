@@ -1,67 +1,9 @@
-/*/*.item{
-    text-align: center;
-    width: auto;
-}*/
-
-
-/*.eachCard
-{
-    border: 1px solid #eee;
-    color:#60003a;
-    box-shadow:0 5px 5px #ccc;
-    padding:15px;
-    display:inline-block;
-    width:250px;
-    margin:0px 20px 0px 20px;
-}*/
-
-
-/*.bs-example{
-    margin: 10px;
-}
-
-.item {
-height: 300px; 
- width: 100%;
-}*/
-/* This is your slider height */
-
-/*.carousel-item {
-    z-index: -2; 
-    opacity: 0.2; 
-    display: block; 
-    transform: translateX(229px) translateY(100px) translateX(-420px) translateZ(0px);
-}*/
-/*.carousel {
-width:90%;
-margin:0 auto;
- }  center your carousel if other than 100%  */
-
-
-
-/*#tp
-{
-    font-size : 50px;
-    margin-bottom: 80px;
-    
-      
-}*/
-.heading{
-    padding:20px 0px 0px 30px;
-    
-
-}
 .text-block
 {
-    height:120px;
+    height:80px;
     background: linear-gradient(to bottom,#60003a 0%, #8a0051 100%);
     color: white;
     border-radius: 0px 0px 10px 10px;
-}
-.seperate{
-    background: linear-gradient(to right,#60003a 0%, white 100%);
-    height: 1px;
-    margin:20px 0px 30px 30px;
 }
 .activeImage
 {
@@ -73,9 +15,6 @@ margin:0 auto;
 {
     cursor: pointer;
 }
-
-
-
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
@@ -146,39 +85,7 @@ margin:0 auto;
     to {transform:scale(1)}
 }
 
-.particular {
-  position: relative;
-}
 
-
-.overlay {
-  position: absolute;
-  top: 20%;
-  left: 0;
-  right: 0;
-  background-color:rgba(96, 0, 58,0.9);
-  overflow: hidden;
-  width: 100%;
-  height:0;
-  transition: 0.5s ease;
-}
-
-.particular:hover .overlay {
-  top: 0;
-  height: 100%;
-}
-
-.text {
-  white-space: nowrap; 
-  color: white;
-  font-size: 20px;
-  position: absolute;
-  overflow: hidden;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-}
 
 /* 100% Image Width on Smaller Screens */
 @media only screen and (max-width: 700px){

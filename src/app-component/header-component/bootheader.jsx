@@ -32,7 +32,7 @@ class BootHeader extends Component {
 
                 <section id="breadcrumb">
                     <div className="container-fluid">
-                        <ol className="breadcrumb">
+                        <ol className="breadcrumb bc" style={{backgroundColor : "#60003a"}}>
                             <li className="active jinx"><h4>Your Library</h4></li>
                             <li className="jinx2">Use the largest library in the world online or in person! More about the Library.</li>
                         </ol>
@@ -45,7 +45,7 @@ class BootHeader extends Component {
                             <div className="col-md-3">
 
                                 <div className="list-group">
-                                    <a href="#" className="list-group-item active collor">
+                                    <a href="#" className="list-group-item collor" style={{backgroundColor : "#8a0051", color : "white"}}>
                                         <span className="fa fa-cog" aria-hidden="true" ></span>  Categories</a>
                                     <a href="#" className="list-group-item  list-group-item-action"> <span class="fa fa-asterisk" aria-hidden="true" >
                                     </span>JAVA<div className='mov' style={{ paddingRight: "220px" }} /><span class="badge  badge-pill badge-warning" >12</span></a>
@@ -77,24 +77,26 @@ class BootHeader extends Component {
                             <div className="col-md-9">
 
 
-                                        <ol className="breadcrumb">
-                                            <li className="active jinx3"><h5>Whats's New</h5></li>
+                                        <ol className="breadcrumb" style={{backgroundColor : "#8a0051", color : "white"}}>
+                                            <li className="active jinx3" ><h5>Whats's New</h5></li>
                                             
                                         </ol>
                                     
                               
 
-                                <div className="card">
-                                    <h5 className="card-header yoyo">Top Rated Books</h5>
+                                <div className="card" >
+                                    <h5 className="card-header yoyo" style={{backgroundColor : "#8a0051", color : "white"}}>Top Rated Books</h5>
+                                    <br />
                                    <Pbooks />
                                 </div>
 
                                 <div className="mana">
                                     <div class="card">
-                                        <h5 className="card-header yoyo">
+                                        <h5 className="card-header yoyo" style={{backgroundColor : "#8a0051", color : "white"}}>
                                             Borrowed Books</h5>
                                         <div class="card-block">
                                             <BorrowedSlider/>
+                                            
                                         </div>
                                     </div>
                                 </div>

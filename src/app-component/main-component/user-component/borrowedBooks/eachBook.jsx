@@ -3,23 +3,18 @@ import './css/isssuedSlider.css'
 import $ from 'jquery';
  const Card=(props)=>
 {
-    return(
-       
-    <div className="card particular" style={{ width: '20rem' }}>
-  
-    <div className="card" style={{ width: '20rem', paddingBottom : "5px" }}>
+    return(    
+    <div className="card" style={{ width: '20rem', paddingBottom : "0px" }}>
 
-   
-      <img  className="card-img-top" src={require("../../../../Assets/Images/loginBackground.jpg")} alt="not available" height="150px"/>
+      <img  className="card-img-top" src={require("../../../../Assets/Images/loginBackground.jpg")} alt="not available" height="200px"/>
+
     
     <div className="card-block text-block">
-
         <b>Title: </b><span>{props.data.details.title}</span><br/>
         <b>Return Date: </b><span>{props.data.details.returnDate}</span>
     </div>
-      <div className="overlay">
-    <div className="text">Hello World</div>
-  </div>
+  <div className="overlay">
+  <div className="text">Hello world</div>
   </div>
   </div>
     );
