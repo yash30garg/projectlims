@@ -1,13 +1,4 @@
-.eachCard
-{
-    border: 1px solid #eee;
-    color:#60003a;
-    box-shadow:0 5px 5px #ccc;
-    padding:15px;
-    display:inline-block;
-    width:250px;
-    margin:0px 20px 0px 20px;
-}
+
 .block
 {
     /*border: 1px solid #eee;
@@ -27,23 +18,11 @@
         height: 200px;
     }
 }
-.heading{
-    padding:20px 0px 0px 30px;
-
-}
 .text-block
 {
     height:120px;
 }
-.seperate{
-    background: linear-gradient(to right,#60003a 0%, white 100%);
-    height: 1px;
-    margin:20px 0px 30px 30px;
-}
-.issued-container
-{
-    margin-bottom: 30px;
-}
+
 .card
 {
     cursor: pointer;

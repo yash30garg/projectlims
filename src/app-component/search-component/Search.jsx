@@ -69,6 +69,7 @@ export default class Search extends Component {
         // console.log(this.state.sortedData)
 
         console.log(this.state.sortedData)
+        event.preventDefault();
 
 
 
@@ -232,7 +233,7 @@ export default class Search extends Component {
         this.setState({ temp: 2 })
     }
     back() {
-        processedData=[];
+        processedData = [];
         window.history.go(-1)
     }
 
@@ -240,29 +241,37 @@ export default class Search extends Component {
         return (
             <div>
                 <nav className="navbar navbar-toggleable-md navbar-light bg-faded">
-                    <div>
-                    <a ><img className="App-logo" src={"https://www.mindtree.com/themes/custom/mindtree_theme/logo.svg"} alt="My logo" align="left" /></a>
-                        <a className="navbar-brand" href="#!"><h1>LiMS</h1></a>
-                        </div>
-                        <ul className="navbar-nav">
-                            <li className="nav-item active nav-link">
-                                <div className="container">
-                                    <div className="input-group">
-                                        <input className="form-control rounded-0 py-2" id="search" type="search" placeholder="Enter your Search here" onKeyUp={debounce(this.search, 700)} />
-                                        <span className="input-group-btn">
-                                            <button className="btn btn-outline-secondary fa fa-search" onClick={this.search}>
-                                                Search
-                                            </button>
-                                        </span>
-                                    </div>
+                        <a ><img
+                            className="App-logo"
+                            src={"https://www.mindtree.com/themes/custom/mindtree_theme/logo.svg"}
+                            alt="My logo"
+                            align="left" /></a>
+                        <a className="navbar-brand" href="#">Mindtree Library</a>
+                    <form onSubmit={this.search}>
+                        <div className="col-lg-9">
+                            <div className="row offset-md-3">
+                                <div className="input-group">
+
+                                    <input type="text" id="search" className="form-control" size="800" style={{ alignSelf: "center" }} placeholder="Search for..." onKeyUp={debounce(this.search, 700)} autoFocus />
+                                    <span className="input-group-btn">
+
+                                        <button type="submit" className="btn btn-outline-secondary" onKeyPress={event => {
+                                            if (event.key === 'Enter') {
+                                                this.search()
+                                            }
+                                        }}
+                                            onClick={this.search}>Go!</button>
+
+                                    </span>
                                 </div>
-                                <span className="sr-only"><i className="fa fa-search"></i></span>
-                            </li>
-                        </ul>
-                        <a className="close"><label id="close" onClick={this.back}><h4>x</h4></label></a>
+                            </div>
+                        </div>
+                    </form>
+                    {/*<a className="close"><label id="close" onClick={this.back}><h4>x</h4></label></a>*/}
+                    <a className="close"><button className="btn btn-outline-primary" onClick={this.back}>back</button></a>
                 </nav>
                 <div className="content">
-                <SearchResults result={this.state.sortedData} />
+                    <SearchResults result={this.state.sortedData} />
                 </div>
             </div>
 
