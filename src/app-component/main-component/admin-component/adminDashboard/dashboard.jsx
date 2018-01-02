@@ -228,9 +228,9 @@ count =0;
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-<div>
+
                                                     {outputs}
-</div>
+
                                                 </tbody>
                                             </table>
 
