@@ -32,19 +32,6 @@ export default class Search extends Component {
         console.log(document.getElementById("search").value)
 
         console.log(this.state.data)
-        // this.datax = this.state.data.booksArray.filter((data3) =>
-        //     (data3.details.title.indexOf(value) >= 0 ||
-        //         data3.details.author.indexOf(value) >= 0 ||
-        //         data3.details.publisher.indexOf(value) >= 0 ||
-        //         data3.details.category.indexOf(value) >= 0) &&
-        //     value !== '');
-        // this.dataOrg = this.datax;
-        // this.setState({ sortedData: this.datax })
-        // this.setState({ filteredData: this.datax })
-        // console.log(this.state.sortedData);
-        // <Link to="/results">
-        // <button className="btn-primary">Search</button>
-        //     </Link>
 
         this.setState({ searchTerm: document.getElementById("search").value.toLowerCase() })
 
@@ -241,12 +228,12 @@ export default class Search extends Component {
         return (
             <div>
                 <nav className="navbar navbar-toggleable-md navbar-light bg-faded">
-                        <a ><img
-                            className="App-logo"
-                            src={"https://www.mindtree.com/themes/custom/mindtree_theme/logo.svg"}
-                            alt="My logo"
-                            align="left" /></a>
-                        <a className="navbar-brand" href="#">Mindtree Library</a>
+                    <a ><img
+                        className="App-logo"
+                        src={"https://www.mindtree.com/themes/custom/mindtree_theme/logo.svg"}
+                        alt="My logo"
+                        align="left" /></a>
+                    <a className="navbar-brand" href="#">Mindtree Library</a>
                     <form onSubmit={this.search}>
                         <div className="col-lg-9">
                             <div className="row offset-md-3">
