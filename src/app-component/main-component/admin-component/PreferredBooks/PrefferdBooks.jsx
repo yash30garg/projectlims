@@ -53,6 +53,7 @@ class PBooks extends Component {
             let b=this.state.display.filter((res)=>res.details.rating>=1 &&(res.details.category=="Javascript"||res.details.category=="javascript")) ;
            s1=<div className="carousel-item">
                {b.slice(0,3).map((r)=>{
+                   
              return(
 
              <div id={r.isbn} className="card particular" style={{ width: '20rem' }} >
