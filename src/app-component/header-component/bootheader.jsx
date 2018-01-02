@@ -77,22 +77,22 @@ class BootHeader extends Component {
                             <div className="col-md-9">
 
 
-                                        <ol className="breadcrumb">
-                                            <li className="active jinx3"><h5>Whats's New</h5></li>
+                                        <ol className="breadcrumb" style={{backgroundColor : "#8a0051", color : "white"}}>
+                                            <li className="active jinx3" ><h5>Whats's New</h5></li>
                                             
                                         </ol>
                                     
                               
 
-                                <div className="card">
-                                    <h5 className="card-header yoyo">Top Rated Books</h5>
+                                <div className="card" >
+                                    <h5 className="card-header yoyo" style={{backgroundColor : "#8a0051", color : "white"}}>Top Rated Books</h5>
                                     <br />
                                    <Pbooks />
                                 </div>
 
                                 <div className="mana">
                                     <div class="card">
-                                        <h5 className="card-header yoyo">
+                                        <h5 className="card-header yoyo" style={{backgroundColor : "#8a0051", color : "white"}}>
                                             Borrowed Books</h5>
                                         <div class="card-block">
                                             <BorrowedSlider/>
