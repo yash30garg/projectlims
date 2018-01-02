@@ -5,9 +5,10 @@ import 'rxjs/add/operator/catch';
 // import { BrowserRouter, Route, Link } from 'react-router-dom';
 import 'rxjs/add/operator/filter';
 import SearchResults from '../search-component/SearchResults';
+import Footer from '../footer-component/footer'
 import './Search.css'
 var debounce = require('debounce');
-export var processedData=[];
+export var processedData = [];
 
 export default class Search extends Component {
     constructor() {
@@ -17,7 +18,7 @@ export default class Search extends Component {
             data: '',
             sortedData: '',
             filteredData: '',
-            temp:0
+            temp: 0
         }
         Rx.Observable.fromPromise(fetch('https://api.myjson.com/bins/19krvn'))
             .flatMap((response) => response.json())
@@ -27,32 +28,32 @@ export default class Search extends Component {
             })
     }
     search = (event) => {
-        let value = document.getElementById("search").value;
+        let value = document.getElementById("search").value.toLowerCase();
         console.log(document.getElementById("search").value)
 
-            console.log(this.state.data)
-                        this.datax = this.state.data.booksArray.filter((data3) =>
-                            (data3.details.title.indexOf(value) >= 0 || 
-                            data3.details.author.indexOf(value) >= 0 || 
-                            data3.details.publisher.indexOf(value) >= 0 || 
-                            data3.details.category.indexOf(value) >= 0) && 
-                            value !== '');
-                        this.dataOrg = this.datax;
-                        this.setState({ sortedData : this.datax})
-                        this.setState({ filteredData : this.datax})
-                        console.log(this.state.sortedData);
-                        // <Link to="/results">
-                        // <button className="btn-primary">Search</button>
-                        //     </Link>
+        console.log(this.state.data)
+        // this.datax = this.state.data.booksArray.filter((data3) =>
+        //     (data3.details.title.indexOf(value) >= 0 ||
+        //         data3.details.author.indexOf(value) >= 0 ||
+        //         data3.details.publisher.indexOf(value) >= 0 ||
+        //         data3.details.category.indexOf(value) >= 0) &&
+        //     value !== '');
+        // this.dataOrg = this.datax;
+        // this.setState({ sortedData: this.datax })
+        // this.setState({ filteredData: this.datax })
+        // console.log(this.state.sortedData);
+        // <Link to="/results">
+        // <button className="btn-primary">Search</button>
+        //     </Link>
 
-        this.setState({ searchTerm: document.getElementById("search").value })
+        this.setState({ searchTerm: document.getElementById("search").value.toLowerCase() })
 
         console.log(this.state.data)
         this.datax = this.state.data.booksArray.filter((data3) =>
-            (data3.details.title.indexOf(value) >= 0 ||
-                data3.details.author.indexOf(value) >= 0 ||
-                data3.details.publisher.indexOf(value) >= 0 ||
-                data3.details.category.indexOf(value) >= 0) &&
+            (data3.details.title.toLowerCase().indexOf(value) >= 0 ||
+                data3.details.author.toLowerCase().indexOf(value) >= 0 ||
+                data3.details.publisher.toLowerCase().indexOf(value) >= 0 ||
+                data3.details.category.toLowerCase().indexOf(value) >= 0) &&
             value !== '');
         this.dataOrg = this.datax;
         processedData = this.datax;
@@ -68,6 +69,7 @@ export default class Search extends Component {
         // console.log(this.state.sortedData)
 
         console.log(this.state.sortedData)
+        event.preventDefault();
 
 
 
@@ -119,7 +121,7 @@ export default class Search extends Component {
                     return -1;
             }
             return 0;
-        }    
+        }
         )
         processedData = this.state.sortedData;
         console.log(processedData)
@@ -230,52 +232,50 @@ export default class Search extends Component {
         console.log("Sorted by two rated");
         this.setState({ temp: 2 })
     }
+    back() {
+        processedData = [];
+        window.history.go(-1)
+    }
 
     render() {
         return (
-            <div className="row">
-                                 
-                        <form>
-                            <div className="input-field setInput">
-                                <input id="search" placeholder="Enter your search here" type="search" onKeyUp={debounce(this.search, 700)}  required />
-                                <label className="label-icon setLabel" htmlFor="search"><i className="material-icons">search</i></label>
+            <div>
+                <nav className="navbar navbar-toggleable-md navbar-light bg-faded">
+                        <a ><img
+                            className="App-logo"
+                            src={"https://www.mindtree.com/themes/custom/mindtree_theme/logo.svg"}
+                            alt="My logo"
+                            align="left" /></a>
+                        <a className="navbar-brand" href="#">Mindtree Library</a>
+                    <form onSubmit={this.search}>
+                        <div className="col-lg-9">
+                            <div className="row offset-md-3">
+                                <div className="input-group">
+
+                                    <input type="text" id="search" className="form-control" size="800" style={{ alignSelf: "center" }} placeholder="Search for..." onKeyUp={debounce(this.search, 700)} autoFocus />
+                                    <span className="input-group-btn">
+
+                                        <button type="submit" className="btn btn-outline-secondary" onKeyPress={event => {
+                                            if (event.key === 'Enter') {
+                                                this.search()
+                                            }
+                                        }}
+                                            onClick={this.search}>Go!</button>
+
+                                    </span>
+                                </div>
                             </div>
-                        </form>      
-
-
-                <div className="col-md-4 col-md-offset-6">
-                    <div className="btn-group setDropdown">
-                        <div className="dropdown">
-                            <select className="btn btn-secondary dropdown-toggle" type="button" id="sort" onChange={this.selectSort} data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-
-                                {/*<div className="dropdown-menu" aria-labelledby="dropdownMenu2">*/}
-                                <option className="dropdown-item" >Sort By</option>
-                                <option className="dropdown-item">Title</option>
-                                <option className="dropdown-item">Author</option>
-                                <option className="dropdown-item">Publisher</option>
-                                <option className="dropdown-item">Rating</option>
-                                {/*</div>*/}
-                            </select>
                         </div>
-                    </div>
-                    <div className="btn-group setDropdown">
-                        <div className="dropdown">
-                            <select className="btn btn-secondary dropdown-toggle" id="filter" onChange={this.selectFilter} data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-
-                                {/*<div className="dropdown-menu" aria-labelledby="dropdownMenu2">*/}
-                                <option className="dropdown-item" >Filter By</option>
-                                <option className="dropdown-item">5 Rated</option>
-                                <option className="dropdown-item">4 and above Rated </option>
-                                <option className="dropdown-item" >3 and above Rated</option>
-                                <option className="dropdown-item">2 and above Rated</option>
-                            </select>
-                            {/*</div>*/}
-                        </div>
-                    </div>
+                    </form>
+                    {/*<a className="close"><label id="close" onClick={this.back}><h4>x</h4></label></a>*/}
+                    <a className="close"><button className="btn btn-outline-primary" onClick={this.back}>back</button></a>
+                </nav>
+                <div className="content">
+                    <SearchResults result={this.state.sortedData} />
                 </div>
-                <SearchResults result={this.state.sortedData}/>
             </div>
-             
+
+
 
             //         <div class="card-columns">
             // <div *ngFor = 'let index of datax'>
@@ -284,8 +284,8 @@ export default class Search extends Component {
             //   <div class="card-block">
             //     <h4 class="card-title">ISBN: {{index.isbn}}</h4>
             //     <p class="card-text">Title: {{index.details.title}}<br>Author: {{index.details.author}}<br>Category: {{index.details.category}}<br>Rating: {{index.details.rating}}<br></p>
-            //     <a href="#" class="btn btn-primary">Request Book</a>
-            //   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            //     <a href="#!" class="btn btn-primary">Request Book</a>
+            //   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#!exampleModal">
             //   Quickview
             // </button>
 
@@ -301,3 +301,4 @@ export default class Search extends Component {
 // https://api.myjson.com/bins/agk87
 // https://api.myjson.com/bins/q3n27
 // https://api.myjson.com/bins/eobyn 
+// https://api.myjson.com/bins/19krvn
