@@ -50,54 +50,50 @@ class PBooks extends Component {
                    let s1,s2,s3,s4;
             if(this.state.display.length!=0)
             {
-            let b=this.state.display.filter((res)=>res.details.rating>=1 && (res.details.category=="Javascript"||res.details.category=="javascript")) ;
+            let b=this.state.display.filter((res)=>res.details.rating>=1 ) ;
            s1=<div className="carousel-item">
                {b.slice(0,3).map((r)=>{
              return(
-<<<<<<< HEAD
+
              <div id={r.isbn} className="card" style={{ width: '20rem' }} onClick={this.callModal.bind(this,r)}>
              <img className="d-block card-img" src={r.details.url} height="200px"/> 
-=======
-             
-             <div id={r.isbn} className="card particular" style={{ width: '20rem' }} onClick={this.callModal.bind(this,r)}>
-             <img className="d-block card-img" src={r.details.url} height="150px"/> 
->>>>>>> 46f957e74791bae9ac4b6a7afcced696c7708d4c
+
+         
+
                  <div className="card-block text-block">
                  <b>Title: </b><span>{r.details.title}</span><br/>
                  <b>Author: </b><span>{r.details.author}</span>
                 </div>
-    <div class="overlay">
-    <div class="text">Hello World</div>
-  </div>
+   
 
-             </div>);        
+             </div>
+             );        
               
             })}
             </div>
-            b=this.state.display.filter((res)=>res.details.rating>=1 && (res.details.category=="Angular"||res.details.category=="angular")) ;
+            b=this.state.display.filter((res)=>res.details.rating>=1) ;
                        s2=<div className="carousel-item">
-            {b.slice(0,4).map((r)=>{
+               {b.slice(3,6).map((r)=>{
              return(
-<<<<<<< HEAD
-             <div id={r.isbn} className="card" style={{ width: '20rem'}} onClick={this.callModal.bind(this,r)}>
-             <img className="d-block card-img" src={r.details.url} height="200px" /> 
-=======
-             <div id={r.isbn} className="card particular" style={{ width: '20rem'}} onClick={this.callModal.bind(this,r)}>
-             <img className="d-block card-img" src={r.details.url} height="150px" /> 
->>>>>>> 46f957e74791bae9ac4b6a7afcced696c7708d4c
+
+             <div id={r.isbn} className="card" style={{ width: '20rem' }} onClick={this.callModal.bind(this,r)}>
+             <img className="d-block card-img" src={r.details.url} height="200px"/> 
+
+         
+
                  <div className="card-block text-block">
                  <b>Title: </b><span>{r.details.title}</span><br/>
                  <b>Author: </b><span>{r.details.author}</span>
                 </div>
-                    <div class="overlay">
-    <div class="text">Hello World</div>
-  </div>
-             </div>); 
+   
+
+             </div>
+                      
+                      ); 
             })}
             </div>
-            b=this.state.display.filter((res)=>res.details.rating>=1 && (res.details.category=="React"||res.details.category=="react")) ;
+            b=this.state.display.filter((res)=>res.details.rating>=1) ;
                        s3=<div className="carousel-item">
-<<<<<<< HEAD
                {b.slice(6,9).map((r)=>{
              return(
              <div id={r.isbn} className="card" style={{ width: '20rem' }} onClick={this.callModal.bind(this,r)}>
@@ -110,11 +106,9 @@ class PBooks extends Component {
             })}
             </div>
 
-                        s4=<div className="carousel-item">
+ b=this.state.display.filter((res)=>res.details.rating>=1) ;
+                       s4=<div className="carousel-item">
                {b.slice(9,12).map((r)=>{
-=======
-               {b.slice(0,4).map((r)=>{
->>>>>>> 46f957e74791bae9ac4b6a7afcced696c7708d4c
              return(
              <div id={r.isbn} className="card" style={{ width: '20rem' }} onClick={this.callModal.bind(this,r)}>
              <img className="d-block card-img" src={r.details.url} height="200px"/> 
@@ -123,12 +117,10 @@ class PBooks extends Component {
                  <b>Author: </b><span>{r.details.author}</span>
                 </div>
              </div>); 
-
-             
-
-             
             })}
             </div>
+            
+
         }   
     
 
@@ -141,7 +133,8 @@ class PBooks extends Component {
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>    
+    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>  
+    <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>   
   </ol>
   <div style={{ height:'300px' }} class="carousel-inner" role="listbox">
  <div class="carousel-inner" role="listbox" >
@@ -153,6 +146,7 @@ class PBooks extends Component {
     {s1}
     {s2}
     {s3}
+    {s4}
   </div>
   </div>
   </div>
