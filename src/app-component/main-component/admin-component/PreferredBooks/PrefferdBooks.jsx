@@ -55,11 +55,15 @@ class PBooks extends Component {
                {b.slice(0,3).map((r)=>{
              return(
              <div id={r.isbn} className="card" style={{ width: '20rem' }} onClick={this.callModal.bind(this,r)}>
-             <img className="d-block card-img" src={r.details.url} height="150px"/> 
+
+              <img  className="d-block card-img" src={r.details.url} height="150px"/> 
+
                  <div className="card-block text-block">
                  <b>Title: </b><span>{r.details.title}</span><br/>
                  <b>Author: </b><span>{r.details.author}</span>
                 </div>
+
+
              </div>);        
               
             })}
