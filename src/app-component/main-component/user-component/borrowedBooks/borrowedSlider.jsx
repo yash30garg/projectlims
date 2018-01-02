@@ -7,7 +7,7 @@ import {email} from '../../login-component/login'
 // import {BrowserRouter,Route,Link } from 'react-router-dom';
 let id;
 
-export class BorrowedSlider extends Component
+class BorrowedSlider extends Component
  { 
      constructor(props)
      {
@@ -49,8 +49,8 @@ export class BorrowedSlider extends Component
      });
      return(
        <div className="issued-container">
-       <h1 className="heading">Issued books:</h1>
-       <div className="seperate"></div>
+       
+       
        {outputs}
        </div>
      );

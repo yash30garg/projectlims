@@ -1,7 +1,9 @@
-import React,{Component} from 'react';
-import { processedData } from './Search';
+import React, {Component} from 'react';
+import {processedData} from './Search';
 import $ from 'jquery';
+import axios from 'axios';
 import './Search.css';
+let users,books;
 class SearchResults extends Component
  {
      constructor(props)
@@ -28,10 +30,18 @@ class SearchResults extends Component
           modal.style.display = "none";
         }
     }
- 
+     request() {
+        if (books <5) {
+            books++;
+            alert("The Requested Book has been allotted to you..Please Collect It from the Library");
+        }
+        else{
+            alert("Oops..Looks like You cannot borrow more books. Please return a book to borrow more")
+        }
+    }
      render()
      {
-        const a=processedData.map(res=>{
+                 const a=processedData.map(res=>{
              return(
                  <div className="col-md-6 col-sm-12 col-lg-3 each">
         <div id={res.isbn} className="card particular" style={{ width: '20rem' }}onClick={this.openModal.bind(this,res)} >
@@ -45,18 +55,7 @@ class SearchResults extends Component
   </div>
   </div>
   </div>
-             );
-
-//     <div class="card" style="width: 20rem;">
-//   <img class="card-img-top" src="..." alt="Card image cap">
-//   <div class="card-block">
-//     <h4 class="card-title">Card title</h4>
-//     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-//     <a href="#" class="btn btn-primary">Go somewhere</a>
-//   </div>
-// </div>
-         })
-
+                 )});
          return(
              <div className="row eachRow">
              {a}
@@ -76,7 +75,8 @@ class SearchResults extends Component
 </div>
              </div>
          );
-     }
+     
     
+ }
  }
  export default SearchResults;

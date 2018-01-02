@@ -85,6 +85,13 @@ body{
  color :black;
 }
 
+ .collor
+{
+ background-color: #db9917;
+ border-color:  #ecb737 ;
+ color :black;
+}
+
 #header
 {
     background: #333333;
@@ -216,6 +223,10 @@ width: 25%
 {
     color:white;
 }
+.card-header, .yoyo
+{
+    text-align: center;
+}
 .card
 {
     padding-bottom: 25px;
@@ -264,9 +275,21 @@ width: 25%
     padding-top: 20px;
 }
 
-/*.mov {
-    position: fixed;
-    float: right;
-    align-content: right;
-    text-align: right;
-}*/
+.jinx
+{
+    text-align: center;
+    font-family: arial black;
+}
+
+.jinx2
+{
+    text-align: center;
+    font-family: arial;
+}
+
+.jinx3
+{
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    size : 40px;
+}

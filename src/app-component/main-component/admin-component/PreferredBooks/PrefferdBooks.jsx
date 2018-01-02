@@ -47,12 +47,12 @@ class PBooks extends Component {
                {
 
 
-                   let s1,s2,s3;
+                   let s1,s2,s3,s4;
             if(this.state.display.length!=0)
             {
             let b=this.state.display.filter((res)=>res.details.rating>=1 && (res.details.category=="Javascript"||res.details.category=="javascript")) ;
            s1=<div className="carousel-item">
-               {b.slice(0,4).map((r)=>{
+               {b.slice(0,3).map((r)=>{
              return(
              
              <div id={r.isbn} className="card particular" style={{ width: '20rem' }} onClick={this.callModal.bind(this,r)}>
@@ -71,7 +71,7 @@ class PBooks extends Component {
             </div>
             b=this.state.display.filter((res)=>res.details.rating>=1 && (res.details.category=="Angular"||res.details.category=="angular")) ;
                        s2=<div className="carousel-item">
-               {b.slice(0,4).map((r)=>{
+            {b.slice(0,4).map((r)=>{
              return(
              <div id={r.isbn} className="card particular" style={{ width: '20rem'}} onClick={this.callModal.bind(this,r)}>
              <img className="d-block card-img" src={r.details.url} height="150px" /> 
@@ -89,15 +89,12 @@ class PBooks extends Component {
                        s3=<div className="carousel-item">
                {b.slice(0,4).map((r)=>{
              return(
-             <div id={r.isbn} className="card particular" style={{ width: '20rem' }} onClick={this.callModal.bind(this,r)}>
+             <div id={r.isbn} className="card" style={{ width: '20rem' }} onClick={this.callModal.bind(this,r)}>
              <img className="d-block card-img" src={r.details.url} height="150px"/> 
                  <div className="card-block text-block">
                  <b>Title: </b><span>{r.details.title}</span><br/>
                  <b>Author: </b><span>{r.details.author}</span>
                 </div>
-                    <div class="overlay">
-    <div class="text">Hello World</div>
-  </div>
              </div>); 
             })}
             </div>
@@ -108,8 +105,6 @@ class PBooks extends Component {
         return (
 <div>
 
-<h1 className="heading">Top rated books:</h1>
-<div className="seperate"></div>
 <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel"  >
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -118,7 +113,7 @@ class PBooks extends Component {
     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>    
   </ol>
   <div style={{ height:'300px' }} class="carousel-inner" role="listbox">
- <div class="carousel-inner" role="listbox">
+ <div class="carousel-inner" role="listbox" >
 
       <div class="carousel-cell">
        <div class="carousel-item active">

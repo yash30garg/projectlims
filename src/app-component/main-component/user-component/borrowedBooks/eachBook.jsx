@@ -6,6 +6,9 @@ import $ from 'jquery';
     return(
        
     <div className="card particular" style={{ width: '20rem' }}>
+  
+    <div className="card" style={{ width: '20rem', paddingBottom : "5px" }}>
+
    
       <img  className="card-img-top" src={require("../../../../Assets/Images/loginBackground.jpg")} alt="not available" height="150px"/>
     
@@ -16,6 +19,7 @@ import $ from 'jquery';
     </div>
       <div className="overlay">
     <div className="text">Hello World</div>
+  </div>
   </div>
   </div>
     );
