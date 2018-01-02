@@ -32,7 +32,7 @@ class BootHeader extends Component {
 
                 <section id="breadcrumb">
                     <div className="container-fluid">
-                        <ol className="breadcrumb">
+                        <ol className="breadcrumb bc" style={{backgroundColor : "#60003a"}}>
                             <li className="active jinx"><h4>Your Library</h4></li>
                             <li className="jinx2">Use the largest library in the world online or in person! More about the Library.</li>
                         </ol>
