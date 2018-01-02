@@ -29,7 +29,7 @@
 
 .search {
   width: 100%;
-  position: relative
+  position: relative;
 }
 
 .searchTerm {
@@ -136,4 +136,7 @@
 .setLabel
 {
   margin-left: 450px;
+}
+.nav-container {
+  width: 50%
 }
