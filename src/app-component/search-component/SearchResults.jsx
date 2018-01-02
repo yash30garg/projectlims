@@ -5,27 +5,32 @@ import axios from 'axios';
 import './Search.css';
 let users,books;
 class SearchResults extends Component
-{
-    constructor(props)
-    {
-        super(props);
-        this.state = {
-            output: []
-        }
+ {
+     constructor(props)
+     {
+     super(props);
     }
 
-    componentDidMount()
+    openModal=(arg)=>
     {
-        axios
-            .get('https://api.myjson.com/bins/ds48n')
-            .then(res => {
-                this.setState({output: res.data});
-                users = this.state.output;
-        const b = users.filter((res) => res.user.mid === "1042948")
-        books=b[0].userBooks.length
-            });
+        var modal = document.getElementById('myModal');
+        var img = document.getElementById(arg.isbn);
+        var modalImg = document.getElementById("img01");
+        var captionText = document.getElementById("caption");                
+        modal.style.display = "block";
+        modalImg.src = arg.details.url;
+        captionText.innerHTML = `<b>Title: </b>${arg.details.title}<br>
+        <b>Category: </b>${arg.details.category}</br>
+        <b>Author: </b>${arg.details.author}</br>
+        <b>Publisher: </b>${arg.details.publisher}</br>
+        <b>Rating: </b>${arg.details.rating} star</br>
+        <b>Copies Available: </b>${arg.details.copies}</br>`;
+        var span = document.getElementsByClassName("close")[0];
+        span.onclick = function() { 
+          modal.style.display = "none";
+        }
     }
-    request() {
+     request() {
         if (books <5) {
             books++;
             alert("The Requested Book has been allotted to you..Please Collect It from the Library");
@@ -34,75 +39,44 @@ class SearchResults extends Component
             alert("Oops..Looks like You cannot borrow more books. Please return a book to borrow more")
         }
     }
-    render()
-    {
-
-        $(function () {
-            $('.card')
-                .hover(function () {
-                    $(this)
-                        .find('> .card-image > img.activator')
-                        .click();
-                }, function () {
-                    $(this)
-                        .find('> .card-reveal > .card-title')
-                        .click();
-                });
-        });
-
-        const a = processedData.map(res => {
-            return (
-                <div className="card col-md-5 mt-5 h-100">
-                    <div className="card-img-top">
-                        <img
-                            className="container-fill m-4"
-                            src={res.details.url}
-                            alt="not available"
-                            height="200"/>
-                    </div>
-                    <div className="card-block">
-                        <div className="card-title">
-                            <h4>
-                                <b>Title:
-                                </b>
-                                <span>{res.details.title}</span>
-                            </h4>
-                        </div>
-                        <div className="card-text">
-                            <b>Category:
-                            </b>
-                            <span>{res.details.category}</span>
-                            <br/>
-                            <b>ISBN:
-                            </b>
-                            <span>{res.isbn}</span><br/>
-                            <b>Author:
-                            </b>
-                            <span>{res.details.author}</span><br/>
-                            <b>Publisher:
-                            </b>
-                            <span></span>{res.details.publisher}<br/>
-                            <b>Rating:
-                            </b>
-                            <span>{res.details.rating}</span><br/>
-                            <b>Copies available:
-                            </b>
-                            <span>{res.details.copies}</span>
-                        </div>
-                        <br/>
-                        <button type="button" class="btn btn-primary" onClick={this.request}>Request</button>
-                    </div>
-                </div>
-            );
-        })
-        return (
-            <div className="container-fluid">
-                <div className="row">
-                    {a}
-                </div>
-            </div>
-        )
-    }
-}
-export default SearchResults;
-        
+     render()
+     {
+                 const a=processedData.map(res=>{
+             return(
+                 <div className="col-md-6 col-sm-12 col-lg-3 each">
+        <div id={res.isbn} className="card particular" style={{ width: '20rem' }}onClick={this.openModal.bind(this,res)} >
+      <img className="card-img-top" src={res.details.url} alt="not available" height="200vh"/>
+    <div className="card-block text-block">
+        <b>Title: </b><span>{res.details.title}</span><br/>
+        <b>Category: </b><span>{res.details.category}</span>
+    </div>
+      <div class="overlay">
+    <div class="text">Hello World</div>
+  </div>
+  </div>
+  </div>
+                 )});
+         return(
+             <div className="row eachRow">
+             {a}
+             <div id="myModal" class="modal">
+  <span class="close">&times;</span>
+  <div className="container">
+  <div className="row">
+  <div className="col-md-6">
+  <img class="modal-content" id="img01" height="500px" width="400px"/>
+  </div>
+  <div className="col-md-6">
+  <div id="caption">
+  </div>
+  </div>
+  </div>
+  </div>
+</div>
+             </div>
+         );
+     
+    
+ }
+ }
+ export default SearchResults;
