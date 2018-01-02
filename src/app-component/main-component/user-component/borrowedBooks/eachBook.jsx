@@ -3,14 +3,10 @@ import './css/isssuedSlider.css'
 import $ from 'jquery';
  const Card=(props)=>
 {
-    return(
-       
-    <div className="card particular" style={{ width: '20rem' }}>
-  
-    <div className="card" style={{ width: '20rem', paddingBottom : "5px" }}>
-
+    return( 
+    <div className="card" style={{ width: '20rem',paddingBottom:'0px'}}>
    
-      <img  className="card-img-top" src={require("../../../../Assets/Images/loginBackground.jpg")} alt="not available" height="150px"/>
+    <img  className="card-img-top" src={require("../../../../Assets/Images/loginBackground.jpg")} alt="not available" height="150px"/>
     
     <div className="card-block text-block">
 
@@ -21,7 +17,7 @@ import $ from 'jquery';
     <div className="text">Hello World</div>
   </div>
   </div>
-  </div>
+
     );
 
 
