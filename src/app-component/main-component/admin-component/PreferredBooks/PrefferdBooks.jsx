@@ -130,11 +130,6 @@ class PBooks extends Component {
     {s1}
     {s2}
     {s3}
-<<<<<<< HEAD
-=======
-    {s4}
-    
->>>>>>> 39c8bc551b86c5170aa104a8b38569f4a77f4767
   </div>
   <br />
   {/*<br/>*/}
