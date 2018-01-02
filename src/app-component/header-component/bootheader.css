@@ -9,12 +9,13 @@ body{
     border-radius: 0;
 }
 
-.navbar-nav > li > a, .navbar-brand
+.container-fluid > ol > li
 {
-    padding-top: 6px !important;
-    padding-bottom: 0 !important;
-    height:33px;
+  color : white;
 }
+
+
+
 
 
 
@@ -84,6 +85,13 @@ body{
  border-color:  #ecb737 ;
  color :black;
 }
+
+.list-group >.list-group-item 
+{
+background-color:  #f7f7f7;
+color : black;
+}
+
 
  .collor
 {

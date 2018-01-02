@@ -45,7 +45,7 @@ class BootHeader extends Component {
                             <div className="col-md-3">
 
                                 <div className="list-group">
-                                    <a href="#" className="list-group-item active collor">
+                                    <a href="#" className="list-group-item collor" style={{backgroundColor : "#8a0051", color : "white"}}>
                                         <span className="fa fa-cog" aria-hidden="true" ></span>  Categories</a>
                                     <a href="#" className="list-group-item  list-group-item-action"> <span class="fa fa-asterisk" aria-hidden="true" >
                                     </span>JAVA<div className='mov' style={{ paddingRight: "220px" }} /><span class="badge  badge-pill badge-warning" >12</span></a>
@@ -86,6 +86,7 @@ class BootHeader extends Component {
 
                                 <div className="card">
                                     <h5 className="card-header yoyo">Top Rated Books</h5>
+                                    <br />
                                    <Pbooks />
                                 </div>
 
@@ -95,6 +96,7 @@ class BootHeader extends Component {
                                             Borrowed Books</h5>
                                         <div class="card-block">
                                             <BorrowedSlider/>
+                                            
                                         </div>
                                     </div>
                                 </div>
