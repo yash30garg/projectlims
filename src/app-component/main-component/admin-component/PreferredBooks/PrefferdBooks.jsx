@@ -47,7 +47,7 @@ class PBooks extends Component {
                {
 
 
-                   let s1,s2,s3;
+                   let s1,s2,s3,s4;
             if(this.state.display.length!=0)
             {
             let b=this.state.display.filter((res)=>res.details.rating>=1 &&(res.details.category=="Javascript"||res.details.category=="javascript")) ;
@@ -130,6 +130,8 @@ class PBooks extends Component {
     {s1}
     {s2}
     {s3}
+    {s4}
+    
   </div>
   <br />
   {/*<br/>*/}
