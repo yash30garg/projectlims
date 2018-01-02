@@ -1,7 +1,6 @@
 import React from 'react';
 import Card from './eachBook'
 import './css/isssuedSlider.css'
-
 export const UserBooks=(props)=>
 {
    return(
@@ -18,7 +17,6 @@ export const UserBooks=(props)=>
                    );
                    
            })}
-        </div>
-       
-   );
+           </div>
+    );
 }

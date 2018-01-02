@@ -49,8 +49,6 @@ class BorrowedSlider extends Component
      });
      return(
        <div className="issued-container">
-       
-       
        {outputs}
        </div>
      );
