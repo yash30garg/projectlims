@@ -3,17 +3,14 @@ import {processedData} from './Search';
 import $ from 'jquery';
 import axios from 'axios';
 import './Search.css';
-let users,books;
+let users,
+    books;
 class SearchResults extends Component
 {
     constructor(props)
     {
         super(props);
-        this.state = {
-            output: []
-        }
     }
-
     componentDidMount()
     {
         axios
@@ -25,84 +22,100 @@ class SearchResults extends Component
         books=b[0].userBooks.length
             });
     }
+    /*openModal=(arg)=>
+    {
+        var modal = document.getElementById('myModal');
+        var img = document.getElementById(arg.isbn);
+        var modalImg = document.getElementById("img01");
+        var captionText = document.getElementById("caption");
+        modal.style.display = "block";
+        modalImg.src = arg.details.url;
+        captionText.innerHTML = `<b>Title: </b>${arg.details.title}<br>
+        <b>Category: </b>${arg.details.category}</br>
+        <b>Author: </b>${arg.details.author}</br>
+        <b>Publisher: </b>${arg.details.publisher}</br>
+        <b>Rating: </b>${arg.details.rating} star</br>
+        <b>Copies Available: </b>${arg.details.copies}</br>`;
+        var span = document.getElementsByClassName("close")[0];
+        span.onclick = function() {
+          modal.style.display = "none";
+        }
+    }*/
     request() {
-        if (books <5) {
+        if (books < 6) {
             books++;
             alert("The Requested Book has been allotted to you..Please Collect It from the Library");
-        }
-        else{
-            alert("Oops..Looks like You cannot borrow more books. Please return a book to borrow more")
+        } else {
+            alert("Oops..Looks like You cannot borrow more books. Please return a book to borrow mo" +
+                    "re")
         }
     }
     render()
     {
-
-        $(function () {
-            $('.card')
-                .hover(function () {
-                    $(this)
-                        .find('> .card-image > img.activator')
-                        .click();
-                }, function () {
-                    $(this)
-                        .find('> .card-reveal > .card-title')
-                        .click();
-                });
-        });
-
         const a = processedData.map(res => {
             return (
-                <div className="card col-md-5 mt-5 h-100">
-                    <div className="card-img-top">
+                <div className="col-md-4 my-5">
+                    <div
+                        id={res.isbn}
+                        className="card particular"
+                        style={{
+                        width: '20rem',
+                        paddingBottom: '0px'
+                    }}>
                         <img
-                            className="container-fill m-4"
+                            className="card-img-top"
                             src={res.details.url}
                             alt="not available"
-                            height="200"/>
-                    </div>
-                    <div className="card-block">
-                        <div className="card-title">
-                            <h4>
-                                <b>Title:
-                                </b>
-                                <span>{res.details.title}</span>
-                            </h4>
+                            height="300vh"/>
+
+                        <div className="overlay">
+                            <div className="text">
+                            <table>
+                            <tr>
+                            <td>
+                            Tittle:
+                            </td><td>
+                            {res.details.title}
+                            </td>
+                            </tr>
+                            <tr>
+                            <td>
+                            Tittle:
+                            </td><td>
+                            {res.details.title}
+                            </td>
+                            </tr>
+                            </table>
+                            <button class="btn btn-primary mt-5" onClick={this.request}>Request Book</button>
+                            </div>
                         </div>
-                        <div className="card-text">
-                            <b>Category:
-                            </b>
-                            <span>{res.details.category}</span>
-                            <br/>
-                            <b>ISBN:
-                            </b>
-                            <span>{res.isbn}</span><br/>
-                            <b>Author:
-                            </b>
-                            <span>{res.details.author}</span><br/>
-                            <b>Publisher:
-                            </b>
-                            <span></span>{res.details.publisher}<br/>
-                            <b>Rating:
-                            </b>
-                            <span>{res.details.rating}</span><br/>
-                            <b>Copies available:
-                            </b>
-                            <span>{res.details.copies}</span>
-                        </div>
-                        <br/>
-                        <button type="button" class="btn btn-primary" onClick={this.request}>Request</button>
                     </div>
                 </div>
-            );
-        })
+            )
+        });
         return (
             <div className="container-fluid">
                 <div className="row">
                     {a}
                 </div>
             </div>
-        )
+        /*<div id="myModal" class="modal">
+  <span class="close">&times;</span>
+  <div className="container">
+  <div className="row">
+  <div className="col-md-6">
+  <img class="modal-content" id="img01" height="500px" width="400px"/>
+  </div>
+  <div className="col-md-6">
+  <div id="caption">
+  </div>
+  </div>
+  </div>
+  </div>
+</div>*/
+
+        );
+
     }
 }
 export default SearchResults;
-        

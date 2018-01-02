@@ -1,67 +1,9 @@
-/*/*.item{
-    text-align: center;
-    width: auto;
-}*/
-
-
-/*.eachCard
-{
-    border: 1px solid #eee;
-    color:#60003a;
-    box-shadow:0 5px 5px #ccc;
-    padding:15px;
-    display:inline-block;
-    width:250px;
-    margin:0px 20px 0px 20px;
-}*/
-
-
-/*.bs-example{
-    margin: 10px;
-}
-
-.item {
-height: 300px; 
- width: 100%;
-}*/
-/* This is your slider height */
-
-/*.carousel-item {
-    z-index: -2; 
-    opacity: 0.2; 
-    display: block; 
-    transform: translateX(229px) translateY(100px) translateX(-420px) translateZ(0px);
-}*/
-/*.carousel {
-width:90%;
-margin:0 auto;
- }  center your carousel if other than 100%  */
-
-
-
-/*#tp
-{
-    font-size : 50px;
-    margin-bottom: 80px;
-    
-      
-}*/
-.heading{
-    padding:20px 0px 0px 30px;
-    
-
-}
 .text-block
 {
-    height:120px;
+    height:80px;
     background: linear-gradient(to bottom,#60003a 0%, #8a0051 100%);
     color: white;
     border-radius: 0px 0px 10px 10px;
-}
-.seperate{
-    background: linear-gradient(to right,#60003a 0%, white 100%);
-    height: 1px;
-    margin:20px 0px 30px 30px;
 }
 .activeImage
 {
@@ -73,9 +15,6 @@ margin:0 auto;
 {
     cursor: pointer;
 }
-
-
-
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
@@ -103,28 +42,13 @@ margin:0 auto;
     max-width: 700px;
     color: #ccc;
     padding: 10px 0;
-    height: 150px;
+    line-height: 75px;
     color:lightblue;
     font-size:25px;
 }
 
 /* Add Animation */
-.modal-content, #caption {    
-    -webkit-animation-name: zoom;
-    -webkit-animation-duration: 0.6s;
-    animation-name: zoom;
-    animation-duration: 0.6s;
-}
 
-@-webkit-keyframes zoom {
-    from {-webkit-transform:scale(0)} 
-    to {-webkit-transform:scale(1)}
-}
-
-@keyframes zoom {
-    from {transform:scale(0)} 
-    to {transform:scale(1)}
-}
 
 /* The Close Button */
 .close {
@@ -144,11 +68,51 @@ margin:0 auto;
     cursor: pointer;
 }
 
+.modal-content, #caption {    
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)} 
+    to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+}
+
+
+
 /* 100% Image Width on Smaller Screens */
 @media only screen and (max-width: 700px){
     .modal-content {
         width: 100%;
     }
 }
+<<<<<<< HEAD
 
+=======
+.arrowLeft
+{
+  border: solid black;
+  border-width: 0 5px 5px 0;
+  display: inline-block;
+  padding: 7px;
+      transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+}
+.arrowRight
+{
+     border: solid black;
+  border-width: 0 5px 5px 0;
+  display: inline-block;
+  padding: 7px;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+>>>>>>> f0cacaf04b890baa072ab2970f0ddab7386fa1fc
 
