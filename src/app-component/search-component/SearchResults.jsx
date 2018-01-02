@@ -72,10 +72,11 @@ class SearchResults extends Component
                         <div className="overlay">
                             <div className="text container-fluid">                          
                             {res.details.title}<br/>
-                            Author:
+                            <b>Author:</b>
                             {res.details.author}<br/>
-                            Category:
+                            <b>Category:</b>
                             {res.details.category}<br/>
+                            <b>Ratings :</b><br />
                             {[1,2,3,4,5].map(d=>{
                               if(res.details.rating>=d)
                                 return<span class="fa fa-star" style={{color:'white'}}></span>
