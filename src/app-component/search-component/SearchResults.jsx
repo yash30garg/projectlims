@@ -16,7 +16,7 @@ class SearchResults extends Component
     componentDidMount()
     {
         axios
-            .get('https://api.myjson.com/bins/12cnoj')
+            .get('https://api.myjson.com/bins/15iomb')
             .then(res => {
                 this.setState({output: res.data});
                 users = this.state.output;

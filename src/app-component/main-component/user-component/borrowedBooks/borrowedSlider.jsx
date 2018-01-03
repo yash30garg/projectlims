@@ -30,7 +30,7 @@ class BorrowedSlider extends Component
  componentDidMount()
  {
      
-     axios.get('https://api.myjson.com/bins/u3i5f')
+     axios.get('https://api.myjson.com/bins/14x90j')
      .then(res=>{
          this.setState({output:res.data});
 
@@ -45,7 +45,7 @@ class BorrowedSlider extends Component
     }
     else id="1042948";
      const outputs=this.state.output.filter(temp=>temp.user.mid===id).map(result=>{
-        return(<UserBooks key={result.user.mid} list={result.userBooks}/>);
+        return(<UserBooks key={result.user.mid} list={result.borrowedbooks}/>);
      });
      return(
        <div className="issued-container">
