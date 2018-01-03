@@ -81,7 +81,7 @@ class SearchResults extends Component
                               else 
                                 return<span class="fa fa-star" style={{color:'black'}}></span>
                             })}
-                            <button class="btn mt-5" style={{backgroundColor:'white', color:'rgb(96, 0, 58)'}} onClick={this.request}><b>Request Book</b></button>
+                            <button class="btn mt-4" style={{backgroundColor:'white', color:'rgb(96, 0, 58)'}} onClick={this.request}><b>Request Book</b></button>
                             </div>
                         </div>
                     </div>
