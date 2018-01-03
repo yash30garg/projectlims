@@ -22,26 +22,26 @@ class PBooks extends Component {
             })
     }
 
-   callModal=(arg)=>
-    {
-        console.log(this.state.storeId);
-        var modal = document.getElementById('myModal');
-        var img = document.getElementById(arg.isbn);
-        var modalImg = document.getElementById("img01");
-        var captionText = document.getElementById("caption");                
-        modal.style.display = "block";
-        modalImg.src = arg.details.url;
-        captionText.innerHTML = `<b>Title: </b>${arg.details.title}<br>
-        <b>Category: </b>${arg.details.category}</br>
-        <b>Author: </b>${arg.details.author}</br>
-        <b>Publisher: </b>${arg.details.publisher}</br>
-        <b>Rating: </b>${arg.details.rating} star</br>
-        <b>Copies Available: </b>${arg.details.copies}</br>`;
-        var span = document.getElementsByClassName("close")[0];
-        span.onclick = function() { 
-          modal.style.display = "none";
-        }
-    }
+//    callModal=(arg)=>
+//     {
+//         console.log(this.state.storeId);
+//         var modal = document.getElementById('myModal');
+//         var img = document.getElementById(arg.isbn);
+//         var modalImg = document.getElementById("img01");
+//         var captionText = document.getElementById("caption");                
+//         modal.style.display = "block";
+//         modalImg.src = arg.details.url;
+//         captionText.innerHTML = `<b>Title: </b>${arg.details.title}<br>
+//         <b>Category: </b>${arg.details.category}</br>
+//         <b>Author: </b>${arg.details.author}</br>
+//         <b>Publisher: </b>${arg.details.publisher}</br>
+//         <b>Rating: </b>${arg.details.rating} star</br>
+//         <b>Copies Available: </b>${arg.details.copies}</br>`;
+//         var span = document.getElementsByClassName("close")[0];
+//         span.onclick = function() { 
+//           modal.style.display = "none";
+//         }
+//     }
 
               render()
                {
