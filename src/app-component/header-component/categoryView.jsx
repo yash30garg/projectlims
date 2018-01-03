@@ -3,7 +3,7 @@ import './bootheader.css'
 
 export const Category=(props)=>
 {
-    let b=props.data.filter(r=>r.details.category==props.selected).map(res=>{
+    let b=props.data.filter(r=>r.details.category.toLowerCase()==props.selected.toLowerCase()).map(res=>{
         return(
                     <div
             className="mx-auto col-lg-4 col-md-6 col-sm-6 col-xs-6 my-5">
