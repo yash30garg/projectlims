@@ -11,10 +11,51 @@
     border: 1px solid #eee;
     box-shadow:0 5px 5px #ccc;
 }
+.card-img
+{
+    border-radius: 10px 10px 10px 10px;
+    border: 1px solid #eee;
+    box-shadow:0 5px 5px #ccc;
+}
 .card
 {
     cursor: pointer;
 }
+
+.particular {
+  position: relative;
+}
+
+
+.overlay {
+  position: absolute;
+  top: 20%;
+  left: 0;
+  right: 0;
+  background-color:rgba(96, 0, 58,0.9);;
+  overflow: hidden;
+  width: 100%;
+  height:0;
+  transition: 0.5s ease;
+}
+
+.particular:hover .overlay {
+  top: 0;
+  max-width: 100%;
+  height: 100%;
+}
+
+.text {
+  white-space:normal;
+  color: white;
+  font-size: 20px;
+  overflow: hidden;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
@@ -95,7 +136,7 @@
 }
 .arrowLeft
 {
-  border: solid black;
+  border: solid coral;
   border-width: 0 5px 5px 0;
   display: inline-block;
   padding: 7px;
@@ -104,7 +145,7 @@
 }
 .arrowRight
 {
-     border: solid black;
+     border: solid coral;
   border-width: 0 5px 5px 0;
   display: inline-block;
   padding: 7px;
