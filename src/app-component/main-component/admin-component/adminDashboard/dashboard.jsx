@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './dashboard.css';
+import '../../../App.css'
 import Footer from '../../../footer-component/footer.jsx';
 var count =0;
 class DashBoard extends Component {
@@ -40,7 +41,7 @@ count =0;
 
                 <nav class="navbar navbar-toggleable-md navbar-default">
                     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation"   >
-                        <span class="navbar-toggler-icon"  style={{backgroundColor : "black"}}></span>
+                        <span class="navbar-toggler-icon"></span>
                     </button>
                     <a class="navbar-brand" href="#">Admin Strap</a>
 
