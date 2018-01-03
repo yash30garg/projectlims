@@ -46,8 +46,7 @@ class SearchResults extends Component
             books++;
             alert("The Requested Book has been allotted to you..Please Collect It from the Library");
         } else {
-            alert("Oops..Looks like You cannot borrow more books. Please return a book to borrow mo" +
-                    "re")
+            alert("Oops..Looks like You cannot borrow more books. Please return a book to borrow more")
         }
     }
     render()
@@ -71,20 +70,18 @@ class SearchResults extends Component
 
                         <div className="overlay">
                             <div className="text container-fluid">                          
-                            {res.details.title}<br/>
-                            <b>Author:</b>
-                            {res.details.author}<br/>
-                            <b>Category:</b>
-                            {res.details.category}<br/>
-                            <b>Ratings :</b><br />
+                            <b>{res.details.title}</b><br/><br/>
+                            <b>Author : </b>
+                            {res.details.author}<br/><br/>
+                            <b>Category: </b>
+                            {res.details.category}<br/><br/>
                             {[1,2,3,4,5].map(d=>{
                               if(res.details.rating>=d)
                                 return<span class="fa fa-star" style={{color:'white'}}></span>
                               else 
                                 return<span class="fa fa-star" style={{color:'black'}}></span>
                             })}
-                            <br/>
-                            <button class="btn mt-5" style={{backgroundColor:'white', color:'rgb(96, 0, 58)'}} onClick={this.request}><b>Request Book</b></button>
+                            <button class="btn mt-4" style={{backgroundColor:'white', color:'rgb(96, 0, 58)'}} onClick={this.request}><b>Request Book</b></button>
                             </div>
                         </div>
                     </div>
