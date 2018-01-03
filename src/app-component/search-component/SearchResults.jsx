@@ -52,6 +52,7 @@ class SearchResults extends Component
     }
     render()
     {
+        let x=0;;
         const a = processedData.map(res => {
             return (
                 <div className="col-md-4 my-5">
@@ -69,24 +70,21 @@ class SearchResults extends Component
                             height="300vh"/>
 
                         <div className="overlay">
-                            <div className="text">
-                            <table>
-                            <tr>
-                            <td>
-                            Tittle:
-                            </td><td>
-                            {res.details.title}
-                            </td>
-                            </tr>
-                            <tr>
-                            <td>
-                            Tittle:
-                            </td><td>
-                            {res.details.title}
-                            </td>
-                            </tr>
-                            </table>
-                            <button class="btn btn-primary mt-5" onClick={this.request}>Request Book</button>
+                            <div className="text container-fluid">                          
+                            {res.details.title}<br/>
+                            <b>Author:</b>
+                            {res.details.author}<br/>
+                            <b>Category:</b>
+                            {res.details.category}<br/>
+                            <b>Ratings :</b><br />
+                            {[1,2,3,4,5].map(d=>{
+                              if(res.details.rating>=d)
+                                return<span class="fa fa-star" style={{color:'white'}}></span>
+                              else 
+                                return<span class="fa fa-star" style={{color:'black'}}></span>
+                            })}
+                            <br/>
+                            <button class="btn mt-5" style={{backgroundColor:'white', color:'rgb(96, 0, 58)'}} onClick={this.request}><b>Request Book</b></button>
                             </div>
                         </div>
                     </div>
