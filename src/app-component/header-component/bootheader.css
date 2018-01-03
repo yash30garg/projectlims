@@ -90,8 +90,13 @@ body{
 {
 background-color:  #f7f7f7;
 color : black;
+cursor: pointer;
 }
+.list-group >a:hover 
+{
+background-color: white;
 
+}
 
  .collor
 {
@@ -301,4 +306,15 @@ width: 25%
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     size : 40px;
 }
+
+.contained
+{
+    border: 1px solid #eee;
+    box-shadow:0 5px 5px #ccc;
+}
+.particular
+{
+    cursor: pointer;
+}
+
 
