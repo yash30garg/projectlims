@@ -10,11 +10,12 @@ import $ from 'jquery';
 
     
     <div className="card-block text-block">
-        <b>Title: </b><span>{props.data.details.title}</span><br/>
-        <b>Return Date: </b><span>{props.data.details.returnDate}</span>
+        <b>Title: </b><span>{props.data.details.title}</span>
     </div>
   <div className="overlay">
-  <div className="text">Hello world</div>
+  <div className="text">
+  <h4>Your return date is: </h4><br/>
+  <h6>{props.data.details.returnDate}</h6></div>
   </div>
   </div>
     );

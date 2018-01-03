@@ -2,7 +2,9 @@ import React, {Component} from 'react';
 import {processedData} from './Search';
 import $ from 'jquery';
 import axios from 'axios';
+import {Link} from 'react-router-dom';
 import './Search.css';
+export var book;
 let users,
     books;
 class SearchResults extends Component
@@ -11,7 +13,17 @@ class SearchResults extends Component
     {
         super(props);
     }
-
+    componentDidMount()
+    {
+        axios
+            .get('https://api.myjson.com/bins/ds48n')
+            .then(res => {
+                this.setState({output: res.data});
+                users = this.state.output;
+                const b = users.filter((res) => res.user.mid === "1042948")
+                books = b[0].userBooks.length
+            });
+    }
     /*openModal=(arg)=>
     {
         var modal = document.getElementById('myModal');
@@ -32,53 +44,79 @@ class SearchResults extends Component
         }
     }*/
     request() {
-        if (books < 5) {
+        if (books < 6) {
             books++;
             alert("The Requested Book has been allotted to you..Please Collect It from the Library");
         } else {
-            alert("Oops..Looks like You cannot borrow more books. Please return a book to borrow mo" +
-                    "re")
+            alert("Oops..Looks like You cannot borrow more books. Please return a book to borrow more");
         }
     }
     render()
     {
+        let x = 0;;
         const a = processedData.map(res => {
             return (
                 <div className="col-md-4 my-5">
-                    <div
-                        id={res.isbn}
-                        className="card particular"
-                        style={{
-                        width: '20rem',
-                        paddingBottom: '0px'
-                    }}>
-                        <img
-                            className="card-img-top"
-                            src={res.details.url}
-                            alt="not available"
-                            height="300vh"/>
-
-                        <div className="overlay">
-                            <div className="text">
-                            <table>
-                            <tr>
-                            <td>
-                            Tittle:
-                            </td><td>
-                            {res.details.title}
-                            </td>
-                            </tr>
-                            <tr>
-                            <td>
-                            Tittle:
-                            </td><td>
-                            {res.details.title}
-                            </td>
-                            </tr>
-                            </table>
+                    <Link to="/results/details">
+                    
+                        <div
+                            id={res.isbn}
+                            className="card particular"
+                            style={{
+                            width: '20rem',
+                            paddingBottom: '0px'
+                        }}>
+                            <img
+                                className="card-img-top"
+                                src={res.details.url}
+                                alt="not available"
+                                height="300vh"/>
+                            <div className="overlay">
+                                <div className="text container-fluid">
+                                    {res.details.title}<br/>
+                                    Author: {res.details.author}<br/>
+                                    Category: {res.details.category}<br/> {[1, 2, 3, 4, 5].map(d => {
+                                        if (res.details.rating >= d) 
+                                            return <span
+                                                class="fa fa-star"
+                                                style={{
+                                                color: 'white'
+                                            }}></span>
+                                        else 
+                                            return <span
+                                                class="fa fa-star"
+                                                style={{
+                                                color: 'black'
+                                            }}></span>
+                                    })}
+                                    <br/>
+                                    <button
+                                        class="btn mt-5"
+                                        style={{
+                                        backgroundColor: 'white',
+                                        color: 'rgb(96, 0, 58)'
+                                    }}
+                                        onClick={this.request}>
+                                        <b>Request Book</b>
+                                    </button>
+                                </div>
+                        {/*<div className="overlay">
+                            <div className="text container-fluid">                          
+                            <b>{res.details.title}</b><br/><br/>
+                            <b>Author : </b>
+                            {res.details.author}<br/><br/>
+                            <b>Category: </b>
+                            {res.details.category}<br/><br/>
+                            {[1,2,3,4,5].map(d=>{
+                              if(res.details.rating>=d)
+                                return<span class="fa fa-star" style={{color:'white'}}></span>
+                              else 
+                                return<span class="fa fa-star" style={{color:'black'}}></span>
+                            })}
+                            <button class="btn mt-4" style={{backgroundColor:'white', color:'rgb(96, 0, 58)'}} onClick={this.request}><b>Request Book</b></button>*/}
                             </div>
                         </div>
-                    </div>
+                    </Link>
                 </div>
             )
         });
