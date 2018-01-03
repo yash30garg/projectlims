@@ -54,13 +54,10 @@ count =0;
                             </li>
                              <Link to="/adminbooks">
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Pages</a>
+                                <a class="nav-link" href="#">Books</a>
                             </li>
                              </Link>
-                            <li class="nav-item">
-                                <a class="nav-link " href="#">Books</a>
-                            </li>
-
+                            
                             <li class="nav-item">
                                 <a class="nav-link " href="#">Users</a>
                             </li>

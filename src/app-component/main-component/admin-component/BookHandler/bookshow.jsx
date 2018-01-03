@@ -3,7 +3,8 @@ import axios from 'axios';
 import './bookshow.css';
 import { Link } from 'react-router-dom';
 // import SearchResultsAdmin from '../../../search-component/SearchResults.jsx';
-import SearchAdmin from './searchadmin.jsx';
+import SearchAdmin from './searchadmin';
+// import './searchdis.css';
 import Footer from '../../../footer-component/footer.jsx';
 
 var count =0;

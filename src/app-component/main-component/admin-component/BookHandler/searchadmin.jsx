@@ -4,7 +4,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 // import { BrowserRouter, Route, Link } from 'react-router-dom';
 import 'rxjs/add/operator/filter';
-import SearchResultsAdmin from './searchadmin.jsx';
+import SearchResultsAdmin from './searchresultsadmin';
 // import Footer from '../footer-component/footer'
 import './searchdis.css';
 var debounce = require('debounce');
