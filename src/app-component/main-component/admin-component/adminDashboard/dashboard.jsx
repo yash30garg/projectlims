@@ -11,6 +11,7 @@ class DashBoard extends Component {
     state =
     {
         output: [],
+        display: [],
     }
     componentDidMount() {
         axios.get('https://api.myjson.com/bins/ds48n')
@@ -18,9 +19,9 @@ class DashBoard extends Component {
                 this.setState({ output: res.data });
             })
 
-                    axios.get('https://api.myjson.com/bins/ds48n')
+                    axios.get('https://api.myjson.com/bins/12cnoj')
             .then(res => {
-                this.setState({ output: res.data });
+                this.setState({ display: res.data });
             })
     }
 
