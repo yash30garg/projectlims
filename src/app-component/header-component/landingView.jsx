@@ -7,10 +7,7 @@ export const LandingView=()=>
     return(
         
                                         <div>
-                                        <ol className="breadcrumb" style={{backgroundColor : "#8a0051", color : "white"}}>
-                                            <li className="active jinx3" ><h5>Whats's New</h5></li>
-                                            
-                                        </ol>                                   
+                                  
                                 <div className="card" >
                                     <h5 className="card-header yoyo" style={{backgroundColor : "#8a0051", color : "white"}}>Top Rated Books</h5>
                                     <br />
