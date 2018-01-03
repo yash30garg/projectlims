@@ -20,7 +20,7 @@ class Footer extends Component {
 
                   <li class="widget-container widget_nav_menu">
 
-                    <h1 class="title-widget">Useful links</h1>
+                    <h1 class="title-widget" style={{textAlign :"left"}}>Useful links</h1>
 
                     <ul>
                       <li style={{ textAlign: "left" }}><a href="#"><i class="fa fa-angle-double-right"></i> About Us</a></li>
@@ -43,7 +43,7 @@ class Footer extends Component {
 
                   <li class="widget-container widget_nav_menu">
 
-                    <h1 class="title-widget">Useful links</h1>
+                    <h1 class="title-widget" style={{textAlign :"left"}}>Useful links</h1>
 
                     <ul>
 
@@ -72,7 +72,7 @@ class Footer extends Component {
 
                   <li class="widget-container widget_recent_news">
 
-                    <h1 class="title-widget" >Contact Detail </h1>
+                    <h1 class="title-widget" style={{textAlign :"left"}}>Contact Detail </h1>
 
                     <div class="footerp">
 
@@ -97,7 +97,7 @@ class Footer extends Component {
 
                   <li class="widget-container widget_nav_menu">
 
-                    <h1 class="title-widget">Social Sites</h1>
+                    <h1 class="title-widget" style={{textAlign :"left"}}>Social Sites</h1>
 
                     <div class="social-icons">
 

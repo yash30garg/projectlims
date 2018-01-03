@@ -1,42 +1,17 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import './dashboard.css';
-import Footer from '../../../footer-component/footer.jsx';
+import './bookshow.css';
 import { Link } from 'react-router-dom';
-
+// import SearchResultsAdmin from '../../../search-component/SearchResults.jsx';
+import SearchAdmin from './searchadmin';
+// import './searchdis.css';
+import Footer from '../../../footer-component/footer.jsx';
 
 var count =0;
-class DashBoard extends Component {
-
-    state =
-    {
-        output: [],
-    }
-    componentDidMount() {
-        axios.get('https://api.myjson.com/bins/ds48n')
-            .then(res => {
-                this.setState({ output: res.data });
-            })
-    }
+class BookAdmin extends Component {
 
     render() {
-count =0;
-        const outputs = this.state.output.map((result) => {
-            count=count+1;
-           
-            return (
-                <tr>
-                    <td>{result.user.name}</td>
-                    <td>{result.user.email}</td>
-                    <td>{result.user.mid}</td>
-                    <td>{result.user.preferenece}</td>
-                </tr>
-
-            );
-        })
-       
-
-
+  
         return (
 
             <div>
@@ -49,15 +24,16 @@ count =0;
 
                     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                         <ul class="navbar-nav mr-auto">
+                            <Link to="/adminDash">
+                            <li class="nav-item ">
+                                <a class="nav-link" href="#">DashBoard </a>
+                            </li>
+                            </Link>
                             <li class="nav-item active">
-                                <a class="nav-link" href="#">DashBoard <span class="sr-only">(current)</span></a>
+                                <a class="nav-link" href="#">Books<span class="sr-only">(current)</span></a>
                             </li>
-                             <Link to="/adminbooks">
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Books</a>
-                            </li>
-                             </Link>
                             
+
                             <li class="nav-item">
                                 <a class="nav-link " href="#">Users</a>
                             </li>
@@ -89,7 +65,7 @@ count =0;
                     <div className="conatainer">
                         <div className="row">
                             <div className="col-md-10">
-                                <h1 className="dd" style={{textAlign : "left"}}><span className="fa fa-cog" aria-hidden="true"></span>DashBoard <small> Manage LiMS</small></h1>
+                                <h1 className="dd" style={{textAlign : "left"}}><span className="fa fa-cog" aria-hidden="true"></span>DashBoard <small> Manage Books</small></h1>
                             </div>
                             <div className="col-md-2">
 
@@ -160,92 +136,32 @@ count =0;
 
 
                                 <div className="card">
-                                    <h5 className="card-header">Library Overview</h5>
+                                    <h5 className="card-header">Books Overview</h5>
                                     <div className="card-body">
 
                                         <div className="row">
 
-                                            <div className="col-md-3">
+                                            <div className="col-md-12">
                                                 <div className="fu1">
-                                                    <div className="card">
-
-                                                        <div className="card-block">
-                                                            <h2><span className="fa fa-user" aria-hidden="true"></span> {count} </h2>
-                                                            <h4> Users </h4>
-                                                        </div>
-                                                    </div>
+                                                    <SearchAdmin />
+                                                  
                                                 </div>
                                             </div>
 
-                                            <div className="col-md-3">
-                                                <div className="fu">
-                                                    <div className="card">
-                                                        <div className="card-block">
-                                                            <h2><span className="fa fa-list" aria-hidden="true"></span> 23 </h2>
-                                                            <h4> Edits </h4>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                          
 
-                                            <div className="col-md-3">
-                                                <div className="fu">
-                                                    <div className="card">
-                                                        <div className="card-block">
-                                                            <h2><span className="fa fa-pencil" aria-hidden="true"></span> 100 </h2>
-                                                            <h4> Books </h4>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div className="col-md-3">
-                                                <div className="fu2">
-                                                    <div className="card">
-                                                        <div className="card-block">
-                                                            <h2><span className="fa fa-globe" aria-hidden="true"></span> 203 </h2>
-                                                            <h4> Visitors </h4>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                           
 
                                         </div>
                                     </div>
                                 </div>
 
-                                <div className="mana">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            Latest Users</div>
-                                        <div class="card-block">
-
-                                            <table class="table table-hover">
-                                                <thead>
-                                                    <tr>
-                                                        <th>User Name</th>
-                                                        <th>Email</th>
-                                                        <th>MID</th>
-                                                        <th>Preferenece(s)</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-
-                                                    {outputs}
-
-                                                </tbody>
-                                            </table>
-
-
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
                 </section>
                 <br /><br />
-                <Footer />
+                {/*<Footer />*/}
                 
             </div>
 
@@ -257,4 +173,4 @@ count =0;
 
 }
 
-export default DashBoard;
+export default BookAdmin;
