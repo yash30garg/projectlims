@@ -4,13 +4,13 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 // import { BrowserRouter, Route, Link } from 'react-router-dom';
 import 'rxjs/add/operator/filter';
-import SearchResults from '../search-component/SearchResults';
-import Footer from '../footer-component/footer'
-import './Search.css'
+import SearchResultsAdmin from './searchadmin.jsx';
+// import Footer from '../footer-component/footer'
+import './searchdis.css';
 var debounce = require('debounce');
 export var processedData = [];
 
-export default class Search extends Component {
+export default class SearchAdmin extends Component {
     constructor() {
         super();
         this.state = {
@@ -227,13 +227,8 @@ export default class Search extends Component {
     render() {
         return (
             <div>
-                <nav className="navbar navbar-toggleable-md navbar-light bg-faded">
-                    <a ><img
-                        className="App-logo"
-                        src={"https://www.mindtree.com/themes/custom/mindtree_theme/logo.svg"}
-                        alt="My logo"
-                        align="left" /></a>
-                    <a className="navbar-brand" href="#">Mindtree Library</a>
+                
+                    
                     <form onSubmit={this.search}>
                         <div className="col-lg-9">
                             <div className="row offset-md-3">
@@ -256,9 +251,9 @@ export default class Search extends Component {
                     </form>
                     {/*<a className="close"><label id="close" onClick={this.back}><h4>x</h4></label></a>*/}
                     <a className="close"><button className="btn btn-outline-primary" onClick={this.back}>back</button></a>
-                </nav>
+        
                 <div className="content">
-                    <SearchResults result={this.state.sortedData} />
+                    <SearchResultsAdmin result={this.state.sortedData} />
                 </div>
             </div>
 
