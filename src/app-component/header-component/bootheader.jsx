@@ -5,6 +5,9 @@ import Footer from '../footer-component/footer.jsx';
 import Header from './header.jsx';
 import Pbooks from '../main-component/admin-component/PreferredBooks/PrefferdBooks.jsx';
 import BorrowedSlider from '../main-component/user-component/borrowedBooks/borrowedSlider.jsx';
+import Search from '../search-component/Search.jsx';
+// import SearchResults from '../search-component/SearchResults.jsx';
+
 var count = 0;
 class BootHeader extends Component {
 
@@ -132,7 +135,6 @@ class BootHeader extends Component {
                             </div>
 
                             <div className="col-md-9">
-
                                 <ol
                                     className="breadcrumb"
                                     style={{
@@ -145,15 +147,23 @@ class BootHeader extends Component {
 
                                 </ol>
 
-                                <div className="card">
-                                    <h5
-                                        className="card-header yoyo"
-                                        style={{
-                                        backgroundColor: "#8a0051",
-                                        color: "white"
-                                    }}>Top Rated Books</h5>
-                                    <br/>
-                                    <Pbooks/>
+                                        {/*<ol className="breadcrumb" style={{backgroundColor : "#8a0051", color : "white"}}>
+                                            <li className="active jinx3" ><h5>What's New</h5></li>
+                                            
+                                        </ol>*/}
+
+                                         <div className="card" >
+                                    <h5 className="card-header yoyo" style={{backgroundColor : "#8a0051", color : "white"}}>Search Results</h5>
+                                    <br />
+                                   <Search />
+                                </div>
+                                    
+                              
+
+                                <div className="card" >
+                                    <h5 className="card-header yoyo" style={{backgroundColor : "#8a0051", color : "white"}}>Top Rated Books</h5>
+                                    <br />
+                                   <Pbooks />
                                 </div>
 
                                 <div className="mana">

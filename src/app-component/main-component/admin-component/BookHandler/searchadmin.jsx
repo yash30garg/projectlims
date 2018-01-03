@@ -4,9 +4,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 // import { BrowserRouter, Route, Link } from 'react-router-dom';
 import 'rxjs/add/operator/filter';
-import SearchResults from '../search-component/SearchResults';
-import Footer from '../footer-component/footer'
-import './Search.css'
+import SearchResultsAdmin from './searchresultsadmin';
 
 var debounce = require('debounce');
 export var processedData = [];
@@ -254,7 +252,7 @@ export default class SearchAdmin extends Component {
                     {/*<a className="close"><button className="btn btn-outline-primary" onClick={this.back}>back</button></a>*/}
         
                 <div className="content">
-                    <SearchResults result={this.state.sortedData} />
+                    <SearchResultsAdmin result={this.state.sortedData} />
                 </div>
             </div>
 
