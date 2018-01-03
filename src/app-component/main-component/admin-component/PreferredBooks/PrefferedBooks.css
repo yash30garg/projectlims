@@ -93,9 +93,8 @@
         width: 100%;
     }
 }
-<<<<<<< HEAD
 
-=======
+
 .arrowLeft
 {
   border: solid black;
@@ -114,5 +113,4 @@
     transform: rotate(-45deg);
     -webkit-transform: rotate(-45deg);
 }
->>>>>>> f0cacaf04b890baa072ab2970f0ddab7386fa1fc
 
