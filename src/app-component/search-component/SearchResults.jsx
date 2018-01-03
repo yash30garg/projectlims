@@ -58,7 +58,7 @@ class SearchResults extends Component
             book=res;
             return (
                 <div className="col-md-4 my-5">
-                    <Link to="/results/details">
+                    {/*<Link to="/results/details">*/}
                     
                         <div
                             id={res.isbn}
@@ -117,7 +117,7 @@ class SearchResults extends Component
                             <button class="btn mt-4" style={{backgroundColor:'white', color:'rgb(96, 0, 58)'}} onClick={this.request}><b>Request Book</b></button>*/}
                             </div>
                         </div>
-                    </Link>
+                    {/*</Link>*/}
                 </div>
             )
         });
