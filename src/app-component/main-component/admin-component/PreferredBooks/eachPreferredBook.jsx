@@ -8,13 +8,14 @@ class EachPrefferedCard extends Component{
             btnText:"REQUEST BOOK"
 
         }
+        this.request = this.request.bind(this)
     }
-    //     request() {
+        request() {
 
            
-    //         this.setState({btnText:"REQUESTED"});
+            this.setState({btnText:"REQUESTED"});
 
-    // }
+    }
     render()
     {
     return (
@@ -57,7 +58,7 @@ class EachPrefferedCard extends Component{
                                 }}></span>
                         })}
                         <button
-                            class="btn mt-5"
+                            class="btn btn-block mt-3"
                             style={{
                             backgroundColor: 'white',
                             color: 'rgb(96, 0, 58)'
