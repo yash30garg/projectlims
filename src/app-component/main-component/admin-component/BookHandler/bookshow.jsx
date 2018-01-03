@@ -30,11 +30,9 @@ class BookAdmin extends Component {
                             </li>
                             </Link>
                             <li class="nav-item active">
-                                <a class="nav-link" href="#">Pages<span class="sr-only">(current)</span></a>
+                                <a class="nav-link" href="#">Books<span class="sr-only">(current)</span></a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link " href="#">Books</a>
-                            </li>
+                            
 
                             <li class="nav-item">
                                 <a class="nav-link " href="#">Users</a>
