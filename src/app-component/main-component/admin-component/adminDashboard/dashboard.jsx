@@ -17,6 +17,11 @@ class DashBoard extends Component {
             .then(res => {
                 this.setState({ output: res.data });
             })
+
+                    axios.get('https://api.myjson.com/bins/ds48n')
+            .then(res => {
+                this.setState({ output: res.data });
+            })
     }
 
     render() {
