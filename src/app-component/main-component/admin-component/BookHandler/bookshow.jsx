@@ -143,7 +143,7 @@ class BookAdmin extends Component {
 
                                         <div className="row">
 
-                                            <div className="col-md-3">
+                                            <div className="col-md-12">
                                                 <div className="fu1">
                                                     <SearchAdmin />
                                                   

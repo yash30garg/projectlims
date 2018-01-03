@@ -5,8 +5,7 @@ import 'rxjs/add/operator/catch';
 // import { BrowserRouter, Route, Link } from 'react-router-dom';
 import 'rxjs/add/operator/filter';
 import SearchResultsAdmin from './searchresultsadmin';
-// import Footer from '../footer-component/footer'
-import './searchdis.css';
+
 var debounce = require('debounce');
 export var processedData = [];
 
@@ -234,7 +233,7 @@ export default class SearchAdmin extends Component {
                             <div className="row offset-md-3">
                                 <div className="input-group">
 
-                                    <input type="text" id="search" className="form-control" size="800" style={{ alignSelf: "center" }} placeholder="Search for..." onKeyUp={debounce(this.search, 700)} autoFocus />
+                                    <input type="text" id="search" className="form-control" size="50000" style={{ alignSelf: "center" }} placeholder="Search for..." onKeyUp={debounce(this.search, 700)} />
                                     <span className="input-group-btn">
 
                                         <button type="submit" className="btn btn-outline-secondary" onKeyPress={event => {
@@ -250,7 +249,7 @@ export default class SearchAdmin extends Component {
                         </div>
                     </form>
                     {/*<a className="close"><label id="close" onClick={this.back}><h4>x</h4></label></a>*/}
-                    <a className="close"><button className="btn btn-outline-primary" onClick={this.back}>back</button></a>
+                    {/*<a className="close"><button className="btn btn-outline-primary" onClick={this.back}>back</button></a>*/}
         
                 <div className="content">
                     <SearchResultsAdmin result={this.state.sortedData} />

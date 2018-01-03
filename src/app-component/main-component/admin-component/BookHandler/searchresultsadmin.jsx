@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import {processedData} from './searchadmin.jsx';
 import $ from 'jquery';
 import axios from 'axios';
-import './searchdis.css';
+// import './searchdis.css';
+
 let users,
     books;
 class SearchResultsAdmin extends Component
