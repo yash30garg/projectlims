@@ -16,12 +16,13 @@ class SearchResults extends Component
     componentDidMount()
     {
         axios
-            .get('https://api.myjson.com/bins/15iomb')
+            .get('https://api.myjson.com/bins/14x90j')
             .then(res => {
                 this.setState({output: res.data});
                 users = this.state.output;
-                // const b = users.filter((res) => res.user.mid === "1042948")
-                // books = b[0].userBooks.length;
+                console.log(users)
+                const b = users.filter((res) => res.user.mid === "1042948")
+                books = b[0].borrowedbooks.length;
             });
     }
     /*openModal=(arg)=>
@@ -44,7 +45,7 @@ class SearchResults extends Component
         }
     }*/
     request() {
-        if (books < 6) {
+        if (books < 4) {
             books++;
             alert("The Requested Book has been allotted to you..Please Collect It from the Library");
         } else {
