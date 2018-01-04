@@ -5,15 +5,15 @@ import $ from 'jquery';
 {
     return(    
             <div
-                className="card-img my-2 mx-auto particular"
+                className="card-img my-1 mx-auto particular"
                 id={props.data.isbn}
                 style={{
-                width: '240px'
+                width: '190px'
             }}>
                 <img
                     className="mx-auto"
                     src={props.data.details.url}
-                    height="290px"
+                    height="210px"
                     width="100%"/>
                 <div className="overlay">
                     <div className="text container-fluid">

@@ -15,9 +15,11 @@ var count = 0;
 class BootHeader extends Component {
 
     state = {
-        display: [],
-        showLanding: true,
-        currentlyClicked: ""
+        display:[],
+        showLanding:true,
+        currentlyClicked:"",
+        categoryClicked:false
+
     }
     componentDidMount() {
         axios
@@ -27,10 +29,20 @@ class BootHeader extends Component {
                 console.log(this.state.display);
             })
     }
-    openCategory = (arg) => {
-        console.log(arg);
-        this.setState({showLanding: false, currentlyClicked: arg});
-    }
+
+   openCategory=(arg)=>
+   {
+     console.log(arg);
+     this.setState({showLanding:false,
+     currentlyClicked:arg,
+     categoryClicked:true});
+   }
+   openBorrowedBooks=()=>
+   {
+     this.setState({showLanding:false,
+     categoryClicked:false});
+   }
+
 
     render() {
 
@@ -62,7 +74,34 @@ class BootHeader extends Component {
                         <div className="row">
                             <div className="col-md-3">
 
-                                <div className="list-group">
+                                    <div className="list-group">
+                                    <a                    
+                                        className="list-group-item collor"
+                                        style={{
+                                        backgroundColor: "#8a0051",
+                                        color: "white"
+                                    }}>
+                                        <span className="fa fa-cog" aria-hidden="true"></span>
+                                        My Books</a>
+
+                                        <a onClick={this.openBorrowedBooks} class="list-group-item  list-group-item-action">
+                                        <span class="fa fa-asterisk" aria-hidden="true"></span>Borrowed Books
+                                         <div className="all">
+                                        
+                                        <span className="badge badge-pill badge-warning ml-1">{this.state.display.filter(r=>r.details.category.toLowerCase()=="das").length}</span>
+                                        </div>
+                                    </a>
+
+                                        <a class="list-group-item  list-group-item-action">
+                                        <span class="fa fa-asterisk" aria-hidden="true"></span>Requested Books
+                                         <div className="all" >
+                                        
+                                        <span className="badge badge-pill badge-warning ml-1">0</span>
+                                        </div>
+                                    </a>
+                                    </div>
+
+                                <div className="list-group mt-4">
                                     <a
                                         className="list-group-item collor"
                                         style={{
@@ -149,14 +188,14 @@ class BootHeader extends Component {
                                     {/*<a href="#" class="list-group-item list-group-item-action disabled">Vestibulum at eros</a>*/}
                                 </div>
 
-                                <br/>
 
                             </div>
 
                             <div className="col-md-9">
-                                {this.state.showLanding
-                                    ? <LandingView/>
-                                    : <Category data={this.state.display} selected={this.state.currentlyClicked}/>}
+                            {this.state.showLanding?<LandingView/>:this.state.categoryClicked?<Category data={this.state.display} selected={this.state.currentlyClicked}/>:<BorrowedSlider/>}
+
+                              
+
                             </div>
                         </div>
                     </div>

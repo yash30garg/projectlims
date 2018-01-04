@@ -6,7 +6,7 @@ return(
     <div className="row">
         {props.list.map(each =>{
             return (
-                <div className="col-md-6 col-sm-12 col-lg-4">
+                <div className="col-md-6 col-sm-12 col-lg-3">
                 <Cards key={each.isbn} data={each} />
                 </div>
                 )
