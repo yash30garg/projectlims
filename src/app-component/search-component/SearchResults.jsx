@@ -57,21 +57,21 @@ class SearchResults extends Component
         let x = 0;;
         const a = processedData.map(res => {
             return (
-                <div className="col-md-4 my-5">
+                <div className="col-2 mt-4">
                     <Link to="/search/details">
                     
                         <div
                             id={res.isbn}
                             className="card particular"
                             style={{
-                            width: '20rem',
+                            width: '13rem',
                             paddingBottom: '0px'
                         }}>
                             <img
                                 className="card-img-top"
                                 src={res.details.url}
                                 alt="not available"
-                                height="300vh"/>
+                                height="200vh"/>
                             <div className="overlay">
                                 <div className="text container-fluid">
                                     {res.details.title}<br/>
@@ -79,20 +79,22 @@ class SearchResults extends Component
                                     Category: {res.details.category}<br/> {[1, 2, 3, 4, 5].map(d => {
                                         if (res.details.rating >= d) 
                                             return <span
-                                                class="fa fa-star"
+                                                class="fa fa-star mt-1"
                                                 style={{
-                                                color: 'white'
+                                                color: '#FFD700',
+                                                fontSize:'13px'
                                             }}></span>
                                         else 
                                             return <span
-                                                class="fa fa-star"
+                                                class="fa fa-star mt-1"
                                                 style={{
-                                                color: 'black'
+                                                color: 'black',
+                                                fontSize:'13px'
                                             }}></span>
                                     })}
                                     <br/>
                                     <button
-                                        class="btn mt-5"
+                                        class="btn mt-3"
                                         style={{
                                         backgroundColor: 'white',
                                         color: 'rgb(96, 0, 58)'
