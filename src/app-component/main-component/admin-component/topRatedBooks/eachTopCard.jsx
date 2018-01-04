@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
+import React,{Component} from 'react';
 
-class EachPrefferedCard extends Component{
+export class EachTopCard extends Component{
     constructor(props)
     {
         super(props);
@@ -10,27 +10,28 @@ class EachPrefferedCard extends Component{
         }
         this.request = this.request.bind(this)
     }
+        
         request() {
 
            
             this.setState({btnText:"REQUESTED"});
 
     }
-    render()
-    {
-    return (
+
+    render(){
+    return(
         <div
             className="mx-auto col-lg-2 col-md-4 col-sm-6 col-xs-12">
             <div
                 className="card-img particular mx-auto"
                 id={this.props.isbn}
                 style={{
-                width: '180px'
+                width: '150px'
             }}>
                 <img
                     className="mx-auto"
                     src={this.props.item.details.url}
-                    height="210px"
+                    height="180px"
                     width="100%"/>
                 <div className="overlay">
                     <div className="text container-fluid">
@@ -38,15 +39,13 @@ class EachPrefferedCard extends Component{
                         <b>Author :
                         </b>
                         {this.props.item.details.author}<br/>
-                        <b>Category :
-                        </b>
-                        {this.props.item.details.category}<br/> {[1, 2, 3, 4, 5].map(d => {
+                         {[1, 2, 3, 4, 5].map(d => {
                             if (this.props.item.details.rating >= d) 
                                 return <span
                                     class="fa fa-star"
                                     style={{
                                     color: '#ffd700',
-                                    fontSize:'11px'
+                                    fontSize:'5px'
 
                                 }}></span>
                             else 
@@ -54,23 +53,23 @@ class EachPrefferedCard extends Component{
                                     class="fa fa-star"
                                     style={{
                                     color: 'black',
-                                    fontSize:'11px'
+                                    fontSize:'5px'
                                 }}></span>
                         })}
                         <button
-                            class="btn btn-block mt-3"
+                            class="btn btn-sm mt-3"
                             style={{
                             backgroundColor: 'white',
-                            color: 'rgb(96, 0, 58)'
+                            color: 'rgb(96, 0, 58)',
                         }}
                             onClick={this.request}>
-                            <b>{this.state.btnText}</b>
+                            <b style={{fontSize:'12px'}}>{this.state.btnText}</b>
                         </button>
                     </div>
                 </div>
             </div>
         </div>
-    );
+    )
     }
 }
-export default EachPrefferedCard;
+export default EachTopCard;

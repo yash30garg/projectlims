@@ -37,14 +37,14 @@ export const Category=(props)=>
                                     class="fa fa-star"
                                     style={{
                                     color: '#ffd700',
-                                    fontSize:'13px'
+                                    fontSize:'10px'
                                 }}></span>
                             else 
                                 return <span
                                     className="fa fa-star"
                                     style={{
                                     color: 'black',
-                                    fontSize:'13px'
+                                    fontSize:'10px'
                                 }}></span>
                         })}
                         <button

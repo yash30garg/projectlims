@@ -50,7 +50,7 @@ class PBooks extends Component {
                 .state
                 .display
                 .filter((res) => res.details.rating >= 1 && (res.details.category == "Javascript" || res.details.category == "javascript"));
-            s1 = <div className="carousel-item row">
+            s1 = <div className="carousel-item">
                 {b
                     .slice(0, 6)
                     .map((r) => {

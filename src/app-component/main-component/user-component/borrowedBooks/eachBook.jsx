@@ -5,7 +5,7 @@ import $ from 'jquery';
 {
     return(    
             <div
-                className="card-img my-1 mx-auto particular"
+                className="card-img mx-auto particular"
                 id={props.data.isbn}
                 style={{
                 width: '180px'
