@@ -91,7 +91,7 @@ class Header extends Component {
           </div>
           
         </nav>
-         <SearchBar />
+
 
       </div>
 
