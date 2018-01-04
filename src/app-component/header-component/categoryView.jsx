@@ -6,17 +6,17 @@ export const Category=(props)=>
     let b=props.data.filter(r=>r.details.category.toLowerCase()==props.selected.toLowerCase()).map(res=>{
         return(
                     <div
-            className="mx-auto col-lg-2 col-md-4 col-sm-4 col-xs-4 my-4">
+            className="mx-auto col-lg-4 col-md-6 col-sm-6 col-xs-6 my-5">
         <div
                 className="card-img particular mx-auto"
                 id={res.isbn}
                 style={{
-                width: '180px'
+                width: '240px'
             }}>
                 <img
                     className="mx-auto"
                     src={res.details.url}
-                    height="240px"
+                    height="290px"
                     width="100%"/>
                      <div className="overlay">
                     <div className="text container-fluid">
