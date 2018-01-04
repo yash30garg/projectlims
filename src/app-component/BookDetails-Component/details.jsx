@@ -9,6 +9,7 @@ class Details extends Component {
         return (
             <div className="card m-5 container-fluid">
                 <h1>
+                
                     <u>
                         {book.details.title}
                     </u>

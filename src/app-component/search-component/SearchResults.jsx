@@ -79,14 +79,14 @@ class SearchResults extends Component
                                     Category: {res.details.category}<br/> {[1, 2, 3, 4, 5].map(d => {
                                         if (res.details.rating >= d) 
                                             return <span
-                                                class="fa fa-star mt-1"
+                                                className="fa fa-star mt-1"
                                                 style={{
                                                 color: '#FFD700',
                                                 fontSize:'13px'
                                             }}></span>
                                         else 
                                             return <span
-                                                class="fa fa-star mt-1"
+                                                className="fa fa-star mt-1"
                                                 style={{
                                                 color: 'black',
                                                 fontSize:'13px'
@@ -94,7 +94,7 @@ class SearchResults extends Component
                                     })}
                                     <br/>
                                     <button
-                                        class="btn mt-3"
+                                        className="btn mt-3"
                                         style={{
                                         backgroundColor: 'white',
                                         color: 'rgb(96, 0, 58)'
