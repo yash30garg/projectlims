@@ -8,7 +8,7 @@ import $ from 'jquery';
                 className="card-img my-1 mx-auto particular"
                 id={props.data.isbn}
                 style={{
-                width: '190px'
+                width: '180px'
             }}>
                 <img
                     className="mx-auto"
