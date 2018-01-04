@@ -92,9 +92,7 @@ class PBooks extends Component {
                     data-ride="carousel">
 
                     <div
-                        style={{
-                        height: '300px'
-                    }}
+
                         class="carousel-inner"
                         role="listbox">
                         <div class="carousel-inner" role="listbox">
@@ -102,14 +100,11 @@ class PBooks extends Component {
                             <div class="carousel-cell">
                                 <div class="carousel-item active">
                                     <img
-                                        className="d-block activeImage"
-                                        id="imga"
-                                        style={{
-                                        margin: 'auto'
-                                    }}
+                                        className="d-block activeImage mx-auto"
+
                                         alt="First slide"
-                                        height="300"
-                                        width="700"src="http://bookloverbookreviews.dhvdjqudnc8k2lygmnqz.maxcdn-edge.com/wp-content/uploads/2017/07/BEST-BOOKS-of-2017-so-far.png"/>
+                                        height="212"
+                                        width="500"src="http://bookloverbookreviews.dhvdjqudnc8k2lygmnqz.maxcdn-edge.com/wp-content/uploads/2017/07/BEST-BOOKS-of-2017-so-far.png"/>
                                 </div>
                                 {s1}
                                 {s2}
