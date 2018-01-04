@@ -16,12 +16,12 @@ class SearchResults extends Component
     componentDidMount()
     {
         axios
-            .get('https://api.myjson.com/bins/ds48n')
+            .get('https://api.myjson.com/bins/15iomb')
             .then(res => {
                 this.setState({output: res.data});
                 users = this.state.output;
-                const b = users.filter((res) => res.user.mid === "1042948")
-                books = b[0].userBooks.length
+                // const b = users.filter((res) => res.user.mid === "1042948")
+                // books = b[0].userBooks.length;
             });
     }
     /*openModal=(arg)=>

@@ -6,7 +6,7 @@ import $ from 'jquery';
     return(    
     <div className="card" style={{ width: '20rem', paddingBottom : "0px" }}>
 
-      <img  className="card-img-top" src={require("../../../../Assets/Images/loginBackground.jpg")} alt="not available" height="200px"/>
+      <img  className="card-img-top" src={props.data.details.url} alt="not available" height="200px"/>
 
     
     <div className="card-block text-block">

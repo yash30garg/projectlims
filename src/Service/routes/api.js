@@ -53,7 +53,8 @@ const ObjectID = require('mongodb').ObjectID;
 
 // Connect
 const connection = (closure) => {
-    return MongoClient.connect('mongodb://mongosql.westus2.cloudapp.azure.com', (err, db) => {
+    // return MongoClient.connect('mongodb://mongosql.westus2.cloudapp.azure.com', (err, db) => {
+    return MongoClient.connect('mongodb://localhost:27017', (err, db) => {        
         if (err) return console.log(err);
 
         closure(db);
@@ -75,14 +76,34 @@ let response = {
 };
 
 // Get users
-router.get('/UsersInfo', (req, res) => {
-    MongoClient.connect('mongodb://mongosql.westus2.cloudapp.azure.com', (err, client) => {
-        var db=client.db('lims')
-        db.collection('UsersInfo')
+router.get('/users', (req, res) => {
+    // MongoClient.connect('mongodb://mongosql.westus2.cloudapp.azure.com', (err, client) => {
+    MongoClient.connect('mongodb://localhost:27017', (err, client) => {
+        
+        var db=client.db('node-demo')
+        db.collection('users')
             .find()
             .toArray()
-            .then((UsersInfo) => {
-                response.data = UsersInfo;
+            .then((users) => {
+                response.data = users;
+                res.json(response);
+            })
+            .catch((err) => {
+                sendError(err, res);
+            });
+    });
+});
+
+router.get('/books', (req, res) => {
+    // MongoClient.connect('mongodb://mongosql.westus2.cloudapp.azure.com', (err, client) => {
+    MongoClient.connect('mongodb://localhost:27017', (err, client) => {
+        
+        var db=client.db('node-demo')
+        db.collection('books')
+            .find()
+            .toArray()
+            .then((books) => {
+                response.data = books;
                 res.json(response);
             })
             .catch((err) => {
