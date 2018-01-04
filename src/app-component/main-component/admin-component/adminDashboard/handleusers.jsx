@@ -1,63 +1,43 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import './dashboard.css';
+// import './bookshow.css';
+import { Link } from 'react-router-dom';
+// import SearchResultsAdmin from '../../../search-component/SearchResults.jsx';
+// import SearchAdmin from './searchadmin';
+// import './searchdis.css';
 import Footer from '../../../footer-component/footer.jsx';
-var count = 0;
-class DashBoard extends Component {
 
-    state =
-    {
-        output: [],
-    }
-    componentDidMount() {
-        axios.get('https://api.myjson.com/bins/ds48n')
-            .then(res => {
-                this.setState({ output: res.data });
-            })
-    }
+var count =0;
+class HandleUsers extends Component {
 
     render() {
-
-        const outputs = this.state.output.map((result) => {
-            count = count + 1;
-
-            return (
-                <tr>
-                    <td>{result.user.name}</td>
-                    <td>{result.user.email}</td>
-                    <td>{result.user.mid}</td>
-                    <td>{result.user.preferenece}</td>
-                </tr>
-
-            );
-        })
-
-
-
+  
         return (
 
             <div>
 
                 <nav class="navbar navbar-toggleable-md navbar-default">
-                    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
+                    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation"   >
+                        <span class="navbar-toggler-icon"  style={{backgroundColor : "black"}}></span>
                     </button>
                     <a class="navbar-brand" href="#">Admin Strap</a>
 
                     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                         <ul class="navbar-nav mr-auto">
+                            <Link to="/adminDash">
                             <li class="nav-item ">
-                                <a class="nav-link" href="#">DashBoard <span class="sr-only">(current)</span></a>
+                                <a class="nav-link" href="#">DashBoard </a>
                             </li>
-                            <li class="nav-item active">
-                                <a class="nav-link" href="#">Pages</a>
+                            </Link>
+                            <Link to="/adminbooks">
+                            <li class="nav-item ">
+                                <a class="nav-link" href="#">Books</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link " href="#">Books</a>
-                            </li>
+                            </Link>
+                            
 
-                            <li class="nav-item">
-                                <a class="nav-link " href="#">Users</a>
+                            <li class="nav-item active">
+                                <a class="nav-link " href="#">Users<span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
@@ -87,12 +67,12 @@ class DashBoard extends Component {
                     <div className="conatainer">
                         <div className="row">
                             <div className="col-md-10">
-                                <h1 className="dd"><span className="fa fa-cog" aria-hidden="true"></span>Pages <small> Manage Site Page</small></h1>
+                                <h1 className="dd" style={{textAlign : "left"}}><span className="fa fa-cog" aria-hidden="true"></span>DashBoard <small> Manage Books</small></h1>
                             </div>
                             <div className="col-md-2">
 
-                                <div class="dropdown create">
-                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <div className="dropdown create">
+                                    <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Create Content <span className="caret" /></button>
 
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -111,9 +91,7 @@ class DashBoard extends Component {
                 <section id="breadcrumb">
                     <div className="container-fluid">
                         <ol className="breadcrumb">
-                            {/*<link to>*/}
-                            <li><a href="dashboard.jsx">DashBoard</a>
-                                <li className="active">Books</li></li>
+                            <li className="active" style={{color : "black", fontSize:"20px"}}><b>DashBoard</b></li>
                         </ol>
                     </div>
                 </section>
@@ -126,9 +104,9 @@ class DashBoard extends Component {
                                 <div className="list-group">
                                     <a href="#" class="list-group-item active">
                                         <span class="fa fa-cog" aria-hidden="true" ></span>  DashBoard</a>
-                                    <a href="#" class="list-group-item  list-group-item-action"> <span class="fa fa-list-alt" aria-hidden="true"></span>Total Books<span class="badge  badge-pill badge-warning">100</span></a>
-                                    <a href="#" class="list-group-item  list-group-item-action"> <span class="fa fa-pencil" aria-hidden="true"></span>Books available<span className="badge badge-pill badge-warning">75</span></a>
-                                    <a href="#" class="list-group-item  list-group-item-action"> <span class="fa fa-user" aria-hidden="true"></span>Users<span className="badge badge-pill badge-warning">{count}</span></a>
+                                    <a href="#" class="list-group-item  list-group-item-action"> <span class="fa fa-list-alt" aria-hidden="true"></span>Total Books<div className='mov' style={{paddingRight : "170px"}} /><span class="badge  badge-pill badge-warning">100</span></a>
+                                    <a href="#" class="list-group-item  list-group-item-action"> <span class="fa fa-pencil" aria-hidden="true"></span>Books available<div className='mov' style={{paddingRight : "150px"}} /><span className="badge badge-pill badge-warning">75</span></a>
+                                    <a href="#" class="list-group-item  list-group-item-action"> <span class="fa fa-user" aria-hidden="true"></span>Users<div className='mov' style={{paddingRight : "227px"}} /><span className="badge badge-pill badge-warning mov">{count}</span></a>
                                     {/*<a href="#" class="list-group-item list-group-item-action disabled">Vestibulum at eros</a>*/}
                                 </div>
 
@@ -160,54 +138,41 @@ class DashBoard extends Component {
 
 
                                 <div className="card">
-                                    <h5 className="card-header">Books</h5>
+                                    <h5 className="card-header">Users Overview</h5>
                                     <div className="card-body">
 
                                         <div className="row">
+
                                             <div className="col-md-12">
-                                                <input className="form-control" type="text" placeholder="filter Books ..." />
+                                                <div className="fu1">
+                                                    {/*<SearchAdmin />*/}
+                                                  
+                                                </div>
                                             </div>
+
+                                          
+
+                                           
+
                                         </div>
-
-                                        <table class="table table-hover">
-                                            
-                                                <tr>
-                                                    <th>Title</th>
-                                                    <th>Published</th>
-                                                    <th>Created</th>
-                                                    
-                                                </tr>
-                                            <tr></tr>
-                                            <tr></tr>
-                                            <tr></tr>
-                                            <tr></tr>
-                                            
-
-                                            
-                                            
-
-                                                
-
-                                            
-                                        </table>
-
                                     </div>
                                 </div>
-
 
                             </div>
                         </div>
                     </div>
                 </section>
-
+                <br /><br />
                 <Footer />
+                
             </div>
 
 
         )
-
+        
     }
+    
 
 }
 
-export default DashBoard;
+export default HandleUsers;

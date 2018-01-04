@@ -33,10 +33,11 @@ class BookAdmin extends Component {
                                 <a class="nav-link" href="#">Books<span class="sr-only">(current)</span></a>
                             </li>
                             
-
+                            <Link to="/handleusers">
                             <li class="nav-item">
                                 <a class="nav-link " href="#">Users</a>
                             </li>
+                            </Link>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
                                 <div class="dropdown-menu" aria-labelledby="dropdown01">

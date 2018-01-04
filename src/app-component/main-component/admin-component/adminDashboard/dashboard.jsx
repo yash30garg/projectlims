@@ -78,10 +78,12 @@ class DashBoard extends Component {
                                     <a class="nav-link" href="#">Books</a>
                                 </li>
                             </Link>
-
+                            <Link to="/handleusers">
                             <li class="nav-item">
                                 <a class="nav-link " href="#">Users</a>
                             </li>
+                            </Link>
+                            
                             <li class="nav-item dropdown">
                                 <a
                                     class="nav-link dropdown-toggle"
