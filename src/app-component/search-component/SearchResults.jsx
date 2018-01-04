@@ -58,7 +58,7 @@ class SearchResults extends Component
         const a = processedData.map(res => {
             return (
                 <div className="col-2 mt-4">
-                    <Link to="/search/details">
+                    {/*<Link to="/search/details">*/}
                     
                         <div
                             id={res.isbn}
@@ -119,7 +119,7 @@ class SearchResults extends Component
                             <button class="btn mt-4" style={{backgroundColor:'white', color:'rgb(96, 0, 58)'}} onClick={this.request}><b>Request Book</b></button>*/}
                             </div>
                         </div>
-                    </Link>
+                    {/*</Link>*/}
                 </div>
             )
         });
