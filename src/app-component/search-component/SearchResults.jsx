@@ -86,7 +86,7 @@ class SearchResults extends Component
                                             }}></span>
                                         else 
                                             return <span
-                                                class="fa fa-star mt-1"
+                                                className="fa fa-star mt-1"
                                                 style={{
                                                 color: 'black',
                                                 fontSize:'13px'
@@ -94,7 +94,7 @@ class SearchResults extends Component
                                     })}
                                     <br/>
                                     <button
-                                        class="btn mt-3"
+                                        className="btn mt-3"
                                         style={{
                                         backgroundColor: 'white',
                                         color: 'rgb(96, 0, 58)'

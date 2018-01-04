@@ -6,7 +6,7 @@ class SearchBar extends Component {
   render() {
 
     return (
-<header class="nav-locale-us nav-lang-en nav-ssl nav-rec nav-w1000 nav-w1170 nav-w1290 nav-w1440" id="HEADER_62"><div id="DIV_63" role="navigation" class="nav-sprite-v3 nav-subnav"><div id="DIV_64"><div class="nav-fill" id="DIV_1">
+<header className="nav-locale-us nav-lang-en nav-ssl nav-rec nav-w1000 nav-w1170 nav-w1290 nav-w1440" id="HEADER_62"><div id="DIV_63" role="navigation" className="nav-sprite-v3 nav-subnav"><div id="DIV_64"><div className="nav-fill" id="DIV_1">
         
 
 <label id="LABEL_2" for="twotabsearchtextbox">
@@ -14,18 +14,18 @@ class SearchBar extends Component {
 </label>
 <div id="DIV_3">
   <div id="DIV_4"></div>
-  <form accept-charset="utf-8" action="/s/ref=nav_search_go" class="nav-searchbar" method="GET" name="site-search" role="search" id="FORM_5">
+  <form accept-charset="utf-8" action="/s/ref=nav_search_go" className="nav-searchbar" method="GET" name="site-search" role="search" id="FORM_5">
     
-    <div class="nav-left" id="DIV_6">
-      <div class="nav-search-scope" id="DIV_7">
+    <div className="nav-left" id="DIV_6">
+      <div className="nav-search-scope" id="DIV_7">
         
-<div class="nav-search-facade" data-value="search-alias=aps" id="DIV_8">
-  <span class="nav-search-label" id="SPAN_9">All</span>
-  <i class="nav-icon" id="I_10"></i>
+<div className="nav-search-facade" data-value="search-alias=aps" id="DIV_8">
+  <span className="nav-search-label" id="SPAN_9">All</span>
+  <i className="nav-icon" id="I_10"></i>
 </div>
 
         
-<select class="nav-search-dropdown searchSelect" data-nav-digest="PLWobzU+yaSSYg7adOgLcoK0H9Y" data-nav-selected="0" data-nav-tabindex="10" id="SELECT_11" name="url" title="Search in" tabindex="1">
+<select className="nav-search-dropdown searchSelect" data-nav-digest="PLWobzU+yaSSYg7adOgLcoK0H9Y" data-nav-selected="0" data-nav-tabindex="10" id="SELECT_11" name="url" title="Search in" tabindex="1">
 <option selected="selected" value="search-alias=aps" id="OPTION_12">All Departments</option>
 <option value="search-alias=instant-video" id="OPTION_13">Amazon Instant Video</option>
 <option value="search-alias=appliances" id="OPTION_14">Appliances</option>
@@ -73,15 +73,15 @@ class SearchBar extends Component {
 
       </div>
     </div>
-    <div class="nav-right" id="DIV_54">
-      <div class="nav-search-submit" id="DIV_55">
-        <span class="nav-search-submit-text" id="SPAN_56">Go</span>
-        <input type="submit" class="nav-input" value="Go" data-nav-tabindex="12" tabindex="1" id="INPUT_57"   />
+    <div className="nav-right" id="DIV_54">
+      <div className="nav-search-submit" id="DIV_55">
+        <span className="nav-search-submit-text" id="SPAN_56">Go</span>
+        <input type="submit" className="nav-input" value="Go" data-nav-tabindex="12" tabindex="1" id="INPUT_57"   />
       </div>
     </div>
-    <div class="nav-fill" id="DIV_58">
-      <div class="nav-search-field" id="DIV_59">
-        <input type="text" id="key" value="" name="field-keywords" autocomplete="off" class="nav-input" data-nav-tabindex="11" tabindex="1" />
+    <div className="nav-fill" id="DIV_58">
+      <div className="nav-search-field" id="DIV_59">
+        <input type="text" id="key" value="" name="field-keywords" autocomplete="off" className="nav-input" data-nav-tabindex="11" tabindex="1" />
       </div>
     </div>
     <div id="DIV_61"></div>
