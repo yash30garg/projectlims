@@ -20,20 +20,18 @@ class EachPrefferedCard extends Component{
     {
     return (
         <div
-            className="mx-auto col-lg-4 col-md-6 col-sm-6 col-xs-12"
-            style={{
-            margin: 'auto'
-        }}>
+            className="mx-auto col-lg-2 col-md-6 col-sm-6 col-xs-12"
+            >
             <div
                 className="card-img particular mx-auto"
                 id={this.props.isbn}
                 style={{
-                width: '240px'
+                width: '190px'
             }}>
                 <img
                     className="mx-auto"
                     src={this.props.item.details.url}
-                    height="290px"
+                    height="210px"
                     width="100%"/>
                 <div className="overlay">
                     <div className="text container-fluid">
@@ -48,7 +46,8 @@ class EachPrefferedCard extends Component{
                                 return <span
                                     class="fa fa-star"
                                     style={{
-                                    color: 'white'
+                                    color: '#ffd700'
+
                                 }}></span>
                             else 
                                 return <span
