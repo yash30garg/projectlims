@@ -56,7 +56,7 @@ class SearchResults extends Component
         let x = 0;;
         const a = processedData.map(res => {
             return (
-                <div className="col-md-4 my-5">
+                <div className="col-md-3 my-5">
                     <Link to="/results/details">
                     
                         <div
