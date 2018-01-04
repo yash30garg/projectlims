@@ -121,7 +121,7 @@ class BootHeader extends Component {
                                         Categories</a>
                                     <a href="#category" onClick={this.openCategory.bind(this,'Java')} className="list-group-item  list-group-item-action" >
                                         <span class="fa fa-asterisk" aria-hidden="true" ></span>Java
-                                        <div className="all" style={{paddingLeft : "228px"}}>
+                                        <div className="all" style={{paddingLeft : "234px"}}>
                                         <span class="badge  badge-pill badge-warning ml-1">{this.state.display.filter(r=>r.details.category.toLowerCase()=="java").length}</span>
                                         </div>
                                     </a>
@@ -201,7 +201,7 @@ class BootHeader extends Component {
                             </div>
 
                             <div className="col-md-9">
-                           {this.state.landingView && this.state.categoryClicked?<LandingView show={this.state.borrowedClicked}/>:<Category data={this.state.display} selected={this.state.currentlyClicked}/>}
+                           <a name="category"> {this.state.landingView && this.state.categoryClicked?<LandingView show={this.state.borrowedClicked}/>:<Category data={this.state.display} selected={this.state.currentlyClicked}/>}</a>
                            <a name="borrowed"> {this.state.borrowedClicked?<BorrowedSlider/>:null}</a>
                             </div>
                         </div>

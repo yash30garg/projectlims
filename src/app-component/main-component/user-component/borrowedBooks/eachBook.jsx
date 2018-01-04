@@ -8,12 +8,12 @@ import $ from 'jquery';
                 className="card-img mx-auto particular"
                 id={props.data.isbn}
                 style={{
-                width: '180px'
+                width: '150px'
             }}>
                 <img
                     className="mx-auto"
                     src={props.data.details.url}
-                    height="210px"
+                    height="180px"
                     width="100%"/>
                 <div className="overlay">
                     <div className="text container-fluid">
@@ -26,7 +26,7 @@ import $ from 'jquery';
                             style={{
                             backgroundColor: 'white',
                             color: 'rgb(96, 0, 58)'}}>
-                            <b>Renew</b>
+                            <b style={{fontSize:'12px'}}>Renew</b>
                         </button>
                     </div>
                 </div>

@@ -14,14 +14,14 @@ export const Category=(props)=>
                 id={res.isbn}
                 style={{
 
-                width: '180px'
+                width: '150px'
 
 
             }}>
                 <img
                     className="mx-auto"
                     src={res.details.url}
-                    height="210px"
+                    height="180px"
                     width="100%"/>
                      <div className="overlay">
                     <div className="text container-fluid">
@@ -29,32 +29,31 @@ export const Category=(props)=>
                         <b>Author :
                         </b>
                         {res.details.author}<br/>
-                        <b>Category :
-                        </b>
-                        {res.details.category}<br/> {[1, 2, 3, 4, 5].map(d => {
+                        {[1, 2, 3, 4, 5].map(d => {
                             if (res.details.rating >= d) 
                                 return <span
                                     class="fa fa-star"
                                     style={{
                                     color: '#ffd700',
-                                    fontSize:'10px'
+                                    fontSize:'5px'
                                 }}></span>
                             else 
                                 return <span
                                     className="fa fa-star"
                                     style={{
                                     color: 'black',
-                                    fontSize:'10px'
+                                    fontSize:'5px'
                                 }}></span>
                         })}
                         <button
                             className="btn btn-block mt-3"
                             style={{
                             backgroundColor: 'white',
+                            color: 'rgb(96, 0, 58)'
                             
                         }}
                             onClick={this.request}>
-                            <b>REQUEST BOOK</b>
+                            <b style={{fontSize:'12px'}}>REQUEST BOOK</b>
                         </button>
                     </div>
                 </div>

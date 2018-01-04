@@ -103,8 +103,8 @@ class PBooks extends Component {
                                         className="d-block activeImage mx-auto"
 
                                         alt="First slide"
-                                        height="212"
-                                        width="500"src="http://bookloverbookreviews.dhvdjqudnc8k2lygmnqz.maxcdn-edge.com/wp-content/uploads/2017/07/BEST-BOOKS-of-2017-so-far.png"/>
+                                        height="182"
+                                        width="400"src="http://bookloverbookreviews.dhvdjqudnc8k2lygmnqz.maxcdn-edge.com/wp-content/uploads/2017/07/BEST-BOOKS-of-2017-so-far.png"/>
                                 </div>
                                 {s1}
                                 {s2}
