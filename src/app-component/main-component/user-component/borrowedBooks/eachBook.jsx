@@ -14,7 +14,7 @@ import $ from 'jquery';
     </div>
   <div className="overlay">
   <div className="text">
-  <h4>Your return date is: </h4><br/>
+  <h4>Return Date: </h4><br/>
   <h6>{props.data.details.returnDate}</h6></div>
   </div>
   </div>
