@@ -44,14 +44,14 @@ export const Category=(props)=>
                                 }}></span>
                             else 
                                 return <span
-                                    class="fa fa-star"
+                                    className="fa fa-star"
                                     style={{
                                     color: 'black',
                                     fontSize:'13px'
                                 }}></span>
                         })}
                         <button
-                            class="btn btn-block mt-3"
+                            className="btn btn-block mt-3"
                             style={{
                             backgroundColor: 'white',
                             
