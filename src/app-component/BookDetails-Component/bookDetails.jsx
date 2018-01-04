@@ -27,7 +27,6 @@ export class BookDetails extends Component{
         // }
         return(
             <div>
-            <Header/>
             {a}
             </div>
         )
