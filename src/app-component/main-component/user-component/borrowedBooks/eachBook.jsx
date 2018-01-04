@@ -4,20 +4,32 @@ import $ from 'jquery';
  const Card=(props)=>
 {
     return(    
-    <div className="card" style={{ width: '20rem', paddingBottom : "0px" }}>
+            <div
+                className="card-img my-2 mx-auto particular"
+                id={props.data.isbn}
+                style={{
+                width: '240px'
+            }}>
+                <img
+                    className="mx-auto"
+                    src={props.data.details.url}
+                    height="290px"
+                    width="100%"/>
+                <div className="overlay">
+                    <div className="text container-fluid">
+                        <b>{props.data.details.title}</b><br/><br/>
+                        <p>Return by {props.data.details.returnDate}</p>
 
-      <img  className="card-img-top" src={props.data.details.url} alt="not available" height="200px"/>
-
-    
-    <div className="card-block text-block">
-        <b>Title: </b><span>{props.data.details.title}</span>
-    </div>
-  <div className="overlay">
-  <div className="text">
-  <h4>Your return date is: </h4><br/>
-  <h6>{props.data.details.returnDate}</h6></div>
-  </div>
-  </div>
+                        <button
+                            class="btn btn-block mt-5"
+                            style={{
+                            backgroundColor: 'white',
+                            color: 'rgb(96, 0, 58)'}}>
+                            <b>Renew</b>
+                        </button>
+                    </div>
+                </div>
+            </div>
     );
 
 
