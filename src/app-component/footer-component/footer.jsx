@@ -10,21 +10,21 @@ class Footer extends Component {
       <div>
 
 
-        <footer class="footer1">
-          <div class="container">
+        <footer className="footer1">
+          <div className="container">
 
-            <div class="row">
+            <div className="row">
 
-              <div class="col-lg-3 col-md-3">
-                <ul class="list-unstyled clear-margins">
+              <div className="col-lg-3 col-md-3">
+                <ul className="list-unstyled clear-margins">
 
-                  <li class="widget-container widget_nav_menu">
+                  <li className="widget-container widget_nav_menu">
 
-                    <h1 class="title-widget" style={{textAlign :"left"}}>Useful links</h1>
+                    <h1 className="title-widget" style={{textAlign :"left"}}>Useful links</h1>
 
                     <ul>
-                      <li style={{ textAlign: "left" }}><a href="#"><i class="fa fa-angle-double-right"></i> About Us</a></li>
-                      <li style={{ textAlign: "left" }}><a href="#"><i class="fa fa-angle-double-right"></i> Contact Us</a></li>
+                      <li style={{ textAlign: "left" }}><a href="#"><i className="fa fa-angle-double-right"></i> About Us</a></li>
+                      <li style={{ textAlign: "left" }}><a href="#"><i className="fa fa-angle-double-right"></i> Contact Us</a></li>
 
                     </ul>
 
@@ -37,19 +37,19 @@ class Footer extends Component {
 
 
 
-              <div class="col-lg-3 col-md-3">
+              <div className="col-lg-3 col-md-3">
 
-                <ul class="list-unstyled clear-margins">
+                <ul className="list-unstyled clear-margins">
 
-                  <li class="widget-container widget_nav_menu">
+                  <li className="widget-container widget_nav_menu">
 
-                    <h1 class="title-widget" style={{textAlign :"left"}}>Useful links</h1>
+                    <h1 className="title-widget" style={{textAlign :"left"}}>Useful links</h1>
 
                     <ul>
 
-                      <li style={{ textAlign: "left" }}><a href="#"><i class="fa fa-angle-double-right"></i>  UG Courses</a></li>
-                      <li style={{ textAlign: "left" }}><a href="#"><i class="fa fa-angle-double-right"></i>  Satellite Education</a></li>
-                      <li style={{ textAlign: "left" }}><a href="#"><i class="fa fa-angle-double-right"></i>  Study Centres</a></li>
+                      <li style={{ textAlign: "left" }}><a href="#"><i className="fa fa-angle-double-right"></i>  UG Courses</a></li>
+                      <li style={{ textAlign: "left" }}><a href="#"><i className="fa fa-angle-double-right"></i>  Satellite Education</a></li>
+                      <li style={{ textAlign: "left" }}><a href="#"><i className="fa fa-angle-double-right"></i>  Study Centres</a></li>
 
 
                     </ul>
@@ -64,19 +64,19 @@ class Footer extends Component {
 
 
 
-              <div class="col-lg-3 col-md-3">
+              <div className="col-lg-3 col-md-3">
 
 
 
-                <ul class="list-unstyled clear-margins">
+                <ul className="list-unstyled clear-margins">
 
-                  <li class="widget-container widget_recent_news">
+                  <li className="widget-container widget_recent_news">
 
-                    <h1 class="title-widget" style={{textAlign :"left"}}>Contact Detail </h1>
+                    <h1 className="title-widget" style={{textAlign :"left"}}>Contact Detail </h1>
 
-                    <div class="footerp">
+                    <div className="footerp">
 
-                      <h2 class="title-median" style={{ textAlign: "left" }}>Mindtree. Ltd.</h2>
+                      <h2 className="title-median" style={{ textAlign: "left" }}>Mindtree. Ltd.</h2>
                       <p style={{ textAlign: "left" }}><b>Email id:</b> <a href="mailto:info@webenlance.com">info@mindtree.com</a></p>
 
                     </div>
@@ -91,22 +91,22 @@ class Footer extends Component {
 
 
 
-              <div class="col-lg-3 col-md-3">
+              <div className="col-lg-3 col-md-3">
 
-                <ul class="list-unstyled clear-margins">
+                <ul className="list-unstyled clear-margins">
 
-                  <li class="widget-container widget_nav_menu">
+                  <li className="widget-container widget_nav_menu">
 
-                    <h1 class="title-widget" style={{textAlign :"left"}}>Social Sites</h1>
+                    <h1 className="title-widget" style={{textAlign :"left"}}>Social Sites</h1>
 
-                    <div class="social-icons">
+                    <div className="social-icons">
 
-                      <ul class="nomargin">
+                      <ul className="nomargin">
 
-                        <a href="https://www.facebook.com/bootsnipp" style={{ textAlign: "left" }}><i class="fa fa-facebook-square fa-3x social-fb" id="social"></i></a>
-                        <a href="https://twitter.com/bootsnipp" style={{ textAlign: "left" }}><i class="fa fa-twitter-square fa-3x social-tw" id="social"></i></a>
-                        <a href="https://plus.google.com/+Bootsnipp-page" style={{ textAlign: "left" }}><i class="fa fa-google-plus-square fa-3x social-gp" id="social"></i></a>
-                        <a href="mailto:bootsnipp@gmail.com" style={{ textAlign: "left" }}><i class="fa fa-envelope-square fa-3x social-em" id="social"></i></a>
+                        <a href="https://www.facebook.com/bootsnipp" style={{ textAlign: "left" }}><i className="fa fa-facebook-square fa-3x social-fb" id="social"></i></a>
+                        <a href="https://twitter.com/bootsnipp" style={{ textAlign: "left" }}><i className="fa fa-twitter-square fa-3x social-tw" id="social"></i></a>
+                        <a href="https://plus.google.com/+Bootsnipp-page" style={{ textAlign: "left" }}><i className="fa fa-google-plus-square fa-3x social-gp" id="social"></i></a>
+                        <a href="mailto:bootsnipp@gmail.com" style={{ textAlign: "left" }}><i className="fa fa-envelope-square fa-3x social-em" id="social"></i></a>
 
                       </ul>
 
@@ -125,15 +125,15 @@ class Footer extends Component {
         </footer >
 
 
-      <div class="footer-bottom">
+      <div className="footer-bottom">
 
-        <div class="container">
+        <div className="container">
 
-          <div class="row">
+          <div className="row">
 
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 
-              <div class="copyright" style={{textAlign :"left"}}>
+              <div className="copyright" style={{textAlign :"left"}}>
 
                 © 2017, Mindtree, All rights reserved
 
@@ -141,9 +141,9 @@ class Footer extends Component {
 
             </div>
 
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 
-              <div class="design">
+              <div className="design">
 
                 <a href="#">LiMS </a> |  <a target="_blank" href="http://www.webenlance.com">Web Design & Development by Mindtree</a>
 

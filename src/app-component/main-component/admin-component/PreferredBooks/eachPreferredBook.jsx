@@ -20,41 +20,41 @@ class EachPrefferedCard extends Component{
     {
     return (
         <div
-            className="mx-auto col-lg-4 col-md-6 col-sm-6 col-xs-12"
-            style={{
-            margin: 'auto'
-        }}>
+            className="mx-auto col-lg-2 col-md-4 col-sm-6 col-xs-12">
             <div
                 className="card-img particular mx-auto"
                 id={this.props.isbn}
                 style={{
-                width: '240px'
+                width: '190px'
             }}>
                 <img
                     className="mx-auto"
                     src={this.props.item.details.url}
-                    height="290px"
+                    height="210px"
                     width="100%"/>
                 <div className="overlay">
                     <div className="text container-fluid">
-                        <b>{this.props.item.details.title}</b><br/><br/>
+                        <b>{this.props.item.details.title}</b><br/>
                         <b>Author :
                         </b>
-                        {this.props.item.details.author}<br/><br/>
+                        {this.props.item.details.author}<br/>
                         <b>Category :
                         </b>
-                        {this.props.item.details.category}<br/><br/> {[1, 2, 3, 4, 5].map(d => {
+                        {this.props.item.details.category}<br/> {[1, 2, 3, 4, 5].map(d => {
                             if (this.props.item.details.rating >= d) 
                                 return <span
                                     class="fa fa-star"
                                     style={{
-                                    color: 'white'
+                                    color: '#ffd700',
+                                    fontSize:'13px'
+
                                 }}></span>
                             else 
                                 return <span
                                     class="fa fa-star"
                                     style={{
-                                    color: 'black'
+                                    color: 'black',
+                                    fontSize:'13px'
                                 }}></span>
                         })}
                         <button

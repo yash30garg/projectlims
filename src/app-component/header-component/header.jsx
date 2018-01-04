@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import '../../logo.svg';
 import '../App.css';
+import SearchBar from './searchbar/searchBar.jsx';
 // import Search from '../search-component/Search'; import './header.css';
 // import PBooks from
 // '../main-component/admin-component/PreferredBooks/PrefferdBooks.jsx'; import
 // Footer from '../footer-component/footer.jsx';
+
+import searchBar from './searchbar/searchBar.jsx';
 import { Link } from 'react-router-dom';
 export var key;
 class Header extends Component {
@@ -16,6 +19,8 @@ class Header extends Component {
 
     return (
       <div>
+
+        
         <nav className="navbar navbar-toggleable-md navbar-light bg-faded">
           <button
             className="navbar-toggler navbar-toggler-right"
@@ -33,16 +38,22 @@ class Header extends Component {
             alt="My logo"
             align="left" /></a>
           <a className="navbar-brand" href="#">Mindtree Library</a>
-            <Link to="/Search">
+            <Link to="/search">
             <div className="col-lg-9">
+              
               <div className="row offset-md-3">
                 <div className="input-group">
+
                   <input type="text" id="key" className="form-control" size="800" style={{alignSelf: "center"}} placeholder="Search for..." />
                   <span className="input-group-btn">
                     
                       <button className="btn btn-outline-secondary" onClick={this.handle} type="button">Go!</button>
                     
                   </span>
+
+                 
+
+                  
                 </div>
               </div>
             </div>
@@ -56,6 +67,8 @@ class Header extends Component {
                 <a className="nav-link" href="#">Wishlist
                 </a>
               </li>
+
+              
 
               <li className="nav-item dropdown">
                 <a
@@ -78,7 +91,9 @@ class Header extends Component {
               </li>
             </ul>
           </div>
+          
         </nav>
+
 
       </div>
 
