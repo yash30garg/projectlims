@@ -9,7 +9,6 @@ import Footer from '../footer-component/footer'
 import './Search.css'
 var debounce = require('debounce');
 export var processedData = [];
-
 export default class Search extends Component {
     constructor() {
         super();

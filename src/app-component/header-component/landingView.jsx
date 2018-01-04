@@ -15,18 +15,7 @@ export const LandingView = () => {
                 <Pbooks />
             </div>
 
-            <div className="mana">
-                <div class="card">
-                    <h5 className="card-header yoyo" style={{ backgroundColor: "#8a0051", color: "white" }}>
-                        Borrowed Books</h5>
-                    <div class="card-block">
-                     
-                        <BorrowedSlider />
 
-
-                    </div>
-                </div>
-            </div>
         </div>
     );
 }

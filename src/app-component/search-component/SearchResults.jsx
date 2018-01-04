@@ -16,12 +16,13 @@ class SearchResults extends Component
     componentDidMount()
     {
         axios
-            .get('https://api.myjson.com/bins/15iomb')
+            .get('https://api.myjson.com/bins/14x90j')
             .then(res => {
                 this.setState({output: res.data});
                 users = this.state.output;
-                // const b = users.filter((res) => res.user.mid === "1042948")
-                // books = b[0].userBooks.length;
+                console.log(users)
+                const b = users.filter((res) => res.user.mid === "1042948")
+                books = b[0].borrowedbooks.length;
             });
     }
     /*openModal=(arg)=>
@@ -44,7 +45,7 @@ class SearchResults extends Component
         }
     }*/
     request() {
-        if (books < 6) {
+        if (books < 4) {
             books++;
             alert("The Requested Book has been allotted to you..Please Collect It from the Library");
         } else {
@@ -56,21 +57,21 @@ class SearchResults extends Component
         let x = 0;;
         const a = processedData.map(res => {
             return (
-                <div className="col-md-3 my-5">
-                    <Link to="/results/details">
+                <div className="col-2 mt-4">
+                    {/*<Link to="/search/details">*/}
                     
                         <div
                             id={res.isbn}
                             className="card particular"
                             style={{
-                            width: '20rem',
+                            width: '13rem',
                             paddingBottom: '0px'
                         }}>
                             <img
                                 className="card-img-top"
                                 src={res.details.url}
                                 alt="not available"
-                                height="300vh"/>
+                                height="200vh"/>
                             <div className="overlay">
                                 <div className="text container-fluid">
                                     {res.details.title}<br/>
@@ -78,20 +79,22 @@ class SearchResults extends Component
                                     Category: {res.details.category}<br/> {[1, 2, 3, 4, 5].map(d => {
                                         if (res.details.rating >= d) 
                                             return <span
-                                                class="fa fa-star"
+                                                class="fa fa-star mt-1"
                                                 style={{
-                                                color: 'white'
+                                                color: '#FFD700',
+                                                fontSize:'13px'
                                             }}></span>
                                         else 
                                             return <span
-                                                class="fa fa-star"
+                                                class="fa fa-star mt-1"
                                                 style={{
-                                                color: 'black'
+                                                color: 'black',
+                                                fontSize:'13px'
                                             }}></span>
                                     })}
                                     <br/>
                                     <button
-                                        class="btn mt-5"
+                                        class="btn mt-3"
                                         style={{
                                         backgroundColor: 'white',
                                         color: 'rgb(96, 0, 58)'
@@ -116,7 +119,7 @@ class SearchResults extends Component
                             <button class="btn mt-4" style={{backgroundColor:'white', color:'rgb(96, 0, 58)'}} onClick={this.request}><b>Request Book</b></button>*/}
                             </div>
                         </div>
-                    </Link>
+                    {/*</Link>*/}
                 </div>
             )
         });

@@ -48,9 +48,12 @@ class BorrowedSlider extends Component
         return(<UserBooks key={result.user.mid} list={result.borrowedbooks}/>);
      });
      return(
-       <div className="issued-container">
-       {outputs}
-       </div>
+    <div className="contained">
+        <ol className="breadcrumb" style={{backgroundColor : "#8a0051", color : "white"}}>
+        <h5>Books I Have</h5>
+        </ol>
+     {outputs}
+    </div>
      );
  }
 

@@ -38,7 +38,7 @@ class Header extends Component {
             alt="My logo"
             align="left" /></a>
           <a className="navbar-brand" href="#">Mindtree Library</a>
-            <Link to="/Search">
+            <Link to="/search">
             <div className="col-lg-9">
               
               <div className="row offset-md-3">
