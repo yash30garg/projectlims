@@ -52,7 +52,7 @@ class PBooks extends Component {
                 .filter((res) => res.details.rating >= 1 && (res.details.category == "Javascript" || res.details.category == "javascript"));
             s1 = <div className="carousel-item row">
                 {b
-                    .slice(0, 3)
+                    .slice(0, 6)
                     .map((r) => {
                         return (<EachPrefferedCard key={r.isbn} item={r}/>);
                     })}
@@ -63,7 +63,7 @@ class PBooks extends Component {
                 .filter((res) => res.details.rating >= 1 && (res.details.category == "Angular" || res.details.category == "angular"));
             s2 = <div className="carousel-item">
                 {b
-                    .slice(0, 3)
+                    .slice(0, 6)
                     .map((r) => {
                         return (<EachPrefferedCard key={r.isbn} item={r}/>);
                     })}
@@ -74,7 +74,7 @@ class PBooks extends Component {
                 .filter((res) => res.details.rating >= 1 && (res.details.category == "React" || res.details.category == "react"));
             s3 = <div className="carousel-item">
                 {b
-                    .slice(0, 3)
+                    .slice(0, 6)
                     .map((r) => {
                         return (<EachPrefferedCard key={r.isbn} item={r}/>);
                     })}
