@@ -74,7 +74,34 @@ class BootHeader extends Component {
                         <div className="row">
                             <div className="col-md-3">
 
-                                <div className="list-group">
+                                    <div className="list-group">
+                                    <a                    
+                                        className="list-group-item collor"
+                                        style={{
+                                        backgroundColor: "#8a0051",
+                                        color: "white"
+                                    }}>
+                                        <span className="fa fa-cog" aria-hidden="true"></span>
+                                        My Books</a>
+
+                                        <a onClick={this.openBorrowedBooks} class="list-group-item  list-group-item-action">
+                                        <span class="fa fa-asterisk" aria-hidden="true"></span>Borrowed Books
+                                         <div className="all">
+                                        
+                                        <span className="badge badge-pill badge-warning ml-1">{this.state.display.filter(r=>r.details.category.toLowerCase()=="das").length}</span>
+                                        </div>
+                                    </a>
+
+                                        <a class="list-group-item  list-group-item-action">
+                                        <span class="fa fa-asterisk" aria-hidden="true"></span>Requested Books
+                                         <div className="all" >
+                                        
+                                        <span className="badge badge-pill badge-warning ml-1">0</span>
+                                        </div>
+                                    </a>
+                                    </div>
+
+                                <div className="list-group mt-4">
                                     <a
                                         className="list-group-item collor"
                                         style={{
@@ -161,32 +188,7 @@ class BootHeader extends Component {
                                     {/*<a href="#" class="list-group-item list-group-item-action disabled">Vestibulum at eros</a>*/}
                                 </div>
 
-                                    <div className="list-group mt-4">
-                                    <a                    
-                                        className="list-group-item collor"
-                                        style={{
-                                        backgroundColor: "#8a0051",
-                                        color: "white"
-                                    }}>
-                                        <span className="fa fa-cog" aria-hidden="true"></span>
-                                        My Books</a>
 
-                                        <a onClick={this.openBorrowedBooks} class="list-group-item  list-group-item-action">
-                                        <span class="fa fa-asterisk" aria-hidden="true"></span>Borrowed Books
-                                         <div className="all">
-                                        
-                                        <span className="badge badge-pill badge-warning ml-1">{this.state.display.filter(r=>r.details.category.toLowerCase()=="das").length}</span>
-                                        </div>
-                                    </a>
-
-                                        <a onClick={this.openCategory.bind(this,'das')} class="list-group-item  list-group-item-action">
-                                        <span class="fa fa-asterisk" aria-hidden="true"></span>Requested Books
-                                         <div className="all" >
-                                        
-                                        <span className="badge badge-pill badge-warning ml-1">{this.state.display.filter(r=>r.details.category.toLowerCase()=="das").length}</span>
-                                        </div>
-                                    </a>
-                                    </div>
                             </div>
 
                             <div className="col-md-9">
