@@ -8,16 +8,16 @@ import BorrowedSlider from '../main-component/user-component/borrowedBooks/borro
 import Search from '../search-component/Search.jsx';
 // import SearchResults from '../search-component/SearchResults.jsx';
 import Details from './../BookDetails-Component/details';
-import { LandingView } from './landingView';
-import { Category } from './categoryView';
+import {LandingView} from './landingView';
+import {Category} from './categoryView';
 
 var count = 0;
 class BootHeader extends Component {
 
     state = {
-        display:[],
-        showLanding:true,
-        currentlyClicked:""
+        display: [],
+        showLanding: true,
+        currentlyClicked: ""
     }
     componentDidMount() {
         axios
@@ -27,12 +27,10 @@ class BootHeader extends Component {
                 console.log(this.state.display);
             })
     }
-   openCategory=(arg)=>
-   {
-       console.log(arg);
-     this.setState({showLanding:false,
-     currentlyClicked:arg});
-   }
+    openCategory = (arg) => {
+        console.log(arg);
+        this.setState({showLanding: false, currentlyClicked: arg});
+    }
 
     render() {
 
@@ -65,7 +63,7 @@ class BootHeader extends Component {
                             <div className="col-md-3">
 
                                 <div className="list-group">
-                                    <a                    
+                                    <a
                                         className="list-group-item collor"
                                         style={{
                                         backgroundColor: "#8a0051",
@@ -73,7 +71,11 @@ class BootHeader extends Component {
                                     }}>
                                         <span className="fa fa-cog" aria-hidden="true"></span>
                                         Categories</a>
-                                    <a onClick={this.openCategory.bind(this,'Java')} className="list-group-item  list-group-item-action">
+                                    <a
+                                        onClick={this
+                                        .openCategory
+                                        .bind(this, 'Java')}
+                                        className="list-group-item  list-group-item-action">
                                         <span class="fa fa-asterisk" aria-hidden="true"></span>JAVA<div
                                             className='mov'
                                             style={{
@@ -81,7 +83,11 @@ class BootHeader extends Component {
             }}/>
                                         <span class="badge  badge-pill badge-warning">12</span>
                                     </a>
-                                    <a onClick={this.openCategory.bind(this,'Javascript')} class="list-group-item  list-group-item-action">
+                                    <a
+                                        onClick={this
+                                        .openCategory
+                                        .bind(this, 'Javascript')}
+                                        class="list-group-item  list-group-item-action">
                                         <span class="fa fa-asterisk" aria-hidden="true"></span>Java Script<div
                                             className='mov'
                                             style={{
@@ -89,7 +95,11 @@ class BootHeader extends Component {
             }}/>
                                         <span className="badge badge-pill badge-warning">8</span>
                                     </a>
-                                    <a onClick={this.openCategory.bind(this,'Dot NET')} class="list-group-item  list-group-item-action">
+                                    <a
+                                        onClick={this
+                                        .openCategory
+                                        .bind(this, 'Dot NET')}
+                                        class="list-group-item  list-group-item-action">
                                         <span class="fa fa-asterisk" aria-hidden="true"></span>Dot Net<div
                                             className='mov'
                                             style={{
@@ -97,7 +107,11 @@ class BootHeader extends Component {
             }}/>
                                         <span className="badge badge-pill badge-warning">13</span>
                                     </a>
-                                    <a onClick={this.openCategory.bind(this,'Angular')} class="list-group-item  list-group-item-action">
+                                    <a
+                                        onClick={this
+                                        .openCategory
+                                        .bind(this, 'Angular')}
+                                        class="list-group-item  list-group-item-action">
                                         <span class="fa fa-asterisk" aria-hidden="true"></span>Angular<div
                                             className='mov'
                                             style={{
@@ -105,7 +119,11 @@ class BootHeader extends Component {
             }}/>
                                         <span className="badge badge-pill badge-warning">17</span>
                                     </a>
-                                    <a onClick={this.openCategory.bind(this,'React')} class="list-group-item  list-group-item-action">
+                                    <a
+                                        onClick={this
+                                        .openCategory
+                                        .bind(this, 'React')}
+                                        class="list-group-item  list-group-item-action">
                                         <span class="fa fa-asterisk" aria-hidden="true"></span>React<div
                                             className='mov'
                                             style={{
@@ -113,7 +131,11 @@ class BootHeader extends Component {
             }}/>
                                         <span className="badge badge-pill badge-warning">14</span>
                                     </a>
-                                    <a onClick={this.openCategory.bind(this,'Mongo')} class="list-group-item  list-group-item-action">
+                                    <a
+                                        onClick={this
+                                        .openCategory
+                                        .bind(this, 'Mongo')}
+                                        class="list-group-item  list-group-item-action">
                                         <span class="fa fa-asterisk" aria-hidden="true"></span>Mongo<div
                                             className='mov'
                                             style={{
@@ -121,7 +143,11 @@ class BootHeader extends Component {
             }}/>
                                         <span className="badge badge-pill badge-warning">6</span>
                                     </a>
-                                    <a onClick={this.openCategory.bind(this,'PHP')} class="list-group-item  list-group-item-action">
+                                    <a
+                                        onClick={this
+                                        .openCategory
+                                        .bind(this, 'PHP')}
+                                        class="list-group-item  list-group-item-action">
                                         <span class="fa fa-asterisk" aria-hidden="true"></span>PHP<div
                                             className='mov'
                                             style={{
@@ -129,7 +155,11 @@ class BootHeader extends Component {
             }}/>
                                         <span className="badge badge-pill badge-warning">16</span>
                                     </a>
-                                    <a onClick={this.openCategory.bind(this,'Python')} class="list-group-item  list-group-item-action">
+                                    <a
+                                        onClick={this
+                                        .openCategory
+                                        .bind(this, 'Python')}
+                                        class="list-group-item  list-group-item-action">
                                         <span class="fa fa-asterisk" aria-hidden="true"></span>Python<div
                                             className='mov'
                                             style={{
@@ -146,7 +176,9 @@ class BootHeader extends Component {
                             </div>
 
                             <div className="col-md-9">
-                            {this.state.showLanding?<LandingView/>:<Category data={this.state.display} selected={this.state.currentlyClicked}/>}
+                                {this.state.showLanding
+                                    ? <LandingView/>
+                                    : <Category data={this.state.display} selected={this.state.currentlyClicked}/>}
                             </div>
                         </div>
                     </div>

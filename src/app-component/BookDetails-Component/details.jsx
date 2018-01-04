@@ -11,9 +11,13 @@ render(){
         <div className="row">
         <div className="col-md-4 m-5">
         <img src={book.details.url} height="600vh"/>
-        <div className="col-md-8 offset-md-4 m-5">
-        <h1>Hello</h1>
         </div>
+        <div className="col-md-4 m-5">
+        <h1><u>
+        {book.details.title}
+        </u>
+        </h1><br/>
+        <h3><b><i>Author:</i></b> {book.details.author}</h3>
         </div>
         </div>
         </div>
