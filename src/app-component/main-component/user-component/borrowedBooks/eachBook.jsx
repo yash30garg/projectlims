@@ -20,6 +20,7 @@ import $ from 'jquery';
                         <b>{props.data.details.title}</b><br/><br/>
                         <p>Return by {props.data.details.returnDate}</p>
 
+
                         <button
                             class="btn btn-block mt-5"
                             style={{
@@ -30,6 +31,7 @@ import $ from 'jquery';
                     </div>
                 </div>
             </div>
+
     );
 
 
