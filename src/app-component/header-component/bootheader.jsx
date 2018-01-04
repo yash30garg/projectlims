@@ -8,8 +8,8 @@ import BorrowedSlider from '../main-component/user-component/borrowedBooks/borro
 import Search from '../search-component/Search.jsx';
 // import SearchResults from '../search-component/SearchResults.jsx';
 import Details from './../BookDetails-Component/details';
-import { LandingView } from './landingView';
-import { Category } from './categoryView';
+import {LandingView} from './landingView';
+import {Category} from './categoryView';
 
 var count = 0;
 class BootHeader extends Component {
@@ -19,6 +19,7 @@ class BootHeader extends Component {
         showLanding:true,
         currentlyClicked:"",
         categoryClicked:false
+
     }
     componentDidMount() {
         axios
@@ -28,6 +29,7 @@ class BootHeader extends Component {
                 console.log(this.state.display);
             })
     }
+
    openCategory=(arg)=>
    {
      console.log(arg);
@@ -40,6 +42,7 @@ class BootHeader extends Component {
      this.setState({showLanding:false,
      categoryClicked:false});
    }
+
 
     render() {
 
@@ -72,7 +75,7 @@ class BootHeader extends Component {
                             <div className="col-md-3">
 
                                 <div className="list-group">
-                                    <a                    
+                                    <a
                                         className="list-group-item collor"
                                         style={{
                                         backgroundColor: "#8a0051",
@@ -188,6 +191,9 @@ class BootHeader extends Component {
 
                             <div className="col-md-9">
                             {this.state.showLanding?<LandingView/>:this.state.categoryClicked?<Category data={this.state.display} selected={this.state.currentlyClicked}/>:<BorrowedSlider/>}
+
+                              
+
                             </div>
                         </div>
                     </div>

@@ -7,6 +7,7 @@ export const Category=(props)=>
         return(
                     <div
             className="mx-auto col-lg-2 col-md-3 col-sm-6 col-xs-6 mt-3 mb-5">
+
         <div
                 className="card-img particular mx-auto"
                 id={res.isbn}

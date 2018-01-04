@@ -19,9 +19,8 @@ class App extends Component {
           <Switch>
             <Route path="/" exact component={Login}/>
             <Route path="/home" exact component={User}/>
-            <Route path="/Search" exact component={Search}/>
-            <Route path="/results" exact component={SearchResults}/>
-            <Route path="/results/details" exact component={BookDetails}/>
+            <Route path="/search" exact component={Search}/>
+            <Route path="/search/details" exact component={BookDetails}/>
             <Route path="/admindash" exact component={DashBoard}/>
             {/*<Route path="/admin" exact component={AdminLogin} />  */}
             <Route path="/adminbooks" exact component={BookAdmin} />
