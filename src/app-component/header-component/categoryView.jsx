@@ -24,12 +24,13 @@ export const Category=(props)=>
                     height="180px"
                     width="100%"/>
                      <div className="overlay">
-                    <div className="text container-fluid">
+                    <div className="text container-fluid" >
                         <b>{res.details.title}</b><br/>
                         <b>Author :
                         </b>
                         {res.details.author}<br/>
                         {[1, 2, 3, 4, 5].map(d => {
+
                             if (res.details.rating >= d) 
                                 return <span
                                     class="fa fa-star"
@@ -64,7 +65,7 @@ export const Category=(props)=>
     })
 return(
     <div className="contained">
-        <ol className="breadcrumb" style={{backgroundColor : "#8a0051", color : "white"}}  >
+        <ol className="breadcrumb" style={{backgroundColor : "#116466", color : "white"}}  >
         <h5 >{props.selected.toUpperCase()}</h5>
         </ol>
     <div className="row">
