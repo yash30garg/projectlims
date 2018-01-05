@@ -325,7 +325,7 @@ class DashBoard extends Component {
                                             Latest Users</div>
                                         <div class="card-block">
 
-                                            <table class="table table-hover">
+                                            <table class="table table-hover ">
                                                 <thead>
                                                     <tr>
                                                         <th>User Name</th>

@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom';
 // import SearchAdmin from './searchadmin';
 // import './searchdis.css';
 import Footer from '../../../footer-component/footer.jsx';
+var debounce = require('debounce');
+
 
 var count =0;
 class HandleUsers extends Component {
@@ -67,7 +69,7 @@ class HandleUsers extends Component {
                     <div className="conatainer">
                         <div className="row">
                             <div className="col-md-10">
-                                <h1 className="dd" style={{textAlign : "left"}}><span className="fa fa-cog" aria-hidden="true"></span>DashBoard <small> Manage Books</small></h1>
+                                <h1 className="dd" style={{textAlign : "left"}}><span className="fa fa-cog" aria-hidden="true"></span>DashBoard <small> Manage Users</small></h1>
                             </div>
                             <div className="col-md-2">
 
@@ -143,18 +145,53 @@ class HandleUsers extends Component {
 
                                         <div className="row">
 
-                                            <div className="col-md-12">
-                                                <div className="fu1">
-                                                    {/*<SearchAdmin />*/}
-                                                  
-                                                </div>
+                                          
+                                                <div className="input-group">
+
+                                    <input type="text" id="search" className="form-control"  style={{ alignSelf: "center" }} placeholder="Search for..." onKeyUp={debounce(this.search, 700)} />
+                                    <span className="input-group-btn">
+
+                                        <button type="submit" className="btn btn-outline-secondary" >Go!</button>
+
+                                    </span>
+                                </div>
                                             </div>
+
+<table class="table table-sm">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Username</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td colspan="2">Larry the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table>
 
                                           
 
                                            
 
-                                        </div>
+                                        
                                     </div>
                                 </div>
 
