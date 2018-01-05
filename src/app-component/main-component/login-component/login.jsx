@@ -25,7 +25,7 @@ class Login extends Component {
     }
     validate = (e) => {
         // email = this.refs.email.value
-        var users = getBook();
+        var users = getUser();
         console.log(users)
         e.preventDefault();
         //console.log(email)
@@ -60,7 +60,7 @@ class Login extends Component {
                     </div>
                     <div className="login-right">
                         <div className="h2">Login</div>
-                        <form oncubmit={this.validate}>
+                        <form action="http://localhost:3005/api/" method="post">
                         <div class="form-group">
                             <input type="text" id="Email" name="logemail" placeholder="E-mail" />
 
@@ -75,7 +75,7 @@ class Login extends Component {
                         </div>
                         <div class="button-area">
                             {/*<Link to="/home">*/}
-                                <button type="submit" onClick={this.validate} class="btn-primary">Login</button>
+                                <button type="submit" class="btn-primary">Login</button>
                             {/*</Link>*/}
                             {/*<div class="login-form">
 					<form action="/" method="post">

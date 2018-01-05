@@ -7,10 +7,10 @@ import axios from 'axios'
     const servUrl1 = "http://localhost:3005/api/books";    
     const servUrl2 = "http://localhost:3005/api/users";
 export var getUser = () => {
-    // console.log("Hello, This is the users function")
-    return fetch("http://localhost:3005/api/UsersInfo")
+    // return fetch("http://limsreactapi.azurewebsites.net/api/UsersInfo")
+    return fetch("http://localhost:3005/api/UsersInfo")    
     .then((res) => res.json())
-    .then(user => console.log(user.data[0].Users[0]))
+    .then(user => console.log(user.data[0].Users))
     .catch((error) => {
         return new Error(error.status);
     });
