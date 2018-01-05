@@ -127,7 +127,7 @@ class BootHeader extends Component {
                                     </a>
                                     <a href="#category" onClick={this.openCategory.bind(this,'Javascript')} class="list-group-item  list-group-item-action">
                                         <span class="fa fa-asterisk" aria-hidden="true"></span>Javascript
-                                         <div className="all" style={{paddingLeft : "195px"}}>
+                                         <div className="all" style={{paddingLeft : "187px"}}>
                                         <span className="badge badge-pill badge-warning ml-1">{this.state.display.filter(r=>r.details.category.toLowerCase()=="javascript").length}</span>
                                         </div>
                                     </a>
@@ -139,7 +139,7 @@ class BootHeader extends Component {
                                     </a>
                                     <a href="#category" onClick={this.openCategory.bind(this,'Angular')} class="list-group-item  list-group-item-action">
                                         <span class="fa fa-asterisk" aria-hidden="true"></span>Angular
-                                         <div className="all" style={{paddingLeft : "205px"}}>
+                                         <div className="all" style={{paddingLeft : "187px"}}>
                                         <span className="badge badge-pill badge-warning ml-1">{this.state.display.filter(r=>r.details.category.toLowerCase()=="angular").length}</span>
                                         </div>
                                     </a>
