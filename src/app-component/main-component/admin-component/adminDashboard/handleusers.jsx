@@ -9,34 +9,34 @@ import Footer from '../../../footer-component/footer.jsx';
 var debounce = require('debounce');
 
 
-var count =0;
+var count = 0;
 class HandleUsers extends Component {
 
     render() {
-  
+
         return (
 
             <div>
 
                 <nav class="navbar navbar-toggleable-md navbar-default">
                     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation"   >
-                        <span class="navbar-toggler-icon"  style={{backgroundColor : "black"}}></span>
+                        <span class="navbar-toggler-icon" style={{ backgroundColor: "black" }}></span>
                     </button>
                     <a class="navbar-brand" href="#">Admin Strap</a>
 
                     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                         <ul class="navbar-nav mr-auto">
                             <Link to="/adminDash">
-                            <li class="nav-item ">
-                                <a class="nav-link" href="#">DashBoard </a>
-                            </li>
+                                <li class="nav-item ">
+                                    <a class="nav-link" href="#">DashBoard </a>
+                                </li>
                             </Link>
                             <Link to="/adminbooks">
-                            <li class="nav-item ">
-                                <a class="nav-link" href="#">Books</a>
-                            </li>
+                                <li class="nav-item ">
+                                    <a class="nav-link" href="#">Books</a>
+                                </li>
                             </Link>
-                            
+
 
                             <li class="nav-item active">
                                 <a class="nav-link " href="#">Users<span class="sr-only">(current)</span></a>
@@ -69,7 +69,7 @@ class HandleUsers extends Component {
                     <div className="conatainer">
                         <div className="row">
                             <div className="col-md-10">
-                                <h1 className="dd" style={{textAlign : "left"}}><span className="fa fa-cog" aria-hidden="true"></span>DashBoard <small> Manage Users</small></h1>
+                                <h1 className="dd" style={{ textAlign: "left" }}><span className="fa fa-cog" aria-hidden="true"></span>DashBoard <small> Manage Users</small></h1>
                             </div>
                             <div className="col-md-2">
 
@@ -93,7 +93,7 @@ class HandleUsers extends Component {
                 <section id="breadcrumb">
                     <div className="container-fluid">
                         <ol className="breadcrumb">
-                            <li className="active" style={{color : "black", fontSize:"20px"}}><b>DashBoard</b></li>
+                            <li className="active" style={{ color: "black", fontSize: "20px" }}><b>DashBoard</b></li>
                         </ol>
                     </div>
                 </section>
@@ -106,9 +106,9 @@ class HandleUsers extends Component {
                                 <div className="list-group">
                                     <a href="#" class="list-group-item active">
                                         <span class="fa fa-cog" aria-hidden="true" ></span>  DashBoard</a>
-                                    <a href="#" class="list-group-item  list-group-item-action"> <span class="fa fa-list-alt" aria-hidden="true"></span>Total Books<div className='mov' style={{paddingRight : "170px"}} /><span class="badge  badge-pill badge-warning">100</span></a>
-                                    <a href="#" class="list-group-item  list-group-item-action"> <span class="fa fa-pencil" aria-hidden="true"></span>Books available<div className='mov' style={{paddingRight : "150px"}} /><span className="badge badge-pill badge-warning">75</span></a>
-                                    <a href="#" class="list-group-item  list-group-item-action"> <span class="fa fa-user" aria-hidden="true"></span>Users<div className='mov' style={{paddingRight : "227px"}} /><span className="badge badge-pill badge-warning mov">{count}</span></a>
+                                    <a href="#" class="list-group-item  list-group-item-action"> <span class="fa fa-list-alt" aria-hidden="true"></span>Total Books<div className='mov' style={{ paddingRight: "170px" }} /><span class="badge  badge-pill badge-warning">100</span></a>
+                                    <a href="#" class="list-group-item  list-group-item-action"> <span class="fa fa-pencil" aria-hidden="true"></span>Books available<div className='mov' style={{ paddingRight: "150px" }} /><span className="badge badge-pill badge-warning">75</span></a>
+                                    <a href="#" class="list-group-item  list-group-item-action"> <span class="fa fa-user" aria-hidden="true"></span>Users<div className='mov' style={{ paddingRight: "227px" }} /><span className="badge badge-pill badge-warning mov">{count}</span></a>
                                     {/*<a href="#" class="list-group-item list-group-item-action disabled">Vestibulum at eros</a>*/}
                                 </div>
 
@@ -141,56 +141,60 @@ class HandleUsers extends Component {
 
                                 <div className="card">
                                     <h5 className="card-header">Users Overview</h5>
+                                    <br />
                                     <div className="card-body">
 
                                         <div className="row">
 
-                                          
-                                                <div className="input-group">
+                                        <div className="col-md-3" />
+                                            <div className="col-md-6" >
+                                                <div className="input-group"  >
 
-                                    <input type="text" id="search" className="form-control"  style={{ alignSelf: "center" }} placeholder="Search for..." onKeyUp={debounce(this.search, 700)} />
-                                    <span className="input-group-btn">
+                                                    <input type="text"  id="search" className="form-control" placeholder="Search for..." onKeyUp={debounce(this.search, 700)} />
+                                                    <span className="input-group-btn">
 
-                                        <button type="submit" className="btn btn-outline-secondary" >Go!</button>
+                                                        <button type="submit" className="btn btn-outline-secondary" >Go!</button>
 
-                                    </span>
-                                </div>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                        <br /><br />
+                                        <div className="row">
+                                        <div className="col-md-1" />
+                                        <div className="col-md-10">
+
+                                            <div class="table-responsive">
+                                                <table class="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Name</th>
+                                                            <th>MID</th>
+                                                            <th>Book(s)</th>
+                                                            <th>Due Date</th>
+                                                            
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Anirudh.A.S</td>
+                                                            <td>1042946</td>
+                                                            <td>Javascript</td>
+                                                            <td>08-feb-2017</td>
+                                                            
+                                                            <td><button type="button" class="btn btn-warning">Warning</button> </td>
+                                                            <td><button type="button" class="btn btn-danger">Block</button> </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
                                             </div>
 
-<table class="table table-sm">
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Username</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table>
 
-                                          
 
-                                           
+                                        </div>
 
+                                        <div className="col-md-1" />
                                         
                                     </div>
                                 </div>
@@ -201,15 +205,17 @@ class HandleUsers extends Component {
                 </section>
                 <br /><br />
                 <Footer />
-                
+
             </div>
 
 
         )
-        
+
     }
-    
+
 
 }
 
 export default HandleUsers;
+
+
