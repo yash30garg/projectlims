@@ -21,7 +21,7 @@ export class EachTopCard extends Component{
     render(){
     return(
         <div
-            className="mx-auto col-lg-2 col-md-2 col-sm-6 col-xs-12">
+            className="col-lg-2 col-md-2 col-sm-6 col-xs-12">
             <div
                 className="card-img particular mx-auto"
                 id={this.props.isbn}
