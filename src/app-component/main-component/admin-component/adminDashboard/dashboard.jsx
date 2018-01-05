@@ -218,7 +218,7 @@ class DashBoard extends Component {
                                     <h6 className="he5">Books Available :</h6>
                                     <div className="p1">
                                         <div class="progress">
-                                            <div class="progress-bar" role="progressbar" style={{ width: "60%" }} aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">60%</div>
+                                            <div class="progress-bar" role="progressbar" style={{ width: "60%" }} aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">60%</div>
                                         </div>
                                     </div>
 
@@ -226,7 +226,7 @@ class DashBoard extends Component {
                                         Books to be returned :</h6>
                                     <div className="p2">
                                         <div class="progress">
-                                            <div class="progress-bar" role="progressbar" style={{ width: "40%" }} aria-valuenow="45" aria-valuemin="0" aria-valuemax="100">40%</div>
+                                            <div class="progress-bar" role="progressbar" style={{ width: "40%" }} aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">40%</div>
                                         </div>
 
                                     </div>
