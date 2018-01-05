@@ -13,7 +13,7 @@ class TopBooks extends Component{
 
         componentDidMount() {
         axios
-            .get('https://api.myjson.com/bins/15iomb')
+            .get('https://api.myjson.com/bins/1a9rkj')
             .then(res => {
                 this.setState({display: res.data.booksArray});
             })
@@ -36,7 +36,6 @@ class TopBooks extends Component{
                 
                 <div className="put mt-4" style={{paddingBottom:'30px'}}>
                 <h5 className="card-header yoyo" style={{ backgroundColor: "#8a0051", color: "white" }}>Top Rated Books</h5>
-                <br />
                 {k}
             </div>
                 

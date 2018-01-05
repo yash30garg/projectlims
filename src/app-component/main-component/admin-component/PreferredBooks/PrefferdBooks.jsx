@@ -16,7 +16,7 @@ class PBooks extends Component {
 
     componentDidMount() {
         axios
-            .get('https://api.myjson.com/bins/15iomb')
+            .get('https://api.myjson.com/bins/1a9rkj')
             .then(res => {
                 this.setState({display: res.data.booksArray});
                 console.log(this.state.display);
@@ -50,7 +50,7 @@ class PBooks extends Component {
                 .state
                 .display
                 .filter((res) => res.details.rating >= 1 && (res.details.category == "Javascript" || res.details.category == "javascript"));
-            s1 = <div className="carousel-item">
+            s1 = <div className="carousel-item mt-2">
                 {b
                     .slice(0, 6)
                     .map((r) => {
@@ -61,7 +61,7 @@ class PBooks extends Component {
                 .state
                 .display
                 .filter((res) => res.details.rating >= 1 && (res.details.category == "Angular" || res.details.category == "angular"));
-            s2 = <div className="carousel-item">
+            s2 = <div className="carousel-item mt-2">
                 {b
                     .slice(0, 6)
                     .map((r) => {
@@ -72,7 +72,7 @@ class PBooks extends Component {
                 .state
                 .display
                 .filter((res) => res.details.rating >= 1 && (res.details.category == "React" || res.details.category == "react"));
-            s3 = <div className="carousel-item">
+            s3 = <div className="carousel-item mt-2">
                 {b
                     .slice(0, 6)
                     .map((r) => {
@@ -98,7 +98,7 @@ class PBooks extends Component {
                         <div class="carousel-inner" role="listbox">
 
                             <div class="carousel-cell">
-                                <div class="carousel-item active">
+                                <div class="carousel-item active mt-2">
                                     <img
                                         className="d-block activeImage mx-auto"
 
