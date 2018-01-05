@@ -25,12 +25,12 @@ class EachPrefferedCard extends Component{
                 className="card-img particular mx-auto"
                 id={this.props.isbn}
                 style={{
-                width: '190px'
+                width: '150px'
             }}>
                 <img
                     className="mx-auto"
                     src={this.props.item.details.url}
-                    height="210px"
+                    height="180px"
                     width="100%"/>
                 <div className="overlay">
                     <div className="text container-fluid">
@@ -46,7 +46,7 @@ class EachPrefferedCard extends Component{
                                     class="fa fa-star"
                                     style={{
                                     color: '#ffd700',
-                                    fontSize:'13px'
+                                    fontSize:'5px'
 
                                 }}></span>
                             else 
@@ -54,17 +54,17 @@ class EachPrefferedCard extends Component{
                                     class="fa fa-star"
                                     style={{
                                     color: 'black',
-                                    fontSize:'13px'
+                                    fontSize:'5px'
                                 }}></span>
                         })}
                         <button
-                            class="btn btn-block mt-3"
+                            class="btn btn-sm mt-3"
                             style={{
                             backgroundColor: 'white',
                             color: 'rgb(96, 0, 58)'
                         }}
                             onClick={this.request}>
-                            <b>{this.state.btnText}</b>
+                            <b style={{fontSize:'12px'}}>{this.state.btnText}</b>
                         </button>
                     </div>
                 </div>
