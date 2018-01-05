@@ -44,6 +44,9 @@ class SearchResults extends Component
           modal.style.display = "none";
         }
     }*/
+    handle(res){
+        window.selected=res;
+    }
     request() {
         if (books < 4) {
             books++;
@@ -58,15 +61,14 @@ class SearchResults extends Component
         const a = processedData.map(res => {
             return (
                 <div className="col-2 mt-4">
-                    {/*<Link to="/search/details">*/}
-                    
+                    <Link to="/search/details">
                         <div
                             id={res.isbn}
                             className="card particular"
                             style={{
                             width: '13rem',
                             paddingBottom: '0px'
-                        }}>
+                        }} onClick={()=>this.handle(res)}>
                             <img
                                 className="card-img-top"
                                 src={res.details.url}
@@ -119,7 +121,7 @@ class SearchResults extends Component
                             <button class="btn mt-4" style={{backgroundColor:'white', color:'rgb(96, 0, 58)'}} onClick={this.request}><b>Request Book</b></button>*/}
                             </div>
                         </div>
-                    {/*</Link>*/}
+                    </Link>
                 </div>
             )
         });

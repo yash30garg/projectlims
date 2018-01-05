@@ -11,6 +11,7 @@ class Details extends Component {
                 <h1>
                 
                     <u>
+                    <br/>
                         {book.details.title}
                     </u>
                 </h1>
