@@ -64,8 +64,8 @@ export const Category=(props)=>
     })
 return(
     <div className="contained">
-        <ol className="breadcrumb" style={{backgroundColor : "#8a0051", color : "white"}}>
-        <h5>{props.selected.toUpperCase()}</h5>
+        <ol className="breadcrumb" style={{backgroundColor : "#8a0051", color : "white"}}  >
+        <h5 >{props.selected.toUpperCase()}</h5>
         </ol>
     <div className="row">
      {b}
