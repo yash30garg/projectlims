@@ -19,7 +19,7 @@ export default class Search extends Component {
             filteredData: '',
             temp: 0
         }
-        Rx.Observable.fromPromise(fetch('https://api.myjson.com/bins/15iomb'))
+        Rx.Observable.fromPromise(fetch('https://api.myjson.com/bins/1a9rkj'))
             .flatMap((response) => response.json())
             .subscribe(values => {
                 this.setState({ data: values })
