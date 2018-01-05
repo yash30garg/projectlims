@@ -9,7 +9,7 @@ export const LandingView = (props) => {
         <div>
 
             <div className="contained" >
-                <h5 className="card-header yoyo" style={{ backgroundColor: "#8a0051", color: "white" }}>What's New</h5>
+                <h5 className="card-header yoyo" style={{ backgroundColor: "#26a69a", color: "white" }}>What's New</h5>
                 <Pbooks />
             </div>
             {props.show==false?<TopBooks/>:true}

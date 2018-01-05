@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import axios from 'axios';
 import './dashboard.css';
 import Footer from '../../../footer-component/footer.jsx';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { UserBooks } from './../borrowedBooks';
 
 var count = 0;
@@ -16,13 +16,13 @@ class DashBoard extends Component {
         axios
             .get('https://api.myjson.com/bins/14x90j')
             .then(res => {
-                this.setState({output: res.data});
+                this.setState({ output: res.data });
             })
 
         axios
             .get('https://api.myjson.com/bins/1a9rkj')
             .then(result => {
-                this.setState({display: result.data.booksArray});
+                this.setState({ display: result.data.booksArray });
             })
     }
 
@@ -61,8 +61,8 @@ class DashBoard extends Component {
                         <span
                             class="navbar-toggler-icon"
                             style={{
-                            backgroundColor: "black"
-                        }}></span>
+                                backgroundColor: "black"
+                            }}></span>
                     </button>
                     <a class="navbar-brand" href="#">Admin Strap</a>
 
@@ -78,10 +78,12 @@ class DashBoard extends Component {
                                     <a class="nav-link" href="#">Books</a>
                                 </li>
                             </Link>
+                            <Link to="/handleusers">
+                                <li class="nav-item">
+                                    <a class="nav-link " href="#">Users</a>
+                                </li>
+                            </Link>
 
-                            <li class="nav-item">
-                                <a class="nav-link " href="#">Users</a>
-                            </li>
                             <li class="nav-item dropdown">
                                 <a
                                     class="nav-link dropdown-toggle"
@@ -121,8 +123,8 @@ class DashBoard extends Component {
                                 <h1
                                     className="dd"
                                     style={{
-                                    textAlign: "left"
-                                }}>
+                                        textAlign: "left"
+                                    }}>
                                     <span className="fa fa-cog" aria-hidden="true"></span>DashBoard
                                     <small>
                                         Manage LiMS</small>
@@ -139,7 +141,7 @@ class DashBoard extends Component {
                                         aria-haspopup="true"
                                         aria-expanded="false">
                                         Create Content
-                                        <span className="caret"/></button>
+                                        <span className="caret" /></button>
 
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                         <a class="dropdown-item" href="#">Add Books</a>
@@ -160,9 +162,9 @@ class DashBoard extends Component {
                             <li
                                 className="active"
                                 style={{
-                                color: "black",
-                                fontSize: "20px"
-                            }}>
+                                    color: "black",
+                                    fontSize: "20px"
+                                }}>
                                 <b>DashBoard</b>
                             </li>
                         </ol>
@@ -182,30 +184,30 @@ class DashBoard extends Component {
                                         <span class="fa fa-list-alt" aria-hidden="true"></span>Total Books<div
                                             className='mov'
                                             style={{
-                paddingRight: "170px"
-            }}/>
+                                                paddingRight: "170px"
+                                            }} />
                                         <span class="badge  badge-pill badge-warning">{this.state.display.length}</span>
                                     </a>
                                     <a href="#" class="list-group-item  list-group-item-action">
                                         <span class="fa fa-pencil" aria-hidden="true"></span>Books available<div
                                             className='mov'
                                             style={{
-                paddingRight: "150px"
-            }}/>
+                                                paddingRight: "150px"
+                                            }} />
                                         <span className="badge badge-pill badge-warning">75</span>
                                     </a>
                                     <a href="#" class="list-group-item  list-group-item-action">
                                         <span class="fa fa-user" aria-hidden="true"></span>Users<div
                                             className='mov'
                                             style={{
-                paddingRight: "227px"
-            }}/>
+                                                paddingRight: "227px"
+                                            }} />
                                         <span className="badge badge-pill badge-warning mov">{count}</span>
                                     </a>
                                     {/*<a href="#" class="list-group-item list-group-item-action disabled">Vestibulum at eros</a>*/}
                                 </div>
 
-                                <br/>
+                                <br />
                                 <div className="card">
                                     <div className="card-header card-primary">
                                         <div className="t">
@@ -216,26 +218,17 @@ class DashBoard extends Component {
                                     <h6 className="he5">Books Available :</h6>
                                     <div className="p1">
                                         <div class="progress">
-                                            <div
-                                                class="progress-bar"
-                                                role="progressbar"
-                                                aria-valuenow="75"
-                                                aria-valuemin="0"
-                                                aria-valuemax="100">75%</div>
+                                            <div class="progress-bar" role="progressbar" style={{ width: "60%" }} aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">60%</div>
                                         </div>
                                     </div>
 
                                     <h6 className="he6">
                                         Books to be returned :</h6>
                                     <div className="p2">
-                                        <div className="progress">
-                                            <div
-                                                className="progress-bar"
-                                                role="progressbar"
-                                                aria-valuenow="25"
-                                                aria-valuemin="0"
-                                                aria-valuemax="100">25%</div>
+                                        <div class="progress">
+                                            <div class="progress-bar" role="progressbar" style={{ width: "40%" }} aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">40%</div>
                                         </div>
+
                                     </div>
                                 </div>
 
@@ -323,7 +316,7 @@ class DashBoard extends Component {
                                             Latest Users</div>
                                         <div class="card-block">
 
-                                            <table class="table table-hover">
+                                            <table class="table table-hover ">
                                                 <thead>
                                                     <tr>
                                                         <th>User Name</th>
@@ -346,8 +339,8 @@ class DashBoard extends Component {
                         </div>
                     </div>
                 </section>
-                <br/><br/>
-                <Footer/>
+                <br /><br />
+                <Footer />
 
             </div>
 

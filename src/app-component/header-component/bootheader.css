@@ -21,7 +21,7 @@ body{
 
 
 .navbar {
-  background-color: #ecb737;
+  background-color: grey;
 }
 .navbar .navbar-brand {
   color: #000000;
@@ -100,8 +100,8 @@ background-color: white;
 
  .collor
 {
- background-color: #db9917;
- border-color:  #ecb737 ;
+ background-color: #000040;
+ border-color: #000040 ;
  color :black;
 }
 
@@ -127,7 +127,7 @@ background-color: white;
 
 .breadcrumb
 {
-    background: #cccccc;
+    background: #116466;
     color : black;
 }
 
@@ -317,4 +317,7 @@ width: 25%
     cursor: pointer;
 }
 
-
+.contained > .breadcrumb 
+{
+  background-color: #116466;
+}
