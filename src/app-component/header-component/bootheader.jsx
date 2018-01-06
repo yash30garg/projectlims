@@ -24,7 +24,7 @@ class BootHeader extends Component {
     }
     componentDidMount() {
         axios
-            .get('https://api.myjson.com/bins/15iomb')
+            .get('https://api.myjson.com/bins/1a9rkj')
             .then(res => {
                 this.setState({display: res.data.booksArray});
                 console.log(this.state.display);
@@ -61,13 +61,13 @@ class BootHeader extends Component {
 
                 <Header/>
                 <br/>
-
+ 
                 <section id="breadcrumb">
                     <div className="container-fluid">
                         <ol
                             className="breadcrumb bc"
                             style={{
-                            backgroundColor: "#60003a"
+                            backgroundColor: "#116466"
                         }}>
                             <li className="active jinx">
                                 <h4>Your Library</h4>
@@ -87,7 +87,7 @@ class BootHeader extends Component {
                                     <a                    
                                         className="list-group-item collor"
                                         style={{
-                                        backgroundColor: "#8a0051",
+                                        backgroundColor: "#116466",
                                         color: "white"
                                     }}>
                                         <span className="fa fa-cog" aria-hidden="true"></span>
@@ -114,7 +114,7 @@ class BootHeader extends Component {
                                     <a
                                         className="list-group-item collor"
                                         style={{
-                                        backgroundColor: "#8a0051",
+                                        backgroundColor: "#116466",
                                         color: "white"
                                     }}>
                                         <span className="fa fa-cog" aria-hidden="true"></span>

@@ -25,7 +25,7 @@ html,
   -webkit-align-items: center;
       -ms-flex-align: center;
          
-  background: linear-gradient(to bottom,#371933  30.6%, #F28FE5 130.6%);
+  background-image : url("https://i.ytimg.com/vi/PiYvQyG4ucc/maxresdefault.jpg");
   overflow: hidden;
 }
 
