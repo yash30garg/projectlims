@@ -1,43 +1,46 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import './bookshow.css';
+// import './bookshow.css';
 import { Link } from 'react-router-dom';
 // import SearchResultsAdmin from '../../../search-component/SearchResults.jsx';
-import SearchAdmin from './searchadmin';
+// import SearchAdmin from './searchadmin';
 // import './searchdis.css';
 import Footer from '../../../footer-component/footer.jsx';
+var debounce = require('debounce');
 
-var count =0;
-class BookAdmin extends Component {
+
+var count = 0;
+class HandleUsers extends Component {
 
     render() {
-  
+
         return (
 
             <div>
 
                 <nav class="navbar navbar-toggleable-md navbar-default">
                     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation"   >
-                        <span class="navbar-toggler-icon"  style={{backgroundColor : "black"}}></span>
+                        <span class="navbar-toggler-icon" style={{ backgroundColor: "black" }}></span>
                     </button>
                     <a class="navbar-brand" href="#">Admin Strap</a>
 
                     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                         <ul class="navbar-nav mr-auto">
                             <Link to="/adminDash">
-                            <li class="nav-item ">
-                                <a class="nav-link" href="#">DashBoard </a>
-                            </li>
+                                <li class="nav-item ">
+                                    <a class="nav-link" href="#">DashBoard </a>
+                                </li>
                             </Link>
+                            <Link to="/adminbooks">
+                                <li class="nav-item ">
+                                    <a class="nav-link" href="#">Books</a>
+                                </li>
+                            </Link>
+
+
                             <li class="nav-item active">
-                                <a class="nav-link" href="#">Books<span class="sr-only">(current)</span></a>
+                                <a class="nav-link " href="#">Users<span class="sr-only">(current)</span></a>
                             </li>
-                            
-                            <Link to="/handleusers">
-                            <li class="nav-item">
-                                <a class="nav-link " href="#">Users</a>
-                            </li>
-                            </Link>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
                                 <div class="dropdown-menu" aria-labelledby="dropdown01">
@@ -66,7 +69,7 @@ class BookAdmin extends Component {
                     <div className="conatainer">
                         <div className="row">
                             <div className="col-md-10">
-                                <h1 className="dd" style={{textAlign : "left"}}><span className="fa fa-cog" aria-hidden="true"></span>DashBoard <small> Manage Books</small></h1>
+                                <h1 className="dd" style={{ textAlign: "left" }}><span className="fa fa-cog" aria-hidden="true"></span>DashBoard <small> Manage Users</small></h1>
                             </div>
                             <div className="col-md-2">
 
@@ -90,7 +93,7 @@ class BookAdmin extends Component {
                 <section id="breadcrumb">
                     <div className="container-fluid">
                         <ol className="breadcrumb">
-                            <li className="active" style={{color : "black", fontSize:"20px"}}><b>DashBoard</b></li>
+                            <li className="active" style={{ color: "black", fontSize: "20px" }}><b>DashBoard</b></li>
                         </ol>
                     </div>
                 </section>
@@ -103,9 +106,9 @@ class BookAdmin extends Component {
                                 <div className="list-group">
                                     <a href="#" class="list-group-item active">
                                         <span class="fa fa-cog" aria-hidden="true" ></span>  DashBoard</a>
-                                    <a href="#" class="list-group-item  list-group-item-action"> <span class="fa fa-list-alt" aria-hidden="true"></span>Total Books<div className='mov' style={{paddingRight : "170px"}} /><span class="badge  badge-pill badge-warning">100</span></a>
-                                    <a href="#" class="list-group-item  list-group-item-action"> <span class="fa fa-pencil" aria-hidden="true"></span>Books available<div className='mov' style={{paddingRight : "150px"}} /><span className="badge badge-pill badge-warning">75</span></a>
-                                    <a href="#" class="list-group-item  list-group-item-action"> <span class="fa fa-user" aria-hidden="true"></span>Users<div className='mov' style={{paddingRight : "227px"}} /><span className="badge badge-pill badge-warning mov">{count}</span></a>
+                                    <a href="#" class="list-group-item  list-group-item-action"> <span class="fa fa-list-alt" aria-hidden="true"></span>Total Books<div className='mov' style={{ paddingRight: "170px" }} /><span class="badge  badge-pill badge-warning">100</span></a>
+                                    <a href="#" class="list-group-item  list-group-item-action"> <span class="fa fa-pencil" aria-hidden="true"></span>Books available<div className='mov' style={{ paddingRight: "150px" }} /><span className="badge badge-pill badge-warning">75</span></a>
+                                    <a href="#" class="list-group-item  list-group-item-action"> <span class="fa fa-user" aria-hidden="true"></span>Users<div className='mov' style={{ paddingRight: "227px" }} /><span className="badge badge-pill badge-warning mov">{count}</span></a>
                                     {/*<a href="#" class="list-group-item list-group-item-action disabled">Vestibulum at eros</a>*/}
                                 </div>
 
@@ -137,23 +140,62 @@ class BookAdmin extends Component {
 
 
                                 <div className="card">
-                                    <h5 className="card-header">Books Overview</h5>
+                                    <h5 className="card-header">Users Overview</h5>
+                                    <br />
                                     <div className="card-body">
 
                                         <div className="row">
 
-                                            <div className="col-md-12">
-                                                <div className="fu1">
-                                                    <SearchAdmin />
-                                                  
+                                        <div className="col-md-3" />
+                                            <div className="col-md-6" >
+                                                <div className="input-group"  >
+
+                                                    <input type="text"  id="search" className="form-control" placeholder="Search for..." onKeyUp={debounce(this.search, 700)} />
+                                                    <span className="input-group-btn">
+
+                                                        <button type="submit" className="btn btn-outline-secondary" >Go!</button>
+
+                                                    </span>
                                                 </div>
                                             </div>
+                                        </div>
+                                        </div>
+                                        <br /><br />
+                                        <div className="row">
+                                        <div className="col-md-1" />
+                                        <div className="col-md-10">
 
-                                          
+                                            <div class="table-responsive">
+                                                <table class="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Name</th>
+                                                            <th>MID</th>
+                                                            <th>Book(s)</th>
+                                                            <th>Due Date</th>
+                                                            
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Anirudh.A.S</td>
+                                                            <td>1042946</td>
+                                                            <td>Javascript</td>
+                                                            <td>08-feb-2017</td>
+                                                            
+                                                            <td><button type="button" class="btn btn-warning">Warning</button> </td>
+                                                            <td><button type="button" class="btn btn-danger">Block</button> </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
 
-                                           
+
 
                                         </div>
+
+                                        <div className="col-md-1" />
+                                        
                                     </div>
                                 </div>
 
@@ -162,16 +204,18 @@ class BookAdmin extends Component {
                     </div>
                 </section>
                 <br /><br />
-                {/*<Footer />*/}
-                
+                <Footer />
+
             </div>
 
 
         )
-        
+
     }
-    
+
 
 }
 
-export default BookAdmin;
+export default HandleUsers;
+
+

@@ -125,7 +125,7 @@ class Footer extends Component {
         </footer >
 
 
-      <div className="footer-bottom">
+      <div className="footer-bottom" style={{backgroundColor : "#116466"}}>
 
         <div className="container">
 
@@ -145,7 +145,7 @@ class Footer extends Component {
 
               <div className="design">
 
-                <a href="#">LiMS </a> |  <a target="_blank" href="http://www.webenlance.com">Web Design & Development by Mindtree</a>
+                <a href="#">LiMS </a> |  <a target="_blank" href="http://www.mindtree.com">Web Design & Development by Mindtree</a>
 
               </div>
 
