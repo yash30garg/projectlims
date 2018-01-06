@@ -22,7 +22,7 @@ class SearchResults extends Component
                 users = this.state.output;
                 console.log(users)
                 const b = users.filter((res) => res.user.mid === "1042948")
-                books = b[0].borrowedbooks.length;
+                window.books = b[0].borrowedbooks.length;
             });
     }
     /*openModal=(arg)=>
@@ -46,14 +46,6 @@ class SearchResults extends Component
     }*/
     handle(res){
         window.selected=res;
-    }
-    request() {
-        if (books < 4) {
-            books++;
-            alert("The Requested Book has been allotted to you..Please Collect It from the Library");
-        } else {
-            alert("Oops..Looks like You cannot borrow more books. Please return a book to borrow more");
-        }
     }
     render()
     {
