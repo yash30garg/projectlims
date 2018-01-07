@@ -21,8 +21,8 @@ class Header extends Component {
       <div>
 
         
-        <nav className="navbar navbar-toggleable-md navbar-light bg-faded">
-          <button
+        <nav className="navbar navbar-toggleable-md navbar-light bg-faded" style={{backgroundColor:"#26a69a"}}>
+          <button style={{backgroundColor:'#fff'}}
             className="navbar-toggler navbar-toggler-right"
             type="button"
             data-toggle="collapse"
@@ -30,7 +30,7 @@ class Header extends Component {
             aria-controls="navbarNavDropdown"
             aria-expanded="false"
             aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon"></span>
+            <span style={{backgroundColor:'#fff'}} className="navbar-toggler-icon"></span>
           </button>
           <a ><img
             className="App-logo"
@@ -93,9 +93,7 @@ class Header extends Component {
           </div>
           
         </nav>
-
-
-      </div>
+</div>
 
     )
   }
