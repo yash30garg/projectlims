@@ -192,7 +192,7 @@ class BootHeader extends Component {
                                         <span class="fa fa-asterisk" aria-hidden="true"></span>Borrowed Books
                                          <div className="all">
                                         
-                                        <span className="badge badge-pill badge-warning ml-1">{this.state.display.filter(r=>r.details.category.toLowerCase()=="das").length}</span>
+                                        <span className="badge badge-pill badge-warning ml-1">{window.bbooks.length}</span>
                                         </div>
                                     </a>
 
