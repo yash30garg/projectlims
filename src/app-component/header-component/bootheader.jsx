@@ -29,9 +29,8 @@ class BootHeader extends Component {
             .then(res => {
                 this.setState({display: res.data.booksArray});
                 console.log(this.state.display);
-            })
+            })        
 
-      
     }
 
    openCategory=(arg)=>
@@ -51,9 +50,6 @@ class BootHeader extends Component {
 
 
     render() {
-
-
-        
 
         return (
 
@@ -192,7 +188,7 @@ class BootHeader extends Component {
                                         <span className="fa fa-cog" aria-hidden="true"></span>
                                         My Books</a>
 
-                                        <a href="#borrowed" onClick={this.openBorrowedBooks} class="list-group-item  list-group-item-action">
+                                        <a  onClick={this.openBorrowedBooks} class="list-group-item  list-group-item-action">
                                         <span class="fa fa-asterisk" aria-hidden="true"></span>Borrowed Books
                                          <div className="all">
                                         
@@ -200,7 +196,7 @@ class BootHeader extends Component {
                                         </div>
                                     </a>
 
-                                        <a href="#borrowed"class="list-group-item  list-group-item-action">
+                                        <a  class="list-group-item  list-group-item-action">
                                         <span class="fa fa-asterisk" aria-hidden="true"></span>Requested Books
                                          <div className="all" >
                                         

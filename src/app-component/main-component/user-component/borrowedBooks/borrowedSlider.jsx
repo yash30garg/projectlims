@@ -22,10 +22,10 @@ class BorrowedSlider extends Component
          //console.log(this.props.mids);
      
         //console.log(this.props.mids);
-      this.state={
+    //   this.state={
 
-     output:[],
-      }
+    //  output:[],
+    //   }
     } 
 //  componentDidMount()
 //  {
