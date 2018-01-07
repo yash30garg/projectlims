@@ -25,7 +25,7 @@ html,
   -webkit-align-items: center;
       -ms-flex-align: center;
          
-  background-image : url("https://i.ytimg.com/vi/PiYvQyG4ucc/maxresdefault.jpg");
+  background-color:#116466;
   overflow: hidden;
 }
 
@@ -34,7 +34,7 @@ input {
   -webkit-appearance: none;
   -moz-appearance: none;
   border: 0;
-  border-bottom: 1px solid purple;
+  border-bottom: 1px solid #116466;
   font-size: 16px;
   color: #000;
   border-radius: 0;
@@ -103,7 +103,7 @@ input:placeholder-shown  + label {
 }
 
 .h2 {
-  color: purple;
+  color: #116466;
   font-size: 20px;
   letter-spacing: -0.00933333em;
   font-weight: 600;
@@ -171,7 +171,7 @@ input:placeholder-shown  + label {
 }
 
 .text-checkbox {
-  color:purple; 
+  color:#116466; 
   font-size: 16px;
   letter-spacing: -0.00933333em;
   font-weight: 500;
@@ -201,8 +201,8 @@ input[type="checkbox"]:before {
 }
 
 input[type="checkbox"]:checked:before {
-  background: linear-gradient(198.08deg, #B4458C 45.34%, #E281E7 224.21%);
-  border: 1px solid #C359AA;
+  background: linear-gradient(198.08deg, #116466 45.34%, #116466 224.21%);
+  border: 1px solid #116466;
 }
 
 input[type="checkbox"]:after {
@@ -250,7 +250,7 @@ input[type="checkbox"]:checked:after {
 
 .btn-primary {
   color: #fff;
-  background: linear-gradient(to top, #60003a, #8a0051); 
+  background: linear-gradient(to top, #116466, #116466); 
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
 }
 
