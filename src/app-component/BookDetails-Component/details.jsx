@@ -10,9 +10,9 @@ class Details extends Component {
             .go(-1)
     }
     request() {
-        if (window.bbooks.includes(book)) {
-            alert("You have already requested for this book");
-        } else {
+        // if (window.bbooks.includes(book)) {
+        //     alert("You have already requested for this book");
+        // } else {
             if (window.bbooks.length < 4) {
                 window
                     .bbooks
@@ -24,7 +24,7 @@ class Details extends Component {
                 alert("Oops..Looks like You cannot borrow more books. Please return a book to borrow mo" +
                         "re");
             }
-        }
+        // }
     }
     render() {
         book = this.props.data;
