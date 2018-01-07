@@ -43,9 +43,10 @@ class BorrowedSlider extends Component
      id="1042948";
     }
     else id="1042948";
-     const outputs=window.users.filter(temp=>temp.user.mid===id).map(result=>{
-        return(<UserBooks key={result.user.mid} list={result.borrowedbooks}/>);
-     });
+    //  const outputs=window.users.filter(temp=>temp.user.mid===id).map(result=>{
+    //     return(<UserBooks key={result.user.mid} list={result.borrowedbooks}/>);
+    //  });
+    const outputs=<UserBooks key={id} list={window.bbooks}/>;
      return(
     <div className="contained mt-4">
         <ol className="breadcrumb" style={{backgroundColor : "#116466", color : "white"}}>
