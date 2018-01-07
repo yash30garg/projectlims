@@ -52,7 +52,7 @@ class Login extends Component {
                 <div className="login-wrapper" id="lw">
                     <div className="login-left">
                         <img src="https://i.ytimg.com/vi/PiYvQyG4ucc/maxresdefault.jpg" alt="" onClick={handleClick}></img>
-                        <div className="header" onClick={handleClick} style={{fontWeight : "1000px"}}><b>Click Here to Enter</b></div>
+                        <div className="header" onClick={handleClick} style={{fontWeight : "2000px"}}><b>Click Here to Enter</b></div>
                     </div>
                     <div className="login-right">
                         <div className="h2">Login</div>
