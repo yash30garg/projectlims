@@ -12,19 +12,16 @@ class SearchResults extends Component
     constructor(props)
     {
         super(props);
+        // axios
+        //     .get('https://api.myjson.com/bins/14x90j')
+        //     .then(res => {
+        //         this.setState({output: res.data});
+        //         users = this.state.output;
+        //         console.log(users)
+        //         const b = users.filter((res) => res.user.mid === "1042948")
+        //     });
     }
-    componentDidMount()
-    {
-        axios
-            .get('https://api.myjson.com/bins/14x90j')
-            .then(res => {
-                this.setState({output: res.data});
-                users = this.state.output;
-                console.log(users)
-                const b = users.filter((res) => res.user.mid === "1042948")
-                window.books = b[0].borrowedbooks.length;
-            });
-    }
+
     /*openModal=(arg)=>
     {
         var modal = document.getElementById('myModal');

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import book from '../search-component/SearchResults'
-let users;
+// import book from '../search-component/SearchResults'
+let users,book;
 class Details extends Component {
     goBack() {
         window
@@ -9,15 +9,17 @@ class Details extends Component {
             .go(-1)
     }
     request() {
-        if (window.books < 4) {
-            window.books++;
+        if (window.bbooks.length < 4) {
+            window.bbooks.push(book)
+            console.log(window.bbooks);
+
             alert("The Requested Book has been allotted to you..Please Collect It from the Library");
         } else {
             alert("Oops..Looks like You cannot borrow more books. Please return a book to borrow more");
         }
     }
     render() {
-        let book = this.props.data;
+        book = this.props.data;
         return (
             <div className="card my-3 mx-5 container-fluid">
                 <div className="row">
