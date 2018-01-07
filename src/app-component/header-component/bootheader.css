@@ -321,3 +321,13 @@ width: 25%
 {
   background-color: #116466;
 }
+a
+{
+  color:white;
+}
+ul li{
+  list-style: none;
+}
+li{
+  cursor:pointer;
+}
