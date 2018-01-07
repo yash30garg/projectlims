@@ -21,7 +21,7 @@ class Header extends Component {
       <div>
 
         
-        <nav className="navbar navbar-toggleable-md navbar-light bg-faded" style={{backgroundColor:"#26a69a"}}>
+        <nav className="navbar navbar-toggleable-md navbar-light bg-faded" style={{backgroundColor:"#116466"}}>
           <button style={{backgroundColor:'#fff'}}
             className="navbar-toggler navbar-toggler-right"
             type="button"
@@ -37,7 +37,7 @@ class Header extends Component {
             src={"https://www.mindtree.com/themes/custom/mindtree_theme/logo.svg"}
             alt="My logo"
             align="left" /></a>
-          <a className="navbar-brand" href="#">Mindtree Library</a>
+          <a className="navbar-brand" href="#" style={{color : "white"}}>Mindtree Library</a>
             <Link to="/search">
             <div className="col-lg-9">
               
@@ -63,8 +63,8 @@ class Header extends Component {
             <ul className="navbar-nav ml-auto">
 
               <li className="nav-item active"></li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">Wishlist
+              <li className="nav-item" >
+                <a className="nav-link" href="#" style={{color : "white"}}>Wishlist
                 </a>
               </li>
 
@@ -77,7 +77,7 @@ class Header extends Component {
                   id="navbarDropdownMenuLink"
                   data-toggle="dropdown"
                   aria-haspopup="true"
-                  aria-expanded="false">
+                  aria-expanded="false" style={{color : "white"}}>
                   Profile
                 </a>
                 <div
