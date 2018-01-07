@@ -48,7 +48,6 @@ class BootHeader extends Component {
             <div>
 
                 <Header/>
-
                 <nav
                     class="navbar navbar-toggleable-md navbar-light bg-faded"
                     style={{
