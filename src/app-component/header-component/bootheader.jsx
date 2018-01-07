@@ -59,15 +59,7 @@ class BootHeader extends Component {
 
                 <nav class="navbar navbar-toggleable-md navbar-light bg-faded" style={{backgroundColor: "#26a69a",color: "white"}}>
     <ul class="navbar-nav features" style={{color:'white'}}>
-      <li class="nav-item">
-        <a class="nav-link" href="#" style={{color:'white'}}>Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#" style={{color:'white'}}>Features</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#" style={{color:'white'}}>Pricing</a>
-      </li>
+     
       <li class="nav-item dropdown mega-dropdown">
         <a class="nav-link dropdown-toggle" style={{color:'white',backgroundColor:"#26a69a"}} href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Categories 

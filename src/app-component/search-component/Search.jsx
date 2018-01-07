@@ -226,13 +226,13 @@ export default class Search extends Component {
     render() {
         return (
             <div>
-                <nav className="navbar navbar-toggleable-md navbar-light bg-faded">
+                <nav className="navbar navbar-toggleable-md navbar-light bg-faded " style={{backgroundColor:"#116466"}}>
                     <a ><img
                         className="App-logo"
                         src={"https://www.mindtree.com/themes/custom/mindtree_theme/logo.svg"}
                         alt="My logo"
                         align="left" /></a>
-                    <a className="navbar-brand" href="#">Mindtree Library</a>
+                    <a className="navbar-brand" href="#" style={{color:"white"}}>Mindtree Library</a>
                     <form onSubmit={this.search}>
                         <div className="col-lg-9">
                             <div className="row offset-md-3">
@@ -254,7 +254,7 @@ export default class Search extends Component {
                         </div>
                     </form>
                     {/*<a className="close"><label id="close" onClick={this.back}><h4>x</h4></label></a>*/}
-                    <a className="close"><button className="btn btn-outline-primary" onClick={this.back}>back</button></a>
+                    <a className="close" style={{color:"white"}}><button className="btn btn-outline-primary" onClick={this.back} style={{color:"white"}}>back</button></a>
                 </nav>
                 <div className="content">
                     <SearchResults result={this.state.sortedData} />
