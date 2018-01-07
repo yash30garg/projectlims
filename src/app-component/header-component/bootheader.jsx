@@ -67,7 +67,7 @@ class BootHeader extends Component {
 
                 <Header/>
 
-                <nav class="navbar navbar-toggleable-md navbar-light bg-faded" style={{backgroundColor: "#116466",color: "white"}}>
+                <nav class="navbar navbar-toggleable-md navbar-light bg-faded" style={{backgroundColor: "#26a69a",color: "white"}}>
     <ul class="navbar-nav features" style={{color:'white'}}>
       <li class="nav-item">
         <a class="nav-link" href="#" style={{color:'white'}}>Home</a>
@@ -82,7 +82,7 @@ class BootHeader extends Component {
         <a class="nav-link dropdown-toggle" style={{color:'white',backgroundColor:"#26a69a"}} href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Categories 
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style={{width:'250px',backgroundColor:"#26a69a"}}>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style={{width:'250px',backgroundColor:"#116466"}}>
           <a href="#category" style={{marginTop:'-8px'}} onClick={this.openCategory.bind(this,'Java')} className="list-group-item  list-group-item-action" >
                                         <span class="fa fa-asterisk" aria-hidden="true" ></span>Java
                                         
@@ -91,11 +91,9 @@ class BootHeader extends Component {
                                     </a>
                                     <a href="#category" onClick={this.openCategory.bind(this,'Javascript')} class="list-group-item  list-group-item-action">
                                         <span class="fa fa-asterisk" aria-hidden="true"></span>Javascript
-<<<<<<< HEAD
-                                         <div className="all" style={{paddingLeft : "187px"}}>
-=======
-                                         
->>>>>>> c1fb405e0df6ba2b90719e9dacbcee20a2957c01
+
+                                         {/*<div className="all" style={{paddingLeft : "187px"}}>*/}
+
                                         <span className="badge badge-pill badge-warning ml-1">{this.state.display.filter(r=>r.details.category.toLowerCase()=="javascript").length}</span>
                                         
                                     </a>
@@ -107,11 +105,9 @@ class BootHeader extends Component {
                                     </a>
                                     <a href="#category" onClick={this.openCategory.bind(this,'Angular')} class="list-group-item  list-group-item-action">
                                         <span class="fa fa-asterisk" aria-hidden="true"></span>Angular
-<<<<<<< HEAD
-                                         <div className="all" style={{paddingLeft : "187px"}}>
-=======
-                                         
->>>>>>> c1fb405e0df6ba2b90719e9dacbcee20a2957c01
+
+                                         {/*<div className="all" style={{paddingLeft : "187px"}}>*/}
+
                                         <span className="badge badge-pill badge-warning ml-1">{this.state.display.filter(r=>r.details.category.toLowerCase()=="angular").length}</span>
                                         
                                     </a>
