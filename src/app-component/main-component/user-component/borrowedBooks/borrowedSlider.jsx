@@ -33,7 +33,6 @@ class BorrowedSlider extends Component
      axios.get('https://api.myjson.com/bins/14x90j')
      .then(res=>{
          this.setState({output:res.data});
-
         });
  }
 
