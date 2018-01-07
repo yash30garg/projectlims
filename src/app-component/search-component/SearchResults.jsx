@@ -12,19 +12,16 @@ class SearchResults extends Component
     constructor(props)
     {
         super(props);
+        // axios
+        //     .get('https://api.myjson.com/bins/14x90j')
+        //     .then(res => {
+        //         this.setState({output: res.data});
+        //         users = this.state.output;
+        //         console.log(users)
+        //         const b = users.filter((res) => res.user.mid === "1042948")
+        //     });
     }
-    componentDidMount()
-    {
-        axios
-            .get('https://api.myjson.com/bins/14x90j')
-            .then(res => {
-                this.setState({output: res.data});
-                users = this.state.output;
-                console.log(users)
-                const b = users.filter((res) => res.user.mid === "1042948")
-                books = b[0].borrowedbooks.length;
-            });
-    }
+
     /*openModal=(arg)=>
     {
         var modal = document.getElementById('myModal');
@@ -46,14 +43,6 @@ class SearchResults extends Component
     }*/
     handle(res){
         window.selected=res;
-    }
-    request() {
-        if (books < 4) {
-            books++;
-            alert("The Requested Book has been allotted to you..Please Collect It from the Library");
-        } else {
-            alert("Oops..Looks like You cannot borrow more books. Please return a book to borrow more");
-        }
     }
     render()
     {
@@ -102,7 +91,7 @@ class SearchResults extends Component
                                         color: 'rgb(96, 0, 58)'
                                     }}
                                         onClick={this.request}>
-                                        <b>Request Book</b>
+                                        <b>Know More</b>
                                     </button>
                                 </div>
                         {/*<div className="overlay">

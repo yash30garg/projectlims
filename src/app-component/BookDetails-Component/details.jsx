@@ -1,32 +1,62 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import book from '../search-component/SearchResults'
-let users;
+// import book from '../search-component/SearchResults'
+let users,
+    book;
 class Details extends Component {
+    goBack() {
+        window
+            .history
+            .go(-1)
+    }
+    request() {
+        if (window.bbooks.includes(book)) {
+            alert("You have already requested for this book");
+        } else {
+            if (window.bbooks.length < 4) {
+                window
+                    .bbooks
+                    .push(book)
+                console.log(window.bbooks);
 
+                alert("The Requested Book has been allotted to you..Please Collect It from the Library");
+            } else {
+                alert("Oops..Looks like You cannot borrow more books. Please return a book to borrow mo" +
+                        "re");
+            }
+        }
+    }
     render() {
-        let book = this.props.data;
+        book = this.props.data;
         return (
-            <div className="card m-5 container-fluid">
-                <h1>
-                
-                    <u>
-                    <br/>
-                        {book.details.title}
-                    </u>
-                </h1>
-                <br/>
+            <div className="card my-3 mx-5 container-fluid">
                 <div className="row">
-                    <div className="col-md-4 m-3">
-                        <img src={book.details.url} height="350vh"/>
+                    <div className="col-md-4 my-5">
+                        <img src={book.details.url} height="400vh"/>
                     </div>
-                    <div className="col">
+                    <div className="col-md-7 mt-5">
                         <h3>
+                            <br/>
                             <table
                                 className="table table-responsive"
                                 style={{
                                 textTransform: "capitalize"
                             }}>
+                                <tr>
+                                    <td
+                                        style={{
+                                        textAlign: "left"
+                                    }}>
+                                        <i>Title</i>
+                                    </td>
+                                    <td>:</td>
+                                    <td
+                                        style={{
+                                        textAlign: "left"
+                                    }}>
+                                        {book.details.title}
+                                    </td>
+                                </tr>
                                 <tr>
                                     <td
                                         style={{
@@ -63,7 +93,8 @@ class Details extends Component {
                                         textAlign: "left"
                                     }}>
                                         <i>Category</i>
-                                    </td><td>:</td>
+                                    </td>
+                                    <td>:</td>
                                     <td
                                         style={{
                                         textAlign: "left"
@@ -110,13 +141,28 @@ class Details extends Component {
                                         })}
                                     </td>
                                 </tr>
+                                <td>
+                                    <button className="btn btn-primary mt-3" onClick={this.request}>
+                                        <b>Request Book</b>
+                                    </button>
+                                </td>
+                                <tr></tr>
                             </table>
                         </h3>
+                    </div>
+                    <div
+                        className="col"
+                        style={{
+                        fontSize: '60px'
+                    }}
+                        onClick={this.goBack}>X
+
                     </div>
                 </div>
                 <div
                     className="container-fluid"
-                    style={{textAlign:'justify',
+                    style={{
+                    textAlign: 'justify',
                     fontSize: "20px"
                 }}>
                     If you want to achieve JavaScript′s full potential, it is critical to understand
