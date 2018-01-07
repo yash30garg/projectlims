@@ -27,14 +27,14 @@ class BorrowedSlider extends Component
      output:[],
       }
     } 
- componentDidMount()
- {
+//  componentDidMount()
+//  {
      
-     axios.get('https://api.myjson.com/bins/14x90j')
-     .then(res=>{
-         this.setState({output:res.data});
-        });
- }
+//      axios.get('https://api.myjson.com/bins/14x90j')
+//      .then(res=>{
+//          this.setState({output:res.data});
+//         });
+//  }
 
 
  render()
@@ -43,7 +43,7 @@ class BorrowedSlider extends Component
      id="1042948";
     }
     else id="1042948";
-     const outputs=this.state.output.filter(temp=>temp.user.mid===id).map(result=>{
+     const outputs=window.users.filter(temp=>temp.user.mid===id).map(result=>{
         return(<UserBooks key={result.user.mid} list={result.borrowedbooks}/>);
      });
      return(

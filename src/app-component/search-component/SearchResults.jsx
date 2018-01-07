@@ -91,7 +91,7 @@ class SearchResults extends Component
                                         color: 'rgb(96, 0, 58)'
                                     }}
                                         onClick={this.request}>
-                                        <b>Request Book</b>
+                                        <b>Know More</b>
                                     </button>
                                 </div>
                         {/*<div className="overlay">

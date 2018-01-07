@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 // import book from '../search-component/SearchResults'
-let users,book;
+let users,
+    book;
 class Details extends Component {
     goBack() {
         window
@@ -9,13 +10,20 @@ class Details extends Component {
             .go(-1)
     }
     request() {
-        if (window.bbooks.length < 4) {
-            window.bbooks.push(book)
-            console.log(window.bbooks);
-
-            alert("The Requested Book has been allotted to you..Please Collect It from the Library");
+        if (window.bbooks.includes(book)) {
+            alert("You have already requested for this book");
         } else {
-            alert("Oops..Looks like You cannot borrow more books. Please return a book to borrow more");
+            if (window.bbooks.length < 4) {
+                window
+                    .bbooks
+                    .push(book)
+                console.log(window.bbooks);
+
+                alert("The Requested Book has been allotted to you..Please Collect It from the Library");
+            } else {
+                alert("Oops..Looks like You cannot borrow more books. Please return a book to borrow mo" +
+                        "re");
+            }
         }
     }
     render() {
