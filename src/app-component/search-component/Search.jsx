@@ -203,25 +203,6 @@ export default class Search extends Component {
                                             onClick={this.search}>Go!</button>
 
                                     </span>
-                                    
-                                    <div className="col-md-4 col-md-offset-6">
-                    <div className="btn-group setDropdown">
-                        <div className="dropdown">
-                            <select className="btn btn-secondary dropdown-toggle" type="button" id="sort" onChange={this.selectSort} data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-
-                                {/*<div className="dropdown-menu" aria-labelledby="dropdownMenu2">*/}
-                                <option className="dropdown-item" >Sort By</option>
-                                <option className="dropdown-item">Title</option>
-                                <option className="dropdown-item">Author</option>
-                                <option className="dropdown-item">Publisher</option>
-                                <option className="dropdown-item">Rating</option>
-                                {/*</div>*/}
-                            </select>
-                        </div>
-                    </div>
-                </div>
-
-
                                 </div>
                             </div>
                         </div>

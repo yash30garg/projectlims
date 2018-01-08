@@ -65,21 +65,21 @@ class Login extends Component {
                     <div className="login-right">
                         <div className="h2">Login</div>
                         <form action="http://limsreactapi.azurewebsites.net/api/" method="post">
-                        <div class="form-group">
+                        <div className="form-group">
                             <input type="text" id="Email" name="logemail" placeholder="E-mail" />
 
                         </div>
-                        <div class="form-group">
+                        <div className="form-group">
                             <input type="password" id="Password" name="logpassword" placeholder="Password" />
 
                         </div>
-                        <div class="checkbox-container">
+                        <div className="checkbox-container">
                             <input type="checkbox" />
-                            <div class="text-checkbox">     I agree with the terms of service.</div>
+                            <div className="text-checkbox">     I agree with the terms of service.</div>
                         </div>
-                        <div class="button-area">
+                        <div className="button-area">
                             {/*<Link to="/home">*/}
-                                <button type="submit" class="btn-primary">Login</button>
+                                <button type="submit" className="btn-primary">Login</button>
                             {/*</Link>*/}
                             {/*<div class="login-form">
 					<form action="/" method="post">
@@ -92,7 +92,7 @@ class Login extends Component {
 					</form>
 				</div>*/}
                             <Link to="/adminDash">
-                                <button class="btn-primary">Admin</button>
+                                <button className="btn-primary">Admin</button>
                             </Link>
 
                             
