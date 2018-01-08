@@ -69,13 +69,13 @@ class Header extends Component {
               </li>
               </Link>
 
-              
+              <Link to="/">
               <li className="nav-item active"></li>
               <li className="nav-item" >
                 <a className="nav-link" href="#" style={{color : "white"}}>LogOut
                 </a>
               </li>
-             
+             </Link>
 
               
 
