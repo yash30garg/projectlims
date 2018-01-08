@@ -105,7 +105,7 @@ class BootHeader extends Component {
                                 backgroundColor: "#116466"
                             }}>
                                 <a
-                                    href="#category"
+                                    
                                     style={{
                                     marginTop: '-8px'
                                 }}
@@ -123,7 +123,7 @@ class BootHeader extends Component {
 
                                 </a>
                                 <a
-                                    href="#category"
+                                    
                                     onClick={this
                                     .openCategory
                                     .bind(this, 'Javascript')}
@@ -138,7 +138,7 @@ class BootHeader extends Component {
 
                                 </a>
                                 <a
-                                    href="#category"
+                                    
                                     onClick={this
                                     .openCategory
                                     .bind(this, 'c')}
@@ -153,7 +153,7 @@ class BootHeader extends Component {
 
                                 </a>
                                 <a
-                                    href="#category"
+                                    
                                     onClick={this
                                     .openCategory
                                     .bind(this, 'Angular')}
@@ -168,7 +168,7 @@ class BootHeader extends Component {
 
                                 </a>
                                 <a
-                                    href="#category"
+                                    
                                     onClick={this
                                     .openCategory
                                     .bind(this, 'React')}
@@ -183,7 +183,7 @@ class BootHeader extends Component {
 
                                 </a>
                                 <a
-                                    href="#category"
+                                    
                                     onClick={this
                                     .openCategory
                                     .bind(this, 'c++')}
@@ -198,7 +198,7 @@ class BootHeader extends Component {
 
                                 </a>
                                 <a
-                                    href="#category"
+                                    
                                     onClick={this
                                     .openCategory
                                     .bind(this, 'c#')}
@@ -213,7 +213,7 @@ class BootHeader extends Component {
 
                                 </a>
                                 <a
-                                    href="#category"
+                                    
                                     onClick={this
                                     .openCategory
                                     .bind(this, 'Python')}
@@ -229,7 +229,7 @@ class BootHeader extends Component {
                                 </a>
 
                                 <a
-                                    href="#category"
+                                    
                                     onClick={this
                                     .openCategory
                                     .bind(this, 'jquery')}
@@ -245,7 +245,7 @@ class BootHeader extends Component {
                                 </a>
 
                                 <a
-                                    href="#category"
+                                    
                                     onClick={this
                                     .openCategory
                                     .bind(this, 'html & css')}
@@ -261,7 +261,7 @@ class BootHeader extends Component {
                                 </a>
 
                                 <a
-                                    href="#category"
+                                    
                                     style={{
                                     marginBottom: '-8px'
                                 }}
@@ -339,7 +339,7 @@ class BootHeader extends Component {
                                         Categories</a>
 
                                     <a
-                                        href="#category"
+                                        
                                         style={{
                                         marginTop: '-8px'
                                     }}
@@ -357,7 +357,7 @@ class BootHeader extends Component {
 
                                     </a>
                                     <a
-                                        href="#category"
+                                        
                                         onClick={this
                                         .openCategory
                                         .bind(this, 'Javascript')}
@@ -372,7 +372,7 @@ class BootHeader extends Component {
 
                                     </a>
                                     <a
-                                        href="#category"
+                                        
                                         onClick={this
                                         .openCategory
                                         .bind(this, 'c')}
@@ -387,7 +387,7 @@ class BootHeader extends Component {
 
                                     </a>
                                     <a
-                                        href="#category"
+                                        
                                         onClick={this
                                         .openCategory
                                         .bind(this, 'Angular')}
@@ -402,7 +402,7 @@ class BootHeader extends Component {
 
                                     </a>
                                     <a
-                                        href="#category"
+                                        
                                         onClick={this
                                         .openCategory
                                         .bind(this, 'React')}
@@ -417,7 +417,7 @@ class BootHeader extends Component {
 
                                     </a>
                                     <a
-                                        href="#category"
+                                        
                                         onClick={this
                                         .openCategory
                                         .bind(this, 'c++')}
@@ -432,7 +432,7 @@ class BootHeader extends Component {
 
                                     </a>
                                     <a
-                                        href="#category"
+                                        
                                         onClick={this
                                         .openCategory
                                         .bind(this, 'c#')}
@@ -447,7 +447,7 @@ class BootHeader extends Component {
 
                                     </a>
                                     <a
-                                        href="#category"
+                                        
                                         onClick={this
                                         .openCategory
                                         .bind(this, 'Python')}
@@ -463,7 +463,7 @@ class BootHeader extends Component {
                                     </a>
 
                                     <a
-                                        href="#category"
+                                        
                                         onClick={this
                                         .openCategory
                                         .bind(this, 'jquery')}
@@ -479,7 +479,7 @@ class BootHeader extends Component {
                                     </a>
 
                                     <a
-                                        href="#category"
+                                        
                                         onClick={this
                                         .openCategory
                                         .bind(this, 'html & css')}
@@ -495,7 +495,7 @@ class BootHeader extends Component {
                                     </a>
 
                                     <a
-                                        href="#category"
+                                        
                                         style={{
                                         marginBottom: '-8px'
                                     }}
