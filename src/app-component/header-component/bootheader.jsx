@@ -297,18 +297,15 @@ class BootHeader extends Component {
                                         onClick={this.openBorrowedBooks}
                                         class="list-group-item  list-group-item-action">
                                         <span class="fa fa-asterisk" aria-hidden="true"></span>Borrowed Books
-                                        <div className="all">
-
-                                            <span className="badge badge-pill badge-warning ml-1">{window.bbooks.length}</span>
-                                        </div>
+                                       
                                     </a>
 
                                     <a class="list-group-item  list-group-item-action">
                                         <span class="fa fa-asterisk" aria-hidden="true"></span>Requested Books
-                                        <div className="all">
+                                       {/* <div className="all">
 
                                             <span className="badge badge-pill badge-warning ml-1">0</span>
-                                        </div>
+                                        </div>*/}
                                     </a>
                                 </div>
 

@@ -5,6 +5,7 @@ import './login.css';
 // import { BrowserRouter, Route, Link } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import {getUser, getBook} from '../../../Service/dataService.js'
 // import Form from 'react-validation/build/form';
 // import Input from 'react-validation/build/input';
 export var email, mid;
@@ -13,15 +14,7 @@ let users;
 class Login extends Component {
     constructor(){
         super();
-        axios.get('https://api.myjson.com/bins/14x90j')
-     .then(res=>{
-         this.setState({output:res.data});
-          window.users = this.state.output;
-                console.log(users);
-                const b = window.users.filter((res) => res.user.mid === "1042948")
-                window.bbooks=b[0].borrowedbooks;
-                console.log(window.bbooks.length)
-        });
+        
     }
     state =
     {
@@ -34,8 +27,11 @@ class Login extends Component {
                 this.setState({ display: res.data });
             })
     }
-    validate = () => {
-        email = this.refs.email.value
+    validate = (e) => {
+        // email = this.refs.email.value
+        var users = getUser();
+        console.log(users)
+        e.preventDefault();
         //console.log(email)
         //console.log(this.state.display)
         //const a=this.state.display.filter((user)=>user.user.mid===email)
@@ -68,13 +64,13 @@ class Login extends Component {
                     </div>
                     <div className="login-right">
                         <div className="h2">Login</div>
-
+                        <form action="http://limsreactapi.azurewebsites.net/api/" method="post">
                         <div class="form-group">
-                            <input type="text" id="Email" placeholder="Email" />
+                            <input type="text" id="Email" name="logemail" placeholder="E-mail" />
 
                         </div>
                         <div class="form-group">
-                            <input type="password" id="Password" placeholder="Password" />
+                            <input type="password" id="Password" name="logpassword" placeholder="Password" />
 
                         </div>
                         <div class="checkbox-container">
@@ -82,15 +78,26 @@ class Login extends Component {
                             <div class="text-checkbox">     I agree with the terms of service.</div>
                         </div>
                         <div class="button-area">
-                            <Link to="/home">
-                                <button class="btn-primary">Login</button>
-                            </Link>
+                            {/*<Link to="/home">*/}
+                                <button type="submit" class="btn-primary">Login</button>
+                            {/*</Link>*/}
+                            {/*<div class="login-form">
+					<form action="/" method="post">
+                    <form onSubmit={this.validate}>
+						<input type="text" name="logemail" placeholder="E-mail" required=""/>>
+						<input type="password" name="logpassword" placeholder="Password" required=""/>>
+						<div class="tp">
+							<button type="submit" onClick={this.validate} value="LOGIN NOW">Login Now</button>
+						</div>
+					</form>
+				</div>*/}
                             <Link to="/adminDash">
                                 <button class="btn-primary">Admin</button>
                             </Link>
 
                             
                         </div>
+                        </form>
                     </div>
                 </div>
 

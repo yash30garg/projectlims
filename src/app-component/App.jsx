@@ -8,14 +8,20 @@ import BootHeader from '../app-component/header-component/bootheader.jsx';
 import {BookDetails} from '../app-component/BookDetails-Component/bookDetails'
 import DashBoard from  '../app-component/main-component/admin-component/adminDashboard/dashboard.jsx';
 import Login from './main-component/login-component/login.jsx';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter,HashRouter, Route, Switch } from 'react-router-dom';
 import { User } from './main-component/user-component/user';
+import axios from 'axios';
 import BookAdmin from '../app-component/main-component/admin-component/BookHandler/bookshow.jsx';
 import HandleUsers from '../app-component/main-component/admin-component/adminDashboard/handleusers.jsx'
+let users;
 class App extends Component {
+  // constructor(){
+  //   super();
+    
+  // }
   render() {
     return (
-      <BrowserRouter>
+      <HashRouter basename="/">
         <div className="App">
           <Switch>
             <Route path="/" exact component={Login}/>
@@ -29,7 +35,7 @@ class App extends Component {
           </Switch>
 
         </div>
-      </BrowserRouter>
+      </HashRouter>
     );
   }
 }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './dashboard.css';
+import '../../../App.css'
 import Footer from '../../../footer-component/footer.jsx';
 import { Link } from 'react-router-dom';
 import { UserBooks } from './../borrowedBooks';
@@ -50,6 +51,8 @@ class DashBoard extends Component {
             <div>
 
                 <nav class="navbar navbar-toggleable-md navbar-default">
+                    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation"   >
+                        <span class="navbar-toggler-icon"></span></button>
                     <button
                         class="navbar-toggler navbar-toggler-right"
                         type="button"
