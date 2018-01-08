@@ -15,6 +15,7 @@ class Header extends Component {
     key = document.getElementById("key").value
     console.log(key)
   }
+
   render() {
 
     return (
@@ -63,18 +64,21 @@ class Header extends Component {
           <div className="collapse navbar-collapse" id="navbarNavDropdown">
             
             <ul className="navbar-nav ml-auto">
+          
+            
     <Link to="/profile">
-              <li className="nav-item active"></li>
+           
               <li className="nav-item" >
-                <a className="nav-link" href="#" style={{color : "white"}}>Profile
+                <a className="nav-link" href="#" style={{color : "white"}}><span class="fa fa-user"></span>profile
                 </a>
+                
               </li>
               </Link>
 
               <Link to="/">
               <li className="nav-item active"></li>
               <li className="nav-item" >
-                <a className="nav-link" href="#" style={{color : "white"}}>LogOut
+                <a className="nav-link" href="#" style={{color : "white"}}><span class="fa fa-lock"></span>logout
                 </a>
               </li>
              </Link>
