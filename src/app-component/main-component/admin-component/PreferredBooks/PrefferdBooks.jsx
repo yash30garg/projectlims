@@ -142,8 +142,8 @@ class PBooks extends Component {
                         href="#carouselExampleIndicators"
                         role="button"
                         data-slide="prev">
-                        <span className="arrowLeft" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
+                        <span className="arrowLeft" aria-hidden="true" style={{color : "#26a69a"}}></span>
+                        <span class="sr-only" style={{color : "#26a69a"}}>Previous</span>
                     </a>
                     <a
                         class="carousel-control-next"
