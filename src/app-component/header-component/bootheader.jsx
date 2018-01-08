@@ -374,7 +374,7 @@ class BootHeader extends Component {
                                         class=" row list-group-item  list-group-item-action ml-0">
                                         <div class="fa fa-asterisk col-md-0" aria-hidden="true"></div>
                                         <div className="col-md-0 ">Javascript</div>
-                                        <div className="badge badge-pill badge-warning ml-1 col-md-1 offset-md-8">{this
+                                        <div className="badge badge-pill badge-warning col-md-1git  offset-md-7">{this
                                                 .state
                                                 .display
                                                 .filter(r => r.details.category.toLowerCase() == "javascript")
