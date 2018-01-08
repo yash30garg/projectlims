@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Rx from 'rxjs';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import {Link} from 'react-router-dom';
+
 // import { BrowserRouter, Route, Link } from 'react-router-dom';
 import 'rxjs/add/operator/filter';
 import SearchResults from '../search-component/SearchResults';
@@ -186,7 +188,9 @@ export default class Search extends Component {
                         src={"https://www.mindtree.com/themes/custom/mindtree_theme/logo.svg"}
                         alt="My logo"
                         align="left" /></a>
+                        <Link to="/home">
                     <a className="navbar-brand" href="#" style={{color:"white"}}>Mindtree Library</a>
+                    </Link>
                     <form onSubmit={this.search}>
                         <div className="col-lg-9">
                             <div className="row offset-md-3">
