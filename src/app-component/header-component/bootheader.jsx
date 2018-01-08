@@ -59,6 +59,7 @@ class BootHeader extends Component {
                         style={{
                         color: 'white'
                     }}>
+<<<<<<< HEAD
                         <li class="nav-item">
                             <a
                                 class="nav-link"
@@ -84,6 +85,11 @@ class BootHeader extends Component {
                             }}>Pricing</a>
                         </li>
                         <li class="nav-item dropdown">
+=======
+
+                       
+                        <li class="nav-item dropdown mega-dropdown">
+>>>>>>> c2cd9c9d6dfb52a12c83947f4bd6ed9e34b687d7
                             <a
                                 class="nav-link dropdown-toggle"
                                 style={{
@@ -112,14 +118,18 @@ class BootHeader extends Component {
                                     onClick={this
                                     .openCategory
                                     .bind(this, 'Java')}
-                                    className="list-group-item  list-group-item-action">
+                                    className="list-group-item  list-group-item-action" >
                                     <span class="fa fa-asterisk" aria-hidden="true"></span>Java
-
+                                    <div
+                                            className='mov'
+                                            style={{
+                                                paddingRight: "227px"
+                                            }}>
                                     <span class="badge  badge-pill badge-warning ml-1">{this
                                             .state
                                             .display
                                             .filter(r => r.details.category.toLowerCase() == "java")
-                                            .length}</span>
+                                            .length}</span></div>
 
                                 </a>
                                 <a
@@ -142,10 +152,10 @@ class BootHeader extends Component {
                                     onClick={this
                                     .openCategory
                                     .bind(this, 'c')}
-                                    class="list-group-item  list-group-item-action">
-                                    <span class="fa fa-asterisk" aria-hidden="true"></span>C
+                                    class="list-group-item  list-group-item-action" >
+                                    <span class="fa fa-asterisk" aria-hidden="true" ></span>C
 
-                                    <span className="badge badge-pill badge-warning ml-1">{this
+                                    <span className="badge badge-pill badge-warning ml-1" >{this
                                             .state
                                             .display
                                             .filter(r => r.details.category.toLowerCase() == "c")

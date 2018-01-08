@@ -37,7 +37,7 @@ class Header extends Component {
             src={"https://www.mindtree.com/themes/custom/mindtree_theme/logo.svg"}
             alt="My logo"
             align="left" /></a>
-          <a className="navbar-brand" href="#" style={{color : "white"}}>Mindtree Library</a>
+          <a className="navbar-brand" style={{color : "white"}}>Mindtree Library</a>
             <Link to="/search">
             <div className="col-lg-9">
               

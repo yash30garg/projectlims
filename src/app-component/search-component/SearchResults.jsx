@@ -63,7 +63,7 @@ class SearchResults extends Component
                                 src={res.details.url}
                                 alt="not available"
                                 height="200vh"/>
-                            <div className="overlay">
+                            <div className="overlay" style={{backgroundColor : "rgba(38,166,154,0.9)"}}>
                                 <div className="text container-fluid">
                                     {res.details.title}<br/>
                                     Author: {res.details.author}<br/>

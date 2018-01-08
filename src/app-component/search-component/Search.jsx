@@ -19,7 +19,7 @@ export default class Search extends Component {
             filteredData: '',
             temp: 0
         }
-        Rx.Observable.fromPromise(fetch('https://api.myjson.com/bins/1a9rkj'))
+        Rx.Observable.fromPromise(fetch('http://limsreactapi.azurewebsites.net/api/Books'))
             .flatMap((response) => response.json())
             .subscribe(values => {
                 this.setState({ data: values })
@@ -74,21 +74,6 @@ export default class Search extends Component {
             this.sortRating();
         }
         else alert("Select a valid sort");
-    }
-    selectFilter = () => {
-        if (document.getElementById("filter").value === "5 Rated") {
-            this.fiveRated();
-        }
-        else if (document.getElementById("filter").value === "4 and above Rated") {
-            this.fourRated();
-        }
-        else if (document.getElementById("filter").value === "3 and above Rated") {
-            this.threeRated();
-        }
-        else if (document.getElementById("filter").value === "2 and above Rated") {
-            this.twoRated();
-        }
-        else alert("Select a valid Filter");
     }
     sortTitle() {
         this.flag = !this.flag;
@@ -186,38 +171,7 @@ export default class Search extends Component {
         console.log("Sorted by Rating");
         this.setState({ temp: 1 })
     }
-    fiveRated() {
-        processedData = processedData.filter((data) =>
-            data.details.rating === "5")
-        // processedData = this.state.sortedData;
-        console.log(processedData)
-        console.log("Sorted by five rated");
-        this.setState({ temp: 2 })
-    }
-    fourRated() {
-        processedData = processedData.filter((data) =>
-            (data.details.rating <= "5") && (data.details.rating >= "4"))
-        // processedData = this.state.sortedData;
-        console.log(processedData)
-        console.log("Sorted by four rated");
-        this.setState({ temp: 2 })
-    }
-    threeRated() {
-        processedData = processedData.filter((data) =>
-            (data.details.rating <= "5") && (data.details.rating >= "3"))
-        // processedData = this.state.sortedData;
-        console.log(processedData)
-        console.log("Sorted by three rated");
-        this.setState({ temp: 2 })
-    }
-    twoRated() {
-        processedData = processedData.filter((data) =>
-            (data.details.rating <= "5") && (data.details.rating >= "2"))
-        // processedData = this.state.sortedData;
-        console.log(processedData)
-        console.log("Sorted by two rated");
-        this.setState({ temp: 2 })
-    }
+    
     back() {
         processedData = [];
         window.history.go(-1)
