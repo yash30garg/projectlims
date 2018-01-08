@@ -95,7 +95,7 @@ class BootHeader extends Component {
                                     <div
                                             className='mov'
                                             style={{
-                                                paddingRight: "107px"
+                                                paddingRight: "227px"
                                             }}>
                                     <span class="badge  badge-pill badge-warning ml-1">{this
                                             .state
@@ -126,7 +126,7 @@ class BootHeader extends Component {
                                     .bind(this, 'c')}
                                     class="list-group-item  list-group-item-action" >
                                     <span class="fa fa-asterisk" aria-hidden="true" ></span>C
-                                    
+
                                     <span className="badge badge-pill badge-warning ml-1" >{this
                                             .state
                                             .display
@@ -330,7 +330,7 @@ class BootHeader extends Component {
                                         .bind(this, 'Java')}
                                         className="list-group-item  list-group-item-action">
                                         <span class="fa fa-asterisk" aria-hidden="true"></span>Java
-                                        <div className="movi" style={{paddingRight: "227px"}} />
+
                                         <span class="badge  badge-pill badge-warning ml-1">{this
                                                 .state
                                                 .display
@@ -345,7 +345,7 @@ class BootHeader extends Component {
                                         .bind(this, 'Javascript')}
                                         class="list-group-item  list-group-item-action">
                                         <span class="fa fa-asterisk" aria-hidden="true"></span>Javascript
-                                        <div className="movi" style={{paddingRight: "185px"}} />
+
                                         <span className="badge badge-pill badge-warning ml-1">{this
                                                 .state
                                                 .display
@@ -360,7 +360,7 @@ class BootHeader extends Component {
                                         .bind(this, 'c')}
                                         class="list-group-item  list-group-item-action">
                                         <span class="fa fa-asterisk" aria-hidden="true"></span>C
-                                        <div className="movi" style={{paddingRight: "248px"}} />
+
                                         <span className="badge badge-pill badge-warning ml-1">{this
                                                 .state
                                                 .display
@@ -375,7 +375,7 @@ class BootHeader extends Component {
                                         .bind(this, 'Angular')}
                                         class="list-group-item  list-group-item-action">
                                         <span class="fa fa-asterisk" aria-hidden="true"></span>Angular
-                                        <div className="movi" style={{paddingRight: "197px"}} />
+
                                         <span className="badge badge-pill badge-warning ml-1">{this
                                                 .state
                                                 .display
@@ -390,7 +390,7 @@ class BootHeader extends Component {
                                         .bind(this, 'React')}
                                         class="list-group-item  list-group-item-action">
                                         <span class="fa fa-asterisk" aria-hidden="true"></span>React
-                                        <div className="movi" style={{paddingRight: "215px"}} />
+
                                         <span className="badge badge-pill badge-warning ml-1">{this
                                                 .state
                                                 .display
@@ -405,7 +405,7 @@ class BootHeader extends Component {
                                         .bind(this, 'c++')}
                                         class="list-group-item  list-group-item-action">
                                         <span class="fa fa-asterisk" aria-hidden="true"></span>C++
-                                        <div className="movi" style={{paddingRight: "228px"}} />
+
                                         <span className="badge badge-pill badge-warning ml-1">{this
                                                 .state
                                                 .display
@@ -420,7 +420,7 @@ class BootHeader extends Component {
                                         .bind(this, 'c#')}
                                         class="list-group-item  list-group-item-action">
                                         <span class="fa fa-asterisk" aria-hidden="true"></span>C#
-                                        <div className="movi" style={{paddingRight: "240px"}} />
+
                                         <span className="badge badge-pill badge-warning ml-1">{this
                                                 .state
                                                 .display
@@ -435,7 +435,7 @@ class BootHeader extends Component {
                                         .bind(this, 'Python')}
                                         class="list-group-item  list-group-item-action">
                                         <span class="fa fa-asterisk" aria-hidden="true"></span>Python
-                                        <div className="movi" style={{paddingRight: "205px"}} />
+
                                         <span className="badge badge-pill badge-warning ml-1">{this
                                                 .state
                                                 .display
@@ -451,7 +451,7 @@ class BootHeader extends Component {
                                         .bind(this, 'jquery')}
                                         class="list-group-item  list-group-item-action">
                                         <span class="fa fa-asterisk" aria-hidden="true"></span>Jquery
-                                        <div className="movi" style={{paddingRight: "215px"}} />
+
                                         <span className="badge badge-pill badge-warning ml-1">{this
                                                 .state
                                                 .display
@@ -467,7 +467,7 @@ class BootHeader extends Component {
                                         .bind(this, 'html & css')}
                                         class="list-group-item  list-group-item-action">
                                         <span class="fa fa-asterisk" aria-hidden="true"></span>Html & Css
-                                        <div className="movi" style={{paddingRight: "180px"}} />
+
                                         <span className="badge badge-pill badge-warning ml-1">{this
                                                 .state
                                                 .display
@@ -486,7 +486,7 @@ class BootHeader extends Component {
                                         .bind(this, 'das')}
                                         class="list-group-item  list-group-item-action">
                                         <span class="fa fa-asterisk" aria-hidden="true"></span>Data Analytics
-                                        <div className="movi" style={{paddingRight: "160px"}} />
+
                                         <span className="badge badge-pill badge-warning ml-1">{this
                                                 .state
                                                 .display
