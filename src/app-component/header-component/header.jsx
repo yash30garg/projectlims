@@ -37,7 +37,7 @@ class Header extends Component {
             src={"https://www.mindtree.com/themes/custom/mindtree_theme/logo.svg"}
             alt="My logo"
             align="left" /></a>
-          <a className="navbar-brand" href="#" style={{color : "white"}}>Mindtree Library</a>
+          <a className="navbar-brand" style={{color : "white"}}>Mindtree Library</a>
             <Link to="/search">
             <div className="col-lg-9">
               
@@ -61,34 +61,42 @@ class Header extends Component {
           <div className="collapse navbar-collapse" id="navbarNavDropdown">
             
             <ul className="navbar-nav ml-auto">
-
+    <Link to="/profile">
               <li className="nav-item active"></li>
               <li className="nav-item" >
-                <a className="nav-link" href="#" style={{color : "white"}}>Wishlist
+                <a className="nav-link" href="#" style={{color : "white"}}>Profile
                 </a>
               </li>
+              </Link>
+
+              <Link to="/">
+              <li className="nav-item active"></li>
+              <li className="nav-item" >
+                <a className="nav-link" href="#" style={{color : "white"}}>LogOut
+                </a>
+              </li>
+             </Link>
 
               
 
-              <li className="nav-item dropdown">
-                <a
-                  className="nav-link dropdown-toggle"
-                  href="http://example.com"
-                  id="navbarDropdownMenuLink"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false" style={{color : "white"}}>
+              {/*<li className="nav-item dropdown">
+                <Link to="/profile">
+                  <a className="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style={{color : "white"}}>
                   Profile
                 </a>
+                </Link>
+                
                 <div
                   className="dropdown-menu dropdown-menu-right"
                   aria-labelledby="navbarDropdownMenuLink">
+                  <Link to="/profile">
                   <a className="dropdown-item" href="#">Preferences</a>
+                  </Link>
                   <a className="dropdown-item" href="#">Settings</a>
                   <div className="dropdown-divider"></div>
                   <a className="dropdown-item" href="#">Logout</a>
-                </div>
-              </li>
+                </div>*/}
+              {/*</li>*/}
             </ul>
           </div>
           
