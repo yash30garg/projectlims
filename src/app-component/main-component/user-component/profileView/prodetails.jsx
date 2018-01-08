@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './prodetails.css';
+import Header from '../../../../app-component/header-component/header.jsx';
+import Footer from '../../../../app-component/footer-component/footer.jsx';
 class Profile extends Component {
 
   
@@ -7,8 +9,10 @@ class Profile extends Component {
 
     return (
     <div>
+<Header />
 
 <div class="container-fluid" style={{backgroundColor : "#7FFFD4", minHeight : "33px"}} >
+  <br/><nr />
 	<div class="innerwrap">
 		<section class="section1 clearfix">
 			<div>
@@ -79,8 +83,7 @@ class Profile extends Component {
 		</section>
 	</div>
 </div>	
-
-
+<Footer />
    </div>
     )}
 }
