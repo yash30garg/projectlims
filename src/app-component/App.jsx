@@ -12,7 +12,9 @@ import { BrowserRouter,HashRouter, Route, Switch } from 'react-router-dom';
 import { User } from './main-component/user-component/user';
 import axios from 'axios';
 import BookAdmin from '../app-component/main-component/admin-component/BookHandler/bookshow.jsx';
-import HandleUsers from '../app-component/main-component/admin-component/adminDashboard/handleusers.jsx'
+import HandleUsers from '../app-component/main-component/admin-component/adminDashboard/handleusers.jsx';
+import Profile from '../app-component/main-component/user-component/profileView/prodetails.jsx';
+
 let users;
 class App extends Component {
   // constructor(){
@@ -32,6 +34,7 @@ class App extends Component {
             {/*<Route path="/admin" exact component={AdminLogin} />  */}
             <Route path="/adminbooks" exact component={BookAdmin} />
             <Route path="/handleusers" exact component={HandleUsers} />
+            <Route path="/profile" exact component={Profile} />
           </Switch>
 
         </div>
