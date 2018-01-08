@@ -13,15 +13,7 @@ let users;
 class Login extends Component {
     constructor(){
         super();
-        axios.get('https://api.myjson.com/bins/14x90j')
-     .then(res=>{
-         this.setState({output:res.data});
-          window.users = this.state.output;
-                console.log(users);
-                const b = window.users.filter((res) => res.user.mid === "1042948")
-                window.bbooks=b[0].borrowedbooks;
-                console.log(window.bbooks.length)
-        });
+        
     }
     state =
     {
