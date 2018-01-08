@@ -14,6 +14,7 @@ import axios from 'axios';
 import BookAdmin from '../app-component/main-component/admin-component/BookHandler/bookshow.jsx';
 import HandleUsers from '../app-component/main-component/admin-component/adminDashboard/handleusers.jsx'
 let users;
+window.display='';
 class App extends Component {
   // constructor(){
   //   super();
