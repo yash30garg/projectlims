@@ -64,7 +64,7 @@ class Login extends Component {
                     </div>
                     <div className="login-right">
                         <div className="h2">Login</div>
-                        <form action="http://localhost:3005/api/" method="post">
+                        <form action="http://limsreactapi.azurewebsites.net/api/" method="post">
                         <div class="form-group">
                             <input type="text" id="Email" name="logemail" placeholder="E-mail" />
 
