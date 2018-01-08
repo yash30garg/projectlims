@@ -23,6 +23,11 @@ function getData(){
                 console.log(window.bbooks.length)
           }
         });
+        axios
+            .get('https://api.myjson.com/bins/1a9rkj')
+            .then(res => {
+                window.display=res.data.booksArray});
+            
 }
 
 

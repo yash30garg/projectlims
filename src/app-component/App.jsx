@@ -16,6 +16,7 @@ import HandleUsers from '../app-component/main-component/admin-component/adminDa
 import Profile from '../app-component/main-component/user-component/profileView/prodetails.jsx';
 
 let users;
+window.display='';
 class App extends Component {
   // constructor(){
   //   super();

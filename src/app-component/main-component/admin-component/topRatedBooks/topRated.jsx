@@ -6,23 +6,21 @@ import './topRated.css'
 class TopBooks extends Component{
         constructor() {
         super();
-        this.state = {
-            display: [],
-        }
+
     }
 
-        componentDidMount() {
-        axios
-            .get('https://api.myjson.com/bins/1a9rkj')
-            .then(res => {
-                this.setState({display: res.data.booksArray});
-            })
-    }
+    //     componentWillMount() {
+    //     axios
+    //         .get('https://api.myjson.com/bins/1a9rkj')
+    //         .then(res => {
+    //             this.setState({display: res.data.booksArray});
+    //         })
+    // }
     render()
     {
         let k;
-                if (this.state.display.length != 0) {
-                let b = this.state.display.filter((res) => res.details.rating >= 4);
+                if (window.display !== '') {
+                let b = window.display.filter((res) => res.details.rating >= 4);
                  k=["java","javascript","c","angular","react","c++","c#","python","jquery","html & css","das"].map(result=>{
                     return(
                         <div>

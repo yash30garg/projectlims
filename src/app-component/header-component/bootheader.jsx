@@ -48,7 +48,7 @@ class BootHeader extends Component {
             <div>
 
                 <Header/>
-                <nav
+                {/*<nav
                     class="navbar navbar-toggleable-md navbar-light bg-faded"
                     style={{
                     backgroundColor: "#26a69a",
@@ -59,9 +59,37 @@ class BootHeader extends Component {
                         style={{
                         color: 'white'
                     }}>
+<<<<<<< HEAD
+                        <li class="nav-item">
+                            <a
+                                class="nav-link"
+                                href="#"
+                                style={{
+                                color: 'white'
+                            }}>Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                class="nav-link"
+                                href="#"
+                                style={{
+                                color: 'white'
+                            }}>Features</a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                class="nav-link"
+                                href="#"
+                                style={{
+                                color: 'white'
+                            }}>Pricing</a>
+                        </li>
+                        <li class="nav-item dropdown">
+=======
 
                        
                         <li class="nav-item dropdown mega-dropdown">
+>>>>>>> c2cd9c9d6dfb52a12c83947f4bd6ed9e34b687d7
                             <a
                                 class="nav-link dropdown-toggle"
                                 style={{
@@ -110,7 +138,7 @@ class BootHeader extends Component {
                                     .openCategory
                                     .bind(this, 'Javascript')}
                                     class="list-group-item  list-group-item-action">
-                                    <span class="fa fa-asterisk" aria-hidden="true"></span>Javascript {/*<div className="all" style={{paddingLeft : "187px"}}>*/}
+                                    <span class="fa fa-asterisk" aria-hidden="true"></span>Javascript {/*<div className="all" style={{paddingLeft : "187px"}}>
 
                                     <span className="badge badge-pill badge-warning ml-1">{this
                                             .state
@@ -140,7 +168,7 @@ class BootHeader extends Component {
                                     .openCategory
                                     .bind(this, 'Angular')}
                                     class="list-group-item  list-group-item-action">
-                                    <span class="fa fa-asterisk" aria-hidden="true"></span>Angular {/*<div className="all" style={{paddingLeft : "187px"}}>*/}
+                                    <span class="fa fa-asterisk" aria-hidden="true"></span>Angular {/*<div className="all" style={{paddingLeft : "187px"}}>
 
                                     <span className="badge badge-pill badge-warning ml-1">{this
                                             .state
@@ -263,8 +291,8 @@ class BootHeader extends Component {
                             </div>
                         </li>
                     </ul>
-                </nav>
-                <br/> {/*<section id="breadcrumb">
+                </nav>*/}
+                <br/>{/*<section id="breadcrumb">
                     <div className="container-fluid">
                         <ol
                             className="breadcrumb bc"
@@ -312,14 +340,14 @@ class BootHeader extends Component {
 
                                 <div className="list-group mt-4">
                                     <a
-                                        className="list-group-item collor"
+                                        className="list-group-item collor nav-item dropdown nav-link" data-toggle="collapse" data-target="#navbaDropdown" aria-controls="navbaDropdown" aria-expanded="false" aria-label="Toggle navigation"
                                         style={{
                                         backgroundColor: "#116466",
                                         color: "white"
                                     }}>
                                         <span className="fa fa-cog" aria-hidden="true"></span>
-                                        Categories</a>
-
+                                        Categories<span className="nav-link dropdown-toggle" style={{text:'right'}}></span></a>
+                                    <div class="collapse navbar-collapse" id="navbaDropdown">
                                     <a
                                         
                                         style={{
@@ -494,6 +522,7 @@ class BootHeader extends Component {
                                                 .length}</span>
 
                                     </a>
+                                    </div>
                                 </div>
 
                             </div>
