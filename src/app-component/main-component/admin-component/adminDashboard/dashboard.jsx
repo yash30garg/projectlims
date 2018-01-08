@@ -84,7 +84,7 @@ class DashBoard extends Component {
                                 </li>
                             </Link>
 
-                            <li class="nav-item dropdown">
+                            {/*<li class="nav-item dropdown">
                                 <a
                                     class="nav-link dropdown-toggle"
                                     href="http://example.com"
@@ -97,7 +97,7 @@ class DashBoard extends Component {
                                     <a class="dropdown-item" href="#">Another action</a>
                                     <a class="dropdown-item" href="#">Something else here</a>
                                 </div>
-                            </li>
+                            </li>*/}
                         </ul>
 
                         <ul class="navbar-nav navbar-right">
