@@ -37,6 +37,7 @@ export class User extends Component
             {/*<Pbooks/>*/}
             {/*<BorrowedSlider/>*/}
             {/*<Footer />*/}
+            
             </div>
         );
     }
