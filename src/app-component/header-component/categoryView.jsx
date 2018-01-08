@@ -33,7 +33,7 @@ export const Category=(props)=>
 
                             if (res.details.rating >= d) 
                                 return <span
-                                    class="fa fa-star"
+                                    className="fa fa-star"
                                     style={{
                                     color: '#ffd700',
                                     fontSize:'5px'

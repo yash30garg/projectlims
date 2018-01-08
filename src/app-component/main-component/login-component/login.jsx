@@ -9,9 +9,21 @@ import {getUser, getBook} from '../../../Service/dataService.js'
 // import Form from 'react-validation/build/form';
 // import Input from 'react-validation/build/input';
 export var email, mid;
+let users;
 
 class Login extends Component {
-
+    constructor(){
+        super();
+        axios.get('https://api.myjson.com/bins/14x90j')
+     .then(res=>{
+         this.setState({output:res.data});
+          window.users = this.state.output;
+                console.log(users);
+                const b = window.users.filter((res) => res.user.mid === "1042948")
+                window.bbooks=b[0].borrowedbooks;
+                console.log(window.bbooks.length)
+        });
+    }
     state =
     {
         display: [],
@@ -56,7 +68,7 @@ class Login extends Component {
                 <div className="login-wrapper" id="lw">
                     <div className="login-left">
                         <img src="https://i.ytimg.com/vi/PiYvQyG4ucc/maxresdefault.jpg" alt="" onClick={handleClick}></img>
-                        <div className="header" onClick={handleClick} style={{fontWeight : "1000px"}}><b>Click Here to Enter</b></div>
+                        <div className="header" onClick={handleClick} style={{fontWeight : "2000px"}}><b>Click Here to Enter</b></div>
                     </div>
                     <div className="login-right">
                         <div className="h2">Login</div>

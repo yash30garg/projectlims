@@ -15,12 +15,12 @@ var count = 0;
 class BootHeader extends Component {
 
     state = {
-        display:[],
-        landingView:true,
-        currentlyClicked:"",
-        categoryClicked:true,
-        borrowedClicked:false,
-        arrayResults:[]
+        display: [],
+        landingView: true,
+        currentlyClicked: "",
+        categoryClicked: true,
+        borrowedClicked: false,
+        arrayResults: []
 
     }
     componentDidMount() {
@@ -31,144 +31,258 @@ class BootHeader extends Component {
                 console.log(this.state.display);
             })
 
-                 axios.get('https://api.myjson.com/bins/14x90j')
-     .then(res=>{
-         this.setState({output:res.data});
-
-        });
-
-        
     }
 
-   openCategory=(arg)=>
-   {
-     console.log(arg);
-     this.setState({landingView:false,
-         currentlyClicked:arg,
-     categoryClicked:false,
-     borrowedClicked:false});
-   }
-   openBorrowedBooks=()=>
-   {
-     this.setState({landingView:true,
-         categoryClicked:true,
-     borrowedClicked:true});
-   }
-
+    openCategory = (arg) => {
+        console.log(arg);
+        this.setState({landingView: false, currentlyClicked: arg, categoryClicked: false, borrowedClicked: false});
+    }
+    openBorrowedBooks = () => {
+        this.setState({landingView: true, categoryClicked: true, borrowedClicked: true});
+    }
 
     render() {
-
-
-        
 
         return (
 
             <div>
 
                 <Header/>
+                <nav
+                    class="navbar navbar-toggleable-md navbar-light bg-faded"
+                    style={{
+                    backgroundColor: "#26a69a",
+                    color: "white"
+                }}>
+                    <ul
+                        class="navbar-nav features"
+                        style={{
+                        color: 'white'
+                    }}>
+                        <li class="nav-item">
+                            <a
+                                class="nav-link"
+                                href="#"
+                                style={{
+                                color: 'white'
+                            }}>Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                class="nav-link"
+                                href="#"
+                                style={{
+                                color: 'white'
+                            }}>Features</a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                class="nav-link"
+                                href="#"
+                                style={{
+                                color: 'white'
+                            }}>Pricing</a>
+                        </li>
+                        <li class="nav-item dropdown mega-dropdown">
+                            <a
+                                class="nav-link dropdown-toggle"
+                                style={{
+                                color: 'white',
+                                backgroundColor: "#26a69a"
+                            }}
+                                href="http://example.com"
+                                id="navbarDropdownMenuLink"
+                                data-toggle="dropdown"
+                                aria-haspopup="true"
+                                aria-expanded="false">
+                                Categories
+                            </a>
+                            <div
+                                class="dropdown-menu"
+                                aria-labelledby="navbarDropdownMenuLink"
+                                style={{
+                                width: '250px',
+                                backgroundColor: "#116466"
+                            }}>
+                                <a
+                                    href="#category"
+                                    style={{
+                                    marginTop: '-8px'
+                                }}
+                                    onClick={this
+                                    .openCategory
+                                    .bind(this, 'Java')}
+                                    className="list-group-item  list-group-item-action">
+                                    <span class="fa fa-asterisk" aria-hidden="true"></span>Java
 
-                <nav class="navbar navbar-toggleable-md navbar-light bg-faded" style={{backgroundColor: "#26a69a",color: "white"}}>
-    <ul class="navbar-nav features" style={{color:'white'}}>
-      <li class="nav-item">
-        <a class="nav-link" href="#" style={{color:'white'}}>Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#" style={{color:'white'}}>Features</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#" style={{color:'white'}}>Pricing</a>
-      </li>
-      <li class="nav-item dropdown mega-dropdown">
-        <a class="nav-link dropdown-toggle" style={{color:'white',backgroundColor:"#26a69a"}} href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Categories 
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style={{width:'250px',backgroundColor:"#116466"}}>
-          <a href="#category" style={{marginTop:'-8px'}} onClick={this.openCategory.bind(this,'Java')} className="list-group-item  list-group-item-action" >
-                                        <span class="fa fa-asterisk" aria-hidden="true" ></span>Java
-                                        
-                                        <span class="badge  badge-pill badge-warning ml-1">{this.state.display.filter(r=>r.details.category.toLowerCase()=="java").length}</span>
-                                        
-                                    </a>
-                                    <a href="#category" onClick={this.openCategory.bind(this,'Javascript')} class="list-group-item  list-group-item-action">
-                                        <span class="fa fa-asterisk" aria-hidden="true"></span>Javascript
+                                    <span class="badge  badge-pill badge-warning ml-1">{this
+                                            .state
+                                            .display
+                                            .filter(r => r.details.category.toLowerCase() == "java")
+                                            .length}</span>
 
-                                         {/*<div className="all" style={{paddingLeft : "187px"}}>*/}
+                                </a>
+                                <a
+                                    href="#category"
+                                    onClick={this
+                                    .openCategory
+                                    .bind(this, 'Javascript')}
+                                    class="list-group-item  list-group-item-action">
+                                    <span class="fa fa-asterisk" aria-hidden="true"></span>Javascript {/*<div className="all" style={{paddingLeft : "187px"}}>*/}
 
-                                        <span className="badge badge-pill badge-warning ml-1">{this.state.display.filter(r=>r.details.category.toLowerCase()=="javascript").length}</span>
-                                        
-                                    </a>
-                                    <a href="#category" onClick={this.openCategory.bind(this,'c')} class="list-group-item  list-group-item-action">
-                                        <span class="fa fa-asterisk" aria-hidden="true"></span>C
-                                       
-                                        <span className="badge badge-pill badge-warning ml-1">{this.state.display.filter(r=>r.details.category.toLowerCase()=="c").length}</span>
-                                      
-                                    </a>
-                                    <a href="#category" onClick={this.openCategory.bind(this,'Angular')} class="list-group-item  list-group-item-action">
-                                        <span class="fa fa-asterisk" aria-hidden="true"></span>Angular
+                                    <span className="badge badge-pill badge-warning ml-1">{this
+                                            .state
+                                            .display
+                                            .filter(r => r.details.category.toLowerCase() == "javascript")
+                                            .length}</span>
 
-                                         {/*<div className="all" style={{paddingLeft : "187px"}}>*/}
+                                </a>
+                                <a
+                                    href="#category"
+                                    onClick={this
+                                    .openCategory
+                                    .bind(this, 'c')}
+                                    class="list-group-item  list-group-item-action">
+                                    <span class="fa fa-asterisk" aria-hidden="true"></span>C
 
-                                        <span className="badge badge-pill badge-warning ml-1">{this.state.display.filter(r=>r.details.category.toLowerCase()=="angular").length}</span>
-                                        
-                                    </a>
-                                    <a href="#category" onClick={this.openCategory.bind(this,'React')} class="list-group-item  list-group-item-action">
-                                        <span class="fa fa-asterisk" aria-hidden="true"></span>React
-                                       
-                                        <span className="badge badge-pill badge-warning ml-1">{this.state.display.filter(r=>r.details.category.toLowerCase()=="react").length}</span>
-                                       
-                                    </a>
-                                    <a href="#category" onClick={this.openCategory.bind(this,'c++')} class="list-group-item  list-group-item-action">
-                                        <span class="fa fa-asterisk" aria-hidden="true"></span>C++
-                                    
-                                        <span className="badge badge-pill badge-warning ml-1" >{this.state.display.filter(r=>r.details.category.toLowerCase()=="c++").length}</span>
-                                     
-                                    </a>
-                                    <a href="#category" onClick={this.openCategory.bind(this,'c#')} class="list-group-item  list-group-item-action">
-                                        <span class="fa fa-asterisk" aria-hidden="true"></span>C#
-                                        
-                                        
-                                        <span className="badge badge-pill badge-warning ml-1">{this.state.display.filter(r=>r.details.category.toLowerCase()=="c#").length}</span>
-                                     
-                                    </a>
-                                    <a href="#category" onClick={this.openCategory.bind(this,'Python')} class="list-group-item  list-group-item-action">
-                                        <span class="fa fa-asterisk" aria-hidden="true"></span>Python
-                                         
-                                        
-                                        <span className="badge badge-pill badge-warning ml-1">{this.state.display.filter(r=>r.details.category.toLowerCase()=="python").length}</span>
-                                       
-                                    </a>
+                                    <span className="badge badge-pill badge-warning ml-1">{this
+                                            .state
+                                            .display
+                                            .filter(r => r.details.category.toLowerCase() == "c")
+                                            .length}</span>
 
-                                    <a href="#category" onClick={this.openCategory.bind(this,'jquery')} class="list-group-item  list-group-item-action">
-                                        <span class="fa fa-asterisk" aria-hidden="true"></span>Jquery
-                                         
-                                        
-                                        <span className="badge badge-pill badge-warning ml-1">{this.state.display.filter(r=>r.details.category.toLowerCase()=="jquery").length}</span>
-                                        
-                                    </a>
+                                </a>
+                                <a
+                                    href="#category"
+                                    onClick={this
+                                    .openCategory
+                                    .bind(this, 'Angular')}
+                                    class="list-group-item  list-group-item-action">
+                                    <span class="fa fa-asterisk" aria-hidden="true"></span>Angular {/*<div className="all" style={{paddingLeft : "187px"}}>*/}
 
-                                    <a href="#category" onClick={this.openCategory.bind(this,'html & css')} class="list-group-item  list-group-item-action">
-                                        <span class="fa fa-asterisk" aria-hidden="true"></span>Html & Css
-                                       
-                                        
-                                        <span className="badge badge-pill badge-warning ml-1">{this.state.display.filter(r=>r.details.category=="Html & Css").length}</span>
-                                        
-                                    </a>
+                                    <span className="badge badge-pill badge-warning ml-1">{this
+                                            .state
+                                            .display
+                                            .filter(r => r.details.category.toLowerCase() == "angular")
+                                            .length}</span>
 
-                                        <a href="#category"  style={{marginBottom:'-8px'}}  onClick={this.openCategory.bind(this,'das')} class="list-group-item  list-group-item-action">
-                                        <span class="fa fa-asterisk" aria-hidden="true"></span>Data Analytics
-                                        
-                                        
-                                        <span className="badge badge-pill badge-warning ml-1">{this.state.display.filter(r=>r.details.category.toLowerCase()=="das").length}</span>
-                                        
-                                    </a>
-        </div>
-      </li>
-    </ul>
-</nav>
-<br/>
+                                </a>
+                                <a
+                                    href="#category"
+                                    onClick={this
+                                    .openCategory
+                                    .bind(this, 'React')}
+                                    class="list-group-item  list-group-item-action">
+                                    <span class="fa fa-asterisk" aria-hidden="true"></span>React
 
-         
-                {/*<section id="breadcrumb">
+                                    <span className="badge badge-pill badge-warning ml-1">{this
+                                            .state
+                                            .display
+                                            .filter(r => r.details.category.toLowerCase() == "react")
+                                            .length}</span>
+
+                                </a>
+                                <a
+                                    href="#category"
+                                    onClick={this
+                                    .openCategory
+                                    .bind(this, 'c++')}
+                                    class="list-group-item  list-group-item-action">
+                                    <span class="fa fa-asterisk" aria-hidden="true"></span>C++
+
+                                    <span className="badge badge-pill badge-warning ml-1">{this
+                                            .state
+                                            .display
+                                            .filter(r => r.details.category.toLowerCase() == "c++")
+                                            .length}</span>
+
+                                </a>
+                                <a
+                                    href="#category"
+                                    onClick={this
+                                    .openCategory
+                                    .bind(this, 'c#')}
+                                    class="list-group-item  list-group-item-action">
+                                    <span class="fa fa-asterisk" aria-hidden="true"></span>C#
+
+                                    <span className="badge badge-pill badge-warning ml-1">{this
+                                            .state
+                                            .display
+                                            .filter(r => r.details.category.toLowerCase() == "c#")
+                                            .length}</span>
+
+                                </a>
+                                <a
+                                    href="#category"
+                                    onClick={this
+                                    .openCategory
+                                    .bind(this, 'Python')}
+                                    class="list-group-item  list-group-item-action">
+                                    <span class="fa fa-asterisk" aria-hidden="true"></span>Python
+
+                                    <span className="badge badge-pill badge-warning ml-1">{this
+                                            .state
+                                            .display
+                                            .filter(r => r.details.category.toLowerCase() == "python")
+                                            .length}</span>
+
+                                </a>
+
+                                <a
+                                    href="#category"
+                                    onClick={this
+                                    .openCategory
+                                    .bind(this, 'jquery')}
+                                    class="list-group-item  list-group-item-action">
+                                    <span class="fa fa-asterisk" aria-hidden="true"></span>Jquery
+
+                                    <span className="badge badge-pill badge-warning ml-1">{this
+                                            .state
+                                            .display
+                                            .filter(r => r.details.category.toLowerCase() == "jquery")
+                                            .length}</span>
+
+                                </a>
+
+                                <a
+                                    href="#category"
+                                    onClick={this
+                                    .openCategory
+                                    .bind(this, 'html & css')}
+                                    class="list-group-item  list-group-item-action">
+                                    <span class="fa fa-asterisk" aria-hidden="true"></span>Html & Css
+
+                                    <span className="badge badge-pill badge-warning ml-1">{this
+                                            .state
+                                            .display
+                                            .filter(r => r.details.category == "Html & Css")
+                                            .length}</span>
+
+                                </a>
+
+                                <a
+                                    href="#category"
+                                    style={{
+                                    marginBottom: '-8px'
+                                }}
+                                    onClick={this
+                                    .openCategory
+                                    .bind(this, 'das')}
+                                    class="list-group-item  list-group-item-action">
+                                    <span class="fa fa-asterisk" aria-hidden="true"></span>Data Analytics
+
+                                    <span className="badge badge-pill badge-warning ml-1">{this
+                                            .state
+                                            .display
+                                            .filter(r => r.details.category.toLowerCase() == "das")
+                                            .length}</span>
+
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+                <br/> {/*<section id="breadcrumb">
                     <div className="container-fluid">
                         <ol
                             className="breadcrumb bc"
@@ -188,8 +302,8 @@ class BootHeader extends Component {
                         <div className="row">
                             <div className="col-md-3">
 
-                                    <div className="list-group">
-                                    <a                    
+                                <div className="list-group">
+                                    <a
                                         className="list-group-item collor"
                                         style={{
                                         backgroundColor: "#116466",
@@ -198,31 +312,223 @@ class BootHeader extends Component {
                                         <span className="fa fa-cog" aria-hidden="true"></span>
                                         My Books</a>
 
-                                        <a href="#borrowed" onClick={this.openBorrowedBooks} class="list-group-item  list-group-item-action">
+                                    <a
+                                        onClick={this.openBorrowedBooks}
+                                        class="list-group-item  list-group-item-action">
                                         <span class="fa fa-asterisk" aria-hidden="true"></span>Borrowed Books
-                                         <div className="all">
-                                        
-                                        <span className="badge badge-pill badge-warning ml-1">{this.state.display.filter(r=>r.details.category.toLowerCase()=="das").length}</span>
+                                        <div className="all">
+
+                                            <span className="badge badge-pill badge-warning ml-1">{window.bbooks.length}</span>
                                         </div>
                                     </a>
 
-                                        <a href="#borrowed"class="list-group-item  list-group-item-action">
+                                    <a class="list-group-item  list-group-item-action">
                                         <span class="fa fa-asterisk" aria-hidden="true"></span>Requested Books
-                                         <div className="all" >
-                                        
-                                        <span className="badge badge-pill badge-warning ml-1">0</span>
+                                        <div className="all">
+
+                                            <span className="badge badge-pill badge-warning ml-1">0</span>
                                         </div>
                                     </a>
-                                    </div>
+                                </div>
 
+                                <div className="list-group mt-4">
+                                    <a
+                                        className="list-group-item collor"
+                                        style={{
+                                        backgroundColor: "#116466",
+                                        color: "white"
+                                    }}>
+                                        <span className="fa fa-cog" aria-hidden="true"></span>
+                                        Categories</a>
 
+                                    <a
+                                        href="#category"
+                                        style={{
+                                        marginTop: '-8px'
+                                    }}
+                                        onClick={this
+                                        .openCategory
+                                        .bind(this, 'Java')}
+                                        className="list-group-item  list-group-item-action">
+                                        <span class="fa fa-asterisk" aria-hidden="true"></span>Java
+
+                                        <span class="badge  badge-pill badge-warning ml-1">{this
+                                                .state
+                                                .display
+                                                .filter(r => r.details.category.toLowerCase() == "java")
+                                                .length}</span>
+
+                                    </a>
+                                    <a
+                                        href="#category"
+                                        onClick={this
+                                        .openCategory
+                                        .bind(this, 'Javascript')}
+                                        class="list-group-item  list-group-item-action">
+                                        <span class="fa fa-asterisk" aria-hidden="true"></span>Javascript
+
+                                        <span className="badge badge-pill badge-warning ml-1">{this
+                                                .state
+                                                .display
+                                                .filter(r => r.details.category.toLowerCase() == "javascript")
+                                                .length}</span>
+
+                                    </a>
+                                    <a
+                                        href="#category"
+                                        onClick={this
+                                        .openCategory
+                                        .bind(this, 'c')}
+                                        class="list-group-item  list-group-item-action">
+                                        <span class="fa fa-asterisk" aria-hidden="true"></span>C
+
+                                        <span className="badge badge-pill badge-warning ml-1">{this
+                                                .state
+                                                .display
+                                                .filter(r => r.details.category.toLowerCase() == "c")
+                                                .length}</span>
+
+                                    </a>
+                                    <a
+                                        href="#category"
+                                        onClick={this
+                                        .openCategory
+                                        .bind(this, 'Angular')}
+                                        class="list-group-item  list-group-item-action">
+                                        <span class="fa fa-asterisk" aria-hidden="true"></span>Angular
+
+                                        <span className="badge badge-pill badge-warning ml-1">{this
+                                                .state
+                                                .display
+                                                .filter(r => r.details.category.toLowerCase() == "angular")
+                                                .length}</span>
+
+                                    </a>
+                                    <a
+                                        href="#category"
+                                        onClick={this
+                                        .openCategory
+                                        .bind(this, 'React')}
+                                        class="list-group-item  list-group-item-action">
+                                        <span class="fa fa-asterisk" aria-hidden="true"></span>React
+
+                                        <span className="badge badge-pill badge-warning ml-1">{this
+                                                .state
+                                                .display
+                                                .filter(r => r.details.category.toLowerCase() == "react")
+                                                .length}</span>
+
+                                    </a>
+                                    <a
+                                        href="#category"
+                                        onClick={this
+                                        .openCategory
+                                        .bind(this, 'c++')}
+                                        class="list-group-item  list-group-item-action">
+                                        <span class="fa fa-asterisk" aria-hidden="true"></span>C++
+
+                                        <span className="badge badge-pill badge-warning ml-1">{this
+                                                .state
+                                                .display
+                                                .filter(r => r.details.category.toLowerCase() == "c++")
+                                                .length}</span>
+
+                                    </a>
+                                    <a
+                                        href="#category"
+                                        onClick={this
+                                        .openCategory
+                                        .bind(this, 'c#')}
+                                        class="list-group-item  list-group-item-action">
+                                        <span class="fa fa-asterisk" aria-hidden="true"></span>C#
+
+                                        <span className="badge badge-pill badge-warning ml-1">{this
+                                                .state
+                                                .display
+                                                .filter(r => r.details.category.toLowerCase() == "c#")
+                                                .length}</span>
+
+                                    </a>
+                                    <a
+                                        href="#category"
+                                        onClick={this
+                                        .openCategory
+                                        .bind(this, 'Python')}
+                                        class="list-group-item  list-group-item-action">
+                                        <span class="fa fa-asterisk" aria-hidden="true"></span>Python
+
+                                        <span className="badge badge-pill badge-warning ml-1">{this
+                                                .state
+                                                .display
+                                                .filter(r => r.details.category.toLowerCase() == "python")
+                                                .length}</span>
+
+                                    </a>
+
+                                    <a
+                                        href="#category"
+                                        onClick={this
+                                        .openCategory
+                                        .bind(this, 'jquery')}
+                                        class="list-group-item  list-group-item-action">
+                                        <span class="fa fa-asterisk" aria-hidden="true"></span>Jquery
+
+                                        <span className="badge badge-pill badge-warning ml-1">{this
+                                                .state
+                                                .display
+                                                .filter(r => r.details.category.toLowerCase() == "jquery")
+                                                .length}</span>
+
+                                    </a>
+
+                                    <a
+                                        href="#category"
+                                        onClick={this
+                                        .openCategory
+                                        .bind(this, 'html & css')}
+                                        class="list-group-item  list-group-item-action">
+                                        <span class="fa fa-asterisk" aria-hidden="true"></span>Html & Css
+
+                                        <span className="badge badge-pill badge-warning ml-1">{this
+                                                .state
+                                                .display
+                                                .filter(r => r.details.category == "Html & Css")
+                                                .length}</span>
+
+                                    </a>
+
+                                    <a
+                                        href="#category"
+                                        style={{
+                                        marginBottom: '-8px'
+                                    }}
+                                        onClick={this
+                                        .openCategory
+                                        .bind(this, 'das')}
+                                        class="list-group-item  list-group-item-action">
+                                        <span class="fa fa-asterisk" aria-hidden="true"></span>Data Analytics
+
+                                        <span className="badge badge-pill badge-warning ml-1">{this
+                                                .state
+                                                .display
+                                                .filter(r => r.details.category.toLowerCase() == "das")
+                                                .length}</span>
+
+                                    </a>
+                                </div>
 
                             </div>
 
                             <div className="col-md-9">
-                            
-                           <a> {this.state.landingView && this.state.categoryClicked?<LandingView show={this.state.borrowedClicked}/>:<Category data={this.state.display} selected={this.state.currentlyClicked}/>}</a>
-                           <a> {this.state.borrowedClicked?<BorrowedSlider/>:null}</a>
+
+                                <a>
+                                    {this.state.landingView && this.state.categoryClicked
+                                        ? <LandingView show={this.state.borrowedClicked}/>
+                                        : <Category data={this.state.display} selected={this.state.currentlyClicked}/>}</a>
+                                <a>
+                                    {this.state.borrowedClicked
+                                        ? <BorrowedSlider/>
+                                        : null}</a>
                             </div>
                         </div>
                     </div>
