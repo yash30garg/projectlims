@@ -59,30 +59,8 @@ class BootHeader extends Component {
                         style={{
                         color: 'white'
                     }}>
-                        <li class="nav-item">
-                            <a
-                                class="nav-link"
-                                href="#"
-                                style={{
-                                color: 'white'
-                            }}>Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a
-                                class="nav-link"
-                                href="#"
-                                style={{
-                                color: 'white'
-                            }}>Features</a>
-                        </li>
-                        <li class="nav-item">
-                            <a
-                                class="nav-link"
-                                href="#"
-                                style={{
-                                color: 'white'
-                            }}>Pricing</a>
-                        </li>
+                        
+                       
                         <li class="nav-item dropdown mega-dropdown">
                             <a
                                 class="nav-link dropdown-toggle"
