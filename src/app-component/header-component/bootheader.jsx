@@ -40,6 +40,15 @@ class BootHeader extends Component {
     openBorrowedBooks = () => {
         this.setState({landingView: true, categoryClicked: true, borrowedClicked: true});
     }
+    closeCategory=()=>
+    {
+        //alert("Ankit");
+        this.setState({landingView:true,categoryClicked:true,borrowedClicked:false});
+    }
+    closeBorrowed=()=>
+    {
+      this.setState({landingView:true, categoryClicked:true, borrowedClicked:false});
+    }
 
     render() {
 
@@ -59,7 +68,7 @@ class BootHeader extends Component {
                         style={{
                         color: 'white'
                     }}>
-<<<<<<< HEAD
+
                         <li class="nav-item">
                             <a
                                 class="nav-link"
@@ -85,11 +94,11 @@ class BootHeader extends Component {
                             }}>Pricing</a>
                         </li>
                         <li class="nav-item dropdown">
-=======
+
 
                        
                         <li class="nav-item dropdown mega-dropdown">
->>>>>>> c2cd9c9d6dfb52a12c83947f4bd6ed9e34b687d7
+
                             <a
                                 class="nav-link dropdown-toggle"
                                 style={{
@@ -337,7 +346,7 @@ class BootHeader extends Component {
                                         </div>*/}
                                     </a>
                                 </div>
-                                <div className="list-group mt-4">
+                                <div className="list-group mt-4" style={{cursor:'pointer'}}>
                                     <a
                                         className="list-group-item collor nav-item dropdown nav-link" data-toggle="collapse" data-target="#navbaDropdown" aria-controls="navbaDropdown" aria-expanded="false" aria-label="Toggle navigation"
                                         style={{
@@ -367,6 +376,8 @@ class BootHeader extends Component {
                                         onClick={this
                                         .openCategory
                                         .bind(this, 'Javascript')}
+
+
                                         class=" row list-group-item  list-group-item-action ml-0">
                                         <div className="col-md-0 fa fa-arrow-right" area-hidden="true"></div>
                                         <div className="col" style={{textAlign:"left"}}>Javascript</div>
@@ -523,10 +534,10 @@ class BootHeader extends Component {
                                 <a>
                                     {this.state.landingView && this.state.categoryClicked
                                         ? <LandingView show={this.state.borrowedClicked}/>
-                                        : <Category data={this.state.display} selected={this.state.currentlyClicked}/>}</a>
+                                        : <Category categoryCrossClicked={this.closeCategory} data={this.state.display} selected={this.state.currentlyClicked}/>}</a>
                                 <a>
                                     {this.state.borrowedClicked
-                                        ? <BorrowedSlider/>
+                                        ? <BorrowedSlider borrowCrossClicked={this.closeBorrowed}/>
                                         : null}</a>
                                     
                             </div>

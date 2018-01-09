@@ -66,7 +66,7 @@ export const Category=(props)=>
 return(
     <div className="contained">
         <ol className="breadcrumb" style={{backgroundColor : "#116466", color : "white"}}  >
-        <h5 >{props.selected.toUpperCase()}</h5>
+        <h5 >{props.selected.toUpperCase()} <span style={{float:'right',cursor:'pointer',paddingLeft:'70px'}} onClick={props.categoryCrossClicked}>x</span></h5>
         </ol>
     <div className="row">
      {b}
