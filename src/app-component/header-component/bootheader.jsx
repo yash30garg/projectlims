@@ -373,7 +373,7 @@ class BootHeader extends Component {
                                         .bind(this, 'Javascript')}
                                         class="list-group-item  list-group-item-action">
                                         <span class="fa fa-arrow-right" aria-hidden="true"></span>Javascript
-
+                                        <div className="fa" style={{marginRight : "50px"}} />
                                         <span className="badge badge-pill badge-warning ml-1">{this
                                                 .state
                                                 .display
