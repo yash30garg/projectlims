@@ -33,7 +33,7 @@ export class EachTopCard extends Component{
                     src={this.props.item.details.url}
                     height="180px"
                     width="100%"/>
-                <div className="overlay" style={{backgroundColor : "#26a69a"}}>
+                <div className="overlay" style={{backgroundColor : "rgba(38,166,154,0.9)"}}>
                     <div className="text container-fluid">
                         <b>{this.props.item.details.title}</b><br/>
                         <b>Author :
