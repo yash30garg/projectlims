@@ -75,7 +75,7 @@ class Profile extends Component {
 					</div>
 					<div class="profileinfo">
 						<img src="http://images.contactmusic.com/newsimages/david_beckham_1133321.jpg" alt="" />
-						<p>MS Dhoni has captained most number of intl. matches</p>
+						<p>MS Dhoni has captained most number of intl. matches (334)</p>
 						<span>Read more <i class="fa fa-angle-right"></i></span>
 					</div>
 				</div>
