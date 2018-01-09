@@ -63,10 +63,12 @@ class Header extends Component {
           <div className="collapse navbar-collapse" id="navbarNavDropdown">
             
             <ul className="navbar-nav ml-auto">
+            <img src="http://www.easydrawingtutorials.com/images/Tom/tom-step-last.jpg" height="50px" width="50px" className="rounded-circle"/>
     <Link to="/profile">
+              
               <li className="nav-item active"></li>
               <li className="nav-item" >
-                <a className="nav-link" href="#" style={{color : "white"}}>Profile
+                <a className="nav-link" style={{color : "white"}}>Profile
                 </a>
               </li>
               </Link>

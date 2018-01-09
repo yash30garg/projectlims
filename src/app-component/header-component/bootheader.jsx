@@ -374,28 +374,30 @@ class BootHeader extends Component {
                                         class=" row list-group-item  list-group-item-action ml-0">
                                         <div class="fa fa-asterisk col-md-0" aria-hidden="true"></div>
                                         <div className="col-md-0 ">Javascript</div>
-                                        <div className="badge badge-pill badge-warning col-md-1git  offset-md-7">{this
+                                        <div className="badge badge-pill badge-warning col-sm-2 offset-sm-5">{this
                                                 .state
                                                 .display
                                                 .filter(r => r.details.category.toLowerCase() == "javascript")
                                                 .length}</div>
 
                                     </div>
-                                    <a
+                                    
+                                    <div
                                         
                                         onClick={this
                                         .openCategory
                                         .bind(this, 'c')}
-                                        class="list-group-item  list-group-item-action">
-                                        <span class="fa fa-asterisk" aria-hidden="true"></span>C
-
-                                        <span className="badge badge-pill badge-warning ml-1">{this
+                                        class="row list-group-item  list-group-item-action ml-0">
+                                        <div class="fa fa-asterisk col-md-1" aria-hidden="true"></div>
+                                        <div className="col-md-7">C</div>
+                                        <div className="badge badge-pill badge-warning ml-1 col-md-1">{this
                                                 .state
                                                 .display
                                                 .filter(r => r.details.category.toLowerCase() == "c")
-                                                .length}</span>
+                                                .length}</div>
 
-                                    </a>
+                                    </div>
+                                
                                     <a
                                         
                                         onClick={this
