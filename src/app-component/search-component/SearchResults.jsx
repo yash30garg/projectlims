@@ -49,7 +49,7 @@ class SearchResults extends Component
         let x = 0;;
         const a = processedData.map(res => {
             return (
-                <div className="col-2 mt-4">
+                <div className="col-lg-2 col-md-4 col-sm-6 col-xs-12 mt-4">
                     <Link to="/search/details">
                         <div
                             id={res.isbn}

@@ -346,13 +346,10 @@ class BootHeader extends Component {
                                         color: "white"
                                     }}>
                                         <span className="fa fa-cog" aria-hidden="true"></span>
-                                        Categories<span className="nav-link dropdown-toggle" style={{text:'right'}}></span></a>
-                                    <div class="collapse navbar-collapse" id="navbaDropdown">
+                                        <span className="dropdown-toggle">Categories</span></a>
+                                    <div class="expand navbar-collapse" id="navbaDropdown">
                                     <a
-                                        
-                                        style={{
-                                        marginTop: '-8px'
-                                    }}
+
                                         onClick={this
                                         .openCategory
                                         .bind(this, 'Java')}
@@ -537,6 +534,7 @@ class BootHeader extends Component {
                                     {this.state.borrowedClicked
                                         ? <BorrowedSlider/>
                                         : null}</a>
+                                    
                             </div>
                         </div>
                     </div>
