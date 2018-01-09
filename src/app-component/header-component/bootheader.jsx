@@ -348,7 +348,7 @@ class BootHeader extends Component {
                                 </div>
                                 <div className="list-group mt-4" style={{cursor:'pointer'}}>
                                     <a
-                                        className="list-group-item collor nav-item dropdown nav-link" data-toggle="collapse" data-target="#navbaDropdown" aria-controls="navbaDropdown" aria-expanded="false" aria-label="Toggle navigation"
+                                        className="list-group-item collor nav-item dropdown nav-link" data-toggle="collapse" data-target="#navbaDropdown" aria-controls="navbaDropdown" aria-expanded="true" aria-label="Toggle navigation"
                                         style={{
                                         backgroundColor: "#116466",
                                         color: "white"
@@ -380,7 +380,7 @@ class BootHeader extends Component {
 
 
                                         class=" row list-group-item  list-group-item-action ml-0">
-                                        <div className="col-md-0 fa fa-arrow-right" area-hidden="true"></div>
+                                        <div className="col-md-0 fa fa-arrow-right" area-hidden="false"></div>
                                         <div className="col" style={{textAlign:"left"}}>Javascript</div>
                                         <div className="row">
                                         <div className="badge badge-pill badge-warning mr-3">{this
@@ -395,7 +395,7 @@ class BootHeader extends Component {
                                         .openCategory
                                         .bind(this, 'c')}
                                         class=" row list-group-item  list-group-item-action ml-0">
-                                        <div className="col-md-0 fa fa-arrow-right" area-hidden="true"></div>
+                                        <div className="col-md-0 fa fa-arrow-right" area-hidden="false"></div>
                                         <div className="col" style={{textAlign:"left"}}>C</div>
                                         <div className="row">
                                         <div className="badge badge-pill badge-warning mr-3">{this
