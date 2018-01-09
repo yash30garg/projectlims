@@ -40,6 +40,15 @@ class BootHeader extends Component {
     openBorrowedBooks = () => {
         this.setState({landingView: true, categoryClicked: true, borrowedClicked: true});
     }
+    closeCategory=()=>
+    {
+        //alert("Ankit");
+        this.setState({landingView:true,categoryClicked:true,borrowedClicked:false});
+    }
+    closeBorrowed=()=>
+    {
+      this.setState({landingView:true, categoryClicked:true, borrowedClicked:false});
+    }
 
     render() {
 
@@ -338,7 +347,7 @@ class BootHeader extends Component {
                                     </a>
                                 </div>
 
-                                <div className="list-group mt-4">
+                                <div className="list-group mt-4" style={{cursor:'pointer'}}>
                                     <a
                                         className="list-group-item collor nav-item dropdown nav-link" data-toggle="collapse" data-target="#navbaDropdown" aria-controls="navbaDropdown" aria-expanded="false" aria-label="Toggle navigation"
                                         style={{
@@ -371,7 +380,7 @@ class BootHeader extends Component {
                                         .openCategory
                                         .bind(this, 'Javascript')}
                                         class=" row list-group-item  list-group-item-action ml-0">
-                                        <div class="fa fa-asterisk col-md-0" aria-hidden="true"></div>
+                                        <div class="fa fa-arrow-right col-md-0" aria-hidden="true"></div>
                                         <div className="col-md-0 ">Javascript</div>
                                         <div className="badge badge-pill badge-warning col-sm-2 offset-sm-5">{this
                                                 .state
@@ -533,10 +542,10 @@ class BootHeader extends Component {
                                 <a>
                                     {this.state.landingView && this.state.categoryClicked
                                         ? <LandingView show={this.state.borrowedClicked}/>
-                                        : <Category data={this.state.display} selected={this.state.currentlyClicked}/>}</a>
+                                        : <Category categoryCrossClicked={this.closeCategory} data={this.state.display} selected={this.state.currentlyClicked}/>}</a>
                                 <a>
                                     {this.state.borrowedClicked
-                                        ? <BorrowedSlider/>
+                                        ? <BorrowedSlider borrowCrossClicked={this.closeBorrowed}/>
                                         : null}</a>
                                     
                             </div>
