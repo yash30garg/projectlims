@@ -26,7 +26,7 @@ class Profile extends Component {
 					<div class="col2 last">
 						<div class="grid clearfix">
 							<div class="col3 first">
-								<h1>4</h1>
+								<h1>{window.bbooks.length}</h1>
 								<span>Books Borrowed</span>
 							</div>
 							<div class="col3"><h1>9</h1>
