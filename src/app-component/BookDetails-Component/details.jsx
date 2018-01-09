@@ -131,13 +131,13 @@ class Details extends Component {
                                                     color: '#FF8C00',
                                                     fontSize: '30px'
                                                 }}></span>
-                                            else 
-                                                return <span
-                                                    class="fa fa-star mt-1"
-                                                    style={{
-                                                    color: 'black',
-                                                    fontSize: '30px'
-                                                }}></span>
+                                            // else 
+                                            //     return <span
+                                            //         class="fa fa-star mt-1"
+                                            //         style={{
+                                            //         color: 'black',
+                                            //         fontSize: '30px'
+                                            //     }}></span>
                                         })}
                                     </td>
                                 </tr>

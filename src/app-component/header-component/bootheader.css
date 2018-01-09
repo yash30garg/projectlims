@@ -221,6 +221,9 @@ background-color: white;
 {
     padding-right: 5pt;
 }
+.list-group .list-group-item .badge-pill{
+  float:"right";
+}
 
 .p1 .progress .progress-bar
 {

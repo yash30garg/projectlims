@@ -59,7 +59,7 @@ class BootHeader extends Component {
                         style={{
                         color: 'white'
                     }}>
-<<<<<<< HEAD
+
                         <li class="nav-item">
                             <a
                                 class="nav-link"
@@ -85,11 +85,11 @@ class BootHeader extends Component {
                             }}>Pricing</a>
                         </li>
                         <li class="nav-item dropdown">
-=======
+
 
                        
                         <li class="nav-item dropdown mega-dropdown">
->>>>>>> c2cd9c9d6dfb52a12c83947f4bd6ed9e34b687d7
+
                             <a
                                 class="nav-link dropdown-toggle"
                                 style={{
@@ -345,14 +345,13 @@ class BootHeader extends Component {
                                         backgroundColor: "#116466",
                                         color: "white"
                                     }}>
-                                        <span className="fa fa-list-alt" aria-hidden="true"></span>
-                                        Categories<span className="nav-link dropdown-toggle" style={{text:'right'}}></span></a>
-                                    <div class="collapse navbar-collapse" id="navbaDropdown">
+
+                                        <span className="fa fa-cog" aria-hidden="true"></span>
+                                        <span className="dropdown-toggle">Categories</span></a>
+                                    <div class="expand navbar-collapse" id="navbaDropdown">
+
                                     <a
-                                        
-                                        style={{
-                                        marginTop: '-8px'
-                                    }}
+
                                         onClick={this
                                         .openCategory
                                         .bind(this, 'Java')}
@@ -366,36 +365,45 @@ class BootHeader extends Component {
                                                 .length}</span>
 
                                     </a>
-                                    <a
+                                    <div
                                         
                                         onClick={this
                                         .openCategory
                                         .bind(this, 'Javascript')}
+<<<<<<< HEAD
                                         class="list-group-item  list-group-item-action">
                                         <span class="fa fa-arrow-right" aria-hidden="true"></span>Javascript
                                         <div className="fa" style={{marginRight : "50px"}} />
                                         <span className="badge badge-pill badge-warning ml-1">{this
+=======
+                                        class=" row list-group-item  list-group-item-action ml-0">
+                                        <div class="fa fa-asterisk col-md-0" aria-hidden="true"></div>
+                                        <div className="col-md-0 ">Javascript</div>
+                                        <div className="badge badge-pill badge-warning col-sm-2 offset-sm-5">{this
+>>>>>>> 526840507ae414c32c32b42659c970dfa8057ed1
                                                 .state
                                                 .display
                                                 .filter(r => r.details.category.toLowerCase() == "javascript")
-                                                .length}</span>
+                                                .length}</div>
 
-                                    </a>
-                                    <a
+                                    </div>
+                                    
+                                    <div
                                         
                                         onClick={this
                                         .openCategory
                                         .bind(this, 'c')}
-                                        class="list-group-item  list-group-item-action">
-                                        <span class="fa fa-arrow-right" aria-hidden="true"></span>C
-
-                                        <span className="badge badge-pill badge-warning ml-1">{this
+                                        class="row list-group-item  list-group-item-action ml-0">
+                                        <div class="fa fa-arrow-right col-md-1" aria-hidden="true"></div>
+                                        <div className="col-md-7">C</div>
+                                        <div className="badge badge-pill badge-warning ml-1 col-md-1">{this
                                                 .state
                                                 .display
                                                 .filter(r => r.details.category.toLowerCase() == "c")
-                                                .length}</span>
+                                                .length}</div>
 
-                                    </a>
+                                    </div>
+                                
                                     <a
                                         
                                         onClick={this
@@ -537,6 +545,7 @@ class BootHeader extends Component {
                                     {this.state.borrowedClicked
                                         ? <BorrowedSlider/>
                                         : null}</a>
+                                    
                             </div>
                         </div>
                     </div>
