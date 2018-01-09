@@ -4,23 +4,23 @@ import axios from 'axios';
 let users,
     book;
 class Details extends Component {
-    goBack() {
-        window
-            .history
-            .go(-1)
+    goBack() 
+    {
+        window.history.go(-1)
     }
     request() {
         if (window.bbooks.includes(book)) {
             alert("You have already requested for this book");
         } else {
             if (window.bbooks.length < 4) {
-                window
-                    .bbooks
-                    .push(book)
-                console.log(window.bbooks);
+                window.bbooks.push(book)
+
+                // console.log(window.bbooks);
 
                 alert("The Requested Book has been allotted to you..Please Collect It from the Library");
-            } else {
+            }
+             else
+              {
                 alert("Oops..Looks like You cannot borrow more books. Please return a book to borrow mo" +
                         "re");
             }

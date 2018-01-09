@@ -39,8 +39,10 @@ class EachCategory extends Component
 
     return(
                 <div className="put mx-4 mt-1">
+
                 <a onClick={this.plusClicked} style={{textDecoration:'none'}} data-toggle="collapse" href={c} aria-expanded="false" aria-controls={c}><h5 className="card-header yoyo" style={{ backgroundColor: "#26a69a", color: "white" }}>{this.props.category.toUpperCase()}<span style={{float:'right',paddingLeft:'70px'}}>{this.state.plus}</span></h5></a>
                 <div className={this.state.showable} id={this.props.category}>
+
                 <div className="row">
      {this.props.rated.filter(results=>results.details.category.toLowerCase()==this.props.category).slice(0,6).map(rslt=>{
          return(
@@ -49,7 +51,7 @@ class EachCategory extends Component
      })}
      </div>
      </div>
-              
+
      </div>
     );
     }

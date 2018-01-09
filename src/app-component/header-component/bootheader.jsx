@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import axios from 'axios';
 import './bootheader.css';
 import Footer from '../footer-component/footer.jsx';
@@ -8,9 +8,10 @@ import BorrowedSlider from '../main-component/user-component/borrowedBooks/borro
 import Search from '../search-component/Search.jsx';
 // import SearchResults from '../search-component/SearchResults.jsx';
 import Details from './../BookDetails-Component/details';
-import {LandingView} from './landingView';
-import {Category} from './categoryView';
+import { LandingView } from './landingView';
+import { Category } from './categoryView';
 import LoadingEffect from './../loading-component/loading';
+import $ from 'jquery';
 var count = 0;
 class BootHeader extends Component {
 
@@ -27,7 +28,7 @@ class BootHeader extends Component {
         axios
             .get('https://api.myjson.com/bins/1a9rkj')
             .then(res => {
-                this.setState({display: res.data.booksArray});
+                this.setState({ display: res.data.booksArray });
                 console.log(this.state.display);
             })
 
@@ -35,19 +36,17 @@ class BootHeader extends Component {
 
     openCategory = (arg) => {
         console.log(arg);
-        this.setState({landingView: false, currentlyClicked: arg, categoryClicked: false, borrowedClicked: false});
+        this.setState({ landingView: false, currentlyClicked: arg, categoryClicked: true, borrowedClicked: false });
     }
     openBorrowedBooks = () => {
-        this.setState({landingView: true, categoryClicked: true, borrowedClicked: true});
+        this.setState({ landingView: true, categoryClicked: true, borrowedClicked: true });
     }
-    closeCategory=()=>
-    {
+    closeCategory = () => {
         //alert("Ankit");
-        this.setState({landingView:true,categoryClicked:true,borrowedClicked:false});
+        this.setState({ landingView: true, categoryClicked: true, borrowedClicked: false });
     }
-    closeBorrowed=()=>
-    {
-      this.setState({landingView:true, categoryClicked:true, borrowedClicked:false});
+    closeBorrowed = () => {
+        this.setState({ landingView: true, categoryClicked: true, borrowedClicked: false });
     }
 
     render() {
@@ -56,7 +55,7 @@ class BootHeader extends Component {
 
             <div>
 
-                <Header/>
+                <Header />
                 {/*<nav
                     class="navbar navbar-toggleable-md navbar-light bg-faded"
                     style={{
@@ -301,7 +300,7 @@ class BootHeader extends Component {
                         </li>
                     </ul>
                 </nav>*/}
-                <br/>{/*<section id="breadcrumb">
+                <br />{/*<section id="breadcrumb">
                     <div className="container-fluid">
                         <ol
                             className="breadcrumb bc"
@@ -325,9 +324,9 @@ class BootHeader extends Component {
                                     <a
                                         className="list-group-item collor"
                                         style={{
-                                        backgroundColor: "#116466",
-                                        color: "white"
-                                    }}>
+                                            backgroundColor: "#116466",
+                                            color: "white"
+                                        }}>
                                         <span className="fa fa-cog" aria-hidden="true"></span>
                                         My Books</a>
 
@@ -335,7 +334,7 @@ class BootHeader extends Component {
                                         onClick={this.openBorrowedBooks}
                                         class="list-group-item  list-group-item-action">
                                         <span class="fa fa-arrow-right" aria-hidden="true"></span>Borrowed Books
-                                       
+
                                     </a>
 
                                     <a class="list-group-item  list-group-item-action">
@@ -346,16 +345,17 @@ class BootHeader extends Component {
                                         </div>*/}
                                     </a>
                                 </div>
-                                <div className="list-group mt-4" style={{cursor:'pointer'}}>
+                                <div className="list-group mt-4" style={{ cursor: 'pointer' }}>
                                     <a
                                         className="list-group-item collor nav-item dropdown nav-link" data-toggle="collapse" data-target="#navbaDropdown" aria-controls="navbaDropdown" aria-expanded="true" aria-label="Toggle navigation"
                                         style={{
-                                        backgroundColor: "#116466",
-                                        color: "white"
-                                    }}>
+                                            backgroundColor: "#116466",
+                                            color: "white"
+                                        }}>
 
                                         <span className="fa fa-cog" aria-hidden="true"></span>
                                         <span className="dropdown-toggle">Categories</span></a>
+
                                     <div class="collapse show" id="navbaDropdown">
 
                                    
@@ -528,25 +528,26 @@ class BootHeader extends Component {
                                                 .length}</div>
                                         </div>    
                                     </div>
+
                                     </div>
                                 </div>
                             </div>
                             <div className="col-md-9">
                                 <a>
                                     {this.state.landingView && this.state.categoryClicked
-                                        ? <LandingView show={this.state.borrowedClicked}/>
-                                        : <Category categoryCrossClicked={this.closeCategory} data={this.state.display} selected={this.state.currentlyClicked}/>}</a>
+                                        ? <LandingView show={this.state.borrowedClicked} />
+                                        : <Category categoryCrossClicked={this.closeCategory} data={this.state.display} selected={this.state.currentlyClicked} />}</a>
                                 <a>
                                     {this.state.borrowedClicked
-                                        ? <BorrowedSlider borrowCrossClicked={this.closeBorrowed}/>
+                                        ? <BorrowedSlider borrowCrossClicked={this.closeBorrowed} />
                                         : null}</a>
-                                    
+
                             </div>
                         </div>
                     </div>
                 </section>
-                <br/><br/>
-                <Footer/>
+                <br /><br />
+                <Footer />
             </div>
 
         )
