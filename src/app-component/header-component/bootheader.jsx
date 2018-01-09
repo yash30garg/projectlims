@@ -348,7 +348,7 @@ class BootHeader extends Component {
                                 </div>
                                 <div className="list-group mt-4" style={{cursor:'pointer'}}>
                                     <a
-                                        className="list-group-item collor nav-item dropdown nav-link" data-toggle="collapse" data-target="#navbaDropdown" aria-controls="navbaDropdown" aria-expanded="false" aria-label="Toggle navigation"
+                                        className="list-group-item collor nav-item dropdown nav-link" data-toggle="collapse" data-target="#navbaDropdown" aria-controls="navbaDropdown" aria-expanded="true" aria-label="Toggle navigation"
                                         style={{
                                         backgroundColor: "#116466",
                                         color: "white"
@@ -356,7 +356,7 @@ class BootHeader extends Component {
 
                                         <span className="fa fa-cog" aria-hidden="true"></span>
                                         <span className="dropdown-toggle">Categories</span></a>
-                                    <div class="collapse navbar-collapse" id="navbaDropdown">
+                                    <div class="collapse show" id="navbaDropdown">
 
                                    
                                     <div onClick={this

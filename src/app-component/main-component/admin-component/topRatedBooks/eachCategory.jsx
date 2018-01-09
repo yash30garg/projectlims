@@ -1,16 +1,48 @@
 import React,{Component}from 'react';
 import EachTopCard from './eachTopCard';
 import './topRated.css';
-export const EachCategory=(props)=>
+
+class EachCategory extends Component
 {
-    let c="#"+props.category;
-    let s=props.category;
+    constructor(props)
+    {
+        super(props);
+        this.state={
+            plus:"+",
+            showable:"collapse"
+        }
+
+    }
+
+    componentDidMount()
+    {
+         if(this.props.category=="java"||this.props.category=="javascript")
+        {
+            
+            this.setState({plus:"-", showable:"collapse show"});
+        }
+    }
+    plusClicked=()=>
+    {
+        if(this.state.plus=="+")
+        {
+        this.setState({plus:"-"});
+        }
+        else
+        {
+          this.setState({plus:"+"});  
+        }
+    }
+    render()
+    {
+        let c="#"+this.props.category;
+
     return(
                 <div className="put mx-4 mt-1">
-                <a data-toggle="collapse" href={c} aria-expanded="false" aria-controls={c}><h5 className="card-header yoyo dropdown-toggle" style={{ backgroundColor: "#26a69a", color: "white" }}>{props.category.toUpperCase()}</h5></a>
-                <div className="collapse mb-2 mt-2" id={s}>
+                <a onClick={this.plusClicked} style={{textDecoration:'none'}} data-toggle="collapse" href={c} aria-expanded="false" aria-controls={c}><h5 className="card-header yoyo" style={{ backgroundColor: "#26a69a", color: "white" }}>{this.props.category.toUpperCase()}<span style={{float:'right',paddingLeft:'70px'}}>{this.state.plus}</span></h5></a>
+                <div className={this.state.showable} id={this.props.category}>
                 <div className="row">
-     {props.rated.filter(results=>results.details.category.toLowerCase()==props.category).slice(0,6).map(rslt=>{
+     {this.props.rated.filter(results=>results.details.category.toLowerCase()==this.props.category).slice(0,6).map(rslt=>{
          return(
              <EachTopCard key={rslt.isbn} item={rslt}/>
          )
@@ -20,4 +52,6 @@ export const EachCategory=(props)=>
               
      </div>
     );
+    }
 }
+export default EachCategory;
