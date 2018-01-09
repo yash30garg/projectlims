@@ -325,12 +325,12 @@ class BootHeader extends Component {
                                     <a
                                         onClick={this.openBorrowedBooks}
                                         class="list-group-item  list-group-item-action">
-                                        <span class="fa fa-asterisk" aria-hidden="true"></span>Borrowed Books
+                                        <span class="fa fa-arrow-right" aria-hidden="true"></span>Borrowed Books
                                        
                                     </a>
 
                                     <a class="list-group-item  list-group-item-action">
-                                        <span class="fa fa-asterisk" aria-hidden="true"></span>Requested Books
+                                        <span class="fa fa-arrow-right" aria-hidden="true"></span>Requested Books
                                        {/* <div className="all">
 
                                             <span className="badge badge-pill badge-warning ml-1">0</span>
@@ -345,19 +345,18 @@ class BootHeader extends Component {
                                         backgroundColor: "#116466",
                                         color: "white"
                                     }}>
+
                                         <span className="fa fa-cog" aria-hidden="true"></span>
-                                        Categories<span className="nav-link dropdown-toggle" style={{text:'right'}}></span></a>
-                                    <div class="collapse navbar-collapse" id="navbaDropdown">
+                                        <span className="dropdown-toggle">Categories</span></a>
+                                    <div class="expand navbar-collapse" id="navbaDropdown">
+
                                     <a
-                                        
-                                        style={{
-                                        marginTop: '-8px'
-                                    }}
+
                                         onClick={this
                                         .openCategory
                                         .bind(this, 'Java')}
                                         className="list-group-item  list-group-item-action">
-                                        <span class="fa fa-asterisk" aria-hidden="true"></span>Java
+                                        <span class="fa fa-arrow-right" aria-hidden="true"></span>Java
 
                                         <span class="badge  badge-pill badge-warning ml-1">{this
                                                 .state
@@ -387,10 +386,17 @@ class BootHeader extends Component {
                                         onClick={this
                                         .openCategory
                                         .bind(this, 'c')}
+<<<<<<< HEAD
                                         class="row list-group-item  list-group-item-action ml-0">
                                         <div class="fa fa-asterisk col-md-1" aria-hidden="true"></div>
                                         <div className="col-md-7">C</div>
                                         <div className="badge badge-pill badge-warning ml-1 col-md-1">{this
+=======
+                                        class="list-group-item  list-group-item-action">
+                                        <span class="fa fa-arrow-right" aria-hidden="true"></span>C
+
+                                        <span className="badge badge-pill badge-warning ml-1">{this
+>>>>>>> d0e06b0ed56f6d4d01bd543830e8136a2ce95933
                                                 .state
                                                 .display
                                                 .filter(r => r.details.category.toLowerCase() == "c")
@@ -404,7 +410,7 @@ class BootHeader extends Component {
                                         .openCategory
                                         .bind(this, 'Angular')}
                                         class="list-group-item  list-group-item-action">
-                                        <span class="fa fa-asterisk" aria-hidden="true"></span>Angular
+                                        <span class="fa fa-arrow-right" aria-hidden="true"></span>Angular
 
                                         <span className="badge badge-pill badge-warning ml-1">{this
                                                 .state
@@ -419,7 +425,7 @@ class BootHeader extends Component {
                                         .openCategory
                                         .bind(this, 'React')}
                                         class="list-group-item  list-group-item-action">
-                                        <span class="fa fa-asterisk" aria-hidden="true"></span>React
+                                        <span class="fa fa-arrow-right" aria-hidden="true"></span>React
 
                                         <span className="badge badge-pill badge-warning ml-1">{this
                                                 .state
@@ -434,7 +440,7 @@ class BootHeader extends Component {
                                         .openCategory
                                         .bind(this, 'c++')}
                                         class="list-group-item  list-group-item-action">
-                                        <span class="fa fa-asterisk" aria-hidden="true"></span>C++
+                                        <span class="fa fa-arrow-right" aria-hidden="true"></span>C++
 
                                         <span className="badge badge-pill badge-warning ml-1">{this
                                                 .state
@@ -449,7 +455,7 @@ class BootHeader extends Component {
                                         .openCategory
                                         .bind(this, 'c#')}
                                         class="list-group-item  list-group-item-action">
-                                        <span class="fa fa-asterisk" aria-hidden="true"></span>C#
+                                        <span class="fa fa-arrow-right" aria-hidden="true"></span>C#
 
                                         <span className="badge badge-pill badge-warning ml-1">{this
                                                 .state
@@ -464,7 +470,7 @@ class BootHeader extends Component {
                                         .openCategory
                                         .bind(this, 'Python')}
                                         class="list-group-item  list-group-item-action">
-                                        <span class="fa fa-asterisk" aria-hidden="true"></span>Python
+                                        <span class="fa fa-arrow-right" aria-hidden="true"></span>Python
 
                                         <span className="badge badge-pill badge-warning ml-1">{this
                                                 .state
@@ -480,7 +486,7 @@ class BootHeader extends Component {
                                         .openCategory
                                         .bind(this, 'jquery')}
                                         class="list-group-item  list-group-item-action">
-                                        <span class="fa fa-asterisk" aria-hidden="true"></span>Jquery
+                                        <span class="fa fa-arrow-right" aria-hidden="true"></span>Jquery
 
                                         <span className="badge badge-pill badge-warning ml-1">{this
                                                 .state
@@ -496,7 +502,7 @@ class BootHeader extends Component {
                                         .openCategory
                                         .bind(this, 'html & css')}
                                         class="list-group-item  list-group-item-action">
-                                        <span class="fa fa-asterisk" aria-hidden="true"></span>Html & Css
+                                        <span class="fa fa-arrow-right" aria-hidden="true"></span>Html & Css
 
                                         <span className="badge badge-pill badge-warning ml-1">{this
                                                 .state
@@ -515,7 +521,7 @@ class BootHeader extends Component {
                                         .openCategory
                                         .bind(this, 'das')}
                                         class="list-group-item  list-group-item-action">
-                                        <span class="fa fa-asterisk" aria-hidden="true"></span>Data Analytics
+                                        <span class="fa fa-arrow-right" aria-hidden="true"></span>Data Analytics
 
                                         <span className="badge badge-pill badge-warning ml-1">{this
                                                 .state
@@ -539,6 +545,7 @@ class BootHeader extends Component {
                                     {this.state.borrowedClicked
                                         ? <BorrowedSlider/>
                                         : null}</a>
+                                    
                             </div>
                         </div>
                     </div>
