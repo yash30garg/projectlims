@@ -11,9 +11,9 @@ class Footer extends Component {
 
 
         <footer className="footer1">
-          <div className="container">
+          <div className="container-fluid" style={{minHeight : "50px"}}>
 
-            <div className="row">
+            <div className="row" style={{marginTop : "0px", marginBottom: "0px"}}>
 
               <div className="col-lg-3 col-md-3">
                 <ul className="list-unstyled clear-margins">
@@ -41,7 +41,7 @@ class Footer extends Component {
 
                 <ul className="list-unstyled clear-margins">
 
-                  <li className="widget-container widget_nav_menu">
+                  <li className="widget-container-fluid widget_nav_menu">
 
                     <h1 className="title-widget" style={{textAlign :"left"}}>Useful links</h1>
 
@@ -70,7 +70,7 @@ class Footer extends Component {
 
                 <ul className="list-unstyled clear-margins">
 
-                  <li className="widget-container widget_recent_news">
+                  <li className="widget-container-fluid widget_recent_news">
 
                     <h1 className="title-widget" style={{textAlign :"left"}}>Contact Detail </h1>
 
@@ -95,7 +95,7 @@ class Footer extends Component {
 
                 <ul className="list-unstyled clear-margins">
 
-                  <li className="widget-container widget_nav_menu">
+                  <li className="widget-container-fluid widget_nav_menu">
 
                     <h1 className="title-widget" style={{textAlign :"left"}}>Social Sites</h1>
 
@@ -103,7 +103,7 @@ class Footer extends Component {
 
                       <ul className="nomargin">
 
-                        <a href="https://www.facebook.com/bootsnipp" style={{ textAlign: "left" }}><i className="fa fa-facebook-square fa-3x social-fb" id="social"></i></a>
+                        <a href="https://www.facebook.com/bootsnipp" style={{ textAlign: "left" ,marginLeft : "0px" }}><i className="fa fa-facebook-square fa-3x social-fb" id="social"></i></a>
                         <a href="https://twitter.com/bootsnipp" style={{ textAlign: "left" }}><i className="fa fa-twitter-square fa-3x social-tw" id="social"></i></a>
                         <a href="https://plus.google.com/+Bootsnipp-page" style={{ textAlign: "left" }}><i className="fa fa-google-plus-square fa-3x social-gp" id="social"></i></a>
                         <a href="mailto:bootsnipp@gmail.com" style={{ textAlign: "left" }}><i className="fa fa-envelope-square fa-3x social-em" id="social"></i></a>
@@ -127,7 +127,7 @@ class Footer extends Component {
 
       <div className="footer-bottom" style={{backgroundColor : "#116466"}}>
 
-        <div className="container">
+        <div className="container-fluid">
 
           <div className="row">
 
