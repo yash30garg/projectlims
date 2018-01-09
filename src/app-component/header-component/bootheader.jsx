@@ -35,7 +35,7 @@ class BootHeader extends Component {
 
     openCategory = (arg) => {
         console.log(arg);
-        this.setState({landingView: false, currentlyClicked: arg, categoryClicked: false, borrowedClicked: false});
+        this.setState({landingView: false, currentlyClicked: arg, categoryClicked: true, borrowedClicked: false});
     }
     openBorrowedBooks = () => {
         this.setState({landingView: true, categoryClicked: true, borrowedClicked: true});
@@ -364,6 +364,7 @@ class BootHeader extends Component {
                                         .bind(this, 'Java')}
                                         class=" row list-group-item  list-group-item-action ml-0">
                                         <div className="col-md-0 fa fa-arrow-right" area-hidden="true"></div>
+                                        
                                         <div className="col" style={{textAlign:"left"}}>Java</div>
                                         <div className="row">
                                         <div className="badge badge-pill badge-warning mr-3">{this
