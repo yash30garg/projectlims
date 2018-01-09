@@ -68,7 +68,7 @@ class BootHeader extends Component {
                         style={{
                         color: 'white'
                     }}>
-<<<<<<< HEAD
+
                         <li class="nav-item">
                             <a
                                 class="nav-link"
@@ -94,11 +94,11 @@ class BootHeader extends Component {
                             }}>Pricing</a>
                         </li>
                         <li class="nav-item dropdown">
-=======
+
 
                        
                         <li class="nav-item dropdown mega-dropdown">
->>>>>>> c2cd9c9d6dfb52a12c83947f4bd6ed9e34b687d7
+
                             <a
                                 class="nav-link dropdown-toggle"
                                 style={{
@@ -379,10 +379,17 @@ class BootHeader extends Component {
                                         onClick={this
                                         .openCategory
                                         .bind(this, 'Javascript')}
+<<<<<<< HEAD
+                                        class="list-group-item  list-group-item-action">
+                                        <span class="fa fa-arrow-right" aria-hidden="true"></span>Javascript
+                                        <div className="fa" style={{marginRight : "50px"}} />
+                                        <span className="badge badge-pill badge-warning ml-1">{this
+=======
                                         class=" row list-group-item  list-group-item-action ml-0">
                                         <div class="fa fa-arrow-right col-md-0" aria-hidden="true"></div>
                                         <div className="col-md-0 ">Javascript</div>
                                         <div className="badge badge-pill badge-warning col-sm-2 offset-sm-5">{this
+>>>>>>> 526840507ae414c32c32b42659c970dfa8057ed1
                                                 .state
                                                 .display
                                                 .filter(r => r.details.category.toLowerCase() == "javascript")
