@@ -356,7 +356,7 @@ class BootHeader extends Component {
 
                                         <span className="fa fa-cog" aria-hidden="true"></span>
                                         <span className="dropdown-toggle">Categories</span></a>
-                                    <div class="collapse navbar-collapse" id="navbaDropdown">
+                                    <div class="collapse show navbar-collapse" id="navbaDropdown">
 
                                    
                                     <div onClick={this
