@@ -182,7 +182,7 @@ export default class Search extends Component {
     render() {
         return (
             <div>
-                <nav className="navbar navbar-toggleable-md navbar-light bg-faded " style={{backgroundColor:"#116466"}}>
+                <nav className="navbar navbar-toggleable-md navbar-light bg-faded " style={{backgroundColor:"#614126"}}>
                     <a ><img
                         className="App-logo"
                         src={"https://www.mindtree.com/themes/custom/mindtree_theme/logo.svg"}
@@ -212,7 +212,7 @@ export default class Search extends Component {
                         </div>
                     </form>
                     {/*<a className="close"><label id="close" onClick={this.back}><h4>x</h4></label></a>*/}
-                    <a className="close" style={{color:"white"}}><button className="btn btn-outline-primary" onClick={this.back} style={{color:"white"}}>back</button></a>
+                    <a className="close" style={{color:"white"}}><button className="btn btn-outline-primary" onClick={this.back} style={{backgroundColor:"#fff",borderColor:"#fff",color:"#000"}}>back</button></a>
                 </nav>
                 <div className="content">
                     <SearchResults result={this.state.sortedData} />

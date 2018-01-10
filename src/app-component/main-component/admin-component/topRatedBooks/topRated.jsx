@@ -33,7 +33,7 @@ class TopBooks extends Component{
             return(
                 
                 <div className="put mt-4" style={{paddingBottom:'30px'}}>
-                <h5 className="card-header yoyo" style={{ backgroundColor: "#116466", color: "white", fontSize : "18px" }}>Top Rated Books</h5>
+                <h5 className="card-header yoyo" style={{ backgroundColor: "#614126", color: "white", fontSize : "18px" }}>Top Rated Books</h5>
                 {k}
             </div>
                 
