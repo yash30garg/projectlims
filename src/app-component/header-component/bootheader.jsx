@@ -68,6 +68,7 @@ class BootHeader extends Component {
             <div>
 
                 <Header />
+                <div className="bigshow" style={{backgroundColor : "#FFF8DC"}}>
                 {/*<nav
                     class="navbar navbar-toggleable-md navbar-light bg-faded"
                     style={{
@@ -566,6 +567,7 @@ class BootHeader extends Component {
                 </section>
                 <br /><br />
                 <Footer />
+                </div>
             </div>
 
         )
