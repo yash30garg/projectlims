@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Details from './details.jsx';
-import Rx from 'rxjs';
+import Footer from '../footer-component/footer';
 import Header from '../header-component/header';
 let val;
 export class BookDetails extends Component{
@@ -12,7 +12,9 @@ export class BookDetails extends Component{
         const a=<Details data={val}/>
         return(
             <div>
+            <Header/>
             {a}
+            <Footer/>
             </div>
         )
     }
