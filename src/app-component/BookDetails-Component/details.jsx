@@ -8,13 +8,21 @@ class Details extends Component {
     constructor(props) {
         super(props);
         b = (
-            <button className="btn btn-primary mt-3" onClick={this.request}>
+            <button className="btn btn-primary mt-3" style={{
+                                        backgroundColor: 'rgb(205,133,63)',
+                                        color: "white"
+                                    }}
+                                    onClick={this.request}>
                 <div className="fa fa-plus-circle"></div>
                 <b>Request Book</b>
             </button>
         )
         w = (
-            <button className="btn btn-primary mt-3" onClick={this.wishlist}>
+            <button className="btn btn-primary mt-3" style={{
+                                        backgroundColor: 'rgb(205,133,63)',
+                                        color: "white"
+                                    }}
+                                    onClick={this.wishlist}>
                 <div className="fa fa-heart-o"></div>
                 <b>WishList</b>
             </button>
@@ -29,7 +37,10 @@ class Details extends Component {
             .map(res => {
                 if (res.isbn === this.props.data.isbn) {
                     b = (
-                        <button className="btn btn-primary mt-3">
+                        <button className="btn btn-primary mt-3" style={{
+                                        backgroundColor: 'rgb(205,133,63)',
+                                        color: "white"
+                                    }}>
                             <div className="fa fa-check"></div>
                             <b>Requested</b>
                         </button>
@@ -42,7 +53,10 @@ class Details extends Component {
             })
         if (window.wishlist.includes(book)) {
             w = (
-                <button className="btn btn-primary mt-3">
+                <button className="btn btn-primary mt-3" style={{
+                                        backgroundColor: 'rgb(205,133,63)',
+                                        color: "white"
+                                    }}>
                     <div className="fa fa-heart"></div>
                     <b>Added</b>
                 </button>
@@ -67,7 +81,10 @@ class Details extends Component {
     }
     wishlist = () => {
         w = (
-            <button className="btn btn-primary mt-3">
+            <button className="btn btn-primary mt-3" style={{
+                                        backgroundColor: 'rgb(205,133,63)',
+                                        color: "white"
+                                    }}>
                 <div className="fa fa-heart"></div>
                 <b>Added</b>
             </button>
@@ -95,7 +112,10 @@ class Details extends Component {
                     .push(book)
                 console.log(window.bbooks);
                 let a = b = (
-                    <button className="btn btn-primary mt-3">
+                    <button className="btn btn-primary mt-3" style={{
+                                        backgroundColor: 'rgb(205,133,63)',
+                                        color: "white"
+                                    }}>
                         <div className="fa fa-check"></div>
                         <b>Requested</b>
                     </button>
@@ -193,7 +213,7 @@ class Details extends Component {
                                             </td>
                                         </tr>
                                         <tr className="row mt-2">
-                                            <td colspan="3" className="col-sm-10 col-xs-10 col-md-10 col-lg-10">
+                                            <td colspan="4" className="col-sm-10 col-xs-10 col-md-10 col-lg-10">
                                                 {[1, 2, 3, 4, 5].map(d => {
                                                     if (book.details.rating >= d) 
                                                         return <span

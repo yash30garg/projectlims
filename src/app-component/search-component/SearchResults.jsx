@@ -63,7 +63,7 @@ class SearchResults extends Component
                                 src={res.details.url}
                                 alt="not available"
                                 height="200vh"/>
-                            <div className="overlay" style={{backgroundColor : "rgba(38,166,154,0.9)"}}>
+                            <div className="overlay">
                                 <div className="text container-fluid">
                                     {res.details.title}<br/>
                                     Author: {res.details.author}<br/>
@@ -85,10 +85,10 @@ class SearchResults extends Component
                                     })}
                                     <br/>
                                     <button
-                                        className="btn mt-3"
+                                        className="btn btn-primary mt-3"
                                         style={{
                                         backgroundColor: 'white',
-                                        color: 'rgb(96, 0, 58)'
+                                        color: "rgb(205,133,63)"
                                     }}
                                         onClick={this.request}>
                                         <b>Know More</b>
