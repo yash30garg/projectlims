@@ -198,6 +198,5 @@ class Details extends Component {
             </div>
         )
     }
-
 }
 export default Details;

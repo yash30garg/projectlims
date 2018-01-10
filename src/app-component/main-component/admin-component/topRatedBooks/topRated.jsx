@@ -1,5 +1,5 @@
 import React,{Component}from 'react';
-import {EachCategory} from './eachCategory';
+import EachCategory from './eachCategory';
 import axios from 'axios';
 import './topRated.css'
 

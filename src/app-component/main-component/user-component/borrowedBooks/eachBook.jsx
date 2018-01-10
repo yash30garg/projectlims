@@ -25,7 +25,7 @@ import $ from 'jquery';
                             class="btn btn-block mt-5"
                             style={{
                             backgroundColor: 'white',
-                            color: 'rgb(96, 0, 58)'}}>
+                            color: '#116466'}}>
                             <b style={{fontSize:'12px'}}>Renew</b>
                         </button>
                     </div>
