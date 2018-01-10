@@ -23,7 +23,7 @@ export const Category=(props)=>
                     src={res.details.url}
                     height="180px"
                     width="100%"/>
-                     <div className="overlay">
+                     <div className="overlay" style={{backgroundColor : "#CD853F"}}>
                     <div className="text container-fluid" >
                         <b>{res.details.title}</b><br/>
                         <b>Author :
@@ -50,7 +50,7 @@ export const Category=(props)=>
                             className="btn btn-block mt-3"
                             style={{
                             backgroundColor: 'white',
-                            color: 'rgb(96, 0, 58)'
+                            color: '#CD853F'
                             
                         }}
                             onClick={this.request}>

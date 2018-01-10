@@ -15,7 +15,7 @@ import $ from 'jquery';
                     src={props.data.details.url}
                     height="180px"
                     width="100%"/>
-                <div className="overlay">
+                <div className="overlay" style={{backgroundColor : "#CD853F"}}>
                     <div className="text container-fluid">
                         <b>{props.data.details.title}</b><br/><br/>
                         <p>Return by {props.data.details.returnDate}</p>
@@ -25,7 +25,7 @@ import $ from 'jquery';
                             class="btn btn-block mt-5"
                             style={{
                             backgroundColor: 'white',
-                            color: '#116466'}}>
+                            color: '#CD853F'}}>
                             <b style={{fontSize:'12px'}}>Renew</b>
                         </button>
                     </div>
