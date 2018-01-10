@@ -33,7 +33,7 @@ export class EachTopCard extends Component{
                     src={this.props.item.details.url}
                     height="180px"
                     width="100%"/>
-                <div className="overlay" style={{backgroundColor : "rgba(38,166,154,0.9)"}}>
+                <div className="overlay" style={{backgroundColor : "#CD853F"}}>
                     <div className="text container-fluid">
                         <b>{this.props.item.details.title}</b><br/>
                         <b>Author :
@@ -60,7 +60,7 @@ export class EachTopCard extends Component{
                             class="btn btn-sm mt-3"
                             style={{
                             backgroundColor: 'white',
-                            color: 'rgb(96, 0, 58)',
+                            color: '#8B4513',
                         }}
                             onClick={this.request}>
                             <b style={{fontSize:'12px'}}>{this.state.btnText}</b>

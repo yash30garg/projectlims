@@ -25,7 +25,10 @@ html,
   -webkit-align-items: center;
       -ms-flex-align: center;
          
-  background-color:#116466;
+  background-image: url("./background1.jpg"); 
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+    background-size: cover;
   overflow: hidden;
 }
 
@@ -34,7 +37,7 @@ input {
   -webkit-appearance: none;
   -moz-appearance: none;
   border: 0;
-  border-bottom: 1px solid #116466;
+  border-bottom: 1px solid #000;
   font-size: 16px;
   color: #000;
   border-radius: 0;
@@ -69,7 +72,7 @@ label {
   opacity: 1;
   -webkit-transform: translateY(5px);
           transform: translateY(5px);
-  color: #aaa;
+  color: #DEB887;
   font-weight: 300;
   font-size: 13px;
   letter-spacing: -0.00933333em;
@@ -103,7 +106,8 @@ input:placeholder-shown  + label {
 }
 
 .h2 {
-  color: #116466;
+  color:#DEB887 ;
+ 
   font-size: 20px;
   letter-spacing: -0.00933333em;
   font-weight: 600;
@@ -113,7 +117,7 @@ input:placeholder-shown  + label {
 .login-wrapper {
   width: 800px;
   height: 440px;
-  background-color: #fff;
+  background-color: #FFF8DC;
   box-shadow: 0px 2px 50px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
   overflow: hidden;
@@ -171,7 +175,7 @@ input:placeholder-shown  + label {
 }
 
 .text-checkbox {
-  color:#116466; 
+  color:#000; 
   font-size: 16px;
   letter-spacing: -0.00933333em;
   font-weight: 500;
@@ -190,7 +194,7 @@ input[type="checkbox"] {
 }
 
 input[type="checkbox"]:before {
-    border: 1px solid #aaa;
+    border: 1px solid #000;
     background-color: #fff;
     content: '';
     width: 20px;
@@ -201,13 +205,13 @@ input[type="checkbox"]:before {
 }
 
 input[type="checkbox"]:checked:before {
-  background: linear-gradient(198.08deg, #116466 45.34%, #116466 224.21%);
-  border: 1px solid #116466;
+  background: linear-gradient(198.08deg, #fff 45.34%, #fff 224.21%);
+  border: 1px solid #000;
 }
 
 input[type="checkbox"]:after {
   content: '';
-  border: 2px solid #fff;
+  border: 2px solid #000;
   border-right: 0;
   border-top: 0;
   display: block;
@@ -248,10 +252,11 @@ input[type="checkbox"]:checked:after {
   letter-spacing: -0.00933333em;
 }
 
-.btn-primary {
+.btn-secondary {
   color: #fff;
-  background: linear-gradient(to top, #116466, #116466); 
+  background: linear-gradient(to top, #000,  #DEB887); 
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  border-block-end-color: #000000;
 }
 
 
