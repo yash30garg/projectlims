@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-
+import './topRated.css'
 export class EachTopCard extends Component{
     constructor(props)
     {

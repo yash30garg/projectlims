@@ -2,6 +2,7 @@ import React,{Component}from 'react';
 import EachCategory from './eachCategory';
 import axios from 'axios';
 import './topRated.css'
+import LoadingEffect from './../../../loading-component/loading';
 
 class TopBooks extends Component{
         constructor() {
@@ -18,7 +19,7 @@ class TopBooks extends Component{
     // }
     render()
     {
-        let k;
+        let k=<div className="mt-5"><LoadingEffect/></div>
                 if (window.display !== '') {
                 let b = window.display;
                  k=["java","javascript","c","angular","react","c++","c#","python","jquery","html & css","das"].map(result=>{
