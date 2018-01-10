@@ -10,6 +10,7 @@ import Search from '../search-component/Search.jsx';
 import Details from './../BookDetails-Component/details';
 import { LandingView } from './landingView';
 import { Category } from './categoryView';
+import WishedBooks from '../main-component/user-component/wishlist/wishlistComponent'
 import LoadingEffect from './../loading-component/loading';
 import $ from 'jquery';
 var count = 0;
@@ -21,6 +22,9 @@ class BootHeader extends Component {
         currentlyClicked: "",
         categoryClicked: true,
         borrowedClicked: false,
+        wishlistClicked: false,
+        passBorrowed: false,
+        passWish:false,
         arrayResults: []
 
     }
@@ -35,18 +39,26 @@ class BootHeader extends Component {
     }
 
     openCategory = (arg) => {
-        console.log(arg);
-        this.setState({ landingView: false, currentlyClicked: arg, categoryClicked: true, borrowedClicked: false });
-    }
-    openBorrowedBooks = () => {
-        this.setState({ landingView: true, categoryClicked: true, borrowedClicked: true });
+        this.setState({ landingView: false, currentlyClicked: arg, categoryClicked: true, borrowedClicked: false, passBorrowed:false, passWish:false, wishlistClicked:false });
     }
     closeCategory = () => {
-        //alert("Ankit");
-        this.setState({ landingView: true, categoryClicked: true, borrowedClicked: false });
+        this.setState({ landingView: true, categoryClicked: true, borrowedClicked: false,passBorrowed:false,wishlistClicked:false, passWish:false });
     }
+    openBorrowedBooks = () => {
+        this.setState({ landingView: true, categoryClicked: true, borrowedClicked: true, passBorrowed:true, wishlistClicked:false, passWish:true });
+    }
+
     closeBorrowed = () => {
-        this.setState({ landingView: true, categoryClicked: true, borrowedClicked: false });
+        this.setState({ landingView: true, categoryClicked: true, borrowedClicked: false, passBorrowed:false, wishlistClicked:false ,passWish:false });
+    }
+
+    openWishlist=()=>{
+        this.setState({ landingView: true, categoryClicked: true, wishlistClicked: true,passWish:true, borrowedClicked:false, passBorrowed:true });
+    }
+
+    closeWishlist=()=>
+    {
+        this.setState({ landingView: true, categoryClicked: true, wishlistClicked: false,passWish:false, borrowedClicked:false, passBorrowed:false  });
     }
 
     render() {
@@ -337,8 +349,10 @@ class BootHeader extends Component {
 
                                     </a>
 
-                                    <a class="list-group-item  list-group-item-action">
-                                        <span class="fa fa-arrow-right" aria-hidden="true"></span>Requested Books
+                                    <a 
+                                        onClick={this.openWishlist}
+                                        class="list-group-item  list-group-item-action">
+                                        <span class="fa fa-arrow-right" aria-hidden="true"></span>Wishlist
                                        {/* <div className="all">
 
                                             <span className="badge badge-pill badge-warning ml-1">0</span>
@@ -535,11 +549,15 @@ class BootHeader extends Component {
                             <div className="col-md-9">
                                 <a>
                                     {this.state.landingView && this.state.categoryClicked
-                                        ? <LandingView show={this.state.borrowedClicked} />
+                                        ? <LandingView show={this.state.passBorrowed} wish={this.state.passWish} />
                                         : <Category categoryCrossClicked={this.closeCategory} data={this.state.display} selected={this.state.currentlyClicked} />}</a>
                                 <a>
-                                    {this.state.borrowedClicked
-                                        ? <BorrowedSlider borrowCrossClicked={this.closeBorrowed} />
+                                    {this.state.borrowedClicked && this.state.passBorrowed
+                                        ? <BorrowedSlider borrowCrossClicked={this.closeBorrowed}/>
+                                        : null}</a>
+                                <a>
+                                    {this.state.wishlistClicked && this.state.passWish
+                                        ? <WishedBooks wishCrossClicked={this.closeWishlist}/>
                                         : null}</a>
 
                             </div>
