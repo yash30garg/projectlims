@@ -40,6 +40,8 @@ class Details extends Component {
                     }
                 }
             })
+
+            
         if (window.wishlist.includes(book)) {
             w = (
                 <button className="btn btn-primary mt-3">
@@ -52,20 +54,19 @@ class Details extends Component {
                 wish:w
             }
         }
-        this.request = this
-            .request
-            .bind(this);
-        this.wishlist = this
-            .wishlist
-            .bind(this);
+
+
+        this.request = this.request.bind(this);
+
+        this.wishlist = this.wishlist.bind(this);
     }
 
     goBack() {
-        window
-            .history
-            .go(-1)
+        window.history.go(-1)
     }
+
     wishlist = () => {
+
         w = (
             <button className="btn btn-primary mt-3">
                 <div className="fa fa-heart"></div>
@@ -81,12 +82,14 @@ class Details extends Component {
                     Happy Reading!!</strong>
             </div>
         )
-        window
-            .wishlist
-            .push(book);
+
+        window.wishlist.push(book);
+
         console.log(window.wishlist);
         this.setState({wish: w, msg: val})
     }
+
+    
     request = () => {
         if (!window.bbooks.includes(book)) {
             if (window.bbooks.length < 4) {

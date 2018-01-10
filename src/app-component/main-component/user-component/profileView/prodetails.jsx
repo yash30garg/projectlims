@@ -11,7 +11,7 @@ class Profile extends Component {
     <div>
 <Header />
 
-<div class="container-fluid" style={{backgroundColor : "#7FFFD4", minHeight : "33px"}} >
+<div class="container-fluid" style={{backgroundColor : "#FFF8DC", minHeight : "33px"}} >
   <br/><nr />
 	<div class="innerwrap">
 		<section class="section1 clearfix">
