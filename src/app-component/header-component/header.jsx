@@ -22,7 +22,7 @@ class Header extends Component {
       <div>
 
         
-        <nav className="navbar navbar-toggleable-md navbar-light bg-faded" style={{backgroundColor:"#116466"}}>
+        <nav className="navbar navbar-toggleable-md navbar-light bg-faded" style={{backgroundColor:"#614126"}}>
           <button style={{backgroundColor:'#fff'}}
             className="navbar-toggler navbar-toggler-right"
             type="button"
@@ -41,18 +41,18 @@ class Header extends Component {
             <Link to="/home">
           <a className="navbar-brand" style={{color : "white"}}>Mindtree Library</a>
           </Link>
-            <Link to="/search">
+            <Link to="/search" style={{textDecoration:'none'}}>
             <div className="col-lg-9">
               
               <div className="row offset-md-3">
                 <div className="input-group">
 
                   <input type="text" id="key" className="form-control" size="800" style={{alignSelf: "center"}} placeholder="Search for..." />
-                  <span className="input-group-btn">
+                 
                     
-                      <button className="btn btn-outline-secondary" onClick={this.handle} type="button">Go!</button>
+                      <button className="btn btn-primary" onClick={this.handle} type="button" style={{backgroundColor:"#614126",borderColor:"#fff"}} >Go!</button>
                     
-                  </span>
+                  
 
                  
 

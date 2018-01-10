@@ -324,7 +324,7 @@ class BootHeader extends Component {
                                     <a
                                         className="list-group-item collor"
                                         style={{
-                                            backgroundColor: "#116466",
+                                            backgroundColor: "#614126",
                                             color: "white"
                                         }}>
                                         <span className="fa fa-cog" aria-hidden="true"></span>
@@ -349,7 +349,7 @@ class BootHeader extends Component {
                                     <a
                                         className="list-group-item collor nav-item dropdown nav-link" data-toggle="collapse" data-target="#navbaDropdown" aria-controls="navbaDropdown" aria-expanded="true" aria-label="Toggle navigation"
                                         style={{
-                                            backgroundColor: "#116466",
+                                            backgroundColor: "#614126",
                                             color: "white"
                                         }}>
 

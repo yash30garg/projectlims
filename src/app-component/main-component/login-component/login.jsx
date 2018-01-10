@@ -54,12 +54,11 @@ class Login extends Component {
             <div className="setColor" >
 
 
-
-
+  
 
                 <div className="login-wrapper" id="lw">
                     <div className="login-left">
-                        <img src="https://i.ytimg.com/vi/PiYvQyG4ucc/maxresdefault.jpg" alt="" onClick={handleClick}></img>
+                        <img src="https://krysiacanvindotorg.files.wordpress.com/2013/02/janko-ferlic-174927.jpg" alt="" onClick={handleClick}></img>
                         <div className="header" onClick={handleClick} style={{fontWeight : "2000px"}}><b>Click Here to Enter</b></div>
                     </div>
                     <div className="login-right">
@@ -79,7 +78,7 @@ class Login extends Component {
                         </div>
                         <div className="button-area">
                             {/*<Link to="/home">*/}
-                                <button type="submit" className="btn-primary">Login</button>
+                                <button type="submit" className="btn-secondary" style={{color:"white", backgroundColor : "#DEB887", borderColor:"#A0522D"}}>Login</button>
                             {/*</Link>*/}
                             {/*<div class="login-form">
 					<form action="/" method="post">
@@ -92,7 +91,7 @@ class Login extends Component {
 					</form>
 				</div>*/}
                             <Link to="/adminDash">
-                                <button className="btn-primary">Admin</button>
+                                <button className="btn-secondary" style={{color:"white", backgroundColor : "#DEB887", borderColor:"#A0522D"}}>Admin</button>
                             </Link>
 
                             

@@ -49,7 +49,7 @@ class BorrowedSlider extends Component
     const outputs=<UserBooks key={id} list={window.bbooks}/>;
      return(
     <div className="contained mt-4">
-        <ol className="breadcrumb" style={{backgroundColor : "#116466", color : "white"}}>
+        <ol className="breadcrumb" style={{backgroundColor : "#614126", color : "white"}}>
         <h5>Books I Have <span onClick={this.props.borrowCrossClicked} style={{float:'right',cursor:'pointer',paddingLeft:'70px'}}>x</span> </h5>
         </ol>
      {outputs}
