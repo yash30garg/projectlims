@@ -125,7 +125,7 @@ class Footer extends Component {
         </footer >
 
 
-      <div className="footer-bottom" style={{backgroundColor : "#116466"}}>
+      <div className="footer-bottom" style={{backgroundColor : "#614126"}}>
 
         <div className="container-fluid">
 
