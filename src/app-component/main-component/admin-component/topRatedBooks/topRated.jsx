@@ -20,7 +20,7 @@ class TopBooks extends Component{
     {
         let k;
                 if (window.display !== '') {
-                let b = window.display.filter((res) => res.details.rating >= 4);
+                let b = window.display;
                  k=["java","javascript","c","angular","react","c++","c#","python","jquery","html & css","das"].map(result=>{
                     return(
                         <div>
