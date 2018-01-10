@@ -46,7 +46,13 @@ class BorrowedSlider extends Component
     //  const outputs=window.users.filter(temp=>temp.user.mid===id).map(result=>{
     //     return(<UserBooks key={result.user.mid} list={result.borrowedbooks}/>);
     //  });
-    const outputs=<UserBooks key={id} list={window.bbooks}/>;
+        let outputs=<div>
+        <h2 style={{textAlign:'center',color:"#614126"}}>I have not added any book in wishlist!</h2>
+        </div>
+        if(window.bbooks.length!=0)
+        {
+            outputs=<UserBooks key={id} list={window.bbooks}/>;
+        }
      return(
     <div className="contained mt-4">
         <ol className="breadcrumb" style={{backgroundColor : "#614126", color : "white"}}>
