@@ -1,179 +1,320 @@
 import React, {Component} from 'react';
-import axios from 'axios';
+import './details.css'
 // import book from '../search-component/SearchResults'
 let users,
-    book;
+    book,
+    w = null,
+    b = null;
 class Details extends Component {
+    constructor(props) {
+        super(props);
+        b = (
+            <button
+                className="btn btn-primary mt-3"
+                style={{
+                backgroundColor: 'rgb(205,133,63)',
+                color: "white"
+            }}
+                onClick={this.request}>
+                <div className="fa fa-plus-circle"></div>
+                <b>Request Book</b>
+            </button>
+        )
+        w = (
+            <button
+                className="btn btn-primary mt-3"
+                style={{
+                backgroundColor: 'rgb(205,133,63)',
+                color: "white"
+            }}
+                onClick={this.wishlist}>
+                <div className="fa fa-heart-o"></div>
+                <b>WishList</b>
+            </button>
+        )
+        this.state = {
+            req: b,
+            wish: w,
+            msg: ""
+        };
+        const a = window
+            .bbooks
+            .map(res => {
+                if (res.isbn === this.props.data.isbn) {
+                    b = (
+                        <button
+                            className="btn btn-primary mt-3"
+                            onClick={this.removeRequest}
+                            style={{
+                            backgroundColor: 'rgb(205,133,63)',
+                            color: "white"
+                        }}>
+                            <div className="fa fa-check"></div>
+                            <b>Requested</b>
+                        </button>
+                    )
+                    this.state = {
+                        req: b,
+                        wish: w
+                    }
+                }
+            })
+
+        const test = window
+            .wishlist
+            .map(res => {
+                if (res.isbn === this.props.data.isbn) {
+                    w = (
+                        <button
+                            onClick={this.removeWishlist}
+                            className="btn btn-primary mt-3"
+                            style={{
+                            backgroundColor: 'rgb(205,133,63)',
+                            color: "white"
+                        }}>
+                            <div className="fa fa-heart"></div>
+                            <b>Added</b>
+                        </button>
+                    )
+                    this.state = {
+                        req: b,
+                        wish: w
+                    }
+                }
+            })
+        this.request = this
+            .request
+            .bind(this);
+        this.wishlist = this
+            .wishlist
+            .bind(this);
+        this.removeWishlist = this
+            .removeWishlist
+            .bind(this);
+        this.removeRequest = this
+            .removeRequest
+            .bind(this);
+    }
+
     goBack() {
         window
             .history
             .go(-1)
     }
-    request() {
-        if (window.bbooks.includes(book)) {
-            alert("You have already requested for this book");
-        } else {
+    removeWishlist = () => {
+        console.log(book);
+        let index=-1,i=0;
+        const ind=window.wishlist.map((res)=>{
+            if(res.isbn===book.isbn){
+                index=i;
+            }
+            i++;
+        })
+        if(index!==-1){
+            window.wishlist.splice(index,1);
+        }
+        w = (
+            <button
+                className="btn btn-primary mt-3"
+                style={{
+                backgroundColor: 'rgb(205,133,63)',
+                color: "white"
+            }}
+                onClick={this.wishlist}>
+                <div className="fa fa-heart-o"></div>
+                <b>WishList</b>
+            </button>
+        )
+        this.setState({wish: w})
+    }
+
+    removeRequest = () => {
+        console.log(book);
+        let index=-1,i=0;
+        const ind=window.bbooks.map((res)=>{
+            if(res.isbn===book.isbn){
+                index=i;
+            }
+            i++;
+        })
+        if(index!==-1){
+            window.bbooks.splice(index,1);
+        }
+        b = (
+            <button
+                className="btn btn-primary mt-3"
+                style={{
+                backgroundColor: 'rgb(205,133,63)',
+                color: "white"
+            }}
+                onClick={this.request}>
+                <div className="fa fa-plus-circle"></div>
+                <b>Request Book</b>
+            </button>
+        )
+        this.setState({req: b})
+    }
+
+    wishlist = () => {
+        w = (
+            <button
+                className="btn btn-primary mt-3"
+                onClick={this.removeWishlist}
+                style={{
+                backgroundColor: 'rgb(205,133,63)',
+                color: "white"
+            }}>
+                <div className="fa fa-heart"></div>
+                <b>Added</b>
+            </button>
+        )
+        let val = (
+            <div class="alert alert-success ml-1 mt-1">
+                <strong>Success!
+                </strong>
+                The Book was successfully added to the wishlist.
+                <strong>
+                    Happy Reading!!</strong>
+            </div>
+        )
+        window
+            .wishlist
+            .push(book);
+        console.log(window.wishlist);
+        this.setState({wish: w, msg: val})
+    }
+    request = () => {
+        if (!window.bbooks.includes(book)) {
             if (window.bbooks.length < 4) {
                 window
                     .bbooks
                     .push(book)
                 console.log(window.bbooks);
-
-                alert("The Requested Book has been allotted to you..Please Collect It from the Library");
+                let a = b = (
+                    <button
+                        className="btn btn-primary mt-3"
+                        onClick={this.removeRequest}
+                        style={{
+                        backgroundColor: 'rgb(205,133,63)',
+                        color: "white"
+                    }}>
+                        <div className="fa fa-check"></div>
+                        <b>Requested</b>
+                    </button>
+                )
+                let val = (
+                    <div class="alert alert-success ml-1 mt-1">
+                        <strong>Success!
+                        </strong>
+                        The Requested Book has been allotted to you. Please Collect if from the Library.
+                        <strong>
+                            Happy Reading!!</strong>
+                    </div>
+                )
+                this.setState({req: a, wish: w, msg: val})
+                // alert("The Requested Book has been allotted to you..Please Collect It from
+                // the Library");
             } else {
-                alert("Oops..Looks like You cannot borrow more books. Please return a book to borrow mo" +
-                        "re");
+                let val = (
+                    <div class="alert alert-danger ml-1 mt-1">
+                        <strong>Oops!
+                        </strong>
+                        Looks like you cannot borrow more books. Please return a book to borrow more.
+                        <strong>
+                            Happy Reading!!</strong>
+                    </div>
+                )
+                this.setState({msg: val})
             }
         }
     }
     render() {
         book = this.props.data;
         return (
-            <div className="card my-3 mx-5 container-fluid">
-                <div className="row">
-                    <div className="col-md-4 my-5">
-                        <img src={book.details.url} height="400vh"/>
-                    </div>
-                    <div className="col-md-7 mt-5">
-                        <h3>
-                            <br/>
-                            <table
-                                className="table table-responsive"
-                                style={{
-                                textTransform: "capitalize"
-                            }}>
-                                <tr>
-                                    <td
-                                        style={{
-                                        textAlign: "left"
-                                    }}>
-                                        <i>Title</i>
-                                    </td>
-                                    <td>:</td>
-                                    <td
-                                        style={{
-                                        textAlign: "left"
-                                    }}>
-                                        {book.details.title}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td
-                                        style={{
-                                        textAlign: "left"
-                                    }}>
-                                        <i>Author</i>
-                                    </td>
-                                    <td>:</td>
-                                    <td
-                                        style={{
-                                        textAlign: "left"
-                                    }}>
-                                        {book.details.author}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td
-                                        style={{
-                                        textAlign: "left"
-                                    }}>
-                                        <i>ISBN</i>
-                                    </td>
-                                    <td>:</td>
-                                    <td
-                                        style={{
-                                        textAlign: "left"
-                                    }}>
-                                        {book.isbn}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td
-                                        style={{
-                                        textAlign: "left"
-                                    }}>
-                                        <i>Category</i>
-                                    </td>
-                                    <td>:</td>
-                                    <td
-                                        style={{
-                                        textAlign: "left"
-                                    }}>
-                                        {book.details.category}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td
-                                        style={{
-                                        textAlign: "left"
-                                    }}>
-                                        <i>Publisher</i>
-                                    </td>
-                                    <td>:</td>
-                                    <td
-                                        style={{
-                                        textAlign: "left"
-                                    }}>
-                                        {book.details.publisher}
-                                    </td>
-                                </tr>
-
-                                <tr
-                                    styele={{
-                                    textAlign: "center"
-                                }}>
-                                    <td colSpan="2">
-                                        {[1, 2, 3, 4, 5].map(d => {
-                                            if (book.details.rating >= d) 
-                                                return <span
-                                                    class="fa fa-star mt-1"
-                                                    style={{
-                                                    color: '#FF8C00',
-                                                    fontSize: '30px'
-                                                }}></span>
-                                            else 
-                                                return <span
-                                                    class="fa fa-star mt-1"
-                                                    style={{
-                                                    color: 'black',
-                                                    fontSize: '30px'
-                                                }}></span>
-                                        })}
-                                    </td>
-                                </tr>
-                                <td>
-                                    <button className="btn btn-primary mt-3" onClick={this.request}>
-                                        <b>Request Book</b>
-                                    </button>
-                                </td>
-                                <tr></tr>
-                            </table>
-                        </h3>
-                    </div>
+            <div>
+                {this.state.msg}
+                <div className="container-fluid">
                     <div
-                        className="col"
+                        className="close-cap offset-11"
                         style={{
-                        fontSize: '60px'
+                        fontSize: '40px'
                     }}
-                        onClick={this.goBack}>X
+                        onClick={this.goBack}>X</div>
+                    <div className="container-fluid">
+                        <div className="row">
+                            <div className="mb-4 col-sm-4 col-md-4 col-xs-4 col-lg-4">
+                                <div className="card">
+                                    <center>
+                                        <img className="rounded mt-4" src={book.details.url} height="80%" width="75%"/>
+                                    </center>
+                                </div>
+                                {this.state.req}
+                                &nbsp; {this.state.wish}
+                            </div>
 
+                            <div
+                                className="col-sm-6 col-md-6 col-xs-6 col-lg-6 ml-3"
+                                style={{
+                                textTransform: "capitalize",
+                                textAlign: "left"
+                            }}>
+                                <h3>
+                                    <u>
+                                        {book.details.title}
+                                    </u>
+                                </h3>
+                                <h5>
+                                    By
+                                    <i>
+                                        {book.details.author}</i><br/>
+                                    Published By
+                                    <i>
+                                        {book.details.publisher}</i><br/>
+                                    <hr/>
+                                    <table>
+                                        <tr className="row">
+                                            <td className="col-sm-5 col-xs-5 col-md-5 col-lg-5">ISBN</td>
+                                            <td className="col-sm-2 col-xs-2 col-md-2 col-lg-2">
+                                                :
+                                            </td>
+                                            <td className="col-sm-5 col-xs-5 col-md-5 col-lg-5">
+                                                <i>{book.isbn}</i>
+                                            </td>
+                                        </tr>
+                                        <tr className="row">
+                                            <td className="col-sm-5 col-xs-5 col-md-5 col-lg-5">Category</td>
+                                            <td className="col-sm-2 col-xs-2 col-md-2 col-lg-2">:
+                                            </td>
+                                            <td className="col-sm-5 col-xs-5 col-md-5 col-lg-5">
+                                                <i>{book.details.category}</i>
+                                            </td>
+                                        </tr>
+                                        <tr className="row">
+                                            <td className="col-sm-5 col-xs-5 col-md-5 col-lg-5">Category</td>
+                                            <td className="col-sm-2 col-xs-2 col-md-2 col-lg-2">:
+                                            </td>
+                                            <td className="col-sm-5 col-xs-5 col-md-5 col-lg-5">
+                                                <i>{book.details.category}</i>
+                                            </td>
+                                        </tr>
+                                        <tr className="row mt-2">
+                                            <td colspan="4" className="col-sm-10 col-xs-10 col-md-10 col-lg-10">
+                                                {[1, 2, 3, 4, 5].map(d => {
+                                                    if (book.details.rating >= d) 
+                                                        return <span
+                                                            class="fa fa-star mt-1"
+                                                            style={{
+                                                            color: '#FF8C00',
+                                                            fontSize: '20px'
+                                                        }}></span>
+                                                })}
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </h5>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div
-                    className="container-fluid"
-                    style={{
-                    textAlign: 'justify',
-                    fontSize: "20px"
-                }}>
-                    If you want to achieve JavaScript′s full potential, it is critical to understand
-                    its nature, history, and limitations. To that end, this updated version of the
-                    bestseller by veteran author and JavaScript guru Nicholas C. Zakas covers
-                    JavaScript from its very beginning to the present–day incarnations including the
-                    DOM, Ajax, and HTML5. Zakas shows you how to extend this powerful language to
-                    meet specific needs and create dynamic user interfaces for the web that blur the
-                    line between desktop and internet. By the end of the book, you′ll have a strong
-                    understanding of the significant advances in web development as they relate to
-                    JavaScript so that you can apply them to your next website.
                 </div>
             </div>
         )

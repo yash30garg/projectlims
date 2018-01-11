@@ -15,7 +15,10 @@ body{
 }
 
 
-
+.overlay
+{
+  background-color: "#CD853F";
+}
 
 
 
@@ -127,7 +130,7 @@ background-color: white;
 
 .breadcrumb
 {
-    background: #116466;
+    background: #CD853F;
     color : black;
 }
 
@@ -216,10 +219,17 @@ background-color: white;
 {
     padding-right: 1 cm;
 }
+/*.badge {
+ display: flex;
+ margin-left: auto;
+}*/
 
  .badge-pill
 {
     padding-right: 5pt;
+}
+.list-group .list-group-item .badge-pill{
+  float:"right";
 }
 
 .p1 .progress .progress-bar
@@ -319,7 +329,7 @@ width: 25%
 
 .contained > .breadcrumb 
 {
-  background-color: #116466;
+  background-color: #CD853F;
 }
 a
 {

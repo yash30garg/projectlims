@@ -34,7 +34,7 @@
 
 .searchTerm {
   float: left;
-  width: 100%;
+  width: 100%;x
   border: 3px solid #00B4CC;
   padding: 5px;
   height: 20px;
@@ -43,9 +43,9 @@
   color: #9DBFAF;
 }
 
-.searchTerm:focus{
+/*.searchTerm:focus{
   color: #00B4CC;
-}
+}*/
 
 .searchButton {
   position: absolute;  

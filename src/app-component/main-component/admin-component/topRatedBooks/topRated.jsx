@@ -1,7 +1,8 @@
 import React,{Component}from 'react';
-import {EachCategory} from './eachCategory';
+import EachCategory from './eachCategory';
 import axios from 'axios';
 import './topRated.css'
+import LoadingEffect from './../../../loading-component/loading';
 
 class TopBooks extends Component{
         constructor() {
@@ -18,9 +19,9 @@ class TopBooks extends Component{
     // }
     render()
     {
-        let k;
+        let k=[];
                 if (window.display !== '') {
-                let b = window.display.filter((res) => res.details.rating >= 4);
+                let b = window.display;
                  k=["java","javascript","c","angular","react","c++","c#","python","jquery","html & css","das"].map(result=>{
                     return(
                         <div>
@@ -33,7 +34,7 @@ class TopBooks extends Component{
             return(
                 
                 <div className="put mt-4" style={{paddingBottom:'30px'}}>
-                <h5 className="card-header yoyo" style={{ backgroundColor: "#116466", color: "white", fontSize : "18px" }}>Top Rated Books</h5>
+                <h5 className="card-header yoyo" style={{ backgroundColor: "#614126", color: "white", fontSize : "18px" }}>Top Rated Books</h5>
                 {k}
             </div>
                 

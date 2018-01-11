@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-
+import './topRated.css'
 export class EachTopCard extends Component{
     constructor(props)
     {
@@ -21,7 +21,7 @@ export class EachTopCard extends Component{
     render(){
     return(
         <div
-            className="col-lg-2 col-md-2 col-sm-6 col-xs-12 my-3">
+            className="col-lg-2 col-md-4 col-sm-6 col-xs-12 my-3">
             <div
                 className="card-img particular mx-auto"
                 id={this.props.isbn}
@@ -33,7 +33,7 @@ export class EachTopCard extends Component{
                     src={this.props.item.details.url}
                     height="180px"
                     width="100%"/>
-                <div className="overlay" style={{backgroundColor : "#26a69a"}}>
+                <div className="overlay" style={{backgroundColor : "rgba(205,133,63,0.9)"}}>
                     <div className="text container-fluid">
                         <b>{this.props.item.details.title}</b><br/>
                         <b>Author :
@@ -60,10 +60,10 @@ export class EachTopCard extends Component{
                             class="btn btn-sm mt-3"
                             style={{
                             backgroundColor: 'white',
-                            color: 'rgb(96, 0, 58)',
+                            color:"rgb(205,133,63)",
                         }}
                             onClick={this.request}>
-                            <b style={{fontSize:'12px'}}>{this.state.btnText}</b>
+                            <b >{this.state.btnText}</b>
                         </button>
                     </div>
                 </div>

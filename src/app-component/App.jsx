@@ -17,6 +17,7 @@ import Profile from '../app-component/main-component/user-component/profileView/
 
 let users;
 window.display='';
+window.wishlist=[];
 class App extends Component {
   // constructor(){
   //   super();

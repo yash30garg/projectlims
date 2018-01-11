@@ -65,8 +65,7 @@ class Login extends Component {
             <div className="setColor" >
 
 
-
-
+  
 
                 <div className="login-wrapper" id="lw">
                     <div className="login-left">
@@ -94,6 +93,29 @@ class Login extends Component {
                                 <button type="submit" className="btn-primary">Login</button>
                                 {/*</Link>*/}
                                 {/*<div class="login-form">
+                        <img src="https://krysiacanvindotorg.files.wordpress.com/2013/02/janko-ferlic-174927.jpg" alt="" onClick={handleClick}></img>
+                        <div className="header" onClick={handleClick} style={{fontWeight : "3000px"}}><b>Click Here to Enter</b></div>
+                    </div>
+                    <div className="login-right">
+                        <div className="h2">Login</div>
+                        <form action="http://limsreactapi.azurewebsites.net/api/" method="post">
+                        <div className="form-group">
+                            <input type="text" id="Email" name="logemail" placeholder="E-mail" />
+
+                        </div>
+                        <div className="form-group">
+                            <input type="password" id="Password" name="logpassword" placeholder="Password" />
+
+                        </div>
+                        <div className="checkbox-container">
+                            <input type="checkbox" />
+                            <div className="text-checkbox">     I agree with the terms of service.</div>
+                        </div>
+                        <div className="button-area">
+                            {/*<Link to="/home">*/}
+                                <button type="submit" className="btn-secondary" style={{color:"white", backgroundColor : "#DEB887", borderColor:"#A0522D"}}>Login</button>
+                            {/*</Link>*/}
+                            {/*<div class="login-form">
 					<form action="/" method="post">
                     <form onSubmit={this.validate}>
 						<input type="text" name="logemail" placeholder="E-mail" required=""/>>
@@ -107,6 +129,9 @@ class Login extends Component {
                                     <button type="submit" className="btn-primary">Admin</button>
                                 </Link>
 
+                            <Link to="/adminDash">
+                                <button className="btn-secondary" style={{color:"white", backgroundColor : "#DEB887", borderColor:"#A0522D"}}>Admin</button>
+                            </Link>
 
                             </div>
                         </form>

@@ -21,7 +21,8 @@ export default class Search extends Component {
             filteredData: '',
             temp: 0
         }
-        Rx.Observable.fromPromise(fetch('http://limsreactapi.azurewebsites.net/api/Books'))
+        // Rx.Observable.fromPromise(fetch('http://limsreactapi.azurewebsites.net/api/Books'))
+        Rx.Observable.fromPromise(fetch('https://api.myjson.com/bins/1a9rkj'))
             .flatMap((response) => response.json())
             .subscribe(values => {
                 this.setState({ data: values })
@@ -182,7 +183,7 @@ export default class Search extends Component {
     render() {
         return (
             <div>
-                <nav className="navbar navbar-toggleable-md navbar-light bg-faded " style={{backgroundColor:"#116466"}}>
+                <nav className="navbar navbar-toggleable-md navbar-light bg-faded " style={{backgroundColor:"#614126"}}>
                     <a ><img
                         className="App-logo"
                         src={"https://www.mindtree.com/themes/custom/mindtree_theme/logo.svg"}
@@ -196,7 +197,7 @@ export default class Search extends Component {
                             <div className="row offset-md-3">
                                 <div className="input-group">
 
-                                    <input type="text" id="search" className="form-control" size="800" style={{ alignSelf: "center" }} placeholder="Search for..." onKeyUp={debounce(this.search, 700)} autoFocus />
+                                    <input type="text" id="search" className="form-control" size="800" style={{ alignSelf: "center",borderColor:"#8B4513"}} placeholder="Search for..." onKeyUp={debounce(this.search, 700)} autoFocus />
                                     <span className="input-group-btn">
 
                                         <button type="submit" className="btn btn-outline-secondary" onKeyPress={event => {
@@ -212,7 +213,7 @@ export default class Search extends Component {
                         </div>
                     </form>
                     {/*<a className="close"><label id="close" onClick={this.back}><h4>x</h4></label></a>*/}
-                    <a className="close" style={{color:"white"}}><button className="btn btn-outline-primary" onClick={this.back} style={{color:"white"}}>back</button></a>
+                    <a className="close" style={{color:"white",border:"white"}}><button className="btn btn-outline-primary" onClick={this.back} style={{backgroundColor:"#fff",borderColor:"#fff",color:"#000"}}>back</button></a>
                 </nav>
                 <div className="content">
                     <SearchResults result={this.state.sortedData} />

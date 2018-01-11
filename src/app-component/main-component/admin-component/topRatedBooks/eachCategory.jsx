@@ -1,23 +1,84 @@
 import React,{Component}from 'react';
 import EachTopCard from './eachTopCard';
 import './topRated.css';
-export const EachCategory=(props)=>
+
+class EachCategory extends Component
 {
-    let c="#"+props.category;
-    let s=props.category;
+    constructor(props)
+    {
+        super(props);
+        this.state={
+            plus:"+",
+            showable:"collapse",
+            withoutFilter:this.props.rated.filter(results=>results.details.category.toLowerCase()==this.props.category),
+            filterCategory:[],
+            showViewCard:true,
+            
+            
+        }
+
+    }
+
+    componentDidMount()
+    {
+         if(this.props.category=="java"||this.props.category=="javascript")
+        {
+            
+            this.setState({plus:"-", showable:"collapse show",});
+        }
+        this.setState({filterCategory:this.state.withoutFilter.filter(res=>res.details.rating>=4).slice(0,5)});
+    }
+    plusClicked=()=>
+    {
+        if(this.state.plus=="+")
+        {
+        this.setState({plus:"-"});
+        }
+        else
+        {
+          this.setState({plus:"+"});  
+        }
+    }
+
+    viewMoreClicked=()=>
+    {
+        this.setState({filterCategory:this.state.withoutFilter, showViewCard:false});
+    }
+    render()
+    {
+        let c="#"+this.props.category;
+
     return(
                 <div className="put mx-4 mt-1">
-                <a data-toggle="collapse" href={c} aria-expanded="true" aria-controls={c}><h5 className="card-header yoyo" style={{ backgroundColor: "#26a69a", color: "white" }}>{props.category.toUpperCase()}</h5></a>
-                <div className="mb-2 mt-2" id={s}>
+                <a onClick={this.plusClicked} style={{textDecoration:'none'}} data-toggle="collapse" href={c} aria-expanded="false" aria-controls={c}><h5 className="card-header yoyo" style={{ backgroundColor: "	#CD853F", color: "white" }}>{this.props.category.toUpperCase()}<span style={{float:'right',paddingLeft:'70px'}}>{this.state.plus}</span></h5></a>
+                <div className={this.state.showable} id={this.props.category}>
                 <div className="row">
-     {props.rated.filter(results=>results.details.category.toLowerCase()==props.category).slice(0,6).map(rslt=>{
+     {this.state.filterCategory.map(rslt=>{
          return(
              <EachTopCard key={rslt.isbn} item={rslt}/>
          )
      })}
+                  {this.state.showViewCard?<div
+            className="col-lg-2 col-md-4 col-sm-6 col-xs-12 my-3">
+            <div
+                className="card-img viewMoreCard"
+                onClick={this.viewMoreClicked}
+                id={this.props.isbn}
+                style={{
+                width: '150px',
+                height: '180px'
+            }}>
+                <img className="my-5"
+                    src={require('../../../../Assets/Images/viewPlus.png')}
+                    height="50px"
+                    width="50px"/>
+                    <p><i>view more..</i></p>
+                    </div>
+                    </div>:null}
      </div>
      </div>
-              
      </div>
     );
+    }
 }
+export default EachCategory;

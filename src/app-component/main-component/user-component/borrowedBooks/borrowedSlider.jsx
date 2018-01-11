@@ -46,11 +46,17 @@ class BorrowedSlider extends Component
     //  const outputs=window.users.filter(temp=>temp.user.mid===id).map(result=>{
     //     return(<UserBooks key={result.user.mid} list={result.borrowedbooks}/>);
     //  });
-    const outputs=<UserBooks key={id} list={window.bbooks}/>;
+        let outputs=<div>
+        <h2 style={{textAlign:'center',color:"#614126"}}>I have not added any book in wishlist!</h2>
+        </div>
+        if(window.bbooks.length!=0)
+        {
+            outputs=<UserBooks key={id} list={window.bbooks}/>;
+        }
      return(
     <div className="contained mt-4">
-        <ol className="breadcrumb" style={{backgroundColor : "#116466", color : "white"}}>
-        <h5>Books I Have</h5>
+        <ol className="breadcrumb" style={{backgroundColor : "#614126", color : "white"}}>
+        <h5>Books I Have <span onClick={this.props.borrowCrossClicked} style={{float:'right',cursor:'pointer',paddingLeft:'70px'}}>x</span> </h5>
         </ol>
      {outputs}
     </div>

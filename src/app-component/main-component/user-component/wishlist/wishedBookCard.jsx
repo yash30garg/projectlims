@@ -1,45 +1,29 @@
-import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
-let res;
-class EachPrefferedCard extends Component{
-    constructor(props)
-    {
-        super(props);
-    }
+import React from 'react'
 
-    handle(res){
-        window.selected=res;
-    }
-
-    render()
-    {
-        res=this.props.item;
-    return (
-        <div
-            className="mx-auto col-lg-2 col-md-4 col-sm-6 col-xs-12">
-            <Link to="/search/details">
+export const WishedCard=(props)=>
+{
+    return(    
             <div
-                className="card-img particular mx-auto"
-                 onClick={()=>this.handle(res)}
-                id={this.props.key}
+                className="card-img mx-auto particular"
+                id={props.data.isbn}
                 style={{
                 width: '150px'
             }}>
                 <img
                     className="mx-auto"
-                    src={this.props.item.details.url}
+                    src={props.data.details.url}
                     height="180px"
                     width="100%"/>
-                <div className="overlay" style={{backgroundColor : "rgba(205,133,63,0.9)"}}>
+                 <div className="overlay" style={{backgroundColor : "	#CD853F"}}>
                     <div className="text container-fluid">
-                        <b>{this.props.item.details.title}</b><br/>
+                        <b>{props.data.details.title}</b><br/>
                         <b>Author :
                         </b>
-                        {this.props.item.details.author}<br/>
+                        {props.data.details.author}<br/>
                         <b>Category :
                         </b>
-                        {this.props.item.details.category}<br/> {[1, 2, 3, 4, 5].map(d => {
-                            if (this.props.item.details.rating >= d) 
+                        {props.data.details.category}<br/> {[1, 2, 3, 4, 5].map(d => {
+                            if (props.data.details.rating >= d) 
                                 return <span
                                     class="fa fa-star"
                                     style={{
@@ -67,9 +51,8 @@ class EachPrefferedCard extends Component{
                     </div>
                 </div>
             </div>
-            </Link>
-        </div>
+
     );
-    }
+
+
 }
-export default EachPrefferedCard;

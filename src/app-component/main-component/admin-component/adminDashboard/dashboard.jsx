@@ -67,7 +67,7 @@ class DashBoard extends Component {
                                 backgroundColor: "black"
                             }}></span>
                     </button>
-                    <a class="navbar-brand" href="#">Admin Strap</a>
+                    <a class="navbar-brand" href="#">Admin Panel</a>
 
                     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                         <ul class="navbar-nav mr-auto">

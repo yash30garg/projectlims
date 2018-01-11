@@ -15,13 +15,14 @@ class Header extends Component {
     key = document.getElementById("key").value
     console.log(key)
   }
+
   render() {
 
     return (
       <div>
 
         
-        <nav className="navbar navbar-toggleable-md navbar-light bg-faded" style={{backgroundColor:"#116466"}}>
+        <nav className="navbar navbar-toggleable-md navbar-light bg-faded" style={{backgroundColor:"#614126"}}>
           <button style={{backgroundColor:'#fff'}}
             className="navbar-toggler navbar-toggler-right"
             type="button"
@@ -34,24 +35,26 @@ class Header extends Component {
           </button>
           <a ><img
             className="App-logo"
-            src={"https://www.mindtree.com/themes/custom/mindtree_theme/logo.svg"}
+             src={"https://www.mindtree.com/themes/custom/mindtree_theme/logo.svg "}
+
+
             alt="My logo"
             align="left" /></a>
             <Link to="/home">
           <a className="navbar-brand" style={{color : "white"}}>Mindtree Library</a>
           </Link>
-            <Link to="/search">
+            <Link to="/search" style={{textDecoration:'none'}}>
             <div className="col-lg-9">
               
               <div className="row offset-md-3">
                 <div className="input-group">
 
                   <input type="text" id="key" className="form-control" size="800" style={{alignSelf: "center"}} placeholder="Search for..." />
-                  <span className="input-group-btn">
+                 
+                   
+                      <button className="btn btn-primary" onClick={this.handle} type="button" style={{backgroundColor:"#614126",borderColor:"#fff"}} >Go!</button>
                     
-                      <button className="btn btn-outline-secondary" onClick={this.handle} type="button">Go!</button>
-                    
-                  </span>
+                  
 
                  
 
@@ -63,18 +66,22 @@ class Header extends Component {
           <div className="collapse navbar-collapse" id="navbarNavDropdown">
             
             <ul className="navbar-nav ml-auto">
+            <img src="http://www.easydrawingtutorials.com/images/Tom/tom-step-last.jpg" height="50px" width="50px" className="rounded-circle"/>
+          
+            
     <Link to="/profile">
-              <li className="nav-item active"></li>
+           
               <li className="nav-item" >
-                <a className="nav-link" href="#" style={{color : "white"}}>Profile
+                <a className="nav-link" href="#" style={{color : "white"}}><span class="fa fa-user"></span>profile
                 </a>
+                
               </li>
               </Link>
 
               <Link to="/">
               <li className="nav-item active"></li>
               <li className="nav-item" >
-                <a className="nav-link" href="#" style={{color : "white"}}>LogOut
+                <a className="nav-link" href="#" style={{color : "white"}}><span class="fa fa-lock"></span>logout
                 </a>
               </li>
              </Link>

@@ -26,7 +26,7 @@ class Profile extends Component {
 					<div class="col2 last">
 						<div class="grid clearfix">
 							<div class="col3 first">
-								<h1>4</h1>
+								<h1>{window.bbooks.length}</h1>
 								<span>Books Borrowed</span>
 							</div>
 							<div class="col3"><h1>9</h1>
@@ -75,7 +75,7 @@ class Profile extends Component {
 					</div>
 					<div class="profileinfo">
 						<img src="http://images.contactmusic.com/newsimages/david_beckham_1133321.jpg" alt="" />
-						<p>MS Dhoni has captained most number of intl. matches</p>
+						<p>MS Dhoni has captained most number of intl. matches (334)</p>
 						<span>Read more <i class="fa fa-angle-right"></i></span>
 					</div>
 				</div>
