@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './details.css'
+import './details.css';
 // import book from '../search-component/SearchResults'
 let users,
     book,
@@ -95,7 +95,6 @@ class Details extends Component {
             .removeRequest
             .bind(this);
     }
-
     goBack() {
         window
             .history
@@ -169,7 +168,7 @@ class Details extends Component {
             </button>
         )
         let val = (
-            <div class="alert alert-success ml-1 mt-1">
+            <div class="alert alert-success ml-1 mt-1" role="alert">
                 <strong>Success!
                 </strong>
                 The Book was successfully added to the wishlist.
@@ -203,7 +202,7 @@ class Details extends Component {
                     </button>
                 )
                 let val = (
-                    <div class="alert alert-success ml-1 mt-1">
+                    <div class="alert alert-success  ml-1 mt-1">
                         <strong>Success!
                         </strong>
                         The Requested Book has been allotted to you. Please Collect if from the Library.
@@ -216,7 +215,7 @@ class Details extends Component {
                 // the Library");
             } else {
                 let val = (
-                    <div class="alert alert-danger ml-1 mt-1">
+                    <div class="alert alert-danger alert-dismissible ml-1 mt-1">
                         <strong>Oops!
                         </strong>
                         Looks like you cannot borrow more books. Please return a book to borrow more.
