@@ -41,6 +41,9 @@ class App extends Component {
             <Route path="/handleusers" exact component={HandleUsers} />
             <Route path="/profile" exact component={Profile} />
             <Route path="/aboutus" exact component={Profile} />
+            <Route path="/admindash" exact component={DashBoard} />
+            
+
           </Switch>
 
         </div>
