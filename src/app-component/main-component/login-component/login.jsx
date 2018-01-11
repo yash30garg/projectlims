@@ -78,7 +78,6 @@ class Login extends Component {
                         </div>
                         <div className="button-area">
                             {/*<Link to="/home">*/}
-                            
                                 <button type="submit" className="btn-secondary" style={{color:"white", backgroundColor : "#DEB887", borderColor:"#A0522D"}}>Login</button>
                             {/*</Link>*/}
                             {/*<div class="login-form">
