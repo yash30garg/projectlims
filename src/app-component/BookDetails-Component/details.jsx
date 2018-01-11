@@ -44,6 +44,7 @@ class Details extends Component {
                     b = (
                         <button
                             className="btn btn-primary mt-3"
+                            onClick={this.removeRequest}
                             style={{
                             backgroundColor: 'rgb(205,133,63)',
                             color: "white"
@@ -58,23 +59,29 @@ class Details extends Component {
                     }
                 }
             })
-        if (window.wishlist.includes(book)) {
-            w = (
-                <button
-                    className="btn btn-primary mt-3"
-                    style={{
-                    backgroundColor: 'rgb(205,133,63)',
-                    color: "white"
-                }}>
-                    <div className="fa fa-heart"></div>
-                    <b>Added</b>
-                </button>
-            )
-            this.state = {
-                req: b,
-                wish: w
-            }
-        }
+
+        const test = window
+            .wishlist
+            .map(res => {
+                if (res.isbn === this.props.data.isbn) {
+                    w = (
+                        <button
+                            onClick={this.removeWishlist}
+                            className="btn btn-primary mt-3"
+                            style={{
+                            backgroundColor: 'rgb(205,133,63)',
+                            color: "white"
+                        }}>
+                            <div className="fa fa-heart"></div>
+                            <b>Added</b>
+                        </button>
+                    )
+                    this.state = {
+                        req: b,
+                        wish: w
+                    }
+                }
+            })
         this.request = this
             .request
             .bind(this);
@@ -95,6 +102,17 @@ class Details extends Component {
             .go(-1)
     }
     removeWishlist = () => {
+        console.log(book);
+        let index=-1,i=0;
+        const ind=window.wishlist.map((res)=>{
+            if(res.isbn===book.isbn){
+                index=i;
+            }
+            i++;
+        })
+        if(index!==-1){
+            window.wishlist.splice(index,1);
+        }
         w = (
             <button
                 className="btn btn-primary mt-3"
@@ -111,6 +129,17 @@ class Details extends Component {
     }
 
     removeRequest = () => {
+        console.log(book);
+        let index=-1,i=0;
+        const ind=window.bbooks.map((res)=>{
+            if(res.isbn===book.isbn){
+                index=i;
+            }
+            i++;
+        })
+        if(index!==-1){
+            window.bbooks.splice(index,1);
+        }
         b = (
             <button
                 className="btn btn-primary mt-3"
