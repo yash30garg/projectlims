@@ -7,7 +7,7 @@ export const Category=(props)=>
         return(
                     <div
 
-            className="col-lg-2 col-md-4 col-sm-4 col-xs-4 mt-4 mb-5">
+            className="col-lg-2 col-md-4 col-sm-4 col-xs-4 mt-2 mb-3">
 
         <div
                 className="card-img particular mx-auto"

@@ -58,11 +58,13 @@ class EachCategory extends Component
              <EachTopCard key={rslt.isbn} item={rslt}/>
          )
      })}
-                  {this.state.showViewCard?<div
+                  <div
             className="col-lg-2 col-md-4 col-sm-6 col-xs-12 my-3">
             <div
                 className="card-img viewMoreCard"
-                onClick={this.viewMoreClicked}
+                onClick={(event)=>{
+                    this.props.click(event,this.props.category)
+                }}
                 id={this.props.isbn}
                 style={{
                 width: '150px',
@@ -74,7 +76,7 @@ class EachCategory extends Component
                     width="50px"/>
                     <p><i>view more..</i></p>
                     </div>
-                    </div>:null}
+                    </div>
      </div>
      </div>
      </div>
