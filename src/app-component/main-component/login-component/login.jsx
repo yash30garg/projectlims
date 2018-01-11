@@ -138,7 +138,7 @@ class Login extends Component {
 					</form>
 				</div>*/}
 
-                                <Link to="/adminDash">
+                                <Link to="/pdetails">
                               <button className="btn-secondary" style={{ color: "white", backgroundColor: "#DEB887", borderColor: "#A0522D" }}>Admin</button>
                                 </Link>
                                 </div>
