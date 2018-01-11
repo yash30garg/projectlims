@@ -1,12 +1,12 @@
 #loader {
     bottom: 0;
-    height: 175px;
+    height: 100px;
     left: 0;
     margin: auto;
     position: absolute;
     right: 0;
     top: 0;
-    width: 175px;
+    width: 100px;
 }
 
 #loader .dot {
@@ -17,18 +17,18 @@
     position: absolute;
     right: 0;
     top: 0;
-    width: 87.5px;
+    width: 40px;
 }
 #loader .dot::before {
     border-radius: 100%;
     content: "";
-    height: 87.5px;
+    height: 40px;
     left: 0;
     position: absolute;
     right: 0;
     top: 0;
     transform: scale(0);
-    width: 87.5px;
+    width: 40px;
 }
 #loader .dot:nth-child(7n+1) {
     transform: rotate(45deg);
@@ -89,12 +89,12 @@
 #loader .lading {
     background-position: 50% 50%;
     background-repeat: no-repeat;
-    bottom: -40px;
-    height: 20px;
+    bottom: -20px;
+    height: 10px;
     left: 0;
     position: absolute;
     right: 0;
-    width: 180px;
+    width: 100px;
 }
 @keyframes load {
 100% {

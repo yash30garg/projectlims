@@ -35,7 +35,9 @@ class Header extends Component {
           </button>
           <a ><img
             className="App-logo"
-            src={"https://www.mindtree.com/themes/custom/mindtree_theme/logo.svg"}
+             src={"https://www.mindtree.com/themes/custom/mindtree_theme/logo.svg "}
+
+
             alt="My logo"
             align="left" /></a>
             <Link to="/home">
@@ -49,7 +51,7 @@ class Header extends Component {
 
                   <input type="text" id="key" className="form-control" size="800" style={{alignSelf: "center"}} placeholder="Search for..." />
                  
-                    
+                   
                       <button className="btn btn-primary" onClick={this.handle} type="button" style={{backgroundColor:"#614126",borderColor:"#fff"}} >Go!</button>
                     
                   

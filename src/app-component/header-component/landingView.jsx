@@ -11,7 +11,7 @@ export const LandingView = (props) => {
                 <h5 className="card-header yoyo" style={{ backgroundColor: "#614126", color: "white" }}>What's New</h5>
                 <Pbooks />
             </div>
-            {props.show==false?<TopBooks/>:null}
+            {props.show==false||props.wish==false?<TopBooks/>:null}
         </div>
     );
 }

@@ -23,7 +23,7 @@ export const Category=(props)=>
                     src={res.details.url}
                     height="180px"
                     width="100%"/>
-                     <div className="overlay">
+                     <div className="overlay" style={{backgroundColor : "#CD853F"}}>
                     <div className="text container-fluid" >
                         <b>{res.details.title}</b><br/>
                         <b>Author :
@@ -38,23 +38,23 @@ export const Category=(props)=>
                                     color: '#ffd700',
                                     fontSize:'5px'
                                 }}></span>
-                            else 
-                                return <span
-                                    className="fa fa-star"
-                                    style={{
-                                    color: 'black',
-                                    fontSize:'5px'
-                                }}></span>
+                            // else 
+                            //     return <span
+                            //         className="fa fa-star"
+                            //         style={{
+                            //         color: 'black',
+                            //         fontSize:'5px'
+                            //     }}></span>
                         })}
                         <button
                             className="btn btn-block mt-3"
                             style={{
                             backgroundColor: 'white',
-                            color: 'rgb(96, 0, 58)'
+                            color: 'rgb(205,133,63)'
                             
                         }}
                             onClick={this.request}>
-                            <b style={{fontSize:'12px'}}>REQUEST BOOK</b>
+                            <b style={{fontSize:'13px',marginLeft:'-5px'}}>REQUEST BOOK</b>
                         </button>
                     </div>
                 </div>
