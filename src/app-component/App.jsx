@@ -15,6 +15,7 @@ import BookAdmin from '../app-component/main-component/admin-component/BookHandl
 import HandleUsers from '../app-component/main-component/admin-component/adminDashboard/handleusers.jsx';
 import Profile from '../app-component/main-component/user-component/profileView/prodetails.jsx';
 import ProductDetails from '../productDetails/product.jsx';
+import AboutUs from '../app-component/footer-component/AboutUs/aboutus.jsx';
 
 let users;
 window.display='';
@@ -38,6 +39,10 @@ class App extends Component {
             <Route path="/adminbooks" exact component={BookAdmin} />
             <Route path="/handleusers" exact component={HandleUsers} />
             <Route path="/profile" exact component={Profile} />
+            <Route path="/aboutus" exact component={Profile} />
+            <Route path="/admindash" exact component={DashBoard} />
+            
+
           </Switch>
 
         </div>

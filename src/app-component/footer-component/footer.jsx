@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './footer.css'
 import $ from 'jquery';
+import { Link } from 'react-router-dom';
+
 class Footer extends Component {
 
 
@@ -23,7 +25,9 @@ class Footer extends Component {
                     <h1 className="title-widget" style={{textAlign :"left"}}>Useful links</h1>
 
                     <ul>
+                      <Link to="/aboutus">
                       <li style={{ textAlign: "left" }}><a href="#"><i className="fa fa-angle-double-right"></i> About Us</a></li>
+                      </Link>
                       <li style={{ textAlign: "left" }}><a href="#"><i className="fa fa-angle-double-right"></i> Contact Us</a></li>
 
                     </ul>

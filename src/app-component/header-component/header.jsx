@@ -66,7 +66,7 @@ class Header extends Component {
           <div className="collapse navbar-collapse" id="navbarNavDropdown">
             
             <ul className="navbar-nav ml-auto">
-            <img src="http://www.easydrawingtutorials.com/images/Tom/tom-step-last.jpg" height="50px" width="50px" className="rounded-circle"/>
+            
           
             
     <Link to="/profile">

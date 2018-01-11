@@ -378,7 +378,7 @@ class Details extends Component {
                     <div class="gradient">
                         <div class="left">
                             <h5>ISBN</h5>
-                            <h4>{book.details.isbn}</h4>
+                            <h4>{book.isbn}</h4>
 
                             <h5>Book</h5>
                             <h4>{book.details.title}</h4>
@@ -395,12 +395,8 @@ class Details extends Component {
                         </div>
                         <div class="right">
                             <div class="mast">
-                                <img
-                                    src="https://www.mindtree.com/themes/custom/mindtree_theme/logo.svg"
-                                    alt="Sellr"
-                                    class="logo pull-left"
-                                    height="80%"
-                                    width="75%"/> {/*<span class="date pull-right">Dec 23, 2015 &mdash; 13:45:05 GMT</span>*/}
+                                <img src="book.details.url" alt="Sellr" class="logo pull-left" height="80%" width="75%"/>
+                                {/*<span class="date pull-right">Dec 23, 2015 &mdash; 13:45:05 GMT</span>*/}
                                 <div class="clearfix"></div>
                             </div>
                             <div class="invoice">
