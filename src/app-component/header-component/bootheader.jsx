@@ -13,10 +13,13 @@ import { Category } from './categoryView';
 import WishedBooks from '../main-component/user-component/wishlist/wishlistComponent'
 import LoadingEffect from './../loading-component/loading';
 import $ from 'jquery';
-var count = 0;
+var count = 0,plus,check;
 class BootHeader extends Component {
-
-    state = {
+    constructor(){
+       super(); 
+plus=(<div className="fa fa-minus"></div>)
+check="-";
+    this.state = {
         display: [],
         landingView: true,
         currentlyClicked: "",
@@ -25,8 +28,10 @@ class BootHeader extends Component {
         wishlistClicked: false,
         passBorrowed: false,
         passWish:false,
+        plus:plus,
         arrayResults: []
 
+    }
     }
     componentDidMount() {
         axios
@@ -61,6 +66,21 @@ class BootHeader extends Component {
         this.setState({ landingView: true, categoryClicked: true, wishlistClicked: false,passWish:false, borrowedClicked:false, passBorrowed:false  });
     }
 
+     plusClicked=()=>
+    {  
+        if(check==="-")
+        {
+            check="+";
+            plus=(<div className="fa fa-plus"></div>)
+        this.setState({plus:plus});
+        }
+        else
+        {
+            check="-";
+            plus=(<div className="fa fa-minus"></div>)
+          this.setState({plus:plus});  
+        }
+    }
     render() {
 
         return (
@@ -361,15 +381,20 @@ class BootHeader extends Component {
                                     </a>
                                 </div>
                                 <div className="list-group mt-4" style={{ cursor: 'pointer' }}>
-                                    <a
-                                        className="list-group-item collor nav-item dropdown nav-link" data-toggle="collapse" data-target="#navbaDropdown" aria-controls="navbaDropdown" aria-expanded="true" aria-label="Toggle navigation"
+                                    <div
+                                        className="row col-md-12 list-group-item collor nav-item dropdown nav-link ml-0" data-toggle="collapse" data-target="#navbaDropdown" aria-controls="navbaDropdown" aria-expanded="true" aria-label="Toggle navigation"
                                         style={{
                                             backgroundColor: "#614126",
                                             color: "white"
-                                        }}>
+                                        }}
+                                        onClick={this.plusClicked}>
 
-                                        <span className="fa fa-cog" aria-hidden="true"></span>
-                                        <span className="dropdown-toggle">Categories</span></a>
+                                        <div className="col-md-0 fa fa-cog" aria-hidden="true"></div>
+                                        <div className="col dropdown-toggle" style={{textAlign:"left"}}>Categories</div>
+                                        <div className="row">
+                                        <div className="mr-1">{this.state.plus}</div>
+                                        </div>
+                                        </div>
 
                                     <div class="collapse show" id="navbaDropdown">
 
