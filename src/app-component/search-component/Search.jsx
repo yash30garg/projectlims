@@ -3,7 +3,7 @@ import Rx from 'rxjs';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import {Link} from 'react-router-dom';
-
+import {requireAuth} from '../isLoggedIn.js'
 // import { BrowserRouter, Route, Link } from 'react-router-dom';
 import 'rxjs/add/operator/filter';
 import SearchResults from '../search-component/SearchResults';
@@ -28,6 +28,9 @@ export default class Search extends Component {
                 this.setState({ data: values })
                 console.log(this.state.data.booksArray);
             })
+    }
+    componentWillMount() {
+        // requireAuth(window.location.href)
     }
     search = (event) => {
         let value = document.getElementById("search").value.toLowerCase();

@@ -5,9 +5,13 @@ import '../../../App.css'
 import Footer from '../../../footer-component/footer.jsx';
 import { Link } from 'react-router-dom';
 import { UserBooks } from './../borrowedBooks';
+import {requireAuth} from '../../../isLoggedIn.js'
 
 var count = 0;
 class DashBoard extends Component {
+    	componentWillMount() {
+		// requireAuth(window.location.href)
+	}
 
     state = {
         output: [],

@@ -6,6 +6,7 @@ import searchBar from '../../header-component/searchbar/searchBar.jsx';
 import axios from 'axios';
 import { BorrowedSlider } from './borrowedBooks/borrowedSlider';
 import {email,mid} from '../login-component/login.jsx';
+import {requireAuth} from '../../isLoggedIn.js'
 let users;
 // window.bbooks='';
 // import {email,mid} from '../login-component/login.jsx'
@@ -23,7 +24,10 @@ export class User extends Component
     //             window.bbooks=b[0].borrowedbooks;
     //             console.log(window.bbooks.length)
     //     });
-    }
+}
+componentWillMount() {
+    // requireAuth(window.location.href)
+}
     render()
     {
         // if(window.bbooks.length!==0){

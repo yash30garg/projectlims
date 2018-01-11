@@ -6,11 +6,15 @@ import { Link } from 'react-router-dom';
 // import SearchAdmin from './searchadmin';
 // import './searchdis.css';
 import Footer from '../../../footer-component/footer.jsx';
+import {requireAuth} fronm '../../../isLoggedIn.js'
 var debounce = require('debounce');
 
 
 var count = 0;
 class HandleUsers extends Component {
+    componentWillMount() {
+        // requireAuth(window.location.href)
+    }
 
     render() {
 
