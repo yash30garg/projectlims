@@ -5,10 +5,15 @@ export var requireAuth = (path) => {
 
       if(localStorage.getItem('limsuser')!==null)
         {
-            console.log(JSON.parse(localStorage.getItem('limsuser')))
-            console.log("yes")
-            console.log(path)
-            window.location = path
+            if(path==="http://localhost:3000/#/"||path==="http:localhost:3000") {
+                window.location = "http://localhost:3000/#/home"
+            }
+            else {
+                console.log(JSON.parse(localStorage.getItem('limsuser')))
+                console.log("yes")
+                console.log(path)
+                window.location = path
+            }
         }
         else
         {
