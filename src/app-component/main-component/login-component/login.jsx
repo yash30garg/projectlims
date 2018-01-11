@@ -121,10 +121,9 @@ class Login extends Component {
                             <input type="checkbox" />
                             <div className="text-checkbox">     I agree with the terms of service.</div>
                         </div>*/}
-                            </div>
+                            
 
 
-                            <div className="button-area">
                                 {/*<Link to="/home">*/}
 
                                 {/*</Link>*/}
@@ -140,10 +139,10 @@ class Login extends Component {
 				</div>*/}
 
                                 <Link to="/adminDash">
-                                    <button className="btn-secondary" style={{ color: "white", backgroundColor: "#DEB887", borderColor: "#A0522D" }}>Admin</button>
+                              <button className="btn-secondary" style={{ color: "white", backgroundColor: "#DEB887", borderColor: "#A0522D" }}>Admin</button>
                                 </Link>
-
-                            </div>
+                                </div>
+                            
                         </form>
                     </div>
                 </div>
