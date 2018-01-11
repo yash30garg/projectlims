@@ -1,0 +1,745 @@
+@import url("https://fonts.googleapis.com/css?family=Ubuntu:400,500,700");
+/* line 6, ../sass/main.sass */
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+/* line 12, ../sass/main.sass */
+ul {
+  list-style: none;
+}
+
+/*********Main********* */
+/* line 19, ../sass/main.sass */
+main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 85vh;
+  background-image: url("https://picsum.photos/1920/1080?image=1067");
+  background-size: cover;
+  background-color: blue;
+  background-blend-mode: multiply;
+  -webkit-animation-name: color;
+          animation-name: color;
+  -webkit-animation-duration: 20s;
+          animation-duration: 20s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  opacity: 0.8;
+  color: #f1e9e9;
+  padding: 50px 200px 0;
+  text-align: center;
+}
+
+@-webkit-keyframes color {
+  0% {
+    background-color: blue;
+  }
+  25% {
+    background-color: green;
+  }
+  75% {
+    background-color: purple;
+  }
+  100% {
+    background-color: blue;
+  }
+}
+
+@keyframes color {
+  0% {
+    background-color: blue;
+  }
+  25% {
+    background-color: green;
+  }
+  75% {
+    background-color: purple;
+  }
+  100% {
+    background-color: blue;
+  }
+}
+/* line 51, ../sass/main.sass */
+main h1 {
+  font-size: 6rem;
+  letter-spacing: 5px;
+}
+
+/* line 56, ../sass/main.sass */
+main h4 {
+  font-size: 3rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  margin-bottom: 1em;
+}
+
+/* line 63, ../sass/main.sass */
+main p {
+  font-size: 1.2rem;
+}
+
+/* line 67, ../sass/main.sass */
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 200px;
+}
+/* line 72, ../sass/main.sass */
+header ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+/* line 78, ../sass/main.sass */
+header .logo {
+  font-family: "Ubuntu", sans-serif;
+  font-size: 2rem;
+  letter-spacing: 3px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+/* line 85, ../sass/main.sass */
+header li {
+  padding: 0 30px;
+}
+
+/* line 89, ../sass/main.sass */
+.navbar a, .dropbtn {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-right: 30px;
+  font-family: "Ubuntu", sans-serif;
+}
+
+/**************SERVICES************ */
+/* line 98, ../sass/main.sass */
+.services {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+/* line 103, ../sass/main.sass */
+.service {
+  margin: 3rem 0;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding-left: 5rem;
+  padding-right: 5rem;
+  border-right: 1px solid lightgrey;
+}
+
+/* line 113, ../sass/main.sass */
+.service:last-of-type {
+  border-right: none;
+}
+
+/*************ABOUT********* */
+/* line 118, ../sass/main.sass */
+.about {
+  background-image: url("");
+  background-repeat: repeat;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 7rem 0;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+/* line 129, ../sass/main.sass */
+.about-container {
+  width: 30%;
+  padding-right: 3rem;
+}
+
+/* line 134, ../sass/main.sass */
+.about h1 {
+  text-transform: uppercase;
+  font-size: 3rem;
+  text-align: left;
+  margin-bottom: 2rem;
+}
+
+/* line 141, ../sass/main.sass */
+.about-container > p {
+  color: #756f6f;
+  margin-bottom: 2rem;
+}
+
+/* line 146, ../sass/main.sass */
+.about h4 {
+  text-transform: uppercase;
+  color: #222121;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+/* line 153, ../sass/main.sass */
+.about-left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 2rem 0;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  border-bottom: 1px solid #c0bdbd;
+}
+
+/* line 159, ../sass/main.sass */
+.about-left:last-of-type {
+  border-bottom: none;
+}
+
+/* line 162, ../sass/main.sass */
+.about img {
+  -webkit-box-shadow: 4px 4px 6px -1px rgba(105, 98, 105, 0.98);
+          box-shadow: 4px 4px 6px -1px rgba(105, 98, 105, 0.98);
+}
+
+/* line 168, ../sass/main.sass */
+.points p {
+  color: #756f6f;
+}
+
+/* line 175, ../sass/main.sass */
+.icons {
+  display: inline-block;
+  width: 3em;
+  height: 3em;
+  margin-right: 1.2em;
+  text-align: center;
+}
+
+/***********RANDOM*************** */
+/* line 184, ../sass/main.sass */
+.random {
+  background-image: url("https://picsum.photos/g/1100/600?image=985"), -webkit-gradient(linear, left top, right bottom, from(#ab74b3), to(#1a6fa8));
+  background-image: url("https://picsum.photos/g/1100/600?image=985"), linear-gradient(to bottom right, #ab74b3, #1a6fa8);
+  background-blend-mode: soft-light;
+  background-size: cover;
+  -webkit-filter: brightness(75%);
+          filter: brightness(75%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 8rem 0;
+  color: white;
+  height: 50vh;
+  -webkit-transition: -webkit-filter 0.5s;
+  transition: -webkit-filter 0.5s;
+  transition: filter 0.5s;
+  transition: filter 0.5s, -webkit-filter 0.5s;
+}
+
+/* line 197, ../sass/main.sass */
+.random:hover {
+  -webkit-filter: brightness(100%);
+          filter: brightness(100%);
+}
+
+/* line 203, ../sass/main.sass */
+.random h1 {
+  font-family: "Ubuntu", sans-serif;
+  font-size: 6rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+/* line 210, ../sass/main.sass */
+.random h4 {
+  font-family: "Ubuntu", sans-serif;
+  font-size: 2rem;
+  letter-spacing: 45px;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+
+/* line 218, ../sass/main.sass */
+.random button {
+  padding: 1rem 2rem;
+  color: #f3ecec;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 3px solid #f3ecec;
+  background: transparent;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  -webkit-transition-timing-function: ease-in-out;
+          transition-timing-function: ease-in-out;
+}
+
+/* line 231, ../sass/main.sass */
+.random button:hover {
+  color: #222121;
+  background-color: #f3ecec;
+  cursor: pointer;
+}
+
+/***********TEAM************* */
+/* line 238, ../sass/main.sass */
+.our-team {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 5rem 0;
+}
+
+/* line 245, ../sass/main.sass */
+.our-team h1 {
+  font-family: "Ubuntu", sans-serif;
+  color: black;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 3rem;
+  margin-bottom: 3rem;
+}
+
+/* line 254, ../sass/main.sass */
+.experts {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+/* line 256, ../sass/main.sass */
+.experts img {
+  width: 35%;
+  height: auto;
+}
+
+/* line 262, ../sass/main.sass */
+.person {
+  width: 252;
+  height: 336;
+  position: relative;
+  cursor: pointer;
+  text-align: center;
+  margin: 0 4rem;
+}
+/* line 269, ../sass/main.sass */
+.person p:last-of-type {
+  color: #8e8989;
+}
+/* line 272, ../sass/main.sass */
+.person p:first-of-type {
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 1.5rem;
+}
+
+/* line 279, ../sass/main.sass */
+.person:hover .person-s {
+  height: 336px;
+}
+
+/* line 282, ../sass/main.sass */
+.person img {
+  width: 250px;
+  height: 336px;
+}
+
+/* line 286, ../sass/main.sass */
+.person-s {
+  width: 252px;
+  height: 0;
+  background: rgba(103, 58, 183, 0.71);
+  position: absolute;
+  top: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  overflow: hidden;
+  -webkit-transition: 0.5s ease;
+  transition: 0.5s ease;
+}
+
+/* line 298, ../sass/main.sass */
+.person-s h2 {
+  color: white;
+  font-size: 30px;
+  border: 3px solid white;
+  padding: 5px 15px;
+}
+
+/*******TESTIMONY**************** */
+/* line 306, ../sass/main.sass */
+.testify {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 5rem 20%;
+  background-image: url("");
+}
+
+/* line 314, ../sass/main.sass */
+.testimony {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-left: 4rem;
+  background-color: #3f27a7;
+  color: #f1e9e9;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  line-height: 2rem;
+  font-size: 1.1rem;
+  height: 427px;
+}
+
+/* line 325, ../sass/main.sass */
+.testify h2 {
+  text-transform: uppercase;
+  font-size: 3rem;
+  text-align: left;
+  margin-bottom: 2rem;
+}
+
+/* line 332, ../sass/main.sass */
+.test-text {
+  margin-right: 2rem;
+}
+
+/* line 336, ../sass/main.sass */
+.test-text p:first-of-type {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
+  margin-bottom: 2em;
+}
+
+/*************PROJECTS******** */
+/* line 351, ../sass/main.sass */
+.projects {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 7rem 0;
+}
+
+/* line 359, ../sass/main.sass */
+.projects h1 {
+  text-transform: uppercase;
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* line 366, ../sass/main.sass */
+.cards {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 60%;
+}
+
+/* line 371, ../sass/main.sass */
+.card {
+  text-align: center;
+  width: 550px;
+  margin: 0 1rem;
+}
+
+/* line 377, ../sass/main.sass */
+.decription {
+  background-color: #222121;
+  color: #c0bdbd;
+  margin-top: -5px;
+  padding: 2rem;
+  line-height: 1.5rem;
+}
+
+/* line 385, ../sass/main.sass */
+.heading {
+  text-transform: uppercase;
+  color: #f3ecec;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
+}
+
+/******************CONTACT***************** */
+/* line 395, ../sass/main.sass */
+.contact {
+  background-color: #f2f2f2;
+  padding: 7rem 0 3rem 0;
+}
+
+/* line 400, ../sass/main.sass */
+.contact-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+/* line 406, ../sass/main.sass */
+.contact h2 {
+  text-transform: uppercase;
+  font-size: 3rem;
+  text-align: left;
+  margin-bottom: 2rem;
+}
+
+/* line 413, ../sass/main.sass */
+.contact p {
+  color: #403e3e;
+  margin-bottom: 2rem;
+}
+
+/* line 418, ../sass/main.sass */
+.info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 2rem;
+  max-width: 600px;
+}
+
+/* line 425, ../sass/main.sass */
+.flex-display:first-of-type {
+  border-top: 1px solid #c0bdbd;
+}
+
+/* line 429, ../sass/main.sass */
+.info li {
+  color: #756f6f;
+  padding: 40px 0;
+  border-bottom: 1px solid #c0bdbd;
+  font-weight: 500;
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+/* line 439, ../sass/main.sass */
+.info li:last-of-type {
+  border-bottom: none;
+}
+
+/* line 442, ../sass/main.sass */
+::before {
+  margin-right: 30px;
+}
+
+/* line 445, ../sass/main.sass */
+.phone::before {
+  content: "";
+  width: 30px;
+  height: 30px;
+  position: relative;
+  right: -2px;
+  background-image: url("https://c1.staticflickr.com/5/4731/39501993051_bba10d896a_s.jpg");
+  background-size: 30px;
+  -webkit-transform: rotate(-20deg);
+          transform: rotate(-20deg);
+}
+
+/* line 455, ../sass/main.sass */
+.address::before {
+  content: "";
+  background-image: url("https://c1.staticflickr.com/5/4591/39501993361_fd4fc98fb3_s.jpg");
+  background-size: 30px;
+  width: 30px;
+  height: 30px;
+}
+
+/* line 462, ../sass/main.sass */
+.email::before {
+  content: "";
+  background-image: url("https://c1.staticflickr.com/5/4636/39501993261_7bbfdf47f4_s.jpg");
+  background-size: 30px;
+  width: 30px;
+  height: 30px;
+}
+
+/* line 469, ../sass/main.sass */
+#map {
+  height: 500px;
+  width: 600px;
+}
+
+/********************FOOTER*************** */
+/* line 476, ../sass/main.sass */
+footer {
+  background-color: darkgrey;
+  padding: 30px;
+  color: grey;
+}
+
+/*# sourceMappingURL=main.css.map */
+
+ /* Navbar container */
+ 
+ .navbar {
+     overflow: hidden;
+     display: flex;
+     align-content: center;
+ }
+ /* Links inside the navbar */
+ 
+ .navbar a {
+     font-size: 16px;
+     color: white;
+     text-align: center;
+     padding: 14px 16px;
+     text-decoration: none;
+ }
+ /* The dropdown container */
+ 
+ .dropdown {
+     float: left;
+     overflow: hidden;
+ }
+ /* Dropdown button */
+ 
+ .dropdown .dropbtn {
+     font-size: 16px;
+     border: none;
+     outline: none;
+     color: white;
+     padding: 13px 16px;
+     background-color: inherit;
+ }
+ /* Add a red background color to navbar links on hover */
+ 
+ .navbar a:hover,
+ .dropdown:hover .dropbtn {
+     background: rgb(98, 0, 255);
+ }
+ /* Dropdown content (hidden by default) */
+ 
+ .dropdown-content {
+     display: none;
+     position: absolute;
+     background-color: #f9f9f9;
+     width: 35%;
+     right: 0;
+     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+     z-index: 1;
+ }
+ /* Mega Menu header, if needed */
+ 
+ .dropdown-content .header {
+     background: rgb(98, 0, 255);
+     padding: 10px;
+     color: white;
+ }
+ /* Show the dropdown menu on hover */
+ 
+ .dropdown:hover .dropdown-content {
+     display: block;
+ }
+ /* Create three equal columns that floats next to each other */
+ 
+ .column {
+     float: left;
+     width: 33.33%;
+     padding: 10px;
+     background-color: #ccc;
+     height: 250px;
+ }
+ /* Style links inside the columns */
+ 
+ .column a {
+     float: none;
+     color: black;
+     padding: 16px;
+     text-decoration: none;
+     display: block;
+     text-align: center;
+ }
+ /* Add a background color on hover */
+ 
+ .column a:hover {
+     background-color: #ddd;
+ }
+ /* Clear floats after the columns */
+ 
+ .row:after {
+     content: "";
+     display: table;
+     clear: both;
+ }

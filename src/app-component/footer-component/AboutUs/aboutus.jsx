@@ -20,55 +20,14 @@ export default class AboutUs extends Component {
                 <body>
                     <main>
                         <header>
-                            <div class="logo">DTMiller</div>
+                           
                             <nav>
-                                <div class="navbar">
-                                    <a href="#home">Home</a>
-                                    <a href="#news">About</a>
-                                    <div class="dropdown">
-                                        <button class="dropbtn">Services
-                                <i class="fa fa-caret-down"></i>
-                                        </button>
-                                        <div class="dropdown-content">
-                                            <div class="header">
-                                            </div>
-                                            <div class="row">
-                                                <div class="column">
-                                                    <h3>Category 1</h3>
-                                                    <a href="#">Link 1</a>
-                                                    <a href="#">Link 2</a>
-                                                    <a href="#">Link 3</a>
-                                                </div>
-                                                <div class="column">
-                                                    <h3>Category 2</h3>
-                                                    <a href="#">Link 1</a>
-                                                    <a href="#">Link 2</a>
-                                                    <a href="#">Link 3</a>
-                                                </div>
-                                                <div class="column">
-                                                    <h3>Category 3</h3>
-                                                    <a href="#">Link 1</a>
-                                                    <a href="#">Link 2</a>
-                                                    <a href="#">Link 3</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <ul>
-                                    <li>home</li>
-                                    <li>about</li>
-                                    <li>projects</li>
-                                    <li>pages</li>
-                                    <li>features</li>
-                                    <li>blog</li>
-                                </ul>
+                              
                             </nav>
                         </header>
-                        <h1>YOUR TAGLINE</h1>
-                        <h4>goes in these lines</h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut neque deserunt nihil dignissimos assumenda, nemo dolor incidunt perferendis? Ea voluptatibus vitae qui doloremque repudiandae cupiditate facere, unde quisquam iste fugiat incidunt laborum,
-            saepe, sed reprehenderit quas quam eveniet? Qui facere, eius eaque dolorum quod ducimus asperiores iste quaerat eveniet doloribus.</p>
+                        <h1>LiMS</h1>
+                        <h4>STARS OF ORCHARD KALINGA</h4>
+                        <p>Blessings by Ankit as Amarendra Baahubali</p>
                     </main>
                     <section class="services">
                         <div class="service">

@@ -39,7 +39,7 @@ class App extends Component {
             <Route path="/adminbooks" exact component={BookAdmin} />
             <Route path="/handleusers" exact component={HandleUsers} />
             <Route path="/profile" exact component={Profile} />
-            <Route path="/aboutus" exact component={Profile} />
+            <Route path="/aboutus" exact component={AboutUs} />
             <Route path="/admindash" exact component={DashBoard} />
             
 
