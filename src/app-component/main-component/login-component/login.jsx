@@ -90,7 +90,7 @@ class Login extends Component {
                             </div>
                             <div className="button-area">
                                 {/*<Link to="/home">*/}
-                                <button type="submit" className="btn-primary">Login</button>
+                                <button type="submit" className="btn-secondary" style={{color:"white", backgroundColor : "#DEB887", borderColor:"#A0522D"}}>Login</button>
                                 {/*</Link>*/}
                                 {/*<div class="login-form">
                         <img src="https://krysiacanvindotorg.files.wordpress.com/2013/02/janko-ferlic-174927.jpg" alt="" onClick={handleClick}></img>
@@ -113,7 +113,7 @@ class Login extends Component {
                         </div>
                         <div className="button-area">
                             {/*<Link to="/home">*/}
-                                <button type="submit" className="btn-secondary" style={{color:"white", backgroundColor : "#DEB887", borderColor:"#A0522D"}}>Login</button>
+                                
                             {/*</Link>*/}
                             {/*<div class="login-form">
 					<form action="/" method="post">
@@ -125,9 +125,6 @@ class Login extends Component {
 						</div>
 					</form>
 				</div>*/}
-                                <Link to="/adminDash">
-                                    <button type="submit" className="btn-primary">Admin</button>
-                                </Link>
 
                             <Link to="/adminDash">
                                 <button className="btn-secondary" style={{color:"white", backgroundColor : "#DEB887", borderColor:"#A0522D"}}>Admin</button>
