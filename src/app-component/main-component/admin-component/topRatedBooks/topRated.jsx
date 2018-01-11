@@ -3,10 +3,16 @@ import EachCategory from './eachCategory';
 import axios from 'axios';
 import './topRated.css'
 import LoadingEffect from './../../../loading-component/loading';
+import { Category } from './../../../header-component/categoryView';
 
 class TopBooks extends Component{
         constructor() {
         super();
+        this.state={
+            showTop:true,
+            particularCategory:""
+        }
+        window.backLanding=false;
 
     }
 
@@ -17,25 +23,36 @@ class TopBooks extends Component{
     //             this.setState({display: res.data.booksArray});
     //         })
     // }
+    
+    viewMoreClicked=(event,cate)=>
+    {
+        this.setState({showTop:false,particularCategory:cate});
+    }
+    closeCategory=()=>
+    {
+        this.setState({showTop:true,particularCategory:""});
+    }
+
     render()
     {
-        let k=[];
+        let k=<LoadingEffect/>;
                 if (window.display !== '') {
                 let b = window.display;
                  k=["java","javascript","c","angular","react","c++","c#","python","jquery","html & css","das"].map(result=>{
                     return(
                         <div>
-                        <EachCategory category={result} rated={b}/>
+                        <EachCategory click={this.viewMoreClicked} category={result} rated={b}/>
                         </div>
                     );
                 })
             }
             
             return(
-                
-                <div className="put mt-4" style={{paddingBottom:'30px'}}>
+                <div>
+                {(this.state.showTop)?<div className="put" style={{paddingBottom:'30px'}}>
                 <h5 className="card-header yoyo" style={{ backgroundColor: "#614126", color: "white", fontSize : "18px" }}>Top Rated Books</h5>
                 {k}
+            </div>:<div className="mt-4"><Category data={window.display} selected={this.state.particularCategory} categoryCrossClicked={this.closeCategory}/></div>}
             </div>
                 
                 
