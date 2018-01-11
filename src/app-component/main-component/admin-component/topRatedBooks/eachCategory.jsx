@@ -50,7 +50,7 @@ class EachCategory extends Component
 
     return(
                 <div className="put mx-4 mt-1">
-                <a onClick={this.plusClicked} style={{textDecoration:'none'}} data-toggle="collapse" href={c} aria-expanded="false" aria-controls={c}><h5 className="card-header yoyo" style={{ backgroundColor: "	#CD853F", color: "white" }}>{this.props.category.toUpperCase()}<span style={{float:'right',paddingLeft:'70px'}}>{this.state.plus}</span></h5></a>
+                <a onClick={this.plusClicked} style={{textDecoration:'none'}} data-toggle="collapse" href={c} aria-expanded="false" aria-controls={c}><h5 className="card-header yoyo" style={{ backgroundColor: "	#CD853F", color: "white", fontSize : "15px", fontStyle : "italic" }}>{this.props.category.toUpperCase()}<span style={{float:'right',paddingLeft:'70px'}}>{this.state.plus}</span></h5></a>
                 <div className={this.state.showable} id={this.props.category}>
                 <div className="row">
      {this.state.filterCategory.map(rslt=>{
@@ -58,11 +58,13 @@ class EachCategory extends Component
              <EachTopCard key={rslt.isbn} item={rslt}/>
          )
      })}
-                  {this.state.showViewCard?<div
+                  <div
             className="col-lg-2 col-md-4 col-sm-6 col-xs-12 my-3">
             <div
                 className="card-img viewMoreCard"
-                onClick={this.viewMoreClicked}
+                onClick={(event)=>{
+                    this.props.click(event,this.props.category)
+                }}
                 id={this.props.isbn}
                 style={{
                 width: '150px',
@@ -74,7 +76,7 @@ class EachCategory extends Component
                     width="50px"/>
                     <p><i>view more..</i></p>
                     </div>
-                    </div>:null}
+                    </div>
      </div>
      </div>
      </div>
