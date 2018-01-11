@@ -1,0 +1,146 @@
+body{
+	font-family:'Aktiv Grotesk';
+	background:#eee;
+}
+.wrapper{
+	background:#fcfcfc;
+	border-radius:5px;
+  box-shadow: 0px 1px 3px 0px rgba(0,0,0,.2),0px 1px 30px 0px rgba(0,0,0,.2);
+	width:90%;
+	max-width:800px;
+	margin:40px auto;
+	min-height:500px;
+	height:auto;
+	overflow:hidden;
+}
+div.gradient{
+	position:relative;
+	background: linear-gradient(#5DB7F3, #3498db);
+	height:auto;
+	display:block;
+	min-height:100%;
+}
+div.left{
+	color:white;
+	float:left;
+	display:inline;
+	width:33.333334%;
+}
+div.left h5{
+	margin:30px 40px 0px 40px;
+	padding:0px;
+	opacity:.9;
+	/* text-transform:uppercase; */
+	letter-spacing:.5px;
+	margin-bottom:5px;
+	font-weight:normal;
+}
+div.left h4{
+	text-shadow:0px 1px 0px  rgba(0,0,0,.2);
+	margin:10px 40px 0px 40px;
+	padding:0px;
+	padding-bottom:30px;
+	border-bottom:1px dashed rgba(255,255,255,.4);
+	white-space:wrap;
+	word-break: keep-all;
+
+}
+div.left h4:last-child{
+	border-bottom:0px;
+}
+div.right{
+	float:right;
+	display:inline;
+	width:66.666664%;
+	background:white;
+	min-height:525px;
+	height:auto;
+	padding:30px 40px;
+	box-shadow:-2px 0px 2px rgba(0,0,0,.1);
+	padding-bottom:200px;
+}
+div.right img.logo{
+	opacity:.6;
+}
+div.right .date{
+	margin-top:8px;
+	color: #aaa;
+	font-size:13px;
+}
+div.mast{
+	padding-bottom:30px;
+	border-bottom:1px solid #ccc;
+}
+.footer{
+	letter-spacing:.3px;
+	position:absolute;
+	display:block;
+	bottom:0;
+	color:#aaa;
+	font-size:12px;
+	padding-right:40px;
+	padding-bottom:20px;
+	font-weight:300;
+}
+.invoice p{
+	color:#779;
+}
+.footer p.tonote{
+	font-size:14px;
+	font-weight:400;
+}
+a{
+	color:#3498db;
+	white-space: nowrap;
+}
+a:hover, a:focus, a:active{
+	border-bottom:1px dotted;
+	text-decoration:none;
+	color:#3498db;
+}
+div.invoice h2{
+	color:#888;
+	font-weight:300;
+	margin:20px 0px 10px;
+	display:inline-block;
+}
+div.product-details{
+	font-size:12px;
+	margin-bottom:20px;
+	color:#ccc;
+}
+h3.price{
+	color:#888;
+	font-size:16px;
+	font-weight:300;
+	margin:0;
+	margin-top:33px;
+}
+
+@media screen and (max-width:600px){
+	.wrapper{
+		width:100%;
+		border-radius:0px;
+		margin:0;
+	}
+	
+	.right{
+		position:absolute;
+		top:0;
+		left:0;
+		right:0;
+		height:auto;
+		float:left;
+		width:100% !important;
+		clear:both;
+		display:block;
+		padding-bottom:250px;
+	}
+	.left{
+		display:none;
+	}
+	.left_alt{
+		display:block;
+	}
+	
+}
