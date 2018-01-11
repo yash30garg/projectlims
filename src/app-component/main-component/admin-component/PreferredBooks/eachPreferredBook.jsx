@@ -30,7 +30,7 @@ class EachPrefferedCard extends Component{
                     src={this.props.item.details.url}
                     height="180px"
                     width="100%"/>
-                <div className="overlay" style={{backgroundColor : "	#CD853F"}}>
+                <div className="overlay" style={{backgroundColor : "rgba(205,133,63,0.9)"}}>
                     <div className="text container-fluid">
                         <b>{this.props.item.details.title}</b><br/>
                         <b>Author :

@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import './details.css'
 // import book from '../search-component/SearchResults'
 let users,
     book,
@@ -8,13 +9,25 @@ class Details extends Component {
     constructor(props) {
         super(props);
         b = (
-            <button className="btn btn-primary mt-3" onClick={this.request}>
+            <button
+                className="btn btn-primary mt-3"
+                style={{
+                backgroundColor: 'rgb(205,133,63)',
+                color: "white"
+            }}
+                onClick={this.request}>
                 <div className="fa fa-plus-circle"></div>
                 <b>Request Book</b>
             </button>
         )
         w = (
-            <button className="btn btn-primary mt-3" onClick={this.wishlist}>
+            <button
+                className="btn btn-primary mt-3"
+                style={{
+                backgroundColor: 'rgb(205,133,63)',
+                color: "white"
+            }}
+                onClick={this.wishlist}>
                 <div className="fa fa-heart-o"></div>
                 <b>WishList</b>
             </button>
@@ -29,7 +42,12 @@ class Details extends Component {
             .map(res => {
                 if (res.isbn === this.props.data.isbn) {
                     b = (
-                        <button className="btn btn-primary mt-3">
+                        <button
+                            className="btn btn-primary mt-3"
+                            style={{
+                            backgroundColor: 'rgb(205,133,63)',
+                            color: "white"
+                        }}>
                             <div className="fa fa-check"></div>
                             <b>Requested</b>
                         </button>
@@ -42,14 +60,19 @@ class Details extends Component {
             })
         if (window.wishlist.includes(book)) {
             w = (
-                <button className="btn btn-primary mt-3">
+                <button
+                    className="btn btn-primary mt-3"
+                    style={{
+                    backgroundColor: 'rgb(205,133,63)',
+                    color: "white"
+                }}>
                     <div className="fa fa-heart"></div>
                     <b>Added</b>
                 </button>
             )
-            this.state={
-                req:b,
-                wish:w
+            this.state = {
+                req: b,
+                wish: w
             }
         }
         this.request = this
@@ -58,6 +81,12 @@ class Details extends Component {
         this.wishlist = this
             .wishlist
             .bind(this);
+        this.removeWishlist = this
+            .removeWishlist
+            .bind(this);
+        this.removeRequest = this
+            .removeRequest
+            .bind(this);
     }
 
     goBack() {
@@ -65,9 +94,47 @@ class Details extends Component {
             .history
             .go(-1)
     }
+    removeWishlist = () => {
+        w = (
+            <button
+                className="btn btn-primary mt-3"
+                style={{
+                backgroundColor: 'rgb(205,133,63)',
+                color: "white"
+            }}
+                onClick={this.wishlist}>
+                <div className="fa fa-heart-o"></div>
+                <b>WishList</b>
+            </button>
+        )
+        this.setState({wish: w})
+    }
+
+    removeRequest = () => {
+        b = (
+            <button
+                className="btn btn-primary mt-3"
+                style={{
+                backgroundColor: 'rgb(205,133,63)',
+                color: "white"
+            }}
+                onClick={this.request}>
+                <div className="fa fa-plus-circle"></div>
+                <b>Request Book</b>
+            </button>
+        )
+        this.setState({req: b})
+    }
+
     wishlist = () => {
         w = (
-            <button className="btn btn-primary mt-3">
+            <button
+                className="btn btn-primary mt-3"
+                onClick={this.removeWishlist}
+                style={{
+                backgroundColor: 'rgb(205,133,63)',
+                color: "white"
+            }}>
                 <div className="fa fa-heart"></div>
                 <b>Added</b>
             </button>
@@ -95,7 +162,13 @@ class Details extends Component {
                     .push(book)
                 console.log(window.bbooks);
                 let a = b = (
-                    <button className="btn btn-primary mt-3">
+                    <button
+                        className="btn btn-primary mt-3"
+                        onClick={this.removeRequest}
+                        style={{
+                        backgroundColor: 'rgb(205,133,63)',
+                        color: "white"
+                    }}>
                         <div className="fa fa-check"></div>
                         <b>Requested</b>
                     </button>
@@ -133,7 +206,7 @@ class Details extends Component {
                 {this.state.msg}
                 <div className="container-fluid">
                     <div
-                        className="offset-11"
+                        className="close-cap offset-11"
                         style={{
                         fontSize: '40px'
                     }}
@@ -163,14 +236,17 @@ class Details extends Component {
                                 </h3>
                                 <h5>
                                     By
-                                    <i> {book.details.author}</i><br/>
+                                    <i>
+                                        {book.details.author}</i><br/>
                                     Published By
-                                    <i> {book.details.publisher}</i><br/>
+                                    <i>
+                                        {book.details.publisher}</i><br/>
                                     <hr/>
                                     <table>
                                         <tr className="row">
                                             <td className="col-sm-5 col-xs-5 col-md-5 col-lg-5">ISBN</td>
-                                            <td className="col-sm-2 col-xs-2 col-md-2 col-lg-2">   :
+                                            <td className="col-sm-2 col-xs-2 col-md-2 col-lg-2">
+                                                :
                                             </td>
                                             <td className="col-sm-5 col-xs-5 col-md-5 col-lg-5">
                                                 <i>{book.isbn}</i>
@@ -193,7 +269,7 @@ class Details extends Component {
                                             </td>
                                         </tr>
                                         <tr className="row mt-2">
-                                            <td colspan="3" className="col-sm-10 col-xs-10 col-md-10 col-lg-10">
+                                            <td colspan="4" className="col-sm-10 col-xs-10 col-md-10 col-lg-10">
                                                 {[1, 2, 3, 4, 5].map(d => {
                                                     if (book.details.rating >= d) 
                                                         return <span
