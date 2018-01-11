@@ -25,19 +25,19 @@ class Login extends Component {
         message: '',
     }
 
-    checkAuth() {
-        if(localStorage.getItem('limsuser')!==null)
-        {
-            console.log(JSON.parse(localStorage.getItem('limsuser')))
-            console.log("yes")
-            window.location = window.location.href
-        }
-        else
-        {
-            console.log("No")
-            window.location = "http://localhost:3000/#"
-        }
-      }
+    // checkAuth() {
+    //     if(localStorage.getItem('limsuser')!==null)
+    //     {
+    //         console.log(JSON.parse(localStorage.getItem('limsuser')))
+    //         console.log("yes")
+    //         window.location = window.location.href
+    //     }
+    //     else
+    //     {
+    //         console.log("No")
+    //         window.location = "http://localhost:3000/#"
+    //     }
+    //   }
 
     getUserDetails = (e) => {
         e.preventDefault();
@@ -82,7 +82,7 @@ class Login extends Component {
             .then(res => {
                 this.setState({ display: res.data });
             })
-            this.checkAuth();
+            // this.checkAuth();
     }
     validate = (e) => {
         // email = this.refs.email.value
