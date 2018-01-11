@@ -3,7 +3,11 @@ import Footer from '../app-component/footer-component/footer';
 import Header from '../app-component/header-component/header';
 import './product.css';
 import $ from 'jquery';
+import {requireAuth} from '../app-component/isLoggedIn.js'
 export default class ProductDetails extends Component {
+	componentWillMount() {
+		requireAuth(window.location.href)
+	}
 
     componentDidMount()
     {

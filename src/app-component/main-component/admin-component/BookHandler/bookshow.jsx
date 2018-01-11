@@ -6,9 +6,13 @@ import { Link } from 'react-router-dom';
 import SearchAdmin from './searchadmin';
 // import './searchdis.css';
 import Footer from '../../../footer-component/footer.jsx';
+import {requireAuth} from '../../../isLoggedIn.js'
 
 var count =0;
 class BookAdmin extends Component {
+    componentWillMount() {
+        requireAuth(window.location.href)
+    }
 
     render() {
   

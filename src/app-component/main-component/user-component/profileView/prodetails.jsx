@@ -2,8 +2,11 @@ import React, { Component } from 'react';
 import './prodetails.css';
 import Header from '../../../../app-component/header-component/header.jsx';
 import Footer from '../../../../app-component/footer-component/footer.jsx';
+import {requireAuth} from '../../../isLoggedIn.js'
 class Profile extends Component {
-
+	componentWillMount() {
+		// requireAuth(window.location.href)
+	}
   
   render() {
 
