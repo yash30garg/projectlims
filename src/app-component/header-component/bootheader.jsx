@@ -390,7 +390,7 @@ check="-";
                                         onClick={this.plusClicked}>
 
                                         <div className="col-md-0 fa fa-cog" aria-hidden="true"></div>
-                                        <div className="col dropdown-toggle" style={{textAlign:"left"}}>Categories</div>
+                                        <div className="col" style={{textAlign:"left"}}>Categories</div>
                                         <div className="row">
                                         <div className="mr-1">{this.state.plus}</div>
                                         </div>
