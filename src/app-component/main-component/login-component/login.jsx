@@ -6,6 +6,7 @@ import './login.css';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import {getUser, getBook} from '../../../Service/dataService.js'
+
 // import Form from 'react-validation/build/form';
 // import Input from 'react-validation/build/input';
 export var email, mid;
@@ -65,17 +66,28 @@ class Login extends Component {
                         <div className="h2">Login</div>
                         <form action="http://limsreactapi.azurewebsites.net/api/" method="post">
                         <div className="form-group">
-                            <input type="text" id="Email" name="logemail" placeholder="E-mail" />
-
+                            <label htmlFor="Email" style={{color:"#CD853F"}}><b>Email</b></label>
+                            <input type="text" id="Email" name="logemail" style={{backgroundColor:"#FFF8DC"}}/>
+                            
                         </div>
                         <div className="form-group">
-                            <input type="password" id="Password" name="logpassword" placeholder="Password" />
-
+                            <label htmlFor="Password" style={{color:"#CD853F"}}><b>Password</b></label>
+                            <input type="password" id="Password" name="logpassword" style={{backgroundColor:"#FFF8DC "}}/>
+                            
                         </div>
-                        <div className="checkbox-container">
+                        {/*<div className="checkbox-container">
                             <input type="checkbox" />
                             <div className="text-checkbox">     I agree with the terms of service.</div>
-                        </div>
+                        </div>*/}
+
+                        <div class=" checkbox-container form-group has-warning" style={{color : "#FFF8DC", textAlign : "left"}}>
+  <label class="custom-control custom-checkbox">
+    <input type="checkbox" class="custom-control-input" style={{backgroundColor : "brown"}}/>
+    <span class="custom-control-indicator"></span>
+    <div class="custom-control-description" style={{fontSize : "18px", fontFamily : "times new roman",marginLeft:"0px"}}>I agree with the terms of service.</div>
+  </label>
+  </div>
+
                         <div className="button-area">
                             {/*<Link to="/home">*/}
                                 <button type="submit" className="btn-secondary" style={{color:"white", backgroundColor : "#DEB887", borderColor:"#A0522D"}}>Login</button>
