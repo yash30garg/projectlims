@@ -1,12 +1,3 @@
-// In production, we register a service worker to serve assets from local cache.
-
-// This lets the app load faster on subsequent visits in production, and gives
-// it offline capabilities. However, it also means that developers (and users)
-// will only see deployed updates on the "N+1" visit to a page, since previously
-// cached resources are updated in the background.
-
-// To learn more about the benefits of this model, read https://goo.gl/KwvDNy.
-// This link also includes instructions on opting out of this behavior.
 
 const isLocalhost = Boolean(
   window.location.hostname === 'localhost' ||
@@ -27,6 +18,7 @@ export default function register() {
       // from what our page is served on. This might happen if a CDN is used to
       // serve assets; see https://github.com/facebookincubator/create-react-app/issues/2374
       return;
+      
     }
 
     window.addEventListener('load', () => {
@@ -42,6 +34,8 @@ export default function register() {
     });
   }
 }
+
+
 
 function registerValidSW(swUrl) {
   navigator.serviceWorker

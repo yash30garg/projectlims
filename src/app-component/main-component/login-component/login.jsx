@@ -1,26 +1,37 @@
 
 import React, { Component } from 'react';
 import './login.css';
+import Rx from 'rxjs/Rx';
 // import Header from '../../header-component/header';
 // import { BrowserRouter, Route, Link } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import {getUser, getBook} from '../../../Service/dataService.js'
+import { getUser, getBook } from '../../../Service/dataService.js'
 // import Form from 'react-validation/build/form';
 // import Input from 'react-validation/build/input';
 export var email, mid;
 let users;
 
+
 class Login extends Component {
-    constructor(){
+    constructor() {
         super();
-        
+
     }
     state =
     {
         display: [],
     }
 
+    getUserDetails = () => {
+        fetch("http://localhost:3005/api/", {
+            method: 'POST',
+            body: JSON.stringify({ email: "Chaitanya.Boyapati@mindtree.com", password: "chaitanya" }), // stringify JSON
+            headers: new Headers({ "Content-Type": "application/json" }) // add headers
+        }).then((response)=> {
+            console.log(response.json())
+        })
+    }
     componentDidMount() {
         axios.get('https://api.myjson.com/bins/ds48n')
             .then(res => {
@@ -60,28 +71,29 @@ class Login extends Component {
                 <div className="login-wrapper" id="lw">
                     <div className="login-left">
                         <img src="https://i.ytimg.com/vi/PiYvQyG4ucc/maxresdefault.jpg" alt="" onClick={handleClick}></img>
-                        <div className="header" onClick={handleClick} style={{fontWeight : "2000px"}}><b>Click Here to Enter</b></div>
+                        <div className="header" onClick={handleClick} style={{ fontWeight: "2000px" }}><b>Click Here to Enter</b></div>
                     </div>
                     <div className="login-right">
                         <div className="h2">Login</div>
-                        <form action="http://limsreactapi.azurewebsites.net/api/" method="post">
-                        <div className="form-group">
-                            <input type="text" id="Email" name="logemail" placeholder="E-mail" />
+                        {/*<form action="http://limsreactapi.azurewebsites.net/api/" method="post">*/}
+                        <form onSubmit={this.getUserDetails}>
+                            <div className="form-group">
+                                <input type="text" id="Email" name="logemail" placeholder="E-mail" />
 
-                        </div>
-                        <div className="form-group">
-                            <input type="password" id="Password" name="logpassword" placeholder="Password" />
+                            </div>
+                            <div className="form-group">
+                                <input type="password" id="Password" name="logpassword" placeholder="Password" />
 
-                        </div>
-                        <div className="checkbox-container">
-                            <input type="checkbox" />
-                            <div className="text-checkbox">     I agree with the terms of service.</div>
-                        </div>
-                        <div className="button-area">
-                            {/*<Link to="/home">*/}
+                            </div>
+                            <div className="checkbox-container">
+                                <input type="checkbox" />
+                                <div className="text-checkbox">     I agree with the terms of service.</div>
+                            </div>
+                            <div className="button-area">
+                                {/*<Link to="/home">*/}
                                 <button type="submit" className="btn-primary">Login</button>
-                            {/*</Link>*/}
-                            {/*<div class="login-form">
+                                {/*</Link>*/}
+                                {/*<div class="login-form">
 					<form action="/" method="post">
                     <form onSubmit={this.validate}>
 						<input type="text" name="logemail" placeholder="E-mail" required=""/>>
@@ -91,12 +103,12 @@ class Login extends Component {
 						</div>
 					</form>
 				</div>*/}
-                            <Link to="/adminDash">
-                                <button className="btn-primary">Admin</button>
-                            </Link>
+                                <Link to="/adminDash">
+                                    <button type="submit" className="btn-primary">Admin</button>
+                                </Link>
 
-                            
-                        </div>
+
+                            </div>
                         </form>
                     </div>
                 </div>
