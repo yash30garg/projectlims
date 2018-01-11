@@ -16,6 +16,7 @@ import HandleUsers from '../app-component/main-component/admin-component/adminDa
 import Profile from '../app-component/main-component/user-component/profileView/prodetails.jsx';
 import ProductDetails from '../productDetails/product.jsx';
 import AboutUs from '../app-component/footer-component/AboutUs/aboutus.jsx';
+import {requireAuth} from './isLoggedIn.js'
 
 let users;
 window.display='';
@@ -30,7 +31,7 @@ class App extends Component {
       <HashRouter basename="/">
         <div className="App">
           <Switch>
-            <Route path="/" exact component={Login}/>
+            <Route path="/" onChange = {requireAuth(window.location.href)} exact component={Login}/>
             <Route path="/home" exact component={User}/>
             <Route path="/search" exact component={Search}/>
             <Route path="/search/details" exact component={BookDetails}/>
