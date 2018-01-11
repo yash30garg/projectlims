@@ -1,20 +1,12 @@
 @import url("https://fonts.googleapis.com/css?family=Ubuntu:400,500,700");
 /* line 6, ../sass/main.sass */
-* {
-  margin: 0;
-  padding: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
+
 
 /* line 12, ../sass/main.sass */
-ul {
-  list-style: none;
-}
 
 /*********Main********* */
 /* line 19, ../sass/main.sass */
-main {
+.maain {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -69,13 +61,13 @@ main {
   }
 }
 /* line 51, ../sass/main.sass */
-main h1 {
+.maain h1 {
   font-size: 6rem;
   letter-spacing: 5px;
 }
 
 /* line 56, ../sass/main.sass */
-main h4 {
+.maain h4 {
   font-size: 3rem;
   text-transform: uppercase;
   font-weight: 400;
@@ -83,52 +75,12 @@ main h4 {
 }
 
 /* line 63, ../sass/main.sass */
-main p {
+.maain p {
   font-size: 1.2rem;
 }
 
 /* line 67, ../sass/main.sass */
-header {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-bottom: 200px;
-}
-/* line 72, ../sass/main.sass */
-header ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  font-size: 1rem;
-  text-transform: uppercase;
-  font-weight: bold;
-}
-/* line 78, ../sass/main.sass */
-header .logo {
-  font-family: "Ubuntu", sans-serif;
-  font-size: 2rem;
-  letter-spacing: 3px;
-  font-weight: 700;
-  text-transform: uppercase;
-}
-/* line 85, ../sass/main.sass */
-header li {
-  padding: 0 30px;
-}
 
-/* line 89, ../sass/main.sass */
-.navbar a, .dropbtn {
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-right: 30px;
-  font-family: "Ubuntu", sans-serif;
-}
 
 /**************SERVICES************ */
 /* line 98, ../sass/main.sass */
@@ -516,14 +468,14 @@ header li {
 }
 
 /* line 385, ../sass/main.sass */
-.heading {
+/*.heading {
   text-transform: uppercase;
   color: #f3ecec;
   font-family: "Ubuntu", sans-serif;
   font-size: 1.5rem;
   margin-bottom: 1rem;
   letter-spacing: 2px;
-}
+}*/
 
 /******************CONTACT***************** */
 /* line 395, ../sass/main.sass */
@@ -653,20 +605,7 @@ footer {
 
  /* Navbar container */
  
- .navbar {
-     overflow: hidden;
-     display: flex;
-     align-content: center;
- }
- /* Links inside the navbar */
- 
- .navbar a {
-     font-size: 16px;
-     color: white;
-     text-align: center;
-     padding: 14px 16px;
-     text-decoration: none;
- }
+
  /* The dropdown container */
  
  .dropdown {
@@ -702,11 +641,7 @@ footer {
  }
  /* Mega Menu header, if needed */
  
- .dropdown-content .header {
-     background: rgb(98, 0, 255);
-     padding: 10px;
-     color: white;
- }
+
  /* Show the dropdown menu on hover */
  
  .dropdown:hover .dropdown-content {

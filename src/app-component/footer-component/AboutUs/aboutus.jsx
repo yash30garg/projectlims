@@ -3,8 +3,13 @@ import Footer from '../footer.jsx';
 import Header from '../../header-component/header.jsx';
 import './aboutus.css';
 import $ from 'jquery';
+
+// import { requireAuth } from '../../isLoggedIn'
 export default class AboutUs extends Component {
 
+    componentWillMount() {
+        // requireAuth(window.location.href)
+    }
     componentDidMount() {
 
    
@@ -13,41 +18,40 @@ export default class AboutUs extends Component {
     render() {
         return (
             <div>
+            <Header />
 
 
 
-
-                <body>
-                    <main>
-                        <header>
-                           
-                            <nav>
-                              
-                            </nav>
-                        </header>
+                <div className="container-fluid">
+                    <div className="maain">
+                        
                         <h1>LiMS</h1>
                         <h4>STARS OF ORCHARD KALINGA</h4>
-                        <p>Blessings by Ankit as Amarendra Baahubali</p>
-                    </main>
-                    <section class="services">
+                        <p>React Web-Tech</p>
+                    </div>
+                    <div class="container-fluid">
                         <div class="service">
-                            <img src="https://picsum.photos/150/200?image=1048" />
+                            <img src="../AboutUs/OurImages/Yash.jpg" />
                             <p>whatever</p>
                         </div>
                         <div class="service">
-                            <img src="https://picsum.photos/150/200?image=1048" />
+                            <img src="../AboutUs/OurImages/anirudh.jpg" />
                             <p>you</p>
                         </div>
                         <div class="service">
-                            <img src="https://picsum.photos/150/200?image=1048" />
+                            <img src="../AboutUs/OurImages/anirudh.jpg" />
                             <p>want</p>
                         </div>
                         <div class="service">
-                            <img src="https://picsum.photos/150/200?image=1048" />
+                            <img src="../AboutUs/OurImages/anirudh.jpg" />
                             <p>here</p>
                         </div>
-                    </section>
-                    <section class="about">
+                         <div class="service">
+                            <img src="../AboutUs/OurImages/anirudh.jpg" />
+                            <p>here</p>
+                        </div>
+                    </div>
+                    <div class="about">
                         <div class="about-container">
                             <h1>about us</h1>
                             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt, necessitatibus</p>
@@ -75,13 +79,9 @@ export default class AboutUs extends Component {
                             </div>
                         </div>
                         <img src="https://picsum.photos/560/560?image=1031" />
-                    </section>
-                    <section class="random">
-                        <h1>depth + breadth</h1>
-                        <h4>fortitude</h4>
-                        <button>Read More</button>
-                    </section>
-                    <section class="our-team">
+                    </div>
+                   
+                    <div class="our-team">
                         <h1>our experts</h1>
                         <div class="experts">
                             <div class="person">
@@ -109,8 +109,8 @@ export default class AboutUs extends Component {
                                 </div>
                             </div>
                         </div>
-                    </section>
-                    <section class="testify">
+                    </div>
+                    <div class="testify">
                         <h2>testimony</h2>
                         <div class="testimony">
                             <div class="test-text ">
@@ -121,8 +121,8 @@ export default class AboutUs extends Component {
 
                             <div><img src="https://picsum.photos/569/437?image=856" alt="" /></div>
                         </div>
-                    </section>
-                    <section class="projects">
+                    </div>
+                    {/*<div class="projects">
                         <h1>our projects</h1>
                         <div class="cards">
                             <div class="card">
@@ -140,10 +140,10 @@ export default class AboutUs extends Component {
                                 </div>
                             </div>
                         </div>
-                    </section>
-                    
+                    </div>*/}
+                    </div>
     
-</body>
+                    <Footer />
             </div >
             
         )
