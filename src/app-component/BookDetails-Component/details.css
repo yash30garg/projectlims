@@ -1,3 +1,54 @@
 .close-cap:hover{
     cursor: pointer;
 }
+.bookContainer
+{
+    position:relative;
+}
+.alert{
+ position: relative;
+-webkit-animation-name: df; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 3s; /* Safari 4.0 - 8.0 */
+    animation-name: df;
+    animation-duration: 3s;
+}
+
+@-webkit-keyframes df {
+    from {opacity:0;}
+    to {opacity: 1;}
+}
+
+/* Standard syntax */
+@keyframes df {
+   
+    from {
+        opacity:0;
+        }
+    to {
+    opacity:1;
+    }
+}
+
+.close-msg{
+ position: relative;
+-webkit-animation-name: rf; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 1s; /* Safari 4.0 - 8.0 */
+    animation-name: rf;
+    animation-duration: 1s;
+}
+
+@-webkit-keyframes rf {
+    from {opacity:0;}
+    to {opacity: 1;}
+}
+
+/* Standard syntax */
+@keyframes rf {
+   
+    from {
+        opacity:0;
+        }
+    to {
+    opacity:1;
+    }
+}

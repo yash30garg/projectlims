@@ -1,13 +1,13 @@
 
 import React, { Component } from 'react';
 import './login.css';
-import Rx from 'rxjs/Rx';
+// import Rx from 'rxjs/Rx';
 // import Header from '../../header-component/header';
 // import { BrowserRouter, Route, Link } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-
 import { getUser, getBook } from '../../../Service/dataService.js'
+var req = require('request');
 // import Form from 'react-validation/build/form';
 // import Input from 'react-validation/build/input';
 export var email, mid;
@@ -22,22 +22,67 @@ class Login extends Component {
     state =
     {
         display: [],
+        message: '',
     }
 
-    getUserDetails = () => {
-        fetch("http://localhost:3005/api/", {
-            method: 'POST',
-            body: JSON.stringify({ email: "Chaitanya.Boyapati@mindtree.com", password: "chaitanya" }), // stringify JSON
-            headers: new Headers({ "Content-Type": "application/json" }) // add headers
-        }).then((response) => {
-            console.log(response.json())
-        })
+    // checkAuth() {
+    //     if(localStorage.getItem('limsuser')!==null)
+    //     {
+    //         console.log(JSON.parse(localStorage.getItem('limsuser')))
+    //         console.log("yes")
+    //         window.location = window.location.href
+    //     }
+    //     else
+    //     {
+    //         console.log("No")
+    //         window.location = "http://localhost:3000/#"
+    //     }
+    //   }
+
+    getUserDetails = (e) => {
+        e.preventDefault();
+        let email = document.getElementById('Email').value;
+        let password = document.getElementById('Password').value;
+        if(email===""||password==="")
+        {
+            this.setState({message: 'Enter All Details'})
+        }
+        else {
+        req.post({
+            url: 'http://localhost:3005/api/',
+            form: { email: email, password: password},
+            headers: new Headers({ "Content-Type": "application/json" }),
+            method: 'POST'
+        },
+
+            function (er, r, body) {
+                console.log(body)
+                if (JSON.parse(body).status===200) {
+                    let response = JSON.parse(body)
+                    let userDetails = response.data[0]
+                    console.log("Login Successful")
+                    localStorage.setItem('limsuser', JSON.stringify(userDetails));
+                    window.location = "http://localhost:3000/#/home"
+                }
+                else if(JSON.parse(body).status === 400)
+                {
+                    this.setState({message: JSON.parse(body).message})
+                    console.log(r.statusCode)
+                }
+                
+
+                
+                // console.log(JSON.parse(body));
+            }.bind(this));  
+        }    
     }
+
     componentDidMount() {
         axios.get('https://api.myjson.com/bins/ds48n')
             .then(res => {
                 this.setState({ display: res.data });
             })
+            // this.checkAuth();
     }
     validate = (e) => {
         // email = this.refs.email.value
@@ -85,22 +130,27 @@ class Login extends Component {
                             <div className="form-group">
                                 <label htmlFor="Password" style={{ color: "#CD853F" }}><b>Password</b></label>
                                 <input type="password" id="Password" name="logpassword" style={{ backgroundColor: "#FFF8DC" }} />
-
                             </div>
+                            <div className=" checkbox-container form-group has-warning" style={{ color: "#FFF8DC", textAlign: "left" }}>
+                                <label style={{color:"red",fontSize:"14px",fontWeight:"bold"}}>
+                                    {this.state.message}
+                                </label>
+                             </div>
 
-                            <div class=" checkbox-container form-group has-warning" style={{ color: "#FFF8DC", textAlign: "left" }}>
-                                <label class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" style={{ backgroundColor: "brown" }} />
-                                    <span class="custom-control-indicator"></span>
-                                    <div class="custom-control-description" style={{ fontSize: "18px", fontFamily: "times new roman", marginLeft: "0px" }}>I agree with the terms of service.</div>
+                            <div className=" checkbox-container form-group has-warning" style={{ color: "#FFF8DC", textAlign: "left" }}>
+                                <label className="custom-control custom-checkbox">
+                                    <input type="checkbox" className="custom-control-input" style={{ backgroundColor: "brown" }} />
+                                    <span className="custom-control-indicator"></span>
+                                    <div className="custom-control-description" style={{ fontSize: "18px", fontFamily: "times new roman", marginLeft: "0px" }}>I agree with the terms of service.</div>
                                 </label>
                             </div>
+                            
 
                             <div className="button-area">
                                 {/*<Link to="/home">*/}
                                 <button type="submit" className="btn-secondary" style={{ color: "white", backgroundColor: "#DEB887", borderColor: "#A0522D" }}>Login</button>
                                 {/*</Link>*/}
-                                {/*<div class="login-form">
+                                {/*<div className="login-form">
                         <img src="https://krysiacanvindotorg.files.wordpress.com/2013/02/janko-ferlic-174927.jpg" alt="" onClick={handleClick}></img>
                         <div className="header" onClick={handleClick} style={{fontWeight : "3000px"}}><b>Click Here to Enter</b></div>
                     </div>
@@ -127,12 +177,12 @@ class Login extends Component {
                                 {/*<Link to="/home">*/}
 
                                 {/*</Link>*/}
-                                {/*<div class="login-form">
+                                {/*<div className="login-form">
 					<form action="/" method="post">
                     <form onSubmit={this.validate}>
 						<input type="text" name="logemail" placeholder="E-mail" required=""/>>
 						<input type="password" name="logpassword" placeholder="Password" required=""/>>
-						<div class="tp">
+						<div className="tp">
 							<button type="submit" onClick={this.validate} value="LOGIN NOW">Login Now</button>
 						</div>
 					</form>
