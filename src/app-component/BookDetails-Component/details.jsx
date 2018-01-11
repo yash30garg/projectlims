@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import './details.css'
+import React, {Component} from 'react';
+import './details.css';
 // import book from '../search-component/SearchResults'
 let users,
     book,
@@ -115,7 +115,6 @@ class Details extends Component {
             .bind(this);
 
     }
-
     goBack() {
         window.history.go(-1)
     }
@@ -190,7 +189,7 @@ class Details extends Component {
             </button>
         )
         let val = (
-            <div class="alert alert-success ml-1 mt-1">
+            <div class="alert alert-success ml-1 mt-1" role="alert">
                 <strong>Success!
                 </strong>
                 The Book was successfully added to the wishlist.
@@ -226,7 +225,7 @@ class Details extends Component {
                     </button>
                 )
                 let val = (
-                    <div class="alert alert-success ml-1 mt-1">
+                    <div class="alert alert-success  ml-1 mt-1">
                         <strong>Success!
                         </strong>
                         The Requested Book has been allotted to you. Please Collect if from the Library.
@@ -239,7 +238,7 @@ class Details extends Component {
                 // the Library");
             } else {
                 let val = (
-                    <div class="alert alert-danger ml-1 mt-1">
+                    <div class="alert alert-danger alert-dismissible ml-1 mt-1">
                         <strong>Oops!
                         </strong>
                         Looks like you cannot borrow more books. Please return a book to borrow more.
@@ -347,7 +346,7 @@ class Details extends Component {
                     <div class="gradient">
                         <div class="left">
                             <h5>ISBN</h5>
-                            <h4>{book.details.isbn}</h4>
+                            <h4>{book.isbn}</h4>
 
                             <h5>Book</h5>
                             <h4>{book.details.title}</h4>
@@ -363,7 +362,7 @@ class Details extends Component {
                         </div>
                         <div class="right">
                             <div class="mast">
-                                <img src="https://www.mindtree.com/themes/custom/mindtree_theme/logo.svg" alt="Sellr" class="logo pull-left" height="80%" width="75%"/>
+                                <img src="book.details.url" alt="Sellr" class="logo pull-left" height="80%" width="75%"/>
                                 {/*<span class="date pull-right">Dec 23, 2015 &mdash; 13:45:05 GMT</span>*/}
                                 <div class="clearfix"></div>
                             </div>
