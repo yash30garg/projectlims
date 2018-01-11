@@ -19,7 +19,7 @@ class TopBooks extends Component{
     // }
     render()
     {
-        let k=<div className="mt-5"><LoadingEffect/></div>
+        let k=[];
                 if (window.display !== '') {
                 let b = window.display;
                  k=["java","javascript","c","angular","react","c++","c#","python","jquery","html & css","das"].map(result=>{
