@@ -23,7 +23,7 @@ export const Category=(props)=>
                     src={res.details.url}
                     height="180px"
                     width="100%"/>
-                     <div className="overlay">
+                     <div className="overlay" style={{backgroundColor : "#CD853F"}}>
                     <div className="text container-fluid" >
                         <b>{res.details.title}</b><br/>
                         <b>Author :
