@@ -19,6 +19,7 @@ export default class AboutUs extends Component {
         return (
             <div>
                 <Header />
+                <br />
 
 
 
@@ -35,15 +36,15 @@ export default class AboutUs extends Component {
                         <h1>- Our Team -</h1>
                         <br/><br />
                         <div class="row">
-                            <div class="col">  < img src={require('../AboutUs/OurImages/Yash.jpg')} height="300" width="300" />
+                            <div class="col">  < img src={require('../AboutUs/OurImages/Yash.jpg')} height="300" width="250" />
                                     <h3 style={{paddingTop : "4px", font :"Times New Roman"}}>Yash Garg</h3></div>
-                                   <div class="col"> <img src={require('../AboutUs/OurImages/anirudh.jpg')} height="300" width="300" />
+                                   <div class="col"> <img src={require('../AboutUs/OurImages/anirudh.jpg')} height="300" width="250" />
                                     <h3 style={{paddingTop : "4px", font :"Times New Roman"}}>Anirudh.A.S</h3></div>
-                            <div class="col"> <img src={require('../AboutUs/OurImages/aish.jpg')} height="300" width="300" />
+                            <div class="col"> <img src={require('../AboutUs/OurImages/aish.jpg')} height="300" width="250" />
                                 <h3 style={{paddingTop : "4px", font :"Times New Roman"}}>Aishwarya</h3></div>
-                            <div class="col"> <img src={require('../AboutUs/OurImages/chaitanya.jpg')} height="300" width="300" />
+                            <div class="col"> <img src={require('../AboutUs/OurImages/chaitanya.jpg')} height="300" width="250" />
                                 <h3 style={{paddingTop : "4px", font :"Times New Roman"}}>Chaitanya Boyapati</h3></div>
-                            <div class="col"> <img src={require('../AboutUs/OurImages/ankit.jpg')} height="300" width="300" />
+                            <div class="col"> <img src={require('../AboutUs/OurImages/ankit.jpg')} height="300" width="250" />
                                 <h3 style={{paddingTop : "4px", font :"Times New Roman"}}>Ankit Gupta</h3></div>
                         </div>
                         
@@ -78,42 +79,6 @@ export default class AboutUs extends Component {
                         </div>
                         </div>*/}
                     </div>
-
-
-
-                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                        <ol class="carousel-indicators">
-                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                        </ol>
-                        <div class="carousel-inner" role="listbox">
-                            <div class="carousel-item active">
-                                <img class="d-block img-fluid" src={require('../AboutUs/OurImages/anirudh.jpg')} alt="First slide" width="640" height="1000" />
-                            </div>
-                            <div class="carousel-item">
-                                <img class="d-block img-fluid" src={require('../AboutUs/OurImages/Yash.jpg')} alt="Second slide" width="640" height="1000" />
-                            </div>
-                            <div class="carousel-item">
-                                <img class="d-block img-fluid" src={require('../AboutUs/OurImages/aish.jpg')} alt="Third slide" width="640" height="1000" />
-                            </div>
-                            <div class="carousel-item">
-                                <img class="d-block img-fluid" src={require('../AboutUs/OurImages/chaitanya.jpg')} alt="Third slide" width="640" height="1000" />
-                            </div>
-                            <div class="carousel-item">
-                                <img class="d-block img-fluid" src={require('../AboutUs/OurImages/ankit.jpg')} alt="Third slide" width="640" height="1000" />
-                            </div>
-                        </div>
-                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
-                    </div>
-
 
                     <div class="about">
                         <div class="about-container">
@@ -150,7 +115,7 @@ export default class AboutUs extends Component {
                         <div class="experts">
                             <div class="person">
                                 <img src="https://scontent-dft4-2.xx.fbcdn.net/v/t1.0-9/1235953_10201253816283787_154663545_n.jpg?oh=98609080415903d718cb4a7ebeaab065&oe=5AD46240" alt="" />
-                                <p>David Miller</p>
+                                <p>Nitish Bali</p>
                                 <p>Forbes Recognized Entrepreneur</p>
                                 <div class="person-s">
                                     <h2>Read More</h2>
@@ -158,20 +123,13 @@ export default class AboutUs extends Component {
                             </div>
                             <div class="person">
                                 <img src="https://scontent-dft4-2.xx.fbcdn.net/v/t1.0-9/1235953_10201253816283787_154663545_n.jpg?oh=98609080415903d718cb4a7ebeaab065&oe=5AD46240" alt="" />
-                                <p>David Miller</p>
+                                <p>Monika Saran</p>
                                 <p>Forbes Recognized Entrepreneur</p>
                                 <div class="person-s">
                                     <h2>Read More</h2>
                                 </div>
                             </div>
-                            <div class="person">
-                                <img src="https://scontent-dft4-2.xx.fbcdn.net/v/t1.0-9/1235953_10201253816283787_154663545_n.jpg?oh=98609080415903d718cb4a7ebeaab065&oe=5AD46240" alt="" />
-                                <p>David Miller</p>
-                                <p>Forbes Recognized Entrepreneur</p>
-                                <div class="person-s">
-                                    <h2> Read More</h2>
-                                </div>
-                            </div>
+                           
                         </div>
                     </div>
                     <div class="testify">
