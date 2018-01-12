@@ -10,8 +10,6 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../node_modules/bootstrap/dist/js/bootstrap.min.js';
 
 import '../node_modules/bootstrap/scss/bootstrap.scss';
-let users,output;
-
 function getData(){
     axios.get('https://api.myjson.com/bins/14x90j')
      .then(res=>{

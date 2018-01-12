@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 // import SearchAdmin from './searchadmin';
 // import './searchdis.css';
 import Footer from '../../../footer-component/footer.jsx';
-// import {requireAuth} fronm '../../../isLoggedIn.js'
+import {requireAuth} from '../../../isLoggedIn.js'
 var debounce = require('debounce');
 
 
