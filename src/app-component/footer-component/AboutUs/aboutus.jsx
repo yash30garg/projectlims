@@ -35,8 +35,8 @@ export default class AboutUs extends Component {
                     <div class="container-fluid">
                         <h1>- Our Team -</h1>
                         <br/><br />
-                        <div class="row">
-                            <div class="col">  < img src={require('../AboutUs/OurImages/Yash.jpg')} height="300" width="250" />
+                        <div class="row rowing">
+                            <div class="col coling">  < img src={require('../AboutUs/OurImages/Yash.jpg')} height="300" width="250" />
                                     <h3 style={{paddingTop : "4px", font :"Times New Roman"}}>Yash Garg</h3></div>
                                    <div class="col"> <img src={require('../AboutUs/OurImages/anirudh.jpg')} height="300" width="250" />
                                     <h3 style={{paddingTop : "4px", font :"Times New Roman"}}>Anirudh.A.S</h3></div>
@@ -48,36 +48,7 @@ export default class AboutUs extends Component {
                                 <h3 style={{paddingTop : "4px", font :"Times New Roman"}}>Ankit Gupta</h3></div>
                         </div>
                         
-                        {/*
-
-
-                            <img src="Yash.jpg" style={{height : "200px", width : "200px"}} />
-=======
-                        <div class="service">
-                            <img src={require("./OurImages/Yash.jpg")} style={{height : "200px", width : "200px"}} />
->>>>>>> 78c8e0665b8aa8866c55c604ed532901f59799ec
-                            <p>Yash</p>
-                        
-                        <div class="service">
-                            <img src={require("./OurImages/anirudh.jpg")} />
-                            <p>Anirudh</p>
-                        
-                        <div class="service">
-                            <img src={require("./OurImages/aish.jpg")} />
-                            <p>Aishwarya</p>
-                        
-                        <div class="service">
-                            <img src={require("../AboutUs/OurImages/ankit.jpg")} />
-                            <p>Ankit</p>
-                        
-                         <div class="service">
-                            <img src={require("../AboutUs/OurImages/chaitanya.jpg")}/>
-                            <p>Chaitanya</p>
-                        </div>
-                        </div>
-                        </div>
-                        </div>
-                        </div>*/}
+                  
                     </div>
 
                     <div class="about">
@@ -114,17 +85,17 @@ export default class AboutUs extends Component {
                         <h1>our experts</h1>
                         <div class="experts">
                             <div class="person">
-                                <img src="https://scontent-dft4-2.xx.fbcdn.net/v/t1.0-9/1235953_10201253816283787_154663545_n.jpg?oh=98609080415903d718cb4a7ebeaab065&oe=5AD46240" alt="" />
+                                <img src={require("../AboutUs/OurImages/Nitish.jpg")} height="400" width="400" />
                                 <p>Nitish Bali</p>
-                                <p>Forbes Recognized Entrepreneur</p>
+                                <p>Mindtree Lead</p>
                                 <div class="person-s">
                                     <h2>Read More</h2>
                                 </div>
                             </div>
                             <div class="person">
-                                <img src="https://scontent-dft4-2.xx.fbcdn.net/v/t1.0-9/1235953_10201253816283787_154663545_n.jpg?oh=98609080415903d718cb4a7ebeaab065&oe=5AD46240" alt="" />
+                                <img src={require("../AboutUs/OurImages/Monika.jpg")} />
                                 <p>Monika Saran</p>
-                                <p>Forbes Recognized Entrepreneur</p>
+                                <p>Mindtree Lead</p>
                                 <div class="person-s">
                                     <h2>Read More</h2>
                                 </div>
@@ -144,25 +115,7 @@ export default class AboutUs extends Component {
                             <div><img src="https://picsum.photos/569/437?image=856" alt="" /></div>
                         </div>
                     </div>
-                    {/*<div class="projects">
-                        <h1>our projects</h1>
-                        <div class="cards">
-                            <div class="card">
-                                <img src="https://picsum.photos/550/380?image=983" alt="" />
-                                <div class="decription">
-                                    <p class="heading">construct your dreams</p>
-                                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti earum ullam, assumenda molestias, doloribus vitae magni at non sunt distinctio nostrum, repellat quo id ducimus dolorem. Fugit, sunt. Nesciunt, accusantium?</p>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <img src="https://picsum.photos/550/380?image=983" alt="" />
-                                <div class="decription">
-                                    <p class="heading">build the future</p>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae culpa obcaecati debitis quis nulla numquam, aspernatur mollitia, eaque cum cumque optio corporis iusto eos impedit a, animi perferendis ratione accusantium?</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>*/}
+                   
                 </div>
 
                 <Footer />
