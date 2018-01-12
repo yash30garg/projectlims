@@ -31,24 +31,24 @@ export default class AboutUs extends Component {
                     </div>
                     <div class="container-fluid">
                         <div class="service">
-                            <img src="../AboutUs/OurImages/Yash.jpg" />
-                            <p>whatever</p>
+                            <img src="Yash.jpg" style={{height : "200px", width : "200px"}} />
+                            <p>Yash</p>
                         </div>
                         <div class="service">
                             <img src="../AboutUs/OurImages/anirudh.jpg" />
-                            <p>you</p>
+                            <p>Anirudh</p>
                         </div>
                         <div class="service">
-                            <img src="../AboutUs/OurImages/anirudh.jpg" />
-                            <p>want</p>
+                            <img src="../AboutUs/OurImages/aish.jpg" />
+                            <p>Aishwarya</p>
                         </div>
                         <div class="service">
-                            <img src="../AboutUs/OurImages/anirudh.jpg" />
-                            <p>here</p>
+                            <img src="../AboutUs/OurImages/ankit.jpg" />
+                            <p>Ankit</p>
                         </div>
                          <div class="service">
-                            <img src="../AboutUs/OurImages/anirudh.jpg" />
-                            <p>here</p>
+                            <img src="../AboutUs/OurImages/chaitanya.jpg" />
+                            <p>Chaitanya</p>
                         </div>
                     </div>
                     <div class="about">
