@@ -12,46 +12,43 @@ export default class AboutUs extends Component {
     }
     componentDidMount() {
 
-   
+
 
     }
     render() {
         return (
             <div>
-            <Header />
+                <Header />
 
 
 
                 <div className="container-fluid">
                     <div className="maain">
-                        
+
                         <h1>LiMS</h1>
                         <h4>STARS OF ORCHARD KALINGA</h4>
-                        <p>React Web-Tech</p>
+                        <h2>React Web-Tech</h2>
                     </div>
+<br/><br/>
+                    <br />
                     <div class="container-fluid">
-                        <div className="row">
-                        <div className="col-md-2">
-                            
-                        <div class="service"> 
-            <img src=require('../AboutUs/OurImages/anirudh.jpg') height="200" width="200" />
-            <p>whatever</p>
-        </div>
-        <div class="service">
-            <img src="https://picsum.photos/150/200?image=1048" height="200" width="200"/>
-            <p>you</p>
-        </div>
-        <div class="service">
-            <img src="https://picsum.photos/150/200?image=1048" height="200" width="200" />
-            <p>want</p>
-        </div>
-        <div class="service">
-            <img src="https://picsum.photos/150/200?image=1048" height="200" width="200" />
-            <p>here</p>
-        </div>
-        </div>
-        </div>
-{/*
+                        <h1>- Our Team -</h1>
+                        <br/><br />
+                        <div class="row">
+                            <div class="col">  < img src={require('../AboutUs/OurImages/Yash.jpg')} height="300" width="300" />
+                                    <h3 style={{paddingTop : "4px", font :"Times New Roman"}}>Yash Garg</h3></div>
+                                   <div class="col"> <img src={require('../AboutUs/OurImages/anirudh.jpg')} height="300" width="300" />
+                                    <h3 style={{paddingTop : "4px", font :"Times New Roman"}}>Anirudh.A.S</h3></div>
+                            <div class="col"> <img src={require('../AboutUs/OurImages/aish.jpg')} height="300" width="300" />
+                                <h3 style={{paddingTop : "4px", font :"Times New Roman"}}>Aishwarya</h3></div>
+                            <div class="col"> <img src={require('../AboutUs/OurImages/chaitanya.jpg')} height="300" width="300" />
+                                <h3 style={{paddingTop : "4px", font :"Times New Roman"}}>Chaitanya Boyapati</h3></div>
+                            <div class="col"> <img src={require('../AboutUs/OurImages/ankit.jpg')} height="300" width="300" />
+                                <h3 style={{paddingTop : "4px", font :"Times New Roman"}}>Ankit Gupta</h3></div>
+                        </div>
+                        
+                        {/*
+
 
                             <img src="Yash.jpg" style={{height : "200px", width : "200px"}} />
 =======
@@ -81,6 +78,43 @@ export default class AboutUs extends Component {
                         </div>
                         </div>*/}
                     </div>
+
+
+
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner" role="listbox">
+                            <div class="carousel-item active">
+                                <img class="d-block img-fluid" src={require('../AboutUs/OurImages/anirudh.jpg')} alt="First slide" width="640" height="1000" />
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block img-fluid" src={require('../AboutUs/OurImages/Yash.jpg')} alt="Second slide" width="640" height="1000" />
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block img-fluid" src={require('../AboutUs/OurImages/aish.jpg')} alt="Third slide" width="640" height="1000" />
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block img-fluid" src={require('../AboutUs/OurImages/chaitanya.jpg')} alt="Third slide" width="640" height="1000" />
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block img-fluid" src={require('../AboutUs/OurImages/ankit.jpg')} alt="Third slide" width="640" height="1000" />
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+
+
                     <div class="about">
                         <div class="about-container">
                             <h1>about us</h1>
@@ -110,7 +144,7 @@ export default class AboutUs extends Component {
                         </div>
                         <img src="https://picsum.photos/560/560?image=1031" />
                     </div>
-                   
+
                     <div class="our-team">
                         <h1>our experts</h1>
                         <div class="experts">
@@ -171,11 +205,12 @@ export default class AboutUs extends Component {
                             </div>
                         </div>
                     </div>*/}
-                    </div>
-    
-                    <Footer />
+                </div>
+
+                <Footer />
             </div >
             
+
         )
     }
 }
