@@ -31,8 +31,8 @@ class App extends Component {
       <HashRouter basename="/">
         <div className="App">
           <Switch>
-            <Route path="/" onChange = {requireAuth(window.location.href)} exact component={Login}/>
-            <Route path="/home" exact component={User}/>
+            <Route path="/login" onChange = {requireAuth(window.location.href)} exact component={Login}/>
+            <Route path="/" exact component={User}/>
             <Route path="/search" exact component={Search}/>
             <Route path="/search/details" exact component={BookDetails}/>
             <Route path="/pdetails" exact component={ProductDetails}/>
