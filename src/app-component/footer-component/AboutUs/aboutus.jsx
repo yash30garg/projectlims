@@ -134,7 +134,7 @@ export default class AboutUs extends Component {
                         <h2 style={{ textAlign: "center" }}>testimony</h2>
                         <div class="testimony">
                             <div class="test-text ">
-                                <p>Revelation 12:11</p>
+                                <p>Revelation 12:101</p>
                                 <blockquote>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam maxime iusto exercitationem laborum tenetur inventore beatae ducimus magnam doloremque iste aperiam perspiciatis adipisci officia eos hic cupiditate odio, omnis eius aliquid.
                     Atque assumenda expedita dicta illum quas dolore dignissimos minus! </blockquote>
                             </div>
