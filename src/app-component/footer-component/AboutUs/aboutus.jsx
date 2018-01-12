@@ -30,26 +30,52 @@ export default class AboutUs extends Component {
                         <p>React Web-Tech</p>
                     </div>
                     <div class="container-fluid">
-                        <div class="service">
+                        <div className="row">
+                        <div className="col-md-2">
+                            
+                        <div class="service"> 
+            <img src=require('../AboutUs/OurImages/anirudh.jpg') height="200" width="200" />
+            <p>whatever</p>
+        </div>
+        <div class="service">
+            <img src="https://picsum.photos/150/200?image=1048" height="200" width="200"/>
+            <p>you</p>
+        </div>
+        <div class="service">
+            <img src="https://picsum.photos/150/200?image=1048" height="200" width="200" />
+            <p>want</p>
+        </div>
+        <div class="service">
+            <img src="https://picsum.photos/150/200?image=1048" height="200" width="200" />
+            <p>here</p>
+        </div>
+        </div>
+        </div>
+{/*
+
                             <img src="Yash.jpg" style={{height : "200px", width : "200px"}} />
                             <p>Yash</p>
-                        </div>
+                        
                         <div class="service">
                             <img src="../AboutUs/OurImages/anirudh.jpg" />
                             <p>Anirudh</p>
-                        </div>
+                        
                         <div class="service">
                             <img src="../AboutUs/OurImages/aish.jpg" />
                             <p>Aishwarya</p>
-                        </div>
+                        
                         <div class="service">
                             <img src="../AboutUs/OurImages/ankit.jpg" />
                             <p>Ankit</p>
-                        </div>
+                        
                          <div class="service">
                             <img src="../AboutUs/OurImages/chaitanya.jpg" />
                             <p>Chaitanya</p>
                         </div>
+                        </div>
+                        </div>
+                        </div>
+                        </div>*/}
                     </div>
                     <div class="about">
                         <div class="about-container">
