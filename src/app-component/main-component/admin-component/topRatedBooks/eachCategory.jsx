@@ -13,20 +13,33 @@ class EachCategory extends Component
             withoutFilter:this.props.rated.filter(results=>results.details.category.toLowerCase()==this.props.category),
             filterCategory:[],
             showViewCard:true,
+            passedCategory:this.props.category
             
             
         }
 
     }
 
-    componentDidMount()
+    componentWillMount()
     {
          if(this.props.category=="java"||this.props.category=="javascript")
         {
             
             this.setState({plus:"-", showable:"collapse show",});
         }
-        this.setState({filterCategory:this.state.withoutFilter.filter(res=>res.details.rating>=4).slice(0,5)});
+        this.setState({filterCategory:this.state.withoutFilter.filter(res=>res.details.rating>=4).sort((a,b)=>{return(b.details.rating-a.details.rating)}).slice(0,5)});
+        if(this.props.category=="c++")
+        {
+             this.setState({passedCategory:"cPlusPlus"});
+        }
+        else if(this.props.category=="c#")
+        {
+             this.setState({passedCategory:"cSharp"});
+        }
+        else if(this.props.category=="html & css")
+        {
+             this.setState({passedCategory:"htmlAndCss"});
+        }
     }
     plusClicked=()=>
     {
@@ -46,12 +59,12 @@ class EachCategory extends Component
     }
     render()
     {
-        let c="#"+this.props.category;
+        let c="#"+this.state.passedCategory;
 
     return(
                 <div className="put mx-4 mt-1">
                 <a onClick={this.plusClicked} style={{textDecoration:'none'}} data-toggle="collapse" href={c} aria-expanded="false" aria-controls={c}><h5 className="card-header yoyo" style={{ backgroundColor: "	#CD853F", color: "white", fontSize : "15px", fontStyle : "italic" }}>{this.props.category.toUpperCase()}<span style={{float:'right',paddingLeft:'70px'}}>{this.state.plus}</span></h5></a>
-                <div className={this.state.showable} id={this.props.category}>
+                <div className={this.state.showable} id={this.state.passedCategory}>
                 <div className="row">
      {this.state.filterCategory.map(rslt=>{
          return(
