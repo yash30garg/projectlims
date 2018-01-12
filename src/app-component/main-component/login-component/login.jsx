@@ -7,6 +7,7 @@ import './login.css';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { getUser, getBook } from '../../../Service/dataService.js'
+import { requireAuth } from '../../isLoggedIn.js'
 var req = require('request');
 // import Form from 'react-validation/build/form';
 // import Input from 'react-validation/build/input';
@@ -23,6 +24,9 @@ class Login extends Component {
     {
         display: [],
         message: '',
+    }
+    componentWillMount() {
+        requireAuth(window.location.href)
     }
 
     // checkAuth() {
