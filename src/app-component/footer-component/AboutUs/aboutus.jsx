@@ -31,23 +31,23 @@ export default class AboutUs extends Component {
                     </div>
                     <div class="container-fluid">
                         <div class="service">
-                            <img src="Yash.jpg" style={{height : "200px", width : "200px"}} />
+                            <img src={require("./OurImages/Yash.jpg")} style={{height : "200px", width : "200px"}} />
                             <p>Yash</p>
                         </div>
                         <div class="service">
-                            <img src="../AboutUs/OurImages/anirudh.jpg" />
+                            <img src={require("./OurImages/anirudh.jpg")} />
                             <p>Anirudh</p>
                         </div>
                         <div class="service">
-                            <img src="../AboutUs/OurImages/aish.jpg" />
+                            <img src={require("./OurImages/aish.jpg")} />
                             <p>Aishwarya</p>
                         </div>
                         <div class="service">
-                            <img src="../AboutUs/OurImages/ankit.jpg" />
+                            <img src={require("../AboutUs/OurImages/ankit.jpg")} />
                             <p>Ankit</p>
                         </div>
                          <div class="service">
-                            <img src="../AboutUs/OurImages/chaitanya.jpg" />
+                            <img src={require("../AboutUs/OurImages/chaitanya.jpg")}/>
                             <p>Chaitanya</p>
                         </div>
                     </div>
