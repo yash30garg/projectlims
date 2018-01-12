@@ -1,6 +1,3 @@
-import React, { Component } from 'react';
-// import { withRouter } from 'react-router';
-
 export var requireAuth = (path) => {
 
       if(localStorage.getItem('limsuser')!==null)
@@ -19,7 +16,7 @@ export var requireAuth = (path) => {
         {
             console.log("No")
             console.log(path)
-            // window.location.replace("http://localhost:3000/#/")
-            window.locaton.href = "http://localhost:3000/#/"
+            window.location.replace("http://localhost:3000/#/")
+            // window.locaton.href = "http://localhost:3000/#/"
         }
 }

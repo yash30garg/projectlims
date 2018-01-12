@@ -6,20 +6,14 @@ import './login.css';
 // import { BrowserRouter, Route, Link } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { getUser, getBook } from '../../../Service/dataService.js'
 import { requireAuth } from '../../isLoggedIn.js'
 var req = require('request');
 // import Form from 'react-validation/build/form';
 // import Input from 'react-validation/build/input';
 export var email, mid;
-let users;
 
 
 class Login extends Component {
-    constructor() {
-        super();
-
-    }
     state =
     {
         display: [],
@@ -28,20 +22,6 @@ class Login extends Component {
     componentWillMount() {
         requireAuth(window.location.href)
     }
-
-    // checkAuth() {
-    //     if(localStorage.getItem('limsuser')!==null)
-    //     {
-    //         console.log(JSON.parse(localStorage.getItem('limsuser')))
-    //         console.log("yes")
-    //         window.location = window.location.href
-    //     }
-    //     else
-    //     {
-    //         console.log("No")
-    //         window.location = "http://localhost:3000/#"
-    //     }
-    //   }
 
     getUserDetails = (e) => {
         e.preventDefault();
@@ -88,20 +68,7 @@ class Login extends Component {
             })
             // this.checkAuth();
     }
-    validate = (e) => {
-        // email = this.refs.email.value
-        var users = getUser();
-        console.log(users)
-        e.preventDefault();
-        //console.log(email)
-        //console.log(this.state.display)
-        //const a=this.state.display.filter((user)=>user.user.mid===email)
-        //console.log(user.user.mid)
-        //console.log(a[0].user.name);
-    }
-
-
-    // state={show:true}
+    
     render() {
 
 
