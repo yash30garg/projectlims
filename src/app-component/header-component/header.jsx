@@ -16,6 +16,21 @@ class Header extends Component {
     console.log(key)
   }
 
+    logout(e) {
+      e.preventDefault();
+      localStorage.clear();
+      sessionStorage.clear()
+    var cookies = document.cookies
+    console.log(cookies)
+
+    // for (var i = 0; i < cookies.length; i++) {
+    //     var cookie = cookies[i];
+    //     var eqPos = cookie.indexOf("=");
+    //     var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+    //     document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+    // }
+
+  }
   render() {
 
     return (
@@ -80,7 +95,7 @@ class Header extends Component {
 
               <Link to="/">
               <li className="nav-item active"></li>
-              <li className="nav-item" >
+              <li className="nav-item" onClick={this.logout} >
                 <a className="nav-link" href="#" style={{color : "white"}}><span class="fa fa-lock"></span>logout
                 </a>
               </li>

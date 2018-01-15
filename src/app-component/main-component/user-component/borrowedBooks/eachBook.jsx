@@ -1,10 +1,17 @@
 import React from 'react'
 import './css/isssuedSlider.css'
+import {Link} from 'react-router-dom';
 import $ from 'jquery';
+let handle=(data)=>{
+    window.selected=data;
+}
 const Card = (props) => {
+    let res=props.data;
     return (
+        <Link to="/search/details">
         <div
         className="card-img mx-auto particular"
+        onClick={()=>handle(res)}
         id={props.data.isbn}
         style={{
         width: '150px'
@@ -36,6 +43,7 @@ const Card = (props) => {
             </div>
         </div>
     </div> 
+    </Link>
     
     )
     ;

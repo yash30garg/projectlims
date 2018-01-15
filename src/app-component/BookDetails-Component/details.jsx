@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './details.css';
+import '../search-component/Search.css';
 import $ from 'jquery';
 // import book from '../search-component/SearchResults'
 let users,
@@ -13,8 +14,9 @@ class Details extends Component {
             <button
                 className="btn btn-primary mt-3"
                 style={{
-                backgroundColor: 'rgb(205,133,63)',
-                color: "white"
+                backgroundColor: 'white',
+                borderColor:"rgb(205,133,63)",
+                color: "rgb(205,133,63)"
             }}
                 onClick={this.request}>
                 <div className="fa fa-plus-circle"></div>
@@ -25,12 +27,14 @@ class Details extends Component {
             <button
                 className="btn btn-primary mt-3"
                 style={{
-                backgroundColor: 'rgb(205,133,63)',
-                color: "white"
-            }}
-                onClick={this.wishlist}>
-                <div className="fa fa-heart-o"></div>
-                <b>WishList</b>
+                backgroundColor: 'white',
+                borderColor: 'white',
+                width:"4vw",
+                // backgroundColor: 'white',
+                color: "rgb(205,133,63)"
+            }}>
+                <div className="fa fa-heart-o fa-lg" onClick={this.wishlist}></div>
+                
             </button>
         )
         this.state = {
@@ -46,9 +50,10 @@ class Details extends Component {
                         <button
                             className="btn btn-primary mt-3"
                             onClick={this.removeRequest}
-                            style={{
-                            backgroundColor: 'rgb(205,133,63)',
-                            color: "white"
+                           style={{
+                            backgroundColor: 'white',
+                            borderColor:"rgb(205,133,63)",
+                            color: "rgb(205,133,63)"
                         }}>
                             <div className="fa fa-check"></div>
                             <b>Requested</b>
@@ -65,12 +70,15 @@ class Details extends Component {
             w = (
                 <button
                     className="btn btn-primary mt-3"
+                    onClick={this.removeWishlist}
                     style={{
-                    backgroundColor: 'rgb(205,133,63)',
-                    color: "white"
+                    backgroundColor: 'white',
+                    borderColor: 'white',
+                    width:"4vw",
+                    // backgroundColor: 'white',
+                    color: "rgb(205,133,63)"
                 }}>
-                    <div className="fa fa-heart"></div>
-                    <b>Added</b>
+                    <div className="fa fa-heart fa-lg"></div>
                 </button>
             )
             this.state = {
@@ -96,11 +104,13 @@ class Details extends Component {
                             onClick={this.removeWishlist}
                             className="btn btn-primary mt-3"
                             style={{
-                            backgroundColor: 'rgb(205,133,63)',
-                            color: "white"
+                            backgroundColor: 'white',
+                            borderColor: 'white',
+                            width:"4vw",
+                            // backgroundColor: 'white',
+                            color: "rgb(205,133,63)"
                         }}>
-                            <div className="fa fa-heart"></div>
-                            <b>Added</b>
+                            <div className="fa fa-heart fa-lg"></div>
                         </button>
                     )
                     this.state = {
@@ -164,12 +174,14 @@ class Details extends Component {
             <button
                 className="btn btn-primary mt-3"
                 style={{
-                backgroundColor: 'rgb(205,133,63)',
-                color: "white"
-            }}
+                    backgroundColor: 'white',
+                    borderColor: 'white',
+                    width:"4vw",
+                    // backgroundColor: 'white',
+                    color: "rgb(205,133,63)"
+                }}
                 onClick={this.wishlist}>
-                <div className="fa fa-heart-o"></div>
-                <b>WishList</b>
+                <div className="fa fa-heart-o fa-lg"></div>
             </button>
         )
         this.setState({wish: w, msg: ""})
@@ -196,8 +208,9 @@ class Details extends Component {
             <button
                 className="btn btn-primary mt-3"
                 style={{
-                backgroundColor: 'rgb(205,133,63)',
-                color: "white"
+                backgroundColor: 'white',
+                borderColor:"rgb(205,133,63)",
+                color: "rgb(205,133,63)"
             }}
                 onClick={this.request}>
                 <div className="fa fa-plus-circle"></div>
@@ -214,11 +227,13 @@ class Details extends Component {
                 className="btn btn-primary mt-3"
                 onClick={this.removeWishlist}
                 style={{
-                backgroundColor: 'rgb(205,133,63)',
-                color: "white"
-            }}>
-                <div className="fa fa-heart"></div>
-                <b>Added</b>
+                    backgroundColor: 'white',
+                    borderColor: 'white',
+                    width:"4vw",
+                    // backgroundColor: 'white',
+                    color: "rgb(205,133,63)"
+                }}>
+                <div className="fa fa-heart fa-lg"></div>
             </button>
         )
         let val = (
@@ -251,8 +266,9 @@ class Details extends Component {
                         className="btn btn-primary mt-3"
                         onClick={this.removeRequest}
                         style={{
-                        backgroundColor: 'rgb(205,133,63)',
-                        color: "white"
+                        backgroundColor: 'white',
+                        borderColor:"rgb(205,133,63)",
+                        color: "rgb(205,133,63)"
                     }}>
                         <div className="fa fa-check"></div>
                         <b>Requested</b>
@@ -287,145 +303,55 @@ class Details extends Component {
     render() {
         book = this.props.data;
         return (
-            <div>
+                <div className="container" style={{width:"100%"}}>
+                <div className="row">
+                <div className="col-md-7 card my-2" style={{background:"#614126",width:"75%"}}>
+                <div className="row" style={{height:"100vh"}}>
+                <div className="left-card col-md-4" style={{color:"white"}}>
+                <br/>
+                <h5>
+                <br/>
+                <i>ISBN</i><br/><br/>
+                {book.isbn}
+                <br/><br/>
+                <hr/>
 
-                {this.state.msg}
-                <div className="container-fluid">
-                    <div
-                        className="close-cap offset-11"
-                        style={{
-                        fontSize: '40px'
-                    }}
-                        onClick={this.goBack}>X</div>
-                    <div className="container-fluid">
-                        <div className="row">
-                            <div className="mb-4 col-sm-4 col-md-4 col-xs-4 col-lg-4">
-                                <div className="card bookContainer">
-                                    <center>
-                                        <img className="rounded mt-4" src={book.details.url} height="80%" width="75%"/>
-                                    </center>
-                                </div>
-                                {this.state.req}
-                                &nbsp; {this.state.wish}
-                            </div>
+                <br/>
+                <i>Author</i><br/><br/>
+                {book.details.author}
+                <br/><br/>
+                <hr/>
 
-                            <div
-                                className="col-sm-6 col-md-6 col-xs-6 col-lg-6 ml-3"
-                                style={{
-                                textTransform: "capitalize",
-                                textAlign: "left"
-                            }}>
-                                <h3>
-                                    <u>
-                                        {book.details.title}
-                                    </u>
-                                </h3>
-                                <h5>
-                                    By
-                                    <i>
-                                        {book.details.author}</i><br/>
-                                    Published By
-                                    <i>
-                                        {book.details.publisher}</i><br/>
-                                    <hr/>
-                                    <table>
-                                        <tr className="row">
-                                            <td className="col-sm-5 col-xs-5 col-md-5 col-lg-5">ISBN</td>
-                                            <td className="col-sm-2 col-xs-2 col-md-2 col-lg-2">
-                                                :
-                                            </td>
-                                            <td className="col-sm-5 col-xs-5 col-md-5 col-lg-5">
-                                                <i>{book.isbn}</i>
-                                            </td>
-                                        </tr>
-                                        <tr className="row">
-                                            <td className="col-sm-5 col-xs-5 col-md-5 col-lg-5">Category</td>
-                                            <td className="col-sm-2 col-xs-2 col-md-2 col-lg-2">:
-                                            </td>
-                                            <td className="col-sm-5 col-xs-5 col-md-5 col-lg-5">
-                                                <i>{book.details.category}</i>
-                                            </td>
-                                        </tr>
-                                        <tr className="row">
-                                            <td className="col-sm-5 col-xs-5 col-md-5 col-lg-5">Category</td>
-                                            <td className="col-sm-2 col-xs-2 col-md-2 col-lg-2">:
-                                            </td>
-                                            <td className="col-sm-5 col-xs-5 col-md-5 col-lg-5">
-                                                <i>{book.details.category}</i>
-                                            </td>
-                                        </tr>
-                                        <tr className="row mt-2">
-                                            <td colspan="4" className="col-sm-10 col-xs-10 col-md-10 col-lg-10">
-                                                {[1, 2, 3, 4, 5].map(d => {
-                                                    if (book.details.rating >= d) 
-                                                        return <span
-                                                            class="fa fa-star mt-1"
-                                                            style={{
-                                                            color: '#FF8C00',
-                                                            fontSize: '20px'
-                                                        }}></span>
-                                                })}
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </h5>
-                            </div>
-                        </div>
-                    </div>
+                <br/>
+                <i>Published By</i><br/><br/>
+                {book.details.publisher}
+                <br/><br/>
+                <hr/>
+
+                <br/>
+                <i>Category</i><br/><br/>
+                {book.details.category}
+                <br/><br/>
+                <hr/>
+
+                </h5>
                 </div>
-
-                <div class="wrapper">
-                    <div class="gradient">
-                        <div class="left">
-                            <h5>ISBN</h5>
-                            <h4>{book.isbn}</h4>
-
-                            <h5>Book</h5>
-                            <h4>{book.details.title}</h4>
-
-                            <h5>Published By</h5>
-                            <h4>{book.details.publisher}</h4>
-
-                            <h5>Author</h5>
-                            <h4>{book.details.author}</h4>
-
-                            <h5>Category
-                            </h5>
-                            <h4>{book.details.category}</h4>
-                        </div>
-                        <div class="right">
-                            <div class="mast">
-                                <img src="book.details.url" alt="Sellr" class="logo pull-left" height="80%" width="75%"/>
-                                {/*<span class="date pull-right">Dec 23, 2015 &mdash; 13:45:05 GMT</span>*/}
-                                <div class="clearfix"></div>
-                            </div>
-                            <div class="invoice">
-                                <h2>{book.details.title}</h2>
-                                <h3 class="price pull-right">Ratings</h3>
-                                <div class="product-details">
-                                    <a href="#" class="">View Product Page</a>
-                                    &mdash;
-                                    <a href="#" class="">Download</a>
-                                </div>
-
-                            </div>
-
-                            <div class="footer">
-                                <p class="tonote">Things to note</p>
-                                <p>If you are unsatisfied with your purchase or the product is not as described,
-                                    please contact the seller of your product, Sellr does not represent the seller.</p>
-                                <p>Please make sure to download your products
-                                    <i>immediately</i>, as items can get removed from time to time. Sellr can't
-                                    recover removed products and files.</p>
-                                <a href="https://www.sellr.co/help">www.sellr.co/help</a>
-                            </div>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
+                <div className="right-card col-md-8" style={{color:"#614126"}}>
+                <br/>
+                <i className="fa fa-times fa-2x" style={{float:"right"}} onClick={this.goBack}></i>
+                <img src={book.details.url} className="my-1" style={{height:"50vh", width:"60%"}}/>
+                <div className="row offset-md-3">
+                {this.state.wish}
+                {this.state.req}
                 </div>
-            </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
         )
     }
 
 }
 export default Details;
+                // <img src={book.details.url} style={{height:"100vh", width:"50vw"}}/>

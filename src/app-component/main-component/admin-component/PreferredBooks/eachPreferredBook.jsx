@@ -5,28 +5,31 @@ class EachPrefferedCard extends Component{
     constructor(props)
     {
         super(props);
+        this.handle=this.handle.bind(this);
     }
 
-    handle(res){
-        window.selected=res;
+    handle(){
+        window.selected=this.props.item
     }
 
     render()
     {
-        res=this.props.item;
+        //res=this.props.item;
     return (
         <div
             className="mx-auto col-lg-2 col-md-4 col-sm-6 col-xs-12">
             <Link to="/search/details">
             <div
                 className="card-img particular mx-auto"
-                 onClick={()=>this.handle(res)}
+                onClick={this.handle}
+                //  onClick={()=>this.handle(res)}
                 id={this.props.key}
                 style={{
                 width: '150px'
             }}>
                 <img
                     className="mx-auto"
+                    
                     src={this.props.item.details.url}
                     height="180px"
                     width="100%"/>

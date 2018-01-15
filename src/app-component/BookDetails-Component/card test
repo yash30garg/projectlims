@@ -1,0 +1,49 @@
+<div class="card" style={{width:"60%"}}>
+                    <div class="gradient">
+                        <div class="left">
+                            <h5>ISBN</h5>
+                            <h4>{book.isbn}</h4>
+
+                            <h5>Book</h5>
+                            <h4>{book.details.title}</h4>
+
+                            <h5>Published By</h5>
+                            <h4>{book.details.publisher}</h4>
+
+                            <h5>Author</h5>
+                            <h4>{book.details.author}</h4>
+
+                            <h5>Category
+                            </h5>
+                            <h4>{book.details.category}</h4>
+                        </div>
+                        <div class="right">
+                            <div class="mast">
+                                <img src={book.details.url} alt="Sellr" class="logo pull-left" />
+                                {/*<span class="date pull-right">Dec 23, 2015 &mdash; 13:45:05 GMT</span>*/}
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="invoice">
+                                <h2>{book.details.title}</h2>
+                                <h3 class="price pull-right">Ratings</h3>
+                                <div class="product-details">
+                                    <a href="#" class="">View Product Page</a>
+                                    &mdash;
+                                    <a href="#" class="">Download</a>
+                                </div>
+
+                            </div>
+
+                            <div class="footer">
+                                <p class="tonote">Things to note</p>
+                                <p>If you are unsatisfied with your purchase or the product is not as described,
+                                    please contact the seller of your product, Sellr does not represent the seller.</p>
+                                <p>Please make sure to download your products
+                                    <i>immediately</i>, as items can get removed from time to time. Sellr can't
+                                    recover removed products and files.</p>
+                                <a href="https://www.sellr.co/help">www.sellr.co/help</a>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>

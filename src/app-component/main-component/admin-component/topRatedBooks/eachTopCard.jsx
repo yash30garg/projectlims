@@ -1,28 +1,23 @@
 import React,{Component} from 'react';
-import './topRated.css'
+import './topRated.css';
+import {Link} from 'react-router-dom';
 export class EachTopCard extends Component{
     constructor(props)
     {
         super(props);
-        this.state={
-            btnText:"REQUEST BOOK"
-
+        this.hanle = this.handle.bind(this)
+    }
+    handle=(res)=>{
+        window.selected=res;
         }
-        this.request = this.request.bind(this)
-    }
-        
-        request() {
-
-           
-            this.setState({btnText:"REQUESTED"});
-
-    }
-
     render(){
+        let res=this.props.item;
     return(
         <div
             className="col-lg-2 col-md-4 col-sm-6 col-xs-12 my-3">
+            <Link to="/search/details">
             <div
+            onClick={()=>this.handle(res)}
                 className="card-img particular mx-auto"
                 id={this.props.isbn}
                 style={{
@@ -56,18 +51,10 @@ export class EachTopCard extends Component{
                                     fontSize:'5px'
                                 }}></span>
                         })}
-                        <button
-                            class="btn btn-sm mt-3"
-                            style={{
-                            backgroundColor: 'white',
-                            color:"rgb(205,133,63)",
-                        }}
-                            onClick={this.request}>
-                            <b >{this.state.btnText}</b>
-                        </button>
                     </div>
                 </div>
             </div>
+            </Link>
         </div>
     )
     }

@@ -1,9 +1,16 @@
-.close-cap:hover{
+/*.close-cap:hover{
     cursor: pointer;
-}
+}*/
 .bookContainer
 {
     position:relative;
+}
+.left-card{
+background: linear-gradient(to bottom, #cd853f 50%,#614126);
+font-family: Georgia, Serif;
+}
+.right-card{
+background:white;
 }
 .alert{
  position: relative;

@@ -18,19 +18,42 @@ import ProductDetails from '../productDetails/product.jsx';
 import AboutUs from '../app-component/footer-component/AboutUs/aboutus.jsx';
 import {requireAuth} from './isLoggedIn.js'
 import { authContext } from '../adalConfig.js'
+
 import { AuthenticationContext, adalGetToken, adalFetch } from 'react-adal';
 
 let users;
 window.display='';
 window.wishlist=[];
 class App extends Component {
-  // constructor(){
-  //   super();
-    
-  // }
+  
   render() {
     console.log(authContext._user);
+    localStorage.setItem('limsuser', JSON.stringify(authContext._user))
+    console.log(localStorage.getItem('limsuser'))
     console.log(AuthenticationContext.adalGetToken);
+    var UserDetails = JSON.parse(localStorage.getItem('limsuser'))
+    let mid=UserDetails.userName.split("@");
+    let res=mid[0].split("M")
+    // alert(res[1])
+    window.user=res[1];
+    
+    // alert(window.user);
+     axios.get('https://api.myjson.com/bins/14x90j')
+     .then(res=>{
+         //output:res.data;
+          window.users = res.data;
+          if(window.users!==null){
+                const b = window.users.filter((res) => res.user.mid === window.user)
+                if(b.length!==0){
+                window.bbooks=b[0].borrowedbooks;
+                console.log(window.bbooks.length)
+              }
+              else{
+                const c = window.users.filter((res) => res.user.mid === "1042948")
+                window.bbooks=c[0].borrowedbooks;
+              }
+          }
+        });
 
     return (
       <HashRouter basename="/">
