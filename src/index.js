@@ -19,16 +19,6 @@ let res=mid[0].split("M")
 window.user=res[1];
 // alert(window.user);
 function getData(){
-    axios.get('https://api.myjson.com/bins/14x90j')
-     .then(res=>{
-         //output:res.data;
-          window.users = res.data;
-          if(window.users!==null){
-                const b = window.users.filter((res) => res.user.mid === window.user)
-                window.bbooks=b[0].borrowedbooks;
-                console.log(window.bbooks.length)
-          }
-        });
         axios
             .get('https://api.myjson.com/bins/1a9rkj')
             .then(res => {

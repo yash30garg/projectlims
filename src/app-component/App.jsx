@@ -18,6 +18,7 @@ import ProductDetails from '../productDetails/product.jsx';
 import AboutUs from '../app-component/footer-component/AboutUs/aboutus.jsx';
 import {requireAuth} from './isLoggedIn.js'
 import { authContext } from '../adalConfig.js'
+
 import { AuthenticationContext, adalGetToken, adalFetch } from 'react-adal';
 
 let users;
@@ -33,6 +34,16 @@ class App extends Component {
     localStorage.setItem('limsuser', JSON.stringify(authContext._user))
     console.log(localStorage.getItem('limsuser'))
     console.log(AuthenticationContext.adalGetToken);
+     axios.get('https://api.myjson.com/bins/14x90j')
+     .then(res=>{
+         //output:res.data;
+          window.users = res.data;
+          if(window.users!==null){
+                const b = window.users.filter((res) => res.user.mid === window.user)
+                window.bbooks=b[0].borrowedbooks;
+                console.log(window.bbooks.length)
+          }
+        });
 
     return (
       <HashRouter basename="/">
