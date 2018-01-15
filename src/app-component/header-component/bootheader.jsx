@@ -156,15 +156,15 @@ class BootHeader extends Component {
 
         return (
 
-            <div>
+            <div  style={{
+                    backgroundColor: "#FFF8DC"
+                }}>
 
                 <Header/>
                 <br/>
                 <div
                     className="bigshow"
-                    style={{
-                    backgroundColor: "#FFF8DC"
-                }}>
+                   >
                     {/*
                                 <a
 
