@@ -3,7 +3,17 @@ import './bootheader.css'
 
 export const Category=(props)=>
 {
-    let b=props.data.filter(r=>r.details.category.toLowerCase()==props.selected.toLowerCase()).map(res=>{
+    let filteredArray=[];
+    if(props.selected=="all")
+    {
+          filteredArray=props.data;
+    }
+    else
+    {
+    filteredArray=props.data.filter(r=>r.details.category.toLowerCase()==props.selected.toLowerCase()).sort((a,b)=>{return(b.details.rating-a.details.rating)})
+    }
+
+    let b=filteredArray.map(res=>{   
         return(
                     <div
 

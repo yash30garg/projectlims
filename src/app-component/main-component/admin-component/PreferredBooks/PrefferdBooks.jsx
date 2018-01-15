@@ -93,12 +93,12 @@ class PBooks extends Component {
 
                     <div
 
-                        class="carousel-inner"
+                        className="carousel-inner"
                         role="listbox">
-                        <div class="carousel-inner" role="listbox">
+                        <div className="carousel-inner" role="listbox">
 
-                            <div class="carousel-cell">
-                                <div class="carousel-item active mt-2">
+                            <div className="carousel-cell">
+                                <div className="carousel-item active mt-2">
                                     <img
                                         className="d-block activeImage mx-auto"
 
@@ -113,11 +113,11 @@ class PBooks extends Component {
 
                             </div>
                             <br/> {/*<br/>*/}
-                            <ol class="carousel-indicators">
+                            <ol className="carousel-indicators">
                                 <li
                                     data-target="#carouselExampleIndicators"
                                     data-slide-to="0"
-                                    class="active"
+                                    className="active"
                                     style={{
                                     color: "purple"
                                 }}></li>
@@ -138,28 +138,28 @@ class PBooks extends Component {
                         </div>
                     </div>
                     <a
-                        class="carousel-control-prev"
+                        className="carousel-control-prev"
                         href="#carouselExampleIndicators"
                         role="button"
                         data-slide="prev">
                         <span className="arrowLeft" aria-hidden="true" style={{color : "#26a69a"}}></span>
-                        <span class="sr-only" style={{color : "#26a69a"}}>Previous</span>
+                        <span className="sr-only" style={{color : "#26a69a"}}>Previous</span>
                     </a>
                     <a
-                        class="carousel-control-next"
+                        className="carousel-control-next"
                         href="#carouselExampleIndicators"
                         role="button"
                         data-slide="next">
-                        <span class="arrowRight" aria-hidden="true"></span>
-                        <span class="sr-only arrow">Next</span>
+                        <span className="arrowRight" aria-hidden="true"></span>
+                        <span className="sr-only arrow">Next</span>
                     </a>
                 </div>
-                <div id="myModal" class="modal">
-                    <span class="close">&times;</span>
+                <div id="myModal" className="modal">
+                    <span className="close">&times;</span>
                     <div className="container">
                         <div className="row">
                             <div className="col-md-6">
-                                <img class="modal-content" id="img01" height="500px" width="400px"/>
+                                <img className="modal-content" id="img01" height="500px" width="400px"/>
                             </div>
                             <div className="col-md-6">
                                 <div id="caption"></div>
