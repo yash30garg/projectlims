@@ -8,12 +8,10 @@ export class EachTopCard extends Component{
         this.hanle = this.handle.bind(this)
     }
     handle=(res)=>{
-        console.log(res);
         window.selected=res;
         }
     render(){
         let res=this.props.item;
-        console.log(res);
     return(
         <div
             className="col-lg-2 col-md-4 col-sm-6 col-xs-12 my-3">

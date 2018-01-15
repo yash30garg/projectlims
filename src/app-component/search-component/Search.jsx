@@ -46,7 +46,7 @@ export default class Search extends Component {
                 data3.details.author.toLowerCase().indexOf(value) >= 0 ||
                 data3.details.publisher.toLowerCase().indexOf(value) >= 0 ||
                 data3.details.category.toLowerCase().indexOf(value) >= 0) &&
-            value !== '');
+            value !== '').sort((a,b)=>{return(b.details.rating-a.details.rating)});
         this.dataOrg = this.datax;
         processedData = this.datax;
         console.log(processedData)

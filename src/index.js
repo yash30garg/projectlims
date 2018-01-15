@@ -21,6 +21,9 @@ import '../node_modules/bootstrap/scss/bootstrap.scss';
 // window.user=res[1];
 // alert(window.user);
 
+
+window.display=[];
+
 function getData(){
         axios
             .get('https://api.myjson.com/bins/1a9rkj')
