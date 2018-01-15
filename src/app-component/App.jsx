@@ -30,6 +30,8 @@ class App extends Component {
   // }
   render() {
     console.log(authContext._user);
+    localStorage.setItem('limsuser', JSON.stringify(authContext._user))
+    console.log(localStorage.getItem('limsuser'))
     console.log(AuthenticationContext.adalGetToken);
 
     return (
