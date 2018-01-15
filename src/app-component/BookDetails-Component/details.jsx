@@ -14,8 +14,9 @@ class Details extends Component {
             <button
                 className="btn btn-primary mt-3"
                 style={{
-                backgroundColor: 'rgb(205,133,63)',
-                color: "white"
+                backgroundColor: 'white',
+                borderColor:"rgb(205,133,63)",
+                color: "rgb(205,133,63)"
             }}
                 onClick={this.request}>
                 <div className="fa fa-plus-circle"></div>
@@ -26,12 +27,14 @@ class Details extends Component {
             <button
                 className="btn btn-primary mt-3"
                 style={{
-                backgroundColor: 'rgb(205,133,63)',
-                color: "white"
-            }}
-                onClick={this.wishlist}>
-                <div className="fa fa-heart-o"></div>
-                <b>WishList</b>
+                backgroundColor: 'white',
+                borderColor: 'white',
+                width:"4vw",
+                // backgroundColor: 'white',
+                color: "rgb(205,133,63)"
+            }}>
+                <div className="fa fa-heart-o fa-lg" onClick={this.wishlist}></div>
+                
             </button>
         )
         this.state = {
@@ -47,9 +50,10 @@ class Details extends Component {
                         <button
                             className="btn btn-primary mt-3"
                             onClick={this.removeRequest}
-                            style={{
-                            backgroundColor: 'rgb(205,133,63)',
-                            color: "white"
+                           style={{
+                            backgroundColor: 'white',
+                            borderColor:"rgb(205,133,63)",
+                            color: "rgb(205,133,63)"
                         }}>
                             <div className="fa fa-check"></div>
                             <b>Requested</b>
@@ -66,12 +70,15 @@ class Details extends Component {
             w = (
                 <button
                     className="btn btn-primary mt-3"
+                    onClick={this.removeWishlist}
                     style={{
-                    backgroundColor: 'rgb(205,133,63)',
-                    color: "white"
+                    backgroundColor: 'white',
+                    borderColor: 'white',
+                    width:"4vw",
+                    // backgroundColor: 'white',
+                    color: "rgb(205,133,63)"
                 }}>
-                    <div className="fa fa-heart"></div>
-                    <b>Added</b>
+                    <div className="fa fa-heart fa-lg"></div>
                 </button>
             )
             this.state = {
@@ -97,11 +104,13 @@ class Details extends Component {
                             onClick={this.removeWishlist}
                             className="btn btn-primary mt-3"
                             style={{
-                            backgroundColor: 'rgb(205,133,63)',
-                            color: "white"
+                            backgroundColor: 'white',
+                            borderColor: 'white',
+                            width:"4vw",
+                            // backgroundColor: 'white',
+                            color: "rgb(205,133,63)"
                         }}>
-                            <div className="fa fa-heart"></div>
-                            <b>Added</b>
+                            <div className="fa fa-heart fa-lg"></div>
                         </button>
                     )
                     this.state = {
@@ -165,12 +174,14 @@ class Details extends Component {
             <button
                 className="btn btn-primary mt-3"
                 style={{
-                backgroundColor: 'rgb(205,133,63)',
-                color: "white"
-            }}
+                    backgroundColor: 'white',
+                    borderColor: 'white',
+                    width:"4vw",
+                    // backgroundColor: 'white',
+                    color: "rgb(205,133,63)"
+                }}
                 onClick={this.wishlist}>
-                <div className="fa fa-heart-o"></div>
-                <b>WishList</b>
+                <div className="fa fa-heart-o fa-lg"></div>
             </button>
         )
         this.setState({wish: w, msg: ""})
@@ -197,8 +208,9 @@ class Details extends Component {
             <button
                 className="btn btn-primary mt-3"
                 style={{
-                backgroundColor: 'rgb(205,133,63)',
-                color: "white"
+                backgroundColor: 'white',
+                borderColor:"rgb(205,133,63)",
+                color: "rgb(205,133,63)"
             }}
                 onClick={this.request}>
                 <div className="fa fa-plus-circle"></div>
@@ -215,11 +227,13 @@ class Details extends Component {
                 className="btn btn-primary mt-3"
                 onClick={this.removeWishlist}
                 style={{
-                backgroundColor: 'rgb(205,133,63)',
-                color: "white"
-            }}>
-                <div className="fa fa-heart"></div>
-                <b>Added</b>
+                    backgroundColor: 'white',
+                    borderColor: 'white',
+                    width:"4vw",
+                    // backgroundColor: 'white',
+                    color: "rgb(205,133,63)"
+                }}>
+                <div className="fa fa-heart fa-lg"></div>
             </button>
         )
         let val = (
@@ -252,8 +266,9 @@ class Details extends Component {
                         className="btn btn-primary mt-3"
                         onClick={this.removeRequest}
                         style={{
-                        backgroundColor: 'rgb(205,133,63)',
-                        color: "white"
+                        backgroundColor: 'white',
+                        borderColor:"rgb(205,133,63)",
+                        color: "rgb(205,133,63)"
                     }}>
                         <div className="fa fa-check"></div>
                         <b>Requested</b>
@@ -324,7 +339,11 @@ class Details extends Component {
                 <div className="right-card col-md-8" style={{color:"#614126"}}>
                 <br/>
                 <i className="fa fa-times fa-2x" style={{float:"right"}} onClick={this.goBack}></i>
-                <img src={book.details.url} className="my-5" style={{height:"50vh", width:"60%"}}/>
+                <img src={book.details.url} className="my-1" style={{height:"50vh", width:"60%"}}/>
+                <div className="row offset-md-3">
+                {this.state.wish}
+                {this.state.req}
+                </div>
                 </div>
                 </div>
                 </div>
