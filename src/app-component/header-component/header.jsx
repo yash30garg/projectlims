@@ -6,6 +6,8 @@ import SearchBar from './searchbar/searchBar.jsx';
 // import PBooks from
 // '../main-component/admin-component/PreferredBooks/PrefferdBooks.jsx'; import
 // Footer from '../footer-component/footer.jsx';
+import { AuthenticationContext } from 'react-adal'
+import { authContext } from '../../adalConfig.js'
 
 import searchBar from './searchbar/searchBar.jsx';
 import { Link } from 'react-router-dom';
@@ -18,10 +20,7 @@ class Header extends Component {
 
     logout(e) {
       e.preventDefault();
-      localStorage.clear();
-      sessionStorage.clear()
-    var cookies = document.cookies
-    console.log(cookies)
+      authContext.logOut();
 
     // for (var i = 0; i < cookies.length; i++) {
     //     var cookie = cookies[i];
@@ -55,7 +54,7 @@ class Header extends Component {
 
             alt="My logo"
             align="left" /></a>
-            <Link to="/home">
+            <Link to="/">
           <a className="navbar-brand" style={{color : "white"}}>Mindtree Library</a>
           </Link>
             <Link to="/search" style={{textDecoration:'none'}}>
