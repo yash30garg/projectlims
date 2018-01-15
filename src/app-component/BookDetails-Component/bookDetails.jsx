@@ -6,7 +6,7 @@ import {requireAuth} from '../isLoggedIn.js'
 let val;
 export class BookDetails extends Component{
     componentWillMount() {
-        requireAuth(window.location.href)
+        // requireAuth(window.location.href)
     }
     render(){
         val=window.selected;
