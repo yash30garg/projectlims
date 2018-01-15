@@ -25,10 +25,7 @@ let users;
 window.display='';
 window.wishlist=[];
 class App extends Component {
-  // constructor(){
-  //   super();
-    
-  // }
+  
   render() {
     console.log(authContext._user);
     localStorage.setItem('limsuser', JSON.stringify(authContext._user))
