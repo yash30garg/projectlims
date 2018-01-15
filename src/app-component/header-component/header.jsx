@@ -6,6 +6,8 @@ import SearchBar from './searchbar/searchBar.jsx';
 // import PBooks from
 // '../main-component/admin-component/PreferredBooks/PrefferdBooks.jsx'; import
 // Footer from '../footer-component/footer.jsx';
+import { AuthenticationContext } from 'react-adal'
+import { authContext } from '../../adalConfig.js'
 
 import searchBar from './searchbar/searchBar.jsx';
 import { Link } from 'react-router-dom';
@@ -16,15 +18,16 @@ class Header extends Component {
     console.log(key)
   }
 
-    logout() {
-    var cookies = document.cookie.split(";");
+    logout(e) {
+      e.preventDefault();
+      authContext.logOut();
 
-    for (var i = 0; i < cookies.length; i++) {
-        var cookie = cookies[i];
-        var eqPos = cookie.indexOf("=");
-        var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
-        document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
-    }
+    // for (var i = 0; i < cookies.length; i++) {
+    //     var cookie = cookies[i];
+    //     var eqPos = cookie.indexOf("=");
+    //     var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+    //     document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+    // }
 
   }
   render() {
@@ -51,7 +54,7 @@ class Header extends Component {
 
             alt="My logo"
             align="left" /></a>
-            <Link to="/home">
+            <Link to="/">
           <a className="navbar-brand" style={{color : "white"}}>Mindtree Library</a>
           </Link>
             <Link to="/search" style={{textDecoration:'none'}}>

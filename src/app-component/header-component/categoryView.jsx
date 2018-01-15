@@ -7,7 +7,25 @@ window.selected=data;
 
 export const Category=(props)=>
 {
-    let b=props.data.filter(r=>r.details.category.toLowerCase()==props.selected.toLowerCase()).map(res=>{
+    let filteredArray=[];
+    if(props.selected=="all")
+    {
+          filteredArray=props.data.sort((a, b) => {
+                if (a.details.category.toUpperCase() > b.details.category.toUpperCase()) {
+                    return 1;
+                } else if (a.details.category.toUpperCase() < b.details.category.toUpperCase()) {
+                    return -1;
+                } else {
+                    return 0;
+                }
+            });
+    }
+    else
+    {
+    filteredArray=props.data.filter(r=>r.details.category.toLowerCase()==props.selected.toLowerCase()).sort((a,b)=>{return(b.details.rating-a.details.rating)})
+    }
+
+    let b=filteredArray.map(res=>{   
         return(
             <Link to="/search/details">
                     <div
@@ -43,13 +61,13 @@ export const Category=(props)=>
                                     color: '#ffd700',
                                     fontSize:'5px'
                                 }}></span>
-                            // else 
-                            //     return <span
-                            //         className="fa fa-star"
-                            //         style={{
-                            //         color: 'black',
-                            //         fontSize:'5px'
-                            //     }}></span>
+                            else 
+                                return <span
+                                    className="fa fa-star"
+                                    style={{
+                                    color: 'black',
+                                    fontSize:'5px'
+                                }}></span>
                         })}
                         <button
                             className="btn btn-block mt-3"

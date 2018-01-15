@@ -35,8 +35,8 @@ class TopBooks extends Component{
 
     render()
     {
-        let k=<LoadingEffect/>;
-                if (window.display !== '') {
+        let k=<div style={{position:'relative',top:'50px'}}><LoadingEffect/></div>;
+                if (window.display.length !=0 ) {
                 let b = window.display;
                  k=["java","javascript","c","angular","react","c++","c#","python","jquery","html & css","das"].map(result=>{
                     return(
