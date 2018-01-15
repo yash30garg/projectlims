@@ -1,12 +1,17 @@
 import React, {Component} from 'react';
-import './bootheader.css'
+import './bootheader.css';
+import {Link} from 'react-router-dom';
+let handle=(data)=>{
+window.selected=data;
+}
 
 export const Category=(props)=>
 {
     let b=props.data.filter(r=>r.details.category.toLowerCase()==props.selected.toLowerCase()).map(res=>{
         return(
+            <Link to="/search/details">
                     <div
-
+                    onClick={()=>handle(res)}
             className="col-lg-2 col-md-4 col-sm-4 col-xs-4 mt-2 mb-3">
 
         <div
@@ -60,6 +65,7 @@ export const Category=(props)=>
                 </div>
                 </div>
 </div>
+</Link>
         )
 
     })
