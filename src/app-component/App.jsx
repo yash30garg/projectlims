@@ -17,6 +17,8 @@ import Profile from '../app-component/main-component/user-component/profileView/
 import ProductDetails from '../productDetails/product.jsx';
 import AboutUs from '../app-component/footer-component/AboutUs/aboutus.jsx';
 import {requireAuth} from './isLoggedIn.js'
+import { authContext } from '../adalConfig.js'
+import { AuthenticationContext, adalGetToken, adalFetch } from 'react-adal';
 
 let users;
 window.display='';
@@ -27,6 +29,9 @@ class App extends Component {
     
   // }
   render() {
+    console.log(authContext._user);
+    console.log(AuthenticationContext.adalGetToken);
+
     return (
       <HashRouter basename="/">
         <div className="App">

@@ -4,6 +4,8 @@ import './index.css';
 import App from './app-component/App.jsx';
 import axios from 'axios';
 import registerServiceWorker from './registerServiceWorker';
+import { runWithAdal } from 'react-adal';
+import { authContext } from './adalConfig';
 // import './server.js'
 
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
@@ -30,5 +32,7 @@ function getData(){
 
 
 getData();
+runWithAdal(authContext, () => {
 ReactDOM.render(<App />, document.getElementById('root'));
+});
 registerServiceWorker();
