@@ -9,9 +9,9 @@ export class BookDetails extends Component{
         // requireAuth(window.location.href)
     }
     render(){
-        val=window.selected;
-        console.log(val);
-        const a=<Details data={val}/>
+        // val=window.selected;
+        // console.log(val);
+        const a=<Details data={window.selected}/>
         return(
             <div>
             <Header/>
