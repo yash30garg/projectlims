@@ -32,6 +32,7 @@ function getData(){
 
 
 getData();
+
 runWithAdal(authContext, () => {
 ReactDOM.render(<App />, document.getElementById('root'));
 });
