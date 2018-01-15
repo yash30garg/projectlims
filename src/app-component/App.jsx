@@ -31,6 +31,12 @@ class App extends Component {
     localStorage.setItem('limsuser', JSON.stringify(authContext._user))
     console.log(localStorage.getItem('limsuser'))
     console.log(AuthenticationContext.adalGetToken);
+    var UserDetails = JSON.parse(localStorage.getItem('limsuser'))
+    let mid=UserDetails.userName.split("@");
+    let res=mid[0].split("M")
+    // alert(res[1])
+    window.user=res[1];
+    // alert(window.user);
      axios.get('https://api.myjson.com/bins/14x90j')
      .then(res=>{
          //output:res.data;
