@@ -1,10 +1,17 @@
-import React from 'react'
+import React from 'react';
+import {Link} from 'react-router-dom';
 
+let handle=(data)=>{
+    window.selected=data;
+}
 export const WishedCard=(props)=>
 {
-    return(    
+    let res=props.data;
+    return( 
+         <Link to="/search/details">   
             <div
                 className="card-img mx-auto particular"
+                onClick={()=>handle(res)}
                 id={props.data.isbn}
                 style={{
                 width: '150px'
@@ -51,7 +58,7 @@ export const WishedCard=(props)=>
                     </div>
                 </div>
             </div>
-
+        </Link>
     );
 
 
