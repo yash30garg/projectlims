@@ -55,7 +55,7 @@ class Header extends Component {
 
             alt="My logo"
             align="left" /></a>
-            <Link to="/home">
+            <Link to="/">
           <a className="navbar-brand" style={{color : "white"}}>Mindtree Library</a>
           </Link>
             <Link to="/search" style={{textDecoration:'none'}}>
