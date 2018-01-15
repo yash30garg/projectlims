@@ -131,10 +131,8 @@ class BootHeader extends Component {
     }
     render() {
         let brr = [];
-        let arr = this
-            .state
-            .display
-            .sort((a, b) => {
+        let arr = window.display
+  .sort((a, b) => {
                 if (a.details.category.toUpperCase() > b.details.category.toUpperCase()) {
                     return 1;
                 } else if (a.details.category.toUpperCase() < b.details.category.toUpperCase()) {
@@ -143,25 +141,25 @@ class BootHeader extends Component {
                     return 0;
                 }
             });
+            if(arr.length!=0)
+            {
+                brr.push(arr[0]);
+            }
         for (var i = 0; i < arr.length - 1; i++) {
             if (arr[i].details.category.toUpperCase() != arr[i + 1].details.category.toUpperCase()) {
 
-                brr.push(arr[i]);
+                brr.push(arr[i+1]);
             }
 
         }
-        if(arr.length!=0)
-        {
-        if (arr[arr.length - 1].details.category.toUpperCase() != arr[arr.length - 2].details.category.toUpperCase()) {
-            brr.push(arr[arr.length - 1]);
-        }
-        }
+
 
         return (
 
             <div>
 
                 <Header/>
+                <br/>
                 <div
                     className="bigshow"
                     style={{
@@ -292,229 +290,7 @@ class BootHeader extends Component {
                                             })
 }
 
-                                            <div
-                                                onClick={this
-                                                .openCategory
-                                                .bind(this, 'Javascript')}
-                                                class=" row list-group-item  list-group-item-action ml-0"
-                                                style={{
-                                                background: " #FFF8DC"
-                                            }}>
-                                                <div className="col-md-0 fa fa-arrow-right" area-hidden="true"></div>
-                                                <div
-                                                    className="col"
-                                                    style={{
-                                                    textAlign: "left"
-                                                }}>Javascript</div>
-                                                <div className="row">
-                                                    <div className="badge badge-pill badge-warning mr-3">{this
-                                                            .state
-                                                            .display
-                                                            .filter(r => r.details.category.toLowerCase() == "javascript")
-                                                            .length}</div>
-                                                </div>
-                                            </div>
-                                            <div
-                                                onClick={this
-                                                .openCategory
-                                                .bind(this, 'c')}
-                                                class=" row list-group-item  list-group-item-action ml-0"
-                                                style={{
-                                                background: " #FFF8DC"
-                                            }}>
-                                                <div className="col-md-0 fa fa-arrow-right" area-hidden="true"></div>
-                                                <div
-                                                    className="col"
-                                                    style={{
-                                                    textAlign: "left"
-                                                }}>C</div>
-                                                <div className="row">
-                                                    <div className="badge badge-pill badge-warning mr-3">{this
-                                                            .state
-                                                            .display
-                                                            .filter(r => r.details.category.toLowerCase() == "c")
-                                                            .length}</div>
-                                                </div>
-                                            </div>
-                                            <div
-                                                onClick={this
-                                                .openCategory
-                                                .bind(this, 'Angular')}
-                                                class=" row list-group-item  list-group-item-action ml-0"
-                                                style={{
-                                                background: " #FFF8DC"
-                                            }}>
-                                                <div className="col-md-0 fa fa-arrow-right" area-hidden="true"></div>
-                                                <div
-                                                    className="col"
-                                                    style={{
-                                                    textAlign: "left"
-                                                }}>Angular</div>
-                                                <div className="row">
-                                                    <div className="badge badge-pill badge-warning mr-3">{this
-                                                            .state
-                                                            .display
-                                                            .filter(r => r.details.category.toLowerCase() == "angular")
-                                                            .length}</div>
-                                                </div>
-                                            </div>
-                                            <div
-                                                onClick={this
-                                                .openCategory
-                                                .bind(this, 'React')}
-                                                class=" row list-group-item  list-group-item-action ml-0"
-                                                style={{
-                                                background: " #FFF8DC"
-                                            }}>
-                                                <div className="col-md-0 fa fa-arrow-right" area-hidden="true"></div>
-                                                <div
-                                                    className="col"
-                                                    style={{
-                                                    textAlign: "left"
-                                                }}>React</div>
-                                                <div className="row">
-                                                    <div className="badge badge-pill badge-warning mr-3">{this
-                                                            .state
-                                                            .display
-                                                            .filter(r => r.details.category.toLowerCase() == "react")
-                                                            .length}</div>
-                                                </div>
-                                            </div>
-                                            <div
-                                                onClick={this
-                                                .openCategory
-                                                .bind(this, 'c++')}
-                                                class=" row list-group-item  list-group-item-action ml-0"
-                                                style={{
-                                                background: " #FFF8DC"
-                                            }}>
-                                                <div className="col-md-0 fa fa-arrow-right" area-hidden="true"></div>
-                                                <div
-                                                    className="col"
-                                                    style={{
-                                                    textAlign: "left"
-                                                }}>C++</div>
-                                                <div className="row">
-                                                    <div className="badge badge-pill badge-warning mr-3">{this
-                                                            .state
-                                                            .display
-                                                            .filter(r => r.details.category.toLowerCase() == "c++")
-                                                            .length}</div>
-                                                </div>
-                                            </div>
-                                            <div
-                                                onClick={this
-                                                .openCategory
-                                                .bind(this, 'c#')}
-                                                class=" row list-group-item  list-group-item-action ml-0"
-                                                style={{
-                                                background: " #FFF8DC"
-                                            }}>
-                                                <div className="col-md-0 fa fa-arrow-right" area-hidden="true"></div>
-                                                <div
-                                                    className="col"
-                                                    style={{
-                                                    textAlign: "left"
-                                                }}>C#</div>
-                                                <div className="row">
-                                                    <div className="badge badge-pill badge-warning mr-3">{this
-                                                            .state
-                                                            .display
-                                                            .filter(r => r.details.category.toLowerCase() == "c#")
-                                                            .length}</div>
-                                                </div>
-                                            </div>
-                                            <div
-                                                onClick={this
-                                                .openCategory
-                                                .bind(this, 'Python')}
-                                                class=" row list-group-item  list-group-item-action ml-0"
-                                                style={{
-                                                background: " #FFF8DC"
-                                            }}>
-                                                <div className="col-md-0 fa fa-arrow-right" area-hidden="true"></div>
-                                                <div
-                                                    className="col"
-                                                    style={{
-                                                    textAlign: "left"
-                                                }}>Python</div>
-                                                <div className="row">
-                                                    <div className="badge badge-pill badge-warning mr-3">{this
-                                                            .state
-                                                            .display
-                                                            .filter(r => r.details.category.toLowerCase() == "python")
-                                                            .length}</div>
-                                                </div>
-                                            </div>
-                                            <div
-                                                onClick={this
-                                                .openCategory
-                                                .bind(this, 'jquery')}
-                                                class=" row list-group-item  list-group-item-action ml-0"
-                                                style={{
-                                                background: " #FFF8DC"
-                                            }}>
-                                                <div className="col-md-0 fa fa-arrow-right" area-hidden="true"></div>
-                                                <div
-                                                    className="col"
-                                                    style={{
-                                                    textAlign: "left"
-                                                }}>Jquery</div>
-                                                <div className="row">
-                                                    <div className="badge badge-pill badge-warning mr-3">{this
-                                                            .state
-                                                            .display
-                                                            .filter(r => r.details.category.toLowerCase() == "jquery")
-                                                            .length}</div>
-                                                </div>
-                                            </div>
-                                            <div
-                                                onClick={this
-                                                .openCategory
-                                                .bind(this, 'html & css')}
-                                                class=" row list-group-item  list-group-item-action ml-0"
-                                                style={{
-                                                background: " #FFF8DC"
-                                            }}>
-                                                <div className="col-md-0 fa fa-arrow-right" area-hidden="true"></div>
-                                                <div
-                                                    className="col"
-                                                    style={{
-                                                    textAlign: "left"
-                                                }}>Html & Css</div>
-                                                <div className="row">
-                                                    <div className="badge badge-pill badge-warning mr-3">{this
-                                                            .state
-                                                            .display
-                                                            .filter(r => r.details.category.toLowerCase() == "html & css")
-                                                            .length}</div>
-                                                </div>
-                                            </div>
-                                            <div
-                                                style={{
-                                                marginBottom: '-8px'
-                                            }}
-                                                onClick={this
-                                                .openCategory
-                                                .bind(this, 'das')}
-                                                class=" row list-group-item  list-group-item-action ml-0"
-                                                style={{
-                                                background: " #FFF8DC"
-                                            }}>
-                                                <div className="col-md-0 fa fa-arrow-right" area-hidden="true"></div>
-                                                <div
-                                                    className="col"
-                                                    style={{
-                                                    textAlign: "left"
-                                                }}>Data Analytics</div>
-                                                <div className="row">
-                                                    <div className="badge badge-pill badge-warning mr-3">{this
-                                                            .state
-                                                            .display
-                                                            .filter(r => r.details.category.toLowerCase() == "das")
-                                                            .length}</div>
-                                                </div>
-                                            </div>
+
 
                                         </div>
                                     </div>
