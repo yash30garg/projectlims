@@ -5,7 +5,7 @@ class WishedBooks extends Component
     render()
     {
         let x=<div>
-        <h2 style={{textAlign:'center',color:"#614126"}}>I have not added any book in wishlist!</h2>
+        <h2 style={{textAlign:'center',color:"#614126"}}>You have no items in your wishlist. Start adding!!</h2><img src="https://static1.squarespace.com/static/56b46411356fb0307ba84bd3/t/57e980e2e4fcb54af2a38dc6/1474920680832/" />
         </div>
         if(window.wishlist.length!=0)
         {
