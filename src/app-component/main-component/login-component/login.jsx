@@ -14,6 +14,12 @@ export var email, mid;
 
 
 class Login extends Component {
+    constructor() {
+        super();
+        var Backlen=window.history.length;   
+     window.history.go(-Backlen);   
+     window.location.href='http://localhost:3000/#/login'
+    }
     state =
     {
         display: [],

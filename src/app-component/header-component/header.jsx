@@ -20,6 +20,8 @@ class Header extends Component {
 
   logout(e) {
     e.preventDefault();
+    localStorage.clear();
+    sessionStorage.clear();
     authContext.logOut();
 
     // for (var i = 0; i < cookies.length; i++) {

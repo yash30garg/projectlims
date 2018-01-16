@@ -18,7 +18,6 @@ import BookTor from '../app-component/booktor/booktor.jsx';
 import AboutUs from '../app-component/footer-component/AboutUs/aboutus.jsx';
 import {requireAuth} from './isLoggedIn.js'
 import { authContext } from '../adalConfig.js'
-
 import { AuthenticationContext, adalGetToken, adalFetch } from 'react-adal';
 
 let users;
@@ -73,7 +72,7 @@ class App extends Component {
             <Route path="/adminbooks" exact component={BookAdmin} />
             <Route path="/handleusers" exact component={HandleUsers} />
             <Route path="/profile" exact component={Profile} />
-            <Route path="/booktor" exact component={BookTor} />
+            <Route path="/aboutus" exact component={AboutUs} />
             <Route path="/admindash" exact component={DashBoard} />
 
             

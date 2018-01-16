@@ -4,6 +4,7 @@ import Header from '../../header-component/header.jsx';
 import './aboutus.css';
 import $ from 'jquery';
 
+
 // import { requireAuth } from '../../isLoggedIn'
 export default class AboutUs extends Component {
 
@@ -17,135 +18,137 @@ export default class AboutUs extends Component {
     }
     render() {
         return (
-            <div>
-                <Header />
-                <br />
+            <div >
+             <a class="navbar-brand" href="#">Start Bootstrap</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+         
+   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    
+    <div class="container">
+
+      
+      <h1 class="my-4">About Us
+        <small>It's Nice to Meet You!</small>
+      </h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint, explicabo dolores ipsam aliquam inventore corrupti eveniet quisquam quod totam laudantium repudiandae obcaecati ea consectetur debitis velit facere nisi expedita vel?</p>
+
+      
+      <div class="row">
+        <div class="col-lg-12">
+          <h2 class="my-4">Our Team</h2>
+        </div>
+
+
+        <div class="col-lg-4 col-sm-6 text-center mb-4">
+          <img class="rounded-circle img-fluid d-block mx-auto" src={require('../AboutUs/OurImages/Yash.jpg')} alt=""/>
+          <h3>Yash Garg
+            
+          </h3>
+          <p>What does this team member to? Keep it short! This is also a great spot for social links!</p>
+        </div>
 
 
 
-                <div className="container-fluid">
-                    <div className="maain">
-
-                        <h1>LiMS</h1>
-                        <h4>STARS OF ORCHARD KALINGA</h4>
-                        <h2>React Web-Tech</h2>
-                    </div>
-                </div>
-                <br /><br />
-                <br />
-                <div class="container-fluid">
-                    <h1>- Our Team -</h1>
-                    <br /><br />
-                        <div className ="row">
-                        <div class="col-md-1" />
-                        <div class="col-md-2">  
-                             <div class="card" style={{ width: "15rem" }}>
-                        <img class="card-img-top" src={require('../AboutUs/OurImages/Yash.jpg')} height="318" width="238" alt="Card image cap" /> 
-                            <div class="card-block">
-                                <h4 class="card-title">Yash Garg</h4>
-                                <p class="card-text"> to be filled</p>
-                            </div>
-                    </div>
-                        </div>
-
-                            <div class="col-md-2">   
-                             <div class="card" style={{ width: "15rem" }}>
-                        <img class="card-img-top" src={require('../AboutUs/OurImages/anirudh.jpg')} height="318" width="238" alt="Card image cap" /> 
-                            <div class="card-block">
-                                <h4 class="card-title">Anirudh.A.S</h4>
-                                <p class="card-text"> to be filled</p>
-                            </div>
-                    </div>
-                        </div>
-
-                            <div class="col-md-2">  
-                             <div class="card" style={{ width: "15rem" }}>
-                        <img class="card-img-top" src={require('../AboutUs/OurImages/aish.jpg')} height="318" width="238" alt="Card image cap" /> 
-                            <div class="card-block">
-                                <h4 class="card-title">Aishwarya</h4>
-                                <p class="card-text"> to be filled</p>
-                            </div>
-                    </div>
-                        </div>
-
-                            <div class="col-md-2">  
-                             <div class="card" style={{ width: "15rem" }}>
-                        <img class="card-img-top" src={require('../AboutUs/OurImages/chaitanya.jpg')} height="318" width="238" alt="Card image cap" /> 
-                            <div class="card-block">
-                                <h5 class="card-title">Chaitanya Boyapati</h5>
-                                <p class="card-text"> to be filled</p>
-                            </div>
-                    </div>
-                        </div>
-
-                           <div class="col-md-2">  
-                             <div class="card" style={{ width: "15rem" }}>
-                        <img class="card-img-top" src={require('../AboutUs/OurImages/ankit.jpg')} height="318" width="238" alt="Card image cap" /> 
-                            <div class="card-block">
-                                <h4 class="card-title">Ankit Gupta</h4>
-                                <p class="card-text"> to be filled</p>
-                            </div>
-                    </div>
-                    </div>
-                    
-                     <div class="col-md-1" />
-                        
+        <div class="col-lg-4 col-sm-6 text-center mb-4">
+          <img class="rounded-circle img-fluid d-block mx-auto" src={require('../AboutUs/OurImages/ankit.jpg') } alt="" />
+          <h3>Ankit Gupta
+            
+          </h3>
+          <p>What does this team member to? Keep it short! This is also a great spot for social links!</p>
+        </div>
 
 
-                        {/*<div class="col coling"> <img src={require('../AboutUs/OurImages/anirudh.jpg')} height="300" width="250" />
-                            <h3 style={{ paddingTop: "4px", font: "Times New Roman" }}>Anirudh.A.S</h3></div>
-                        <div class="col coling"> <img src={require('../AboutUs/OurImages/aish.jpg')} height="300" width="250" />
-                            <h3 style={{ paddingTop: "4px", font: "Times New Roman" }}>Aishwarya</h3></div>
-                        <div class="col coling"> <img src={require('../AboutUs/OurImages/chaitanya.jpg')} height="300" width="250" />
-                            <h3 style={{ paddingTop: "4px", font: "Times New Roman" }}>Chaitanya Boyapati</h3></div>
-                        <div class="col coling"> <img src={require('../AboutUs/OurImages/ankit.jpg')} height="300" width="250" />
-                            <h3 style={{ paddingTop: "4px", font: "Times New Roman" }}>Ankit Gupta</h3></div>*/}
-                 
+        <div class="col-lg-4 col-sm-6 text-center mb-4">
+          <img class="rounded-circle img-fluid d-block mx-auto" src={require('../AboutUs/OurImages/aish.jpg')} alt=""/>
+          <h3>Aishwarya Sinha
+           
+          </h3>
+          <p>What does this team member to? Keep it short! This is also a great spot for social links!</p>
+        </div>
 
 
-                   
+        <div class="col-lg-4 col-sm-6 text-center mb-4">
+          <img class="rounded-circle img-fluid d-block mx-auto" src={require('../AboutUs/OurImages/chaitanya.jpg')} alt=""/>
+          <h3>Chaitanya Boyapati
+           
+          </h3>
+          <p>What does this team member to? Keep it short! This is also a great spot for social links!</p>
+        </div>
 
-                    </div>
-                    </div>
-                    <br />
-                    <div className="conatainer">
 
-                        <h1>- Our Experts -</h1>
-                        <br />
-                        <div class="row">
-                            <div class="col-md-2" />
-                            <div class="col-md-4">
-                                <img src={require("../AboutUs/OurImages/Nitish.jpg")} height="400" width="400" />
-                                <h4>Nitish Bali</h4>
-                                <h6>Mindtree Lead</h6>
-                            </div>
-                            <div class="col-md-4">
-                                <img src={require("../AboutUs/OurImages/Monika.jpg")} height="400" width="400" />
-                                <h4>Monika Saran</h4>
-                                <h6>Mindtree Lead</h6>
+        <div class="col-lg-4 col-sm-6 text-center mb-4">
+          <img class="rounded-circle img-fluid d-block mx-auto" src={require('../AboutUs/OurImages/anirudh.jpg')} alt=""/>
+          <h3>Anirudh A.S.
+            
+          </h3>
+          <p>What does this team member to? Keep it short! This is also a great spot for social links!</p>
+        </div>
 
-                            </div>
-                            <div class="col-md-2" />
 
-                        </div>
-                    </div>
+       
+      </div>
 
-                    <div class="testify">
-                        <h2 style={{ textAlign: "center" }}>testimony</h2>
-                        <div class="testimony">
-                            <div class="test-text ">
-                                <p>Revelation 12:101</p>
-                                <blockquote>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam maxime iusto exercitationem laborum tenetur inventore beatae ducimus magnam doloremque iste aperiam perspiciatis adipisci officia eos hic cupiditate odio, omnis eius aliquid.
-                    Atque assumenda expedita dicta illum quas dolore dignissimos minus! </blockquote>
-                            </div>
+    </div>
 
-                            <div><img src="https://picsum.photos/569/437?image=856" alt="" /></div>
-                        </div>
-                    </div>
+    <div class="row">
+        <div class="col-lg-12">
+          <h2 class="my-4">Our Leads</h2>
+        </div>
+
+    <div class="col-lg-4 col-sm-6 text-center mb-4">
+          <img class="rounded-circle img-fluid d-block mx-auto" src={require("../AboutUs/OurImages/Nitish.jpg")} alt=""/>
+          <h3>Nitish Bali
+            
+          </h3>
+          <p>What does this team member to? Keep it short! This is also a great spot for social links!</p>
+        </div>
+
+<div class="col-lg-4 col-sm-6 text-center mb-4">
+          <img class="rounded-circle img-fluid d-block mx-auto" src={require("../AboutUs/OurImages/Monika.jpg")} alt=""/>
+          <h3>Monika Saran
+            
+          </h3>
+          <p>What does this team member to? Keep it short! This is also a great spot for social links!</p>
+        </div>
+
+    </div>
 
 
 
-                    <Footer />
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2017</p>
+      </div>
+    
+    </footer>
+ 
+   
+                
                 </div >
 
 

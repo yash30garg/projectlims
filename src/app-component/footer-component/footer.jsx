@@ -26,9 +26,11 @@ class Footer extends Component {
 
                     <ul>
                       <Link to="/aboutus">
+
                       <li style={{ textAlign: "left" }}><i className="fa fa-angle-double-right"></i> About Us</li>
+
                       </Link>
-                      <li style={{ textAlign: "left" }}><i className="fa fa-angle-double-right"></i> Contact Us</li>
+                      <li style={{ textAlign: "left"}}><i className="fa fa-angle-double-right"></i> Contact Us</li>
                     </ul>
                   </li>
                 </ul>
@@ -42,16 +44,18 @@ class Footer extends Component {
                       <li style={{ textAlign: "left" }}><a href="#"><i className="fa fa-angle-double-right"></i>  Satellite Education</a></li>
                       <li style={{ textAlign: "left" }}><a href="#"><i className="fa fa-angle-double-right"></i>  Study Centres</a></li>
 
+   </ul>
+  
+</li>
+</ul>
 
-                    </ul>
-
-                  </li>
-
-                </ul>
+</div>
 
 
-              </div>
 
+
+
+              
 
 
 
@@ -148,9 +152,17 @@ class Footer extends Component {
 
       </div>
 
-      </div >
+      </div>
+
+
+
+
+
+
 
     )
+
+
   }
 }
 
