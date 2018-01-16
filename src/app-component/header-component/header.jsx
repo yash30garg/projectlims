@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import '../../logo.svg';
 import '../App.css';
-import SearchBar from './searchbar/searchBar.jsx';
 // import Search from '../search-component/Search'; import './header.css';
 // import PBooks from
 // '../main-component/admin-component/PreferredBooks/PrefferdBooks.jsx'; import
@@ -9,7 +8,6 @@ import SearchBar from './searchbar/searchBar.jsx';
 import { AuthenticationContext } from 'react-adal'
 import { authContext } from '../../adalConfig.js'
 import './header.css'
-import searchBar from './searchbar/searchBar.jsx';
 import { Link } from 'react-router-dom';
 export var key;
 let url = `https://social.mindtree.com/User%20Photos/Profile%20Pictures/m${localStorage.getItem('mid')}_MThumb.jpg?t=63646089488`;
