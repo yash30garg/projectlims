@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import '../../logo.svg';
 import '../App.css';
-import SearchBar from './searchbar/searchBar.jsx';
 // import Search from '../search-component/Search'; import './header.css';
 // import PBooks from
 // '../main-component/admin-component/PreferredBooks/PrefferdBooks.jsx'; import
@@ -9,7 +8,6 @@ import SearchBar from './searchbar/searchBar.jsx';
 import { AuthenticationContext } from 'react-adal'
 import { authContext } from '../../adalConfig.js'
 import './header.css'
-import searchBar from './searchbar/searchBar.jsx';
 import { Link } from 'react-router-dom';
 export var key;
 export let url = `https://social.mindtree.com/User%20Photos/Profile%20Pictures/m${localStorage.getItem('mid')}_MThumb.jpg?t=63646089488`;
@@ -36,8 +34,6 @@ class Header extends Component {
 
     return (
       <div>
-
-
         <nav className="navbar navbar-toggleable-md navbar-light bg-faded" style={{ backgroundColor: "#614126" }}>
           <button style={{ backgroundColor: '#fff' }}
             className="navbar-toggler navbar-toggler-right"
@@ -49,98 +45,72 @@ class Header extends Component {
             aria-label="Toggle navigation">
             <span style={{ backgroundColor: '#fff' }} className="navbar-toggler-icon"></span>
           </button>
-          <a ><img
+          <div><img
             className="App-logo"
             src={"https://www.mindtree.com/themes/custom/mindtree_theme/logo.svg "}
-
-
             alt="My logo"
-            align="left" /></a>
+            align="left"/></div>
           <Link to="/">
-            <a className="navbar-brand" style={{ color: "white" }}>Mindtree Library</a>
+            <div className="navbar-brand" style={{ color: "white" }}>Mindtree Library</div>
           </Link>
           <Link to="/search" style={{ textDecoration: 'none' }}>
             <div className="col-lg-9">
-
               <div className="row offset-md-3">
                 <div className="input-group">
-
                   <input type="text" id="key" className="form-control" size="800" style={{ alignSelf: "center" }} placeholder="Search for..." />
-
-
                   <button className="btn btn-primary" onClick={this.handle} type="button" style={{ backgroundColor: "#614126", borderColor: "#fff" }} >Go!</button>
-
-
-
-
-
-
                 </div>
               </div>
             </div>
           </Link>
           <div className="collapse navbar-collapse" id="navbarNavDropdown">
-
             <ul className="navbar-nav ml-auto">
-
               <li className="dropdown" style={{color:"white"}}>
                 <div data-toggle="dropdown">Hi {user_name.substring(1, user_name.length-1)} <img className="inset" src={url} />
                 <span className="dropdown-toggle"></span></div>
                 <ul className="dropdown-menu dropdown-menu-right" align="center">
                   <li className="well" align="center">
-                    <Link to="/profile"><a href="#" className="btn btn-outline-primary">Profile</a></Link></li>
+                    <Link to="/profile"><div href="#" className="btn btn-outline-primary">Profile</div></Link></li>
                     <hr/>
                     <li align="center">
-                    <a href="#" onClick={this.logout} className="btn btn-outline-primary"><span className="fa fa-lock"></span> Logout</a></li>
+                    <div href="#" onClick={this.logout} className="btn btn-outline-primary"><span className="fa fa-lock"></span> Logout</div></li>
                 </ul>
               </li>
-
-
               {/*<Link to="/profile">
-
                 <li className="nav-item" >
-                  <a className="nav-link" href="#" style={{ color: "white" }}><span class="fa fa-user"></span>profile
-                </a>
-
+                  <div className="nav-link" href="#" style={{ color: "white" }}><span class="fa fa-user"></span>profile
+                </div>
                 </li>
               </Link>
-
               <Link to="/">
                 <li className="nav-item active"></li>
                 <li className="nav-item" onClick={this.logout} >
-                  <a className="nav-link" href="#" style={{ color: "white" }}><span class="fa fa-lock"></span>logout
-                </a>
+                  <div className="nav-link" href="#" style={{ color: "white" }}><span class="fa fa-lock"></span>logout
+                </div>
                 </li>
               </Link>*/}
-
-
-
-              {/*<li className="nav-item dropdown">
+            {/*<li className="nav-item dropdown">
                 <Link to="/profile">
-                  <a className="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style={{color : "white"}}>
+                  <div className="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style={{color : "white"}}>
                   Profile
-                </a>
-                </Link>
-                
+                </div>
+                </Link>           
                 <div
                   className="dropdown-menu dropdown-menu-right"
                   aria-labelledby="navbarDropdownMenuLink">
                   <Link to="/profile">
-                  <a className="dropdown-item" href="#">Preferences</a>
+                  <div className="dropdown-item" href="#">Preferences</div>
                   </Link>
-                  <a className="dropdown-item" href="#">Settings</a>
+                  <div className="dropdown-item" href="#">Settings</div>
                   <div className="dropdown-divider"></div>
-                  <a className="dropdown-item" href="#">Logout</a>
+                  <div className="dropdown-item" href="#">Logout</div>
                 </div>*/}
               {/*</li>*/}
             </ul>
           </div>
-
         </nav>
       </div>
-
     )
   }
 }
-
 export default Header;

@@ -25,32 +25,21 @@ class Footer extends Component {
                     <h1 className="title-widget" style={{textAlign :"left"}}>Useful links</h1>
 
                     <ul>
-                      <Link to="/booktor">
-                      <li style={{ textAlign: "left" }}><a href="#"><i className="fa fa-angle-double-right"></i> About Us</a></li>
+                      <Link to="/aboutus">
+
+                      <li style={{ textAlign: "left" }}><i className="fa fa-angle-double-right"></i> About Us</li>
+
                       </Link>
-                      <li style={{ textAlign: "left" }}><a href="#"><i className="fa fa-angle-double-right"></i> Contact Us</a></li>
-
+                      <li style={{ textAlign: "left" }}><i className="fa fa-angle-double-right"></i> Contact Us</li>
                     </ul>
-
                   </li>
-
                 </ul>
-
-
               </div>
-
-
-
               <div className="col-lg-3 col-md-3">
-
                 <ul className="list-unstyled clear-margins">
-
                   <li className="widget-container-fluid widget_nav_menu">
-
                     <h1 className="title-widget" style={{textAlign :"left"}}>Useful links</h1>
-
                     <ul>
-
                       <li style={{ textAlign: "left" }}><a href="#"><i className="fa fa-angle-double-right"></i>  UG Courses</a></li>
                       <li style={{ textAlign: "left" }}><a href="#"><i className="fa fa-angle-double-right"></i>  Satellite Education</a></li>
                       <li style={{ textAlign: "left" }}><a href="#"><i className="fa fa-angle-double-right"></i>  Study Centres</a></li>
@@ -108,12 +97,12 @@ class Footer extends Component {
                     <div className="social-icons">
 
                       <ul className="nomargin">
-
+                      <div>
                         <a href="https://www.facebook.com/bootsnipp" style={{ textAlign: "left" ,marginLeft : "0px" }}><i className="fa fa-facebook-square fa-3x social-fb" id="social"></i></a>
                         <a href="https://twitter.com/bootsnipp" style={{ textAlign: "left" }}><i className="fa fa-twitter-square fa-3x social-tw" id="social"></i></a>
                         <a href="https://plus.google.com/+Bootsnipp-page" style={{ textAlign: "left" }}><i className="fa fa-google-plus-square fa-3x social-gp" id="social"></i></a>
                         <a href="mailto:bootsnipp@gmail.com" style={{ textAlign: "left" }}><i className="fa fa-envelope-square fa-3x social-em" id="social"></i></a>
-
+                        </div>
                       </ul>
 
                     </div>

@@ -132,22 +132,22 @@ class PBooks extends Component {
                             </ol>
                         </div>
                     </div>
-                    <a
+                    <div
                         className="carousel-control-prev"
                         href="#carouselExampleIndicators"
                         role="button"
                         data-slide="prev">
                         <span className="arrowLeft" aria-hidden="true" style={{color : "#26a69a"}}></span>
                         <span className="sr-only" style={{color : "#26a69a"}}>Previous</span>
-                    </a>
-                    <a
+                    </div>
+                    <div
                         className="carousel-control-next"
                         href="#carouselExampleIndicators"
                         role="button"
                         data-slide="next">
                         <span className="arrowRight" aria-hidden="true"></span>
                         <span className="sr-only arrow">Next</span>
-                    </a>
+                    </div>
                 </div>
                 <div id="myModal" className="modal">
                     <span className="close">&times;</span>
