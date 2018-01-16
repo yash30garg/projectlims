@@ -186,18 +186,18 @@ export default class Search extends Component {
     render() {
         return (
             <div>
-                <nav className="navbar navbar-toggleable-md navbar-light bg-faded " style={{backgroundColor:"#614126"}}>
+                <nav className="navbar navbar-toggleable-md navbar-light bg-faded " style={{backgroundColor:"#614126",height:'65px'}}>
                     <a ><img
-                        className="App-logo"
+                        className="App-logo inset"
                         src={"https://www.mindtree.com/themes/custom/mindtree_theme/logo.svg"}
                         alt="My logo"
                         align="left" /></a>
                         <Link to="/home">
-                    <a className="navbar-brand" href="#" style={{color:"white"}}>Mindtree Library</a>
+                    <a className="navbar-brand" href="#" style={{color:"white",paddingLeft:'15px'}}>Mindtree Library</a>
                     </Link>
                     <form onSubmit={this.search}>
-                        <div className="col-lg-9">
-                            <div className="row offset-md-3">
+                        <div className="col-lg-6">
+                            
                                 <div className="input-group">
 
                                     <input type="text" id="search" className="form-control" size="800" style={{ alignSelf: "center",borderColor:"#8B4513"}} placeholder="Search for..." onKeyUp={debounce(this.search, 700)} autoFocus />
@@ -213,7 +213,6 @@ export default class Search extends Component {
                                     </span>
                                 </div>
                             </div>
-                        </div>
                     </form>
                     {/*<a className="close"><label id="close" onClick={this.back}><h4>x</h4></label></a>*/}
                     <a className="close" style={{color:"white",border:"white"}}><button className="btn btn-outline-primary" onClick={this.back} style={{backgroundColor:"#fff",borderColor:"#fff",color:"#000"}}>back</button></a>
