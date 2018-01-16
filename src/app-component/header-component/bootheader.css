@@ -325,6 +325,7 @@ width: 25%
 .particular
 {
     cursor: pointer;
+    width:130px;
 }
 
 .contained > .breadcrumb 
@@ -340,4 +341,11 @@ ul li{
 }
 li{
   cursor:pointer;
+}
+
+@media only screen and (max-width: 500px) {
+    .setWidth {
+        background-color: lightblue;
+        width:100px;
+    }
 }
