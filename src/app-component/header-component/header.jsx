@@ -60,9 +60,9 @@ class Header extends Component {
             <a className="navbar-brand" style={{ color: "white" }}>Mindtree Library</a>
           </Link>
           <Link to="/search" style={{ textDecoration: 'none' }}>
-            <div className="col-lg-9 row offset-md-3">
+            <div className="col-lg-9">
 
-              {/*<div className="row offset-md-3">*/}
+              <div className="row offset-md-3">
                 <div className="input-group">
 
                   <input type="text" id="key" className="form-control" size="800" style={{ alignSelf: "center" }} placeholder="Search for..." />
@@ -76,7 +76,7 @@ class Header extends Component {
 
 
                 </div>
-              {/*</div>*/}
+              </div>
             </div>
           </Link>
           <div className="collapse navbar-collapse" id="navbarNavDropdown">
@@ -84,11 +84,11 @@ class Header extends Component {
             <ul className="navbar-nav ml-auto">
 
               <li className="dropdown" style={{color:"white"}}>
-                Hi {user_name.substring(1, user_name.length-1)} <img style={{padding: "2%"}} className="inset dropdown-toggle" data-toggle="dropdown" src={url} />
+                Hi {user_name.substring(1, user_name.length-1)} <img className="inset dropdown-toggle" data-toggle="dropdown" src={url} />
                 <span className="dropdown-toggle"></span>
-                <ul className="dropdown-menu dropdown-menu-right">
-                  <li className="well">
-                    <div><img className="inset img-responsive" style={{ padding: "2%" }} src={url} /><span><Link to="/profile"><a href="#" className="btn btn-outline-primary">Profile</a></Link></span></div></li>
+                <ul className="dropdown-menu dropdown-menu-right" align="center">
+                  <li className="well" align="center">
+                    <Link to="/profile"><a href="#" className="btn btn-outline-primary">Profile</a></Link></li>
                     <hr/>
                     <li align="center">
                     <a href="#" onClick={this.logout} className="btn btn-outline-primary"><span className="fa fa-lock"></span> Logout</a></li>
