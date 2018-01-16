@@ -22,25 +22,6 @@ class SearchResults extends Component
         //     });
     }
 
-    /*openModal=(arg)=>
-    {
-        var modal = document.getElementById('myModal');
-        var img = document.getElementById(arg.isbn);
-        var modalImg = document.getElementById("img01");
-        var captionText = document.getElementById("caption");
-        modal.style.display = "block";
-        modalImg.src = arg.details.url;
-        captionText.innerHTML = `<b>Title: </b>${arg.details.title}<br>
-        <b>Category: </b>${arg.details.category}</br>
-        <b>Author: </b>${arg.details.author}</br>
-        <b>Publisher: </b>${arg.details.publisher}</br>
-        <b>Rating: </b>${arg.details.rating} star</br>
-        <b>Copies Available: </b>${arg.details.copies}</br>`;
-        var span = document.getElementsByClassName("close")[0];
-        span.onclick = function() {
-          modal.style.display = "none";
-        }
-    }*/
     handle(res){
         window.selected=res;
     }
@@ -55,14 +36,26 @@ class SearchResults extends Component
                             id={res.isbn}
                             className="card particular"
                             style={{
-                            width: '13rem',
+                            width: '200px',
+                            height:'16rem',
                             paddingBottom: '0px'
                         }} onClick={()=>this.handle(res)}>
                             <img
                                 className="card-img-top"
                                 src={res.details.url}
                                 alt="not available"
+                                style={{padding:"0px"}}
                                 height="200vh"/>
+                               {/* {res.details.rating} <span
+                                                className="fa fa-star"
+                                                style={{
+                                                color: '#FFD700',
+                                                fontSize:'13px',
+                                                paddingTop:"0px"
+                                            }}></span><br/>*/}
+                                <div className="card-block">
+                                {res.details.title}
+                                </div>
                             <div className="overlay" style={{backgroundColor: "rgba(97,65,38,0.9)"}}>
                                 <div className="text container-fluid">
                                     {res.details.title}<br/>
