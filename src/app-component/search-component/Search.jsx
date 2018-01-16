@@ -26,7 +26,7 @@ export default class Search extends Component {
             .flatMap((response) => response.json())
             .subscribe(values => {
                 this.setState({ data: values })
-                console.log(this.state.data.booksArray);
+                // console.log(this.state.data.booksArray);
             })
     }
     componentWillMount() {
@@ -34,13 +34,13 @@ export default class Search extends Component {
     }
     search = (event) => {
         let value = document.getElementById("search").value.toLowerCase();
-        console.log(document.getElementById("search").value)
+        // console.log(document.getElementById("search").value)
 
-        console.log(this.state.data)
+        // console.log(this.state.data)
 
         this.setState({ searchTerm: document.getElementById("search").value.toLowerCase() })
 
-        console.log(this.state.data)
+        // console.log(this.state.data)
         this.datax = this.state.data.booksArray.filter((data3) =>
             (data3.details.title.toLowerCase().indexOf(value) >= 0 ||
                 data3.details.author.toLowerCase().indexOf(value) >= 0 ||
@@ -49,18 +49,18 @@ export default class Search extends Component {
             value !== '').sort((a,b)=>{return(b.details.rating-a.details.rating)});
         this.dataOrg = this.datax;
         processedData = this.datax;
-        console.log(processedData)
+        // console.log(processedData)
 
 
         this.setState({ sortedData: this.datax })
         // console.log(this.state.sortedData)
 
 
-        console.log(this.state.sortedData)
+        // console.log(this.state.sortedData)
         this.setState({ sortedData: this.datax })
         // console.log(this.state.sortedData)
 
-        console.log(this.state.sortedData)
+        // console.log(this.state.sortedData)
         event.preventDefault();
 
 
@@ -101,8 +101,8 @@ export default class Search extends Component {
         }
         )
         processedData = this.state.sortedData;
-        console.log(processedData)
-        console.log("Sorted by Title");
+        // console.log(processedData)
+        // console.log("Sorted by Title");
         this.setState({ temp: 1 })
     }
     sortAuthor() {
@@ -125,8 +125,8 @@ export default class Search extends Component {
         }
         )
         processedData = this.state.sortedData;
-        console.log(processedData)
-        console.log("Sorted by Author");
+        // console.log(processedData)
+        // console.log("Sorted by Author");
         this.setState({ temp: 1 })
     }
     sortPublish() {
@@ -149,8 +149,8 @@ export default class Search extends Component {
         }
         )
         processedData = this.state.sortedData;
-        console.log(processedData)
-        console.log("Sorted by Publisher");
+        // console.log(processedData)
+        // console.log("Sorted by Publisher");
         this.setState({ temp: 1 })
     }
     sortRating() {
@@ -173,8 +173,8 @@ export default class Search extends Component {
         }
         )
         processedData = this.state.sortedData;
-        console.log(processedData)
-        console.log("Sorted by Rating");
+        // console.log(processedData)
+        // console.log("Sorted by Rating");
         this.setState({ temp: 1 })
     }
     
@@ -187,13 +187,14 @@ export default class Search extends Component {
         return (
             <div>
                 <nav className="navbar navbar-toggleable-md navbar-light bg-faded " style={{backgroundColor:"#614126",height:'65px'}}>
-                    <a ><img
+                    <div ><img
                         className="App-logo inset"
                         src={"https://www.mindtree.com/themes/custom/mindtree_theme/logo.svg"}
                         alt="My logo"
-                        align="left" /></a>
+                        align="left" /></div>
                         <Link to="/home">
-                    <a className="navbar-brand" href="#" style={{color:"white",paddingLeft:'15px'}}>Mindtree Library</a>
+                    <div className="navbar-brand" style={{color:"white",paddingLeft:'15px'}}>Mindtree Library</div>
+
                     </Link>
                     <form onSubmit={this.search}>
                         <div className="col-lg-6">
@@ -214,8 +215,8 @@ export default class Search extends Component {
                                 </div>
                             </div>
                     </form>
-                    {/*<a className="close"><label id="close" onClick={this.back}><h4>x</h4></label></a>*/}
-                    <a className="close" style={{color:"white",border:"white"}}><button className="btn btn-outline-primary" onClick={this.back} style={{backgroundColor:"#fff",borderColor:"#fff",color:"#000"}}>back</button></a>
+                    {/*<div className="close"><label id="close" onClick={this.back}><h4>x</h4></label></div>*/}
+                    <div className="close" style={{color:"white",border:"white"}}><button className="btn btn-outline-primary" onClick={this.back} style={{backgroundColor:"#fff",borderColor:"#fff",color:"#000"}}>back</button></div>
                 </nav>
                 <div className="content">
                     <SearchResults result={this.state.sortedData} />
