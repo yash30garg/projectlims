@@ -18,8 +18,10 @@ export default class AboutUs extends Component {
     }
     render() {
         return (
-            <div >
-                <Header />
+            <div className="container-fluid" >
+         
+    
+<Header />
                 <br />
 
 
@@ -148,6 +150,7 @@ export default class AboutUs extends Component {
 
 
                     <Footer />
+                
                 </div >
 
 
