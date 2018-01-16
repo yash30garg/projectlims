@@ -60,9 +60,9 @@ class Header extends Component {
             <a className="navbar-brand" style={{ color: "white" }}>Mindtree Library</a>
           </Link>
           <Link to="/search" style={{ textDecoration: 'none' }}>
-            <div className="col-lg-9 row offset-md-3">
+            <div className="col-lg-9">
 
-              {/*<div className="row offset-md-3">*/}
+              <div className="row offset-md-3">
                 <div className="input-group">
 
                   <input type="text" id="key" className="form-control" size="800" style={{ alignSelf: "center" }} placeholder="Search for..." />
@@ -76,7 +76,7 @@ class Header extends Component {
 
 
                 </div>
-              {/*</div>*/}
+              </div>
             </div>
           </Link>
           <div className="collapse navbar-collapse" id="navbarNavDropdown">
