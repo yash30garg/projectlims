@@ -29,28 +29,15 @@ class Footer extends Component {
                       <li style={{ textAlign: "left" }}><i className="fa fa-angle-double-right"></i> About Us</li>
                       </Link>
                       <li style={{ textAlign: "left" }}><i className="fa fa-angle-double-right"></i> Contact Us</li>
-
                     </ul>
-
                   </li>
-
                 </ul>
-
-
               </div>
-
-
-
               <div className="col-lg-3 col-md-3">
-
                 <ul className="list-unstyled clear-margins">
-
                   <li className="widget-container-fluid widget_nav_menu">
-
                     <h1 className="title-widget" style={{textAlign :"left"}}>Useful links</h1>
-
                     <ul>
-
                       <li style={{ textAlign: "left" }}><a href="#"><i className="fa fa-angle-double-right"></i>  UG Courses</a></li>
                       <li style={{ textAlign: "left" }}><a href="#"><i className="fa fa-angle-double-right"></i>  Satellite Education</a></li>
                       <li style={{ textAlign: "left" }}><a href="#"><i className="fa fa-angle-double-right"></i>  Study Centres</a></li>

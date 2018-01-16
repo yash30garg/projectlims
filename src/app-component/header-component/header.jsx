@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import '../../logo.svg';
 import '../App.css';
-import SearchBar from './searchbar/searchBar.jsx';
 // import Search from '../search-component/Search'; import './header.css';
 // import PBooks from
 // '../main-component/admin-component/PreferredBooks/PrefferdBooks.jsx'; import
@@ -9,10 +8,9 @@ import SearchBar from './searchbar/searchBar.jsx';
 import { AuthenticationContext } from 'react-adal'
 import { authContext } from '../../adalConfig.js'
 import './header.css'
-import searchBar from './searchbar/searchBar.jsx';
 import { Link } from 'react-router-dom';
 export var key;
-let url = `https://social.mindtree.com/User%20Photos/Profile%20Pictures/m${localStorage.getItem('mid')}_MThumb.jpg?t=63646089488`;
+export let url = `https://social.mindtree.com/User%20Photos/Profile%20Pictures/m${localStorage.getItem('mid')}_MThumb.jpg?t=63646089488`;
 let user_name = localStorage.getItem('user-name')
 class Header extends Component {
   handle() {
@@ -68,8 +66,8 @@ class Header extends Component {
           <div className="collapse navbar-collapse" id="navbarNavDropdown">
             <ul className="navbar-nav ml-auto">
               <li className="dropdown" style={{color:"white"}}>
-                Hi {user_name.substring(1, user_name.length-1)} <img className="inset dropdown-toggle" data-toggle="dropdown" src={url} />
-                <span className="dropdown-toggle"></span>
+                <div data-toggle="dropdown">Hi {user_name.substring(1, user_name.length-1)} <img className="inset" src={url} />
+                <span className="dropdown-toggle"></span></div>
                 <ul className="dropdown-menu dropdown-menu-right" align="center">
                   <li className="well" align="center">
                     <Link to="/profile"><div href="#" className="btn btn-outline-primary">Profile</div></Link></li>
