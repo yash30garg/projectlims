@@ -55,16 +55,18 @@ class Footer extends Component {
                       <li style={{ textAlign: "left" }}><a href="#"><i className="fa fa-angle-double-right"></i>  Satellite Education</a></li>
                       <li style={{ textAlign: "left" }}><a href="#"><i className="fa fa-angle-double-right"></i>  Study Centres</a></li>
 
+   </ul>
+  
+</li>
+</ul>
 
-                    </ul>
-
-                  </li>
-
-                </ul>
+</div>
 
 
-              </div>
 
+
+
+              
 
 
 
@@ -161,7 +163,7 @@ class Footer extends Component {
 
       </div>
 
-      </div >
+      </div>
 
     )
   }
