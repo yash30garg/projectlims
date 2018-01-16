@@ -50,7 +50,6 @@ class App extends Component {
                 if(b.length!==0){
                 window.bbooks=b[0].borrowedbooks;
                 localStorage.setItem('bbooks',JSON.stringify(window.bbooks));
-                console.log(window.bbooks.length)
               }
               else{
                 const c = window.users.filter((res) => res.user.mid === "1042948")

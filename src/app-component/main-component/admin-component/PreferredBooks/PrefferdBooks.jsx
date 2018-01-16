@@ -19,24 +19,8 @@ class PBooks extends Component {
             .get('https://api.myjson.com/bins/1a9rkj')
             .then(res => {
                 this.setState({display: res.data.booksArray});
-                console.log(this.state.display);
             })
     }
-
-    //    callModal=(arg)=>     {         console.log(this.state.storeId);
-    // var modal = document.getElementById('myModal');         var img =
-    // document.getElementById(arg.isbn);         var modalImg =
-    // document.getElementById("img01");         var captionText =
-    // document.getElementById("caption");         modal.style.display = "block";
-    //      modalImg.src = arg.details.url;         captionText.innerHTML =
-    // `<b>Title: </b>${arg.details.title}<br>         <b>Category:
-    // </b>${arg.details.category}</br>         <b>Author:
-    // </b>${arg.details.author}</br>         <b>Publisher:
-    // </b>${arg.details.publisher}</br>         <b>Rating:
-    // </b>${arg.details.rating} star</br>         <b>Copies Available:
-    // </b>${arg.details.copies}</br>`;         var span =
-    // document.getElementsByClassName("close")[0];         span.onclick =
-    // function() {           modal.style.display = "none";         }     }
 
     render()
     {
@@ -71,21 +55,18 @@ class PBooks extends Component {
             b = this
                 .state
                 .display
-                .filter((res) => res.details.rating >= 1 && (res.details.category == "React" || res.details.category == "react"));
+                .filter((res) => res.details.rating >= 1 && 
+                (res.details.category == "React" || res.details.category == "react"));
             s3 = <div className="carousel-item mt-2">
                 {b
                     .slice(0, 6)
                     .map((r) => {
-                        return (<EachPrefferedCard key={r.isbn} item={r}/>);
+                        return (<EachPrefferedCard key={`book${r.isbn}`} item={r}/>);
                     })}
             </div>
         }
-
-
-
         return (
             <div>
-
                 <div
                     id="carouselExampleIndicators"
                     className="carousel slide"
@@ -163,9 +144,7 @@ class PBooks extends Component {
                     </div>
                 </div>
             </div>
-
         )
     }
 }
-
 export default PBooks;

@@ -30,7 +30,7 @@ class SearchResults extends Component
         let x = 0;;
         const a = processedData.map(res => {
             return (
-                <div className="col-lg-2 col-md-4 col-sm-6 col-xs-12 mt-4">
+                <div key={res.isbn} className="col-lg-2 col-md-4 col-sm-6 col-xs-12 mt-4">
                     <Link to="/search/details">
                         <div
                             id={res.isbn}
@@ -63,16 +63,10 @@ class SearchResults extends Component
                                     Category: {res.details.category}<br/> {[1, 2, 3, 4, 5].map(d => {
                                         if (res.details.rating >= d) 
                                             return <span
+                                            key={`starred${d}`}
                                                 className="fa fa-star mt-1"
                                                 style={{
                                                 color: '#FFD700',
-                                                fontSize:'13px'
-                                            }}></span>
-                                        else 
-                                            return <span
-                                                className="fa fa-star mt-1"
-                                                style={{
-                                                color: 'black',
                                                 fontSize:'13px'
                                             }}></span>
                                     })}
