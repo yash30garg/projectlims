@@ -2,7 +2,6 @@ import React, {Component}from 'react';
 import BootHeader from './../../header-component/bootheader.jsx';
 import Pbooks from '../admin-component/PreferredBooks/PrefferdBooks.jsx';
 import Footer from '../../footer-component/footer.jsx';
-import searchBar from '../../header-component/searchbar/searchBar.jsx';
 import axios from 'axios';
 import { BorrowedSlider } from './borrowedBooks/borrowedSlider';
 import {email,mid} from '../login-component/login.jsx';
@@ -37,7 +36,6 @@ componentWillMount() {
         return(
             <div>
             <BootHeader />
-            <searchBar />
             {/*<Pbooks/>*/}
             {/*<BorrowedSlider/>*/}
             {/*<Footer />*/}

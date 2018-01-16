@@ -14,7 +14,7 @@ import axios from 'axios';
 import BookAdmin from '../app-component/main-component/admin-component/BookHandler/bookshow.jsx';
 import HandleUsers from '../app-component/main-component/admin-component/adminDashboard/handleusers.jsx';
 import Profile from '../app-component/main-component/user-component/profileView/prodetails.jsx';
-
+import BookTor from '../app-component/booktor/booktor.jsx';
 import AboutUs from '../app-component/footer-component/AboutUs/aboutus.jsx';
 import {requireAuth} from './isLoggedIn.js'
 import { authContext } from '../adalConfig.js'
@@ -75,6 +75,7 @@ class App extends Component {
             <Route path="/profile" exact component={Profile} />
             <Route path="/aboutus" exact component={AboutUs} />
             <Route path="/admindash" exact component={DashBoard} />
+
             
 
           </Switch>
