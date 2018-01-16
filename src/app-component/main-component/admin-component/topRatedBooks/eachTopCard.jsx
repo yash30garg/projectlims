@@ -25,11 +25,18 @@ export class EachTopCard extends Component{
                 
             }}>
            <Link to="/search/details">
+           <div className="card particular" style={{width:"160px",height:"13rem"}}>
                 <img
-                    className="mx-auto"
+                    className="card-img-top mx-auto"
                     src={this.props.item.details.url}
-                    height="180px"
+                    // src="x"
+                    alt={`${this.props.item.details.title}`}
+                    height="160px"
                     width="100%"/>
+                    <div className="card-block" style={{width:"160px", fontSize:"14px"}}>
+                    {this.props.item.details.title}
+                    </div>
+                    
                 <div className="overlay" style={{backgroundColor : "rgba(97,65,38,0.9)"}}>
                     <div className="text container-fluid">
                         <b>{this.props.item.details.title}</b><br/>
@@ -53,6 +60,7 @@ export class EachTopCard extends Component{
                                     fontSize:'5px'
                                 }}></span>
                         })}
+                    </div>
                     </div>
                 </div>
             </Link>
