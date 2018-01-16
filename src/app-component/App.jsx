@@ -50,11 +50,13 @@ class App extends Component {
                 const b = window.users.filter((res) => res.user.mid === window.user)
                 if(b.length!==0){
                 window.bbooks=b[0].borrowedbooks;
+                localStorage.setItem('bbooks',JSON.stringify(window.bbooks));
                 console.log(window.bbooks.length)
               }
               else{
                 const c = window.users.filter((res) => res.user.mid === "1042948")
                 window.bbooks=c[0].borrowedbooks;
+                localStorage.setItem('bbooks',JSON.stringify(window.bbooks));                
               }
           }
         });

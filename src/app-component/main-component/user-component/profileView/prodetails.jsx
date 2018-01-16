@@ -3,6 +3,7 @@ import './prodetails.css';
 import Header from '../../../../app-component/header-component/header.jsx';
 import Footer from '../../../../app-component/footer-component/footer.jsx';
 import {requireAuth} from '../../../isLoggedIn.js'
+import {url} from '../../../header-component/header'
 class Profile extends Component {
 	componentWillMount() {
 		// requireAuth(window.location.href)
@@ -21,15 +22,14 @@ class Profile extends Component {
 			<div>
 				<div class="row grid clearfix">
 					<div class="col2 first">
-						
-						<h1>M S Dhoni</h1>
-						<p>India's most successful captain across all formats</p>
+						<h1>{JSON.parse(localStorage.getItem('limsuser')).profile.name}</h1>
+						<p>{JSON.parse(localStorage.getItem('limsuser')).profile.unique_name}</p>
 						
 					</div>
 					<div class="col2 last">
 						<div class="grid clearfix">
 							<div class="col3 first">
-								<h1>7</h1>
+								<h1>{JSON.parse(localStorage.getItem('bbooks')).length}</h1>
 								<span>Books Borrowed</span>
 							</div>
 							<div class="col3"><h1>9</h1>

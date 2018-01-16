@@ -12,7 +12,7 @@ import './header.css'
 import searchBar from './searchbar/searchBar.jsx';
 import { Link } from 'react-router-dom';
 export var key;
-let url = `https://social.mindtree.com/User%20Photos/Profile%20Pictures/m${localStorage.getItem('mid')}_MThumb.jpg?t=63646089488`;
+export let url = `https://social.mindtree.com/User%20Photos/Profile%20Pictures/m${localStorage.getItem('mid')}_MThumb.jpg?t=63646089488`;
 let user_name = localStorage.getItem('user-name')
 class Header extends Component {
   handle() {
