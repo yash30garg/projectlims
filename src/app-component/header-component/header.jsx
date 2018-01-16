@@ -84,8 +84,8 @@ class Header extends Component {
             <ul className="navbar-nav ml-auto">
 
               <li className="dropdown" style={{color:"white"}}>
-                Hi {user_name.substring(1, user_name.length-1)} <img className="inset dropdown-toggle" data-toggle="dropdown" src={url} />
-                <span className="dropdown-toggle"></span>
+                <div data-toggle="dropdown">Hi {user_name.substring(1, user_name.length-1)} <img className="inset" src={url} />
+                <span className="dropdown-toggle"></span></div>
                 <ul className="dropdown-menu dropdown-menu-right" align="center">
                   <li className="well" align="center">
                     <Link to="/profile"><a href="#" className="btn btn-outline-primary">Profile</a></Link></li>
