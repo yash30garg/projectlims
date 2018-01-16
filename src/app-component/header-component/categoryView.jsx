@@ -27,7 +27,7 @@ export const Category=(props)=>
 
     let b=filteredArray.map(res=>{   
         return(
-            <div>
+         
                     <div
                     onClick={()=>handle(res)}
             className="col-lg-2 col-md-4 col-sm-4 col-xs-4 mt-2 mb-3">
@@ -47,7 +47,7 @@ export const Category=(props)=>
                     src={res.details.url}
                     height="180px"
                     width="100%"/>
-                     <div className="overlay" style={{backgroundColor: "rgba(205,133,63,0.9)"}}>
+                     <div className="overlay" style={{backgroundColor: "rgba(97,65,38,0.9)"}}>
                     <div className="text container-fluid" >
                         <b>{res.details.title}</b><br/>
                         <b>Author :
@@ -84,7 +84,6 @@ export const Category=(props)=>
                 </div>
                 </Link>
                 </div>
-</div>
 </div>
 
         )
