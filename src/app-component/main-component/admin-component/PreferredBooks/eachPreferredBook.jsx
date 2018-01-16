@@ -25,14 +25,17 @@ class EachPrefferedCard extends Component{
                 //  onClick={()=>this.handle(res)}
                 id={this.props.key}
                 style={{
-                width: '150px'
+                    height:"13rem", width:"160px"
             }}>
                 <img
                     className="mx-auto"
                     
                     src={this.props.item.details.url}
-                    height="180px"
+                    height="160px"
                     width="100%"/>
+                    <div className="card-block" style={{width:"160px", fontSize:"14px"}}>
+                    {this.props.item.details.title}
+                    </div>
                 <div className="overlay" style={{backgroundColor : "rgba(97,65,38,0.9)"}}>
                     <div className="text container-fluid">
                         <b>{this.props.item.details.title}</b><br/>
@@ -58,15 +61,6 @@ class EachPrefferedCard extends Component{
                                     fontSize:'5px'
                                 }}></span>
                         })}
-                        <button
-                            class="btn mt-3"
-                            style={{
-                            backgroundColor: 'white',
-                            color: '#A0522D'
-                        }}>
-                    
-                            <b style={{fontSize:'14px'}}>Know More</b>
-                        </button>
                     </div>
                 </div>
             </div>
