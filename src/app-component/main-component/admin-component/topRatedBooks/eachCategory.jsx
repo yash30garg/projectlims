@@ -81,7 +81,7 @@ class EachCategory extends Component
                 id={this.props.isbn}
                 style={{
                 width: '150px',
-                height: '180px'
+                height: '13rem'
             }}>
                 <img className="my-5"
                     src={require('../../../../Assets/Images/viewPlus.png')}
