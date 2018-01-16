@@ -27,15 +27,19 @@ window.wishlist=[];
 class App extends Component {
   
   render() {
-    console.log(authContext._user);
+    console.log(authContext._user.profile.given_name);
     localStorage.setItem('limsuser', JSON.stringify(authContext._user))
+    localStorage.setItem('user-name',JSON.stringify(authContext._user.profile.given_name))
     console.log(localStorage.getItem('limsuser'))
-    console.log(AuthenticationContext.adalGetToken);
+    console.log(localStorage.getItem('adal.access.token.keyfa61fc30-ea79-4d93-8038-65273b42c71c'))
+    let value ="Bearer" + localStorage.getItem('adal.access.token.keyfa61fc30-ea79-4d93-8038-65273b42c71c')
+    // console.log(`https://graph.microsoft.com/beta/me/photo/${value}`)
     var UserDetails = JSON.parse(localStorage.getItem('limsuser'))
     let mid=UserDetails.userName.split("@");
     let res=mid[0].split("M")
     // alert(res[1])
     window.user=res[1];
+    localStorage.setItem('mid',res[1])
     
     // alert(window.user);
      axios.get('https://api.myjson.com/bins/14x90j')

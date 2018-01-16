@@ -8,19 +8,21 @@ import SearchBar from './searchbar/searchBar.jsx';
 // Footer from '../footer-component/footer.jsx';
 import { AuthenticationContext } from 'react-adal'
 import { authContext } from '../../adalConfig.js'
-
+import './header.css'
 import searchBar from './searchbar/searchBar.jsx';
 import { Link } from 'react-router-dom';
 export var key;
+let url = `https://social.mindtree.com/User%20Photos/Profile%20Pictures/m${localStorage.getItem('mid')}_MThumb.jpg?t=63646089488`;
+let user_name = localStorage.getItem('user-name')
 class Header extends Component {
   handle() {
     key = document.getElementById("key").value
     console.log(key)
   }
 
-    logout(e) {
-      e.preventDefault();
-      authContext.logOut();
+  logout(e) {
+    e.preventDefault();
+    authContext.logOut();
 
     // for (var i = 0; i < cookies.length; i++) {
     //     var cookie = cookies[i];
@@ -35,9 +37,9 @@ class Header extends Component {
     return (
       <div>
 
-        
-        <nav className="navbar navbar-toggleable-md navbar-light bg-faded" style={{backgroundColor:"#614126"}}>
-          <button style={{backgroundColor:'#fff'}}
+
+        <nav className="navbar navbar-toggleable-md navbar-light bg-faded" style={{ backgroundColor: "#614126" }}>
+          <button style={{ backgroundColor: '#fff' }}
             className="navbar-toggler navbar-toggler-right"
             type="button"
             data-toggle="collapse"
@@ -45,62 +47,73 @@ class Header extends Component {
             aria-controls="navbarNavDropdown"
             aria-expanded="false"
             aria-label="Toggle navigation">
-            <span style={{backgroundColor:'#fff'}} className="navbar-toggler-icon"></span>
+            <span style={{ backgroundColor: '#fff' }} className="navbar-toggler-icon"></span>
           </button>
           <a ><img
             className="App-logo"
-             src={"https://www.mindtree.com/themes/custom/mindtree_theme/logo.svg "}
+            src={"https://www.mindtree.com/themes/custom/mindtree_theme/logo.svg "}
 
 
             alt="My logo"
             align="left" /></a>
-            <Link to="/">
-          <a className="navbar-brand" style={{color : "white"}}>Mindtree Library</a>
+          <Link to="/">
+            <a className="navbar-brand" style={{ color: "white" }}>Mindtree Library</a>
           </Link>
-            <Link to="/search" style={{textDecoration:'none'}}>
-            <div className="col-lg-9">
-              
-              <div className="row offset-md-3">
+          <Link to="/search" style={{ textDecoration: 'none' }}>
+            <div className="col-lg-9row offset-md-3">
+
+              {/*<div className="row offset-md-3">*/}
                 <div className="input-group">
 
-                  <input type="text" id="key" className="form-control" size="800" style={{alignSelf: "center"}} placeholder="Search for..." />
-                 
-                   
-                      <button className="btn btn-primary" onClick={this.handle} type="button" style={{backgroundColor:"#614126",borderColor:"#fff"}} >Go!</button>
-                    
-                  
+                  <input type="text" id="key" className="form-control" size="800" style={{ alignSelf: "center" }} placeholder="Search for..." />
 
-                 
 
-                  
+                  <button className="btn btn-primary" onClick={this.handle} type="button" style={{ backgroundColor: "#614126", borderColor: "#fff" }} >Go!</button>
+
+
+
+
+
+
                 </div>
-              </div>
+              {/*</div>*/}
             </div>
-            </Link>
+          </Link>
           <div className="collapse navbar-collapse" id="navbarNavDropdown">
-            
+
             <ul className="navbar-nav ml-auto">
-            
-          
-            
-    <Link to="/profile">
-           
-              <li className="nav-item" >
-                <a className="nav-link" href="#" style={{color : "white"}}><span class="fa fa-user"></span>profile
-                </a>
-                
+
+              <li className="dropdown">
+                Hi {user_name.substring(1, user_name.length-1)} <img className="inset dropdown-toggle" data-toggle="dropdown" src={url} />
+                <span className="dropdown-toggle"></span>
+                <ul className="dropdown-menu dropdown-menu-right">
+                  <li className="well">
+                    <div><img className="inset img-responsive" style={{ padding: "2%" }} src={url} /><span><Link to="/profile"><a href="#" className="btn btn-outline-primary">Profile</a></Link></span></div></li>
+                    <hr/>
+                    <li align="center">
+                    <a href="#" onClick={this.logout} className="btn btn-outline-primary"><span className="fa fa-lock"></span> Logout</a></li>
+                </ul>
               </li>
+
+
+              {/*<Link to="/profile">
+
+                <li className="nav-item" >
+                  <a className="nav-link" href="#" style={{ color: "white" }}><span class="fa fa-user"></span>profile
+                </a>
+
+                </li>
               </Link>
 
               <Link to="/">
-              <li className="nav-item active"></li>
-              <li className="nav-item" onClick={this.logout} >
-                <a className="nav-link" href="#" style={{color : "white"}}><span class="fa fa-lock"></span>logout
+                <li className="nav-item active"></li>
+                <li className="nav-item" onClick={this.logout} >
+                  <a className="nav-link" href="#" style={{ color: "white" }}><span class="fa fa-lock"></span>logout
                 </a>
-              </li>
-             </Link>
+                </li>
+              </Link>*/}
 
-              
+
 
               {/*<li className="nav-item dropdown">
                 <Link to="/profile">
@@ -122,9 +135,9 @@ class Header extends Component {
               {/*</li>*/}
             </ul>
           </div>
-          
+
         </nav>
-</div>
+      </div>
 
     )
   }
