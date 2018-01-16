@@ -27,26 +27,27 @@ export const Category=(props)=>
 
     let b=filteredArray.map(res=>{   
         return(
-            <Link to="/search/details">
+         
                     <div
                     onClick={()=>handle(res)}
             className="col-lg-2 col-md-4 col-sm-4 col-xs-4 mt-2 mb-3">
-
+            
         <div
                 className="card-img particular mx-auto"
                 id={res.isbn}
                 style={{
 
-                width: '150px'
+               
 
 
             }}>
+            <Link to="/search/details">
                 <img
                     className="mx-auto"
                     src={res.details.url}
                     height="180px"
                     width="100%"/>
-                     <div className="overlay" style={{backgroundColor: "rgba(205,133,63,0.9)"}}>
+                     <div className="overlay" style={{backgroundColor: "rgba(97,65,38,0.9)"}}>
                     <div className="text container-fluid" >
                         <b>{res.details.title}</b><br/>
                         <b>Author :
@@ -81,9 +82,10 @@ export const Category=(props)=>
                         </button>
                     </div>
                 </div>
+                </Link>
                 </div>
 </div>
-</Link>
+
         )
 
     })
@@ -92,7 +94,7 @@ return(
         <ol className="breadcrumb" style={{backgroundColor : "#614126", color : "white"}}  >
         <h5 >{props.selected.toUpperCase()} <span style={{float:'right',cursor:'pointer',paddingLeft:'70px'}} onClick={props.categoryCrossClicked}>x</span></h5>
         </ol>
-    <div className="row">
+    <div className="row ml-1 mr-1">
      {b}
     </div>
     </div>

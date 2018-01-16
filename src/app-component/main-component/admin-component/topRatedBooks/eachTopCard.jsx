@@ -14,21 +14,23 @@ export class EachTopCard extends Component{
         let res=this.props.item;
     return(
         <div
-            className="col-lg-2 col-md-4 col-sm-6 col-xs-12 my-3">
-            <Link to="/search/details">
+            className="col-lg-2 col-md-6 col-sm-6 col-xs-6 my-3">
+            
             <div
             onClick={()=>this.handle(res)}
                 className="card-img particular mx-auto"
                 id={this.props.isbn}
                 style={{
                 width: '150px'
+                
             }}>
+           <Link to="/search/details">
                 <img
                     className="mx-auto"
                     src={this.props.item.details.url}
                     height="180px"
                     width="100%"/>
-                <div className="overlay" style={{backgroundColor : "rgba(205,133,63,0.9)"}}>
+                <div className="overlay" style={{backgroundColor : "rgba(97,65,38,0.9)"}}>
                     <div className="text container-fluid">
                         <b>{this.props.item.details.title}</b><br/>
                         <b>Author :
@@ -53,8 +55,9 @@ export class EachTopCard extends Component{
                         })}
                     </div>
                 </div>
-            </div>
             </Link>
+            </div>
+           
         </div>
     )
     }
