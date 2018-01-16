@@ -25,7 +25,7 @@ class Footer extends Component {
                     <h1 className="title-widget" style={{textAlign :"left"}}>Useful links</h1>
 
                     <ul>
-                      <Link to="/aboutus">
+                      <Link to="/booktor">
                       <li style={{ textAlign: "left" }}><a href="#"><i className="fa fa-angle-double-right"></i> About Us</a></li>
                       </Link>
                       <li style={{ textAlign: "left" }}><a href="#"><i className="fa fa-angle-double-right"></i> Contact Us</a></li>

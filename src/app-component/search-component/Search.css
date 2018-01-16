@@ -126,6 +126,7 @@ body{
 
 .card-block {
   white-space: nowrap;
+  color:rgb(97,65,38);
   width: 200px;
   word-wrap: break-word;
   display:block;

@@ -28,25 +28,25 @@ export const Category=(props)=>
     let b=filteredArray.map(res=>{   
         return(
          
-                    <div
-                    onClick={()=>handle(res)}
-            className="col-lg-2 col-md-4 col-sm-4 col-xs-4 mt-2 mb-3">
+                <div
+                onClick={()=>handle(res)}
+                className="col-lg-2 col-md-4 col-sm-4 col-xs-4 mt-2 mb-3">
             
         <div
                 className="card-img particular mx-auto"
                 id={res.isbn}
                 style={{
-
-               
-
-
+                    height:"13rem", width:"160px"
             }}>
             <Link to="/search/details">
                 <img
                     className="mx-auto"
                     src={res.details.url}
-                    height="180px"
+                    height="160px"
                     width="100%"/>
+                   <div className="card-block" style={{width:"160px", fontSize:"14px"}}>
+                    {res.details.title}
+                    </div>
                      <div className="overlay" style={{backgroundColor: "rgba(97,65,38,0.9)"}}>
                     <div className="text container-fluid" >
                         <b>{res.details.title}</b><br/>
@@ -70,16 +70,6 @@ export const Category=(props)=>
                                     fontSize:'5px'
                                 }}></span>
                         })}
-                        <button
-                            className="btn btn-block mt-3"
-                            style={{
-                            backgroundColor: 'white',
-                            color: 'rgb(205,133,63)'
-                            
-                        }}
-                            onClick={this.request}>
-                            <b style={{fontSize:'13px',marginLeft:'-5px'}}>REQUEST BOOK</b>
-                        </button>
                     </div>
                 </div>
                 </Link>
