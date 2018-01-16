@@ -23,7 +23,6 @@ class EachPrefferedCard extends Component{
                 className="card-img particular mx-auto"
                 onClick={this.handle}
                 //  onClick={()=>this.handle(res)}
-                id={this.props.key}
                 style={{
                     height:"13rem", width:"160px"
             }}>
@@ -47,17 +46,10 @@ class EachPrefferedCard extends Component{
                         {this.props.item.details.category}<br/> {[1, 2, 3, 4, 5].map(d => {
                             if (this.props.item.details.rating >= d) 
                                 return <span
-                                    class="fa fa-star"
+                                key={`goldStar${d}`}
+                                    className="fa fa-star"
                                     style={{
                                     color: '#ffd700',
-                                    fontSize:'5px'
-
-                                }}></span>
-                            else 
-                                return <span
-                                    class="fa fa-star"
-                                    style={{
-                                    color: 'black',
                                     fontSize:'5px'
                                 }}></span>
                         })}

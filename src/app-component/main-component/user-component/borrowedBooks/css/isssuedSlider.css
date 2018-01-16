@@ -9,6 +9,7 @@
 }
 
 .particular {
+    background-color: white;
   position: relative;
       -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
     -webkit-animation-duration: 1s; /* Safari 4.0 - 8.0 */

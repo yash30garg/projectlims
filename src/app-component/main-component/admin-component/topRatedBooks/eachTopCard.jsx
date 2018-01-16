@@ -46,19 +46,14 @@ export class EachTopCard extends Component{
                          {[1, 2, 3, 4, 5].map(d => {
                             if (this.props.item.details.rating >= d) 
                                 return <span
-                                    class="fa fa-star"
+                                    key={`gold${d}`}
+                                    className="fa fa-star"
                                     style={{
                                     color: '#ffd700',
                                     fontSize:'5px'
 
                                 }}></span>
-                            else 
-                                return <span
-                                    class="fa fa-star"
-                                    style={{
-                                    color: 'black',
-                                    fontSize:'5px'
-                                }}></span>
+                            
                         })}
                     </div>
                     </div>

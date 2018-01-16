@@ -29,6 +29,7 @@ export const Category=(props)=>
         return(
          
                 <div
+                key={`filter${res.isbn}`}
                 onClick={()=>handle(res)}
                 className="col-lg-2 col-md-4 col-sm-4 col-xs-4 mt-2 mb-3">
             
@@ -57,16 +58,10 @@ export const Category=(props)=>
 
                             if (res.details.rating >= d) 
                                 return <span
+                                key={`category${res.isbn}`}
                                     className="fa fa-star"
                                     style={{
                                     color: '#ffd700',
-                                    fontSize:'5px'
-                                }}></span>
-                            else 
-                                return <span
-                                    className="fa fa-star"
-                                    style={{
-                                    color: 'black',
                                     fontSize:'5px'
                                 }}></span>
                         })}
