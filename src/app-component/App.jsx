@@ -18,7 +18,6 @@ import Profile from '../app-component/main-component/user-component/profileView/
 import AboutUs from '../app-component/footer-component/AboutUs/aboutus.jsx';
 import {requireAuth} from './isLoggedIn.js'
 import { authContext } from '../adalConfig.js'
-
 import { AuthenticationContext, adalGetToken, adalFetch } from 'react-adal';
 
 let users;
