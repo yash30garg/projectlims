@@ -175,13 +175,13 @@ class BootHeader extends Component {
                                     .openCategory
                                     .bind(this, 'Java')}
                                     className="list-group-item  list-group-item-action" >
-                                    <span class="fa fa-asterisk" aria-hidden="true"></span>Java
+                                    <span className="fa fa-asterisk" aria-hidden="true"></span>Java
                                     <div
                                             className='mov'
                                             style={{
                                                 paddingRight: "227px"
                                             }}>
-                                    <span class="badge  badge-pill badge-warning ml-1">{this
+                                    <span className="badge  badge-pill badge-warning ml-1">{this
                                             .state
                                             .display
                                             .filter(r => r.details.category.toLowerCase() == "java")
@@ -207,23 +207,23 @@ class BootHeader extends Component {
 
                                         <a
                                             onClick={this.openBorrowedBooks}
-                                            class="list-group-item  list-group-item-action"
+                                            className="list-group-item  list-group-item-action"
                                             style={{
                                             background: " #FFF8DC"
                                         }}>
 
-                                            <span class="fa fa-arrow-right" aria-hidden="true"></span>
+                                            <span className="fa fa-arrow-right" aria-hidden="true"></span>
                                             Borrowed Books
 
                                         </a>
 
                                         <a
                                             onClick={this.openWishlist}
-                                            class="list-group-item  list-group-item-action"
+                                            className="list-group-item  list-group-item-action"
                                             style={{
                                             background: " #FFF8DC"
                                         }}>
-                                            <span class="fa fa-arrow-right" aria-hidden="true"></span>Wishlist {/* <div className="all">
+                                            <span className="fa fa-arrow-right" aria-hidden="true"></span>Wishlist {/* <div className="all">
 
                                             <span className="badge badge-pill badge-warning ml-1">0</span>
                                         </div>*/}
@@ -259,13 +259,13 @@ class BootHeader extends Component {
                                             </div>
                                         </div>
 
-                                        <div class="collapse show" id="navbaDropdown">
+                                        <div className="collapse show" id="navbaDropdown">
 
                                             <div
                                                 onClick={this
                                                 .openCategory
                                                 .bind(this, 'all')}
-                                                class=" row list-group-item  list-group-item-action ml-0"
+                                                className=" row list-group-item  list-group-item-action ml-0"
                                                 style={{
                                                 background: " #FFF8DC"
                                             }}>

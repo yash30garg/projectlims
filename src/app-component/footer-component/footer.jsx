@@ -26,9 +26,9 @@ class Footer extends Component {
 
                     <ul>
                       <Link to="/aboutus">
-                      <li style={{ textAlign: "left" }}><a href="#"><i className="fa fa-angle-double-right"></i> About Us</a></li>
+                      <li style={{ textAlign: "left" }}><i className="fa fa-angle-double-right"></i> About Us</li>
                       </Link>
-                      <li style={{ textAlign: "left" }}><a href="#"><i className="fa fa-angle-double-right"></i> Contact Us</a></li>
+                      <li style={{ textAlign: "left" }}><i className="fa fa-angle-double-right"></i> Contact Us</li>
 
                     </ul>
 
@@ -106,12 +106,12 @@ class Footer extends Component {
                     <div className="social-icons">
 
                       <ul className="nomargin">
-
+                      <div>
                         <a href="https://www.facebook.com/bootsnipp" style={{ textAlign: "left" ,marginLeft : "0px" }}><i className="fa fa-facebook-square fa-3x social-fb" id="social"></i></a>
                         <a href="https://twitter.com/bootsnipp" style={{ textAlign: "left" }}><i className="fa fa-twitter-square fa-3x social-tw" id="social"></i></a>
                         <a href="https://plus.google.com/+Bootsnipp-page" style={{ textAlign: "left" }}><i className="fa fa-google-plus-square fa-3x social-gp" id="social"></i></a>
                         <a href="mailto:bootsnipp@gmail.com" style={{ textAlign: "left" }}><i className="fa fa-envelope-square fa-3x social-em" id="social"></i></a>
-
+                        </div>
                       </ul>
 
                     </div>
