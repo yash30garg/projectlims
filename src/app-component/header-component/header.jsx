@@ -60,7 +60,7 @@ class Header extends Component {
             <a className="navbar-brand" style={{ color: "white" }}>Mindtree Library</a>
           </Link>
           <Link to="/search" style={{ textDecoration: 'none' }}>
-            <div className="col-lg-9row offset-md-3">
+            <div className="col-lg-9 row offset-md-3">
 
               {/*<div className="row offset-md-3">*/}
                 <div className="input-group">
@@ -83,8 +83,8 @@ class Header extends Component {
 
             <ul className="navbar-nav ml-auto">
 
-              <li className="dropdown">
-                Hi {user_name.substring(1, user_name.length-1)} <img className="inset dropdown-toggle" data-toggle="dropdown" src={url} />
+              <li className="dropdown" style={{color:"white"}}>
+                Hi {user_name.substring(1, user_name.length-1)} <img style={{padding: "2%"}} className="inset dropdown-toggle" data-toggle="dropdown" src={url} />
                 <span className="dropdown-toggle"></span>
                 <ul className="dropdown-menu dropdown-menu-right">
                   <li className="well">
