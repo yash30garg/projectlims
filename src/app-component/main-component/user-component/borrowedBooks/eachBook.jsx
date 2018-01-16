@@ -24,7 +24,7 @@ const Card = (props) => {
         <div
             className="overlay"
             style={{
-            backgroundColor: "rgba(205,133,63,0.9)"
+            backgroundColor: "rgba(97,65,38,0.9)"
         }}>
             <div className="text container-fluid">
                 <b>{props.data.details.title}</b><br/><br/>

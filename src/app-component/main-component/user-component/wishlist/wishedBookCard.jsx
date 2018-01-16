@@ -21,7 +21,7 @@ export const WishedCard=(props)=>
                     src={props.data.details.url}
                     height="180px"
                     width="100%"/>
-                 <div className="overlay" style={{backgroundColor : "	#CD853F"}}>
+                 <div className="overlay" style={{backgroundColor : "	rgba(97,65,38,0.9)"}}>
                     <div className="text container-fluid">
                         <b>{props.data.details.title}</b><br/>
                         <b>Author :
