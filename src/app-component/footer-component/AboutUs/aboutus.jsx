@@ -4,6 +4,7 @@ import Header from '../../header-component/header.jsx';
 import './aboutus.css';
 import $ from 'jquery';
 
+
 // import { requireAuth } from '../../isLoggedIn'
 export default class AboutUs extends Component {
 
@@ -17,7 +18,7 @@ export default class AboutUs extends Component {
     }
     render() {
         return (
-            <div>
+            <div >
                 <Header />
                 <br />
 
@@ -25,7 +26,7 @@ export default class AboutUs extends Component {
 
                 <div className="container-fluid">
                     <div className="maain">
-
+              
                         <h1>LiMS</h1>
                         <h4>STARS OF ORCHARD KALINGA</h4>
                         <h2>React Web-Tech</h2>
@@ -134,9 +135,10 @@ export default class AboutUs extends Component {
                         <h2 style={{ textAlign: "center" }}>testimony</h2>
                         <div class="testimony">
                             <div class="test-text ">
-                                <p>Revelation 12:101</p>
-                                <blockquote>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam maxime iusto exercitationem laborum tenetur inventore beatae ducimus magnam doloremque iste aperiam perspiciatis adipisci officia eos hic cupiditate odio, omnis eius aliquid.
-                    Atque assumenda expedita dicta illum quas dolore dignissimos minus! </blockquote>
+                                <p></p>
+                                <blockquote>It is the long history of humankind (and animal kind, too) that those who learned to collaborate and improvise most effectively have prevailed. </blockquote>
+                        <blockquote>   The strength of the team is each individual member. The strength of each member is the team.</blockquote>
+                           <blockquote>  Individual commitment to a group effort -- that is what makes a team work, a company work, a society work, a civilization work  </blockquote>
                             </div>
 
                             <div><img src="https://picsum.photos/569/437?image=856" alt="" /></div>
