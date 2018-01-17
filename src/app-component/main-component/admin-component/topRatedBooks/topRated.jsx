@@ -7,7 +7,7 @@ import { Category } from './../../../header-component/categoryView';
 class TopBooks extends Component{
         constructor() {
         super();
-        this.counting=0;
+        //this.counting=0;
         this.state={
             showTop:true,
             particularCategory:""
@@ -35,6 +35,7 @@ class TopBooks extends Component{
 
     render()
     {
+        let counting=0;
         let brr = [];
         let arr = window.display
   .sort((a, b) => {
@@ -62,9 +63,9 @@ class TopBooks extends Component{
                 if (brr.length !==0 ) {
                 let b = window.display;
                  k=brr.map(result=>{
-                     this.counting++;
+                     ++counting;
                     return(
-                        <EachCategory key={`ea${result.isbn}`} click={this.viewMoreClicked} category={result.details.category} rated={b} count={this.counting}/>   
+                        <EachCategory key={`ea${result.isbn}`} click={this.viewMoreClicked} category={result.details.category} rated={b} count={counting}/>   
                     );
                 })
             }
