@@ -19,7 +19,7 @@ import Profile from '../app-component/main-component/user-component/profileView/
 import AboutUs from '../app-component/footer-component/AboutUs/aboutus.jsx';
 import { authContext } from '../adalConfig.js'
 // import { AuthenticationContext, adalGetToken, adalFetch } from 'react-adal';
-export let user_name;
+
 // let users;
 window.display='';
 window.wishlist=[];
@@ -30,7 +30,6 @@ class App extends Component {
     localStorage.setItem('limsuser', JSON.stringify(authContext._user))
     localStorage.setItem('user-name',JSON.stringify(authContext._user.profile.given_name))
     console.log(localStorage.getItem('limsuser'))
-    user_name = localStorage.getItem('user-name')
     console.log(localStorage.getItem('adal.access.token.keyfa61fc30-ea79-4d93-8038-65273b42c71c'))
     // let value ="Bearer" + localStorage.getItem('adal.access.token.keyfa61fc30-ea79-4d93-8038-65273b42c71c')
     // console.log(`https://graph.microsoft.com/beta/me/photo/${value}`)
