@@ -1,2 +1,3 @@
 node_modules
-build
+src\adalConfig.js
+src\app-component\isLoggedIn.js
