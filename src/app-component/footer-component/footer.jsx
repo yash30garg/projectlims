@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './footer.css'
-import $ from 'jquery';
+// import $ from 'jquery';
 import { Link } from 'react-router-dom';
 
 class Footer extends Component {
@@ -40,9 +40,9 @@ class Footer extends Component {
                   <li className="widget-container-fluid widget_nav_menu">
                     <h1 className="title-widget" style={{textAlign :"left"}}>Useful links</h1>
                     <ul>
-                      <li style={{ textAlign: "left" }}><a href="#"><i className="fa fa-angle-double-right"></i>  UG Courses</a></li>
-                      <li style={{ textAlign: "left" }}><a href="#"><i className="fa fa-angle-double-right"></i>  Satellite Education</a></li>
-                      <li style={{ textAlign: "left" }}><a href="#"><i className="fa fa-angle-double-right"></i>  Study Centres</a></li>
+                      <li style={{ textAlign: "left" }}><a href="!#"><i className="fa fa-angle-double-right"></i>  UG Courses</a></li>
+                      <li style={{ textAlign: "left" }}><a href="!#"><i className="fa fa-angle-double-right"></i>  Satellite Education</a></li>
+                      <li style={{ textAlign: "left" }}><a href="!#"><i className="fa fa-angle-double-right"></i>  Study Centres</a></li>
 
    </ul>
   
@@ -140,7 +140,7 @@ class Footer extends Component {
 
               <div className="design">
 
-                <a href="#">LiMS </a> |  <a target="_blank" href="http://www.mindtree.com">Web Design & Development by Mindtree</a>
+                <a href="!#">LiMS </a> |  <a href="http://www.mindtree.com">Web Design & Development by Mindtree</a>
 
               </div>
 

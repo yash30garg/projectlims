@@ -6,7 +6,7 @@ import {requireAuth} from '../../../isLoggedIn.js'
 import {url} from '../../../header-component/header'
 class Profile extends Component {
 	componentWillMount() {
-		// requireAuth(window.location.href)
+		requireAuth(window.location.href)
 	}
   
   render() {

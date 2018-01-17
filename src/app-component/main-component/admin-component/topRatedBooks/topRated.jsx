@@ -1,6 +1,6 @@
 import React,{Component}from 'react';
 import EachCategory from './eachCategory';
-import axios from 'axios';
+// import axios from 'axios';
 import './topRated.css'
 import LoadingEffect from './../../../loading-component/loading';
 import { Category } from './../../../header-component/categoryView';
@@ -52,7 +52,7 @@ class TopBooks extends Component{
                 brr.push(arr[0]);
             }
         for (var i = 0; i < arr.length - 1; i++) {
-            if (arr[i].details.category.toUpperCase() != arr[i + 1].details.category.toUpperCase()) {
+            if (arr[i].details.category.toUpperCase() !== arr[i + 1].details.category.toUpperCase()) {
 
                 brr.push(arr[i+1]);
             }

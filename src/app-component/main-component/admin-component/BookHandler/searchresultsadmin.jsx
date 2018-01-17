@@ -1,17 +1,16 @@
 import React, {Component} from 'react';
 import {processedData} from './searchadmin.jsx';
-import $ from 'jquery';
+// import $ from 'jquery';
 import axios from 'axios';
 // import './searchdis.css';
-
-let users,
-    books;
+//eslint-disable-next-line
+let users, books;
 class SearchResultsAdmin extends Component
 {
-    constructor(props)
-    {
-        super(props);
-    }
+    // constructor(props)
+    // {
+    //     super(props);
+    // }
     componentDidMount()
     {
         axios
@@ -45,7 +44,6 @@ class SearchResultsAdmin extends Component
   
     render()
     {
-        let x=0;;
         const a = processedData.map(res => {
             return (
                 <div className="col-md-4 my-5">

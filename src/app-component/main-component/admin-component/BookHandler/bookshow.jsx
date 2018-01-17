@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import './bookshow.css';
 import { Link } from 'react-router-dom';
 // import SearchResultsAdmin from '../../../search-component/SearchResults.jsx';
 import SearchAdmin from './searchadmin';
 // import './searchdis.css';
-import Footer from '../../../footer-component/footer.jsx';
+// import Footer from '../../../footer-component/footer.jsx';
 import {requireAuth} from '../../../isLoggedIn.js'
 
 var count =0;
@@ -24,40 +24,40 @@ class BookAdmin extends Component {
                     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation"   >
                         <span class="navbar-toggler-icon"  style={{backgroundColor : "black"}}></span>
                     </button>
-                    <a class="navbar-brand" href="#">Admin Strap</a>
+                    <a class="navbar-brand" href="!#">Admin Strap</a>
 
                     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                         <ul class="navbar-nav mr-auto">
                             <Link to="/adminDash">
                             <li class="nav-item ">
-                                <a class="nav-link" href="#">DashBoard </a>
+                                <a class="nav-link" href="!#">DashBoard </a>
                             </li>
                             </Link>
                             <li class="nav-item active">
-                                <a class="nav-link" href="#">Books<span class="sr-only">(current)</span></a>
+                                <a class="nav-link" href="!#">Books<span class="sr-only">(current)</span></a>
                             </li>
                             
                             <Link to="/handleusers">
                             <li class="nav-item">
-                                <a class="nav-link " href="#">Users</a>
+                                <a class="nav-link " href="!#">Users</a>
                             </li>
                             </Link>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
                                 <div class="dropdown-menu" aria-labelledby="dropdown01">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
+                                    <a class="dropdown-item" href="!#">Action</a>
+                                    <a class="dropdown-item" href="!#">Another action</a>
+                                    <a class="dropdown-item" href="!#">Something else here</a>
                                 </div>
                             </li>
                         </ul>
 
                         <ul class="navbar-nav navbar-right">
                             <li class="nav-item active">
-                                <a class="nav-link" href="#"> Welcome Anirudh,  <span class="sr-only">(current)</span></a>
+                                <a class="nav-link" href="!#"> Welcome Anirudh,  <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">LogOut</a>
+                                <a class="nav-link" href="!#">LogOut</a>
                             </li>
                         </ul>
 
@@ -79,9 +79,9 @@ class BookAdmin extends Component {
                                         Create Content <span className="caret" /></button>
 
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="#">Add Books</a>
-                                        <a class="dropdown-item" href="#">Add ?</a>
-                                        <a class="dropdown-item" href="#">Add User </a>
+                                        <a class="dropdown-item" href="!#">Add Books</a>
+                                        <a class="dropdown-item" href="!#">Add ?</a>
+                                        <a class="dropdown-item" href="!#">Add User </a>
                                     </div>
                                 </div>
 
@@ -105,12 +105,12 @@ class BookAdmin extends Component {
                             <div className="col-md-3">
 
                                 <div className="list-group">
-                                    <a href="#" class="list-group-item active">
+                                    <a href="!#" class="list-group-item active">
                                         <span class="fa fa-cog" aria-hidden="true" ></span>  DashBoard</a>
-                                    <a href="#" class="list-group-item  list-group-item-action"> <span class="fa fa-list-alt" aria-hidden="true"></span>Total Books<div className='mov' style={{paddingRight : "170px"}} /><span class="badge  badge-pill badge-warning">100</span></a>
-                                    <a href="#" class="list-group-item  list-group-item-action"> <span class="fa fa-pencil" aria-hidden="true"></span>Books available<div className='mov' style={{paddingRight : "150px"}} /><span className="badge badge-pill badge-warning">75</span></a>
-                                    <a href="#" class="list-group-item  list-group-item-action"> <span class="fa fa-user" aria-hidden="true"></span>Users<div className='mov' style={{paddingRight : "227px"}} /><span className="badge badge-pill badge-warning mov">{count}</span></a>
-                                    {/*<a href="#" class="list-group-item list-group-item-action disabled">Vestibulum at eros</a>*/}
+                                    <a href="!#" class="list-group-item  list-group-item-action"> <span class="fa fa-list-alt" aria-hidden="true"></span>Total Books<div className='mov' style={{paddingRight : "170px"}} /><span class="badge  badge-pill badge-warning">100</span></a>
+                                    <a href="!#" class="list-group-item  list-group-item-action"> <span class="fa fa-pencil" aria-hidden="true"></span>Books available<div className='mov' style={{paddingRight : "150px"}} /><span className="badge badge-pill badge-warning">75</span></a>
+                                    <a href="!#" class="list-group-item  list-group-item-action"> <span class="fa fa-user" aria-hidden="true"></span>Users<div className='mov' style={{paddingRight : "227px"}} /><span className="badge badge-pill badge-warning mov">{count}</span></a>
+                                    {/*<a href="!#" class="list-group-item list-group-item-action disabled">Vestibulum at eros</a>*/}
                                 </div>
 
                                 <br />

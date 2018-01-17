@@ -4,13 +4,13 @@ import './dashboard.css';
 import '../../../App.css'
 import Footer from '../../../footer-component/footer.jsx';
 import { Link } from 'react-router-dom';
-import { UserBooks } from './../borrowedBooks';
+// import { UserBooks } from './../borrowedBooks';
 import {requireAuth} from '../../../isLoggedIn.js'
 
 var count = 0;
 class DashBoard extends Component {
     	componentWillMount() {
-		// requireAuth(window.location.href)
+		requireAuth(window.location.href)
 	}
 
     state = {
@@ -71,23 +71,23 @@ class DashBoard extends Component {
                                 backgroundColor: "black"
                             }}></span>
                     </button>
-                    <a class="navbar-brand" href="#">Admin Panel</a>
+                    <a class="navbar-brand" href="!#">Admin Panel</a>
 
                     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item active">
-                                <a class="nav-link" href="#">DashBoard
+                                <a class="nav-link" href="!#">DashBoard
                                     <span class="sr-only">(current)</span>
                                 </a>
                             </li>
                             <Link to="/adminbooks">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Books</a>
+                                    <a class="nav-link" href="!#">Books</a>
                                 </li>
                             </Link>
                             <Link to="/handleusers">
                                 <li class="nav-item">
-                                    <a class="nav-link " href="#">Users</a>
+                                    <a class="nav-link " href="!#">Users</a>
                                 </li>
                             </Link>
 
@@ -100,22 +100,22 @@ class DashBoard extends Component {
                                     aria-haspopup="true"
                                     aria-expanded="false">Dropdown</a>
                                 <div class="dropdown-menu" aria-labelledby="dropdown01">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
+                                    <a class="dropdown-item" href="!#">Action</a>
+                                    <a class="dropdown-item" href="!#">Another action</a>
+                                    <a class="dropdown-item" href="!#">Something else here</a>
                                 </div>
                             </li>*/}
                         </ul>
 
                         <ul class="navbar-nav navbar-right">
                             <li class="nav-item active">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="!#">
                                     Welcome Anirudh,
                                     <span class="sr-only">(current)</span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">LogOut</a>
+                                <a class="nav-link" href="!#">LogOut</a>
                             </li>
                         </ul>
 
@@ -151,9 +151,9 @@ class DashBoard extends Component {
                                         <span className="caret" /></button>
 
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="#">Add Books</a>
-                                        <a class="dropdown-item" href="#">Add ?</a>
-                                        <a class="dropdown-item" href="#">Add User
+                                        <a class="dropdown-item" href="!#">Add Books</a>
+                                        <a class="dropdown-item" href="!#">Add ?</a>
+                                        <a class="dropdown-item" href="!#">Add User
                                         </a>
                                     </div>
                                 </div>
@@ -184,10 +184,10 @@ class DashBoard extends Component {
                             <div className="col-md-3">
 
                                 <div className="list-group">
-                                    <a href="#" class="list-group-item active">
+                                    <a href="!#" class="list-group-item active">
                                         <span class="fa fa-cog" aria-hidden="true"></span>
                                         DashBoard</a>
-                                    <a href="#" class="list-group-item  list-group-item-action">
+                                    <a href="!#" class="list-group-item  list-group-item-action">
                                         <span class="fa fa-list-alt" aria-hidden="true"></span>Total Books<div
                                             className='mov'
                                             style={{
@@ -195,7 +195,7 @@ class DashBoard extends Component {
                                             }} />
                                         <span class="badge  badge-pill badge-warning">{this.state.display.length}</span>
                                     </a>
-                                    <a href="#" class="list-group-item  list-group-item-action">
+                                    <a href="!#" class="list-group-item  list-group-item-action">
                                         <span class="fa fa-pencil" aria-hidden="true"></span>Books available<div
                                             className='mov'
                                             style={{
@@ -203,7 +203,7 @@ class DashBoard extends Component {
                                             }} />
                                         <span className="badge badge-pill badge-warning">75</span>
                                     </a>
-                                    <a href="#" class="list-group-item  list-group-item-action">
+                                    <a href="!#" class="list-group-item  list-group-item-action">
                                         <span class="fa fa-user" aria-hidden="true"></span>Users<div
                                             className='mov'
                                             style={{
@@ -211,7 +211,7 @@ class DashBoard extends Component {
                                             }} />
                                         <span className="badge badge-pill badge-warning mov">{count}</span>
                                     </a>
-                                    {/*<a href="#" class="list-group-item list-group-item-action disabled">Vestibulum at eros</a>*/}
+                                    {/*<a href="!#" class="list-group-item list-group-item-action disabled">Vestibulum at eros</a>*/}
                                 </div>
 
                                 <br />

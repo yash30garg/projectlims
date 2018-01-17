@@ -1,4 +1,4 @@
-import { AuthenticationContext, adalGetToken, adalFetch } from 'react-adal';
+import { AuthenticationContext, adalFetch } from 'react-adal';
  
 export const adalConfig = {
   tenant: '85c997b9-f494-46b3-a11d-772983cf6f11',

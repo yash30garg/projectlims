@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import './bootheader.css';
 import {Link} from 'react-router-dom';
 let handle=(data)=>{
@@ -8,7 +8,7 @@ window.selected=data;
 export const Category=(props)=>
 {
     let filteredArray=[];
-    if(props.selected=="all")
+    if(props.selected==="all")
     {
           filteredArray=props.data.sort((a, b) => {
                 if (a.details.category.toUpperCase() > b.details.category.toUpperCase()) {
@@ -22,7 +22,7 @@ export const Category=(props)=>
     }
     else
     {
-    filteredArray=props.data.filter(r=>r.details.category.toLowerCase()==props.selected.toLowerCase()).sort((a,b)=>{return(b.details.rating-a.details.rating)})
+    filteredArray=props.data.filter(r=>r.details.category.toLowerCase()===props.selected.toLowerCase()).sort((a,b)=>{return(b.details.rating-a.details.rating)})
     }
 
     let b=filteredArray.map(res=>{   
@@ -41,6 +41,7 @@ export const Category=(props)=>
             }}>
             <Link to="/search/details">
                 <img
+                    alt=""
                     className="mx-auto"
                     src={res.details.url}
                     height="160px"
@@ -54,7 +55,9 @@ export const Category=(props)=>
                         <b>Author :
                         </b>
                         {res.details.author}<br/>
-                        {[1, 2, 3, 4, 5].map(d => {
+                        {
+                            //eslint-disable-next-line
+                            [1, 2, 3, 4, 5].map(d => {
 
                             if (res.details.rating >= d) 
                                 return <span
