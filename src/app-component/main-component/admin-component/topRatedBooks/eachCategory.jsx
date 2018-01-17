@@ -7,7 +7,6 @@ class EachCategory extends Component
     constructor(props)
     {
         super(props);
-        console.log(this.props.category);
         this.state={
             plus:"+",
             showable:"collapse",

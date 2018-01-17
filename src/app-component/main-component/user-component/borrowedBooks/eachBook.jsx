@@ -32,7 +32,7 @@ const Card = (props) => {
                     style={{
                     backgroundColor: "rgba(97,65,38,0.9)"
                 }}>
-                    <div className="text container-fluid">
+                    <div className="text container-fluid" style={{fontSize:'13px'}}>
                         <b>{props.data.details.title}</b><br/><br/>
                         <p>Return by {props.data.details.returnDate}</p>
                     </div>

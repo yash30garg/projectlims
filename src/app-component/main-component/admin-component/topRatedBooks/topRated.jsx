@@ -63,7 +63,7 @@ class TopBooks extends Component{
                 if (brr.length !==0 ) {
                 let b = window.display;
                  k=brr.map(result=>{
-                     ++counting;
+                     counting++;
                     return(
                         <EachCategory key={`ea${result.isbn}`} click={this.viewMoreClicked} category={result.details.category} rated={b} count={counting}/>   
                     );
