@@ -59,11 +59,11 @@ class TopBooks extends Component{
 
         }
 
-        let k=<div style={{position:'relative',top:'50px'}}><LoadingEffect/></div>;
+        let k=<div style={{position:'relative',marginTop:'70px',marginBottom:'50px'}}><LoadingEffect/></div>;
                 if (brr.length !==0 ) {
                 let b = window.display;
                  k=brr.map(result=>{
-                     ++counting;
+                     counting++;
                     return(
                         <EachCategory key={`ea${result.isbn}`} click={this.viewMoreClicked} category={result.details.category} rated={b} count={counting}/>   
                     );

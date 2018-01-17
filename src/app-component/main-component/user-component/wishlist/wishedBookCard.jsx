@@ -29,9 +29,10 @@ export const WishedCard = (props) => {
                 <div
                     className="overlay"
                     style={{
-                    backgroundColor: " rgba(97,65,38,0.9)"
+                    backgroundColor: " rgba(97,65,38,0.9)",
+                    fontSize:'13px'
                 }}>
-                    <div className="text container-fluid">
+                    <div className="text container-fluid" style={{fontSize:'12px'}}>
                         <b>{props.data.details.title}</b><br/>
                         <b>Author :
                         </b>

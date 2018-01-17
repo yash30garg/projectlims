@@ -75,9 +75,6 @@ class App extends Component {
             <Route path="/profile" exact component={Profile} />
             <Route path="/aboutus" exact component={AboutUs} />
             <Route path="/admindash" exact component={DashBoard} />
-
-            
-
           </Switch>
 
         </div>

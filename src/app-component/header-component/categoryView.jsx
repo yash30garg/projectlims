@@ -50,7 +50,7 @@ export const Category=(props)=>
                     {res.details.title}
                     </div>
                      <div className="overlay" style={{backgroundColor: "rgba(97,65,38,0.9)"}}>
-                    <div className="text container-fluid" >
+                    <div className="text container-fluid" style={{fontSize:'13px'}}>
                         <b>{res.details.title}</b><br/>
                         <b>Author :
                         </b>
