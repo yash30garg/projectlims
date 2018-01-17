@@ -102,7 +102,8 @@ if(hours>=4 && hours<12){
           <div className="collapse navbar-collapse" id="navbarNavDropdown">
             <ul className="navbar-nav ml-auto">
               <li className="dropdown" style={{color:"white"}}>
-                <div data-toggle="dropdown">{this.state.greet} {user_name.substring(1, user_name.length-1)}<span style={{paddingRight:"15px"}}></span><img className="inset" src={url} />
+                <div data-toggle="dropdown">{this.state.greet} {user_name.substring(1, user_name.length-1)}<span style={{paddingRight:"15px"}}></span>
+                <img className="inset" src={url} />
                 <span className="dropdown-toggle"></span></div>
                 <ul className="dropdown-menu dropdown-menu-right" align="center">
                   <li className="well" align="center">
