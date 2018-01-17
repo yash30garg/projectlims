@@ -38,4 +38,4 @@ getData();
 runWithAdal(authContext, () => {
 ReactDOM.render(<App />, document.getElementById('root'));
 });
-registerServiceWorker();
+// registerServiceWorker();
