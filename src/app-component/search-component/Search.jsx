@@ -192,7 +192,7 @@ export default class Search extends Component {
                         src={"https://www.mindtree.com/themes/custom/mindtree_theme/logo.svg"}
                         alt="My logo"
                         align="left" /></div>
-                        <Link to="/home">
+                        <Link to="/">
                     <div className="navbar-brand" style={{color:"white",paddingLeft:'15px'}}>Mindtree Library</div>
 
                     </Link>
