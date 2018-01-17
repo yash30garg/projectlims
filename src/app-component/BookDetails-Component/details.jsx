@@ -67,7 +67,7 @@ class Details extends Component {
         };
         window
             .bbooks
-                //eslint-disable-next-line            
+            //eslint-disable-next-line            
             .map(res => {
                 if (res.isbn === this.props.data.isbn) {
                     b = (
@@ -122,7 +122,7 @@ class Details extends Component {
                                 backgroundColor: 'white',
                                 borderColor: 'white',
                                 //eslint-disable-next-line                            
-                                width: "4vw", backgroundColor: 'white', color: "rgb(205,133,63)"
+                                width: "4vw",  color: "rgb(205,133,63)"
                             }}>
                             <div className="fa fa-heart fa-lg"></div>
                         </button>
@@ -164,7 +164,7 @@ class Details extends Component {
             .history
             .go(-1)
     }
-
+    
     removeWishlist = () => {
         console.log(book);
         let index = -1,
@@ -190,7 +190,7 @@ class Details extends Component {
                     backgroundColor: 'white',
                     borderColor: 'white',
                     //eslint-disable-next-line                
-                    width: "4vw", backgroundColor: 'white', color: "rgb(205,133,63)"
+                    width: "4vw", color: "rgb(205,133,63)"
                 }}
                 onClick={this.wishlist}>
                 <div className="fa fa-heart-o fa-lg"></div>
@@ -307,7 +307,7 @@ class Details extends Component {
                     backgroundColor: 'white',
                     borderColor: 'white',
                     //eslint-disable-next-line
-                    width: "4vw", backgroundColor: 'white', color: "rgb(205,133,63)"
+                    width: "4vw", color: "rgb(205,133,63)"
                 }}>
                 <div className="fa fa-heart fa-lg"></div>
             </button>
