@@ -54,8 +54,8 @@ class Details extends Component {
                 style={{
                     backgroundColor: 'white',
                     borderColor: 'white',
+                    width: "4vw", color: "rgb(205,133,63)"
                 //eslint-disable-next-line                    
-                    width: "4vw", backgroundColor: 'white', color: "rgb(205,133,63)"
                 }}>
                 <div className="fa fa-heart-o fa-lg"></div>
             </button>
@@ -97,10 +97,10 @@ class Details extends Component {
                             </button>
                         </div>
                     )
-                    this.setState({
+                    this.state={
                         req: b,
                         wish: w
-                    })
+                    }
                 }
             })
         this.renew = this
