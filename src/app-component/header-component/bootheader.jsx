@@ -199,7 +199,7 @@ class BootHeader extends Component {
                                                 backgroundColor: "#614126",
                                                 color: "white"
                                             }}>
-                                            <span className="fa fa-cog" aria-hidden="true"></span>
+                                            <span className="fa fa-list-alt" aria-hidden="true"></span>
                                             My Books</div>
 
                                         <div
@@ -245,7 +245,7 @@ class BootHeader extends Component {
                                             }}
                                             onClick={this.plusClicked}>
 
-                                            <div className="col-md-0 fa fa-cog" aria-hidden="true"></div>
+                                            <div className="col-md-0 fa fa-list-alt" aria-hidden="true"></div>
                                             <div
                                                 className="col"
                                                 style={{

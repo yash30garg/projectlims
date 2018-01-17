@@ -33,7 +33,7 @@ export class EachTopCard extends Component{
                     alt={`${this.props.item.details.title}`}
                     height="160px"
                     width="100%"/>
-                    <div className="card-block" style={{width:"160px", fontSize:"14px"}}>
+                    <div className="card-block card-text" style={{width:"160px", fontSize:"14px"}}>
                     {this.props.item.details.title}
                     </div>
                     

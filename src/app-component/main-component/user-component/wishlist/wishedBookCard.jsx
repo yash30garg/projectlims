@@ -23,7 +23,7 @@ export const WishedCard = (props) => {
                     height="160px"
                     width="100%"
                     />
-                    <div className="card-block" style={{width:"160px", fontSize:"14px"}}>
+                    <div className="card-block card-text" style={{width:"160px", fontSize:"14px"}}>
                     {props.data.details.title}
                     </div>
                 <div

@@ -24,7 +24,7 @@ const Card = (props) => {
                     width="100%"
                     alt=""
                     />
-                    <div className="card-block" style={{width:"160px", fontSize:"14px"}}>
+                    <div className="card-block card-text" style={{width:"160px", fontSize:"14px"}}>
                     {props.data.details.title}
                     </div>
                 <div

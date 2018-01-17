@@ -326,10 +326,10 @@ class DashBoard extends Component {
                                             <table class="table table-hover ">
                                                 <thead>
                                                     <tr>
-                                                        <th>User Name</th>
-                                                        <th>Email</th>
-                                                        <th>MID</th>
-                                                        <th>Preferenece(s)</th>
+                                                        <th style={{textAlign:'center'}}>User Name</th>
+                                                        <th style={{textAlign:'center'}}>Email</th>
+                                                        <th style={{textAlign:'center'}}>MID</th>
+                                                        <th style={{textAlign:'center'}}>Preferenece(s)</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>

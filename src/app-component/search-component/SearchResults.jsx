@@ -52,7 +52,7 @@ class SearchResults extends Component
                                                 fontSize:'13px',
                                                 paddingTop:"0px"
                                             }}></span><br/>*/}
-                                <div className="card-block">
+                                <div className="card-block card-text">
                                 {res.details.title}
                                 </div>
                             <div className="overlay" style={{backgroundColor: "rgba(97,65,38,0.9)"}}>
