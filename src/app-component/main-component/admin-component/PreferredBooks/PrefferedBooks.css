@@ -5,11 +5,10 @@
     color: white;
     border-radius: 0px 0px 10px 10px;
 }
-.activeImage
-{
-    border-radius: 10px 10px 10px 10px;
-    border: 1px solid #eee;
-    box-shadow:0 5px 5px #ccc;
+@media only screen and (max-width: 500px) {
+    .activeImage {
+        width:300px;
+    }
 }
 .card-img
 {

@@ -34,11 +34,11 @@ class PBooks extends Component {
                 .state
                 .display
                 .filter((res) => res.details.rating >= 1 && (res.details.category === "Javascript" || res.details.category === "javascript"));
-            s1 = <div className="carousel-item active mt-2">
+            s1 = <div className="carousel-item mt-2">
                 {b
                     .slice(0, 6)
                     .map((r) => {
-                        return (<EachPrefferedCard key={r.isbn} item={r}/>);
+                        return (<EachPrefferedCard key={`pref${r.isbn}`} item={r}/>);
                     })}
             </div>
             b = this
@@ -79,14 +79,14 @@ class PBooks extends Component {
                         <div className="carousel-inner" role="listbox">
 
                             <div className="carousel-cell">
-                                {/*<div className="carousel-item active mt-2">
+                                <div className="carousel-item active mt-2">
                                     <img
                                         className="d-block activeImage mx-auto"
 
                                         alt="First slide"
-                                        height="182"
-                                        width="400"src="http://bookloverbookreviews.dhvdjqudnc8k2lygmnqz.maxcdn-edge.com/wp-content/uploads/2017/07/BEST-BOOKS-of-2017-so-far.png"/>
-                                </div>*/}
+                                        height="208"
+                                        src={require("../../../../Assets/Images/active_whats_new.png")}/>
+                                </div>
                                 {s1}
                                 {s2}
                                 {s3}
