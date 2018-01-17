@@ -8,9 +8,10 @@ import '../App.css';
 import { authContext } from '../../adalConfig.js'
 import './header.css'
 import { Link } from 'react-router-dom';
+import {user_name} from '../App'
 export var key;
 export let url = `https://social.mindtree.com/User%20Photos/Profile%20Pictures/m${localStorage.getItem('mid')}_MThumb.jpg?t=63646089488`;
-let user_name = localStorage.getItem('user-name')
+// let user_name = localStorage.getItem('user-name')
 class Header extends Component {
 constructor(props)
 {
@@ -100,7 +101,7 @@ if(hours>=4 && hours<12){
             <ul className="navbar-nav ml-auto">
               <li className="dropdown" style={{color:"white"}}>
 
-                <div data-toggle="dropdown">{this.state.greet} {user_name.substring(1, user_name.length-1)}<span style={{paddingRight:"15px"}}></span>
+                <div data-toggle="dropdown">{this.state.greet} {user_name}<span style={{paddingRight:"15px"}}></span>
                 <img className="inset" src={url} />
 
                 <span className="dropdown-toggle"></span></div>

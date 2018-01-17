@@ -19,7 +19,7 @@ import Profile from '../app-component/main-component/user-component/profileView/
 import AboutUs from '../app-component/footer-component/AboutUs/aboutus.jsx';
 import { authContext } from '../adalConfig.js'
 // import { AuthenticationContext, adalGetToken, adalFetch } from 'react-adal';
-
+export var user_name;
 // let users;
 window.display='';
 window.wishlist=[];
@@ -27,6 +27,7 @@ class App extends Component {
   
   render() {
     console.log(authContext._user.profile.given_name);
+    user_name = authContext._user.profile.given_name;
     localStorage.setItem('limsuser', JSON.stringify(authContext._user))
     localStorage.setItem('user-name',JSON.stringify(authContext._user.profile.given_name))
     console.log(localStorage.getItem('limsuser'))
