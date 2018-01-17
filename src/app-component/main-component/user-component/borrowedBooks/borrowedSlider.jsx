@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import {UserBooks}from './borrowedBook'
-import axios from 'axios';
+// import axios from 'axios';
 // import {email,mid} from '../../login-component/login'
 import {email} from '../../login-component/login'
 
@@ -9,9 +9,9 @@ let id;
 
 class BorrowedSlider extends Component
  { 
-     constructor(props)
-     {
-         super(props);
+    //  constructor(props)
+    //  {
+    //      super(props);
 
 
          //console.log(this.props.mids);
@@ -26,7 +26,7 @@ class BorrowedSlider extends Component
 
     //  output:[],
     //   }
-    } 
+    // } 
 //  componentDidMount()
 //  {
      
@@ -49,7 +49,7 @@ class BorrowedSlider extends Component
         let outputs=<div>
         <h2 style={{textAlign:'center',color:"#614126"}}>I have not added any book in wishlist!</h2>
         </div>
-        if(window.bbooks.length!=0)
+        if(window.bbooks.length!==0)
         {
             outputs=<UserBooks key={id} list={window.bbooks}/>;
         }

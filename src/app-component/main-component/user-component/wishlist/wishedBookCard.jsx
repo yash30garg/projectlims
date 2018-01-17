@@ -17,6 +17,7 @@ export const WishedCard = (props) => {
                 width: "160px"
             }}>
                 <img
+                    alt=""
                     className="mx-auto"
                     src={props.data.details.url}
                     height="160px"

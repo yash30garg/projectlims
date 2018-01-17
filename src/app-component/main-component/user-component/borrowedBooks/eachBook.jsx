@@ -1,7 +1,7 @@
 import React from 'react'
 import './css/isssuedSlider.css'
 import {Link} from 'react-router-dom';
-import $ from 'jquery';
+// import $ from 'jquery';
 let handle = (data) => {
     window.selected = data;
 }
@@ -22,6 +22,7 @@ const Card = (props) => {
                     src={props.data.details.url}
                     height="160px"
                     width="100%"
+                    alt=""
                     />
                     <div className="card-block" style={{width:"160px", fontSize:"14px"}}>
                     {props.data.details.title}

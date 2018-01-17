@@ -1,19 +1,19 @@
 import React, {Component}from 'react';
 import BootHeader from './../../header-component/bootheader.jsx';
-import Pbooks from '../admin-component/PreferredBooks/PrefferdBooks.jsx';
-import Footer from '../../footer-component/footer.jsx';
-import axios from 'axios';
-import { BorrowedSlider } from './borrowedBooks/borrowedSlider';
-import {email,mid} from '../login-component/login.jsx';
+// import Pbooks from '../admin-component/PreferredBooks/PrefferdBooks.jsx';
+// import Footer from '../../footer-component/footer.jsx';
+// import axios from 'axios';
+// import { BorrowedSlider } from './borrowedBooks/borrowedSlider';
+// import {email,mid} from '../login-component/login.jsx';
 import {requireAuth} from '../../isLoggedIn.js'
-let users;
+// let users;
 // window.bbooks='';
 // import {email,mid} from '../login-component/login.jsx'
 // import SearchResults from './SearchResults'
 export class User extends Component
 {
-    constructor(){
-        super();
+    // constructor(){
+    //     super();
     //     axios.get('https://api.myjson.com/bins/14x90j')
     //  .then(res=>{
     //      this.setState({output:res.data});
@@ -23,9 +23,9 @@ export class User extends Component
     //             window.bbooks=b[0].borrowedbooks;
     //             console.log(window.bbooks.length)
     //     });
-}
+// }
 componentWillMount() {
-    // requireAuth(window.location.href)
+    requireAuth(window.location.href)
 }
     render()
     {

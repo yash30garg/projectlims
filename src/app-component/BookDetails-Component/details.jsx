@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import './details.css';
 import '../search-component/Search.css';
-import $ from 'jquery';
+// import $ from 'jquery';
 // import book from '../search-component/SearchResults'
-let users,
-    book,
+// let users;
+let book,
     w = null,
     b = null,
     borrowDate,
@@ -38,10 +38,10 @@ class Details extends Component {
             <button
                 className="btn btn-primary mt-3"
                 style={{
-                backgroundColor: 'white',
-                borderColor: "rgb(205,133,63)",
-                color: "rgb(205,133,63)"
-            }}
+                    backgroundColor: 'white',
+                    borderColor: "rgb(205,133,63)",
+                    color: "rgb(205,133,63)"
+                }}
                 onClick={this.request}>
                 <div className="fa fa-plus-circle"></div>
                 <b>Request</b>
@@ -52,9 +52,11 @@ class Details extends Component {
                 className="btn btn-primary mt-3"
                 onClick={this.wishlist}
                 style={{
-                backgroundColor: 'white',
-                borderColor: 'white',
-                width: "4vw", backgroundColor: 'white', color: "rgb(205,133,63)" }}>
+                    backgroundColor: 'white',
+                    borderColor: 'white',
+                //eslint-disable-next-line                    
+                    width: "4vw", backgroundColor: 'white', color: "rgb(205,133,63)"
+                }}>
                 <div className="fa fa-heart-o fa-lg"></div>
             </button>
         )
@@ -63,8 +65,9 @@ class Details extends Component {
             wish: w,
             msg: ""
         };
-        const a = window
+        window
             .bbooks
+                //eslint-disable-next-line            
             .map(res => {
                 if (res.isbn === this.props.data.isbn) {
                     b = (
@@ -73,10 +76,10 @@ class Details extends Component {
                                 className="btn btn-primary mt-3"
                                 onClick={this.removeRequest}
                                 style={{
-                                backgroundColor: 'white',
-                                borderColor: "rgb(205,133,63)",
-                                color: "rgb(205,133,63)"
-                            }}>
+                                    backgroundColor: 'white',
+                                    borderColor: "rgb(205,133,63)",
+                                    color: "rgb(205,133,63)"
+                                }}>
                                 <div className="fa fa-check"></div>
                                 <b>Return</b>
                             </button>
@@ -85,19 +88,19 @@ class Details extends Component {
                                 className="btn btn-primary mt-3"
                                 onClick={this.renew}
                                 style={{
-                                backgroundColor: 'white',
-                                borderColor: "rgb(205,133,63)",
-                                color: "rgb(205,133,63)"
-                            }}>
+                                    backgroundColor: 'white',
+                                    borderColor: "rgb(205,133,63)",
+                                    color: "rgb(205,133,63)"
+                                }}>
                                 <div className="fa fa-refresh"></div>
                                 <b>Renew</b>
                             </button>
                         </div>
                     )
-                    this.state = {
+                    this.setState({
                         req: b,
                         wish: w
-                    }
+                    })
                 }
             })
         this.renew = this
@@ -106,8 +109,9 @@ class Details extends Component {
         this.wishlist = this
             .wishlist
             .bind(this);
-        const test = window
+        window
             .wishlist
+            //eslint-disable-next-line            
             .map(res => {
                 if (res.isbn === this.props.data.isbn) {
                     w = (
@@ -115,16 +119,18 @@ class Details extends Component {
                             onClick={this.removeWishlist}
                             className="btn btn-primary mt-3"
                             style={{
-                            backgroundColor: 'white',
-                            borderColor: 'white',
-                            width: "4vw", backgroundColor: 'white', color: "rgb(205,133,63)" }}>
+                                backgroundColor: 'white',
+                                borderColor: 'white',
+                                //eslint-disable-next-line                            
+                                width: "4vw", backgroundColor: 'white', color: "rgb(205,133,63)"
+                            }}>
                             <div className="fa fa-heart fa-lg"></div>
                         </button>
                     )
-                    this.state = {
+                    this.setState({
                         req: b,
                         wish: w
-                    }
+                    })
                 }
             })
         this.request = this
@@ -147,7 +153,7 @@ class Details extends Component {
     componentDidUpdate() {
         window
             .setTimeout(function () {
-                this.setState({msg: ""})
+                this.setState({ msg: "" })
             }.bind(this), 25000)
         //         window.setTimeout(function() {     $(".alert").fadeTo(500,
         // 0).slideUp(500, function(){         $(this).close();     }); }, 4000);
@@ -163,8 +169,9 @@ class Details extends Component {
         console.log(book);
         let index = -1,
             i = 0;
-        const ind = window
+        window
             .wishlist
+            //eslint-disable-next-line            
             .map((res) => {
                 if (res.isbn === book.isbn) {
                     index = i;
@@ -180,9 +187,11 @@ class Details extends Component {
             <button
                 className="btn btn-primary mt-3"
                 style={{
-                backgroundColor: 'white',
-                borderColor: 'white',
-                width: "4vw", backgroundColor: 'white', color: "rgb(205,133,63)" }}
+                    backgroundColor: 'white',
+                    borderColor: 'white',
+                    //eslint-disable-next-line                
+                    width: "4vw", backgroundColor: 'white', color: "rgb(205,133,63)"
+                }}
                 onClick={this.wishlist}>
                 <div className="fa fa-heart-o fa-lg"></div>
             </button>
@@ -196,15 +205,16 @@ class Details extends Component {
                     &nbsp;Why don't you add some more... &nbsp;Happy Reading!!</strong>
             </div>
         )
-        this.setState({wish: w, msg: val})
+        this.setState({ wish: w, msg: val })
     }
 
     removeRequest = () => {
         console.log(book);
         let index = -1,
             i = 0;
-        const ind = window
+        window
             .bbooks
+            //eslint-disable-next-line            
             .map((res) => {
                 if (res.isbn === book.isbn) {
                     index = i;
@@ -220,10 +230,10 @@ class Details extends Component {
             <button
                 className="btn btn-primary mt-3"
                 style={{
-                backgroundColor: 'white',
-                borderColor: "rgb(205,133,63)",
-                color: "rgb(205,133,63)"
-            }}
+                    backgroundColor: 'white',
+                    borderColor: "rgb(205,133,63)",
+                    color: "rgb(205,133,63)"
+                }}
                 onClick={this.request}>
                 <div className="fa fa-plus-circle"></div>
                 <b>Request</b>
@@ -238,12 +248,13 @@ class Details extends Component {
                     &nbsp;Come Back Soon for More Books. &nbsp;Happy Reading!!</strong>
             </div>
         )
-        this.setState({req: b, msg: val})
+        this.setState({ req: b, msg: val })
     }
 
     renew = () => {
-        const i = window
+        window
             .bbooks
+            //eslint-disable-next-line            
             .map((res) => {
                 if (res.isbn === book.isbn) {
                     let val;
@@ -282,7 +293,7 @@ class Details extends Component {
                             </div>
                         )
                     }
-                    this.setState({msg: val})
+                    this.setState({ msg: val })
                 }
             })
     }
@@ -293,9 +304,11 @@ class Details extends Component {
                 className="btn btn-primary mt-3"
                 onClick={this.removeWishlist}
                 style={{
-                backgroundColor: 'white',
-                borderColor: 'white',
-                width: "4vw", backgroundColor: 'white', color: "rgb(205,133,63)" }}>
+                    backgroundColor: 'white',
+                    borderColor: 'white',
+                    //eslint-disable-next-line
+                    width: "4vw", backgroundColor: 'white', color: "rgb(205,133,63)"
+                }}>
                 <div className="fa fa-heart fa-lg"></div>
             </button>
         )
@@ -314,13 +327,15 @@ class Details extends Component {
             .push(book);
 
         console.log(window.wishlist);
-        this.setState({wish: w, msg: val})
+        this.setState({ wish: w, msg: val })
     }
 
     request = () => {
         if (!window.bbooks.includes(book)) {
             if (window.bbooks.length < 4) {
+                //eslint-disable-next-line                
                 let newBook = new Object();
+                //eslint-disable-next-line                
                 newBook.details = new Object();
                 newBook.details.title = book.details.title;
                 newBook.details.borrowedDate = borrowDate;
@@ -339,10 +354,10 @@ class Details extends Component {
                             className="btn btn-primary mt-3"
                             onClick={this.removeRequest}
                             style={{
-                            backgroundColor: 'white',
-                            borderColor: "rgb(205,133,63)",
-                            color: "rgb(205,133,63)"
-                        }}>
+                                backgroundColor: 'white',
+                                borderColor: "rgb(205,133,63)",
+                                color: "rgb(205,133,63)"
+                            }}>
                             <div className="fa fa-check"></div>
                             <b>Return</b>
                         </button>
@@ -351,10 +366,10 @@ class Details extends Component {
                             className="btn btn-primary mt-3"
                             onClick={this.renew}
                             style={{
-                            backgroundColor: 'white',
-                            borderColor: "rgb(205,133,63)",
-                            color: "rgb(205,133,63)"
-                        }}>
+                                backgroundColor: 'white',
+                                borderColor: "rgb(205,133,63)",
+                                color: "rgb(205,133,63)"
+                            }}>
                             <div className="fa fa-refresh"></div>
                             <b>Renew</b>
                         </button>
@@ -370,7 +385,7 @@ class Details extends Component {
                             &nbsp;Happy Reading!!</strong>
                     </div>
                 )
-                this.setState({req: a, wish: w, msg: val})
+                this.setState({ req: a, wish: w, msg: val })
                 // alert("The Requested Book has been allotted to you..Please Collect It from
                 // the Library");
             } else {
@@ -384,7 +399,7 @@ class Details extends Component {
                             &nbsp;Happy Reading!!</strong>
                     </div>
                 )
-                this.setState({msg: val})
+                this.setState({ msg: val })
             }
         }
     }
@@ -396,69 +411,70 @@ class Details extends Component {
                 <div
                     className="container"
                     style={{
-                    width: "100%"
-                }}>
+                        width: "100%"
+                    }}>
                     <div className="row">
                         <div
                             className="col-md-7 card my-2"
                             style={{
-                            maxHeight: "684px",
-                            background: "#614126",
-                            width: "75%"
-                        }}>
+                                maxHeight: "684px",
+                                background: "#614126",
+                                width: "75%"
+                            }}>
                             <div
                                 className="row"
                                 style={{
-                                height: "100vh"
-                            }}>
+                                    height: "100vh"
+                                }}>
                                 <div
                                     className="left-card col-md-4"
                                     style={{
-                                    color: "white"
-                                }}>
-                                    <br/>
+                                        color: "white"
+                                    }}>
+                                    <br />
                                     <h5>
-                                        <br/>
-                                        <i>ISBN</i><br/><br/> {book.isbn}
-                                        <br/><br/>
-                                        <hr/>
+                                        <br />
+                                        <i>ISBN</i><br /><br /> {book.isbn}
+                                        <br /><br />
+                                        <hr />
 
-                                        <br/>
-                                        <i>Author</i><br/><br/> {book.details.author}
-                                        <br/><br/>
-                                        <hr/>
+                                        <br />
+                                        <i>Author</i><br /><br /> {book.details.author}
+                                        <br /><br />
+                                        <hr />
 
-                                        <br/>
-                                        <i>Published By</i><br/><br/> {book.details.publisher}
-                                        <br/><br/>
-                                        <hr/>
+                                        <br />
+                                        <i>Published By</i><br /><br /> {book.details.publisher}
+                                        <br /><br />
+                                        <hr />
 
-                                        <br/>
-                                        <i>Category</i><br/><br/> {book.details.category}
-                                        <br/><br/>
-                                        <hr/>
+                                        <br />
+                                        <i>Category</i><br /><br /> {book.details.category}
+                                        <br /><br />
+                                        <hr />
 
                                     </h5>
                                 </div>
                                 <div
                                     className="right-card col-md-8"
                                     style={{
-                                    color: "#614126"
-                                }}>
-                                    <br/>
+                                        color: "#614126"
+                                    }}>
+                                    <br />
                                     <i
                                         className="fa fa-times fa-2x"
                                         style={{
-                                        float: "right"
-                                    }}
+                                            float: "right"
+                                        }}
                                         onClick={this.goBack}></i>
                                     <img
+                                        alt=""
                                         src={book.details.url}
                                         className="my-1"
                                         style={{
-                                        height: "50vh",
-                                        width: "60%"
-                                    }}/>
+                                            height: "50vh",
+                                            width: "60%"
+                                        }} />
                                     <div className="row offset-md-2">
                                         {this.state.wish}
                                         {this.state.req}

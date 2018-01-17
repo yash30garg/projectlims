@@ -3,19 +3,19 @@ import axios from 'axios';
 import './bootheader.css';
 import Footer from '../footer-component/footer.jsx';
 import Header from './header.jsx';
-import Pbooks from '../main-component/admin-component/PreferredBooks/PrefferdBooks.jsx';
+// import Pbooks from '../main-component/admin-component/PreferredBooks/PrefferdBooks.jsx';
 import BorrowedSlider from '../main-component/user-component/borrowedBooks/borrowedSlider.jsx';
-import Search from '../search-component/Search.jsx';
+// import Search from '../search-component/Search.jsx';
 // import SearchResults from '../search-component/SearchResults.jsx';
-import Details from './../BookDetails-Component/details';
+// import Details from './../BookDetails-Component/details';
 import {LandingView} from './landingView';
 import {Category} from './categoryView';
 import WishedBooks from '../main-component/user-component/wishlist/wishlistComponent'
-import LoadingEffect from './../loading-component/loading';
+// import LoadingEffect from './../loading-component/loading';
 import {EachListItem} from './categoryList';
-import $ from 'jquery';
-var count = 0,
-    plus,
+// import $ from 'jquery';
+// var count = 0,
+var plus,
     check;
 class BootHeader extends Component {
     constructor() {
@@ -144,7 +144,7 @@ class BootHeader extends Component {
                 brr.push(arr[0]);
             }
         for (var i = 0; i < arr.length - 1; i++) {
-            if (arr[i].details.category.toUpperCase() != arr[i + 1].details.category.toUpperCase()) {
+            if (arr[i].details.category.toUpperCase() !== arr[i + 1].details.category.toUpperCase()) {
 
                 brr.push(arr[i+1]);
             }

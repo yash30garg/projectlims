@@ -3,10 +3,10 @@ import Header from '../header-component/header';
 import Footer from '../footer-component/footer';
 import Details from './details';
 import {requireAuth} from '../isLoggedIn.js'
-let val;
+// let val;
 export class BookDetails extends Component{
     componentWillMount() {
-        // requireAuth(window.location.href)
+        requireAuth(window.location.href)
     }
     render(){
         // val=window.selected;

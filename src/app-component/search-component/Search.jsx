@@ -7,7 +7,7 @@ import {requireAuth} from '../isLoggedIn.js'
 // import { BrowserRouter, Route, Link } from 'react-router-dom';
 import 'rxjs/add/operator/filter';
 import SearchResults from '../search-component/SearchResults';
-import Footer from '../footer-component/footer'
+// import Footer from '../footer-component/footer'
 import './Search.css'
 var debounce = require('debounce');
 export var processedData = [];
@@ -30,7 +30,7 @@ export default class Search extends Component {
             })
     }
     componentWillMount() {
-        // requireAuth(window.location.href)
+        requireAuth(window.location.href)
     }
     search = (event) => {
         let value = document.getElementById("search").value.toLowerCase();
