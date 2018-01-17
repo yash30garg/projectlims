@@ -54,7 +54,7 @@ class Details extends Component {
                 style={{
                     backgroundColor: 'white',
                     borderColor: 'white',
-                //eslint-disable-next-line                    
+                    //eslint-disable-next-line                    
                     width: "4vw", backgroundColor: 'white', color: "rgb(205,133,63)"
                 }}>
                 <div className="fa fa-heart-o fa-lg"></div>
@@ -67,7 +67,7 @@ class Details extends Component {
         };
         window
             .bbooks
-                //eslint-disable-next-line            
+            //eslint-disable-next-line            
             .map(res => {
                 if (res.isbn === this.props.data.isbn) {
                     b = (
@@ -164,7 +164,7 @@ class Details extends Component {
             .history
             .go(-1)
     }
-
+    
     removeWishlist = () => {
         console.log(book);
         let index = -1,
