@@ -1,17 +1,17 @@
 import React, {Component} from 'react';
 import {processedData} from './Search';
-import $ from 'jquery';
-import axios from 'axios';
+// import $ from 'jquery';
+// import axios from 'axios';
 import {Link} from 'react-router-dom';
 import './Search.css';
 export var book;
-let users,
-    books;
+// let users,
+//     books;
 class SearchResults extends Component
 {
-    constructor(props)
-    {
-        super(props);
+    // constructor(props)
+    // {
+    //     super(props);
         // axios
         //     .get('https://api.myjson.com/bins/14x90j')
         //     .then(res => {
@@ -20,14 +20,13 @@ class SearchResults extends Component
         //         console.log(users)
         //         const b = users.filter((res) => res.user.mid === "1042948")
         //     });
-    }
+    // }
 
     handle(res){
         window.selected=res;
     }
     render()
     {
-        let x = 0;;
         const a = processedData.map(res => {
             return (
                 <div key={res.isbn} className="col-lg-2 col-md-4 col-sm-6 col-xs-12 mt-4">
@@ -60,7 +59,9 @@ class SearchResults extends Component
                                 <div className="text container-fluid">
                                     {res.details.title}<br/>
                                     Author: {res.details.author}<br/>
-                                    Category: {res.details.category}<br/> {[1, 2, 3, 4, 5].map(d => {
+                                    Category: {res.details.category}<br/> {
+                                        //eslint-disable-next-line
+                                        [1, 2, 3, 4, 5].map(d => {
                                         if (res.details.rating >= d) 
                                             return <span
                                             key={`starred${d}`}

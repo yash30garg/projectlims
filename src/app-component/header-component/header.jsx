@@ -5,14 +5,22 @@ import '../App.css';
 // import PBooks from
 // '../main-component/admin-component/PreferredBooks/PrefferdBooks.jsx'; import
 // Footer from '../footer-component/footer.jsx';
-import { AuthenticationContext } from 'react-adal'
 import { authContext } from '../../adalConfig.js'
 import './header.css'
 import { Link } from 'react-router-dom';
+import {user_name} from '../App'
 export var key;
 export let url = `https://social.mindtree.com/User%20Photos/Profile%20Pictures/m${localStorage.getItem('mid')}_MThumb.jpg?t=63646089488`;
-let user_name = localStorage.getItem('user-name')
+// let user_name = localStorage.getItem('user-name')
 class Header extends Component {
+constructor(props)
+{
+  super(props);
+  this.state={
+    greet:"Hi, "
+  }
+}
+
   handle() {
     key = document.getElementById("key").value
     console.log(key)
@@ -32,6 +40,23 @@ class Header extends Component {
     // }
 
   }
+  componentWillMount()
+  {
+var d = new Date(); // for now
+let hours=d.getHours(); // => 9
+
+if(hours>=4 && hours<12){
+    this.setState({greet:"Good morning, "});
+  }
+  else if(hours>=12 && hours<16)
+  {
+    this.setState({greet:"Good afternoon, "});
+  }
+  else if(hours>=16 && hours<=23 )
+  {
+    this.setState({greet:"Good evening, "});
+  }
+  }
   render() {
 
     return (
@@ -47,28 +72,38 @@ class Header extends Component {
             aria-label="Toggle navigation">
             <span style={{ backgroundColor: '#fff' }} className="navbar-toggler-icon"></span>
           </button>
-          <div><img
-            className="App-logo"
+          <img
+            className="App-logo inset"
+
+
             src={"https://www.mindtree.com/themes/custom/mindtree_theme/logo.svg "}
             alt="My logo"
-            align="left"/></div>
+            align="left" />
           <Link to="/">
-            <div className="navbar-brand" style={{ color: "white" }}>Mindtree Library</div>
+            <span className="navbar-brand" style={{ color: "white",paddingLeft:'15px' }}>Mindtree Library</span>
           </Link>
-          <Link to="/search" style={{ textDecoration: 'none' }}>
-            <div className="col-lg-9">
-              <div className="row offset-md-3">
+          
+            <div className="col-lg-5">
+              <div>
+              <Link to="/search" style={{ textDecoration: 'none' }}>
                 <div className="input-group">
-                  <input type="text" id="key" className="form-control" size="800" style={{ alignSelf: "center" }} placeholder="Search for..." />
+                  
+                  <input type="text" id="key" className="form-control"  style={{ alignSelf: "center" }} placeholder="Search for..." />
+
+
                   <button className="btn btn-primary" onClick={this.handle} type="button" style={{ backgroundColor: "#614126", borderColor: "#fff" }} >Go!</button>
                 </div>
+                </Link>
               </div>
             </div>
-          </Link>
+          
           <div className="collapse navbar-collapse" id="navbarNavDropdown">
             <ul className="navbar-nav ml-auto">
               <li className="dropdown" style={{color:"white"}}>
-                <div data-toggle="dropdown">Hi {user_name.substring(1, user_name.length-1)} <img className="inset" src={url} />
+
+                <div data-toggle="dropdown">{this.state.greet} {user_name}<span style={{paddingRight:"15px"}}></span>
+                <img className="inset" src={url} />
+
                 <span className="dropdown-toggle"></span></div>
                 <ul className="dropdown-menu dropdown-menu-right" align="center">
                   <li className="well" align="center">

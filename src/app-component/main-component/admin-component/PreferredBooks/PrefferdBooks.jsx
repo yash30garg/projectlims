@@ -29,11 +29,11 @@ class PBooks extends Component {
             s2,
             s3,
             s4;
-        if (this.state.display.length != 0) {
+        if (this.state.display.length !== 0) {
             let b = this
                 .state
                 .display
-                .filter((res) => res.details.rating >= 1 && (res.details.category == "Javascript" || res.details.category == "javascript"));
+                .filter((res) => res.details.rating >= 1 && (res.details.category === "Javascript" || res.details.category === "javascript"));
             s1 = <div className="carousel-item active mt-2">
                 {b
                     .slice(0, 6)
@@ -44,7 +44,7 @@ class PBooks extends Component {
             b = this
                 .state
                 .display
-                .filter((res) => res.details.rating >= 1 && (res.details.category == "Angular" || res.details.category == "angular"));
+                .filter((res) => res.details.rating >= 1 && (res.details.category === "Angular" || res.details.category === "angular"));
             s2 = <div className="carousel-item mt-2">
                 {b
                     .slice(0, 6)
@@ -56,7 +56,7 @@ class PBooks extends Component {
                 .state
                 .display
                 .filter((res) => res.details.rating >= 1 && 
-                (res.details.category == "React" || res.details.category == "react"));
+                (res.details.category === "React" || res.details.category === "react"));
             s3 = <div className="carousel-item mt-2">
                 {b
                     .slice(0, 6)
@@ -135,7 +135,7 @@ class PBooks extends Component {
                     <div className="container">
                         <div className="row">
                             <div className="col-md-6">
-                                <img className="modal-content" id="img01" height="500px" width="400px"/>
+                                <img alt="" className="modal-content" id="img01" height="500px" width="400px"/>
                             </div>
                             <div className="col-md-6">
                                 <div id="caption"></div>

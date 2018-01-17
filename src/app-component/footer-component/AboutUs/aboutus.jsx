@@ -2,14 +2,13 @@ import React, { Component } from 'react';
 import Footer from '../footer.jsx';
 import Header from '../../header-component/header.jsx';
 import './aboutus.css';
-import $ from 'jquery';
+// import $ from 'jquery';
+import { requireAuth } from '../../isLoggedIn'
 
-
-// import { requireAuth } from '../../isLoggedIn'
 export default class AboutUs extends Component {
 
     componentWillMount() {
-        // requireAuth(window.location.href)
+        requireAuth(window.location.href)
     }
     componentDidMount() {
 

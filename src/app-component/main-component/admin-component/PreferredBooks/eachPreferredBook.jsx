@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-let res;
+// let res;
 class EachPrefferedCard extends Component{
     constructor(props)
     {
@@ -28,7 +28,7 @@ class EachPrefferedCard extends Component{
             }}>
                 <img
                     className="mx-auto"
-                    
+                    alt=""
                     src={this.props.item.details.url}
                     height="160px"
                     width="100%"/>
@@ -43,7 +43,9 @@ class EachPrefferedCard extends Component{
                         {this.props.item.details.author}<br/>
                         <b>Category :
                         </b>
-                        {this.props.item.details.category}<br/> {[1, 2, 3, 4, 5].map(d => {
+                        {this.props.item.details.category}<br/> {
+                            //eslint-disable-next-line
+                            [1, 2, 3, 4, 5].map(d => {
                             if (this.props.item.details.rating >= d) 
                                 return <span
                                 key={`goldStar${d}`}

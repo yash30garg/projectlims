@@ -6,7 +6,7 @@ import {requireAuth} from '../../../isLoggedIn.js'
 import {url} from '../../../header-component/header'
 class Profile extends Component {
 	componentWillMount() {
-		// requireAuth(window.location.href)
+		requireAuth(window.location.href)
 	}
   
   render() {
@@ -22,6 +22,7 @@ class Profile extends Component {
 			<div>
 				<div className="row grid clearfix">
 					<div className="col2 first">
+						<img src={url} alt="" class="center-block img-circle img-responsive outset" style={{height : "150px", width : "150px"}} />
 						<h1>{JSON.parse(localStorage.getItem('limsuser')).profile.name}</h1>
 						<p>{JSON.parse(localStorage.getItem('limsuser')).profile.unique_name}</p>
 						

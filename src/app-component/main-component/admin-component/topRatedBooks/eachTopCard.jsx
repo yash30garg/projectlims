@@ -43,7 +43,10 @@ export class EachTopCard extends Component{
                         <b>Author :
                         </b>
                         {this.props.item.details.author}<br/>
-                         {[1, 2, 3, 4, 5].map(d => {
+                        
+                         {                
+                             //eslint-disable-next-line
+                         [1, 2, 3, 4, 5].map(d => {
                             if (this.props.item.details.rating >= d) 
                                 return <span
                                     key={`gold${d}`}

@@ -7,13 +7,14 @@ class EachCategory extends Component
     constructor(props)
     {
         super(props);
+        console.log(this.props.category);
         this.state={
             plus:"+",
             showable:"collapse",
-            withoutFilter:this.props.rated.filter(results=>results.details.category.toLowerCase()==this.props.category),
+            withoutFilter:this.props.rated.filter(results=>results.details.category.toLowerCase()===this.props.category.toLowerCase()),
             filterCategory:[],
             showViewCard:true,
-            passedCategory:this.props.category
+            passedCategory:this.props.category.toLowerCase()
             
             
         }
@@ -22,28 +23,28 @@ class EachCategory extends Component
 
     componentWillMount()
     {
-         if(this.props.category=="java"||this.props.category=="javascript")
+         if(this.props.count===1||this.props.count===2)
         {
             
             this.setState({plus:"-", showable:"collapse show",});
         }
         this.setState({filterCategory:this.state.withoutFilter.filter(res=>res.details.rating>=4).sort((a,b)=>{return(b.details.rating-a.details.rating)}).slice(0,5)});
-        if(this.props.category=="c++")
+        if(this.props.category.toLowerCase()==="c++")
         {
              this.setState({passedCategory:"cPlusPlus"});
         }
-        else if(this.props.category=="c#")
+        else if(this.props.category.toLowerCase()==="c#")
         {
              this.setState({passedCategory:"cSharp"});
         }
-        else if(this.props.category=="html & css")
+        else if(this.props.category.toLowerCase()==="html & css")
         {
              this.setState({passedCategory:"htmlAndCss"});
         }
     }
     plusClicked=()=>
     {
-        if(this.state.plus=="+")
+        if(this.state.plus==="+")
         {
         this.setState({plus:"-"});
         }
@@ -85,7 +86,7 @@ class EachCategory extends Component
                 width: '150px',
                 height: '13rem'
             }}>
-                <img className="my-5"
+                <img className="my-5" alt=""
                     src={require('../../../../Assets/Images/viewPlus.png')}
                     height="50px"
                     width="50px"/>

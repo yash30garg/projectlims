@@ -7,7 +7,7 @@ import {requireAuth} from '../isLoggedIn.js'
 // import { BrowserRouter, Route, Link } from 'react-router-dom';
 import 'rxjs/add/operator/filter';
 import SearchResults from '../search-component/SearchResults';
-import Footer from '../footer-component/footer'
+// import Footer from '../footer-component/footer'
 import './Search.css'
 var debounce = require('debounce');
 export var processedData = [];
@@ -30,7 +30,7 @@ export default class Search extends Component {
             })
     }
     componentWillMount() {
-        // requireAuth(window.location.href)
+        requireAuth(window.location.href)
     }
     search = (event) => {
         let value = document.getElementById("search").value.toLowerCase();
@@ -186,18 +186,19 @@ export default class Search extends Component {
     render() {
         return (
             <div>
-                <nav className="navbar navbar-toggleable-md navbar-light bg-faded " style={{backgroundColor:"#614126"}}>
+                <nav className="navbar navbar-toggleable-md navbar-light bg-faded " style={{backgroundColor:"#614126",height:'65px'}}>
                     <div ><img
-                        className="App-logo"
+                        className="App-logo inset"
                         src={"https://www.mindtree.com/themes/custom/mindtree_theme/logo.svg"}
                         alt="My logo"
                         align="left" /></div>
-                        <Link to="/home">
-                    <div className="navbar-brand" style={{color:"white"}}>Mindtree Library</div>
+                        <Link to="/">
+                    <div className="navbar-brand" style={{color:"white",paddingLeft:'15px'}}>Mindtree Library</div>
+
                     </Link>
                     <form onSubmit={this.search}>
-                        <div className="col-lg-9">
-                            <div className="row offset-md-3">
+                        <div className="col-lg-6">
+                            
                                 <div className="input-group">
 
                                     <input type="text" id="search" className="form-control" size="800" style={{ alignSelf: "center",borderColor:"#8B4513"}} placeholder="Search for..." onKeyUp={debounce(this.search, 700)} autoFocus />
@@ -213,7 +214,6 @@ export default class Search extends Component {
                                     </span>
                                 </div>
                             </div>
-                        </div>
                     </form>
                     {/*<div className="close"><label id="close" onClick={this.back}><h4>x</h4></label></div>*/}
                     <div className="close" style={{color:"white",border:"white"}}><button className="btn btn-outline-primary" onClick={this.back} style={{backgroundColor:"#fff",borderColor:"#fff",color:"#000"}}>back</button></div>

@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 
 export const EachListItem = (props) => {
     return (
@@ -15,7 +15,7 @@ export const EachListItem = (props) => {
             }}>{props.categoryName}</div>
             <div className="row">
                 <div className="badge badge-pill badge-warning mr-3">{props.completeArray
-                        .filter(r => r.details.category.toLowerCase() == props.categoryName.toLowerCase())
+                        .filter(r => r.details.category.toLowerCase() === props.categoryName.toLowerCase())
                         .length}</div>
             </div>
         </div>
