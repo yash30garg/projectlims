@@ -6,7 +6,7 @@ export const adalConfig = {
 //   endpoints: {
 //     api: 'ce0a0b3e-fda3-4d28-a317-721943b90577',
 //   },
-  postLogoutRedirectUri : "http://localhost:3000/#/login",
+  postLogoutRedirectUri : "http://limsreact.azurewebsites.net/#/login",
   cacheLocation: 'localStorage',
 };
 
