@@ -78,6 +78,8 @@ export const Category=(props)=>
 
     })
 return(
+    <div>
+        {props.isSearchClicked===false?
     <div className="contained">
         <ol className="breadcrumb" style={{backgroundColor : "#614126", color : "white"}}  >
         <h5 >{props.selected.toUpperCase()} <span style={{float:'right',cursor:'pointer',paddingLeft:'70px'}} onClick={props.categoryCrossClicked}>x</span></h5>
@@ -85,6 +87,7 @@ return(
     <div className="row ml-1 mr-1">
      {b}
     </div>
+    </div>:null}
     </div>
 )
 }
