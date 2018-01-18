@@ -75,7 +75,7 @@ class TopBooks extends Component{
                 {(this.state.showTop)?<div className="put" style={{paddingBottom:'30px'}}>
                 <h5 className="card-header yoyo" style={{ backgroundColor: "#614126", color: "white", fontSize : "18px" }}>Top Rated Books</h5>
                 {k}
-            </div>:<div className="mt-4"><Category data={window.display} selected={this.state.particularCategory} categoryCrossClicked={this.closeCategory}/></div>}
+            </div>:<div className="mt-4"><Category data={window.display} selected={this.state.particularCategory} categoryCrossClicked={this.closeCategory} isSearchClicked={false}/></div>}
             </div>
                 
                 
