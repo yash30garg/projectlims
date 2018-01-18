@@ -24,12 +24,6 @@ class Login extends Component {
     //  window.location.href='http://localhost:3000/#/login'
     window.location.href='http://limsreact.azurewebsites.net/#/login'
 
-   
-
-
-     //window.location.href='http://localhost:3000/#/login'
-    window.location.href='http://limsreact.azurewebsites.net/#/login'
-
     }
     state =
     {
