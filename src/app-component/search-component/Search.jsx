@@ -15,8 +15,17 @@ var debounce = require('debounce');
 export var processedData = [];
 var data
 export var search = () => {
-    let value = store.getState().search;
+    let value = store.getState().search.toLowerCase();
+    let value1,value2;
     console.log(value)
+    if(value.indexOf('&')>-1)
+    {
+         console.log("I am Here")
+         value1 = value.substring(0,value.indexOf('&'))
+         value2 = value.substring(value.indexOf('&')+1,value.length)
+         console.log(value1 + " : "+ value2)
+         value = value1;
+    }
     if (value === "")
         document.getElementById('cs').click();
     else {
