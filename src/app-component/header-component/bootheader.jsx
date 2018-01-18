@@ -165,9 +165,9 @@ class BootHeader extends Component {
     }
     render() {
         let brr = [];
-        store.subscribe(()=> {
-            console.log(store.getState().search)
-        })
+        // store.subscribe(()=> {
+        //     console.log(store.getState().search)
+        // })
         let arr = window.display
             .sort((a, b) => {
                 if (a.details.category.toUpperCase() > b.details.category.toUpperCase()) {

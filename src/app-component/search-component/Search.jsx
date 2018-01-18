@@ -16,15 +16,19 @@ export var processedData = [];
 var data
 export var search = () => {
     let value = store.getState().search.toLowerCase();
-    let value1,value2;
-    console.log(value)
-    if(value.indexOf('&')>-1)
-    {
-         console.log("I am Here")
-         value1 = value.substring(0,value.indexOf('&'))
-         value2 = value.substring(value.indexOf('&')+1,value.length)
-         console.log(value1 + " : "+ value2)
-         value = value1;
+    let value1, value2;
+    value1=value
+    console.log(value1)
+    if (value.indexOf('&') > -1) {
+        console.log("I am Here")
+        value1 = value.substring(0, value.indexOf('&')-1)
+        value2 = value.substring(value.indexOf('&') + 2, value.length)
+        console.log(value1 + " : " + value2)
+    }
+    else if(value.indexOf('and')>-1) {
+        console.log('and')
+        value1 = value.substring(0,value.indexOf('and')-1)
+        value2 = value.substring(value.indexOf('and')+4,value.length)
     }
     if (value === "")
         document.getElementById('cs').click();
@@ -37,15 +41,28 @@ export var search = () => {
 
                 // console.log(this.state.data)
                 var datax = data.booksArray.filter((data3) =>
-                    (data3.details.title.toLowerCase().indexOf(value) >= 0 ||
-                        data3.details.author.toLowerCase().indexOf(value) >= 0 ||
-                        data3.details.publisher.toLowerCase().indexOf(value) >= 0 ||
-                        data3.details.category.toLowerCase().indexOf(value) >= 0) &&
-                    value !== '').sort((a, b) => { return (b.details.rating - a.details.rating) });
-                processedData = datax
+                    (data3.details.title.toLowerCase().indexOf(value1) >= 0 ||
+                        data3.details.author.toLowerCase().indexOf(value1) >= 0 ||
+                        data3.details.publisher.toLowerCase().indexOf(value1) >= 0 ||
+                        data3.details.category.toLowerCase().indexOf(value1) >= 0) &&
+                    value1 !== '').sort((a, b) => { return (b.details.rating - a.details.rating) });
+                    console.log(value2)
+                    processedData = datax
+                if (value2 !== "") {
+                   var datay = data.booksArray.filter((data3) =>
+                        (data3.details.title.toLowerCase().indexOf(value2) >= 0 ||
+                            data3.details.author.toLowerCase().indexOf(value2) >= 0 ||
+                            data3.details.publisher.toLowerCase().indexOf(value2) >= 0 ||
+                            data3.details.category.toLowerCase().indexOf(value2) >= 0) &&
+                        value2 !== '').sort((a, b) => { return (b.details.rating - a.details.rating) });
+                        datay.map((res)=>{
+                            processedData.push(res)
+                        })
+                }
+                datax = processedData
                 store.dispatch({ type: "STORE_SORTED_DATA", payload: datax })
                 console.log(store.getState().sorted_Data)
-                    document.getElementById('os').click();
+                document.getElementById('os').click();
             })
     }
 
@@ -162,7 +179,7 @@ var sortRating = () => {
     this.setState({ temp: 1 })
 }
 
-export default class Search extends Component {
+/*export default class Search extends Component {
     constructor() {
         super();
         Rx.Observable.fromPromise(fetch('https://api.myjson.com/bins/1a9rkj'))
@@ -195,7 +212,7 @@ export default class Search extends Component {
                 }
             })
     }
-}
+}*/
 
 // https://api.myjson.com/bins/agk87
 // https://api.myjson.com/bins/q3n27

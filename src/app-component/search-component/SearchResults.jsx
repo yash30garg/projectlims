@@ -108,7 +108,6 @@ class SearchResults extends Component
         <ol className="breadcrumb" style={{backgroundColor : "#614126", color : "white"}}  >
         <h5 >{this.props.divName}<span style={{float:'right',cursor:'pointer',paddingLeft:'70px'}} onClick={this.props.searchCrossClicked}>x</span></h5>
         </ol>
-        {console.log(this.props.searchArg)}
             <div className="container-fluid">
                 <div className="row">
                     {a}
