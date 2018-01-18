@@ -12,7 +12,7 @@ import {user_name} from '../App'
 import {connect} from 'react-redux'
 // import {storeSearch} from '../../state/action/searchAction.js'
 import store from '../../state/store/store.js'
-import Search, {search} from '../search-component/Search'
+import {search} from '../search-component/Search'
 export var key;
 export let url = `https://social.mindtree.com/User%20Photos/Profile%20Pictures/m${localStorage.getItem('mid')}_MThumb.jpg?t=63646089488`;
 // let user_name = localStorage.getItem('user-name')
@@ -99,12 +99,12 @@ search(e) {
               {/*<Link to="/search" style={{ textDecoration: 'none' }}>*/}
                 <div className="input-group">
                   
-                  <input type="text" id="key" className="form-control" style={{ alignSelf: "center" }} placeholder="Search for..." onKeyUp={debounce((this.search), 700)} />
+                  <input type="text" id="key" className="form-control" style={{ alignSelf: "center" }} placeholder="Search for..." onKeyUp={debounce((this.search), 1000)} />
                   <button className="btn btn-primary" 
                   onKeyPress={event => {
                                             if (event.key === 'Enter') {
                                                 store.dispatch({type:"STORE_SEARCH",payload:document.getElementById('key').value})
-                                                {<Search />}
+                                                search()
                                             }
                                         }}
                   onClick={(event)=>{this.setState({search:document.getElementById('key').value})
