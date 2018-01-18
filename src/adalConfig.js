@@ -1,5 +1,6 @@
 import { AuthenticationContext, adalFetch } from 'react-adal';
 //To login through http://limsreact.azurewebsites.net, use this adalConfig variable
+
 // export const adalConfig = {
 //   tenant: '85c997b9-f494-46b3-a11d-772983cf6f11',
 
@@ -17,6 +18,7 @@ import { AuthenticationContext, adalFetch } from 'react-adal';
 
 //   cacheLocation: 'localStorage',
 // };
+
 
 //To login through http://localhost:3000, use this adalConfig variable
 export const adalConfig = {

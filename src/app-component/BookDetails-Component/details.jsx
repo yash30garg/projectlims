@@ -486,7 +486,7 @@ class Details extends Component {
                 </div>*/}
 
                 <div class="container">
-		<div class="carder" height="400px" width ="800px"
+		<div class="carders" height="400px" width ="800px"
         > 
 			<div class="container-fliud">
 				<div class="wrapper row">
