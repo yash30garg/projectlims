@@ -139,6 +139,7 @@ class BootHeader extends Component {
             wishlistClicked: false,
             passWish: false,
             searchResults: false,
+            searchClicked:false
         });
     }
 
@@ -353,7 +354,9 @@ class BootHeader extends Component {
                                             ? <LandingView show={this.state.passBorrowed} wish={this.state.passWish} />
                                             : <SearchResults
                                                 closeSearch={this.closeSearch}
-                                                result={this.state.sortedData} />}
+                                                result={this.state.sortedData}
+                                                isSearchClicked={this.state.searchClicked}
+                                                searchCrossClicked={this.closeSearch} />}
                                     </div>
                                 </div>
                             </div>
