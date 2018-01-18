@@ -1,5 +1,5 @@
 node_modules
 build
-src\app-component\main-component\login-component\login.jsx
-src\adalConfig.js
-src\app-component\isLoggedIn.js
+src/app-component/main-component/login-component/login.jsx
+src/adalConfig.js
+src/app-component/isLoggedIn.js
