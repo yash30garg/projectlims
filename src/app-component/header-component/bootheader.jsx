@@ -42,6 +42,7 @@ class BootHeader extends Component {
             searchClicked : false,
             sortedData:'',
             searchArg:'',
+        
 
         }
     }
@@ -133,7 +134,7 @@ class BootHeader extends Component {
         if(store.getState().sorted_Data.length===0)
         this.setState({searchArg: "No Results found for your search: "+ document.getElementById('key').value})
         else
-        this.setState({searchArg:"Results Found for "+document.getElementById('key').value})
+        this.setState({searchArg:"Results Found for "+document.getElementById('key').value} )
     }
     closeSearch = () => {
         this.setState({
@@ -252,7 +253,7 @@ class BootHeader extends Component {
                                             Borrowed Books
 
                                         </div>
-                                        <div id="os" onClick={this.openSearch}></div>
+                                        <div id="os" onClick={this.openSearch} ></div>
                                         <div id="cs" onClick={this.closeSearch}></div>
 
                                         <div

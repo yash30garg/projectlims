@@ -22,15 +22,15 @@ class Footer extends Component {
 
                   <li className="widget-container widget_nav_menu">
 
-                    <h1 className="title-widget" style={{textAlign :"left"}}>Useful links</h1>
+                    <h1 className="title-widget" style={{textAlign :"left" ,color:'#614126' }}>Useful links</h1>
 
                     <ul>
                       <Link to="/aboutus">
 
-                      <li style={{ textAlign: "left"}}><i className="fa fa-angle-double-right"></i> About Us</li>
+                      <li style={{ textAlign: "left",color:'#CD853F'}}><i className="fa fa-angle-double-right"></i> About Us</li>
 
                       </Link>
-                      <li style={{ textAlign: "left"}}><i className="fa fa-angle-double-right"></i> Contact Us</li>
+                      <li style={{ textAlign: "left" ,color:'#CD853F'}}><i className="fa fa-angle-double-right"></i> Contact Us</li>
                     </ul>
                   </li>
                 </ul>
@@ -38,11 +38,11 @@ class Footer extends Component {
               <div className="col-lg-3 col-md-3">
                 <ul className="list-unstyled clear-margins">
                   <li className="widget-container-fluid widget_nav_menu">
-                    <h1 className="title-widget" style={{textAlign :"left"}}>Useful links</h1>
+                    <h1 className="title-widget" style={{textAlign :"left" ,color:'#614126'}}>Useful links</h1>
                     <ul>
-                      <li style={{ textAlign: "left" }}><a href="!#"><i className="fa fa-angle-double-right"></i>  UG Courses</a></li>
-                      <li style={{ textAlign: "left" }}><a href="!#"><i className="fa fa-angle-double-right"></i>  Satellite Education</a></li>
-                      <li style={{ textAlign: "left" }}><a href="!#"><i className="fa fa-angle-double-right"></i>  Study Centres</a></li>
+                      <li style={{ textAlign: "left"  }}><a href="!#" style={{color:'#CD853F'}}><i className="fa fa-angle-double-right" ></i>  UG Courses</a></li>
+                      <li style={{ textAlign: "left" }}><a href="!#" style={{color:'#CD853F'}}><i className="fa fa-angle-double-right"></i>  Satellite Education</a></li>
+                      <li style={{ textAlign: "left" }}><a href="!#" style={{color:'#CD853F'}}><i className="fa fa-angle-double-right"></i>  Study Centres</a></li>
 
    </ul>
   
@@ -67,12 +67,12 @@ class Footer extends Component {
 
                   <li className="widget-container-fluid widget_recent_news">
 
-                    <h1 className="title-widget" style={{textAlign :"left"}}>Contact Detail </h1>
+                    <h1 className="title-widget" style={{textAlign :"left",color:'#614126' }}>Contact Detail </h1>
 
                     <div className="footerp">
 
-                      <h2 className="title-median" style={{ textAlign: "left" }}>Mindtree. Ltd.</h2>
-                      <p style={{ textAlign: "left" }}><b>Email id:</b> <a href="mailto:info@webenlance.com">info@mindtree.com</a></p>
+                      <h2 className="title-median" style={{ textAlign: "left", color:'#614126'}}>Mindtree. Ltd.</h2>
+                      <p style={{ textAlign: "left" }}><b style={{color:'#614126'}}>Email id:</b> <a style={{color:'#CD853F'}} href="mailto:info@webenlance.com">info@mindtree.com</a></p>
 
                     </div>
                   </li>
@@ -92,16 +92,16 @@ class Footer extends Component {
 
                   <li className="widget-container-fluid widget_nav_menu">
 
-                    <h1 className="title-widget" style={{textAlign :"left"}}>Social Sites</h1>
+                    <h1 className="title-widget" style={{textAlign :"left", color:'#614126'}}>Social Sites</h1>
 
                     <div className="social-icons">
 
                       <ul className="nomargin">
                       <div>
-                        <a href="https://www.facebook.com/bootsnipp" style={{ textAlign: "left" ,marginLeft : "0px" }}><i className="fa fa-facebook-square fa-3x social-fb" id="social"></i></a>
-                        <a href="https://twitter.com/bootsnipp" style={{ textAlign: "left" }}><i className="fa fa-twitter-square fa-3x social-tw" id="social"></i></a>
-                        <a href="https://plus.google.com/+Bootsnipp-page" style={{ textAlign: "left" }}><i className="fa fa-google-plus-square fa-3x social-gp" id="social"></i></a>
-                        <a href="mailto:bootsnipp@gmail.com" style={{ textAlign: "left" }}><i className="fa fa-envelope-square fa-3x social-em" id="social"></i></a>
+                        <a href="https://www.facebook.com/bootsnipp" style={{ textAlign: "left" ,marginLeft : "0px" ,color:'#CD853F' }}><i className="fa fa-facebook-square fa-3x social-fb" id="social"></i></a>
+                        <a href="https://twitter.com/bootsnipp" style={{ textAlign: "left" ,color:'#CD853F' }}><i className="fa fa-twitter-square fa-3x social-tw" id="social"></i></a>
+                        <a href="https://plus.google.com/+Bootsnipp-page" style={{ textAlign: "left",color:'#CD853F' }}><i className="fa fa-google-plus-square fa-3x social-gp" id="social"></i></a>
+                        <a href="mailto:bootsnipp@gmail.com" style={{ textAlign: "left" ,color:'#CD853F'}}><i className="fa fa-envelope-square fa-3x social-em" id="social"></i></a>
                         </div>
                       </ul>
 

@@ -71,7 +71,7 @@ search(e) {
   render() {
 
     return (
-      <div>
+      <div >
         <nav className="navbar navbar-toggleable-md navbar-light bg-faded" style={{ backgroundColor: "#614126" }}>
           <button style={{ backgroundColor: '#fff' }}
             className="navbar-toggler navbar-toggler-right"
@@ -83,13 +83,15 @@ search(e) {
             aria-label="Toggle navigation">
             <span style={{ backgroundColor: '#fff' }} className="navbar-toggler-icon"></span>
           </button>
-          <img
-            className="App-logo inset"
+    
+          <img 
+            className="App-logo inset" 
 
 
             src={"https://www.mindtree.com/themes/custom/mindtree_theme/logo.svg "} 
             alt="My logo"
-            align="left" style={{background:"white"}} />
+            align="left"  />
+            
           <Link to="/">
             <span id="projectTitle" className="navbar-brand" style={{ color: "white",paddingLeft:'15px' }}>Mindtree Library</span>
           </Link>
@@ -127,10 +129,10 @@ search(e) {
                 <span className="dropdown-toggle"></span></div>
                 <ul className="dropdown-menu dropdown-menu-right" align="center">
                   <li className="well" align="center">
-                    <Link to="/profile"><div href="#" className="nav-link active" style={{color:'#614126', borderColor:'brown'}}><span className="fa fa-user"></span>Profile</div></Link></li>
+                    <Link to="/profile"><div href="#" className="nav-link active" style={{color:'#614126', borderColor:'brown' ,backgroundColor:'#FFF8DC'}}><span className="fa fa-user"></span>Profile</div></Link></li>
                     <hr/>
                     <li align="center">
-                    <div href="#" onClick={this.logout} className="nav-link active" style={{color:'#614126', borderColor:'brown'}}><span className="fa fa-lock"></span> Logout</div></li>
+                    <div href="#" onClick={this.logout} className="nav-link active" style={{color:'#614126', borderColor:'brown',backgroundColor:'#FFF8DC' }}><span className="fa fa-lock"></span> Logout</div></li>
                 </ul>
               </li>
               {/*<Link to="/profile">
