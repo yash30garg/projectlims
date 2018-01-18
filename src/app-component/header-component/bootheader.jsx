@@ -41,6 +41,7 @@ class BootHeader extends Component {
             searchResults: false,
             searchClicked : false,
             sortedData:'',
+            searchArg:'',
 
         }
     }
@@ -127,8 +128,12 @@ class BootHeader extends Component {
             wishlistClicked: false,
             searchResults: true,
             searchClicked : true,
-            sortedData: store.getState().sorted_Data
+            sortedData: store.getState().sorted_Data,
         })
+        if(store.getState().sorted_Data.length===0)
+        this.setState({searchArg: "No Results found for your search: "+ document.getElementById('key').value})
+        else
+        this.setState({searchArg:"Results Found for "+document.getElementById('key').value})
     }
     closeSearch = () => {
         this.setState({
@@ -354,6 +359,7 @@ class BootHeader extends Component {
                                         {this.state.landingView && this.state.searchClicked
                                             ? <LandingView show={this.state.passBorrowed} wish={this.state.passWish} />
                                             : <SearchResults
+                                                divName={this.state.searchArg}
                                                 closeSearch={this.closeSearch}
                                                 result={this.state.sortedData}
                                                 isSearchClicked={this.state.searchClicked}
