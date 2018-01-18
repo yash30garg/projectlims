@@ -9,9 +9,9 @@ export var book;
 //     books;
 class SearchResults extends Component
 {
-    // constructor(props)
-    // {
-    //     super(props);
+     constructor(props)
+    {
+         super(props);
         // axios
         //     .get('https://api.myjson.com/bins/14x90j')
         //     .then(res => {
@@ -20,7 +20,7 @@ class SearchResults extends Component
         //         console.log(users)
         //         const b = users.filter((res) => res.user.mid === "1042948")
         //     });
-    // }
+     }
 
     handle(res){
         window.selected=res;
@@ -29,7 +29,7 @@ class SearchResults extends Component
     {
         const a = processedData.map(res => {
             return (
-                <div key={res.isbn} className="col-lg-2 col-md-4 col-sm-6 col-xs-12 mt-4">
+                <div key={res.isbn} className="col-lg-3 col-md-4 col-sm-6 col-xs-12 mt-4">
                     <Link to="/search/details">
                         <div
                             id={res.isbn}
@@ -52,7 +52,7 @@ class SearchResults extends Component
                                                 fontSize:'13px',
                                                 paddingTop:"0px"
                                             }}></span><br/>*/}
-                                <div className="card-block">
+                                <div className="card-block card-text">
                                 {res.details.title}
                                 </div>
                             <div className="overlay" style={{backgroundColor: "rgba(97,65,38,0.9)"}}>
@@ -103,10 +103,17 @@ class SearchResults extends Component
             )
         });
         return (
+            <div>
+        {this.props.isSearchClicked?<div className="contained">
+        <ol className="breadcrumb" style={{backgroundColor : "#614126", color : "white"}}  >
+        <h5 >Results found<span style={{float:'right',cursor:'pointer',paddingLeft:'70px'}} onClick={this.props.searchCrossClicked}>x</span></h5>
+        </ol>
             <div className="container-fluid">
                 <div className="row">
                     {a}
                 </div>
+            </div>
+            </div>:null}
             </div>
         /*<div id="myModal" class="modal">
   <span class="close">&times;</span>
@@ -127,4 +134,6 @@ class SearchResults extends Component
 
     }
 }
+
+
 export default SearchResults;

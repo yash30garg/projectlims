@@ -1,19 +1,21 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './bootheader.css';
+import {Link} from 'react-router-dom'
 import Footer from '../footer-component/footer.jsx';
 import Header from './header.jsx';
 // import Pbooks from '../main-component/admin-component/PreferredBooks/PrefferdBooks.jsx';
 import BorrowedSlider from '../main-component/user-component/borrowedBooks/borrowedSlider.jsx';
 // import Search from '../search-component/Search.jsx';
-// import SearchResults from '../search-component/SearchResults.jsx';
-
+import SearchResults from '../search-component/SearchResults.jsx';
+import Search from '../search-component/Search'
 import Details from './../BookDetails-Component/details';
 import { LandingView } from './landingView';
 import { Category } from './categoryView';
 import WishedBooks from '../main-component/user-component/wishlist/wishlistComponent'
 import LoadingEffect from './../loading-component/loading';
 import { EachListItem } from './categoryList';
+import store from '../../state/store/store.js'
 import $ from 'jquery';
 var count = 0,
     plus,
@@ -35,7 +37,10 @@ class BootHeader extends Component {
             passBorrowed: false,
             passWish: false,
             plus: plus,
-            arrayResults: []
+            arrayResults: [],
+            searchResults: false,
+            searchClicked : false,
+            sortedData:'',
 
         }
     }
@@ -55,7 +60,8 @@ class BootHeader extends Component {
             borrowedClicked: false,
             passBorrowed: false,
             passWish: false,
-            wishlistClicked: false
+            wishlistClicked: false,
+            searchClicked: false,
         });
     }
     closeCategory = () => {
@@ -111,6 +117,31 @@ class BootHeader extends Component {
             passBorrowed: false
         });
     }
+    openSearch = () => {
+        this.setState({
+            landingView: false,
+            categoryClicked: false,
+            borrowedClicked: false,
+            passBorrowed: false,
+            passWish: false,
+            wishlistClicked: false,
+            searchResults: true,
+            searchClicked : true,
+            sortedData: store.getState().sorted_Data
+        })
+    }
+    closeSearch = () => {
+        this.setState({
+            landingView: true,
+            categoryClicked: true,
+            borrowedClicked: false,
+            passBorrowed: false,
+            wishlistClicked: false,
+            passWish: false,
+            searchResults: false,
+            searchClicked:false
+        });
+    }
 
     plusClicked = () => {
         if (check === "-") {
@@ -129,6 +160,9 @@ class BootHeader extends Component {
     }
     render() {
         let brr = [];
+        store.subscribe(()=> {
+            console.log(store.getState().search)
+        })
         let arr = window.display
             .sort((a, b) => {
                 if (a.details.category.toUpperCase() > b.details.category.toUpperCase()) {
@@ -199,7 +233,7 @@ class BootHeader extends Component {
                                                 backgroundColor: "#614126",
                                                 color: "white"
                                             }}>
-                                            <span className="fa fa-cog" aria-hidden="true"></span>
+                                            <span className="fa fa-list-alt" aria-hidden="true"></span>
                                             My Books</div>
 
                                         <div
@@ -213,6 +247,8 @@ class BootHeader extends Component {
                                             Borrowed Books
 
                                         </div>
+                                        <div id="os" onClick={this.openSearch}></div>
+                                        <div id="cs" onClick={this.closeSearch}></div>
 
                                         <div
                                             onClick={this.openWishlist}
@@ -245,7 +281,7 @@ class BootHeader extends Component {
                                             }}
                                             onClick={this.plusClicked}>
 
-                                            <div className="col-md-0 fa fa-cog" aria-hidden="true"></div>
+                                            <div className="col-md-0 fa fa-list-alt" aria-hidden="true"></div>
                                             <div
                                                 className="col"
                                                 style={{
@@ -301,7 +337,8 @@ class BootHeader extends Component {
                                             : <Category
                                                 categoryCrossClicked={this.closeCategory}
                                                 data={this.state.display}
-                                                selected={this.state.currentlyClicked} />}
+                                                selected={this.state.currentlyClicked}
+                                                isSearchClicked={this.state.searchClicked} />}
                                     </div>
                                     <div>
                                         {this.state.borrowedClicked && this.state.passBorrowed
@@ -313,7 +350,15 @@ class BootHeader extends Component {
                                             ? <WishedBooks wishCrossClicked={this.closeWishlist} />
                                             : null}
                                     </div>
-
+                                    <div>
+                                        {this.state.landingView && this.state.searchClicked
+                                            ? <LandingView show={this.state.passBorrowed} wish={this.state.passWish} />
+                                            : <SearchResults
+                                                closeSearch={this.closeSearch}
+                                                result={this.state.sortedData}
+                                                isSearchClicked={this.state.searchClicked}
+                                                searchCrossClicked={this.closeSearch} />}
+                                    </div>
                                 </div>
                             </div>
                         </div>

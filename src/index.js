@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './app-component/App.jsx';
 import axios from 'axios';
-import registerServiceWorker from './registerServiceWorker';
+// import registerServiceWorker from './registerServiceWorker';
 import { runWithAdal } from 'react-adal';
 import { authContext } from './adalConfig';
 // import './server.js'

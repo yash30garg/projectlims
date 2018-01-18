@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import'./PrefferedBooks.css'
 // let res;
 class EachPrefferedCard extends Component{
     constructor(props)
@@ -32,7 +33,7 @@ class EachPrefferedCard extends Component{
                     src={this.props.item.details.url}
                     height="160px"
                     width="100%"/>
-                    <div className="card-block" style={{width:"160px", fontSize:"14px"}}>
+                    <div className="card-block card-text" style={{width:"160px", fontSize:"14px"}}>
                     {this.props.item.details.title}
                     </div>
                 <div className="overlay" style={{backgroundColor : "rgba(97,65,38,0.9)"}}>

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
-import Search from './search-component/Search'
+// import Search from './search-component/Search'
+import SearchResults from './search-component/SearchResults'
 // import Admin from './main-component/admin-component/admin'
 // import SearchResults from '../app-component/search-component/SearchResults.jsx';
 // import BootHeader from '../app-component/header-component/bootheader.jsx';
@@ -62,11 +63,11 @@ class App extends Component {
 
     return (
       <HashRouter basename="/">
-        <div className="App">
+        <div className="App" id="App">
           <Switch>
             <Route path="/login" exact component={Login}/>
             <Route path="/" exact component={User}/>
-            <Route path="/search" exact component={Search}/>
+            <Route path="/search" exact component={SearchResults}/>
             <Route path="/search/details" exact component={BookDetails}/>
             {/*<Route path="/pdetails" exact component={ProductDetails}/>*/}
             {/*<Route path="/admin" exact component={AdminLogin} />  */}

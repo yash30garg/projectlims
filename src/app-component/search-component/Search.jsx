@@ -2,229 +2,189 @@ import React, { Component } from 'react';
 import Rx from 'rxjs';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
-import {Link} from 'react-router-dom';
-import {requireAuth} from '../isLoggedIn.js'
+import { Link } from 'react-router-dom';
+import { requireAuth } from '../isLoggedIn.js'
 // import { BrowserRouter, Route, Link } from 'react-router-dom';
 import 'rxjs/add/operator/filter';
 import SearchResults from '../search-component/SearchResults';
 // import Footer from '../footer-component/footer'
 import './Search.css'
+import store from '../../state/store/store.js'
+import BootHeader from '../header-component/bootheader'
 var debounce = require('debounce');
 export var processedData = [];
-export default class Search extends Component {
-    constructor() {
-        super();
-        this.state = {
-            searchTerm: '',
-            data: '',
-            sortedData: '',
-            filteredData: '',
-            temp: 0
-        }
-        // Rx.Observable.fromPromise(fetch('http://limsreactapi.azurewebsites.net/api/Books'))
+var data
+export var search = () => {
+    let value = store.getState().search;
+    console.log(value)
+    if (value === "")
+        document.getElementById('cs').click();
+    else {
         Rx.Observable.fromPromise(fetch('https://api.myjson.com/bins/1a9rkj'))
             .flatMap((response) => response.json())
             .subscribe(values => {
-                this.setState({ data: values })
-                // console.log(this.state.data.booksArray);
+                data = values;
+
+
+                // console.log(this.state.data)
+                var datax = data.booksArray.filter((data3) =>
+                    (data3.details.title.toLowerCase().indexOf(value) >= 0 ||
+                        data3.details.author.toLowerCase().indexOf(value) >= 0 ||
+                        data3.details.publisher.toLowerCase().indexOf(value) >= 0 ||
+                        data3.details.category.toLowerCase().indexOf(value) >= 0) &&
+                    value !== '').sort((a, b) => { return (b.details.rating - a.details.rating) });
+                processedData = datax
+                store.dispatch({ type: "STORE_SORTED_DATA", payload: datax })
+                console.log(store.getState().sorted_Data)
+                    document.getElementById('os').click();
             })
     }
-    componentWillMount() {
-        requireAuth(window.location.href)
+
+}
+var selectSort = () => {
+    if (document.getElementById("sort").value === "Title") {
+        this.sortTitle();
     }
-    search = (event) => {
-        let value = document.getElementById("search").value.toLowerCase();
-        // console.log(document.getElementById("search").value)
-
-        // console.log(this.state.data)
-
-        this.setState({ searchTerm: document.getElementById("search").value.toLowerCase() })
-
-        // console.log(this.state.data)
-        this.datax = this.state.data.booksArray.filter((data3) =>
-            (data3.details.title.toLowerCase().indexOf(value) >= 0 ||
-                data3.details.author.toLowerCase().indexOf(value) >= 0 ||
-                data3.details.publisher.toLowerCase().indexOf(value) >= 0 ||
-                data3.details.category.toLowerCase().indexOf(value) >= 0) &&
-            value !== '').sort((a,b)=>{return(b.details.rating-a.details.rating)});
-        this.dataOrg = this.datax;
-        processedData = this.datax;
-        // console.log(processedData)
-
-
-        this.setState({ sortedData: this.datax })
-        // console.log(this.state.sortedData)
-
-
-        // console.log(this.state.sortedData)
-        this.setState({ sortedData: this.datax })
-        // console.log(this.state.sortedData)
-
-        // console.log(this.state.sortedData)
-        event.preventDefault();
-
-
-
+    else if (document.getElementById("sort").value === "Author") {
+        this.sortAuthor();
     }
-    selectSort = () => {
-        if (document.getElementById("sort").value === "Title") {
-            this.sortTitle();
-        }
-        else if (document.getElementById("sort").value === "Author") {
-            this.sortAuthor();
-        }
-        else if (document.getElementById("sort").value === "Publisher") {
-            this.sortPublish();
-        }
-        else if (document.getElementById("sort").value === "Rating") {
-            this.sortRating();
-        }
-        else alert("Select a valid sort");
+    else if (document.getElementById("sort").value === "Publisher") {
+        this.sortPublish();
     }
-    sortTitle() {
-        this.flag = !this.flag;
-        let i = this.flag;
-        this.state.sortedData.sort(function (a, b) {
-            if (a.details.title > b.details.title) {
-                if (i)
-                    return -1;
-                else
-                    return 1;
-            }
-            if (a.details.title < b.details.title) {
-                if (i)
-                    return 1;
-                else
-                    return -1;
-            }
-            return 0;
+    else if (document.getElementById("sort").value === "Rating") {
+        this.sortRating();
+    }
+    else alert("Select a valid sort");
+}
+var sortTitle = () => {
+    this.flag = !this.flag;
+    let i = this.flag;
+    this.state.sortedData.sort(function (a, b) {
+        if (a.details.title > b.details.title) {
+            if (i)
+                return -1;
+            else
+                return 1;
         }
-        )
-        processedData = this.state.sortedData;
-        // console.log(processedData)
-        // console.log("Sorted by Title");
-        this.setState({ temp: 1 })
-    }
-    sortAuthor() {
-        this.flag = !this.flag;
-        let i = this.flag;
-        this.state.sortedData.sort(function (a, b) {
-            if (a.details.author > b.details.author) {
-                if (i)
-                    return -1;
-                else
-                    return 1;
-            }
-            if (a.details.author < b.details.author) {
-                if (i)
-                    return 1;
-                else
-                    return -1;
-            }
-            return 0;
+        if (a.details.title < b.details.title) {
+            if (i)
+                return 1;
+            else
+                return -1;
         }
-        )
-        processedData = this.state.sortedData;
-        // console.log(processedData)
-        // console.log("Sorted by Author");
-        this.setState({ temp: 1 })
+        return 0;
     }
-    sortPublish() {
-        this.flag = !this.flag;
-        let i = this.flag;
-        this.state.sortedData.sort(function (a, b) {
-            if (a.details.publisher > b.details.publisher) {
-                if (i)
-                    return -1;
-                else
-                    return 1;
-            }
-            if (a.details.publisher < b.details.publisher) {
-                if (i)
-                    return 1;
-                else
-                    return -1;
-            }
-            return 0;
+    )
+    processedData = this.state.sortedData;
+    // console.log(processedData)
+    // console.log("Sorted by Title");
+    this.setState({ temp: 1 })
+}
+var sortAuthor = () => {
+    this.flag = !this.flag;
+    let i = this.flag;
+    this.state.sortedData.sort(function (a, b) {
+        if (a.details.author > b.details.author) {
+            if (i)
+                return -1;
+            else
+                return 1;
         }
-        )
-        processedData = this.state.sortedData;
-        // console.log(processedData)
-        // console.log("Sorted by Publisher");
-        this.setState({ temp: 1 })
-    }
-    sortRating() {
-        this.flag = !this.flag;
-        let i = this.flag;
-        this.state.sortedData.sort(function (a, b) {
-            if (a.details.rating > b.details.rating) {
-                if (i)
-                    return -1;
-                else
-                    return 1;
-            }
-            if (a.details.rating < b.details.rating) {
-                if (i)
-                    return 1;
-                else
-                    return -1;
-            }
-            return 0;
+        if (a.details.author < b.details.author) {
+            if (i)
+                return 1;
+            else
+                return -1;
         }
-        )
-        processedData = this.state.sortedData;
-        // console.log(processedData)
-        // console.log("Sorted by Rating");
-        this.setState({ temp: 1 })
+        return 0;
     }
-    
-    back() {
-        processedData = [];
-        window.history.go(-1)
+    )
+    processedData = this.state.sortedData;
+    // console.log(processedData)
+    // console.log("Sorted by Author");
+    this.setState({ temp: 1 })
+}
+var sortPublish = () => {
+    this.flag = !this.flag;
+    let i = this.flag;
+    this.state.sortedData.sort(function (a, b) {
+        if (a.details.publisher > b.details.publisher) {
+            if (i)
+                return -1;
+            else
+                return 1;
+        }
+        if (a.details.publisher < b.details.publisher) {
+            if (i)
+                return 1;
+            else
+                return -1;
+        }
+        return 0;
     }
+    )
+    processedData = this.state.sortedData;
+    // console.log(processedData)
+    // console.log("Sorted by Publisher");
+    this.setState({ temp: 1 })
+}
+var sortRating = () => {
+    this.flag = !this.flag;
+    let i = this.flag;
+    this.state.sortedData.sort(function (a, b) {
+        if (a.details.rating > b.details.rating) {
+            if (i)
+                return -1;
+            else
+                return 1;
+        }
+        if (a.details.rating < b.details.rating) {
+            if (i)
+                return 1;
+            else
+                return -1;
+        }
+        return 0;
+    }
+    )
+    processedData = this.state.sortedData;
+    // console.log(processedData)
+    // console.log("Sorted by Rating");
+    this.setState({ temp: 1 })
+}
 
-    render() {
-        return (
-            <div>
-                <nav className="navbar navbar-toggleable-md navbar-light bg-faded " style={{backgroundColor:"#614126",height:'65px'}}>
-                    <div ><img
-                        className="App-logo inset"
-                        src={"https://www.mindtree.com/themes/custom/mindtree_theme/logo.svg"}
-                        alt="My logo"
-                        align="left" /></div>
-                        <Link to="/">
-                    <div className="navbar-brand" style={{color:"white",paddingLeft:'15px'}}>Mindtree Library</div>
+export default class Search extends Component {
+    constructor() {
+        super();
+        Rx.Observable.fromPromise(fetch('https://api.myjson.com/bins/1a9rkj'))
+            .flatMap((response) => response.json())
+            .subscribe(values => {
+                data = values;
+                let value = store.getState().search;
+                console.log(value)
 
-                    </Link>
-                    <form onSubmit={this.search}>
-                        <div className="col-lg-6">
-                            
-                                <div className="input-group">
-
-                                    <input type="text" id="search" className="form-control" size="800" style={{ alignSelf: "center",borderColor:"#8B4513"}} placeholder="Search for..." onKeyUp={debounce(this.search, 700)} autoFocus />
-                                    <span className="input-group-btn">
-
-                                        <button type="submit" className="btn btn-outline-secondary" onKeyPress={event => {
-                                            if (event.key === 'Enter') {
-                                                this.search()
-                                            }
-                                        }}
-                                            onClick={this.search}>Go!</button>
-
-                                    </span>
-                                </div>
-                            </div>
-                    </form>
-                    {/*<div className="close"><label id="close" onClick={this.back}><h4>x</h4></label></div>*/}
-                    <div className="close" style={{color:"white",border:"white"}}><button className="btn btn-outline-primary" onClick={this.back} style={{backgroundColor:"#fff",borderColor:"#fff",color:"#000"}}>back</button></div>
-                </nav>
-                <div className="content">
-                    <SearchResults result={this.state.sortedData} />
-                </div>
-            </div>
-
-
-        );
+                // console.log(this.state.data)
+                var datax = data.booksArray.filter((data3) =>
+                    (data3.details.title.toLowerCase().indexOf(value) >= 0 ||
+                        data3.details.author.toLowerCase().indexOf(value) >= 0 ||
+                        data3.details.publisher.toLowerCase().indexOf(value) >= 0 ||
+                        data3.details.category.toLowerCase().indexOf(value) >= 0) &&
+                    value !== '').sort((a, b) => { return (b.details.rating - a.details.rating) });
+                processedData = datax
+                store.dispatch({ type: "STORE_SORTED_DATA", payload: datax })
+                console.log(store.getState().sorted_Data)
+                {
+                    <BootHeader landingView={false}
+                        categoryClicked={false}
+                        borrowedClicked={false}
+                        passBorrowed={false}
+                        passWish={false}
+                        wishlistClicked={false}
+                        searchResults={true}
+                        searchClicked={true}
+                        sortedData={store.getState().sorted_Data} />
+                }
+            })
     }
 }
 

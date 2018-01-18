@@ -46,7 +46,7 @@ export const Category=(props)=>
                     src={res.details.url}
                     height="160px"
                     width="100%"/>
-                   <div className="card-block" style={{width:"160px", fontSize:"14px"}}>
+                   <div className="card-block card-text" style={{width:"160px", fontSize:"14px"}}>
                     {res.details.title}
                     </div>
                      <div className="overlay" style={{backgroundColor: "rgba(97,65,38,0.9)"}}>
@@ -78,6 +78,8 @@ export const Category=(props)=>
 
     })
 return(
+    <div>
+        {props.isSearchClicked===false?
     <div className="contained">
         <ol className="breadcrumb" style={{backgroundColor : "#614126", color : "white"}}  >
         <h5 >{props.selected.toUpperCase()} <span style={{float:'right',cursor:'pointer',paddingLeft:'70px'}} onClick={props.categoryCrossClicked}>x</span></h5>
@@ -85,6 +87,7 @@ return(
     <div className="row ml-1 mr-1">
      {b}
     </div>
+    </div>:null}
     </div>
 )
 }

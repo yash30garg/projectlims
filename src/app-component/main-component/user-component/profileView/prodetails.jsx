@@ -12,10 +12,10 @@ class Profile extends Component {
   render() {
 
     return (
-    <div>
+    <div style={{backgroundColor : "#FFF8DC", minHeight : "33px"}}>
 <Header />
 
-<div className="container-fluid" style={{backgroundColor : "#FFF8DC", minHeight : "33px"}} >
+<div className="container-fluid"  >
   <br/><nr />
 	<div className="innerwrap">
 		<section className="section1 clearfix">
@@ -54,39 +54,42 @@ class Profile extends Component {
 			<i className="fa fa-star"></i>
 			</span>
 		</section>
-		<section className="section2 clearfix">
-			<div className="grid">
-				<div className="col3 first">
+		{/*<section className="section2 clearfix">*/}
+			{/*<div className="grid">*/}
+				{/*<div className="col3 first">
 					<div className="postcont"><img src="http://www.ohmyindia.com/wp-content/uploads/2017/09/dhoni8.jpg" alt="" />
-					</div>
-					<div className="profileinfo">
+					</div>*/}
+					{/*<div className="profileinfo">
 						<img src="http://images.contactmusic.com/newsimages/david_beckham_1133321.jpg" alt="" />
 						<p>MS Dhoni has hit most sixes for India in international cricket</p>
 						<span>Read more <i className="fa fa-angle-right"></i></span>
 					</div>
-				</div>
-				<div className="col3 center">
+				</div>*/}
+				{/*<div className="col3 center">
 					<div className="postcont"><img src="https://d1u4oo4rb13yy8.cloudfront.net/article/67350-wcbqbtpugy-1504272183.jpg" alt="" />
-					</div>
-					<div className="profileinfo">
+					</div>*/}
+					{/*<div className="profileinfo">
 						<img src="https://d1u4oo4rb13yy8.cloudfront.net/article/67350-wcbqbtpugy-1504272183.jpg" alt="" />
 						<p>MS Dhoni has been involved in most T20 wins</p>
 						<span>Read more <i className="fa fa-angle-right"></i></span>
 					</div>
-				</div>
-				<div className="col3 last">
+				</div>*/}
+				{/*<div className="col3 last">
 					<div className="postcont"><img src="http://ste.india.com/sites/default/files/2017/07/06/607698-ms-dhoni-pc-pti4.jpg" alt="" />
-					</div>
-					<div className="profileinfo">
+					</div>*/}
+					{/*<div className="profileinfo">
 						<img src="http://images.contactmusic.com/newsimages/david_beckham_1133321.jpg" alt="" />
 						<p>MS Dhoni has captained most number of intl. matches (334)</p>
 						<span>Read more <i className="fa fa-angle-right"></i></span>
-					</div>
-				</div>
+					</div>*/}
+				{/*</div>
 			</div>
-		</section>
+		</section>*/}
 	</div>
 </div>	
+<br />
+<br />
+<br />
 <Footer />
    </div>
     )}

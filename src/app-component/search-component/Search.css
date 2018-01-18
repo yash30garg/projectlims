@@ -124,7 +124,7 @@ body{
     margin:auto;
 }
 
-.card-block {
+.card-text {
   white-space: nowrap;
   color:rgb(97,65,38);
   width: 200px;
