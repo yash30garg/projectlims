@@ -486,7 +486,8 @@ class Details extends Component {
                 </div>*/}
 
                 <div class="container">
-		<div class="carder">
+		<div class="carders" height="400px" width ="800px"
+        > 
 			<div class="container-fliud">
 				<div class="wrapper row">
 					<div class="preview col-md-6">
@@ -499,6 +500,8 @@ class Details extends Component {
 						  <div class="tab-pane" id="pic-5"><img src={book.details.url} /></div>
 						  
 						</div>
+
+                        
 						<ul class="preview-thumbnail nav nav-tabs">
 						  <li class="active"><a data-target="#pic-1" data-toggle="tab"><img src={book.details.url} /></a></li>
 						  <li><a data-target="#pic-2" data-toggle="tab"><img src={book.details.url} /></a></li>
@@ -531,10 +534,10 @@ class Details extends Component {
 							<span class="color" data-toggle="tooltip" title="Not In store">{book.details.author}</span>
 							
 						</h5>
-						<div class="action">
-							<button class="add-to-cart btn btn-default" type="button">Request Book</button>&nbsp;&nbsp;
-							<button class="like btn btn-default" type="button"><span class="fa fa-heart"></span></button>
-						</div>
+						 <div className="row offset-md-2">
+                                        {this.state.wish}&nbsp;&nbsp;&nbsp;
+                                        {this.state.req}
+                                    </div>
 					</div>
 				</div>
 			</div>
