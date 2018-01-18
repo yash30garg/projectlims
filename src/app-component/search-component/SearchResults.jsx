@@ -29,7 +29,7 @@ class SearchResults extends Component
     {
         const a = processedData.map(res => {
             return (
-                <div key={res.isbn} className="col-lg-2 col-md-4 col-sm-6 col-xs-12 mt-4">
+                <div key={res.isbn} className="col-lg-3 col-md-4 col-sm-6 col-xs-12 mt-4">
                     <Link to="/search/details">
                         <div
                             id={res.isbn}
@@ -127,4 +127,6 @@ class SearchResults extends Component
 
     }
 }
+
+
 export default SearchResults;

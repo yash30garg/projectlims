@@ -7,17 +7,24 @@ import '../App.css';
 // Footer from '../footer-component/footer.jsx';
 import { authContext } from '../../adalConfig.js'
 import './header.css'
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import {user_name} from '../App'
+import {connect} from 'react-redux'
+// import {storeSearch} from '../../state/action/searchAction.js'
+import store from '../../state/store/store.js'
+import Search, {search} from '../search-component/Search'
 export var key;
 export let url = `https://social.mindtree.com/User%20Photos/Profile%20Pictures/m${localStorage.getItem('mid')}_MThumb.jpg?t=63646089488`;
 // let user_name = localStorage.getItem('user-name')
+var debounce = require('debounce');
 class Header extends Component {
 constructor(props)
 {
   super(props);
   this.state={
-    greet:"Hi, "
+    greet:"Hi, ",
+    search:'',
+
   }
 }
 
@@ -56,7 +63,11 @@ if(hours>=4 && hours<12){
   {
     this.setState({greet:"Good evening, "});
   }
-  }
+}
+search(e) {
+  store.dispatch({type:"STORE_SEARCH",payload: document.getElementById('key').value})
+  search()
+}
   render() {
 
     return (
@@ -85,15 +96,24 @@ if(hours>=4 && hours<12){
           
             <div className="col-lg-5">
               <div>
-              <Link to="/search" style={{ textDecoration: 'none' }}>
+              {/*<Link to="/search" style={{ textDecoration: 'none' }}>*/}
                 <div className="input-group">
                   
-                  <input type="text" id="key" className="form-control"  style={{ alignSelf: "center" }} placeholder="Search for..." />
-
-
-                  <button className="btn btn-primary" onClick={this.handle} type="button" style={{ backgroundColor: "#614126", borderColor: "#fff" }} >Go!</button>
+                  <input type="text" id="key" className="form-control" style={{ alignSelf: "center" }} placeholder="Search for..." onKeyUp={debounce((this.search), 700)} />
+                  <button className="btn btn-primary" 
+                  onKeyPress={event => {
+                                            if (event.key === 'Enter') {
+                                                store.dispatch({type:"STORE_SEARCH",payload:document.getElementById('key').value})
+                                                {<Search />}
+                                            }
+                                        }}
+                  onClick={(event)=>{this.setState({search:document.getElementById('key').value})
+                    store.dispatch({type:"STORE_SEARCH", payload: document.getElementById('key').value})
+                    search()
+                    }} 
+                    type="button" style={{ backgroundColor: "#614126", borderColor: "#fff" }} >Go!</button>
                 </div>
-                </Link>
+                {/*</Link>*/}
               </div>
             </div>
           
@@ -150,4 +170,15 @@ if(hours>=4 && hours<12){
     )
   }
 }
+// const mapStateToProps = (state) => {
+//   return {}
+// }
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     storeSearchToRedux : (obj) => {
+//       dispatch(storeSearch(obj))
+//     }
+//   }
+// }
+// export default connect(mapDispatchToProps)(withRouter(Header));
 export default Header;
