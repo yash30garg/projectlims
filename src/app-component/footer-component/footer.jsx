@@ -27,7 +27,7 @@ class Footer extends Component {
                     <ul>
                       <Link to="/aboutus">
 
-                      <li style={{ textAlign: "left" }}><i className="fa fa-angle-double-right"></i> About Us</li>
+                      <li style={{ textAlign: "left"}}><i className="fa fa-angle-double-right"></i> About Us</li>
 
                       </Link>
                       <li style={{ textAlign: "left"}}><i className="fa fa-angle-double-right"></i> Contact Us</li>
