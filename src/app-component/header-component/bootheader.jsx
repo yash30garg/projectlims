@@ -248,6 +248,7 @@ class BootHeader extends Component {
 
                                         </div>
                                         <div id="os" onClick={this.openSearch}></div>
+                                        <div id="cs" onClick={this.closeSearch}></div>
 
                                         <div
                                             onClick={this.openWishlist}

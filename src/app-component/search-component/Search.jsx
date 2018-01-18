@@ -15,25 +15,30 @@ var debounce = require('debounce');
 export var processedData = [];
 var data
 export var search = () => {
-    Rx.Observable.fromPromise(fetch('https://api.myjson.com/bins/1a9rkj'))
-        .flatMap((response) => response.json())
-        .subscribe(values => {
-            data = values;
-            let value = store.getState().search;
-            console.log(value)
+    let value = store.getState().search;
+    console.log(value)
+    if (value === "")
+        document.getElementById('cs').click();
+    else {
+        Rx.Observable.fromPromise(fetch('https://api.myjson.com/bins/1a9rkj'))
+            .flatMap((response) => response.json())
+            .subscribe(values => {
+                data = values;
 
-            // console.log(this.state.data)
-            var datax = data.booksArray.filter((data3) =>
-                (data3.details.title.toLowerCase().indexOf(value) >= 0 ||
-                    data3.details.author.toLowerCase().indexOf(value) >= 0 ||
-                    data3.details.publisher.toLowerCase().indexOf(value) >= 0 ||
-                    data3.details.category.toLowerCase().indexOf(value) >= 0) &&
-                value !== '').sort((a, b) => { return (b.details.rating - a.details.rating) });
+
+                // console.log(this.state.data)
+                var datax = data.booksArray.filter((data3) =>
+                    (data3.details.title.toLowerCase().indexOf(value) >= 0 ||
+                        data3.details.author.toLowerCase().indexOf(value) >= 0 ||
+                        data3.details.publisher.toLowerCase().indexOf(value) >= 0 ||
+                        data3.details.category.toLowerCase().indexOf(value) >= 0) &&
+                    value !== '').sort((a, b) => { return (b.details.rating - a.details.rating) });
                 processedData = datax
-            store.dispatch({ type: "STORE_SORTED_DATA", payload: datax })
-            console.log(store.getState().sorted_Data)
-            document.getElementById('os').click()
-        })
+                store.dispatch({ type: "STORE_SORTED_DATA", payload: datax })
+                console.log(store.getState().sorted_Data)
+                    document.getElementById('os').click();
+            })
+    }
 
 }
 var selectSort = () => {
@@ -75,7 +80,7 @@ var sortTitle = () => {
     // console.log("Sorted by Title");
     this.setState({ temp: 1 })
 }
-var sortAuthor =()=> {
+var sortAuthor = () => {
     this.flag = !this.flag;
     let i = this.flag;
     this.state.sortedData.sort(function (a, b) {
@@ -149,36 +154,38 @@ var sortRating = () => {
 }
 
 export default class Search extends Component {
-   constructor() {
-       super();
-    Rx.Observable.fromPromise(fetch('https://api.myjson.com/bins/1a9rkj'))
-        .flatMap((response) => response.json())
-        .subscribe(values => {
-            data = values;
-            let value = store.getState().search;
-            console.log(value)
+    constructor() {
+        super();
+        Rx.Observable.fromPromise(fetch('https://api.myjson.com/bins/1a9rkj'))
+            .flatMap((response) => response.json())
+            .subscribe(values => {
+                data = values;
+                let value = store.getState().search;
+                console.log(value)
 
-            // console.log(this.state.data)
-            var datax = data.booksArray.filter((data3) =>
-                (data3.details.title.toLowerCase().indexOf(value) >= 0 ||
-                    data3.details.author.toLowerCase().indexOf(value) >= 0 ||
-                    data3.details.publisher.toLowerCase().indexOf(value) >= 0 ||
-                    data3.details.category.toLowerCase().indexOf(value) >= 0) &&
-                value !== '').sort((a, b) => { return (b.details.rating - a.details.rating) });
+                // console.log(this.state.data)
+                var datax = data.booksArray.filter((data3) =>
+                    (data3.details.title.toLowerCase().indexOf(value) >= 0 ||
+                        data3.details.author.toLowerCase().indexOf(value) >= 0 ||
+                        data3.details.publisher.toLowerCase().indexOf(value) >= 0 ||
+                        data3.details.category.toLowerCase().indexOf(value) >= 0) &&
+                    value !== '').sort((a, b) => { return (b.details.rating - a.details.rating) });
                 processedData = datax
-            store.dispatch({ type: "STORE_SORTED_DATA", payload: datax })
-            console.log(store.getState().sorted_Data)
-            {<BootHeader landingView= {false}
-            categoryClicked= {false}
-            borrowedClicked= {false}
-            passBorrowed= {false}
-            passWish= {false}
-            wishlistClicked= {false}
-            searchResults= {true}
-                searchClicked = {true}
-            sortedData= {store.getState().sorted_Data}/>}
-        })
-   }
+                store.dispatch({ type: "STORE_SORTED_DATA", payload: datax })
+                console.log(store.getState().sorted_Data)
+                {
+                    <BootHeader landingView={false}
+                        categoryClicked={false}
+                        borrowedClicked={false}
+                        passBorrowed={false}
+                        passWish={false}
+                        wishlistClicked={false}
+                        searchResults={true}
+                        searchClicked={true}
+                        sortedData={store.getState().sorted_Data} />
+                }
+            })
+    }
 }
 
 // https://api.myjson.com/bins/agk87

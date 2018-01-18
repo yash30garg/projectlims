@@ -91,7 +91,7 @@ search(e) {
             alt="My logo"
             align="left" />
           <Link to="/">
-            <span className="navbar-brand" style={{ color: "white",paddingLeft:'15px' }}>Mindtree Library</span>
+            <span id="projectTitle" className="navbar-brand" style={{ color: "white",paddingLeft:'15px' }}>Mindtree Library</span>
           </Link>
           
             <div className="col-lg-5">
