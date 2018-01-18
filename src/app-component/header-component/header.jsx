@@ -87,9 +87,9 @@ search(e) {
             className="App-logo inset"
 
 
-            src={"https://www.mindtree.com/themes/custom/mindtree_theme/logo.svg "}
+            src={"https://www.mindtree.com/themes/custom/mindtree_theme/logo.svg "} 
             alt="My logo"
-            align="left" />
+            align="left" style={{background:"white"}} />
           <Link to="/">
             <span id="projectTitle" className="navbar-brand" style={{ color: "white",paddingLeft:'15px' }}>Mindtree Library</span>
           </Link>
@@ -111,7 +111,7 @@ search(e) {
                     store.dispatch({type:"STORE_SEARCH", payload: document.getElementById('key').value})
                     search()
                     }} 
-                    type="button" style={{ backgroundColor: "#614126", borderColor: "#fff" }} >Go!</button>
+                    type="button" style={{ backgroundColor: "#CD853F", borderColor: "#fff" }} >Go!</button>
                 </div>
                 {/*</Link>*/}
               </div>

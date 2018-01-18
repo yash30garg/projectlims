@@ -57,7 +57,7 @@ class Details extends Component {
                     width: "4vw", color: "rgb(205,133,63)"
                 //eslint-disable-next-line                    
                 }}>
-                <div className="fa fa-heart-o fa-lg" onClick={this.wishlist}></div>
+                <div className="fa fa-heart-o fa-lg"   onClick={this.wishlist}></div>
             </button>
         )
         this.state = {
@@ -274,7 +274,8 @@ class Details extends Component {
                         var yyyy1 = newDate.getFullYear();
                         res.details.returnDate = dd1 + '/' + mm1 + '/' + yyyy1;
                         val = (
-                            <div class="alert notify alert-success ml-1 mt-1" role="alert">
+                              <div class="alert notify alert-success ml-1 mt-1" role="alert">
+                            
                                 <strong>Success! &nbsp;
                                 </strong>
                                 &nbsp;The Book was successfully renewed for you. &nbsp;
