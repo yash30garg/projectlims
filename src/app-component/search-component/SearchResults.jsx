@@ -105,7 +105,7 @@ class SearchResults extends Component
         return (
             <div>
         {this.props.isSearchClicked?<div className="contained">
-        <ol className="breadcrumb" style={{backgroundColor : "#614126", color : "white"}}  >
+        <ol className="breadcrumb" style={{backgroundColor : "#CD853F", color : "white"}}  >
         <h5 >{this.props.divName}<span style={{float:'right',cursor:'pointer',paddingLeft:'70px'}} onClick={this.props.searchCrossClicked}>x</span></h5>
         </ol>
             <div className="container-fluid">
