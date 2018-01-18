@@ -107,10 +107,10 @@ if(hours>=4 && hours<12){
                 <span className="dropdown-toggle"></span></div>
                 <ul className="dropdown-menu dropdown-menu-right" align="center">
                   <li className="well" align="center">
-                    <Link to="/profile"><div href="#" className="btn btn-outline-primary">Profile</div></Link></li>
+                    <Link to="/profile"><div href="#" className="btn btn-outline-primary" style={{color:'#614126', borderColor:'brown'}}>Profile</div></Link></li>
                     <hr/>
                     <li align="center">
-                    <div href="#" onClick={this.logout} className="btn btn-outline-primary"><span className="fa fa-lock"></span> Logout</div></li>
+                    <div href="#" onClick={this.logout} className="btn btn-outline-primary" style={{color:'#614126', borderColor:'brown'}}><span className="fa fa-lock"></span> Logout</div></li>
                 </ul>
               </li>
               {/*<Link to="/profile">
