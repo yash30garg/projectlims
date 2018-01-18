@@ -57,7 +57,7 @@ class Details extends Component {
                     width: "4vw", color: "rgb(205,133,63)"
                 //eslint-disable-next-line                    
                 }}>
-                <div className="fa fa-heart-o fa-lg"></div>
+                <div className="fa fa-heart-o fa-lg" onClick={this.wishlist}></div>
             </button>
         )
         this.state = {
@@ -188,7 +188,7 @@ class Details extends Component {
                 className="btn btn-primary mt-3"
                 style={{
                     backgroundColor: 'white',
-                    borderColor: 'white',
+                    borderColor: 'brown',
                     //eslint-disable-next-line                
                     width: "4vw", color: "rgb(205,133,63)"
                 }}
@@ -406,7 +406,9 @@ class Details extends Component {
     render() {
         book = this.props.data;
         return (
-            <div>
+            <div style={{
+                backgroundColor: "#FFF8DC"
+            }}>
                 {this.state.msg}
                 {/*<div
                     className="container"
