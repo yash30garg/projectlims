@@ -60,7 +60,8 @@ class BootHeader extends Component {
             borrowedClicked: false,
             passBorrowed: false,
             passWish: false,
-            wishlistClicked: false
+            wishlistClicked: false,
+            searchClicked: false,
         });
     }
     closeCategory = () => {
@@ -138,6 +139,7 @@ class BootHeader extends Component {
             wishlistClicked: false,
             passWish: false,
             searchResults: false,
+            searchClicked:false
         });
     }
 
@@ -334,7 +336,8 @@ class BootHeader extends Component {
                                             : <Category
                                                 categoryCrossClicked={this.closeCategory}
                                                 data={this.state.display}
-                                                selected={this.state.currentlyClicked} />}
+                                                selected={this.state.currentlyClicked}
+                                                isSearchClicked={this.state.searchClicked} />}
                                     </div>
                                     <div>
                                         {this.state.borrowedClicked && this.state.passBorrowed
@@ -351,7 +354,9 @@ class BootHeader extends Component {
                                             ? <LandingView show={this.state.passBorrowed} wish={this.state.passWish} />
                                             : <SearchResults
                                                 closeSearch={this.closeSearch}
-                                                result={this.state.sortedData} />}
+                                                result={this.state.sortedData}
+                                                isSearchClicked={this.state.searchClicked}
+                                                searchCrossClicked={this.closeSearch} />}
                                     </div>
                                 </div>
                             </div>
