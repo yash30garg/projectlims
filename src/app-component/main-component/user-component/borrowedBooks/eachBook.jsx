@@ -24,7 +24,7 @@ const Card = (props) => {
                     width="100%"
                     alt=""
                     />
-                    <div className="card-block" style={{width:"160px", fontSize:"14px"}}>
+                    <div className="card-block card-text" style={{width:"160px", fontSize:"14px"}}>
                     {props.data.details.title}
                     </div>
                 <div
@@ -32,7 +32,7 @@ const Card = (props) => {
                     style={{
                     backgroundColor: "rgba(97,65,38,0.9)"
                 }}>
-                    <div className="text container-fluid">
+                    <div className="text container-fluid" style={{fontSize:'13px'}}>
                         <b>{props.data.details.title}</b><br/><br/>
                         <p>Return by {props.data.details.returnDate}</p>
                     </div>

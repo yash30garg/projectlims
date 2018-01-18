@@ -52,14 +52,14 @@ class SearchResults extends Component
                                                 fontSize:'13px',
                                                 paddingTop:"0px"
                                             }}></span><br/>*/}
-                                <div className="card-block">
+                                <div className="card-block card-text">
                                 {res.details.title}
                                 </div>
                             <div className="overlay" style={{backgroundColor: "rgba(97,65,38,0.9)"}}>
-                                <div className="text container-fluid">
+                                <div className="text container-fluid" style={{fontSize:'15px'}}>
                                     {res.details.title}<br/>
-                                    Author: {res.details.author}<br/>
-                                    Category: {res.details.category}<br/> {
+                                    <b>Author: </b> {res.details.author}<br/>
+                                    <b>Category: </b> {res.details.category}<br/> {
                                         //eslint-disable-next-line
                                         [1, 2, 3, 4, 5].map(d => {
                                         if (res.details.rating >= d) 

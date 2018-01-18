@@ -46,11 +46,11 @@ export const Category=(props)=>
                     src={res.details.url}
                     height="160px"
                     width="100%"/>
-                   <div className="card-block" style={{width:"160px", fontSize:"14px"}}>
+                   <div className="card-block card-text" style={{width:"160px", fontSize:"14px"}}>
                     {res.details.title}
                     </div>
                      <div className="overlay" style={{backgroundColor: "rgba(97,65,38,0.9)"}}>
-                    <div className="text container-fluid" >
+                    <div className="text container-fluid" style={{fontSize:'13px'}}>
                         <b>{res.details.title}</b><br/>
                         <b>Author :
                         </b>

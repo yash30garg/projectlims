@@ -23,15 +23,16 @@ export const WishedCard = (props) => {
                     height="160px"
                     width="100%"
                     />
-                    <div className="card-block" style={{width:"160px", fontSize:"14px"}}>
+                    <div className="card-block card-text" style={{width:"160px", fontSize:"14px"}}>
                     {props.data.details.title}
                     </div>
                 <div
                     className="overlay"
                     style={{
-                    backgroundColor: " rgba(97,65,38,0.9)"
+                    backgroundColor: " rgba(97,65,38,0.9)",
+                    fontSize:'13px'
                 }}>
-                    <div className="text container-fluid">
+                    <div className="text container-fluid" style={{fontSize:'12px'}}>
                         <b>{props.data.details.title}</b><br/>
                         <b>Author :
                         </b>
