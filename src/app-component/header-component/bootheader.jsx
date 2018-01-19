@@ -165,9 +165,9 @@ class BootHeader extends Component {
     }
     render() {
         let brr = [];
-        store.subscribe(()=> {
-            console.log(store.getState().search)
-        })
+        // store.subscribe(()=> {
+        //     console.log(store.getState().search)
+        // })
         let arr = window.display
             .sort((a, b) => {
                 if (a.details.category.toUpperCase() > b.details.category.toUpperCase()) {
@@ -245,7 +245,7 @@ class BootHeader extends Component {
                                             onClick={this.openBorrowedBooks}
                                             className="list-group-item  list-group-item-action"
                                             style={{
-                                                background: " #FFF8DC"
+                                                background: " 	#FFF8DC"
                                             }}>
 
                                             <span className="fa fa-arrow-right" aria-hidden="true"></span>
@@ -259,7 +259,7 @@ class BootHeader extends Component {
                                             onClick={this.openWishlist}
                                             className="list-group-item  list-group-item-action"
                                             style={{
-                                                background: " #FFF8DC"
+                                                background: " 	#FFF8DC"
                                             }}>
                                             <span className="fa fa-arrow-right" aria-hidden="true"></span>Wishlist {/* <div className="all">
 

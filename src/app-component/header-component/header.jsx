@@ -12,7 +12,7 @@ import {user_name} from '../App'
 import {connect} from 'react-redux'
 // import {storeSearch} from '../../state/action/searchAction.js'
 import store from '../../state/store/store.js'
-import Search, {search} from '../search-component/Search'
+import {search} from '../search-component/Search'
 export var key;
 export let url = `https://social.mindtree.com/User%20Photos/Profile%20Pictures/m${localStorage.getItem('mid')}_MThumb.jpg?t=63646089488`;
 // let user_name = localStorage.getItem('user-name')
@@ -86,10 +86,10 @@ search(e) {
           <img
             className="App-logo inset"
 
-
-            src={"https://www.mindtree.com/themes/custom/mindtree_theme/logo.svg "}
+            src =""
+            src={require("../../Assets/Images/final_header.jpg")}
             alt="My logo"
-            align="left" />
+            align="left" style={{background:"white"}} />
           <Link to="/">
             <span id="projectTitle" className="navbar-brand" style={{ color: "white",paddingLeft:'15px' }}>Mindtree Library</span>
           </Link>
@@ -99,19 +99,19 @@ search(e) {
               {/*<Link to="/search" style={{ textDecoration: 'none' }}>*/}
                 <div className="input-group">
                   
-                  <input type="text" id="key" className="form-control" style={{ alignSelf: "center" }} placeholder="Search for..." onKeyUp={debounce((this.search), 700)} />
+                  <input type="text" id="key" className="form-control" style={{ alignSelf: "center" }} placeholder="Search for..." onKeyUp={debounce((this.search), 1000)} />
                   <button className="btn btn-primary" 
                   onKeyPress={event => {
                                             if (event.key === 'Enter') {
                                                 store.dispatch({type:"STORE_SEARCH",payload:document.getElementById('key').value})
-                                                {<Search />}
+                                                search()
                                             }
                                         }}
                   onClick={(event)=>{this.setState({search:document.getElementById('key').value})
                     store.dispatch({type:"STORE_SEARCH", payload: document.getElementById('key').value})
                     search()
                     }} 
-                    type="button" style={{ backgroundColor: "#614126", borderColor: "#fff" }} >Go!</button>
+                    type="button" style={{ backgroundColor: "#CD853F", borderColor: "#fff" }} >Go!</button>
                 </div>
                 {/*</Link>*/}
               </div>
@@ -131,10 +131,10 @@ search(e) {
                 <span className="dropdown-toggle"></span></div>
                 <ul className="dropdown-menu dropdown-menu-right" align="center">
                   <li className="well" align="center">
-                    <Link to="/profile"><div href="#" className="btn btn-outline-primary">Profile</div></Link></li>
+                    <Link to="/profile"><div href="#" className="nav-link active" style={{color:'#614126', borderColor:'brown'}}><span className="fa fa-user"></span>Profile</div></Link></li>
                     <hr/>
                     <li align="center">
-                    <div href="#" onClick={this.logout} className="btn btn-outline-primary"><span className="fa fa-lock"></span> Logout</div></li>
+                    <div href="#" onClick={this.logout} className="nav-link active" style={{color:'#614126', borderColor:'brown'}}><span className="fa fa-lock"></span> Logout</div></li>
                 </ul>
               </li>
               {/*<Link to="/profile">
