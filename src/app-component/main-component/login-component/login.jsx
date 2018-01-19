@@ -16,16 +16,16 @@ export var email, mid;
 class Login extends Component {
     constructor() {
         super();
-        var Backlen=window.history.length;   
-     window.history.go(-Backlen);   
+        var Backlen = window.history.length;
+        window.history.go(-Backlen);
 
-    //  window.location.href='http://localhost:3000/#/login'
-    window.location.href='http://limsreact.azurewebsites.net/#/login'
-
-
+        // window.location.href = 'http://localhost:3000/#/login'
+        window.location.href='http://limsreact.azurewebsites.net/#/login'
 
 
- 
+
+
+
     }
     state =
     {
@@ -40,38 +40,36 @@ class Login extends Component {
         e.preventDefault();
         let email = document.getElementById('Email').value;
         let password = document.getElementById('Password').value;
-        if(email===""||password==="")
-        {
-            this.setState({message: 'Enter All Details'})
+        if (email === "" || password === "") {
+            this.setState({ message: 'Enter All Details' })
         }
         else {
-        req.post({
-            url: 'http://localhost:3005/api/',
-            form: { email: email, password: password},
-            headers: new Headers({ "Content-Type": "application/json" }),
-            method: 'POST'
-        },
+            req.post({
+                url: 'http://localhost:3005/api/',
+                form: { email: email, password: password },
+                headers: new Headers({ "Content-Type": "application/json" }),
+                method: 'POST'
+            },
 
-            function (er, r, body) {
-                console.log(body)
-                if (JSON.parse(body).status===200) {
-                    let response = JSON.parse(body)
-                    let userDetails = response.data[0]
-                    console.log("Login Successful")
-                    localStorage.setItem('limsuser', JSON.stringify(userDetails));
-                    window.location = "http://localhost:3000/#/"
-                }
-                else if(JSON.parse(body).status === 400)
-                {
-                    this.setState({message: JSON.parse(body).message})
-                    console.log(r.statusCode)
-                }
-                
+                function (er, r, body) {
+                    console.log(body)
+                    if (JSON.parse(body).status === 200) {
+                        let response = JSON.parse(body)
+                        let userDetails = response.data[0]
+                        console.log("Login Successful")
+                        localStorage.setItem('limsuser', JSON.stringify(userDetails));
+                        window.location = "http://localhost:3000/#/"
+                    }
+                    else if (JSON.parse(body).status === 400) {
+                        this.setState({ message: JSON.parse(body).message })
+                        console.log(r.statusCode)
+                    }
 
-                
-                // console.log(JSON.parse(body));
-            }.bind(this));  
-        }    
+
+
+                    // console.log(JSON.parse(body));
+                }.bind(this));
+        }
     }
 
     componentDidMount() {
@@ -79,9 +77,9 @@ class Login extends Component {
             .then(res => {
                 this.setState({ display: res.data });
             })
-            // this.checkAuth();
+        // this.checkAuth();
     }
-    
+
     render() {
 
 
@@ -116,10 +114,10 @@ class Login extends Component {
                                 <input type="password" id="Password" name="logpassword" style={{ backgroundColor: "#FFF8DC" }} />
                             </div>
                             <div className=" checkbox-container form-group has-warning" style={{ color: "#FFF8DC", textAlign: "left" }}>
-                                <label style={{color:"red",fontSize:"14px",fontWeight:"bold"}}>
+                                <label style={{ color: "red", fontSize: "14px", fontWeight: "bold" }}>
                                     {this.state.message}
                                 </label>
-                             </div>
+                            </div>
 
                             <div className=" checkbox-container form-group has-warning" style={{ color: "#FFF8DC", textAlign: "left" }}>
                                 <label className="custom-control custom-checkbox">
@@ -128,7 +126,7 @@ class Login extends Component {
                                     <div className="custom-control-description" style={{ fontSize: "18px", fontFamily: "times new roman", marginLeft: "0px" }}>I agree with the terms of service.</div>
                                 </label>
                             </div>
-                            
+
 
                             <div className="button-area">
                                 {/*<Link to="/home">*/}
@@ -155,7 +153,7 @@ class Login extends Component {
                             <input type="checkbox" />
                             <div className="text-checkbox">     I agree with the terms of service.</div>
                         </div>*/}
-                            
+
 
 
                                 {/*<Link to="/home">*/}
@@ -173,10 +171,10 @@ class Login extends Component {
 				</div>*/}
 
                                 <Link to="/admindash">
-                              <button className="btn-secondary" style={{ color: "white", backgroundColor: "#DEB887", borderColor: "#A0522D" }}>Admin</button>
+                                    <button className="btn-secondary" style={{ color: "white", backgroundColor: "#DEB887", borderColor: "#A0522D" }}>Admin</button>
                                 </Link>
-                                </div>
-                            
+                            </div>
+
                         </form>
                     </div>
                 </div>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './prodetails.css';
-import Header from '../../../../app-component/header-component/header.jsx';
+import AlternateHeader from '../../../../app-component/header-component/AlternateHeader/AlternateHeader';
 import Footer from '../../../../app-component/footer-component/footer.jsx';
 import {requireAuth} from '../../../isLoggedIn.js'
 import {url} from '../../../header-component/header'
@@ -13,8 +13,8 @@ class Profile extends Component {
 
     return (
     <div style={{backgroundColor : "#FFF8DC", minHeight : "33px"}}>
-<Header />
-
+{/*<Header />*/}
+<AlternateHeader/>
 <div className="container-fluid"  >
   <br/><nr />
 	<div className="innerwrap">
