@@ -19,6 +19,8 @@ import Profile from '../app-component/main-component/user-component/profileView/
 // import BookTor from '../app-component/booktor/booktor.jsx';
 import AboutUs from '../app-component/footer-component/AboutUs/aboutus.jsx';
 import { authContext } from '../adalConfig.js'
+
+import ContactUs from '../app-component/footer-component/ContactUs/contactus.jsx';
 // import { AuthenticationContext, adalGetToken, adalFetch } from 'react-adal';
 export var user_name;
 // let users;
@@ -76,6 +78,7 @@ class App extends Component {
             <Route path="/profile" exact component={Profile} />
             <Route path="/aboutus" exact component={AboutUs} />
             <Route path="/admindash" exact component={DashBoard} />
+            <Route path="/contactus" exact component={ContactUs} />
           </Switch>
 
         </div>

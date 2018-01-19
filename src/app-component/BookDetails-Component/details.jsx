@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './details.css';
 import '../search-component/Search.css';
+import $ from 'jquery';
 // import $ from 'jquery';
 // import book from '../search-component/SearchResults'
 // let users;
@@ -9,6 +10,7 @@ let book,
     b = null,
     borrowDate,
     returnDate;
+
 class Details extends Component {
     constructor(props) {
         super(props);
@@ -51,13 +53,16 @@ class Details extends Component {
             <button
                 className="btn btn-primary mt-3"
                 onClick={this.wishlist}
+
                 style={{
                     backgroundColor: 'white',
-                    borderColor: 'white',
-                    width: "4vw", color: "rgb(205,133,63)"
+                    borderColor: 'brown',
+                    width: "4vw", color: "rgb(205,133,63)" 
                 //eslint-disable-next-line                    
                 }}>
-                <div className="fa fa-heart-o fa-lg"   onClick={this.wishlist}></div>
+                <div className="fa fa-heart-o fa-lg"></div>
+                
+                
             </button>
         )
         this.state = {
@@ -120,7 +125,7 @@ class Details extends Component {
                             className="btn btn-primary mt-3"
                             style={{
                                 backgroundColor: 'white',
-                                borderColor: 'white',
+                                borderColor: 'brown',
                                 //eslint-disable-next-line                            
                                 width: "4vw",  color: "rgb(205,133,63)"
                             }}>
@@ -146,7 +151,14 @@ class Details extends Component {
             .removeRequest
             .bind(this);
     }
-
+//     componentDidMount()
+//     {
+//          $(function () {
+//   $('.example-popover').popover({
+//     container: 'body'
+//   })
+// })
+//     }
     // componentDidMount() {     setTimeout(function () { //Start the timer
     // this.setState({msg: ""}) //After 1 second, set render to true }.bind(this),
     // 3000)     alert("compo") }
@@ -157,6 +169,8 @@ class Details extends Component {
             }.bind(this), 25000)
         //         window.setTimeout(function() {     $(".alert").fadeTo(500,
         // 0).slideUp(500, function(){         $(this).close();     }); }, 4000);
+
+
     }
 
     goBack() {
@@ -489,8 +503,7 @@ class Details extends Component {
                 </div>*/}
 
                 <div class="container">
-		<div class="carders" height="400px" width ="800px"
-        > 
+		<div class="carders" > 
 			<div class="container-fliud">
 				<div class="wrapper row">
 					<div class="preview col-md-6">
@@ -517,6 +530,21 @@ class Details extends Component {
 					<div class="details col-md-6">
 						<h3 class="product-title">{book.details.title}</h3>
 						<div class="rating">
+
+                            {/*{
+                            //eslint-disable-next-line
+                            [1, 2, 3, 4, 5].map(d => {
+
+                            if (res.details.rating >= d) 
+                                return <span
+                                key={`category${res.isbn}`}
+                                    className="fa fa-star"
+                                    style={{
+                                    color: '#ffd700',
+                                    fontSize:'5px'
+                                }}></span>
+                        })}*/}
+
 							<div class="stars">
 								<span class="fa fa-star checked"></span>
 								<span class="fa fa-star checked"></span>
@@ -527,19 +555,29 @@ class Details extends Component {
 							<span class="review-no">41 reviews</span>
 						</div>
 						<p class="product-description"><b>About the book :</b> High in demand and very informative</p>
-						<h4 class="price">Category: <span>{book.details.category}</span></h4>
+						{/*<h4 class="price">Category: <span>{book.details.category}</span></h4>*/}
 						<p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>
-						<h5 class="sizes">Published By:
-							<span class="size" data-toggle="tooltip" title="small">{book.details.publisher}</span>
 						
-						</h5>
-						<h5 class="colors">Author:
-							<span class="color" data-toggle="tooltip" title="Not In store">{book.details.author}</span>
-							
-						</h5>
-						 <div className="row offset-md-2">
-                                        {this.state.wish}&nbsp;&nbsp;&nbsp;
+
+<ul class="list-group">
+  <li class="list-group-item"><b>ISBN :</b> {book.isbn}</li>
+  <li class="list-group-item"><b>Author :</b> {book.details.author}</li>
+  <li class="list-group-item"><b>Publisher :</b> {book.details.publisher}</li>
+  <li class="list-group-item"><b>Category :</b> {book.details.category}</li>
+  <li class="list-group-item"><b>Ratings :</b> {book.details.rating}</li>
+</ul>
+						 <div className="row">
+                             <div className="col-md-3" />
+                             <div className="col-md-3" >
+                             
+                                        {this.state.wish}
+                                        </div>
+                             <div className="col-md-3" >
+                                        
                                         {this.state.req}
+                                        </div>
+                             <div className="col-md-3" />
+                                        
                                     </div>
 					</div>
 				</div>
