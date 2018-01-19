@@ -5,7 +5,7 @@ import '../App.css';
 // import PBooks from
 // '../main-component/admin-component/PreferredBooks/PrefferdBooks.jsx'; import
 // Footer from '../footer-component/footer.jsx';
-import { authContext } from '../../adalConfig.js'
+import { authContext } from '../../adalConfig'
 import './header.css'
 import { Link, withRouter } from 'react-router-dom';
 import {user_name} from '../App'
@@ -87,8 +87,8 @@ search(e) {
           <img 
             className="App-logo inset" 
 
-
-            src={"https://www.mindtree.com/themes/custom/mindtree_theme/logo.svg "} 
+           
+            src={require("../../Assets/Images/final_header.jpg")}
             alt="My logo"
             align="left"  />
             
@@ -118,9 +118,13 @@ search(e) {
                 {/*</Link>*/}
               </div>
             </div>
+            
           
           <div className="collapse navbar-collapse" id="navbarNavDropdown">
             <ul className="navbar-nav ml-auto">
+
+
+               
               <li className="dropdown" style={{color:"white"}}>
 
                 <div data-toggle="dropdown">{this.state.greet} {user_name}<span style={{paddingRight:"15px"}}></span>
