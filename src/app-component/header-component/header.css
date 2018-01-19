@@ -88,7 +88,7 @@ input[type=search]:focus {
   box-shadow:
     inset 0 0 0 2px rgba(255,255,255,0.6), 
     0 1px 1px rgba(0,0,0,0.1);
-  background-color: transparent !important;
+  background-color: white !important;
   z-index: 999;
 }
 
@@ -99,4 +99,27 @@ input[type=search]:focus {
   display: block;
   position: relative;
   z-index: 998;
+}
+
+
+.btn-primary{
+    height: 40px;
+    width: 80px;
+    background: white;
+    margin: 5px;
+    float: left;
+    /*box-shadow: 0 0 1px #ccc;*/
+    -webkit-transition: all 0.5s ease-in-out;
+    border: 0px solid burlywood;
+    color: #fff;
+	/*border-color: white;*/
+	border-radius: 8px;
+
+}
+.btn-primary:hover{
+    -webkit-transform: scale(1.1);
+    background: #fff;
+border-color: #fff;
+	/*border: #fff;*/
+
 }

@@ -3,9 +3,9 @@ import { AuthenticationContext, adalFetch } from 'react-adal';
 export const adalConfig = {
   tenant: '85c997b9-f494-46b3-a11d-772983cf6f11',
   clientId: '859c085f-f3d7-40d9-8994-cfebc8407fde',
-//   endpoints: {
-//     api: 'ce0a0b3e-fda3-4d28-a317-721943b90577',
-//   },
+  // endpoints: {
+  //   api: 'ce0a0b3e-fda3-4d28-a317-721943b90577',
+  // },
   postLogoutRedirectUri : "http://limsreact.azurewebsites.net/#/login",
   cacheLocation: 'localStorage',
 };

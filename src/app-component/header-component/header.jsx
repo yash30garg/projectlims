@@ -93,7 +93,7 @@ search(e) {
             align="left"  />
             
           <Link to="/">
-            <span id="projectTitle" className="navbar-brand" style={{ color: "white",paddingLeft:'15px' }}>Mindtree Library</span>
+            <span id="projectTitle" className="navbar-brand" style={{ color: "white",paddingLeft:'15px'  }}>Mindtree Library</span>
           </Link>
           
             <div className="offset-md-1 col-lg-6 col-md-10">
@@ -113,7 +113,7 @@ search(e) {
                     store.dispatch({type:"STORE_SEARCH", payload: document.getElementById('key').value})
                     search()
                     }} 
-                    type="button" style={{ backgroundColor: "#CD853F", borderColor: "#fff" }} >Go!</button>
+                  type="button" className="btn btn-primary" style={{ backgroundColor: "#CD853F", borderColor: "#fff" }} >Go!</button>
                 </div>
                 {/*</Link>*/}
               </div>
