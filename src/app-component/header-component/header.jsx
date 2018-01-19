@@ -103,7 +103,7 @@ search(e) {
               {/*<Link to="/search" style={{ textDecoration: 'none' }}>*/}
                 <div className="input-group">
                   
-                  <input type="text" id="key" className="form-control" style={{ alignSelf: "center" }} placeholder="Search for..." onKeyUp={debounce((this.search), 1000)} />
+                  <input type="text" id="key" className="form-control" style={{ alignSelf: "center" }} placeholder="Search for..." onKeyUp={debounce((this.search), 1000)} autoFocus/>
                   <button className="btn btn-primary" 
                   onKeyPress={event => {
                                             if (event.key === 'Enter') {
