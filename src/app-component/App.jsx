@@ -33,6 +33,26 @@ class App extends Component {
      window.history.go(-Backlen);
   }
   
+  // addUser=(UserDetails)=>{
+  //   fetch('http://localhost:3005/user/addUser',{
+  //           method: 'POST',
+  //           headers: {'Content-Type': 'application/json'},
+  //           // form:{mid:"1042932"}
+  //           body:JSON.stringify({
+  //               name:UserDetails.profile.name,
+  //               email:UserDetails.userName,
+  //               mid:window.user,
+  //               role:"user",
+  //               booksArray:[],
+  //               wishlist:[]
+  //           })
+  //       })
+  //       // .then(res=>(res.json))
+  //       .then(function(response){
+  //           console.log(response)
+  //       })
+  // }
+
   render() {
     console.log(authContext._user.profile.given_name);
     user_name = authContext._user.profile.given_name;
@@ -47,6 +67,7 @@ class App extends Component {
     let res=mid[0].split("M")
     // alert(res[1])
     window.user=res[1];
+    // this.addUser(UserDetails);
     localStorage.setItem('mid',res[1])
     
     // alert(window.user);

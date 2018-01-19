@@ -33,14 +33,10 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "npm run karma -- --single-run",
     "eject": "react-scripts eject",
-     "test": "npm run karma -- --single-run",
-  "karma": "BABEL_ENV=development NODE_ENV=test node_modules/karma/bin/karma start config/karma.conf.js"
+    "karma": "BABEL_ENV=development NODE_ENV=test node_modules/karma/bin/karma start config/karma.conf.js"
   },
-
-
-
   "devDependencies": {
     "babel-polyfill": "^6.22.0",
     "enzyme": "^2.8.2",

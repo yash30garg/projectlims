@@ -5,6 +5,7 @@ import $ from 'jquery';
 // import $ from 'jquery';
 // import book from '../search-component/SearchResults'
 // let users;
+// var req = require('request');
 let book,
     w = null,
     b = null,
@@ -114,6 +115,9 @@ class Details extends Component {
         this.wishlist = this
             .wishlist
             .bind(this);
+        // this.updateBook = this
+        //     .updateBook
+        //     .bind(this);
         window
             .wishlist
             //eslint-disable-next-line            
@@ -345,6 +349,21 @@ class Details extends Component {
         this.setState({ wish: w, msg: val })
     }
 
+// updateBook=(newBook)=>{
+//         fetch('http://localhost:3005/borrowedBooks/addBook',{
+//             method: 'PUT',
+//             headers: {'Content-Type': 'application/json'},
+//             body:JSON.stringify({
+//                 mid:window.user,
+//                 item:newBook
+//             })
+//         })
+//         .then(res=>(res.json))
+//         .then(function(response){
+//             console.log(response)
+//         })
+//     }
+
     request = () => {
         if (!window.bbooks.includes(book)) {
             if (window.bbooks.length < 4) {
@@ -359,6 +378,7 @@ class Details extends Component {
                 newBook.details.isRenewed = false;
                 newBook.isbn = book.isbn;
                 //console.log(newBook);
+                // this.updateBook(newBook);
                 window
                     .bbooks
                     .push(newBook)
