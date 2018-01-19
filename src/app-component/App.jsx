@@ -27,6 +27,11 @@ export var user_name;
 window.display='';
 window.wishlist=[];
 class App extends Component {
+  constructor() {
+    super();
+    var Backlen=window.history.length;   
+     window.history.go(-Backlen);
+  }
   
   render() {
     console.log(authContext._user.profile.given_name);

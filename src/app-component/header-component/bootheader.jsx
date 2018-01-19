@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './bootheader.css';
 import {Link} from 'react-router-dom'
-import Footer from '../footer-component/footer.jsx';
-import Header from './header.jsx';
+import {Redirect} from 'react-router'
+// import Footer from '../footer-component/footer.jsx';
+// import Header from './header.jsx';
 // import Pbooks from '../main-component/admin-component/PreferredBooks/PrefferdBooks.jsx';
 import BorrowedSlider from '../main-component/user-component/borrowedBooks/borrowedSlider.jsx';
 // import Search from '../search-component/Search.jsx';
@@ -42,6 +43,7 @@ class BootHeader extends Component {
             searchClicked : false,
             sortedData:'',
             searchArg:'',
+            redirect:false
         
 
         }
@@ -135,6 +137,7 @@ class BootHeader extends Component {
         this.setState({searchArg: "No Results found for your search: "+ document.getElementById('key').value})
         else
         this.setState({searchArg:"Results Found for "+document.getElementById('key').value} )
+        this.setState({redirect:true})
     }
     closeSearch = () => {
         this.setState({
@@ -165,6 +168,9 @@ class BootHeader extends Component {
         }
     }
     render() {
+        if (this.state.redirect) {
+    return <Redirect push to="/search" />;
+  }
         let brr = [];
         // store.subscribe(()=> {
         //     console.log(store.getState().search)
@@ -197,7 +203,7 @@ class BootHeader extends Component {
                 backgroundColor: "#FFF8DC"
             }}>
 
-                <Header />
+                {/*<Header />*/}
                 <br />
                 <div
                     className="bigshow"
@@ -371,7 +377,7 @@ class BootHeader extends Component {
                         </div>
                     </section>
                     <br /><br />
-                    <Footer />
+                    {/*<Footer />*/}
                 </div>
             </div>
 

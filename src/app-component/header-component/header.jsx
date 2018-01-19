@@ -10,6 +10,8 @@ import './header.css'
 import { Link, withRouter } from 'react-router-dom';
 import {user_name} from '../App'
 import {connect} from 'react-redux'
+import BootHeader from './bootheader'
+// import Footer from '../footer-component/footer'
 // import {storeSearch} from '../../state/action/searchAction.js'
 import store from '../../state/store/store.js'
 import {search} from '../search-component/Search'
@@ -93,7 +95,7 @@ search(e) {
             align="left"  />
             
           <Link to="/">
-            <span id="projectTitle" className="navbar-brand" style={{ color: "white",paddingLeft:'15px' }}>Mindtree Library</span>
+            <span id="projectTitle" className="navbar-brand" style={{ color: "white",paddingLeft:'15px',fontSize:'30px'  }}>Mindtree Library</span>
           </Link>
           
             <div className="offset-md-1 col-lg-6 col-md-10">
@@ -101,7 +103,7 @@ search(e) {
               {/*<Link to="/search" style={{ textDecoration: 'none' }}>*/}
                 <div className="input-group">
                   
-                  <input type="text" id="key" className="form-control" style={{ alignSelf: "center" }} placeholder="Search for..." onKeyUp={debounce((this.search), 1000)} />
+                  <input type="text" id="key" className="form-control" style={{ alignSelf: "center" }} placeholder="Search for..." onKeyUp={debounce((this.search), 1000)} autoFocus/>
                   <button className="btn btn-primary" 
                   onKeyPress={event => {
                                             if (event.key === 'Enter') {
@@ -113,7 +115,7 @@ search(e) {
                     store.dispatch({type:"STORE_SEARCH", payload: document.getElementById('key').value})
                     search()
                     }} 
-                    type="button" style={{ backgroundColor: "#CD853F", borderColor: "#fff" }} >Go!</button>
+                  type="button" className="btn btn-primary" style={{ backgroundColor: "#CD853F", borderColor: "#fff" }} >Go!</button>
                 </div>
                 {/*</Link>*/}
               </div>
@@ -125,7 +127,7 @@ search(e) {
 
 
                
-              <li className="dropdown" style={{color:"white"}}>
+              <li className="dropdown " style={{color:"white"}}>
 
                 <div data-toggle="dropdown">{this.state.greet} {user_name}<span style={{paddingRight:"15px"}}></span>
                 <img className="inset" src={url} />
@@ -133,10 +135,10 @@ search(e) {
                 <span className="dropdown-toggle"></span></div>
                 <ul className="dropdown-menu dropdown-menu-right" align="center">
                   <li className="well" align="center">
-                    <Link to="/profile"><div href="#" className="nav-link active" style={{color:'#614126', borderColor:'brown' ,backgroundColor:'#FFF8DC'}}><span className="fa fa-user"></span>Profile</div></Link></li>
+                    <Link to="/profile"><div href="#" className="dropdown-item" style={{color:'#614126', borderColor:'brown'}}><span className="fa fa-user"></span>Profile</div></Link></li>
                     <hr/>
                     <li align="center">
-                    <div href="#" onClick={this.logout} className="nav-link active" style={{color:'#614126', borderColor:'brown',backgroundColor:'#FFF8DC' }}><span className="fa fa-lock"></span> Logout</div></li>
+                    <div href="#" onClick={this.logout} className="dropdown-item" style={{color:'#614126', borderColor:'brown' }}><span className="fa fa-lock"></span> Logout</div></li>
                 </ul>
               </li>
               {/*<Link to="/profile">
@@ -172,6 +174,7 @@ search(e) {
             </ul>
           </div>
         </nav>
+        <BootHeader/>
       </div>
     )
   }
