@@ -50,7 +50,7 @@ if(hours>=4 && hours<12){
             type="button"
             data-toggle="collapse"
             data-target="#navbarNavDropdown"
-            aria-controls="navbarNavDropdown"
+            aria-controls="navbarNavDropdown"   
             aria-expanded="false"
             aria-label="Toggle navigation">
             <span style={{ backgroundColor: '#fff' }} className="navbar-toggler-icon"></span>
