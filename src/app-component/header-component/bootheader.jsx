@@ -137,7 +137,7 @@ class BootHeader extends Component {
         this.setState({searchArg: "No Results found for your search: "+ document.getElementById('key').value})
         else
         this.setState({searchArg:"Results Found for "+document.getElementById('key').value} )
-        this.setState({redirect:true})
+        // this.setState({redirect:true})
     }
     closeSearch = () => {
         this.setState({
@@ -168,9 +168,9 @@ class BootHeader extends Component {
         }
     }
     render() {
-        if (this.state.redirect) {
-    return <Redirect push to="/search" />;
-  }
+//         if (this.state.redirect) {
+//     return <Redirect push to="/search" />;
+//   }
         let brr = [];
         // store.subscribe(()=> {
         //     console.log(store.getState().search)
