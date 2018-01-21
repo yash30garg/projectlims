@@ -103,14 +103,16 @@ search(e) {
               {/*<Link to="/search" style={{ textDecoration: 'none' }}>*/}
                 <div className="input-group">
                   
-                  <input type="text" id="key" className="form-control" style={{ alignSelf: "center" }} placeholder="Search for..." onKeyUp={debounce((this.search), 1000)} autoFocus/>
-                  <button className="btn btn-primary" 
-                  onKeyPress={event => {
+                  <input type="text" id="key" className="form-control" style={{ alignSelf: "center" }} placeholder="Search for..." onKeyUp={debounce((this.search), 1000)} autoFocus
+                                    onKeyPress={event => {
                                             if (event.key === 'Enter') {
                                                 store.dispatch({type:"STORE_SEARCH",payload:document.getElementById('key').value})
                                                 search()
                                             }
                                         }}
+                  />
+                  <button className="btn btn-primary" 
+
                   onClick={(event)=>{this.setState({search:document.getElementById('key').value})
                     store.dispatch({type:"STORE_SEARCH", payload: document.getElementById('key').value})
                     search()
