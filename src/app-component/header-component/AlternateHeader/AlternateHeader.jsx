@@ -78,26 +78,27 @@ if(hours>=4 && hours<12){
                 </Link>
               </div>
             </div>  
-          
-          <div className="collapse navbar-collapse" id="navbarNavDropdown">
+         <div className="collapse navbar-collapse" id="navbarNavDropdown">
             <ul className="navbar-nav ml-auto">
 
 
                
-              <li className="dropdown" style={{color:"white"}}>
+              <li className="dropdown " style={{color:"white"}}>
 
                 <div data-toggle="dropdown">{this.state.greet} {user_name}<span style={{paddingRight:"15px"}}></span>
                 <img className="inset" src={url} />
 
                 <span className="dropdown-toggle"></span></div>
-                <ul className="dropdown-menu dropdown-menu-right" align="center">
-                  <li className="well" align="center">
-                    <Link to="/profile"><div href="#" className="nav-link active" style={{color:'#614126', borderColor:'brown' ,backgroundColor:'#FFF8DC'}}><span className="fa fa-user"></span>Profile</div></Link></li>
-                    <hr/>
-                    <li align="center">
-                    <div href="#" onClick={this.logout} className="nav-link active" style={{color:'#614126', borderColor:'brown',backgroundColor:'#FFF8DC' }}><span className="fa fa-lock"></span> Logout</div></li>
+                <ul className="dropdown-menu dropdown-menu-right" >
+                  <li >
+                    <Link to="/profile"><a href="#" className="dropdown-item" style={{color:'#614126', borderColor:'brown'}}><span className="fa fa-user"></span>Profile
+                    </a></Link></li>
+                    
+                    <li >
+                    <a href="#" onClick={this.logout} className="dropdown-item" style={{color:'#614126', borderColor:'brown' }}><span className="fa fa-lock"></span> Logout</a></li>
                 </ul>
               </li>
+        
             </ul>
           </div>
         </nav>
