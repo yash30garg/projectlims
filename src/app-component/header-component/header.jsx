@@ -95,7 +95,7 @@ search(e) {
             align="left"  />
             
           <Link to="/">
-            <span id="projectTitle" className="navbar-brand" style={{ color: "white",paddingLeft:'15px',fontSize:'30px'  }}>Mindtree Library</span>
+            <span id="projectTitle" className="navbar-brand" style={{ color: "white",paddingLeft:'15px',fontSize:'23px', marginBottom : "15px"  }}>Mindtree Library</span>
           </Link>
           
             <div className="offset-md-1 col-lg-6 col-md-10">
