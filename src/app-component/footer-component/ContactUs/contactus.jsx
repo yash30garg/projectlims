@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Footer from '../footer.jsx';
-import Header from '../../header-component/header.jsx';
+import AlternateHeader from '../../header-component/AlternateHeader/AlternateHeader';
 import './contactus.css';
 // import $ from 'jquery';
 import { requireAuth } from '../../../app-component/isLoggedIn';
@@ -13,21 +13,19 @@ export default class ContactUs extends Component {
     }
     componentDidMount() {
 
-
-
     }
     render() {
         return (
-            
+            <div style={{ background:'#FFF8DC'}}>
       
       <div style={{ background:'#FFF8DC'}}>
     
       
-<Header />
+<AlternateHeader />
 
 <br />
   
-  <div class="contact_us">
+  <div class="contact_us" style={{textAlign : "left"}}>
     <div class="contact_us_fon">
     <div class="contact_us_left">
       
@@ -55,7 +53,7 @@ export default class ContactUs extends Component {
   </div>
   
   <div class="daniel_knafo">
-    <div>Anirudh.A.S &nbsp;&nbsp;&nbsp;&nbsp;     Yash Garg &nbsp;&nbsp;&nbsp;&nbsp;    Ankit Gupta  &nbsp;&nbsp;&nbsp;&nbsp;  Aishwarya Sinha   &nbsp;&nbsp;&nbsp;&nbsp;  Chaitanya Boyapati</div>
+    <div>Anirudh.A.S &nbsp;&nbsp;&nbsp;&nbsp;     Yash Garg &nbsp;&nbsp;&nbsp;&nbsp;      Chaitanya Boyapati &nbsp;&nbsp;&nbsp;&nbsp;  Aishwarya Sinha &nbsp;&nbsp;&nbsp;&nbsp;   Ankit Gupta &nbsp;&nbsp;&nbsp;&nbsp;  </div>
   </div>
 
   
@@ -68,6 +66,7 @@ export default class ContactUs extends Component {
 
  </div>
  
+ </div>
        
 
                 )

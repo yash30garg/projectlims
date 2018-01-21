@@ -5,7 +5,7 @@ class WishedBooks extends Component
     render()
     {
         let x=<div>
-        <h2 style={{textAlign:'center',color:"#614126"}}>You have no items in your wishlist. Start adding!!</h2><img alt="" src="https://static1.squarespace.com/static/56b46411356fb0307ba84bd3/t/57e980e2e4fcb54af2a38dc6/1474920680832/" />
+        <h2 style={{textAlign:'center',color:"#614126", fontSize : "20px"}}>You have no items in your wishlist. Start adding!!</h2><img alt="" src="https://static1.squarespace.com/static/56b46411356fb0307ba84bd3/t/57e980e2e4fcb54af2a38dc6/1474920680832/" />
         </div>
         if(window.wishlist.length!==0)
         {
@@ -24,7 +24,7 @@ class WishedBooks extends Component
         return(
     <div className="contained mt-4">
         <ol className="breadcrumb" style={{backgroundColor : '	#CD853F', color : "white"}}>
-        <h5>Books I wish<span onClick={this.props.wishCrossClicked} style={{float:'right',cursor:'pointer',paddingLeft:'70px'}}>x</span> </h5>
+        <h5>My Wishlist<span onClick={this.props.wishCrossClicked} style={{float:'right',cursor:'pointer',paddingLeft:'70px'}}>x</span> </h5>
         </ol>
         
      {x}
