@@ -37,6 +37,7 @@ export var requireAuth = (path) => {
         }
         else
         {
+
             console.log("No")
             // console.log(path)
             window.location.replace("http://limsreact.azurewebsites.net/#/login")
