@@ -1,0 +1,20 @@
+#maincontainer {
+    width:100%;
+    height: 100%;
+  }
+
+  #leftcolumn {
+    display:inline-block;
+    width: 100px;
+    height: 100%;
+    background: blue;
+  }
+
+  #contentwrapper {
+    display:inline-block;
+    width: -moz-calc(100% - 100px);
+    width: -webkit-calc(100% - 100px);
+    width: calc(100% - 100px);
+    height: 100%;
+    background-color: red;
+  }

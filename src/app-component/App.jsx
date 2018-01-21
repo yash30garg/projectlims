@@ -19,13 +19,40 @@ import Profile from '../app-component/main-component/user-component/profileView/
 // import BookTor from '../app-component/booktor/booktor.jsx';
 import AboutUs from '../app-component/footer-component/AboutUs/aboutus.jsx';
 import { authContext } from '../adalConfig.js'
+
+import ContactUs from '../app-component/footer-component/ContactUs/contactus.jsx';
 // import { AuthenticationContext, adalGetToken, adalFetch } from 'react-adal';
 export var user_name;
 // let users;
 window.display='';
 window.wishlist=[];
 class App extends Component {
+  constructor() {
+    super();
+    var Backlen=window.history.length;   
+     window.history.go(-Backlen);
+  }
   
+  // addUser=(UserDetails)=>{
+  //   fetch('http://localhost:3005/user/addUser',{
+  //           method: 'POST',
+  //           headers: {'Content-Type': 'application/json'},
+  //           // form:{mid:"1042932"}
+  //           body:JSON.stringify({
+  //               name:UserDetails.profile.name,
+  //               email:UserDetails.userName,
+  //               mid:window.user,
+  //               role:"user",
+  //               booksArray:[],
+  //               wishlist:[]
+  //           })
+  //       })
+  //       // .then(res=>(res.json))
+  //       .then(function(response){
+  //           console.log(response)
+  //       })
+  // }
+
   render() {
     console.log(authContext._user.profile.given_name);
     user_name = authContext._user.profile.given_name;
@@ -40,6 +67,7 @@ class App extends Component {
     let res=mid[0].split("M")
     // alert(res[1])
     window.user=res[1];
+    // this.addUser(UserDetails);
     localStorage.setItem('mid',res[1])
     
     // alert(window.user);
@@ -76,6 +104,7 @@ class App extends Component {
             <Route path="/profile" exact component={Profile} />
             <Route path="/aboutus" exact component={AboutUs} />
             <Route path="/admindash" exact component={DashBoard} />
+            <Route path="/contactus" exact component={ContactUs} />
           </Switch>
 
         </div>

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Header from '../header-component/header';
 import Footer from '../footer-component/footer';
 import Details from './details';
+import AlternateHeader from '../../app-component/header-component/AlternateHeader/AlternateHeader.jsx';
 import {requireAuth} from '../isLoggedIn.js'
 // let val;
 export class BookDetails extends Component{
@@ -14,7 +15,7 @@ export class BookDetails extends Component{
         const a=<Details data={window.selected}/>
         return(
             <div>
-            <Header/>
+            <AlternateHeader/>
             {a}
             <Footer/>
             </div>

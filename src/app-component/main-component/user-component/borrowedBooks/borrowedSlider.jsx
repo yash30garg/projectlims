@@ -47,7 +47,7 @@ class BorrowedSlider extends Component
     //     return(<UserBooks key={result.user.mid} list={result.borrowedbooks}/>);
     //  });
         let outputs=<div>
-        <h2 style={{textAlign:'center',color:"#614126"}}>I have not added any book in wishlist!</h2>
+        <h2 style={{textAlign:'center',color:"#614126"}}>Nothing to show in wishlist!</h2>
         </div>
         if(window.bbooks.length!==0)
         {
@@ -56,7 +56,7 @@ class BorrowedSlider extends Component
      return(
     <div className="contained mt-4">
         <ol className="breadcrumb" style={{backgroundColor:'	#CD853F', color : "white"}}>
-        <h5>Books I Have <span onClick={this.props.borrowCrossClicked} style={{float:'right',cursor:'pointer',paddingLeft:'70px'}}>x</span> </h5>
+        <h5>Books to be returned/renewed <span onClick={this.props.borrowCrossClicked} style={{float:'right',cursor:'pointer',paddingLeft:'70px'}}>x</span> </h5>
         </ol>
      {outputs}
     </div>
