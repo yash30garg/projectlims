@@ -5,7 +5,7 @@ import $ from 'jquery';
 // import $ from 'jquery';
 // import book from '../search-component/SearchResults'
 // let users;
-// var req = require('request');
+var req = require('request');
 let book,
     w = null,
     b = null,
@@ -30,7 +30,7 @@ class Details extends Component {
             mm = '0' + mm;
         }
         if (dd1 < 10) {
-            dd = '0' + dd;
+            dd1 = '0' + dd1;
         }
         if (mm1 < 10) {
             mm1 = '0' + mm1;
@@ -115,9 +115,9 @@ class Details extends Component {
         this.wishlist = this
             .wishlist
             .bind(this);
-        // this.addBook = this
-        //     .addBook
-        //     .bind(this);
+        this.addBook = this
+            .addBook
+            .bind(this);
         window
             .wishlist
             //eslint-disable-next-line            
@@ -145,6 +145,7 @@ class Details extends Component {
         this.request = this
             .request
             .bind(this);
+        this.getBorrowedData = this.getBorrowedData.bind(this);
         this.wishlist = this
             .wishlist
             .bind(this);
@@ -154,9 +155,9 @@ class Details extends Component {
         this.removeRequest = this
             .removeRequest
             .bind(this);
-        // this.removeBook = this
-        //     .removeBook
-        //     .bind(this);
+        this.removeBook = this
+            .removeBook
+            .bind(this);
     }
 //     componentDidMount()
 //     {
@@ -186,6 +187,21 @@ class Details extends Component {
             .go(-1)
     }
     
+    getBorrowedData(){
+    req.post({
+                url: 'http://localhost:3005/borrowedBooks/getBooks',
+                form: { mid:window.user},
+                
+                headers: new Headers({ "Content-Type": "application/json" }),
+                method: 'POST'
+            },
+                function (er, r, body) {
+                    let books=JSON.parse(body).data;
+                    console.log(books)
+                    window.bbooks=books;
+                });
+}
+
     removeWishlist = () => {
         console.log(book);
         let index = -1,
@@ -230,24 +246,8 @@ class Details extends Component {
     }
 
     removeRequest = () => {
-        // this.removeBook(book.isbn);
-        console.log(book);
-        let index = -1,
-            i = 0;
-        window
-            .bbooks
-            //eslint-disable-next-line            
-            .map((res) => {
-                if (res.isbn === book.isbn) {
-                    index = i;
-                }
-                i++;
-            })
-        if (index !== -1) {
-            window
-                .bbooks
-                .splice(index, 1);
-        }
+        this.removeBook(book.isbn);
+        this.getBorrowedData();
         b = (
             <button
                 className="btn btn-primary mt-3"
@@ -353,60 +353,51 @@ class Details extends Component {
         this.setState({ wish: w, msg: val })
     }
 
-// addBook=(newBook)=>{
-//         fetch('http://localhost:3005/borrowedBooks/addBook',{
-//             method: 'PUT',
-//             headers: {'Content-Type': 'application/json'},
-//             body:JSON.stringify({
-//                 mid:window.user,
-//                 item:newBook
-//             })
-//         })
-//         .then(res=>(res.json))
-//         .then(function(response){
-//             console.log(response)
-//         })
-//     }
-//     removeBook=(isbn)=>{
-//         fetch('http://localhost:3005/borrowedBooks/deleteBook',{
-//             method: 'PUT',
-//             headers: {'Content-Type': 'application/json'},
-//             body:JSON.stringify({
-//                 mid:window.user,
-//                 isbn:isbn
-//             })
-//         })
-//         .then(res=>(res.json))
-//         .then(function(response){
-//             console.log(response)
-//         })
-//     }
-
+addBook=(newBook)=>{
+        fetch('http://localhost:3005/borrowedBooks/addBook',{
+            method: 'PUT',
+            headers: {'Content-Type': 'application/json'},
+            body:JSON.stringify({
+                mid:window.user,
+                item:newBook
+            })
+        })
+        .then(res=>(res.json))
+        .then(function(response){
+            console.log(response)
+        })
+    }
+    removeBook=(isbn)=>{
+        fetch('http://localhost:3005/borrowedBooks/deleteBook',{
+            method: 'PUT',
+            headers: {'Content-Type': 'application/json'},
+            body:JSON.stringify({
+                mid:window.user,
+                isbn:isbn
+            })
+        })
+        .then(res=>(res.json))
+        .then(function(response){
+            console.log(response)
+        })
+    }
+    
     request = () => {
         if (!window.bbooks.includes(book)) {
             if (window.bbooks.length < 4) {
-                //eslint-disable-next-line                
-                let newBook = new Object();
                 //eslint-disable-next-line   
-                // let bookAdded=new Object();
-                // bookAdded.isbn=book.isbn;
-                // bookAdded.title=book.details.title;
-                // bookAdded.borrowedDate=borrowDate;
-                // bookAdded.returnDate=returnDate;
-                // bookAdded.isRenewed=book.details.isRenewed;            
-                newBook.details = new Object();
-                newBook.details.title = book.details.title;
-                newBook.details.borrowedDate = borrowDate;
-                newBook.details.returnDate = returnDate;
-                newBook.details.url = book.details.url;
-                newBook.details.isRenewed = false;
-                newBook.isbn = book.isbn;
-                //console.log(newBook);
-                // this.addBook(bookAdded);
-                window
-                    .bbooks
-                    .push(newBook)
-                console.log(window.bbooks);
+                let bookAdded=new Object();
+                bookAdded.isbn=book.isbn;
+                bookAdded.title=book.details.title;
+                bookAdded.author=book.details.author;
+                bookAdded.publisher=book.details.publisher;
+                bookAdded.url=book.details.url;
+                bookAdded.rating=book.details.rating;
+                bookAdded.borrowedDate=borrowDate;
+                bookAdded.returnDate=returnDate;
+                bookAdded.isRenewed=book.details.isRenewed;            
+                this.addBook(bookAdded);
+                this.getBorrowedData();
                 let a = b = (
                     <div>
                         <button

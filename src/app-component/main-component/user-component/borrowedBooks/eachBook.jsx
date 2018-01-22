@@ -19,13 +19,13 @@ const Card = (props) => {
             }}>
                 <img
                     className="mx-auto"
-                    src={props.data.details.url}
+                    src={props.data.url}
                     height="160px"
                     width="100%"
                     alt=""
                     />
                     <div className="card-block card-text" style={{width:"160px", fontSize:"14px"}}>
-                    {props.data.details.title}
+                    {props.data.title}
                     </div>
                 <div
                     className="overlay"
@@ -33,8 +33,8 @@ const Card = (props) => {
                     backgroundColor: "rgba(97,65,38,0.9)"
                 }}>
                     <div className="text container-fluid" style={{fontSize:'13px'}}>
-                        <b>{props.data.details.title}</b><br/><br/>
-                        <p>Return by {props.data.details.returnDate}</p>
+                        <b>{props.data.title}</b><br/><br/>
+                        <p>Return by {props.data.returnDate}</p>
                     </div>
                 </div>
             </div>
