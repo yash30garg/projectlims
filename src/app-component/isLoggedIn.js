@@ -19,7 +19,7 @@
 //             window.location.replace("http://localhost:3000/#/login")
 //             // window.locaton = "http://localhost:3000/#/login"
 //         }
-// }
+//  }
 
 export var requireAuth = (path) => {
 
@@ -37,6 +37,7 @@ export var requireAuth = (path) => {
         }
         else
         {
+
             console.log("No")
             // console.log(path)
             window.location.replace("http://limsreact.azurewebsites.net/#/login")

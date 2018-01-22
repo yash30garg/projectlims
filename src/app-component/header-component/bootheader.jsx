@@ -150,6 +150,7 @@ class BootHeader extends Component {
             searchResults: false,
             searchClicked:false
         });
+       document.getElementById('key').value="";
     }
 
     plusClicked = () => {

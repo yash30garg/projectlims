@@ -95,7 +95,7 @@ search(e) {
             align="left"  />
             
           <Link to="/">
-            <span id="projectTitle" className="navbar-brand" style={{ color: "white",paddingLeft:'15px',fontSize:'30px'  }}>Mindtree Library</span>
+            <span id="projectTitle" className="navbar-brand" style={{ color: "white",paddingLeft:'15px',fontSize:'23px', marginBottom : "15px"  }}>Mindtree Library</span>
           </Link>
           
             <div className="offset-md-1 col-lg-6 col-md-10">
@@ -103,14 +103,16 @@ search(e) {
               {/*<Link to="/search" style={{ textDecoration: 'none' }}>*/}
                 <div className="input-group">
                   
-                  <input type="text" id="key" className="form-control" style={{ alignSelf: "center" }} placeholder="Search for..." onKeyUp={debounce((this.search), 1000)} autoFocus/>
-                  <button className="btn btn-primary" 
-                  onKeyPress={event => {
+                  <input type="text" id="key" className="form-control" style={{ alignSelf: "center" }} placeholder="Search for..." onKeyUp={debounce((this.search), 1000)} autoFocus
+                                    onKeyPress={event => {
                                             if (event.key === 'Enter') {
                                                 store.dispatch({type:"STORE_SEARCH",payload:document.getElementById('key').value})
                                                 search()
                                             }
                                         }}
+                  />
+                  <button className="btn btn-primary" 
+
                   onClick={(event)=>{this.setState({search:document.getElementById('key').value})
                     store.dispatch({type:"STORE_SEARCH", payload: document.getElementById('key').value})
                     search()
@@ -133,46 +135,24 @@ search(e) {
                 <img className="inset" src={url} />
 
                 <span className="dropdown-toggle"></span></div>
-                <ul className="dropdown-menu dropdown-menu-right" align="center">
-                  <li className="well" align="center">
-                    <Link to="/profile"><div href="#" className="dropdown-item" style={{color:'#614126', borderColor:'brown'}}><span className="fa fa-user"></span>Profile</div></Link></li>
-                    <hr/>
-                    <li align="center">
-                    <div href="#" onClick={this.logout} className="dropdown-item" style={{color:'#614126', borderColor:'brown' }}><span className="fa fa-lock"></span> Logout</div></li>
+                <ul className="dropdown-menu dropdown-menu-right" >
+                  <li >
+                    <Link to="/profile"><a href="#" className="dropdown-item" style={{color:'#614126', borderColor:'brown'}}><span className="fa fa-user"></span>Profile
+                    </a></Link></li>
+                    
+                    <li >
+                    <a href="#" onClick={this.logout} className="dropdown-item" style={{color:'#614126', borderColor:'brown' }}><span className="fa fa-lock"></span> Logout</a></li>
                 </ul>
               </li>
-              {/*<Link to="/profile">
-                <li className="nav-item" >
-                  <div className="nav-link" href="#" style={{ color: "white" }}><span class="fa fa-user"></span>profile
-                </div>
-                </li>
-              </Link>
-              <Link to="/">
-                <li className="nav-item active"></li>
-                <li className="nav-item" onClick={this.logout} >
-                  <div className="nav-link" href="#" style={{ color: "white" }}><span class="fa fa-lock"></span>logout
-                </div>
-                </li>
-              </Link>*/}
-            {/*<li className="nav-item dropdown">
-                <Link to="/profile">
-                  <div className="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style={{color : "white"}}>
-                  Profile
-                </div>
-                </Link>           
-                <div
-                  className="dropdown-menu dropdown-menu-right"
-                  aria-labelledby="navbarDropdownMenuLink">
-                  <Link to="/profile">
-                  <div className="dropdown-item" href="#">Preferences</div>
-                  </Link>
-                  <div className="dropdown-item" href="#">Settings</div>
-                  <div className="dropdown-divider"></div>
-                  <div className="dropdown-item" href="#">Logout</div>
-                </div>*/}
-              {/*</li>*/}
+        
             </ul>
           </div>
+
+
+       
+  
+
+
         </nav>
         <BootHeader/>
       </div>

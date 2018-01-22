@@ -5,7 +5,7 @@ export const EachListItem = (props) => {
         <div
             onClick={props
             .openByCategory}
-            className=" row list-group-item  list-group-item-action ml-0"
+            className=" row list-group-item   list-group-item-action ml-0"
             style={{
             background: " #FFF8DC"
         }}>
