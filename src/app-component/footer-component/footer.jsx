@@ -22,7 +22,7 @@ class Footer extends Component {
 
                   <li className="widget-container widget_nav_menu">
 
-                    <h1 className="title-widget" style={{textAlign :"left" ,color:'#614126' }}>Useful links</h1>
+                    <h1 className="title-widget" style={{textAlign :"left" ,color:'#614126' }}>Information</h1>
 
                     <ul>
                       <Link to="/aboutus">
@@ -96,7 +96,7 @@ class Footer extends Component {
 
                     <h1 className="title-widget" style={{textAlign :"left", color:'#614126'}}>Social Sites</h1>
 
-                    <div className="social-icons">
+                    <div className="social-icons" style={{textAlign :"left"}}>
 
                       <ul className="nomargin">
                       <div>

@@ -33,7 +33,7 @@ class Details extends Component {
             dd = '0' + dd;
         }
         if (mm1 < 10) {
-            mm = '0' + mm;
+            mm1 = '0' + mm1;
         }
         borrowDate = dd + '/' + mm + '/' + yyyy;
         returnDate = dd1 + '/' + mm1 + '/' + yyyy1;
@@ -115,8 +115,8 @@ class Details extends Component {
         this.wishlist = this
             .wishlist
             .bind(this);
-        // this.updateBook = this
-        //     .updateBook
+        // this.addBook = this
+        //     .addBook
         //     .bind(this);
         window
             .wishlist
@@ -154,6 +154,9 @@ class Details extends Component {
         this.removeRequest = this
             .removeRequest
             .bind(this);
+        // this.removeBook = this
+        //     .removeBook
+        //     .bind(this);
     }
 //     componentDidMount()
 //     {
@@ -227,6 +230,7 @@ class Details extends Component {
     }
 
     removeRequest = () => {
+        // this.removeBook(book.isbn);
         console.log(book);
         let index = -1,
             i = 0;
@@ -349,7 +353,7 @@ class Details extends Component {
         this.setState({ wish: w, msg: val })
     }
 
-// updateBook=(newBook)=>{
+// addBook=(newBook)=>{
 //         fetch('http://localhost:3005/borrowedBooks/addBook',{
 //             method: 'PUT',
 //             headers: {'Content-Type': 'application/json'},
@@ -363,13 +367,33 @@ class Details extends Component {
 //             console.log(response)
 //         })
 //     }
+//     removeBook=(isbn)=>{
+//         fetch('http://localhost:3005/borrowedBooks/deleteBook',{
+//             method: 'PUT',
+//             headers: {'Content-Type': 'application/json'},
+//             body:JSON.stringify({
+//                 mid:window.user,
+//                 isbn:isbn
+//             })
+//         })
+//         .then(res=>(res.json))
+//         .then(function(response){
+//             console.log(response)
+//         })
+//     }
 
     request = () => {
         if (!window.bbooks.includes(book)) {
             if (window.bbooks.length < 4) {
                 //eslint-disable-next-line                
                 let newBook = new Object();
-                //eslint-disable-next-line                
+                //eslint-disable-next-line   
+                // let bookAdded=new Object();
+                // bookAdded.isbn=book.isbn;
+                // bookAdded.title=book.details.title;
+                // bookAdded.borrowedDate=borrowDate;
+                // bookAdded.returnDate=returnDate;
+                // bookAdded.isRenewed=book.details.isRenewed;            
                 newBook.details = new Object();
                 newBook.details.title = book.details.title;
                 newBook.details.borrowedDate = borrowDate;
@@ -378,7 +402,7 @@ class Details extends Component {
                 newBook.details.isRenewed = false;
                 newBook.isbn = book.isbn;
                 //console.log(newBook);
-                // this.updateBook(newBook);
+                // this.addBook(bookAdded);
                 window
                     .bbooks
                     .push(newBook)
