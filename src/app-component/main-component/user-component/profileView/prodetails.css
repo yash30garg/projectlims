@@ -150,6 +150,8 @@ input:focus, textarea:focus, keygen:focus, select:focus {
 .row2tab li:first-child {
 	color:  #6AAFEA;
 }
+
+
 .row2tab li i {
         margin-right: 3px;
     font-size: 14px;
