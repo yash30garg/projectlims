@@ -135,12 +135,13 @@ search(e) {
                 <img className="inset" src={url} />
 
                 <span className="dropdown-toggle"></span></div>
-                <ul className="dropdown-menu dropdown-menu-right" >
+                <ul className="dropdown-menu dropdown-menu-right" style={{backgroundColor:"#FFF8DC	"}} >
                   <li >
                     <Link to="/profile"><a href="#" className="dropdown-item" style={{color:'#614126', borderColor:'brown'}}><span className="fa fa-user"></span>Profile
                     </a></Link></li>
-                    
-                    <li >
+                    <div class="dropdown-divider" >
+                  </div>
+                    <li > 
                     <a href="#" onClick={this.logout} className="dropdown-item" style={{color:'#614126', borderColor:'brown' }}><span className="fa fa-lock"></span> Logout</a></li>
                 </ul>
               </li>
