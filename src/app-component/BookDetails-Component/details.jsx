@@ -6,9 +6,12 @@ import $ from 'jquery';
 // import book from '../search-component/SearchResults'
 // let users;
 var req = require('request');
+let response;
 let book,
     w = null,
     b = null,
+    a = null,
+    val="",
     borrowDate,
     returnDate;
 
@@ -92,7 +95,7 @@ class Details extends Component {
                             &nbsp;
                             <button
                                 className="btn btn-primary mt-3"
-                                onClick={this.renew}
+                                // onClick={this.renew}
                                 style={{
                                     backgroundColor: 'white',
                                     borderColor: "rgb(205,133,63)",
@@ -109,6 +112,13 @@ class Details extends Component {
                     }
                 }
             })
+        this.addWishlist = this
+            .addWishlist
+            .bind(this);
+            this.removeWishlistMongo = this
+            .removeWishlistMongo
+            .bind(this);
+        
         this.renew = this
             .renew
             .bind(this);
@@ -153,9 +163,6 @@ class Details extends Component {
             .bind(this);
         this.removeRequest = this
             .removeRequest
-            .bind(this);
-        this.removeBook = this
-            .removeBook
             .bind(this);
     }
 //     componentDidMount()
@@ -203,6 +210,7 @@ class Details extends Component {
 
     removeWishlist = () => {
         console.log(book);
+        this.removeWishlistMongo(book);
         let index = -1,
             i = 0;
         window
@@ -245,8 +253,19 @@ class Details extends Component {
     }
 
     removeRequest = () => {
-        this.removeBook(book.isbn);
-        b = (
+        fetch('http://localhost:3005/borrowedBooks/deleteBook',{
+            method: 'PUT',
+            headers: {'Content-Type': 'application/json'},
+            body:JSON.stringify({
+                mid:window.user,
+                isbn:book.isbn
+            })
+        })
+        .then((res)=>res.json())
+        .then((res)=>{
+            if(res.status===200){
+            window.bbooks=res.data;
+            b = (
             <button
                 className="btn btn-primary mt-3"
                 style={{
@@ -259,7 +278,7 @@ class Details extends Component {
                 <b>Request</b>
             </button>
         )
-        let val = (
+        val = (
             <div class="alert notify alert-success ml-1 mt-1" role="alert">
                 <strong>Success! &nbsp;
                 </strong>
@@ -269,6 +288,19 @@ class Details extends Component {
             </div>
         )
         this.setState({ req: b, msg: val })
+            }
+            else{
+                val = (
+            <div class="alert notify alert-success ml-1 mt-1" role="alert">
+                <strong>Oops! &nbsp;
+                </strong>
+                &nbsp;There was a problem in returning the book.&nbsp;
+                <strong>
+                    &nbsp;Please Try Again!!</strong>
+            </div>
+        )
+            }
+    })
     }
 
     renew = () => {
@@ -318,8 +350,46 @@ class Details extends Component {
                 }
             })
     }
-    wishlist = () => {
+    addWishlist=(book)=>{
+            fetch('http://localhost:3005/wishlist/addWBook',{
+            method: 'PUT',
+            headers: {'Content-Type': 'application/json'},
+            body:JSON.stringify({
+                mid:window.user,
+                book:book
+            })
+        })
+        .then((res)=>res.json())
+        .then((res)=>{
+            console.log(res);
+        })
+}
+    removeWishlistMongo=(book)=>{
+            fetch('http://localhost:3005/wishlist/removeWishBook',{
+            method: 'PUT',
+            headers: {'Content-Type': 'application/json'},
+            body:JSON.stringify({
+                mid:window.user,
+                book:book.isbn
+            })
+        })
+        .then((res)=>res.json())
+        .then((res)=>{
+            console.log(res);
+        })
+}
 
+    wishlist = () => {
+        var items=new Object();
+        items.isbn=book.isbn;
+        items.title=book.details.title;
+        items.author=book.details.author;
+        items.publisher=book.details.publisher;
+        items.rating=book.details.rating;
+        items.url=book.details.url;
+        items.description="";
+        console.log(items);
+        this.addWishlist(items);
         w = (
             <button
                 className="btn btn-primary mt-3"
@@ -362,41 +432,12 @@ addBook=(newBook)=>{
         })
         .then((res)=>res.json())
         .then((res)=>{
-            console.log(res);
-            window.bbooks=res;
-        })
-    }
-    removeBook=(isbn)=>{
-        fetch('http://localhost:3005/borrowedBooks/deleteBook',{
-            method: 'PUT',
-            headers: {'Content-Type': 'application/json'},
-            body:JSON.stringify({
-                mid:window.user,
-                isbn:isbn
-            })
-        })
-        .then((res)=>res.json())
-        .then((res)=>{
-            window.bbooks=res
-        })
-    }
-    
-    request = () => {
-        if (!window.bbooks.includes(book)) {
-            if (window.bbooks.length < 4) {
-                //eslint-disable-next-line   
-                let bookAdded=new Object();
-                bookAdded.isbn=book.isbn;
-                bookAdded.title=book.details.title;
-                bookAdded.author=book.details.author;
-                bookAdded.publisher=book.details.publisher;
-                bookAdded.url=book.details.url;
-                bookAdded.rating=book.details.rating;
-                bookAdded.borrowedDate=borrowDate;
-                bookAdded.returnDate=returnDate;
-                bookAdded.isRenewed=book.details.isRenewed;            
-                this.addBook(bookAdded);
-                let a = b = (
+            response=res;
+            console.log(response.status);
+            console.log(res.data);
+            window.bbooks=res.data;
+            if(response.status===200){
+                a = b = (
                     <div>
                         <button
                             className="btn btn-primary mt-3"
@@ -412,7 +453,7 @@ addBook=(newBook)=>{
                         &nbsp;
                         <button
                             className="btn btn-primary mt-3"
-                            onClick={this.renew}
+                            // onClick={this.renew}
                             style={{
                                 backgroundColor: 'white',
                                 borderColor: "rgb(205,133,63)",
@@ -423,7 +464,7 @@ addBook=(newBook)=>{
                         </button>
                     </div>
                 )
-                let val = (
+                val = (
                     <div class="alert notify alert-success  ml-1 mt-1">
                         <strong>Success!&nbsp;
                         </strong>
@@ -433,11 +474,40 @@ addBook=(newBook)=>{
                             &nbsp;Happy Reading!!</strong>
                     </div>
                 )
+            }
+            else{
+                 val = (
+                    <div class="alert notify alert-warning  ml-1 mt-1">
+                        <strong>Oops!&nbsp;
+                        </strong>
+                        &nbsp;Looks like there was an error in requesting your book.&nbsp;
+                        <strong>
+                            &nbsp;Please Try Again!!</strong>
+                    </div>
+                )
+            }
                 this.setState({ req: a, wish: w, msg: val })
+        })
+    }
+    
+    request = () => {
+            if (window.bbooks.length < 4) {
+                //eslint-disable-next-line   
+                let bookAdded=new Object();
+                bookAdded.isbn=book.isbn;
+                bookAdded.title=book.details.title;
+                bookAdded.author=book.details.author;
+                bookAdded.publisher=book.details.publisher;
+                bookAdded.url=book.details.url;
+                bookAdded.rating=book.details.rating;
+                bookAdded.borrowedDate=borrowDate;
+                bookAdded.returnDate=returnDate;
+                bookAdded.isRenewed=book.details.isRenewed;            
+                this.addBook(bookAdded);
                 // alert("The Requested Book has been allotted to you..Please Collect It from
                 // the Library");
             } else {
-                let val = (
+                val = (
                     <div class="alert notify alert-danger alert-dismissible ml-1 mt-1">
                         <strong>Oops!&nbsp;
                         </strong>
@@ -449,7 +519,6 @@ addBook=(newBook)=>{
                 )
                 this.setState({ msg: val })
             }
-        }
     }
     render() {
         book = this.props.data;

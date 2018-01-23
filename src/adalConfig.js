@@ -1,7 +1,5 @@
 import { AuthenticationContext, adalFetch } from 'react-adal';
 //To login through http://limsreact.azurewebsites.net, use this adalConfig variable
-
-
 export const adalConfig = {
   tenant: '85c997b9-f494-46b3-a11d-772983cf6f11',
   clientId: '859c085f-f3d7-40d9-8994-cfebc8407fde',
