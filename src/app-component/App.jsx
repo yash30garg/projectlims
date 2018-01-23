@@ -24,7 +24,6 @@ import ContactUs from '../app-component/footer-component/ContactUs/contactus.jsx
 // import { AuthenticationContext, adalGetToken, adalFetch } from 'react-adal';
 export var user_name;
 var req = require('request');
-window.bbooks=[];
 // let users;
 window.display='';
 window.wishlist=[];
@@ -36,19 +35,19 @@ class App extends Component {
   }
   
   getBorrowedData(){
-    req.post({
-                url: 'http://localhost:3005/borrowedBooks/getBooks',
-                form: { mid:window.user},
-                
-                headers: new Headers({ "Content-Type": "application/json" }),
-                method: 'POST'
-            },
-                function (er, r, body) {
-                    let books=JSON.parse(body).data;
-                    console.log(books)
-                    window.bbooks=books;
-                    
-                });
+fetch('http://localhost:3005/borrowedBooks/getBooks',{
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body:JSON.stringify({
+              mid:window.user
+            })
+})
+.then((res)=>res.json())
+.then((res)=>{
+  console.log("borrowed values");
+  window.bbooks=res;
+  console.log(window.bbooks);
+})
 }
 
   addUser=(UserDetails)=>{
@@ -68,12 +67,13 @@ class App extends Component {
         // .then(res=>(res.json))
         .then((res)=>res.json())
         .then((res)=>{
-          if(res!=="User Exists")
+          if(res==="Exists")
           this.getBorrowedData();
         })
   }
 
   render() {
+    window.bbooks=[];
     console.log(window.bbooks.length)
     console.log(authContext._user.profile.given_name);
     user_name = authContext._user.profile.given_name;

@@ -145,7 +145,6 @@ class Details extends Component {
         this.request = this
             .request
             .bind(this);
-        this.getBorrowedData = this.getBorrowedData.bind(this);
         this.wishlist = this
             .wishlist
             .bind(this);
@@ -187,20 +186,20 @@ class Details extends Component {
             .go(-1)
     }
     
-    getBorrowedData(){
-    req.post({
-                url: 'http://localhost:3005/borrowedBooks/getBooks',
-                form: { mid:window.user},
+//     getBorrowedData(){
+//     req.post({
+//                 url: 'http://localhost:3005/borrowedBooks/getBooks',
+//                 form: { mid:window.user},
                 
-                headers: new Headers({ "Content-Type": "application/json" }),
-                method: 'POST'
-            },
-                function (er, r, body) {
-                    let books=JSON.parse(body).data;
-                    console.log(books)
-                    window.bbooks=books;
-                });
-}
+//                 headers: new Headers({ "Content-Type": "application/json" }),
+//                 method: 'POST'
+//             },
+//                 function (er, r, body) {
+//                     let books=JSON.parse(body).data;
+//                     console.log(books)
+//                     window.bbooks=books;
+//                 });
+// }
 
     removeWishlist = () => {
         console.log(book);
@@ -247,7 +246,6 @@ class Details extends Component {
 
     removeRequest = () => {
         this.removeBook(book.isbn);
-        this.getBorrowedData();
         b = (
             <button
                 className="btn btn-primary mt-3"
@@ -362,9 +360,10 @@ addBook=(newBook)=>{
                 item:newBook
             })
         })
-        .then(res=>(res.json))
-        .then(function(response){
-            console.log(response)
+        .then((res)=>res.json())
+        .then((res)=>{
+            console.log(res);
+            window.bbooks=res;
         })
     }
     removeBook=(isbn)=>{
@@ -376,9 +375,9 @@ addBook=(newBook)=>{
                 isbn:isbn
             })
         })
-        .then(res=>(res.json))
-        .then(function(response){
-            console.log(response)
+        .then((res)=>res.json())
+        .then((res)=>{
+            window.bbooks=res
         })
     }
     
@@ -397,7 +396,6 @@ addBook=(newBook)=>{
                 bookAdded.returnDate=returnDate;
                 bookAdded.isRenewed=book.details.isRenewed;            
                 this.addBook(bookAdded);
-                this.getBorrowedData();
                 let a = b = (
                     <div>
                         <button
