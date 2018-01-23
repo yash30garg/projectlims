@@ -42,10 +42,11 @@ class Profile extends Component {
 				</div>
 				<div className="container" style={{minHeight : "33px"}}>
 					<ul className="row2tab clearfix">
-						<li><i className="fa fa-list-alt"></i> My Books </li>
-						<li><i className="fa fa-heart"></i> My WishList </li>
-						<li><i className="fa fa-check"></i> My Requests </li>
-						<li><i className="fa fa-thumbs-o-up "></i> Reviews </li>
+						<li><i className="fa fa-list-alt"></i> <a href="#tab_default_1" data-toggle="tab" >My Books</a> </li>
+						<li><i className="fa fa-heart"></i> <a href="#tab_default_1" data-toggle="tab" >
+    My WishList</a> </li>
+						<li><i className="fa fa-check"></i><a href="#tab_default_1" data-toggle="tab"> My Requests </a></li>
+						<li><i className="fa fa-thumbs-o-up "></i><a href="#tab_default_1" data-toggle="tab"> Reviews</a> </li>
 					</ul>
 				</div>
 			</div>

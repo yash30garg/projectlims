@@ -3,7 +3,7 @@
    
        import React, { Component } from 'react';
 import Footer from '../footer.jsx';
-import Header from '../../header-component/header.jsx';
+import AlternateHeader from '../../header-component/AlternateHeader/AlternateHeader.jsx';
 import './aboutus.css';
 // import $ from 'jquery';
 import { requireAuth } from '../../isLoggedIn'
@@ -25,7 +25,7 @@ export default class AboutUs extends Component {
       <div style={{ background:'#FFF8DC'}}>
     
       
-<Header />
+<AlternateHeader />
   
   
   
