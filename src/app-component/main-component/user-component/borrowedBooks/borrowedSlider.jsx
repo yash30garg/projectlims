@@ -3,10 +3,10 @@ import {UserBooks}from './borrowedBook'
 // import axios from 'axios';
 // import {email,mid} from '../../login-component/login'
 import {email} from '../../login-component/login'
-
+var req = require('request');
 // import {BrowserRouter,Route,Link } from 'react-router-dom';
 let id;
-
+window.bbooks=[];
 class BorrowedSlider extends Component
  { 
     //  constructor(props)
@@ -36,19 +36,15 @@ class BorrowedSlider extends Component
 //         });
 //  }
 
-
  render()
  {
-     if(email===""){
-     id="1042948";
-    }
-    else id="1042948";
     //  const outputs=window.users.filter(temp=>temp.user.mid===id).map(result=>{
     //     return(<UserBooks key={result.user.mid} list={result.borrowedbooks}/>);
     //  });
         let outputs=<div>
-        <h2 style={{textAlign:'center',color:"#614126"}}>Nothing to show in wishlist!</h2>
+        <h2 style={{textAlign:'center',color:"#614126"}}>You haven't borrowed any books yet!</h2>
         </div>
+        console.log(window.bbooks)
         if(window.bbooks.length!==0)
         {
             outputs=<UserBooks key={id} list={window.bbooks}/>;
