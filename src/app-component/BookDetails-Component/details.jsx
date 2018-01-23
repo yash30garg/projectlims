@@ -109,6 +109,13 @@ class Details extends Component {
                     }
                 }
             })
+        this.addWishlist = this
+            .addWishlist
+            .bind(this);
+            this.removeWishlistMongo = this
+            .removeWishlistMongo
+            .bind(this);
+        
         this.renew = this
             .renew
             .bind(this);
@@ -203,6 +210,7 @@ class Details extends Component {
 
     removeWishlist = () => {
         console.log(book);
+        this.removeWishlistMongo(book);
         let index = -1,
             i = 0;
         window
@@ -318,8 +326,46 @@ class Details extends Component {
                 }
             })
     }
-    wishlist = () => {
+    addWishlist=(book)=>{
+            fetch('http://localhost:3005/wishlist/addWBook',{
+            method: 'PUT',
+            headers: {'Content-Type': 'application/json'},
+            body:JSON.stringify({
+                mid:window.user,
+                book:book
+            })
+        })
+        .then((res)=>res.json())
+        .then((res)=>{
+            console.log(res);
+        })
+}
+    removeWishlistMongo=(book)=>{
+            fetch('http://localhost:3005/wishlist/removeWishBook',{
+            method: 'PUT',
+            headers: {'Content-Type': 'application/json'},
+            body:JSON.stringify({
+                mid:window.user,
+                book:book.isbn
+            })
+        })
+        .then((res)=>res.json())
+        .then((res)=>{
+            console.log(res);
+        })
+}
 
+    wishlist = () => {
+        var items=new Object();
+        items.isbn=book.isbn;
+        items.title=book.details.title;
+        items.author=book.details.author;
+        items.publisher=book.details.publisher;
+        items.rating=book.details.rating;
+        items.url=book.details.url;
+        items.description="";
+        console.log(items);
+        this.addWishlist(items);
         w = (
             <button
                 className="btn btn-primary mt-3"
