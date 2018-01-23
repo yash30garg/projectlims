@@ -85,15 +85,9 @@ search(e) {
             aria-label="Toggle navigation">
             <span style={{ backgroundColor: '#fff' }} className="navbar-toggler-icon"></span>
           </button>
-    
-          <img 
-            className="App-logo inset" 
-
-           
-            src={require("../../Assets/Images/final_header.jpg")}
-            alt="My logo"
-            align="left"  />
-            
+          
+          <img className="App-logo inset" src={require("../../Assets/Images/final_header.jpg")} alt="My logo" align="left"  />
+          
           <Link to="/">
             <span id="projectTitle" className="navbar-brand" style={{ color: "white",paddingLeft:'15px',fontSize:'23px', marginBottom : "15px"  }}>Mindtree Library</span>
           </Link>
@@ -135,12 +129,13 @@ search(e) {
                 <img className="inset" src={url} />
 
                 <span className="dropdown-toggle"></span></div>
-                <ul className="dropdown-menu dropdown-menu-right" >
+                <ul className="dropdown-menu dropdown-menu-right" style={{backgroundColor:"#FFF8DC	"}} >
                   <li >
                     <Link to="/profile"><a href="#" className="dropdown-item" style={{color:'#614126', borderColor:'brown'}}><span className="fa fa-user"></span>Profile
                     </a></Link></li>
-                    
-                    <li >
+                    <div class="dropdown-divider" >
+                  </div>
+                    <li > 
                     <a href="#" onClick={this.logout} className="dropdown-item" style={{color:'#614126', borderColor:'brown' }}><span className="fa fa-lock"></span> Logout</a></li>
                 </ul>
               </li>
