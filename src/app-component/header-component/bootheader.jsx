@@ -291,6 +291,7 @@ class BootHeader extends Component {
                                             style={{
                                                 backgroundColor: "#614126",
                                                 color: "white"
+                                                
                                             }}
                                             onClick={this.plusClicked}>
 

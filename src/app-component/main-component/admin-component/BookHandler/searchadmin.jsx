@@ -5,6 +5,7 @@ import 'rxjs/add/operator/catch';
 // import { BrowserRouter, Route, Link } from 'react-router-dom';
 import 'rxjs/add/operator/filter';
 import SearchResultsAdmin from './searchresultsadmin';
+import AdminHeader from '../adminheader'
 
 var debounce = require('debounce');
 export var processedData = [];
@@ -226,7 +227,7 @@ export default class SearchAdmin extends Component {
     render() {
         return (
             <div>
-                
+                <AdminHeader />
                     
                     <form onSubmit={this.search}>
                         <div className="col-lg-9">
