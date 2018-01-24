@@ -362,6 +362,7 @@ class Details extends Component {
         .then((res)=>res.json())
         .then((res)=>{
             console.log(res);
+            window.wishlist=res;
         })
 }
     removeWishlistMongo=(book)=>{
@@ -376,6 +377,7 @@ class Details extends Component {
         .then((res)=>res.json())
         .then((res)=>{
             console.log(res);
+            window.wishlist=res;
         })
 }
 
@@ -384,6 +386,7 @@ class Details extends Component {
         items.isbn=book.isbn;
         items.title=book.details.title;
         items.author=book.details.author;
+        items.category=book.details.category;
         items.publisher=book.details.publisher;
         items.rating=book.details.rating;
         items.url=book.details.url;

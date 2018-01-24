@@ -3,7 +3,7 @@ import EachCategory from './eachCategory';
 // import axios from 'axios';
 import './topRated.css'
 import LoadingEffect from './../../../loading-component/loading';
-import { Category } from './../../../header-component/categoryView';
+import  Category  from './../../../header-component/categoryView';
 class TopBooks extends Component{
         constructor() {
         super();
