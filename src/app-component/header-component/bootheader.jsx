@@ -12,7 +12,7 @@ import SearchResults from '../search-component/SearchResults.jsx';
 import Search from '../search-component/Search'
 import Details from './../BookDetails-Component/details';
 import { LandingView } from './landingView';
-import { Category } from './categoryView';
+import  Category  from './categoryView';
 import WishedBooks from '../main-component/user-component/wishlist/wishlistComponent'
 import LoadingEffect from './../loading-component/loading';
 import { EachListItem } from './categoryList';
@@ -248,39 +248,36 @@ class BootHeader extends Component {
                                             }}>
                                             <span className="fa fa-list-alt" aria-hidden="true"></span>
                                             My Books</div>
-
-                                        <div
+                                        <a>
+                                        <button
                                             onClick={this.openBorrowedBooks}
-                                            className="list-group-item  list-group-item-action"
+                                            className="btnl default list-group-item  list-group-item-action"
                                             style={{
                                                 background: " 	#FFF8DC"
                                             }}>
 
-                                            <span className="fa fa-arrow-right" aria-hidden="true"></span>
+                                            <span className="fa fa-arrow-right" style={{color : 'brown'}} aria-hidden="true"></span>
                                             Borrowed Books
 
-                                        </div>
+                                        </button>
+                                        </a>
                                         <div id="os" onClick={this.openSearch} ></div>
                                         <div id="cs" onClick={this.closeSearch}></div>
-
-                                        <div
+                                        <a>
+                                        <button
                                             onClick={this.openWishlist}
-                                            className="list-group-item  list-group-item-action"
+                                            className="btnl default list-group-item  list-group-item-action"
                                             style={{
                                                 background: " 	#FFF8DC"
                                             }}>
-                                            <span className="fa fa-arrow-right" aria-hidden="true"></span>Wishlist {/* <div className="all">
+                                            <span className="fa fa-arrow-right" style={{color : 'brown'}} aria-hidden="true"></span>Wishlist {/* <div className="all">
 
                                             <span className="badge badge-pill badge-warning ml-1">0</span>
                                         </div>*/}
-                                        </div>
-
+                                        </button>
+                                        </a>
                                     </div>
-                                    <div
-                                        className="list-group mt-4"
-                                        style={{
-                                            cursor: 'pointer'
-                                        }}>
+                                    <div className="list-group mt-4">
                                         <div
                                             className="row col-md-12 list-group-item collor nav-item dropdown nav-link ml-0"
                                             data-toggle="collapse"
@@ -291,6 +288,7 @@ class BootHeader extends Component {
                                             style={{
                                                 backgroundColor: "#614126",
                                                 color: "white"
+                                                
                                             }}
                                             onClick={this.plusClicked}>
 
@@ -306,26 +304,25 @@ class BootHeader extends Component {
                                         </div>
 
                                         <div className="collapse show" id="navbaDropdown">
+                                           
+                                            <a>
+                                            <button type="button" onClick={this.openCategory.bind(this, 'all')} className="btnl default list-group-item list-group-item-action ml-0"
+                                                style={{background: " #FFF8DC"}}>
 
-                                            <div
-                                                onClick={this
-                                                    .openCategory
-                                                    .bind(this, 'all')}
-                                                className=" row list-group-item  list-group-item-action ml-0"
-                                                style={{
-                                                    background: " #FFF8DC"
-                                                }}>
-                                                <div className="col-md-0 fa fa-arrow-right" area-hidden="true"></div>
-                                                <div
-                                                    className="col"
-                                                    style={{
-                                                        textAlign: "left"
-                                                    }}>All</div>
+
+
+                                                <div className="col-md-0 fa fa-arrow-right" style={{color : 'brown'}} area-hidden="true"></div>
+                                                <div className="col" style={{textAlign: "left"}}>All</div>
+                                                {/*<button type="button" class="list-group-item list-group-item-action">All</button>*/}
+                                                
+                                                
                                                 <div className="row">
                                                     <div className="badge badge-pill badge-warning mr-3">{this.state.display.length}</div>
                                                 </div>
-                                            </div>
-
+                                                
+                                            </button>
+                                            </a>
+                                            
                                             {brr.map((r) => {
 
                                                 return <EachListItem
@@ -343,6 +340,15 @@ class BootHeader extends Component {
                                         </div>
                                     </div>
                                 </div>
+
+
+
+
+
+
+
+
+
                                 <div className="col-md-9">
                                     <div>
                                         {this.state.landingView && this.state.categoryClicked

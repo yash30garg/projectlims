@@ -6,6 +6,7 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/filter';
 import SearchResultsAdmin from './searchresultsadmin';
 
+
 var debounce = require('debounce');
 export var processedData = [];
 
@@ -226,7 +227,7 @@ export default class SearchAdmin extends Component {
     render() {
         return (
             <div>
-                
+            
                     
                     <form onSubmit={this.search}>
                         <div className="col-lg-9">

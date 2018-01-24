@@ -65,7 +65,7 @@ class EachCategory extends Component
                 <div className="put mx-4 mt-1">
                 <a onClick={this.plusClicked} style={{textDecoration:'none'}} data-toggle="collapse" 
                 href={c} aria-expanded="false" aria-controls={c}><h5 className="card-header yoyo" 
-                style={{ backgroundColor: "	#CD853F", color: "white", fontSize : "15px", fontStyle : "italic" }}>{this.props.category.toUpperCase()}<span style={{float:'right',paddingLeft:'70px'}}>{this.state.plus}</span></h5></a>
+                style={{ backgroundColor: "	#CD853F", color: "white", fontSize : "15px", fontStyle : "italic",width : "100%" }}>{this.props.category.toUpperCase()}<span style={{float:'right',paddingLeft:'70px'}}>{this.state.plus}</span></h5></a>
                 <div className={this.state.showable} id={this.state.passedCategory}>
                 <div className="row">
      {this.state.filterCategory.map(rslt=>{

@@ -4,6 +4,10 @@ import AlternateHeader from '../../../../app-component/header-component/Alternat
 import Footer from '../../../../app-component/footer-component/footer.jsx';
 import {requireAuth} from '../../../isLoggedIn.js'
 import {url} from '../../../header-component/header'
+import { Link } from 'react-router-dom';
+import { HashRouter, Route, Switch } from 'react-router-dom';
+import MyWishList from'./MyWishList';
+
 class Profile extends Component {
 	componentWillMount() {
 		requireAuth(window.location.href)
@@ -42,13 +46,29 @@ class Profile extends Component {
 				</div>
 				<div className="container" style={{minHeight : "33px"}}>
 					<ul className="row2tab clearfix">
+
+						{/*<li><i className="fa fa-list-alt"></i> My Books </li>
+						<Link to="/mywishlist">
+						<li><i className="fa fa-heart"></i> My WishList </li>
+						</Link>
+						<li><i className="fa fa-check"></i> My Requests </li>
+						<li><i className="fa fa-thumbs-o-up "></i> Reviews </li>*/}
+
 						<li><i className="fa fa-list-alt"></i> <a href="#tab_default_1" data-toggle="tab" >My Books</a> </li>
 						<li><i className="fa fa-heart"></i> <a href="#tab_default_1" data-toggle="tab" >
     My WishList</a> </li>
 						<li><i className="fa fa-check"></i><a href="#tab_default_1" data-toggle="tab"> My Requests </a></li>
 						<li><i className="fa fa-thumbs-o-up "></i><a href="#tab_default_1" data-toggle="tab"> Reviews</a> </li>
+
 					</ul>
 				</div>
+
+
+<div>
+	            <Route path="/profile/mywishlist" exact component={MyWishList} />
+
+	</div>
+				
 			</div>
 			<span className="smalltri">
 				

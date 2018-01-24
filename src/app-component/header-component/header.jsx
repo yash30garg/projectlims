@@ -11,6 +11,7 @@ import { Link, withRouter } from 'react-router-dom';
 import {user_name} from '../App'
 import {connect} from 'react-redux'
 import BootHeader from './bootheader'
+
 // import Footer from '../footer-component/footer'
 // import {storeSearch} from '../../state/action/searchAction.js'
 import store from '../../state/store/store.js'
@@ -85,14 +86,13 @@ search(e) {
             aria-label="Toggle navigation">
             <span style={{ backgroundColor: '#fff' }} className="navbar-toggler-icon"></span>
           </button>
+
     
           <img 
             className="App-logo inset" 
-
-           
             src={require("../../Assets/Images/final_header.jpg")}
             alt="My logo"
-            align="left"  />
+            align="left" onClick={(e)=>{e.preventDefault(); window.location="/"}} />
             
           <Link to="/">
             <span id="projectTitle" className="navbar-brand" style={{ color: "white",paddingLeft:'15px',fontSize:'23px', marginBottom : "15px"  }}>Mindtree Library</span>
