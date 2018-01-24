@@ -33,7 +33,7 @@ class PBooks extends Component {
             let b = this
                 .state
                 .display
-                .filter((res) => res.details.rating >= 1 && (res.details.category === "Javascript" || res.details.category === "javascript"));
+                .filter((res) => res.rating >= 1 && (res.category === "Javascript" || res.category === "javascript"));
             s1 = <div className="carousel-item mt-2">
                 {b
                     .slice(0, 6)
@@ -44,7 +44,7 @@ class PBooks extends Component {
             b = this
                 .state
                 .display
-                .filter((res) => res.details.rating >= 1 && (res.details.category === "Angular" || res.details.category === "angular"));
+                .filter((res) => res.rating >= 1 && (res.category === "Angular" || res.category === "angular"));
             s2 = <div className="carousel-item mt-2">
                 {b
                     .slice(0, 6)
@@ -55,8 +55,8 @@ class PBooks extends Component {
             b = this
                 .state
                 .display
-                .filter((res) => res.details.rating >= 1 && 
-                (res.details.category === "React" || res.details.category === "react"));
+                .filter((res) => res.rating >= 1 && 
+                (res.category === "React" || res.category === "react"));
             s3 = <div className="carousel-item mt-2">
                 {b
                     .slice(0, 6)

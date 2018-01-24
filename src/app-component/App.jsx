@@ -44,7 +44,7 @@ class App extends Component {
       .then((res)=>res.json())
       .then((res)=>{
   console.log("booksssssss");
-
+  window.display=res;
   console.log(res);
 
     })
@@ -94,6 +94,7 @@ fetch('http://localhost:3005/borrowedBooks/getBooks',{
   render() {
     window.bbooks=[];
     window.wishlist=[];
+    window.display=[];
     console.log(window.bbooks.length)
     console.log(authContext._user.profile.given_name);
     user_name = authContext._user.profile.given_name;

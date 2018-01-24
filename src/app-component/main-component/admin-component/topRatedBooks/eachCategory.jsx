@@ -10,7 +10,7 @@ class EachCategory extends Component
         this.state={
             plus:"+",
             showable:"collapse",
-            withoutFilter:this.props.rated.filter(results=>results.details.category.toLowerCase()===this.props.category.toLowerCase()),
+            withoutFilter:this.props.rated.filter(results=>results.category.toLowerCase()===this.props.category.toLowerCase()),
             filterCategory:[],
             showViewCard:true,
             passedCategory:this.props.category.toLowerCase()
@@ -27,7 +27,7 @@ class EachCategory extends Component
             
             this.setState({plus:"-", showable:"collapse show",});
         }
-        this.setState({filterCategory:this.state.withoutFilter.filter(res=>res.details.rating>=4).sort((a,b)=>{return(b.details.rating-a.details.rating)}).slice(0,5)});
+        this.setState({filterCategory:this.state.withoutFilter.filter(res=>res.rating>=4).sort((a,b)=>{return(b.rating-a.rating)}).slice(0,5)});
         if(this.props.category.toLowerCase()==="c++")
         {
              this.setState({passedCategory:"cPlusPlus"});

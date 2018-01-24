@@ -3,7 +3,7 @@ import EachCategory from './eachCategory';
 // import axios from 'axios';
 import './topRated.css'
 import LoadingEffect from './../../../loading-component/loading';
-import { Category } from './../../../header-component/categoryView';
+import  Category  from './../../../header-component/categoryView';
 class TopBooks extends Component{
         constructor() {
         super();
@@ -39,9 +39,9 @@ class TopBooks extends Component{
         let brr = [];
         let arr = window.display
   .sort((a, b) => {
-                if (a.details.category.toUpperCase() > b.details.category.toUpperCase()) {
+                if (a.category.toUpperCase() > b.category.toUpperCase()) {
                     return 1;
-                } else if (a.details.category.toUpperCase() < b.details.category.toUpperCase()) {
+                } else if (a.category.toUpperCase() < b.category.toUpperCase()) {
                     return -1;
                 } else {
                     return 0;
@@ -52,7 +52,7 @@ class TopBooks extends Component{
                 brr.push(arr[0]);
             }
         for (var i = 0; i < arr.length - 1; i++) {
-            if (arr[i].details.category.toUpperCase() !== arr[i + 1].details.category.toUpperCase()) {
+            if (arr[i].category.toUpperCase() !== arr[i + 1].category.toUpperCase()) {
 
                 brr.push(arr[i+1]);
             }
@@ -65,7 +65,7 @@ class TopBooks extends Component{
                  k=brr.map(result=>{
                      counting++;
                     return(
-                        <EachCategory key={`ea${result.isbn}`} click={this.viewMoreClicked} category={result.details.category} rated={b} count={counting}/>   
+                        <EachCategory key={`ea${result.isbn}`} click={this.viewMoreClicked} category={result.category} rated={b} count={counting}/>   
                     );
                 })
             }

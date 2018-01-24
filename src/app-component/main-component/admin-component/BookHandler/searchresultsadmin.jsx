@@ -56,19 +56,19 @@ class SearchResultsAdmin extends Component
                     }}>
                         <img
                             className="card-img-top"
-                            src={res.details.url}
+                            src={res.url}
                             alt="not available"
                             height="300vh"/>
 
                         <div className="overlay">
                             <div className="text container-fluid">                          
-                            <b>{res.details.title}</b><br/><br/>
+                            <b>{res.title}</b><br/><br/>
                             <b>Author : </b>
-                            {res.details.author}<br/><br/>
+                            {res.author}<br/><br/>
                             <b>Category: </b>
-                            {res.details.category}<br/><br/>
+                            {res.category}<br/><br/>
                             {[1,2,3,4,5].map(d=>{
-                              if(res.details.rating>=d)
+                              if(res.rating>=d)
                                 return<span class="fa fa-star" style={{color:'white'}}></span>
                               else 
                                 return<span class="fa fa-star" style={{color:'black'}}></span>

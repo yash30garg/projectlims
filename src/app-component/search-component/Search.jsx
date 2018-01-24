@@ -41,20 +41,20 @@ export var search = () => {
 
                 // console.log(this.state.data)
                 var datax = data.booksArray.filter((data3) =>
-                    (data3.details.title.toLowerCase().indexOf(value1) >= 0 ||
-                        data3.details.author.toLowerCase().indexOf(value1) >= 0 ||
-                        data3.details.publisher.toLowerCase().indexOf(value1) >= 0 ||
-                        data3.details.category.toLowerCase().indexOf(value1) >= 0) &&
-                    value1 !== '').sort((a, b) => { return (b.details.rating - a.details.rating) });
+                    (data3.title.toLowerCase().indexOf(value1) >= 0 ||
+                        data3.author.toLowerCase().indexOf(value1) >= 0 ||
+                        data3.publisher.toLowerCase().indexOf(value1) >= 0 ||
+                        data3.category.toLowerCase().indexOf(value1) >= 0) &&
+                    value1 !== '').sort((a, b) => { return (b.rating - a.rating) });
                     console.log(value2)
                     processedData = datax
                 if (value2 !== "") {
                    var datay = data.booksArray.filter((data3) =>
-                        (data3.details.title.toLowerCase().indexOf(value2) >= 0 ||
-                            data3.details.author.toLowerCase().indexOf(value2) >= 0 ||
-                            data3.details.publisher.toLowerCase().indexOf(value2) >= 0 ||
-                            data3.details.category.toLowerCase().indexOf(value2) >= 0) &&
-                        value2 !== '').sort((a, b) => { return (b.details.rating - a.details.rating) });
+                        (data3.title.toLowerCase().indexOf(value2) >= 0 ||
+                            data3.author.toLowerCase().indexOf(value2) >= 0 ||
+                            data3.publisher.toLowerCase().indexOf(value2) >= 0 ||
+                            data3.category.toLowerCase().indexOf(value2) >= 0) &&
+                        value2 !== '').sort((a, b) => { return (b.rating - a.rating) });
                         datay.map((res)=>{
                             processedData.push(res)
                         })
@@ -86,13 +86,13 @@ var sortTitle = () => {
     this.flag = !this.flag;
     let i = this.flag;
     this.state.sortedData.sort(function (a, b) {
-        if (a.details.title > b.details.title) {
+        if (a.title > b.title) {
             if (i)
                 return -1;
             else
                 return 1;
         }
-        if (a.details.title < b.details.title) {
+        if (a.title < b.title) {
             if (i)
                 return 1;
             else
@@ -110,13 +110,13 @@ var sortAuthor = () => {
     this.flag = !this.flag;
     let i = this.flag;
     this.state.sortedData.sort(function (a, b) {
-        if (a.details.author > b.details.author) {
+        if (a.author > b.author) {
             if (i)
                 return -1;
             else
                 return 1;
         }
-        if (a.details.author < b.details.author) {
+        if (a.author < b.author) {
             if (i)
                 return 1;
             else
@@ -134,13 +134,13 @@ var sortPublish = () => {
     this.flag = !this.flag;
     let i = this.flag;
     this.state.sortedData.sort(function (a, b) {
-        if (a.details.publisher > b.details.publisher) {
+        if (a.publisher > b.publisher) {
             if (i)
                 return -1;
             else
                 return 1;
         }
-        if (a.details.publisher < b.details.publisher) {
+        if (a.publisher < b.publisher) {
             if (i)
                 return 1;
             else
@@ -158,13 +158,13 @@ var sortRating = () => {
     this.flag = !this.flag;
     let i = this.flag;
     this.state.sortedData.sort(function (a, b) {
-        if (a.details.rating > b.details.rating) {
+        if (a.rating > b.rating) {
             if (i)
                 return -1;
             else
                 return 1;
         }
-        if (a.details.rating < b.details.rating) {
+        if (a.rating < b.rating) {
             if (i)
                 return 1;
             else
@@ -191,11 +191,11 @@ var sortRating = () => {
 
                 // console.log(this.state.data)
                 var datax = data.booksArray.filter((data3) =>
-                    (data3.details.title.toLowerCase().indexOf(value) >= 0 ||
-                        data3.details.author.toLowerCase().indexOf(value) >= 0 ||
-                        data3.details.publisher.toLowerCase().indexOf(value) >= 0 ||
-                        data3.details.category.toLowerCase().indexOf(value) >= 0) &&
-                    value !== '').sort((a, b) => { return (b.details.rating - a.details.rating) });
+                    (data3.title.toLowerCase().indexOf(value) >= 0 ||
+                        data3.author.toLowerCase().indexOf(value) >= 0 ||
+                        data3.publisher.toLowerCase().indexOf(value) >= 0 ||
+                        data3.category.toLowerCase().indexOf(value) >= 0) &&
+                    value !== '').sort((a, b) => { return (b.rating - a.rating) });
                 processedData = datax
                 store.dispatch({ type: "STORE_SORTED_DATA", payload: datax })
                 console.log(store.getState().sorted_Data)

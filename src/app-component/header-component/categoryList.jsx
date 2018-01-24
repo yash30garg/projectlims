@@ -19,7 +19,7 @@ export const EachListItem = (props) => {
             }}>{props.categoryName}</div>
             <div className="row">
                 <div className="badge badge-pill badge-warning mr-3">{props.completeArray
-                        .filter(r => r.details.category.toLowerCase() === props.categoryName.toLowerCase())
+                        .filter(r => r.category.toLowerCase() === props.categoryName.toLowerCase())
                         .length}</div>
            
             </div>

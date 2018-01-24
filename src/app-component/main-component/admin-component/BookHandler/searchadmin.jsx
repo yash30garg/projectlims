@@ -37,10 +37,10 @@ export default class SearchAdmin extends Component {
 
         console.log(this.state.data)
         this.datax = this.state.data.booksArray.filter((data3) =>
-            (data3.details.title.toLowerCase().indexOf(value) >= 0 ||
-                data3.details.author.toLowerCase().indexOf(value) >= 0 ||
-                data3.details.publisher.toLowerCase().indexOf(value) >= 0 ||
-                data3.details.category.toLowerCase().indexOf(value) >= 0) &&
+            (data3.title.toLowerCase().indexOf(value) >= 0 ||
+                data3.author.toLowerCase().indexOf(value) >= 0 ||
+                data3.publisher.toLowerCase().indexOf(value) >= 0 ||
+                data3.category.toLowerCase().indexOf(value) >= 0) &&
             value !== '');
         this.dataOrg = this.datax;
         processedData = this.datax;
@@ -95,13 +95,13 @@ export default class SearchAdmin extends Component {
         this.flag = !this.flag;
         let i = this.flag;
         this.state.sortedData.sort(function (a, b) {
-            if (a.details.title > b.details.title) {
+            if (a.title > b.title) {
                 if (i)
                     return -1;
                 else
                     return 1;
             }
-            if (a.details.title < b.details.title) {
+            if (a.title < b.title) {
                 if (i)
                     return 1;
                 else
@@ -119,13 +119,13 @@ export default class SearchAdmin extends Component {
         this.flag = !this.flag;
         let i = this.flag;
         this.state.sortedData.sort(function (a, b) {
-            if (a.details.author > b.details.author) {
+            if (a.author > b.author) {
                 if (i)
                     return -1;
                 else
                     return 1;
             }
-            if (a.details.author < b.details.author) {
+            if (a.author < b.author) {
                 if (i)
                     return 1;
                 else
@@ -143,13 +143,13 @@ export default class SearchAdmin extends Component {
         this.flag = !this.flag;
         let i = this.flag;
         this.state.sortedData.sort(function (a, b) {
-            if (a.details.publisher > b.details.publisher) {
+            if (a.publisher > b.publisher) {
                 if (i)
                     return -1;
                 else
                     return 1;
             }
-            if (a.details.publisher < b.details.publisher) {
+            if (a.publisher < b.publisher) {
                 if (i)
                     return 1;
                 else
@@ -167,13 +167,13 @@ export default class SearchAdmin extends Component {
         this.flag = !this.flag;
         let i = this.flag;
         this.state.sortedData.sort(function (a, b) {
-            if (a.details.rating > b.details.rating) {
+            if (a.rating > b.rating) {
                 if (i)
                     return -1;
                 else
                     return 1;
             }
-            if (a.details.rating < b.details.rating) {
+            if (a.rating < b.rating) {
                 if (i)
                     return 1;
                 else
@@ -189,7 +189,7 @@ export default class SearchAdmin extends Component {
     }
     fiveRated() {
         processedData = processedData.filter((data) =>
-            data.details.rating === "5")
+            data.rating === "5")
         // processedData = this.state.sortedData;
         console.log(processedData)
         console.log("Sorted by five rated");
@@ -197,7 +197,7 @@ export default class SearchAdmin extends Component {
     }
     fourRated() {
         processedData = processedData.filter((data) =>
-            (data.details.rating <= "5") && (data.details.rating >= "4"))
+            (data.rating <= "5") && (data.rating >= "4"))
         // processedData = this.state.sortedData;
         console.log(processedData)
         console.log("Sorted by four rated");
@@ -205,7 +205,7 @@ export default class SearchAdmin extends Component {
     }
     threeRated() {
         processedData = processedData.filter((data) =>
-            (data.details.rating <= "5") && (data.details.rating >= "3"))
+            (data.rating <= "5") && (data.rating >= "3"))
         // processedData = this.state.sortedData;
         console.log(processedData)
         console.log("Sorted by three rated");
@@ -213,7 +213,7 @@ export default class SearchAdmin extends Component {
     }
     twoRated() {
         processedData = processedData.filter((data) =>
-            (data.details.rating <= "5") && (data.details.rating >= "2"))
+            (data.rating <= "5") && (data.rating >= "2"))
         // processedData = this.state.sortedData;
         console.log(processedData)
         console.log("Sorted by two rated");
