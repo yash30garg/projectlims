@@ -7,8 +7,8 @@ import { Link } from 'react-router-dom';
 // import './searchdis.css';
 import Footer from '../../../footer-component/footer.jsx';
 import {requireAuth} from '../../../isLoggedIn.js'
-import Header from '../admin-header-component/adminHeader'
 
+import AdminHeader from '../adminheader'
 var debounce = require('debounce');
 
 
@@ -24,9 +24,8 @@ class HandleUsers extends Component {
 
             <div>
 
-               <Header />
-
-
+<AdminHeader/>
+                
                 <header id="header">
 
                     <div className="conatainer">
@@ -51,7 +50,6 @@ class HandleUsers extends Component {
                         </div>
                     </div>
                 </header>
-
 
                 <section id="breadcrumb">
                     <div className="container-fluid">

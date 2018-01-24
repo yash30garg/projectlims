@@ -6,7 +6,9 @@ import Footer from '../../../footer-component/footer.jsx';
 import { Link } from 'react-router-dom';
 // import { UserBooks } from './../borrowedBooks';
 import {requireAuth} from '../../../isLoggedIn.js'
-import Header from '../admin-header-component/adminHeader'
+
+import AdminHeader from '../adminheader'
+
 var count = 0;
 class DashBoard extends Component {
     	componentWillMount() {
@@ -54,7 +56,7 @@ class DashBoard extends Component {
 
             <div>
 
-      <Header />
+     <AdminHeader />
 
                 <header id="header" style={{	backgroundColor:'#6A9A1F'}}>
 

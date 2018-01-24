@@ -7,7 +7,8 @@ import SearchAdmin from './searchadmin';
 // import './searchdis.css';
 // import Footer from '../../../footer-component/footer.jsx';
 import {requireAuth} from '../../../isLoggedIn.js'
-import Header from '../admin-header-component/adminHeader'
+
+import AdminHeader from '../adminheader'
 
 var count =0;
 class BookAdmin extends Component {
@@ -21,8 +22,9 @@ class BookAdmin extends Component {
 
             <div>
 
-        
-            <Header />
+
+                <AdminHeader />
+
 
                 <header id="header">
 
