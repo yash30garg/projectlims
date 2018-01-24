@@ -68,7 +68,7 @@ fetch('http://localhost:3005/borrowedBooks/getBooks',{
   console.log("borrowed values");
   window.bbooks=res.data[0];
   window.wishlist=res.data[1];
-  console.log(res.data[1])
+  // console.log(res.data[1])
   // window.bbooks=res.data.borrowedbooks;
   // console.log(window.bbooks);
 })
