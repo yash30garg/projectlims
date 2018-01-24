@@ -33,6 +33,23 @@ class App extends Component {
      window.history.go(-Backlen);
   }
   
+
+    getBookData()
+    {
+      fetch('http://localhost:3005/books/getBooks',
+      {
+        method:'GET',
+        headers:{'Content-Type': 'application/json'}
+      })
+      .then((res)=>res.json())
+      .then((res)=>{
+  console.log("booksssssss");
+
+  console.log(res);
+
+    })
+    }
+
   getBorrowedData(){
 fetch('http://localhost:3005/borrowedBooks/getBooks',{
             method: 'POST',
@@ -92,6 +109,7 @@ fetch('http://localhost:3005/borrowedBooks/getBooks',{
     // alert(res[1])
     window.user=res[1];
     this.addUser(UserDetails);
+    this.getBookData();
     // this.getData();
     localStorage.setItem('mid',res[1])
     
