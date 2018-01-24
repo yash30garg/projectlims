@@ -31,10 +31,13 @@ class App extends Component {
     super();
     var Backlen=window.history.length;   
      window.history.go(-Backlen);
+     this.state={
+       display:[]
+     }
   }
   
 
-    getBookData()
+    componentWillMount()
     {
       fetch('http://localhost:3005/books/getBooks',
       {
@@ -44,7 +47,9 @@ class App extends Component {
       .then((res)=>res.json())
       .then((res)=>{
   console.log("booksssssss");
-  window.display=res;
+  this.setState({
+    display:res
+  })
   console.log(res);
 
     })
@@ -94,7 +99,7 @@ fetch('http://localhost:3005/borrowedBooks/getBooks',{
   render() {
     window.bbooks=[];
     window.wishlist=[];
-    window.display=[];
+    window.display=this.state.display;
     console.log(window.bbooks.length)
     console.log(authContext._user.profile.given_name);
     user_name = authContext._user.profile.given_name;
@@ -110,7 +115,7 @@ fetch('http://localhost:3005/borrowedBooks/getBooks',{
     // alert(res[1])
     window.user=res[1];
     this.addUser(UserDetails);
-    this.getBookData();
+    
     // this.getData();
     localStorage.setItem('mid',res[1])
     
