@@ -205,10 +205,32 @@ body{
   z-index: 998;
 }
 
+.sortInline {
+    display: inline;
+}
 
+.sortInline .sortName {
+    font-weight: 500;
+    padding-right: 10px;
+}
 
+.sortInline .sortTypes {
+    display: inline-block;
+}
 
-
-
-
-
+.activeSortElement {
+    /*color: #2874f0;*/
+    color: brown;
+    cursor: default;
+    border-bottom: 2px solid;
+    font-weight: 500;
+}
+.sortInline .sortElement {
+  display: inline-block;
+  padding: 7px 0 4px 0;
+  margin: 0 10px;
+}
+.sortInline .sortElement .sortTypes{
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+}

@@ -12,7 +12,7 @@ import SearchResults from '../search-component/SearchResults.jsx';
 import Search from '../search-component/Search'
 import Details from './../BookDetails-Component/details';
 import { LandingView } from './landingView';
-import { Category } from './categoryView';
+import  Category  from './categoryView';
 import WishedBooks from '../main-component/user-component/wishlist/wishlistComponent'
 import LoadingEffect from './../loading-component/loading';
 import { EachListItem } from './categoryList';
@@ -50,10 +50,10 @@ class BootHeader extends Component {
     }
     componentWillMount() {
         axios
-            .get('https://api.myjson.com/bins/1a9rkj')
-            .then(res => {
-                this.setState({ display: res.data.booksArray });
-            })
+            // .get('https://api.myjson.com/bins/1a9rkj')
+            // .then(res => {
+                this.setState({ display: window.display });
+            // })
     }
 
     openCategory = (arg) => {
@@ -178,9 +178,9 @@ class BootHeader extends Component {
         // })
         let arr = window.display
             .sort((a, b) => {
-                if (a.details.category.toUpperCase() > b.details.category.toUpperCase()) {
+                if (a.category.toUpperCase() > b.category.toUpperCase()) {
                     return 1;
-                } else if (a.details.category.toUpperCase() < b.details.category.toUpperCase()) {
+                } else if (a.category.toUpperCase() < b.category.toUpperCase()) {
                     return -1;
                 } else {
                     return 0;
@@ -190,7 +190,7 @@ class BootHeader extends Component {
             brr.push(arr[0]);
         }
         for (var i = 0; i < arr.length - 1; i++) {
-            if (arr[i].details.category.toUpperCase() !== arr[i + 1].details.category.toUpperCase()) {
+            if (arr[i].category.toUpperCase() !== arr[i + 1].category.toUpperCase()) {
 
                 brr.push(arr[i + 1]);
             }
@@ -326,12 +326,12 @@ class BootHeader extends Component {
                                             {brr.map((r) => {
 
                                                 return <EachListItem
-                                                    key={`boot${r.details.category}`}
+                                                    key={`boot${r.category}`}
                                                     completeArray={this.state.display}
-                                                    categoryName={r.details.category}
+                                                    categoryName={r.category}
                                                     openByCategory={this
                                                         .openCategory
-                                                        .bind(this, r.details.category)} />
+                                                        .bind(this, r.category)} />
                                             })
                                             }
 
