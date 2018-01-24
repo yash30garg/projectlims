@@ -19,12 +19,12 @@ export const WishedCard = (props) => {
                 <img
                     alt=""
                     className="mx-auto"
-                    src={props.data.details.url}
+                    src={props.data.url}
                     height="160px"
                     width="100%"
                     />
                     <div className="card-block card-text" style={{width:"160px", fontSize:"14px"}}>
-                    {props.data.details.title}
+                    {props.data.title}
                     </div>
                 <div
                     className="overlay"
@@ -33,14 +33,14 @@ export const WishedCard = (props) => {
                     fontSize:'13px'
                 }}>
                     <div className="text container-fluid" style={{fontSize:'12px'}}>
-                        <b>{props.data.details.title}</b><br/>
+                        <b>{props.data.title}</b><br/>
                         <b>Author :
                         </b>
-                        {props.data.details.author}<br/>
+                        {props.data.author}<br/>
                         <b>Category :
                         </b>
-                        {props.data.details.category}<br/> {[1, 2, 3, 4, 5].map(d => {
-                            if (props.data.details.rating >= d) 
+                        {props.data.category}<br/> {[1, 2, 3, 4, 5].map(d => {
+                            if (props.data.rating >= d) 
                                 return <span
                                     class="fa fa-star"
                                     style={{

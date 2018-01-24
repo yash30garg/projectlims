@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import './details.css';
 import '../search-component/Search.css';
 import $ from 'jquery';
+import {requestBook} from '.././mongo/requestBook'
+import {returnBook} from '.././mongo/returnBook'
+import {addWishlist} from '.././mongo/addWishlist'
+import {removeWishlist} from '.././mongo/removeWishlist'
 // import $ from 'jquery';
 // import book from '../search-component/SearchResults'
 // let users;
@@ -14,6 +18,7 @@ let book,
     val="",
     borrowDate,
     returnDate;
+
 
 class Details extends Component {
     constructor(props) {
@@ -112,21 +117,8 @@ class Details extends Component {
                     }
                 }
             })
-        this.addWishlist = this
-            .addWishlist
-            .bind(this);
-            this.removeWishlistMongo = this
-            .removeWishlistMongo
-            .bind(this);
-        
         this.renew = this
             .renew
-            .bind(this);
-        this.wishlist = this
-            .wishlist
-            .bind(this);
-        this.addBook = this
-            .addBook
             .bind(this);
         window
             .wishlist
@@ -146,10 +138,10 @@ class Details extends Component {
                             <div className="fa fa-heart fa-lg"></div>
                         </button>
                     )
-                    this.setState({
+                    this.state={
                         req: b,
                         wish: w
-                    })
+                    }
                 }
             })
         this.request = this
@@ -165,26 +157,12 @@ class Details extends Component {
             .removeRequest
             .bind(this);
     }
-//     componentDidMount()
-//     {
-//          $(function () {
-//   $('.example-popover').popover({
-//     container: 'body'
-//   })
-// })
-//     }
-    // componentDidMount() {     setTimeout(function () { //Start the timer
-    // this.setState({msg: ""}) //After 1 second, set render to true }.bind(this),
-    // 3000)     alert("compo") }
+
     componentDidUpdate() {
         window
             .setTimeout(function () {
                 this.setState({ msg: "" })
             }.bind(this), 25000)
-        //         window.setTimeout(function() {     $(".alert").fadeTo(500,
-        // 0).slideUp(500, function(){         $(this).close();     }); }, 4000);
-
-
     }
 
     goBack() {
@@ -192,41 +170,10 @@ class Details extends Component {
             .history
             .go(-1)
     }
-    
-//     getBorrowedData(){
-//     req.post({
-//                 url: 'http://localhost:3005/borrowedBooks/getBooks',
-//                 form: { mid:window.user},
-                
-//                 headers: new Headers({ "Content-Type": "application/json" }),
-//                 method: 'POST'
-//             },
-//                 function (er, r, body) {
-//                     let books=JSON.parse(body).data;
-//                     console.log(books)
-//                     window.bbooks=books;
-//                 });
-// }
 
     removeWishlist = () => {
         console.log(book);
-        this.removeWishlistMongo(book);
-        let index = -1,
-            i = 0;
-        window
-            .wishlist
-            //eslint-disable-next-line            
-            .map((res) => {
-                if (res.isbn === book.isbn) {
-                    index = i;
-                }
-                i++;
-            })
-        if (index !== -1) {
-            window
-                .wishlist
-                .splice(index, 1);
-        }
+        removeWishlist(book.isbn);
         w = (
             <button
                 className="btn btn-primary mt-3"
@@ -253,18 +200,7 @@ class Details extends Component {
     }
 
     removeRequest = () => {
-        fetch('http://localhost:3005/borrowedBooks/deleteBook',{
-            method: 'PUT',
-            headers: {'Content-Type': 'application/json'},
-            body:JSON.stringify({
-                mid:window.user,
-                isbn:book.isbn
-            })
-        })
-        .then((res)=>res.json())
-        .then((res)=>{
-            if(res.status===200){
-            window.bbooks=res.data;
+        returnBook(book.isbn)
             b = (
             <button
                 className="btn btn-primary mt-3"
@@ -288,19 +224,6 @@ class Details extends Component {
             </div>
         )
         this.setState({ req: b, msg: val })
-            }
-            else{
-                val = (
-            <div class="alert notify alert-success ml-1 mt-1" role="alert">
-                <strong>Oops! &nbsp;
-                </strong>
-                &nbsp;There was a problem in returning the book.&nbsp;
-                <strong>
-                    &nbsp;Please Try Again!!</strong>
-            </div>
-        )
-            }
-    })
     }
 
     renew = () => {
@@ -350,34 +273,7 @@ class Details extends Component {
                 }
             })
     }
-    addWishlist=(book)=>{
-            fetch('http://localhost:3005/wishlist/addWBook',{
-            method: 'PUT',
-            headers: {'Content-Type': 'application/json'},
-            body:JSON.stringify({
-                mid:window.user,
-                book:book
-            })
-        })
-        .then((res)=>res.json())
-        .then((res)=>{
-            console.log(res);
-        })
-}
-    removeWishlistMongo=(book)=>{
-            fetch('http://localhost:3005/wishlist/removeWishBook',{
-            method: 'PUT',
-            headers: {'Content-Type': 'application/json'},
-            body:JSON.stringify({
-                mid:window.user,
-                book:book.isbn
-            })
-        })
-        .then((res)=>res.json())
-        .then((res)=>{
-            console.log(res);
-        })
-}
+
 
     wishlist = () => {
         var items=new Object();
@@ -389,7 +285,7 @@ class Details extends Component {
         items.url=book.details.url;
         items.description="";
         console.log(items);
-        this.addWishlist(items);
+        addWishlist(items);
         w = (
             <button
                 className="btn btn-primary mt-3"
@@ -412,31 +308,23 @@ class Details extends Component {
                     &nbsp;Happy Reading!!</strong>
             </div>
         )
-
-        window
-            .wishlist
-            .push(book);
-
-        console.log(window.wishlist);
         this.setState({ wish: w, msg: val })
     }
-
-addBook=(newBook)=>{
-        fetch('http://localhost:3005/borrowedBooks/addBook',{
-            method: 'PUT',
-            headers: {'Content-Type': 'application/json'},
-            body:JSON.stringify({
-                mid:window.user,
-                item:newBook
-            })
-        })
-        .then((res)=>res.json())
-        .then((res)=>{
-            response=res;
-            console.log(response.status);
-            console.log(res.data);
-            window.bbooks=res.data;
-            if(response.status===200){
+    
+    request = () => {
+            if (window.bbooks.length < 4) {
+                //eslint-disable-next-line   
+                let bookAdded=new Object();
+                bookAdded.isbn=book.isbn;
+                bookAdded.title=book.details.title;
+                bookAdded.author=book.details.author;
+                bookAdded.publisher=book.details.publisher;
+                bookAdded.url=book.details.url;
+                bookAdded.rating=book.details.rating;
+                bookAdded.borrowedDate=borrowDate;
+                bookAdded.returnDate=returnDate;
+                bookAdded.isRenewed=book.details.isRenewed;            
+                requestBook(bookAdded);
                 a = b = (
                     <div>
                         <button
@@ -474,38 +362,7 @@ addBook=(newBook)=>{
                             &nbsp;Happy Reading!!</strong>
                     </div>
                 )
-            }
-            else{
-                 val = (
-                    <div class="alert notify alert-warning  ml-1 mt-1">
-                        <strong>Oops!&nbsp;
-                        </strong>
-                        &nbsp;Looks like there was an error in requesting your book.&nbsp;
-                        <strong>
-                            &nbsp;Please Try Again!!</strong>
-                    </div>
-                )
-            }
-                this.setState({ req: a, wish: w, msg: val })
-        })
-    }
-    
-    request = () => {
-            if (window.bbooks.length < 4) {
-                //eslint-disable-next-line   
-                let bookAdded=new Object();
-                bookAdded.isbn=book.isbn;
-                bookAdded.title=book.details.title;
-                bookAdded.author=book.details.author;
-                bookAdded.publisher=book.details.publisher;
-                bookAdded.url=book.details.url;
-                bookAdded.rating=book.details.rating;
-                bookAdded.borrowedDate=borrowDate;
-                bookAdded.returnDate=returnDate;
-                bookAdded.isRenewed=book.details.isRenewed;            
-                this.addBook(bookAdded);
-                // alert("The Requested Book has been allotted to you..Please Collect It from
-                // the Library");
+                 this.setState({ req: b, wish: w, msg: val })
             } else {
                 val = (
                     <div class="alert notify alert-danger alert-dismissible ml-1 mt-1">
@@ -610,23 +467,10 @@ addBook=(newBook)=>{
 				<div class="wrapper row">
 					<div class="preview col-md-6">
 						
-						<div class="preview-pic tab-content">
+						
 						  <div class="tab-pane active" id="pic-1"><img src={book.details.url} /></div>
-                          	  <div class="tab-pane" id="pic-2"><img src={book.details.url} /></div>
-						  <div class="tab-pane" id="pic-3"><img src={book.details.url} /></div>
-						  <div class="tab-pane" id="pic-4"><img src={book.details.url} /></div>
-						  <div class="tab-pane" id="pic-5"><img src={book.details.url} /></div>
+                          	
 						  
-						</div>
-
-                        
-						<ul class="preview-thumbnail nav nav-tabs">
-						  <li class="active"><a data-target="#pic-1" data-toggle="tab"><img src={book.details.url} /></a></li>
-						  <li><a data-target="#pic-2" data-toggle="tab"><img src={book.details.url} /></a></li>
-						  <li><a data-target="#pic-3" data-toggle="tab"><img src={book.details.url} /></a></li>
-						  <li><a data-target="#pic-4" data-toggle="tab"><img src={book.details.url} /></a></li>
-						  <li><a data-target="#pic-5" data-toggle="tab"><img src={book.details.url} /></a></li>
-						</ul>
 						
 					</div>
 					<div class="details col-md-6">
