@@ -1,15 +1,17 @@
 import React from 'react';
+import './bootheader.css';
 
 export const EachListItem = (props) => {
     return (
-        <div
+        <a>
+        <button type="button"
             onClick={props
             .openByCategory}
-            className=" row list-group-item   list-group-item-action ml-0"
+            className="btnl default list-group-item list-group-item-action default ml-0"
             style={{
             background: " #FFF8DC"
         }}>
-            <div className="col-md-0 fa fa-arrow-right" area-hidden="true"></div>
+            <div className="col-md-0 fa fa-arrow-right " style={{color : 'brown'}} area-hidden="true"></div>
             <div className="col" style={{
                 textAlign: "left", textTransform:'capitalize'
             }}>{props.categoryName}</div>
@@ -18,6 +20,7 @@ export const EachListItem = (props) => {
                         .filter(r => r.details.category.toLowerCase() === props.categoryName.toLowerCase())
                         .length}</div>
             </div>
-        </div>
+        </button>
+        </a>
     );
 }
