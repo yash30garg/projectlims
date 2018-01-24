@@ -22,18 +22,18 @@ import '../node_modules/bootstrap/scss/bootstrap.scss';
 // alert(window.user);
 
 
-window.display=[];
+// window.display=[];
 
-function getData(){
-        axios
-            .get('https://api.myjson.com/bins/1a9rkj')
-            .then(res => {
-                window.display=res.data.booksArray});
+// function getData(){
+//         axios
+//             .get('https://api.myjson.com/bins/1a9rkj')
+//             .then(res => {
+//                 window.display=res.data.booksArray});
             
-}
+// }
 
 
-getData();
+// getData();
 
 runWithAdal(authContext, () => {
 ReactDOM.render(<App />, document.getElementById('root'));

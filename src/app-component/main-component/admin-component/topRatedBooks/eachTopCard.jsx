@@ -50,26 +50,26 @@ export class EachTopCard extends Component{
            <div className="card particular" style={{width:"160px",height:"13rem"}}>
                 <img
                     className="card-img-top mx-auto"
-                    src={this.props.item.details.url}
+                    src={this.props.item.url}
                     // src="x"
-                    alt={`${this.props.item.details.title}`}
+                    alt={`${this.props.item.title}`}
                     height="160px"
                     width="100%"/>
                     <div className="card-block card-text" style={{width:"160px", fontSize:"14px"}}>
-                    {this.props.item.details.title}
+                    {this.props.item.title}
                     </div>
                 <Link to="/search/details">   
                 <div className="overlay" style={{backgroundColor : "rgba(97,65,38,0.9)"}}>
                     <div className="text container-fluid" style={{fontSize:'13px'}}>
-                        <b>{this.props.item.details.title}</b><br/>
+                        <b>{this.props.item.title}</b><br/>
                         <b>Author :
                         </b>
-                        {this.props.item.details.author}<br/>
+                        {this.props.item.author}<br/>
                         
                          {                
                              //eslint-disable-next-line
                          [1, 2, 3, 4, 5].map(d => {
-                            if (this.props.item.details.rating >= d) 
+                            if (this.props.item.rating >= d) 
                                 return <span
                                     key={`gold${d}`}
                                     className="fa fa-star"

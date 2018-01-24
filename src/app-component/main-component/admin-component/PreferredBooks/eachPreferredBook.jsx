@@ -51,25 +51,25 @@ class EachPrefferedCard extends Component{
                 <img
                     className="mx-auto"
                     alt=""
-                    src={this.props.item.details.url}
+                    src={this.props.item.url}
                     height="160px"
                     width="100%"/>
                     <div className="card-block card-text" style={{width:"160px", fontSize:"14px"}}>
-                    {this.props.item.details.title}
+                    {this.props.item.title}
                     </div>
                     <Link to="/search/details">
                 <div className="overlay" style={{backgroundColor : "rgba(97,65,38,0.9)"}}>
                     <div className="text container-fluid" style={{fontSize:'13px'}}>
-                        <b>{this.props.item.details.title}</b><br/>
+                        <b>{this.props.item.title}</b><br/>
                         <b>Author :
                         </b>
-                        {this.props.item.details.author}<br/>
+                        {this.props.item.author}<br/>
                         <b>Category :
                         </b>
-                        {this.props.item.details.category}<br/> {
+                        {this.props.item.category}<br/> {
                             //eslint-disable-next-line
                             [1, 2, 3, 4, 5].map(d => {
-                            if (this.props.item.details.rating >= d) 
+                            if (this.props.item.rating >= d) 
                                 return <span
                                 key={`goldStar${d}`}
                                     className="fa fa-star"

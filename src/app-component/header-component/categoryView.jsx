@@ -38,9 +38,9 @@ window.selected=data;
     if(this.props.selected==="all")
     {
           filteredArray=this.props.data.sort((a, b) => {
-                if (a.details.category.toUpperCase() > b.details.category.toUpperCase()) {
+                if (a.category.toUpperCase() > b.category.toUpperCase()) {
                     return 1;
-                } else if (a.details.category.toUpperCase() < b.details.category.toUpperCase()) {
+                } else if (a.category.toUpperCase() < b.category.toUpperCase()) {
                     return -1;
                 } else {
                     return 0;
@@ -49,7 +49,7 @@ window.selected=data;
     }
     else
     {
-    filteredArray=this.props.data.filter(r=>r.details.category.toLowerCase()===this.props.selected.toLowerCase()).sort((a,b)=>{return(b.details.rating-a.details.rating)})
+    filteredArray=this.props.data.filter(r=>r.category.toLowerCase()===this.props.selected.toLowerCase()).sort((a,b)=>{return(b.rating-a.rating)})
     }
 
     let b=filteredArray.map(res=>{   
@@ -70,24 +70,24 @@ window.selected=data;
                 <img
                     alt=""
                     className="mx-auto"
-                    src={res.details.url}
+                    src={res.url}
                     height="160px"
                     width="100%"/>
                    <div className="card-block card-text" style={{width:"160px", fontSize:"14px"}}>
-                    {res.details.title}
+                    {res.title}
                     </div>
                     <Link to="/search/details">
                      <div className="overlay" style={{backgroundColor: "rgba(97,65,38,0.9)"}}>
                     <div className="text container-fluid" style={{fontSize:'13px'}}>
-                        <b>{res.details.title}</b><br/>
+                        <b>{res.title}</b><br/>
                         <b>Author :
                         </b>
-                        {res.details.author}<br/>
+                        {res.author}<br/>
                         {
                             //eslint-disable-next-line
                             [1, 2, 3, 4, 5].map(d => {
 
-                            if (res.details.rating >= d) 
+                            if (res.rating >= d) 
                                 return <span
                                 key={`category${res.isbn}`}
                                     className="fa fa-star"

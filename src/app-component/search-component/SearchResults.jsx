@@ -38,7 +38,7 @@ class SearchResults extends Component {
                             }} onClick={() => this.handle(res)}>
                             <img
                                 className="card-img-top"
-                                src={res.details.url}
+                                src={res.url}
                                 alt="not available"
                                 style={{ padding: "0px" }}
                                 height="200vh" />
@@ -50,16 +50,16 @@ class SearchResults extends Component {
                                                 paddingTop:"0px"
                                             }}></span><br/>*/}
                             <div className="card-block card-text">
-                                {res.details.title}
+                                {res.title}
                             </div>
                             <div className="overlay" style={{ backgroundColor: "rgba(97,65,38,0.9)" }}>
                                 <div className="text container-fluid" style={{ fontSize: '15px' }}>
-                                    {res.details.title}<br />
-                                    <b>Author: </b> {res.details.author}<br />
-                                    <b>Category: </b> {res.details.category}<br /> {
+                                    {res.title}<br />
+                                    <b>Author: </b> {res.author}<br />
+                                    <b>Category: </b> {res.category}<br /> {
                                         //eslint-disable-next-line
                                         [1, 2, 3, 4, 5].map(d => {
-                                            if (res.details.rating >= d)
+                                            if (res.rating >= d)
                                                 return <span
                                                     key={`starred${d}`}
                                                     className="fa fa-star mt-1"

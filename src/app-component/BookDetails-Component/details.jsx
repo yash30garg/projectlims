@@ -233,10 +233,9 @@ class Details extends Component {
             .map((res) => {
                 if (res.isbn === book.isbn) {
                     let val;
-                    if (res.details.isRenewed === false) {
-                        res.details.isRenewed = true;
+                    if (res.isRenewed === false) {
+                        res.isRenewed = true;
                         var dates = res
-                            .details
                             .returnDate
                             .split("/");
                         var tested = new Date();
@@ -247,7 +246,7 @@ class Details extends Component {
                         var dd1 = newDate.getDate();
                         var mm1 = newDate.getMonth() + 1; //January is 0!
                         var yyyy1 = newDate.getFullYear();
-                        res.details.returnDate = dd1 + '/' + mm1 + '/' + yyyy1;
+                        res.returnDate = dd1 + '/' + mm1 + '/' + yyyy1;
                         val = (
                               <div class="alert notify alert-success ml-1 mt-1" role="alert">
                             
@@ -278,12 +277,12 @@ class Details extends Component {
     wishlist = () => {
         var items=new Object();
         items.isbn=book.isbn;
-        items.title=book.details.title;
-        items.author=book.details.author;
-        items.category=book.details.category;
-        items.publisher=book.details.publisher;
-        items.rating=book.details.rating;
-        items.url=book.details.url;
+        items.title=book.title;
+        items.author=book.author;
+        items.category=book.category;
+        items.publisher=book.publisher;
+        items.rating=book.rating;
+        items.url=book.url;
         items.description="";
         console.log(items);
         addWishlist(items);
@@ -317,14 +316,14 @@ class Details extends Component {
                 //eslint-disable-next-line   
                 let bookAdded=new Object();
                 bookAdded.isbn=book.isbn;
-                bookAdded.title=book.details.title;
-                bookAdded.author=book.details.author;
-                bookAdded.publisher=book.details.publisher;
-                bookAdded.url=book.details.url;
-                bookAdded.rating=book.details.rating;
+                bookAdded.title=book.title;
+                bookAdded.author=book.author;
+                bookAdded.publisher=book.publisher;
+                bookAdded.url=book.url;
+                bookAdded.rating=book.rating;
                 bookAdded.borrowedDate=borrowDate;
                 bookAdded.returnDate=returnDate;
-                bookAdded.isRenewed=book.details.isRenewed;            
+                bookAdded.isRenewed=book.isRenewed;            
                 requestBook(bookAdded);
                 a = b = (
                     <div>
@@ -469,20 +468,20 @@ class Details extends Component {
 					<div class="preview col-md-6">
 						
 						
-						  <div class="tab-pane active" id="pic-1"><img src={book.details.url} /></div>
+						  <div class="tab-pane active" id="pic-1"><img src={book.url} /></div>
                           	
 						  
 						
 					</div>
 					<div class="details col-md-6">
-						<h3 class="product-title">{book.details.title}</h3>
+						<h3 class="product-title">{book.title}</h3>
 						<div class="rating">
 
                             {/*{
                             //eslint-disable-next-line
                             [1, 2, 3, 4, 5].map(d => {
 
-                            if (res.details.rating >= d) 
+                            if (res.rating >= d) 
                                 return <span
                                 key={`category${res.isbn}`}
                                     className="fa fa-star"
@@ -508,10 +507,10 @@ class Details extends Component {
 
 <ul class="list-group">
   <li class="list-group-item"><b>ISBN :</b> {book.isbn}</li>
-  <li class="list-group-item"><b>Author :</b> {book.details.author}</li>
-  <li class="list-group-item"><b>Publisher :</b> {book.details.publisher}</li>
-  <li class="list-group-item"><b>Category :</b> {book.details.category}</li>
-  <li class="list-group-item"><b>Ratings :</b> {book.details.rating}</li>
+  <li class="list-group-item"><b>Author :</b> {book.author}</li>
+  <li class="list-group-item"><b>Publisher :</b> {book.publisher}</li>
+  <li class="list-group-item"><b>Category :</b> {book.category}</li>
+  <li class="list-group-item"><b>Ratings :</b> {book.rating}</li>
 </ul>
 						 <div className="row">
                              <div className="col-md-3" />
