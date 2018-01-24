@@ -55,7 +55,7 @@ if(hours>=4 && hours<12){
             aria-label="Toggle navigation">
             <span style={{ backgroundColor: '#fff' }} className="navbar-toggler-icon"></span>
           </button>
-    
+          
           <img 
             className="App-logo inset" 
 

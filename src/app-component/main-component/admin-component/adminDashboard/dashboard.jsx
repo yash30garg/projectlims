@@ -6,6 +6,7 @@ import Footer from '../../../footer-component/footer.jsx';
 import { Link } from 'react-router-dom';
 // import { UserBooks } from './../borrowedBooks';
 import {requireAuth} from '../../../isLoggedIn.js'
+
 import AdminHeader from '../adminheader'
 
 var count = 0;
@@ -54,9 +55,10 @@ class DashBoard extends Component {
         return (
 
             <div>
+
      <AdminHeader />
 
-                <header id="header" style={{	backgroundColor:'#6A9A1F'}}>
+                <header id="header" style={{	backgroundColor:'#333333'}}>
 
                     <div className="conatainer">
                         <div className="row">

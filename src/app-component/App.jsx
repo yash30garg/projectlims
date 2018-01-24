@@ -26,7 +26,6 @@ export var user_name;
 var req = require('request');
 // let users;
 window.display='';
-window.wishlist=[];
 class App extends Component {
   constructor() {
     super();
@@ -34,6 +33,23 @@ class App extends Component {
      window.history.go(-Backlen);
   }
   
+
+    getBookData()
+    {
+      fetch('http://localhost:3005/books/getBooks',
+      {
+        method:'GET',
+        headers:{'Content-Type': 'application/json'}
+      })
+      .then((res)=>res.json())
+      .then((res)=>{
+  console.log("booksssssss");
+
+  console.log(res);
+
+    })
+    }
+
   getBorrowedData(){
 fetch('http://localhost:3005/borrowedBooks/getBooks',{
             method: 'POST',
@@ -45,8 +61,11 @@ fetch('http://localhost:3005/borrowedBooks/getBooks',{
 .then((res)=>res.json())
 .then((res)=>{
   console.log("borrowed values");
-  window.bbooks=res;
-  console.log(window.bbooks);
+  window.bbooks=res.data[0];
+  window.wishlist=res.data[1];
+  console.log(res.data[1])
+  // window.bbooks=res.data.borrowedbooks;
+  // console.log(window.bbooks);
 })
 }
 
@@ -74,6 +93,7 @@ fetch('http://localhost:3005/borrowedBooks/getBooks',{
 
   render() {
     window.bbooks=[];
+    window.wishlist=[];
     console.log(window.bbooks.length)
     console.log(authContext._user.profile.given_name);
     user_name = authContext._user.profile.given_name;
@@ -89,6 +109,7 @@ fetch('http://localhost:3005/borrowedBooks/getBooks',{
     // alert(res[1])
     window.user=res[1];
     this.addUser(UserDetails);
+    this.getBookData();
     // this.getData();
     localStorage.setItem('mid',res[1])
     
