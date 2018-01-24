@@ -86,6 +86,7 @@ search(e) {
             aria-label="Toggle navigation">
             <span style={{ backgroundColor: '#fff' }} className="navbar-toggler-icon"></span>
           </button>
+
     
           <img 
             className="App-logo inset" 

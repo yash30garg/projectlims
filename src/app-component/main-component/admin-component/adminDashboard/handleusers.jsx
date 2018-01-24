@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 // import './searchdis.css';
 import Footer from '../../../footer-component/footer.jsx';
 import {requireAuth} from '../../../isLoggedIn.js'
+
 import AdminHeader from '../adminheader'
 var debounce = require('debounce');
 
@@ -22,6 +23,7 @@ class HandleUsers extends Component {
         return (
 
             <div>
+
 <AdminHeader/>
                 
                 <header id="header">

@@ -349,3 +349,11 @@ li{
         width:100px;
     }
 }
+
+.btnl:hover {
+  border-color: brown;
+}
+.btnl:focus, .btnl:active{
+  border-color: brown;
+  
+}
