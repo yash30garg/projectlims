@@ -4,13 +4,15 @@ import './bootheader.css';
 export const EachListItem = (props) => {
     return (
         <a>
+       
         <button type="button"
             onClick={props
             .openByCategory}
-            className="btnl default list-group-item list-group-item-action default ml-0"
+            className="btnl default  list-group-item list-group-item-action default ml-0"
             style={{
             background: " #FFF8DC"
         }}>
+
             <div className="col-md-0 fa fa-arrow-right " style={{color : 'brown'}} area-hidden="true"></div>
             <div className="col" style={{
                 textAlign: "left", textTransform:'capitalize'
@@ -19,8 +21,10 @@ export const EachListItem = (props) => {
                 <div className="badge badge-pill badge-warning mr-3">{props.completeArray
                         .filter(r => r.details.category.toLowerCase() === props.categoryName.toLowerCase())
                         .length}</div>
+           
             </div>
         </button>
+
         </a>
     );
 }

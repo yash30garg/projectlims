@@ -38,11 +38,13 @@ return (
 
                     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                         <ul class="navbar-nav mr-auto">
+                            <Link to="/adminDash">
                             <li class="nav-item active">
                                 <a class="nav-link" href="!#">DashBoard
                                     <span class="sr-only">(current)</span>
                                 </a>
                             </li>
+                            </Link>
                             <Link to="/adminbooks">
                                 <li class="nav-item">
                                     <a class="nav-link" href="!#">Books</a>

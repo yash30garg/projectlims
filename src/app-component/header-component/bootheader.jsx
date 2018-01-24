@@ -304,6 +304,7 @@ class BootHeader extends Component {
                                         </div>
 
                                         <div className="collapse show" id="navbaDropdown">
+                                           
                                             <a>
                                             <button type="button" onClick={this.openCategory.bind(this, 'all')} className="btnl default list-group-item list-group-item-action ml-0"
                                                 style={{background: " #FFF8DC"}}>
@@ -321,6 +322,7 @@ class BootHeader extends Component {
                                                 
                                             </button>
                                             </a>
+                                            
                                             {brr.map((r) => {
 
                                                 return <EachListItem
