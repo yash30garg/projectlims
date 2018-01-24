@@ -58,7 +58,7 @@ class DashBoard extends Component {
 
      <AdminHeader />
 
-                <header id="header" style={{	backgroundColor:'#6A9A1F'}}>
+                <header id="header" style={{	backgroundColor:'#333333'}}>
 
                     <div className="conatainer">
                         <div className="row">
