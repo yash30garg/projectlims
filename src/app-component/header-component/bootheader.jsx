@@ -48,13 +48,13 @@ class BootHeader extends Component {
 
         }
     }
-    componentWillMount() {
-        axios
-            // .get('https://api.myjson.com/bins/1a9rkj')
-            // .then(res => {
-                this.setState({ display: window.display });
-            // })
-    }
+    // componentWillMount() {
+    //     axios
+    //         // .get('https://api.myjson.com/bins/1a9rkj')
+    //         // .then(res => {
+    //             this.setState({ display: window.display });
+    //         // })
+    // }
 
     openCategory = (arg) => {
         this.setState({
@@ -317,7 +317,7 @@ class BootHeader extends Component {
                                                 
                                                 
                                                 <div className="row">
-                                                    <div className="badge badge-pill badge-warning mr-3">{this.state.display.length}</div>
+                                                    <div className="badge badge-pill badge-warning mr-3">{window.display.length}</div>
                                                 </div>
                                                 
                                             </button>
@@ -327,7 +327,7 @@ class BootHeader extends Component {
 
                                                 return <EachListItem
                                                     key={`boot${r.category}`}
-                                                    completeArray={this.state.display}
+                                                    completeArray={window.display}
                                                     categoryName={r.category}
                                                     openByCategory={this
                                                         .openCategory
@@ -355,7 +355,7 @@ class BootHeader extends Component {
                                             ? <LandingView show={this.state.passBorrowed} wish={this.state.passWish} />
                                             : <Category
                                                 categoryCrossClicked={this.closeCategory}
-                                                data={this.state.display}
+                                                data={window.display}
                                                 selected={this.state.currentlyClicked}
                                                 isSearchClicked={this.state.searchClicked} />}
                                     </div>

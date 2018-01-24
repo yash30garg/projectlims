@@ -15,11 +15,7 @@ class PBooks extends Component {
     }
 
     componentDidMount() {
-        axios
-            .get('https://api.myjson.com/bins/1a9rkj')
-            .then(res => {
-                this.setState({display: res.data.booksArray});
-            })
+                this.setState({display: window.display});
     }
 
     render()
