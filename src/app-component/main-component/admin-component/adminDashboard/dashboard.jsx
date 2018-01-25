@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './dashboard.css';
 import '../../../App.css'
-import Footer from '../../../footer-component/footer.jsx';
+import AdminFooter from '../admin-footer-component/adminFooter';
+
 import { Link } from 'react-router-dom';
 // import { UserBooks } from './../borrowedBooks';
 import {requireAuth} from '../../../isLoggedIn.js'
@@ -318,6 +319,7 @@ class DashBoard extends Component {
 </div>
 
 </div>
+<AdminFooter />
 
             </div>
 

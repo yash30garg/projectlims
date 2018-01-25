@@ -7,6 +7,7 @@ import SearchAdmin from './searchadmin';
 // import './searchdis.css';
 // import Footer from '../../../footer-component/footer.jsx';
 import {requireAuth} from '../../../isLoggedIn.js'
+import AdminFooter from '../admin-footer-component/adminFooter';
 
 import AdminHeader from '../adminheader'
 
@@ -142,7 +143,7 @@ class BookAdmin extends Component {
                     </div>
                 </section>
                 <br /><br />
-            {/*<Footer />*/}
+            <AdminFooter />
             
 
 <div>

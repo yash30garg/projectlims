@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 // import SearchResultsAdmin from '../../../search-component/SearchResults.jsx';
 // import SearchAdmin from './searchadmin';
 // import './searchdis.css';
-import Footer from '../../../footer-component/footer.jsx';
-import {requireAuth} from '../../../isLoggedIn.js'
+import AdminFooter from '../admin-footer-component/adminFooter';
+import { requireAuth } from '../../../isLoggedIn.js'
 
 import AdminHeader from '../adminheader'
 var debounce = require('debounce');
@@ -24,9 +24,9 @@ class HandleUsers extends Component {
 
             <div>
 
-<AdminHeader/>
-                
-              <header id="header" style={{	backgroundColor:'#333333'}}>
+                <AdminHeader />
+
+                <header id="header" style={{ backgroundColor: '#333333' }}>
 
                     <div className="conatainer">
                         <div className="row">
@@ -34,36 +34,36 @@ class HandleUsers extends Component {
                                 <h3
                                     className="dd"
                                     style={{
-                                        textAlign: "left",marginTop:"7px"
+                                        textAlign: "left", marginTop: "7px"
                                     }}>
-                                    <span className="fa fa-cog" aria-hidden="true"></span>DashBoard 
+                                    <span className="fa fa-cog" aria-hidden="true"></span>DashBoard
                                     <small> Manage Users</small>
                                 </h3>
                             </div>
-                        
 
-                                <div className="dropdown create">
-                                    <button
-                                        className="btn default dropdown-toggle"
-                                        type="button"
-                                        id="dropdownMenuButton"
-                                        data-toggle="dropdown"
-                                        aria-haspopup="true"
-                                        aria-expanded="false"
-                                        style={{color:'white',backgroundColor:"#db9917",marginTop:"0px", height : "33px" }}>
-                                        Create Content
+
+                            <div className="dropdown create">
+                                <button
+                                    className="btn default dropdown-toggle"
+                                    type="button"
+                                    id="dropdownMenuButton"
+                                    data-toggle="dropdown"
+                                    aria-haspopup="true"
+                                    aria-expanded="false"
+                                    style={{ color: 'white', backgroundColor: "#db9917", marginTop: "0px", height: "33px" }}>
+                                    Create Content
                                         <span className="caret" /></button>
 
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="!#">Add Book(s)</a>
-                                        <a class="dropdown-item" href="!#">Edit Book(s)</a>
-                                        <a class="dropdown-item" href="!#">Edit User(s)
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="!#">Add Book(s)</a>
+                                    <a class="dropdown-item" href="!#">Edit Book(s)</a>
+                                    <a class="dropdown-item" href="!#">Edit User(s)
                                         </a>
-                                    </div>
                                 </div>
-
                             </div>
-                        
+
+                        </div>
+
                     </div>
                 </header>
 
@@ -123,11 +123,11 @@ class HandleUsers extends Component {
 
                                         <div className="row">
 
-                                        <div className="col-md-3" />
+                                            <div className="col-md-3" />
                                             <div className="col-md-6" >
                                                 <div className="input-group"  >
 
-                                                    <input type="text"  id="search" className="form-control" placeholder="Search for..." onKeyUp={debounce(this.search, 700)} />
+                                                    <input type="text" id="search" className="form-control" placeholder="Search for..." onKeyUp={debounce(this.search, 700)} />
                                                     <span className="input-group-btn">
 
                                                         <button type="submit" className="btn btn-outline-secondary" >Go!</button>
@@ -136,9 +136,9 @@ class HandleUsers extends Component {
                                                 </div>
                                             </div>
                                         </div>
-                                        </div>
-                                        <br /><br />
-                                        <div className="row">
+                                    </div>
+                                    <br /><br />
+                                    <div className="row">
                                         <div className="col-md-1" />
                                         <div className="col-md-10">
 
@@ -150,7 +150,7 @@ class HandleUsers extends Component {
                                                             <th>MID</th>
                                                             <th>Book(s)</th>
                                                             <th>Due Date</th>
-                                                            
+
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -159,7 +159,7 @@ class HandleUsers extends Component {
                                                             <td>1042946</td>
                                                             <td>Javascript</td>
                                                             <td>08-feb-2017</td>
-                                                            
+
                                                             <td><button type="button" class="btn btn-warning">Warning</button> </td>
                                                             <td><button type="button" class="btn btn-danger">Block</button> </td>
                                                         </tr>
@@ -172,7 +172,7 @@ class HandleUsers extends Component {
                                         </div>
 
                                         <div className="col-md-1" />
-                                        
+
                                     </div>
                                 </div>
 
@@ -181,19 +181,19 @@ class HandleUsers extends Component {
                     </div>
                 </section>
                 <br /><br />
-                
-
-<div>
 
 
-      
-
-
-      </div>
+                <div>
 
 
 
 
+
+                </div>
+
+
+
+                <AdminFooter />
 
 
             </div>
@@ -203,7 +203,7 @@ class HandleUsers extends Component {
 
 
 
-            
+
 
 
         )
