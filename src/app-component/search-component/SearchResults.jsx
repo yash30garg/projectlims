@@ -4,7 +4,7 @@ import $ from 'jquery';
 // import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './Search.css';
-import {sortTitle,sortAuthor} from './Search'
+import {sortTitle,sortAuthor,sortPublish} from './Search'
 export var book;
 // let users,
 //     books;
@@ -143,7 +143,10 @@ class SearchResults extends Component {
                                     event.preventDefault()
                                     sortAuthor();
                                     }}><a>Author</a></li>
-                                <li className="sortElement"><a>Publisher</a></li>
+                                <li className="sortElement" onClick={(event)=>{
+                                    event.preventDefault();
+                                    sortPublish();
+                                    }}><a>Publisher</a></li>
                                 <li className="sortElement"><a>Rating</a></li>
                             </ul>
                 :null}

@@ -87,13 +87,13 @@ export var sortTitle = () => {
     this.flag = !this.flag;
     let i = this.flag;
     processedData.sort(function (a, b) {
-        if (a.title > b.title) {
+        if (a.title < b.title) {
             if (i)
                 return -1;
             else
                 return 1;
         }
-        if (a.title < b.title) {
+        if (a.title > b.title) {
             if (i)
                 return 1;
             else
@@ -110,13 +110,13 @@ export var sortAuthor = () => {
     this.flag = !this.flag;
     let i = this.flag;
     processedData.sort(function (a, b) {
-        if (a.author > b.author) {
+        if (a.author < b.author) {
             if (i)
                 return -1;
             else
                 return 1;
         }
-        if (a.author < b.author) {
+        if (a.author > b.author) {
             if (i)
                 return 1;
             else
@@ -129,17 +129,17 @@ export var sortAuthor = () => {
     // console.log("Sorted by Author");
     document.getElementById('os').click();
 }
-var sortPublish = () => {
+export var sortPublish = () => {
     this.flag = !this.flag;
     let i = this.flag;
-    this.state.sortedData.sort(function (a, b) {
-        if (a.publisher > b.publisher) {
+    processedData.sort(function (a, b) {
+        if (a.publisher < b.publisher) {
             if (i)
                 return -1;
             else
                 return 1;
         }
-        if (a.publisher < b.publisher) {
+        if (a.publisher > b.publisher) {
             if (i)
                 return 1;
             else
@@ -148,10 +148,9 @@ var sortPublish = () => {
         return 0;
     }
     )
-    processedData = this.state.sortedData;
     // console.log(processedData)
     // console.log("Sorted by Publisher");
-    this.setState({ temp: 1 })
+    document.getElementById('os').click();
 }
 var sortRating = () => {
     this.flag = !this.flag;
