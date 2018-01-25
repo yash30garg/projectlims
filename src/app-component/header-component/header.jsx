@@ -16,6 +16,7 @@ import BootHeader from './bootheader'
 // import {storeSearch} from '../../state/action/searchAction.js'
 import store from '../../state/store/store.js'
 import {search} from '../search-component/Search'
+import Category from './categoryView';
 export var key;
 export let url = `https://social.mindtree.com/User%20Photos/Profile%20Pictures/m${localStorage.getItem('mid')}_MThumb.jpg?t=63646089488`;
 // let user_name = localStorage.getItem('user-name')
@@ -27,7 +28,6 @@ constructor(props)
   this.state={
     greet:"Hi, ",
     search:'',
-
   }
 }
 
@@ -72,6 +72,108 @@ search(e) {
   search()
 }
   render() {
+        let brr = [];
+        let arr = window.display
+            .sort((a, b) => {
+                if (a.category.toUpperCase() > b.category.toUpperCase()) {
+                    return 1;
+                } else if (a.category.toUpperCase() < b.category.toUpperCase()) {
+                    return -1;
+                } else {
+                    return 0;
+                } 
+            });
+        if (arr.length !== 0) {
+            brr.push(arr[0]);
+        }
+        for (var i = 0; i < arr.length - 1; i++) {
+            if (arr[i].category.toUpperCase() !== arr[i + 1].category.toUpperCase()) {
+
+                brr.push(arr[i + 1]);
+            }
+        }     
+        var titleDup = () => {
+          let titleD = []
+          let arr = window.display
+            .sort((a, b) => {
+                if (a.title.toUpperCase() > b.title.toUpperCase()) {
+                    return 1;
+                } else if (a.title.toUpperCase() < b.title.toUpperCase()) {
+                    return -1;
+                } else {
+                    return 0;
+                } 
+            });
+        if (arr.length !== 0) {
+            titleD.push(arr[0]);
+        }
+        for (var i = 0; i < arr.length - 1; i++) {
+            if (arr[i].title.toUpperCase() !== arr[i + 1].title.toUpperCase()) {
+
+               titleD.push(arr[i + 1]);
+            }
+        }
+        titleD.map((res)=> {
+          listCategory.push(<option value={res.title}></option>)
+        })     
+      }
+      var authorDup = () => {
+          let authorD = []
+          let arr = window.display
+            .sort((a, b) => {
+                if (a.author.toUpperCase() > b.author.toUpperCase()) {
+                    return 1;
+                } else if (a.author.toUpperCase() < b.author.toUpperCase()) {
+                    return -1;
+                } else {
+                    return 0;
+                } 
+            });
+        if (arr.length !== 0) {
+            authorD.push(arr[0]);
+        }
+        for (var i = 0; i < arr.length - 1; i++) {
+            if (arr[i].author.toUpperCase() !== arr[i + 1].author.toUpperCase()) {
+
+               authorD.push(arr[i + 1]);
+            }
+        }
+        authorD.map((res)=> {
+          listCategory.push(<option value={res.author}></option>)
+        })     
+      }
+      var publisherDup = () => {
+          let publisherD = []
+          let arr = window.display
+            .sort((a, b) => {
+                if (a.publisher.toUpperCase() > b.publisher.toUpperCase()) {
+                    return 1;
+                } else if (a.publisher.toUpperCase() < b.publisher.toUpperCase()) {
+                    return -1;
+                } else {
+                    return 0;
+                } 
+            });
+        if (arr.length !== 0) {
+            publisherD.push(arr[0]);
+        }
+        for (var i = 0; i < arr.length - 1; i++) {
+            if (arr[i].publisher.toUpperCase() !== arr[i + 1].publisher.toUpperCase()) {
+
+               publisherD.push(arr[i + 1]);
+            }
+        }
+        publisherD.map((res)=> {
+          listCategory.push(<option value={res.publisher}></option>)
+        })     
+        }
+    let listCategory=[];
+    brr.map(res=>{
+      listCategory.push(<option value={res.category}></option>)
+    })
+      titleDup();
+      publisherDup();
+      authorDup();
 
     return (
       <div >
@@ -103,7 +205,12 @@ search(e) {
               {/*<Link to="/search" style={{ textDecoration: 'none' }}>*/}
                 <div className="input-group">
                   
-                  <input type="text" id="key" className="form-control" style={{ alignSelf: "center" }} placeholder="Search for..." onKeyUp={debounce((this.search), 1000)} autoFocus
+                  <input list="browsers" type="text" id="key" className="form-control" style={{ alignSelf: "center" }} placeholder="Search for..." onKeyUp={debounce((this.search), 2000)} autoFocus
+                                    onChange={debounce((event)=> {
+                                      event.preventDefault();
+                                      store.dispatch({type:"STORE_SEARCH",payload:document.getElementById('key').value})
+                                      search()
+                                    },2000)}
                                     onKeyPress={event => {
                                             if (event.key === 'Enter') {
                                                 store.dispatch({type:"STORE_SEARCH",payload:document.getElementById('key').value})
@@ -111,6 +218,9 @@ search(e) {
                                             }
                                         }}
                   />
+                  <datalist id="browsers">                  
+                  {listCategory}    
+                  </datalist>
                   <button className="btn btn-primary" 
 
                   onClick={(event)=>{this.setState({search:document.getElementById('key').value})
