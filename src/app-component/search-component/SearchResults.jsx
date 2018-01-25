@@ -4,6 +4,7 @@ import $ from 'jquery';
 // import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './Search.css';
+import {sortTitle} from './Search'
 export var book;
 // let users,
 //     books;
@@ -133,7 +134,10 @@ class SearchResults extends Component {
                             </span>
                             <ul className="sortTypes">
                                 <li className="sortElement activeSortElement"><a>Relevance</a></li>
-                                <li className="sortElement"><a>Title</a></li>
+                                <li className="sortElement" onClick={(event) => {
+                                    event.preventDefault();
+                                    sortTitle();
+                                    }}><a>Title</a></li>
                                 <li className="sortElement"><a>Author</a></li>
                                 <li className="sortElement"><a>Publisher</a></li>
                                 <li className="sortElement"><a>Rating</a></li>

@@ -83,10 +83,10 @@ var selectSort = () => {
     }
     else alert("Select a valid sort");
 }
-var sortTitle = () => {
+export var sortTitle = () => {
     this.flag = !this.flag;
     let i = this.flag;
-    this.state.sortedData.sort(function (a, b) {
+    processedData.sort(function (a, b) {
         if (a.title > b.title) {
             if (i)
                 return -1;
@@ -102,10 +102,9 @@ var sortTitle = () => {
         return 0;
     }
     )
-    processedData = this.state.sortedData;
     // console.log(processedData)
     // console.log("Sorted by Title");
-    this.setState({ temp: 1 })
+    document.getElementById('os').click();
 }
 var sortAuthor = () => {
     this.flag = !this.flag;
