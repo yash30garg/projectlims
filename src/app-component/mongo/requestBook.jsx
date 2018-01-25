@@ -1,6 +1,5 @@
 let response;
 export let requestBook=(newBook)=>{
-    alert("done");
     fetch('http://localhost:3005/borrowedBooks/addBook',{
             method: 'PUT',
             headers: {'Content-Type': 'application/json'},
