@@ -9,14 +9,13 @@ class PBooks extends Component {
     constructor() {
         super();
         this.state = {
-            display: [],
             storeId: "imga"
         }
     }
 
-    componentDidMount() {
-                this.setState({display: window.display});
-    }
+    // componentDidMount() {
+    //             this.setState({display: window.display});
+    // }
 
     render()
     {
@@ -25,10 +24,8 @@ class PBooks extends Component {
             s2,
             s3,
             s4;
-        if (this.state.display.length !== 0) {
-            let b = this
-                .state
-                .display
+        if (window.display.length !== 0) {
+            let b = window.display
                 .filter((res) => res.rating >= 1 && (res.category === "Javascript" || res.category === "javascript"));
             s1 = <div className="carousel-item mt-2">
                 {b
@@ -37,9 +34,7 @@ class PBooks extends Component {
                         return (<EachPrefferedCard key={`pref${r.isbn}`} item={r}/>);
                     })}
             </div>
-            b = this
-                .state
-                .display
+            b = window.display
                 .filter((res) => res.rating >= 1 && (res.category === "Angular" || res.category === "angular"));
             s2 = <div className="carousel-item mt-2">
                 {b
@@ -48,9 +43,7 @@ class PBooks extends Component {
                         return (<EachPrefferedCard key={r.isbn} item={r}/>);
                     })}
             </div>
-            b = this
-                .state
-                .display
+            b = window.display
                 .filter((res) => res.rating >= 1 && 
                 (res.category === "React" || res.category === "react"));
             s3 = <div className="carousel-item mt-2">
