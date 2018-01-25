@@ -33,14 +33,15 @@ export var search = () => {
     if (value === "")
         document.getElementById('cs').click();
     else {
-        Rx.Observable.fromPromise(fetch('https://api.myjson.com/bins/1a9rkj'))
-            .flatMap((response) => response.json())
-            .subscribe(values => {
-                data = values;
+        // Rx.Observable.fromPromise(fetch('https://api.myjson.com/bins/1a9rkj'))
+        //     .flatMap((response) => response.json())
+        //     .subscribe(values => {
+                // data = values;
+                data = window.display;
 
 
                 // console.log(this.state.data)
-                var datax = data.booksArray.filter((data3) =>
+                var datax = data.filter((data3) =>
                     (data3.title.toLowerCase().indexOf(value1) >= 0 ||
                         data3.author.toLowerCase().indexOf(value1) >= 0 ||
                         data3.publisher.toLowerCase().indexOf(value1) >= 0 ||
@@ -49,7 +50,7 @@ export var search = () => {
                     console.log(value2)
                     processedData = datax
                 if (value2 !== "") {
-                   var datay = data.booksArray.filter((data3) =>
+                   var datay = data.filter((data3) =>
                         (data3.title.toLowerCase().indexOf(value2) >= 0 ||
                             data3.author.toLowerCase().indexOf(value2) >= 0 ||
                             data3.publisher.toLowerCase().indexOf(value2) >= 0 ||
@@ -63,7 +64,7 @@ export var search = () => {
                 store.dispatch({ type: "STORE_SORTED_DATA", payload: datax })
                 console.log(store.getState().sorted_Data)
                 document.getElementById('os').click();
-            })
+            // })
     }
 
 }

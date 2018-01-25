@@ -7,7 +7,7 @@ render()
 {
 
 return (
-                <nav class="navbar navbar-toggleable-md navbar-default" style={{backgroundColor:'#A9A9A9'}}>
+                <nav class="navbar navbar-toggleable-md navbar-default" style={{backgroundColor:'#7e4a35'}}>
                     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation"   >
                         <span class="navbar-toggler-icon"></span></button>
                     <button
@@ -32,27 +32,27 @@ return (
             alt="My logo"
             align="left"  />
             
-          <Link to="/">
+          <Link to="/adminDash">
             <span id="projectTitle" className="navbar-brand" style={{ color: "white",paddingLeft:'15px',fontSize:'23px', marginBottom : "15px"  }}>Mindtree Library</span>
           </Link>
 
                     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                         <ul class="navbar-nav mr-auto">
                             <Link to="/adminDash">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="!#">DashBoard
-                                    <span class="sr-only">(current)</span>
+                            <li class="nav-items active">
+                                <a class="nav-link" href="!#" style={{color:"white"}}>DashBoard
+                                    {/*<span class="sr-only">(current)</span>*/}
                                 </a>
                             </li>
                             </Link>
                             <Link to="/adminbooks">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="!#">Books</a>
+                                <li class="nav-items ">
+                                    <a class="nav-link" href="!#" style={{color:"white"}}>Books</a>
                                 </li>
                             </Link>
                             <Link to="/handleusers">
-                                <li class="nav-item">
-                                    <a class="nav-link " href="!#">Users</a>
+                                <li class="nav-items">
+                                    <a class="nav-link " href="!#" style={{color:"white"}}>Users</a>
                                 </li>
                             </Link>
 
@@ -76,11 +76,11 @@ return (
                             <li class="nav-item active">
                                 <a class="nav-link" href="!#">
                                     Welcome Anirudh,
-                                    <span class="sr-only">(current)</span>
+                                    {/*<span class="sr-only">(current)</span>*/}
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="!#">LogOut</a>
+                                <a class="nav-link" href="!#" style={{color:"white"}}>Logout</a>
                             </li>
                         </ul>
 
