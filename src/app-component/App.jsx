@@ -32,7 +32,9 @@ class App extends Component {
     var Backlen=window.history.length;   
      window.history.go(-Backlen);
      this.state={
-       display:[]
+       display:[],
+       wishlist:[],
+       bbooks:[]
      }
   }
   
@@ -66,8 +68,10 @@ fetch('http://localhost:3005/borrowedBooks/getBooks',{
 .then((res)=>res.json())
 .then((res)=>{
   console.log("borrowed values");
-  window.bbooks=res.data[0];
-  window.wishlist=res.data[1];
+  this.setState({
+  bbooks:res.data[0],
+  wishlist:res.data[1]
+  })
   // console.log(res.data[1])
   // window.bbooks=res.data.borrowedbooks;
   // console.log(window.bbooks);
@@ -97,8 +101,8 @@ fetch('http://localhost:3005/borrowedBooks/getBooks',{
   }
 
   render() {
-    window.bbooks=[];
-    window.wishlist=[];
+    window.bbooks=this.state.bbooks;
+    window.wishlist=this.state.wishlist;
     window.display=this.state.display;
     console.log(window.bbooks.length)
     console.log(authContext._user.profile.given_name);
