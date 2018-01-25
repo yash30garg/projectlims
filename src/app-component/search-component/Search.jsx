@@ -152,10 +152,10 @@ export var sortPublish = () => {
     // console.log("Sorted by Publisher");
     document.getElementById('os').click();
 }
-var sortRating = () => {
+export var sortRating = () => {
     this.flag = !this.flag;
     let i = this.flag;
-    this.state.sortedData.sort(function (a, b) {
+    processedData.sort(function (a, b) {
         if (a.rating > b.rating) {
             if (i)
                 return -1;
@@ -171,10 +171,9 @@ var sortRating = () => {
         return 0;
     }
     )
-    processedData = this.state.sortedData;
     // console.log(processedData)
     // console.log("Sorted by Rating");
-    this.setState({ temp: 1 })
+    document.getElementById('os').click();
 }
 
 /*export default class Search extends Component {
