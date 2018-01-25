@@ -106,10 +106,10 @@ export var sortTitle = () => {
     // console.log("Sorted by Title");
     document.getElementById('os').click();
 }
-var sortAuthor = () => {
+export var sortAuthor = () => {
     this.flag = !this.flag;
     let i = this.flag;
-    this.state.sortedData.sort(function (a, b) {
+    processedData.sort(function (a, b) {
         if (a.author > b.author) {
             if (i)
                 return -1;
@@ -125,10 +125,9 @@ var sortAuthor = () => {
         return 0;
     }
     )
-    processedData = this.state.sortedData;
     // console.log(processedData)
     // console.log("Sorted by Author");
-    this.setState({ temp: 1 })
+    document.getElementById('os').click();
 }
 var sortPublish = () => {
     this.flag = !this.flag;

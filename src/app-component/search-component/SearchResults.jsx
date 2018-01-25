@@ -4,7 +4,7 @@ import $ from 'jquery';
 // import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './Search.css';
-import {sortTitle} from './Search'
+import {sortTitle,sortAuthor} from './Search'
 export var book;
 // let users,
 //     books;
@@ -132,16 +132,21 @@ class SearchResults extends Component {
                         <span className="sortName">
                             <span>Sort By</span>
                             </span>
+                            {processedData.length>1?
                             <ul className="sortTypes">
                                 <li className="sortElement activeSortElement"><a>Relevance</a></li>
                                 <li className="sortElement" onClick={(event) => {
                                     event.preventDefault();
                                     sortTitle();
                                     }}><a>Title</a></li>
-                                <li className="sortElement"><a>Author</a></li>
+                                <li className="sortElement" onClick = {(event) => {
+                                    event.preventDefault()
+                                    sortAuthor();
+                                    }}><a>Author</a></li>
                                 <li className="sortElement"><a>Publisher</a></li>
                                 <li className="sortElement"><a>Rating</a></li>
                             </ul>
+                :null}
                     </section>
                     <div className="container-fluid">
                         <div className="row">
