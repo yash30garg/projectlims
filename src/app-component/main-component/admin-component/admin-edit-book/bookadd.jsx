@@ -7,13 +7,14 @@ import { Link } from 'react-router-dom';
 // import './searchdis.css';
 import AdminFooter from '../admin-footer-component/adminFooter';
 import { requireAuth } from '../../../isLoggedIn.js'
+import '../../../../../node_modules/@ckeditor/ckeditor5-build-classic/build/ckeditor.js'
 
 import AdminHeader from '../adminheader'
+
 var debounce = require('debounce');
-
-
 var count = 0;
-class HandleUsers extends Component {
+
+class BookAdd extends Component {
     componentWillMount() {
         requireAuth(window.location.href)
     }
@@ -37,7 +38,7 @@ class HandleUsers extends Component {
                                         textAlign: "left", marginTop: "7px"
                                     }}>
                                     <span className="fa fa-cog" aria-hidden="true"></span>DashBoard
-                                    <small> Manage Users</small>
+                                    <small> Add Books</small>
                                 </h3>
                             </div>
 
@@ -121,86 +122,89 @@ class HandleUsers extends Component {
 
 
                                 <div className="card">
-                                    <h5 className="card-header">Users Overview</h5>
+                                    <h5 className="card-header">Add Book : </h5>
                                     <br />
                                     <div className="card-body">
+                                    <div className="col-md-12">
 
-                                        <div className="row">
-
-                                            <div className="col-md-3" />
-                                            <div className="col-md-6" >
-                                                <div className="input-group"  >
-
-                                                    <input type="text" id="search" className="form-control" placeholder="Search for..." onKeyUp={debounce(this.search, 700)} />
-                                                    <span className="input-group-btn">
-
-                                                        <button type="submit" className="btn btn-outline-secondary" >Go!</button>
-
-                                                    </span>
+                                        <form action="/action_page.php">
+                                            <div class="form-group " style={{textAlign : "left"}}>
+                                                ISBN:
+                                                <input type="text" class="form-control" id="email" />  
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <br /><br />
-                                    <div className="row">
-                                        <div className="col-md-1" />
-                                        <div className="col-md-10">
 
-                                            <div class="table-responsive">
-                                                <table class="table">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>Name</th>
-                                                            <th>MID</th>
-                                                            <th>Book(s)</th>
-                                                            <th>Due Date</th>
+                                                 <div class="form-group " style={{textAlign : "left"}}>
+                                                Title:
+                                                <input type="text" class="form-control" id="email" />  
+                                                </div>
+                                                 <div class="form-group " style={{textAlign : "left"}}>
+                                                Author:
+                                                <input type="text" class="form-control" id="email" />  
+                                                </div>
+                                                 <div class="form-group " style={{textAlign : "left"}}>
+                                                Category:
+                                                <input type="text" class="form-control" id="email" />  
+                                                </div>
+                                                 <div class="form-group " style={{textAlign : "left"}}>
+                                                Publisher:
+                                                <input type="text" class="form-control" id="email" />  
+                                                </div>
+                                                 <div class="form-group " style={{textAlign : "left"}}>
+                                                Ratings:
+                                                <input type="text" class="form-control" id="email" />  
+                                                </div>
 
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>Anirudh.A.S</td>
-                                                            <td>1042946</td>
-                                                            <td>Javascript</td>
-                                                            <td>08-feb-2017</td>
+                                                 <div class="form-group " style={{textAlign : "left"}}>
+                                                Copies:
+                                                <input type="text" class="form-control" id="email" />  
+                                                </div>
 
-                                                            <td><button type="button" class="btn btn-warning">Warning</button> </td>
-                                                            <td><button type="button" class="btn btn-danger">Block</button> </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
+                                                 <div class="form-group " style={{textAlign : "left"}}>
+                                                URL:
+                                                <input type="text" class="form-control" id="email" />  
+                                                </div>
+
+                                                 <div class="form-group " style={{textAlign : "left"}}>
+                                                Year:
+                                                <input type="text" class="form-control" id="email" />  
+                                                </div>
+
+                                                
+                                            <button type="submit" class="btn btn-warning" style={{textAlign :"left"}}>Add Book</button>
+</form>
 
 
 
-                                        </div>
 
-                                        <div className="col-md-1" />
+</div>
+                                                </div>
 
+
+
+
+
+
+                                            </div></div>
                                     </div>
                                 </div>
+                </section>
+                            <br /><br />
+
+
+                            <div>
+
+
+
+
 
                             </div>
+
+
+
+                            <AdminFooter />
+
+
                         </div>
-                    </div>
-                </section>
-                <br /><br />
-
-
-                <div>
-
-
-
-
-
-                </div>
-
-
-
-                <AdminFooter />
-
-
-            </div>
 
 
 
@@ -210,13 +214,13 @@ class HandleUsers extends Component {
 
 
 
-        )
+                        )
 
     }
 
 
 }
 
-export default HandleUsers;
+export default BookAdd;
 
 

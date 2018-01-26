@@ -56,8 +56,12 @@ class BookAdmin extends Component {
                                         <span className="caret" /></button>
 
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <Link to="/bookadd">
                                         <a class="dropdown-item" href="!#">Add Book(s)</a>
+                                        </Link>
+                                        <Link to="/bookedit">
                                         <a class="dropdown-item" href="!#">Edit Book(s)</a>
+                                        </Link>
                                         <a class="dropdown-item" href="!#">Edit User(s)
                                         </a>
                                     </div>
