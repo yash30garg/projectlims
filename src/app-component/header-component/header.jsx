@@ -211,12 +211,12 @@ search(e) {
                                       store.dispatch({type:"STORE_SEARCH",payload:document.getElementById('key').value})
                                       search()
                                     },2000)}
-                                    onKeyPress={event => {
+                                    onKeyPress={debounce((event) => {
                                             if (event.key === 'Enter') {
                                                 store.dispatch({type:"STORE_SEARCH",payload:document.getElementById('key').value})
                                                 search()
                                             }
-                                        }}
+                                        },500)}
                   />
                   <datalist id="browsers">                  
                   {listCategory}    
