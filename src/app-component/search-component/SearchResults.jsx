@@ -4,7 +4,7 @@ import $ from 'jquery';
 // import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './Search.css';
-import {sortTitle,sortAuthor,sortPublish,sortRating} from './Search'
+import {search,sortTitle,sortAuthor,sortPublish,sortRating} from './Search'
 export var book;
 // let users,
 //     books;
@@ -128,13 +128,18 @@ class SearchResults extends Component {
                     <ol className="breadcrumb" style={{ backgroundColor: "#614126", color: "white" }}  >
                         <h5 >{this.props.divName}<span style={{ float: 'right', cursor: 'pointer', paddingLeft: '70px' }} onClick={this.props.searchCrossClicked}>x</span></h5>
                     </ol>
+                    {processedData.length>1?
                     <section className="sortInline">
                         <span className="sortName">
                             <span>Sort By</span>
                             </span>
-                            {processedData.length>1?
                             <ul className="sortTypes">
-                                <li className="sortElement activeSortElement"><a>Relevance</a></li>
+                                <li className="sortElement activeSortElement" onClick={(event)=> {
+                                    event.preventDefault();
+                                    event.target.className!=="sortELement activeSortElement"?
+                                    search()
+                                    :null
+                                    }}><a>Default</a></li>
                                 <li className="sortElement" onClick={(event) => {
                                     event.preventDefault();
                                     sortTitle();
@@ -152,8 +157,8 @@ class SearchResults extends Component {
                                     sortRating();
                                     }}><a>Rating</a></li>
                             </ul>
-                :null}
-                    </section>
+                
+                    </section>:null}
                     <div className="container-fluid">
                         <div className="row">
                             {a}
