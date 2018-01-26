@@ -7,6 +7,7 @@ import SearchAdmin from './searchadmin';
 // import './searchdis.css';
 // import Footer from '../../../footer-component/footer.jsx';
 import {requireAuth} from '../../../isLoggedIn.js'
+import AdminFooter from '../admin-footer-component/adminFooter';
 
 import AdminHeader from '../adminheader'
 
@@ -55,8 +56,12 @@ class BookAdmin extends Component {
                                         <span className="caret" /></button>
 
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <Link to="/bookadd">
                                         <a class="dropdown-item" href="!#">Add Book(s)</a>
+                                        </Link>
+                                        <Link to="/bookedit">
                                         <a class="dropdown-item" href="!#">Edit Book(s)</a>
+                                        </Link>
                                         <a class="dropdown-item" href="!#">Edit User(s)
                                         </a>
                                     </div>
@@ -142,7 +147,7 @@ class BookAdmin extends Component {
                     </div>
                 </section>
                 <br /><br />
-            {/*<Footer />*/}
+            <AdminFooter />
             
 
 <div>
