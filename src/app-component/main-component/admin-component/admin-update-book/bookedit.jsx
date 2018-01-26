@@ -54,16 +54,15 @@ class BookEdit extends Component {
                                     style={{ color: 'white', backgroundColor: "#db9917", marginTop: "0px", height: "33px" }}>
                                     Create Content
                                         <span className="caret" /></button>
-
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-  <Link to="/bookadd">
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <Link to="/bookadd">
                                         <a class="dropdown-item" href="!#">Add Book(s)</a>
                                         </Link>
                                         <Link to="/bookedit">
                                         <a class="dropdown-item" href="!#">Edit Book(s)</a>
                                         </Link>
                                     <a class="dropdown-item" href="!#">Edit User(s)
-                                        </a>
+                                        </a>                            
                                 </div>
                             </div>
 

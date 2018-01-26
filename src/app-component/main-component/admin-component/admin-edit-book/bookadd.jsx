@@ -42,7 +42,6 @@ class BookAdd extends Component {
                                 </h3>
                             </div>
 
-
                             <div className="dropdown create">
                                 <button
                                     className="btn default dropdown-toggle"
