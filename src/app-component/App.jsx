@@ -20,8 +20,9 @@ import Profile from '../app-component/main-component/user-component/profileView/
 // import BookTor from '../app-component/booktor/booktor.jsx';
 import AboutUs from '../app-component/footer-component/AboutUs/aboutus.jsx';
 import { authContext } from '../adalConfig.js'
-
+import BookAdd from '../../src/app-component/main-component/admin-component/admin-edit-book/bookadd'
 import ContactUs from '../app-component/footer-component/ContactUs/contactus.jsx';
+import BookEdit from '../app-component/main-component/admin-component/admin-update-book/bookedit.jsx'
 // import { AuthenticationContext, adalGetToken, adalFetch } from 'react-adal';
 export var user_name;
 var req = require('request');
@@ -158,6 +159,10 @@ fetch('http://localhost:3005/borrowedBooks/getBooks',{
             <Route path="/aboutus" exact component={AboutUs} />
             <Route path="/admindash" exact component={DashBoard} />
             <Route path="/contactus" exact component={ContactUs} />
+            <Route path="/bookadd" exact component={BookAdd} />
+            <Route path="/bookedit" exact component={BookEdit} />
+            
+            
           </Switch>
 
         </div>
