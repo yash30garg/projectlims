@@ -7,4 +7,6 @@ import searchReducer from '../reducer/searchReducer'
 var store = createStore(searchReducer,
 // applyMiddleware(logger,thunk)
 );
-export default store
+
+
+export default store;

@@ -8,6 +8,7 @@ import {addWishlist} from '.././mongo/addWishlist'
 import {removeWishlist} from '.././mongo/removeWishlist'
 import {getDates} from '../dates'
 import {borrowDate, returnDate} from '../dates'
+import storeBbooks from '../../state/store/storeBook'
 // import $ from 'jquery';
 // import book from '../search-component/SearchResults'
 // let users;
@@ -17,12 +18,14 @@ let book,
     w = null,
     b = null,
     a = null,
-    val="";
+    val="",
+    bbooks;
 
 
 class Details extends Component {
     constructor(props) {
         super(props);
+        bbooks=storeBbooks.getState().bbooks;
         getDates();
         b = (
             <button
@@ -291,7 +294,7 @@ class Details extends Component {
     }
     
     request = () => {
-            if (window.bbooks.length < 4) {
+            if (bbooks.length < 4) {
                 //eslint-disable-next-line   
                 let bookAdded=new Object();
                 bookAdded.isbn=book.isbn;

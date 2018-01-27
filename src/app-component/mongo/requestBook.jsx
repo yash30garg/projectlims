@@ -1,3 +1,4 @@
+import storeBbooks from '../../state/store/storeBook'
 let response;
 export let requestBook=(newBook)=>{
     fetch('http://localhost:3005/borrowedBooks/addBook',{
@@ -13,6 +14,7 @@ export let requestBook=(newBook)=>{
             response=res;
             console.log(response.status);
             console.log(res.data);
-            window.bbooks=res.data;
+            storeBbooks.dispatch({type:"STORE_BBOOKS",payload: res.data})
+            // window.bbooks=storeBbooks.getState().bbooks;
         })
 }

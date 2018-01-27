@@ -5,19 +5,30 @@ import {getDates} from '../../../dates';
 import {borrowDate, returnDate} from '../../../dates';
 import {requestBook} from '../../../mongo/requestBook';
 import {returnBook} from '../../../mongo/returnBook';
-// let res;
+import {addWishlist} from '../../../mongo/addWishlist'
+import {removeWishlist} from '../../../mongo/removeWishlist'
+import storeBbooks from '../../../../state/store/storeBook'
+let bbooks;
 class EachPrefferedCard extends Component{
     constructor(props)
     {
         super(props);
+        bbooks=storeBbooks.getState().bbooks;
         getDates();
-        // let reqVal=true;
-        
+        let reqVal=true
+        let wishVal=true
+        bbooks.map(res=>{
+            if(res.isbn===this.props.item.isbn)
+            reqVal=false;
+        })
+        window.wishlist.map(res=>{
+            if(res.isbn===this.props.item.isbn)
+            wishVal=false;
+        })
         this.handle=this.handle.bind(this);
         this.state={
-            wishlistIcon:true,
-            requestIcon:true
-
+            wishlistIcon:wishVal,
+            requestIcon:reqVal
         }
     }
 
@@ -26,15 +37,28 @@ class EachPrefferedCard extends Component{
     }
     changeToFilled=()=>
     {
+        var items=new Object();
+        items.isbn=this.props.item.isbn;
+        items.title=this.props.item.title;
+        items.author=this.props.item.author;
+        items.category=this.props.item.category;
+        items.publisher=this.props.item.publisher;
+        items.rating=this.props.item.rating;
+        items.url=this.props.item.url;
+        items.description="";
+        // console.log(items);
+        addWishlist(items);
         this.setState({wishlistIcon:false});
     }
     changeToEmpty=()=>
     {
+        removeWishlist(this.props.item.isbn);
         this.setState({wishlistIcon:true});
     }
     changeToUndo=()=>
     {
-        if(window.bbooks.length<4){
+        alert("undo")
+        if(bbooks.length<4){
             let bookAdded=new Object();
                 bookAdded.isbn=this.props.item.isbn;
                 bookAdded.title=this.props.item.title;
@@ -45,9 +69,11 @@ class EachPrefferedCard extends Component{
                 bookAdded.borrowedDate=borrowDate;
                 bookAdded.returnDate=returnDate;
                 bookAdded.isRenewed="false"; 
-                requestBook(bookAdded);   
-        }
+                var books=[];
+                requestBook(bookAdded);
+                // alert(books.length)
         this.setState({requestIcon:false});
+        }
     }
     changeToRequest=()=>
     {

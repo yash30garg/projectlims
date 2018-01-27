@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import storeBbooks from '../../state/store/storeBook'
 import axios from 'axios';
 import './bootheader.css';
 import {Link} from 'react-router-dom'
@@ -170,6 +171,7 @@ class BootHeader extends Component {
         }
     }
     render() {
+        let bbooks=storeBbooks.getState().bbooks
 //         if (this.state.redirect) {
 //     return <Redirect push to="/search" />;
 //   }
@@ -276,7 +278,7 @@ class BootHeader extends Component {
                 textAlign: "left", textTransform:'capitalize'
             }}>Borrowed books</div>
             <div className="row">
-                <div className="badge badge-pill badge-warning mr-3">{window.bbooks.length}</div>
+                <div className="badge badge-pill badge-warning mr-3">{bbooks.length}</div>
            
             </div>
         </button>
