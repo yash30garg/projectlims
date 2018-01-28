@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 // import './searchdis.css';
 import AdminFooter from '../admin-footer-component/adminFooter';
 import { requireAuth } from '../../../isLoggedIn.js'
-import '../../../../../node_modules/@ckeditor/ckeditor5-build-classic/build/ckeditor.js'
+// import '../../../../../node_modules/@ckeditor/ckeditor5-build-classic/build/ckeditor.js'
 
 import AdminHeader from '../adminheader'
 
