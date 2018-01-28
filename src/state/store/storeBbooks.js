@@ -1,11 +1,10 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 // import logger from 'redux-logger';
 // import thunk from 'redux-thunk';
-import searchReducer from '../reducer/searchReducer'
+import bbooksReducer from '../reducer/bbooksReducer'
 
-var store = createStore(searchReducer,
+var storeBbooks = createStore(bbooksReducer,
 // applyMiddleware(logger,thunk)
 );
 
-
-export default store;
+export default storeBbooks;

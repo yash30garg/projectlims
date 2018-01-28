@@ -15,9 +15,9 @@ var debounce = require('debounce');
 export var processedData = [];
 var data
 export var search = () => {
-    // let value = store.getState().search.toLowerCase();
+    let value = store.getState().search.toLowerCase();
     processedData = []
-    let value = document.getElementById('key').value.toLowerCase();
+    // let value = document.getElementById('key').value.toLowerCase();
     let value1, value2;
     value1=value
     console.log(value1)

@@ -1,4 +1,4 @@
-import storeBbooks from '../../state/store/storeBook'
+import storeBbooks from '../../state/store/storeBbooks'; 
 let response;
 export let returnBook=(isbn)=>{
 fetch('http://localhost:3005/borrowedBooks/deleteBook',{
@@ -12,6 +12,7 @@ fetch('http://localhost:3005/borrowedBooks/deleteBook',{
         .then((res)=>res.json())
         .then((res)=>{
             storeBbooks.dispatch({type:"STORE_BBOOKS",payload: res.data})
+            // window.bbooks=res.data;
             // window.bbooks=storeBbooks.getState().bbooks;
     })
 }

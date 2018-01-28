@@ -5,21 +5,20 @@ import {getDates} from '../../../dates';
 import {borrowDate, returnDate} from '../../../dates';
 import {requestBook} from '../../../mongo/requestBook';
 import {returnBook} from '../../../mongo/returnBook';
+import storeBbooks from '../../../../state/store/storeBbooks';
 import {addWishlist} from '../../../mongo/addWishlist'
 import {removeWishlist} from '../../../mongo/removeWishlist'
-import storeBbooks from '../../../../state/store/storeBook'
-let bbooks;
 class EachPrefferedCard extends Component{
     constructor(props)
     {
         super(props);
-        bbooks=storeBbooks.getState().bbooks;
         getDates();
         let reqVal=true
         let wishVal=true
-        bbooks.map(res=>{
-            if(res.isbn===this.props.item.isbn)
+        storeBbooks.getState().bbooks.map(res=>{
+            if(res.isbn===this.props.item.isbn){   
             reqVal=false;
+            }
         })
         window.wishlist.map(res=>{
             if(res.isbn===this.props.item.isbn)
@@ -57,8 +56,7 @@ class EachPrefferedCard extends Component{
     }
     changeToUndo=()=>
     {
-        alert("undo")
-        if(bbooks.length<4){
+        if(storeBbooks.getState().bbooks.length<4){
             let bookAdded=new Object();
                 bookAdded.isbn=this.props.item.isbn;
                 bookAdded.title=this.props.item.title;

@@ -1,4 +1,4 @@
-const bbooksReducer = ( state ={ name: 'aishwarya',
+const bbooksReducer = ( state ={ name: 'chaitanya',
 lastValues:[]
 },action) => {
     if(action.type==="STORE_BBOOKS") {

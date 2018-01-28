@@ -9,11 +9,11 @@ import SearchResults from './search-component/SearchResults'
 import {BookDetails} from '../app-component/BookDetails-Component/bookDetails'
 import DashBoard from  '../app-component/main-component/admin-component/adminDashboard/dashboard.jsx';
 import Login from './main-component/login-component/login.jsx';
+import storeBbooks from '../state/store/storeBbooks';
 import { HashRouter, Route, Switch } from 'react-router-dom';
 // import { BrowserRouter } from 'react-router-dom';
 import { User } from './main-component/user-component/user';
 import axios from 'axios';
-import storeBbooks from '../state/store/storeBook'
 import BookAdmin from '../app-component/main-component/admin-component/BookHandler/bookshow.jsx';
 import HandleUsers from '../app-component/main-component/admin-component/adminDashboard/handleusers.jsx';
 import Profile from '../app-component/main-component/user-component/profileView/prodetails.jsx';
@@ -32,9 +32,9 @@ window.display='';
 class App extends Component {
   constructor() {
     super();
-    var Backlen=window.history.length;   
+    var Backlen=window.history.length;  
+    storeBbooks.dispatch({type:"STORE_BBOOKS",payload: []}) 
      window.history.go(-Backlen);
-     storeBbooks.dispatch({type:"STORE_BBOOKS",payload: []})
      this.state={
        display:[],
        wishlist:[]
@@ -107,10 +107,8 @@ fetch('http://localhost:3005/borrowedBooks/getBooks',{
 }
 
   render() {
-    let bbooks=storeBbooks.getState().bbooks;
     window.wishlist=this.state.wishlist;
     window.display=this.state.display;
-    console.log(bbooks.length)
     console.log(authContext._user.profile.given_name);
     user_name = authContext._user.profile.given_name;
     localStorage.setItem('limsuser', JSON.stringify(authContext._user))

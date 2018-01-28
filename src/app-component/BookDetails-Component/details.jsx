@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './details.css';
 import '../search-component/Search.css';
+import storeBbooks from '../../state/store/storeBbooks'
 import $ from 'jquery';
 import {requestBook} from '.././mongo/requestBook'
 import {returnBook} from '.././mongo/returnBook'
@@ -8,7 +9,6 @@ import {addWishlist} from '.././mongo/addWishlist'
 import {removeWishlist} from '.././mongo/removeWishlist'
 import {getDates} from '../dates'
 import {borrowDate, returnDate} from '../dates'
-import storeBbooks from '../../state/store/storeBook'
 // import $ from 'jquery';
 // import book from '../search-component/SearchResults'
 // let users;
@@ -18,14 +18,12 @@ let book,
     w = null,
     b = null,
     a = null,
-    val="",
-    bbooks;
+    val="";
 
 
 class Details extends Component {
     constructor(props) {
         super(props);
-        bbooks=storeBbooks.getState().bbooks;
         getDates();
         b = (
             <button
@@ -61,8 +59,7 @@ class Details extends Component {
             wish: w,
             msg: ""
         };
-        window
-            .bbooks
+        storeBbooks.getState().bbooks
             //eslint-disable-next-line            
             .map(res => {
                 if (res.isbn === this.props.data.isbn) {
@@ -209,8 +206,7 @@ class Details extends Component {
     }
 
     renew = () => {
-        window
-            .bbooks
+storeBbooks.getState().bbooks
             //eslint-disable-next-line            
             .map((res) => {
                 if (res.isbn === book.isbn) {
@@ -294,7 +290,7 @@ class Details extends Component {
     }
     
     request = () => {
-            if (bbooks.length < 4) {
+            if (storeBbooks.getState().bbooks.length < 4) {
                 //eslint-disable-next-line   
                 let bookAdded=new Object();
                 bookAdded.isbn=book.isbn;
