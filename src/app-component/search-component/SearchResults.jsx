@@ -5,6 +5,7 @@ import $ from 'jquery';
 import { Link } from 'react-router-dom';
 import './Search.css';
 import {search,sortTitle,sortAuthor,sortPublish,sortRating} from './Search'
+import store from '../../state/store/store.js'
 export var book;
 // let users,
 //     books;
@@ -136,6 +137,7 @@ class SearchResults extends Component {
                             <ul className="sortTypes">
                                 <li className="sortElement activeSortElement" onClick={(event)=> {
                                     event.preventDefault();
+                                    store.dispatch({type:"STORE_SEARCH",payload: document.getElementById('key').value})
                                     event.target.className!=="sortELement activeSortElement"?
                                     search()
                                     :null
