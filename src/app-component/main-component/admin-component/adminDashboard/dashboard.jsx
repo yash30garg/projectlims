@@ -13,14 +13,35 @@ import AdminHeader from '../adminheader'
 
 var count = 0;
 class DashBoard extends Component {
+    constructor()
+    {
+        super();
+
+        this.state={
+            user:[],
+            output: [],
+        display: []
+        }
+    }
     	componentWillMount() {
 		requireAuth(window.location.href)
-	}
 
-    state = {
-        output: [],
-        display: []
-    }
+        fetch('http://localhost:3005/user/getUsers',{
+            method:'GET',
+            headers:{'Content-Type':'application/json'}
+        })
+        .then((res)=>res.json())
+        .then((res) =>{
+         console.log(res);
+         this.setState({user:res});
+        
+        		}
+        )}
+
+    // state = {
+    //     output: [],
+    //     display: []
+    // }
     componentDidMount() {
         axios
             .get('https://api.myjson.com/bins/14x90j')
@@ -36,6 +57,7 @@ class DashBoard extends Component {
     }
 
     render() {
+        window.users=this.state.user
         count = 0;
         const outputs = this
             .state
@@ -142,7 +164,7 @@ class DashBoard extends Component {
                                                         <div className="card-block">
                                                             <h2>
                                                                 <span className="fa fa-user" aria-hidden="true"></span>
-                                                                {count}
+                                                                {window.users.length}
                                                             </h2>
                                                             <h4>
                                                                 Users
