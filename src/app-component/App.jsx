@@ -33,9 +33,10 @@ class App extends Component {
   constructor() {
     super();
     var Backlen=window.history.length;  
-    storeBbooks.dispatch({type:"STORE_BBOOKS",payload: []}) 
+    // storeBbooks.dispatch({type:"STORE_BBOOKS",payload: []}) 
      window.history.go(-Backlen);
      this.state={
+       bbooks:[],
        display:[],
        wishlist:[]
      }
@@ -51,8 +52,10 @@ fetch('http://localhost:3005/borrowedBooks/getBooks',{
 })
 .then((res)=>res.json())
 .then((res)=>{
-  storeBbooks.dispatch({type:"STORE_BBOOKS",payload: res.data[0]})
+  // storeBbooks.dispatch({type:"STORE_BBOOKS",payload: res.data[0]})
+  // alert("dispatch")
   this.setState({
+    bbooks:res.data[0],
   wishlist:res.data[1]
   })
   // console.log(res.data[1])
@@ -77,6 +80,9 @@ fetch('http://localhost:3005/borrowedBooks/getBooks',{
         })
         .then((res)=>res.json())
         .then((res)=>{
+          console.log(res)
+          localStorage.setItem('token',res.token)
+          localStorage.setItem('role',res.user[0].role)
           if(res==="Exists"){
           this.getBorrowedData();
           }
@@ -93,7 +99,9 @@ fetch('http://localhost:3005/borrowedBooks/getBooks',{
       fetch('http://localhost:3005/books/getBooks',
       {
         method:'GET',
-        headers:{'Content-Type': 'application/json'}
+        headers:{'Content-Type': 'application/json',
+          'Authorization': localStorage.getItem('token')
+        }
       })
       .then((res)=>res.json())
       .then((res)=>{
@@ -107,8 +115,12 @@ fetch('http://localhost:3005/borrowedBooks/getBooks',{
 }
 
   render() {
+    // alert("app")
     window.wishlist=this.state.wishlist;
+    window.bbooks=this.state.bbooks;
     window.display=this.state.display;
+    storeBbooks.dispatch({type:"STORE_BBOOKS",payload:this.state.bbooks})
+    // alert(window.display.length)
     console.log(authContext._user.profile.given_name);
     user_name = authContext._user.profile.given_name;
     localStorage.setItem('limsuser', JSON.stringify(authContext._user))
@@ -118,7 +130,6 @@ fetch('http://localhost:3005/borrowedBooks/getBooks',{
     // let value ="Bearer" + localStorage.getItem('adal.access.token.keyfa61fc30-ea79-4d93-8038-65273b42c71c')
     // console.log(`https://graph.microsoft.com/beta/me/photo/${value}`)
     var UserDetails = JSON.parse(localStorage.getItem('limsuser'))
-    
     // this.getData();
     localStorage.setItem('mid',window.user)
     
