@@ -3,14 +3,14 @@ import {Link} from 'react-router-dom';
 
 let handle = (data) => {
     window.selected = data;
+    window.showDetails=true;
+    document.getElementById('detail').click();
 }
 export const WishedCard = (props) => {
     let res = props.data;
     return (
-        <Link to="/search/details">
             <div
                 className="card-img mx-auto particular"
-                onClick={() => handle(res)}
                 id={props.data.isbn}
                 style={{
                 height: "13rem",
@@ -31,7 +31,8 @@ export const WishedCard = (props) => {
                     style={{
                     backgroundColor: " rgba(97,65,38,0.9)",
                     fontSize:'13px'
-                }}>
+                }}
+                onClick={() => handle(res)}>
                     <div className="text container-fluid" style={{fontSize:'12px'}}>
                         <b>{props.data.title}</b><br/>
                         <b>Author :
@@ -70,7 +71,6 @@ export const WishedCard = (props) => {
                     </div>
                 </div>
             </div>
-        </Link>
     );
 
 }

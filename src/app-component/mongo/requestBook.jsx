@@ -13,6 +13,7 @@ export let requestBook=(newBook)=>{
         .then((res)=>{
             response=res;
             console.log(response.status);
+            // window.bbooks=res.data
             storeBbooks.dispatch({type:"STORE_BBOOKS",payload: res.data})
             console.log(res.data);
             // window.bbooks=res.data;
