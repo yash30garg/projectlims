@@ -41,7 +41,7 @@ componentWillMount() {
             {/*<Pbooks/>*/}
             {/*<BorrowedSlider/>*/}
             <Footer />
-            
+            <input type="button" className="btn btn-primary" value="Go To Admin" style={{position:"fixed",right:"0px",bottom:"0px"}}/>
             </div>
         );
     }
