@@ -3,6 +3,8 @@ import './bootheader.css';
 import {Link} from 'react-router-dom';
 let handle=(data)=>{
 window.selected=data;
+ window.showDetails=true;
+document.getElementById('detail').click();
 }
  class Category extends Component
 {
@@ -57,7 +59,6 @@ window.selected=data;
          
                 <div
                 key={`filter${res.isbn}`}
-                onClick={()=>handle(res)}
                 className="col-lg-2 col-md-4 col-sm-4 col-xs-4 mt-2 mb-3">
             
         <div
@@ -76,8 +77,7 @@ window.selected=data;
                    <div className="card-block card-text" style={{width:"160px", fontSize:"14px"}}>
                     {res.title}
                     </div>
-                    <Link to="/search/details">
-                     <div className="overlay" style={{backgroundColor: "rgba(97,65,38,0.9)"}}>
+                     <div className="overlay" style={{backgroundColor: "rgba(97,65,38,0.9)"}} onClick={()=>handle(res)}>
                     <div className="text container-fluid" style={{fontSize:'13px'}}>
                         <b>{res.title}</b><br/>
                         <b>Author :
@@ -98,7 +98,6 @@ window.selected=data;
                         })}
                     </div>
                 </div>
-                </Link>
                 <div className="buttonOverlay" style={{backgroundColor : "white"}} >
                 <div className="buttonText container-fluid" style={{fontSize:'20px'}}>
                 {this.state.wishlistIcon?<span onClick={this.changeToFilled} className="fa fa-heart-o" style={{color:'#CD853F'}}></span>:<span onClick={this.changeToEmpty} className="fa fa-heart" style={{color:'#CD853F'}}></span>}
@@ -119,7 +118,7 @@ return(
     <div>
         {this.props.isSearchClicked===false && window.showDetails===false?
     <div className="contained">
-        <ol className="breadcrumb" style={{backgroundColor : "#614126", color : "white", height:"45px" , fontSize : "15px"}}  >
+        <ol className="breadcrumb" style={{backgroundColor : "#614126", color : "white", height:"50px" , fontSize : "15px"}}  >
         <h5 >{this.props.selected.toUpperCase()} <span style={{float:'right',cursor:'pointer',paddingLeft:'85px'}} onClick={this.props.categoryCrossClicked}>x</span></h5>
         </ol>
     <div className="row ml-1 mr-1">

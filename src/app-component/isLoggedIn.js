@@ -21,25 +21,25 @@
 //         }
 // }
 
-export var requireAuth = (path) => {
+// export var requireAuth = (path) => {
 
-      if(localStorage.getItem('limsuser')!==null)
-        {
-            if(path==="http://limsreact.azurewebsites.net/#/login") {
-                window.location = "http://limsreact.azurewebsites.net/#/"
-            }
-            else {
-                // console.log(JSON.parse(localStorage.getItem('limsuser')))
-                console.log("yes")
-                // console.log(path)
-                window.location = path
-            }
-        }
-        else
-        {
-            console.log("No")
-            // console.log(path)
-            window.location.replace("http://limsreact.azurewebsites.net/#/login")
-            // window.locaton = "http://localhost:3000/#/login"
-        }
-}
+//       if(localStorage.getItem('limsuser')!==null)
+//         {
+//             if(path==="http://limsreact.azurewebsites.net/#/login") {
+//                 window.location = "http://limsreact.azurewebsites.net/#/"
+//             }
+//             else {
+//                 // console.log(JSON.parse(localStorage.getItem('limsuser')))
+//                 console.log("yes")
+//                 // console.log(path)
+//                 window.location = path
+//             }
+//         }
+//         else
+//         {
+//             console.log("No")
+//             // console.log(path)
+//             window.location.replace("http://limsreact.azurewebsites.net/#/login")
+//             // window.locaton = "http://localhost:3000/#/login"
+//         }
+// }
