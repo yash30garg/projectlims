@@ -43,6 +43,8 @@ class EachPrefferedCard extends Component{
 
     handle(){
         window.selected=this.props.item
+        window.showDetails=true;
+        document.getElementById('detail').click();
     }
     changeToFilled=()=>
     {
@@ -99,7 +101,6 @@ class EachPrefferedCard extends Component{
             
             <div
                 className="card-img particular mx-auto"
-                onClick={this.handle}
                 //  onClick={()=>this.handle(res)}
                 style={{
                     height:"13rem", width:"160px"
@@ -113,8 +114,7 @@ class EachPrefferedCard extends Component{
                     <div className="card-block card-text" style={{width:"160px", fontSize:"14px"}}>
                     {this.props.item.title}
                     </div>
-                    <Link to="/search/details">
-                <div className="overlay" style={{backgroundColor : "rgba(97,65,38,0.9)"}}>
+                <div className="overlay" style={{backgroundColor : "rgba(97,65,38,0.9)"}} onClick={this.handle}>
                     <div className="text container-fluid" style={{fontSize:'13px'}}>
                         <b>{this.props.item.title}</b><br/>
                         <b>Author :
@@ -136,7 +136,6 @@ class EachPrefferedCard extends Component{
                         })}
                     </div>
                 </div>
-                </Link>
                 <div className="buttonOverlay" style={{backgroundColor : "white"}} >
                 <div className="buttonText container-fluid" style={{fontSize:'20px'}}>
                 {this.state.wishlistIcon?<span onClick={this.changeToFilled} className="fa fa-heart-o" style={{color:'#CD853F'}}></span>:<span onClick={this.changeToEmpty} className="fa fa-heart" style={{color:'#CD853F'}}></span>}

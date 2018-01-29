@@ -40,8 +40,7 @@ export class EachTopCard extends Component{
         <div
             className="col-lg-2 col-md-6 col-sm-6 col-xs-6 my-3">
             
-            <div
-            onClick={()=>this.handle(res)}
+            <div           
                 className="card-img particular mx-auto"
                 id={this.props.isbn}
                 style={{
@@ -60,7 +59,7 @@ export class EachTopCard extends Component{
                     <div className="card-block card-text" style={{width:"160px", fontSize:"14px"}}>
                     {this.props.item.title}
                     </div>  
-                <div className="overlay" style={{backgroundColor : "rgba(97,65,38,0.9)"}}>
+                <div className="overlay" style={{backgroundColor : "rgba(97,65,38,0.9)"}} onClick={()=>this.handle(res)}>
                     <div className="text container-fluid" style={{fontSize:'13px'}}>
                         <b>{this.props.item.title}</b><br/>
                         <b>Author :
