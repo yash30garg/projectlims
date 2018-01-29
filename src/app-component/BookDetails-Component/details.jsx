@@ -446,7 +446,7 @@ class Details extends Component {
 
 		<div class="carders" > 
                 <ol className="breadcrumb" style={{backgroundColor : "#614126", color : "white", height:"50px" , fontSize : "15px"}}  >
-        <h5 >{book.title} <span id="openHome" style={{float:'right',cursor:'pointer',paddingLeft:'85px'}} onClick={this.props.detailsCrossClicked}>x</span></h5>
+        <h5 >{book.title} <span id="openHome" style={{float:'right',cursor:'pointer',paddingLeft:'85px'}} onClick={()=>{document.getElementById(window.setClickProps).click();}}>x</span></h5>
         </ol>
 			<div class="container-fluid" style={{padding:"3em"}}>
 				<div class="wrapper row">
