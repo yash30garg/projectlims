@@ -439,17 +439,16 @@ storeBbooks.getState().bbooks
                     </div>
                 </div>*/}
 
-                <div class="container">
+                <div>
+
 		<div class="carders" > 
-			<div class="container-fliud">
+                <ol className="breadcrumb" style={{backgroundColor : "#614126", color : "white", height:"50px" , fontSize : "15px"}}  >
+        <h5 >{book.title} <span style={{float:'right',cursor:'pointer',paddingLeft:'85px'}} onClick={this.props.detailsCrossClicked}>x</span></h5>
+        </ol>
+			<div class="container-fluid" style={{padding:"3em"}}>
 				<div class="wrapper row">
 					<div class="preview col-md-6">
-						
-						
-						  <div class="tab-pane active" id="pic-1"><img src={book.url} /></div>
-                          	
-						  
-						
+						  <div class="tab-pane active" id="pic-1"><img src={book.url} height="500px" width="400px"/></div>
 					</div>
 					<div class="details col-md-6">
 						<h3 class="product-title">{book.title}</h3>

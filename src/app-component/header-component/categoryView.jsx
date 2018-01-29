@@ -117,7 +117,7 @@ window.selected=data;
     })
 return(
     <div>
-        {this.props.isSearchClicked===false?
+        {this.props.isSearchClicked===false && window.showDetails===false?
     <div className="contained">
         <ol className="breadcrumb" style={{backgroundColor : "#614126", color : "white", height:"45px" , fontSize : "15px"}}  >
         <h5 >{this.props.selected.toUpperCase()} <span style={{float:'right',cursor:'pointer',paddingLeft:'85px'}} onClick={this.props.categoryCrossClicked}>x</span></h5>
