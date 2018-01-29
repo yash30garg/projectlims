@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../../logo.svg';
 import '../App.css';
-import Img from 'react-image'
+import Img from 'react-image';
 // import Search from '../search-component/Search'; import './header.css';
 // import PBooks from
 // '../main-component/admin-component/PreferredBooks/PrefferdBooks.jsx'; import
@@ -242,10 +242,7 @@ class Header extends Component {
 
                 <div data-toggle="dropdown">{this.state.greet} {user_name}<span style={{ paddingRight: "15px" }}></span>
                   {/*<img className="inset" src={url} />*/}
-                  <Img className="inset"
-                    src={url}
-                    loader={<LoadingEffect/>}
-                  />
+                  <Img className="inset" src={url}  loader={<LoadingEffect/>}  />
 
                     <span className="dropdown-toggle"></span></div>
                   <ul className="dropdown-menu dropdown-menu-right" style={{ backgroundColor: "#FFF8DC	" }} >
