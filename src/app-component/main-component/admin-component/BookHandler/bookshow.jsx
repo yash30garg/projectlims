@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import './bookshow.css';
 import { Link } from 'react-router-dom';
 // import SearchResultsAdmin from '../../../search-component/SearchResults.jsx';
-import {SearchAdmin} from './searchadmin';
+import SearchAdmin from './searchadmin';
 import DashBoardStats from '../admin-stats/adminstats';
 // import './searchdis.css';
 // import Footer from '../../../footer-component/footer.jsx';

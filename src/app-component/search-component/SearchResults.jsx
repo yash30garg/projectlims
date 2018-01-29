@@ -5,7 +5,7 @@ import $ from 'jquery';
 import { Link } from 'react-router-dom';
 import './Search.css';
 import {search,sortTitle,sortAuthor,sortPublish,sortRating} from './Search'
-import store from '../../state/store/store.js'y
+import store from '../../state/store/store.js'
 export var book;
 // let users,
 //     books;
