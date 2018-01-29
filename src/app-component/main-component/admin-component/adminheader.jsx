@@ -7,23 +7,21 @@ render()
 {
 
 return (
-                <nav class="navbar navbar-toggleable-md navbar-default" style={{backgroundColor:'#7e4a35'}}>
-                    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation"   >
-                        <span class="navbar-toggler-icon"></span></button>
-                    <button
-                        class="navbar-toggler navbar-toggler-right"
-                        type="button"
-                        data-toggle="collapse"
-                        data-target="#navbarsExampleDefault"
-                        aria-controls="navbarsExampleDefault"
-                        aria-expanded="false"
-                        aria-label="Toggle navigation">
-                        <span
-                            class="navbar-toggler-icon"
-                            style={{
-                                backgroundColor: "black"
-                            }}></span>
-                    </button>
+                
+                    
+                   
+<nav className="navbar navbar-toggleable-md navbar-light bg-faded" style={{ backgroundColor: "#614126" }}>
+          <button style={{ backgroundColor: '#fff' }}
+            className="navbar-toggler navbar-toggler-right"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarsExampleDefault"
+            aria-controls="navbarsExampleDefault"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span style={{ backgroundColor: '#fff' }} className="navbar-toggler-icon"></span>
+          </button>
+                           
                      <img 
             className="App-logo inset" 
 

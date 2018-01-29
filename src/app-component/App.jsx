@@ -80,6 +80,9 @@ fetch('http://localhost:3005/borrowedBooks/getBooks',{
         })
         .then((res)=>res.json())
         .then((res)=>{
+          console.log(res)
+          localStorage.setItem('token',res.token)
+          localStorage.setItem('role',res.user[0].role)
           if(res==="Exists"){
           this.getBorrowedData();
           }
@@ -96,7 +99,9 @@ fetch('http://localhost:3005/borrowedBooks/getBooks',{
       fetch('http://localhost:3005/books/getBooks',
       {
         method:'GET',
-        headers:{'Content-Type': 'application/json'}
+        headers:{'Content-Type': 'application/json',
+          'Authorization': localStorage.getItem('token')
+        }
       })
       .then((res)=>res.json())
       .then((res)=>{
