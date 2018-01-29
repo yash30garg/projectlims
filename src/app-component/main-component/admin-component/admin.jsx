@@ -7,6 +7,7 @@ import { BorrowedSlider } from '../user-component/borrowedBooks/borrowedSlider';
 
 export default class Admin extends Component
 {
+    
     render()
     {
         return(

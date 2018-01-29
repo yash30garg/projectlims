@@ -14,7 +14,16 @@ var count = 0;
 class DashBoard extends Component {
     	componentWillMount() {
 		requireAuth(window.location.href)
-	}
+
+        fetch('http://localhost:3005/user/getUsers',{
+            method:'GET',
+            headers:{'Content-Type':'application/json'}
+        })
+        .then((res)=>res.json())
+        .then((res) =>{
+         console.log(res);
+        		}
+        )}
 
     state = {
         output: [],
