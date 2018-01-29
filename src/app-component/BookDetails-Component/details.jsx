@@ -13,6 +13,7 @@ import {borrowDate, returnDate} from '../dates'
 // import book from '../search-component/SearchResults'
 // let users;
 var req = require('request');
+let bbooks;
 let response;
 let book,
     w = null,
@@ -25,6 +26,7 @@ class Details extends Component {
     constructor(props) {
         super(props);
         getDates();
+        bbooks=storeBbooks.getState().bbooks;
         b = (
             <button
                 className="btn btn-primary mt-3"
@@ -206,7 +208,7 @@ class Details extends Component {
     }
 
     renew = () => {
-storeBbooks.getState().bbooks
+            storeBbooks.getState().bbooks
             //eslint-disable-next-line            
             .map((res) => {
                 if (res.isbn === book.isbn) {
@@ -290,7 +292,7 @@ storeBbooks.getState().bbooks
     }
     
     request = () => {
-            if (storeBbooks.getState().bbooks.length < 4) {
+            if (bbooks.length < 4) {
                 //eslint-disable-next-line   
                 let bookAdded=new Object();
                 bookAdded.isbn=book.isbn;
@@ -356,6 +358,7 @@ storeBbooks.getState().bbooks
             }
     }
     render() {
+        bbooks=storeBbooks.getState().bbooks;
         book = this.props.data;
         return (
             <div style={{

@@ -8,6 +8,7 @@ import {returnBook} from '../../../mongo/returnBook';
 import storeBbooks from '../../../../state/store/storeBbooks';
 import {addWishlist} from '../../../mongo/addWishlist'
 import {removeWishlist} from '../../../mongo/removeWishlist'
+let bbooks;
 class EachPrefferedCard extends Component{
     constructor(props)
     {
@@ -15,8 +16,17 @@ class EachPrefferedCard extends Component{
         getDates();
         let reqVal=true
         let wishVal=true
-        storeBbooks.getState().bbooks.map(res=>{
+        // if(props.data.length!==0){
+        // console.log("called")
+        // }
+        // console.log(props.data)
+        console.log(props.data)
+        // bbooks=storeBbooks.getState().bbooks;
+        // console.log(bbooks)
+            // alert(window.bbooks.length);
+                 props.data.map(res=>{
             if(res.isbn===this.props.item.isbn){   
+                console.log("found")
             reqVal=false;
             }
         })
@@ -67,7 +77,7 @@ class EachPrefferedCard extends Component{
                 bookAdded.borrowedDate=borrowDate;
                 bookAdded.returnDate=returnDate;
                 bookAdded.isRenewed="false"; 
-                var books=[];
+                // var books=[];
                 requestBook(bookAdded);
                 // alert(books.length)
         this.setState({requestIcon:false});
@@ -81,6 +91,7 @@ class EachPrefferedCard extends Component{
 
     render()
     {
+        // console.log(this.props.data)
         //res=this.props.item;
     return (
         <div

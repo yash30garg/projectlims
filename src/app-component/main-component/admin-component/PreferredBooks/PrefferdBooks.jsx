@@ -1,48 +1,74 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import './PrefferedBooks.css';
+import storeBbooks from '../../../../state/store/storeBbooks';
 import EachPrefferedCard from './eachPreferredBook'
 // import $ from 'jquery'; var preferredBooks = [];
-
+let bbooks;
 class PBooks extends Component {
 
     constructor() {
         super();
+        // alert("in pf")
         this.state = {
             storeId: "imga"
         }
+        // this.getVal=this.getVal.bind(this);
     }
 
     // componentDidMount() {
     //             this.setState({display: window.display});
     // }
-
+    // getVal=()=>{
+    //     bbooks=storeBbooks.getState().bbooks;
+    //     this.setState({
+    //         books:bbooks
+    //     })
+    // }
     render()
     {
+        // if(this.state.books.length===0){
+        //     this.getVal();
+        // }
+        bbooks=storeBbooks.getState().bbooks;
+        // console.log(this.state.books.length)
+        // alert("pf")
+    //    let bbooks= storeBbooks.getState().bbooks;
+    //    console.log("in")
+    // //    console.log("in")
+    //    console.log(storeBbooks.getState().bbooks)
+        // console.log("val "+bbooks.length)
+    //    alert(bbooks.length)
+        // alert("pf")
 
         let s1,
             s2,
             s3,
             s4;
-        if (window.display.length !== 0) {
+        if (window.display.length !== 0 && bbooks.length !== 0) {
             let b = window.display
                 .filter((res) => res.rating >= 1 && (res.category === "Javascript" || res.category === "javascript"));
             s1 = <div className="carousel-item mt-2">
                 {b
                     .slice(0, 6)
                     .map((r) => {
-                        return (<EachPrefferedCard key={`pref${r.isbn}`} item={r}/>);
+                        return (<EachPrefferedCard key={`pref${r.isbn}`} item={r} data={bbooks}/>);
                     })}
             </div>
             b = window.display
                 .filter((res) => res.rating >= 1 && (res.category === "Angular" || res.category === "angular"));
+                if(bbooks.length!==0){
             s2 = <div className="carousel-item mt-2">
                 {b
                     .slice(0, 6)
                     .map((r) => {
-                        return (<EachPrefferedCard key={r.isbn} item={r}/>);
+                        return (<EachPrefferedCard key={r.isbn} item={r} data={bbooks}/>);
                     })}
             </div>
+                }
+                else{
+                    s2=<div></div>
+                }
             b = window.display
                 .filter((res) => res.rating >= 1 && 
                 (res.category === "React" || res.category === "react"));
@@ -50,7 +76,7 @@ class PBooks extends Component {
                 {b
                     .slice(0, 6)
                     .map((r) => {
-                        return (<EachPrefferedCard key={`book${r.isbn}`} item={r}/>);
+                        return (<EachPrefferedCard key={`book${r.isbn}`} item={r} data={bbooks}/>);
                     })}
             </div>
         }
