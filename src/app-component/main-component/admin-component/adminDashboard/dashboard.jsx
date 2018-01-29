@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './dashboard.css';
+import DashBoardStats from '../admin-stats/adminstats'
 import '../../../App.css'
 import AdminFooter from '../admin-footer-component/adminFooter';
 
@@ -12,14 +13,35 @@ import AdminHeader from '../adminheader'
 
 var count = 0;
 class DashBoard extends Component {
+    constructor()
+    {
+        super();
+
+        this.state={
+            user:[],
+            output: [],
+        display: []
+        }
+    }
     	componentWillMount() {
 		requireAuth(window.location.href)
-	}
 
-    state = {
-        output: [],
-        display: []
-    }
+        fetch('http://localhost:3005/user/getUsers',{
+            method:'GET',
+            headers:{'Content-Type':'application/json'}
+        })
+        .then((res)=>res.json())
+        .then((res) =>{
+         console.log(res);
+         this.setState({user:res});
+        
+        		}
+        )}
+
+    // state = {
+    //     output: [],
+    //     display: []
+    // }
     componentDidMount() {
         axios
             .get('https://api.myjson.com/bins/14x90j')
@@ -35,6 +57,7 @@ class DashBoard extends Component {
     }
 
     render() {
+        window.users=this.state.user
         count = 0;
         const outputs = this
             .state
@@ -89,12 +112,12 @@ class DashBoard extends Component {
 
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                         <Link to="/bookadd">
-                                        <a class="dropdown-item" href="!#">Add Book(s)</a>
+                                        <a class="dropdown-item">Add Book(s)</a>
                                         </Link>
                                         <Link to="/bookedit">
-                                        <a class="dropdown-item" href="!#">Edit Book(s)</a>
+                                        <a class="dropdown-item" >Edit Book(s)</a>
                                         </Link>
-                                        <a class="dropdown-item" href="!#">Edit User(s)
+                                        <a class="dropdown-item" >Edit User(s)
                                         </a>
                                     </div>
                                 </div>
@@ -123,65 +146,9 @@ class DashBoard extends Component {
                     <div className="container-fluid">
                         <div className="row">
                             <div className="col-md-3">
-
-                                <div className="list-group">
-                                    <a href="!#" class="list-group-item active">
-                                        <span class="fa fa-cog" aria-hidden="true"></span>
-                                        DashBoard</a>
-                                    <a href="!#" class="list-group-item  list-group-item-action">
-                                        <span class="fa fa-list-alt" aria-hidden="true"></span>Total Books<div
-                                            className='mov'
-                                            style={{
-                                                paddingRight: "170px"
-                                            }} />
-                                        <span class="badge  badge-pill badge-warning">{this.state.display.length}</span>
-                                    </a>
-                                    <a href="!#" class="list-group-item  list-group-item-action">
-                                        <span class="fa fa-pencil" aria-hidden="true"></span>Books available<div
-                                            className='mov'
-                                            style={{
-                                                paddingRight: "150px"
-                                            }} />
-                                        <span className="badge badge-pill badge-warning">75</span>
-                                    </a>
-                                    <a href="!#" class="list-group-item  list-group-item-action">
-                                        <span class="fa fa-user" aria-hidden="true"></span>Users<div
-                                            className='mov'
-                                            style={{
-                                                paddingRight: "227px"
-                                            }} />
-                                        <span className="badge badge-pill badge-warning mov">{count}</span>
-                                    </a>
-                                    {/*<a href="!#" class="list-group-item list-group-item-action disabled">Vestibulum at eros</a>*/}
-                                </div>
-
-                                <br />
-                                <div className="card">
-                                    <div className="card-header card-primary">
-                                        <div className="t">
-                                            <span className="fa fa-list" aria-hidden="true"></span>
-                                            Books Stats
-                                        </div>
-                                    </div>
-                                    <h6 className="he5">Books Available :</h6>
-                                    <div className="p1">
-                                        <div class="progress">
-                                            <div class="progress-bar" role="progressbar" style={{ width: "60%" }} aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">60%</div>
-                                        </div>
-                                    </div>
-
-                                    <h6 className="he6">
-                                        Books to be returned :</h6>
-                                    <div className="p2">
-                                        <div class="progress">
-                                            <div class="progress-bar" role="progressbar" style={{ width: "40%" }} aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">40%</div>
-                                        </div>
-
-                                    </div>
-                                </div>
-
+                            <DashBoardStats />
+                           
                             </div>
-
                             <div className="col-md-9">
 
                                 <div className="card">
@@ -197,7 +164,7 @@ class DashBoard extends Component {
                                                         <div className="card-block">
                                                             <h2>
                                                                 <span className="fa fa-user" aria-hidden="true"></span>
-                                                                {count}
+                                                                {window.users.length}
                                                             </h2>
                                                             <h4>
                                                                 Users
