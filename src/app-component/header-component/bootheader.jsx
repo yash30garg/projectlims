@@ -203,10 +203,16 @@ class BootHeader extends Component {
             this.setState({ plus: plus });
         }
     }
+    
+    componentDidMount() {
+        if(window.innerWidth<=500)
+            document.getElementById('categoryDiv').click();
+    }
     render() {
 //         if (this.state.redirect) {
 //     return <Redirect push to="/search" />;
 //   }
+
         let brr = [];
         // store.subscribe(()=> {
         //     console.log(store.getState().search)
@@ -354,8 +360,10 @@ class BootHeader extends Component {
                                                 color: "white"
                                                 
                                             }}
+                                            id="categoryDiv"
                                             onClick={this.plusClicked}>
-
+                                            {console.log(window.innerWidth)}
+                                            
                                             <div className="col-md-0 fa fa-list-alt" aria-hidden="true"></div>
                                             <div
                                                 className="col"
