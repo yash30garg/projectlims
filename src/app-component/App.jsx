@@ -80,7 +80,26 @@ fetch('http://localhost:3005/borrowedBooks/getBooks',{
         })
         .then((res)=>res.json())
         .then((res)=>{
-          if(res==="Exists"){
+          console.log(res)
+          localStorage.setItem('token',res.token)
+          localStorage.setItem('role',res.user[0].role)
+          fetch('http://localhost:3005/books/getBooks',
+        {
+        method:'GET',
+        headers:{'Content-Type': 'application/json',
+          'Authorization': res.token
+        }
+      })
+      .then((res)=>res.json())
+      .then((res)=>{
+  console.log("booksssssss");
+  this.setState({
+    display:res
+  })
+  console.log(res);
+
+    })
+          if(res.status==="Exists"){
           this.getBorrowedData();
           }
         })
@@ -93,26 +112,28 @@ fetch('http://localhost:3005/borrowedBooks/getBooks',{
       // alert(res[1])
       window.user=id[1];
       this.addUser(user)
-      fetch('http://localhost:3005/books/getBooks',
-      {
-        method:'GET',
-        headers:{'Content-Type': 'application/json'}
-      })
-      .then((res)=>res.json())
-      .then((res)=>{
-  console.log("booksssssss");
-  this.setState({
-    display:res
-  })
-  console.log(res);
+  //     fetch('http://localhost:3005/books/getBooks',
+  //     {
+  //       method:'GET',
+  //       headers:{'Content-Type': 'application/json',
+  //         'Authorization': localStorage.getItem('token')
+  //       }
+  //     })
+  //     .then((res)=>res.json())
+  //     .then((res)=>{
+  // console.log("booksssssss");
+  // this.setState({
+  //   display:res
+  // })
+  // console.log(res);
 
-    })
+  //   })
 }
 
   render() {
     // alert("app")
     window.wishlist=this.state.wishlist;
-    window.bbooks=this.state.bbooks;
+    // window.bbooks=this.state.bbooks;
     window.display=this.state.display;
     storeBbooks.dispatch({type:"STORE_BBOOKS",payload:this.state.bbooks})
     // alert(window.display.length)

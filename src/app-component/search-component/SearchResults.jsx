@@ -31,6 +31,7 @@ class SearchResults extends Component {
         window.selected = res;
         window.showDetails=true;
         document.getElementById('detail').click();
+         window.setClickProps="searchDetailsCross"
     }
 
         changeToFilled=()=>
@@ -127,7 +128,7 @@ class SearchResults extends Component {
             <div>
                 {this.props.isSearchClicked ? <div className="contained">
                     <ol className="breadcrumb" style={{ backgroundColor: "#614126", color: "white" }}  >
-                        <h5 >{this.props.divName}<span style={{ float: 'right', cursor: 'pointer', paddingLeft: '70px' }} onClick={this.props.searchCrossClicked}>x</span></h5>
+                        <h5 >{this.props.divName}<span style={{ float: 'right', cursor: 'pointer', paddingLeft: '70px' }} id="openHome" onClick={this.props.searchCrossClicked}>x</span></h5>
                     </ol>
                     {processedData.length>1?
                     <section className="sortInline">

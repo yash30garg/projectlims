@@ -203,10 +203,16 @@ class BootHeader extends Component {
             this.setState({ plus: plus });
         }
     }
+    
+    componentDidMount() {
+        if(window.innerWidth<=500)
+            document.getElementById('categoryDiv').click();
+    }
     render() {
 //         if (this.state.redirect) {
 //     return <Redirect push to="/search" />;
 //   }
+
         let brr = [];
         // store.subscribe(()=> {
         //     console.log(store.getState().search)
@@ -299,6 +305,9 @@ class BootHeader extends Component {
                                         <div id="os" onClick={this.openSearch} ></div>
                                         <div id="cs" onClick={this.closeSearch}></div>
                                         <div id="detail" onClick={this.openDetails}></div>
+                                        <div id="topDetailsCross" onClick={this.closeDetails}></div>
+                                        <div id="searchDetailsCross" onClick={this.openSearch}></div>
+                                        <div id="categoryDetailsCross" onClick={this.closeDetails}></div>
            <a>                             
             <button type="button"
             onClick={this.openBorrowedBooks}
@@ -354,8 +363,10 @@ class BootHeader extends Component {
                                                 color: "white"
                                                 
                                             }}
+                                            id="categoryDiv"
                                             onClick={this.plusClicked}>
-
+                                            {console.log(window.innerWidth)}
+                                            
                                             <div className="col-md-0 fa fa-list-alt" aria-hidden="true"></div>
                                             <div
                                                 className="col"
@@ -404,14 +415,6 @@ class BootHeader extends Component {
                                         </div>
                                     </div>
                                 </div>
-
-
-
-
-
-
-
-
 
                                 <div className="col-md-9">
                                     <div>
