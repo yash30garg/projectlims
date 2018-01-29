@@ -12,13 +12,61 @@ import '../../../../../node_modules/@ckeditor/ckeditor5-build-classic/build/cked
 import AdminHeader from '../adminheader'
 
 var debounce = require('debounce');
-var count = 0;
+var count = 0,gotBook='';
 
 class BookEdit extends Component {
     componentWillMount() {
         requireAuth(window.location.href)
     }
 
+    findBook = (e) => {
+        e.preventDefault();
+        fetch('http://localhost:3005/admineditbook/findBook', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            // form:{mid:"1042932"}
+            body: JSON.stringify({
+                isbn: document.getElementById('findBookIsbn').value,
+            })
+        })
+            // .then(res=>(res.json))
+            .then((res) => res.json())
+            .then((res) => {
+                if (res === "Book Doesn't Exist, Add It !!!")
+                    alert(res)
+                else {
+                    alert(res[0])
+                    console.log(res)
+                    document.getElementById('editBookIsbn').value = res[0].isbn;
+                    document.getElementById('editBookTitle').value = res[0].title;
+                    document.getElementById('editBookAuthor').value = res[0].author;
+                    document.getElementById('editBookPublisher').value = res[0].publisher;
+                    document.getElementById('editBookRatings').value = res[0].rating;
+                    document.getElementById('editBookCopies').value = res[0].copies;
+                    document.getElementById('editBookUrl').value = res[0].url;
+                    document.getElementById('editBookCategory').value = res[0].category;
+                    document.getElementById('editBookYear').value = res[0].year;
+                    
+                }
+            })
+    }
+    deleteBook = (e) => {
+        e.preventDefault();
+                    fetch('http://localhost:3005/admindeletebook/removeBook', {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            // form:{mid:"1042932"}
+            body: JSON.stringify({
+                isbn: document.getElementById('findBookIsbn').value,
+            })
+        }).then((res)=>res.json())
+        .then((res)=> {
+            console.log(res)
+            if(res === "Book Deleted")
+            alert("Book Deleted")
+            else{alert("Book Not Deleted")}
+        })
+}
     render() {
 
         return (
@@ -130,12 +178,12 @@ class BookEdit extends Component {
 
                                         <div class="form-group" style={{textAlign : "left"}}>
                                                 ISBN:
-                                                <input type="text" class="form-control" id="email" />  
+                                                <input type="text" class="form-control" id="findBookIsbn" />  
                                                 </div>
                                                 
-                                            <div style={{textAlign:'left'}}><button type="button" class="btn btn-warning" style={{alignContent : "left"}}>Edit Book</button>
+                                            <div style={{textAlign:'left'}}><button type="button" onClick={this.findBook} class="btn btn-warning" style={{alignContent : "left"}}>Edit Book</button>
 
-                                            <button type="submit" class="btn btn-danger" style={{marginLeft :'30px'}}>Delete Book</button>
+                                            <button onClick={this.deleteBook} class="btn btn-danger" style={{marginLeft :'30px'}}>Delete Book</button>
                                             
                                             </div>
                                             
@@ -143,43 +191,43 @@ class BookEdit extends Component {
 
                                             <div class="form-group " style={{textAlign : "left"}}>
                                                 ISBN:
-                                                <input type="text" class="form-control" id="email" />  
+                                                <input type="text" class="form-control" id="editBookIsbn" />  
                                                 </div>
 
                                                  <div class="form-group " style={{textAlign : "left"}}>
                                                 Title:
-                                                <input type="text" class="form-control" id="email" />  
+                                                <input type="text" class="form-control" id="editBookTitle" />  
                                                 </div>
                                                  <div class="form-group " style={{textAlign : "left"}}>
                                                 Author:
-                                                <input type="text" class="form-control" id="email" />  
+                                                <input type="text" class="form-control" id="editBookAuthor" />  
                                                 </div>
                                                  <div class="form-group " style={{textAlign : "left"}}>
                                                 Category:
-                                                <input type="text" class="form-control" id="email" />  
+                                                <input type="text" class="form-control" id="editBookCategory" />  
                                                 </div>
                                                  <div class="form-group " style={{textAlign : "left"}}>
                                                 Publisher:
-                                                <input type="text" class="form-control" id="email" />  
+                                                <input type="text" class="form-control" id="editBookPublisher" />  
                                                 </div>
                                                  <div class="form-group " style={{textAlign : "left"}}>
                                                 Ratings:
-                                                <input type="text" class="form-control" id="email" />  
+                                                <input type="text" class="form-control" id="editBookRatings" />  
                                                 </div>
 
                                                  <div class="form-group " style={{textAlign : "left"}}>
                                                 Copies:
-                                                <input type="text" class="form-control" id="email" />  
+                                                <input type="text" class="form-control" id="editBookCopies" />  
                                                 </div>
 
                                                  <div class="form-group " style={{textAlign : "left"}}>
                                                 URL:
-                                                <input type="text" class="form-control" id="email" />  
+                                                <input type="text" class="form-control" id="editBookUrl" />  
                                                 </div>
 
                                                  <div class="form-group " style={{textAlign : "left"}}>
                                                 Year:
-                                                <input type="text" class="form-control" id="email" />  
+                                                <input type="text" class="form-control" id="editBookYear" />  
                                                 </div>
 
                                                 
