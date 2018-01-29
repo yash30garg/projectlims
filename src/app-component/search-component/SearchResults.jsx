@@ -29,6 +29,8 @@ class SearchResults extends Component {
 
     handle(res) {
         window.selected = res;
+        window.showDetails=true;
+        document.getElementById('detail').click();
     }
 
         changeToFilled=()=>
@@ -60,7 +62,7 @@ class SearchResults extends Component {
                                 width: '200px',
                                 height: '16rem',
                                 paddingBottom: '0px'
-                            }} onClick={() => this.handle(res)}>
+                            }}>
                             <img
                                 className="card-img-top"
                                 src={res.url}
@@ -77,8 +79,7 @@ class SearchResults extends Component {
                             <div className="card-block card-text">
                                 {res.title}
                             </div>
-                            <Link to="/search/details">
-                            <div className="overlay" style={{ backgroundColor: "rgba(97,65,38,0.9)" }}>
+                            <div className="overlay" style={{ backgroundColor: "rgba(97,65,38,0.9)" }} onClick={() => this.handle(res)}>
                                 <div className="text container-fluid" style={{ fontSize: '15px' }}>
                                     {res.title}<br />
                                     <b>Author: </b> {res.author}<br />
@@ -97,7 +98,6 @@ class SearchResults extends Component {
                                     <br />
                                 </div>                        
                             </div>
-                            </Link>
                 <div className="buttonOverlay" style={{backgroundColor : "white"}} >
                 <div className="buttonText container-fluid" style={{fontSize:'20px'}}>
                 {this.state.wishlistIcon?<span onClick={this.changeToFilled} className="fa fa-heart-o" style={{color:'#CD853F'}}></span>:<span onClick={this.changeToEmpty} className="fa fa-heart" style={{color:'#CD853F'}}></span>}

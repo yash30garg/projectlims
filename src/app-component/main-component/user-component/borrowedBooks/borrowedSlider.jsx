@@ -38,6 +38,7 @@ class BorrowedSlider extends Component
 
  render()
  {
+     let bbooks=storeBbooks.getState().bbooks;
     //  const outputs=window.users.filter(temp=>temp.user.mid===id).map(result=>{
     //     return(<UserBooks key={result.user.mid} list={result.borrowedbooks}/>);
     //  });
@@ -45,9 +46,9 @@ class BorrowedSlider extends Component
         <h5 style={{textAlign:'center',color:"#614126", paddingLeft : "10px"}}>You haven't borrowed any books yet!</h5>
         </div>
         // console.log(bbooks)
-        if(storeBbooks.getState().bbooks.length!==0)
+        if(bbooks.length!==0)
         {
-            outputs=<UserBooks key={id} list={storeBbooks.getState().bbooks}/>;
+            outputs=<UserBooks key={id} list={bbooks}/>;
         }
      return(
     <div className="contained mt-4">

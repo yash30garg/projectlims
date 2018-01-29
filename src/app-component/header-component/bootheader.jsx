@@ -69,6 +69,7 @@ class BootHeader extends Component {
             wishlistClicked: false,
             searchClicked: false,
         });
+        window.showDetails=false;
     }
     closeCategory = () => {
         this.setState({
@@ -89,6 +90,7 @@ class BootHeader extends Component {
             wishlistClicked: false,
             passWish: true
         });
+        window.showDetails=false;
     }
 
     closeBorrowed = () => {
@@ -111,6 +113,7 @@ class BootHeader extends Component {
             borrowedClicked: false,
             passBorrowed: true
         });
+        window.showDetails=false;
     }
 
     closeWishlist = () => {
@@ -135,6 +138,7 @@ class BootHeader extends Component {
             searchClicked : true,
             sortedData: store.getState().sorted_Data,
         })
+        window.showDetails=false;
         if(store.getState().sorted_Data.length===0)
         this.setState({searchArg: "No Results found for your search: "+ document.getElementById('key').value})
         else
@@ -154,6 +158,35 @@ class BootHeader extends Component {
         });
        document.getElementById('key').value="";
     }
+    openDetails=()=>
+    {
+            this.setState({
+            landingView: false,
+            categoryClicked: false,
+            borrowedClicked: false,
+            passBorrowed: false,
+            passWish: false,
+            wishlistClicked: false,
+            searchResults: false,
+            searchClicked : false,
+        })
+    }
+    closeDetails=()=>
+    {
+         window.showDetails=false;
+            this.setState({
+            landingView: true,
+            categoryClicked: true,
+            borrowedClicked: false,
+            passBorrowed: false,
+            wishlistClicked: false,
+            passWish: false,
+            searchResults: false,
+            searchClicked:false
+        });
+       
+    }
+
 
     plusClicked = () => {
         if (check === "-") {
@@ -271,6 +304,7 @@ class BootHeader extends Component {
 
                                         <div id="os" onClick={this.openSearch} ></div>
                                         <div id="cs" onClick={this.closeSearch}></div>
+                                        <div id="detail" onClick={this.openDetails}></div>
            <a>                             
             <button type="button"
             onClick={this.openBorrowedBooks}
@@ -416,6 +450,9 @@ class BootHeader extends Component {
                                                 result={this.state.sortedData}
                                                 isSearchClicked={this.state.searchClicked}
                                                 searchCrossClicked={this.closeSearch} />}
+                                    </div>
+                                    <div>
+                                    {window.showDetails?<Details data={window.selected} detailsCrossClicked={this.closeDetails}/>:null}
                                     </div>
                                 </div>
                             </div>

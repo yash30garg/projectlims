@@ -1,8 +1,11 @@
-import React from 'react';
+// import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './app-component/App.jsx';
 import axios from 'axios';
+import React, { Component } from 'react'
+import { Provider as AlertProvider } from 'react-alert'
+import AlertTemplate from 'react-alert-template-basic'
 // import registerServiceWorker from './registerServiceWorker';
 import { runWithAdal } from 'react-adal';
 import { authContext } from './adalConfig';
@@ -34,8 +37,25 @@ import '../node_modules/bootstrap/scss/bootstrap.scss';
 
 
 // getData();
-
+const options = {
+  position: 'bottom center',
+  timeout: 5000,
+  offset: '30px',
+  transition: 'scale'
+}
+class Root extends Component  {
+  render () {
+    return (
+      <AlertProvider template={AlertTemplate} {...options}>
+        <App />
+      </AlertProvider>
+    )
+  }
+}
 runWithAdal(authContext, () => {
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+    
+    <Root />, document.getElementById('root')
+    );
 });
 // registerServiceWorker();

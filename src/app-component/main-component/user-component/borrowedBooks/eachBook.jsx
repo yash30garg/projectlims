@@ -4,14 +4,14 @@ import {Link} from 'react-router-dom';
 // import $ from 'jquery';
 let handle = (data) => {
     window.selected = data;
+    window.showDetails=true;
+    document.getElementById('detail').click();
 }
 const Card = (props) => {
     let res = props.data;
     return (
-        <Link to="/search/details">
             <div
-                className="card-img mx-auto particular"
-                onClick={() => handle(res)}
+                className="card-img mx-auto particular"               
                 id={props.data.isbn}
                 style={{
                 height: "13rem",
@@ -31,14 +31,14 @@ const Card = (props) => {
                     className="overlay"
                     style={{
                     backgroundColor: "rgba(97,65,38,0.9)"
-                }}>
+                }}
+                onClick={() => handle(res)}>
                     <div className="text container-fluid" style={{fontSize:'13px'}}>
                         <b>{props.data.title}</b><br/><br/>
                         <p>Return by {props.data.returnDate}</p>
                     </div>
                 </div>
             </div>
-        </Link>
 
     );
 
