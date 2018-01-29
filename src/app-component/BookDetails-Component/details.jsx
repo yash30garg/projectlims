@@ -3,6 +3,7 @@ import './details.css';
 import '../search-component/Search.css';
 import storeBbooks from '../../state/store/storeBbooks'
 import $ from 'jquery';
+import { withAlert } from 'react-alert'
 import {requestBook} from '.././mongo/requestBook'
 import {returnBook} from '.././mongo/returnBook'
 import {addWishlist} from '.././mongo/addWishlist'
@@ -13,7 +14,7 @@ import {borrowDate, returnDate} from '../dates'
 // import book from '../search-component/SearchResults'
 // let users;
 var req = require('request');
-let bbooks;
+// let bbooks;
 let response;
 let book,
     w = null,
@@ -26,7 +27,7 @@ class Details extends Component {
     constructor(props) {
         super(props);
         getDates();
-        bbooks=storeBbooks.getState().bbooks;
+        // bbooks=storeBbooks.getState().bbooks;
         b = (
             <button
                 className="btn btn-primary mt-3"
@@ -292,7 +293,7 @@ class Details extends Component {
     }
     
     request = () => {
-            if (bbooks.length < 4) {
+            if (storeBbooks.getState().bbooks.length < 4) {
                 //eslint-disable-next-line   
                 let bookAdded=new Object();
                 bookAdded.isbn=book.isbn;
@@ -305,6 +306,7 @@ class Details extends Component {
                 bookAdded.returnDate=returnDate;
                 bookAdded.isRenewed="false";            
                 requestBook(bookAdded);
+                this.props.alert.show('Oh look, an alert!')
                 a = b = (
                     <div>
                         <button
@@ -358,13 +360,21 @@ class Details extends Component {
             }
     }
     render() {
-        bbooks=storeBbooks.getState().bbooks;
+
+        // bbooks=storeBbooks.getState().bbooks;
         book = this.props.data;
         return (
             <div style={{
                 backgroundColor: "#FFF8DC"
             }}>
                 {this.state.msg}
+                <button
+        onClick={() => {
+          this.props.alert.show('Oh look, an alert!')
+        }}
+      >
+        Show Alert
+      </button>
                 {/*<div
                     className="container"
                     style={{
@@ -446,7 +456,7 @@ class Details extends Component {
 
 		<div class="carders" > 
                 <ol className="breadcrumb" style={{backgroundColor : "#614126", color : "white", height:"50px" , fontSize : "15px"}}  >
-        <h5 >{book.title} <span id="openHome" style={{float:'right',cursor:'pointer',paddingLeft:'85px'}} onClick={this.props.detailsCrossClicked}>x</span></h5>
+        <h5 >{book.title} <span id="openHome" style={{float:'right',cursor:'pointer',paddingLeft:'85px'}} onClick={()=>{document.getElementById(window.setClickProps).click();}}>x</span></h5>
         </ol>
 			<div class="container-fluid" style={{padding:"3em"}}>
 				<div class="wrapper row">
@@ -516,5 +526,5 @@ class Details extends Component {
     }
 
 }
-export default Details;
+export default withAlert(Details);
 // <img src={book.details.url} style={{height:"100vh", width:"50vw"}}/>
