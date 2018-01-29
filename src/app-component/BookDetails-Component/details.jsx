@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './details.css';
 import '../search-component/Search.css';
+import storeBbooks from '../../state/store/storeBbooks'
 import $ from 'jquery';
 import {requestBook} from '.././mongo/requestBook'
 import {returnBook} from '.././mongo/returnBook'
@@ -58,8 +59,7 @@ class Details extends Component {
             wish: w,
             msg: ""
         };
-        window
-            .bbooks
+        storeBbooks.getState().bbooks
             //eslint-disable-next-line            
             .map(res => {
                 if (res.isbn === this.props.data.isbn) {
@@ -206,8 +206,7 @@ class Details extends Component {
     }
 
     renew = () => {
-        window
-            .bbooks
+storeBbooks.getState().bbooks
             //eslint-disable-next-line            
             .map((res) => {
                 if (res.isbn === book.isbn) {
@@ -291,7 +290,7 @@ class Details extends Component {
     }
     
     request = () => {
-            if (window.bbooks.length < 4) {
+            if (storeBbooks.getState().bbooks.length < 4) {
                 //eslint-disable-next-line   
                 let bookAdded=new Object();
                 bookAdded.isbn=book.isbn;

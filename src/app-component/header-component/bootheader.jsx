@@ -3,6 +3,7 @@ import axios from 'axios';
 import './bootheader.css';
 import {Link} from 'react-router-dom'
 import {Redirect} from 'react-router'
+import storeBbooks from '../../state/store/storeBbooks'
 // import Footer from '../footer-component/footer.jsx';
 // import Header from './header.jsx';
 // import Pbooks from '../main-component/admin-component/PreferredBooks/PrefferdBooks.jsx';
@@ -276,7 +277,7 @@ class BootHeader extends Component {
                 textAlign: "left", textTransform:'capitalize'
             }}>Borrowed books</div>
             <div className="row">
-                <div className="badge badge-pill badge-warning mr-3">{window.bbooks.length}</div>
+                <div className="badge badge-pill badge-warning mr-3">{storeBbooks.getState().bbooks.length}</div>
            
             </div>
         </button>

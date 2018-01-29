@@ -9,6 +9,7 @@ import SearchResults from './search-component/SearchResults'
 import {BookDetails} from '../app-component/BookDetails-Component/bookDetails'
 import DashBoard from  '../app-component/main-component/admin-component/adminDashboard/dashboard.jsx';
 import Login from './main-component/login-component/login.jsx';
+import storeBbooks from '../state/store/storeBbooks';
 import { HashRouter, Route, Switch } from 'react-router-dom';
 // import { BrowserRouter } from 'react-router-dom';
 import { User } from './main-component/user-component/user';
@@ -25,40 +26,22 @@ import BookEdit from '../app-component/main-component/admin-component/admin-upda
 // import { AuthenticationContext, adalGetToken, adalFetch } from 'react-adal';
 export var user_name;
 var req = require('request');
+// let res;
 // let users;
 window.display='';
 class App extends Component {
   constructor() {
     super();
-    var Backlen=window.history.length;   
+    var Backlen=window.history.length;  
+    storeBbooks.dispatch({type:"STORE_BBOOKS",payload: []}) 
      window.history.go(-Backlen);
      this.state={
        display:[],
-       wishlist:[],
-       bbooks:[]
+       wishlist:[]
      }
   }
   
-
-    componentWillMount()
-    {
-      fetch('http://localhost:3005/books/getBooks',
-      {
-        method:'GET',
-        headers:{'Content-Type': 'application/json'}
-      })
-      .then((res)=>res.json())
-      .then((res)=>{
-  console.log("booksssssss");
-  this.setState({
-    display:res
-  })
-  console.log(res);
-
-    })
-    }
-
-  getBorrowedData(){
+getBorrowedData(){
 fetch('http://localhost:3005/borrowedBooks/getBooks',{
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
@@ -68,9 +51,8 @@ fetch('http://localhost:3005/borrowedBooks/getBooks',{
 })
 .then((res)=>res.json())
 .then((res)=>{
-  console.log("borrowed values");
+  storeBbooks.dispatch({type:"STORE_BBOOKS",payload: res.data[0]})
   this.setState({
-  bbooks:res.data[0],
   wishlist:res.data[1]
   })
   // console.log(res.data[1])
@@ -89,23 +71,44 @@ fetch('http://localhost:3005/borrowedBooks/getBooks',{
                 email:UserDetails.userName,
                 mid:window.user,
                 role:"user",
-                borrowedbooks:[]
-                // wishlist:[]
+                borrowedbooks:[],
+                wishlist:[]
             })
         })
-        // .then(res=>(res.json))
         .then((res)=>res.json())
         .then((res)=>{
-          if(res==="Exists")
+          if(res==="Exists"){
           this.getBorrowedData();
+          }
         })
   }
+  componentWillMount()
+    {
+      var user=authContext._user;
+      let mid=user.userName.split("@");
+      let id=mid[0].split("M")
+      // alert(res[1])
+      window.user=id[1];
+      this.addUser(user)
+      fetch('http://localhost:3005/books/getBooks',
+      {
+        method:'GET',
+        headers:{'Content-Type': 'application/json'}
+      })
+      .then((res)=>res.json())
+      .then((res)=>{
+  console.log("booksssssss");
+  this.setState({
+    display:res
+  })
+  console.log(res);
+
+    })
+}
 
   render() {
-    window.bbooks=this.state.bbooks;
     window.wishlist=this.state.wishlist;
     window.display=this.state.display;
-    console.log(window.bbooks.length)
     console.log(authContext._user.profile.given_name);
     user_name = authContext._user.profile.given_name;
     localStorage.setItem('limsuser', JSON.stringify(authContext._user))
@@ -115,14 +118,9 @@ fetch('http://localhost:3005/borrowedBooks/getBooks',{
     // let value ="Bearer" + localStorage.getItem('adal.access.token.keyfa61fc30-ea79-4d93-8038-65273b42c71c')
     // console.log(`https://graph.microsoft.com/beta/me/photo/${value}`)
     var UserDetails = JSON.parse(localStorage.getItem('limsuser'))
-    let mid=UserDetails.userName.split("@");
-    let res=mid[0].split("M")
-    // alert(res[1])
-    window.user=res[1];
-    this.addUser(UserDetails);
     
     // this.getData();
-    localStorage.setItem('mid',res[1])
+    localStorage.setItem('mid',window.user)
     
     // alert(window.user);
     //  axios.get('https://api.myjson.com/bins/14x90j')
