@@ -308,6 +308,9 @@ class BootHeader extends Component {
                                         <div id="topDetailsCross" onClick={this.closeDetails}></div>
                                         <div id="searchDetailsCross" onClick={this.openSearch}></div>
                                         <div id="categoryDetailsCross" onClick={this.closeDetails}></div>
+                                        <div id="wishlistDetailsCross" onClick={this.openWishlist}></div>
+                                        <div id="borrowedDetailsCross" onClick={this.openBorrowedBooks}></div>
+                                        
            <a>                             
             <button type="button"
             onClick={this.openBorrowedBooks}

@@ -6,6 +6,7 @@ let handle = (data) => {
     window.selected = data;
     window.showDetails=true;
     document.getElementById('detail').click();
+    window.setClickProps="borrowedDetailsCross";
 }
 const Card = (props) => {
     let res = props.data;
