@@ -3,7 +3,7 @@ import './bootheader.css';
 
 export const EachListItem = (props) => {
     return (
-        <a>
+        <a id={`i${props.categoryName}`} href='#' style={{textDecoration:'none'}}>
        
         <button type="button"
             onClick={props

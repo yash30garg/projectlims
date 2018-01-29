@@ -116,7 +116,7 @@ document.getElementById('detail').click();
 
     })
 return(
-    <div>
+    <div id={`i${this.props.selected.toLowerCase()}`}>
         {this.props.isSearchClicked===false && window.showDetails===false?
     <div className="contained">
         <ol className="breadcrumb" style={{backgroundColor : "#614126", color : "white", height:"45px" , fontSize : "15px"}}  >

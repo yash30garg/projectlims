@@ -21,15 +21,21 @@ import store from '../../state/store/store.js'
 import $ from 'jquery';
 import BorrowedBooks from './../main-component/admin-component/booksDisplay';
 var count = 0,
-    plus,
-    check;
+    plusCtgry,
+    checkCtgry,
+    plusMy,
+    checkMy;
 class BootHeader extends Component {
     constructor() {
         super();
-        plus = (
+        plusCtgry = (
             <div className="fa fa-minus"></div>
         );
-        check = "-";
+        plusMy = (
+        <div className="fa fa-minus"></div>
+        );
+        checkCtgry = "-";
+        checkMy = "-";
         this.state = {
             display: [],
             landingView: true,
@@ -39,7 +45,8 @@ class BootHeader extends Component {
             wishlistClicked: false,
             passBorrowed: false,
             passWish: false,
-            plus: plus,
+            plusCtgry: plusCtgry,
+            plusMy: plusMy,
             arrayResults: [],
             searchResults: false,
             searchClicked : false,
@@ -188,19 +195,34 @@ class BootHeader extends Component {
     }
 
 
-    plusClicked = () => {
-        if (check === "-") {
-            check = "+";
-            plus = (
+    plusCtgryClicked = () => {
+        if (checkCtgry === "-") {
+            checkCtgry = "+";
+            plusCtgry = (
                 <div className="fa fa-plus"></div>
             )
-            this.setState({ plus: plus });
+            this.setState({ plusCtgry: plusCtgry });
         } else {
-            check = "-";
-            plus = (
+            checkCtgry = "-";
+            plusCtgry = (
                 <div className="fa fa-minus"></div>
             )
-            this.setState({ plus: plus });
+            this.setState({ plusCtgry: plusCtgry });
+        }
+    }
+        plusMyClicked = () => {
+        if (checkMy === "-") {
+            checkMy = "+";
+            plusMy = (
+                <div className="fa fa-plus"></div>
+            )
+            this.setState({ plusMy: plusMy });
+        } else {
+            checkMy = "-";
+            plusMy = (
+                <div className="fa fa-minus"></div>
+            )
+            this.setState({ plusMy: plusMy });
         }
     }
     
@@ -281,14 +303,33 @@ class BootHeader extends Component {
                                 <div className="col-md-3">
 
                                     <div className="list-group">
-                                        <div
-                                            className="list-group-item collor"
+                                                               <div
+                                            className="row col-md-12 list-group-item collor nav-item dropdown nav-link ml-0"
+                                            data-toggle="collapse"
+                                            data-target="#myBooks"
+                                            aria-controls="myBooks"
+                                            aria-expanded="true"
+                                            aria-label="Toggle navigation"
                                             style={{
                                                 backgroundColor: "#614126",
                                                 color: "white"
-                                            }}>
-                                            <span className="fa fa-list-alt" aria-hidden="true"></span>
-                                            My Books</div>
+                                                
+                                            }}
+                                            id="categoryDiv"
+                                            onClick={this.plusMyClicked}>
+                                            {console.log(window.innerWidth)}
+                                            
+                                            <div className="col-md-0 fa fa-list-alt" aria-hidden="true"></div>
+                                            <div
+                                                className="col"
+                                                style={{
+                                                    textAlign: "left"
+                                                }}>MyBooks</div>
+                                            <div className="row">
+                                                <div className="mr-1">{this.state.plusMy}</div>
+                                            </div>
+                                        </div>
+
                                         {/*<a>
                                         <button
                                             onClick={this.openBorrowedBooks}
@@ -310,7 +351,7 @@ class BootHeader extends Component {
                                         <div id="categoryDetailsCross" onClick={this.closeDetails}></div>
                                         <div id="wishlistDetailsCross" onClick={this.openWishlist}></div>
                                         <div id="borrowedDetailsCross" onClick={this.openBorrowedBooks}></div>
-                                        
+           <div className="collapse show" id="myBooks">                             
            <a>                             
             <button type="button"
             onClick={this.openBorrowedBooks}
@@ -346,7 +387,7 @@ class BootHeader extends Component {
             </div>
         </button>
         </a>
-
+</div>
 
 
 
@@ -367,7 +408,7 @@ class BootHeader extends Component {
                                                 
                                             }}
                                             id="categoryDiv"
-                                            onClick={this.plusClicked}>
+                                            onClick={this.plusCtgryClicked}>
                                             {console.log(window.innerWidth)}
                                             
                                             <div className="col-md-0 fa fa-list-alt" aria-hidden="true"></div>
@@ -377,7 +418,7 @@ class BootHeader extends Component {
                                                     textAlign: "left"
                                                 }}>Categories</div>
                                             <div className="row">
-                                                <div className="mr-1">{this.state.plus}</div>
+                                                <div className="mr-1">{this.state.plusCtgry}</div>
                                             </div>
                                         </div>
 
