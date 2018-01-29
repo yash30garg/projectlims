@@ -112,7 +112,7 @@ fetch('http://localhost:3005/borrowedBooks/getBooks',{
   render() {
     // alert("app")
     window.wishlist=this.state.wishlist;
-    window.bbooks=this.state.bbooks;
+    // window.bbooks=this.state.bbooks;
     window.display=this.state.display;
     storeBbooks.dispatch({type:"STORE_BBOOKS",payload:this.state.bbooks})
     // alert(window.display.length)
