@@ -15,6 +15,7 @@ export class EachTopCard extends Component{
         window.selected=res;
         window.showDetails=true;
          document.getElementById('detail').click();
+         window.setClickProps="topDetailsCross"
     }
 
     changeToFilled=()=>
