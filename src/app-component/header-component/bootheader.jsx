@@ -3,6 +3,7 @@ import axios from 'axios';
 import './bootheader.css';
 import {Link} from 'react-router-dom'
 import {Redirect} from 'react-router'
+import storeBbooks from '../../state/store/storeBbooks'
 // import Footer from '../footer-component/footer.jsx';
 // import Header from './header.jsx';
 // import Pbooks from '../main-component/admin-component/PreferredBooks/PrefferdBooks.jsx';
@@ -18,6 +19,7 @@ import LoadingEffect from './../loading-component/loading';
 import { EachListItem } from './categoryList';
 import store from '../../state/store/store.js'
 import $ from 'jquery';
+import BorrowedBooks from './../main-component/admin-component/booksDisplay';
 var count = 0,
     plus,
     check;
@@ -248,7 +250,7 @@ class BootHeader extends Component {
                                             }}>
                                             <span className="fa fa-list-alt" aria-hidden="true"></span>
                                             My Books</div>
-                                        <a>
+                                        {/*<a>
                                         <button
                                             onClick={this.openBorrowedBooks}
                                             className="btnl default list-group-item  list-group-item-action"
@@ -258,24 +260,52 @@ class BootHeader extends Component {
 
                                             <span className="fa fa-arrow-right" style={{color : 'brown'}} aria-hidden="true"></span>
                                             Borrowed Books
-
                                         </button>
-                                        </a>
+                                        </a>*/}
+
                                         <div id="os" onClick={this.openSearch} ></div>
                                         <div id="cs" onClick={this.closeSearch}></div>
-                                        <a>
-                                        <button
-                                            onClick={this.openWishlist}
-                                            className="btnl default list-group-item  list-group-item-action"
-                                            style={{
-                                                background: " 	#FFF8DC"
-                                            }}>
-                                            <span className="fa fa-arrow-right" style={{color : 'brown'}} aria-hidden="true"></span>Wishlist {/* <div className="all">
+           <a>                             
+            <button type="button"
+            onClick={this.openBorrowedBooks}
+            className="btnl default  list-group-item list-group-item-action default ml-0"
+            style={{
+            background: " #FFF8DC"
+        }}>
+            <div className="col-md-0 fa fa-arrow-right " style={{color : 'brown'}} area-hidden="true"></div>
+            <div className="col" style={{
+                textAlign: "left", textTransform:'capitalize'
+            }}>Borrowed books</div>
+            <div className="row">
+                <div className="badge badge-pill badge-warning mr-3">{storeBbooks.getState().bbooks.length}</div>
+           
+            </div>
+        </button>
+        </a>
 
-                                            <span className="badge badge-pill badge-warning ml-1">0</span>
-                                        </div>*/}
-                                        </button>
-                                        </a>
+        <a>
+            <button type="button"
+            onClick={this.openWishlist}
+            className="btnl default  list-group-item list-group-item-action default ml-0"
+            style={{
+            background: " #FFF8DC"
+        }}>
+            <div className="col-md-0 fa fa-arrow-right " style={{color : 'brown'}} area-hidden="true"></div>
+            <div className="col" style={{
+                textAlign: "left", textTransform:'capitalize'
+            }}>Wishlist</div>
+            <div className="row">
+                <div className="badge badge-pill badge-warning mr-3">{window.wishlist.length}</div>
+           
+            </div>
+        </button>
+        </a>
+
+
+
+
+
+
                                     </div>
                                     <div className="list-group mt-4">
                                         <div

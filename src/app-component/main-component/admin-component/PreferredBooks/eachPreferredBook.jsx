@@ -1,16 +1,33 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-import'./PrefferedBooks.css'
-// let res;
+import'./PrefferedBooks.css';
+import {getDates} from '../../../dates';
+import {borrowDate, returnDate} from '../../../dates';
+import {requestBook} from '../../../mongo/requestBook';
+import {returnBook} from '../../../mongo/returnBook';
+import storeBbooks from '../../../../state/store/storeBbooks';
+import {addWishlist} from '../../../mongo/addWishlist'
+import {removeWishlist} from '../../../mongo/removeWishlist'
 class EachPrefferedCard extends Component{
     constructor(props)
     {
         super(props);
+        getDates();
+        let reqVal=true
+        let wishVal=true
+        storeBbooks.getState().bbooks.map(res=>{
+            if(res.isbn===this.props.item.isbn){   
+            reqVal=false;
+            }
+        })
+        window.wishlist.map(res=>{
+            if(res.isbn===this.props.item.isbn)
+            wishVal=false;
+        })
         this.handle=this.handle.bind(this);
         this.state={
-            wishlistIcon:true,
-            requestIcon:true
-
+            wishlistIcon:wishVal,
+            requestIcon:reqVal
         }
     }
 
@@ -19,18 +36,46 @@ class EachPrefferedCard extends Component{
     }
     changeToFilled=()=>
     {
+        var items=new Object();
+        items.isbn=this.props.item.isbn;
+        items.title=this.props.item.title;
+        items.author=this.props.item.author;
+        items.category=this.props.item.category;
+        items.publisher=this.props.item.publisher;
+        items.rating=this.props.item.rating;
+        items.url=this.props.item.url;
+        items.description="";
+        // console.log(items);
+        addWishlist(items);
         this.setState({wishlistIcon:false});
     }
     changeToEmpty=()=>
     {
+        removeWishlist(this.props.item.isbn);
         this.setState({wishlistIcon:true});
     }
     changeToUndo=()=>
     {
+        if(storeBbooks.getState().bbooks.length<4){
+            let bookAdded=new Object();
+                bookAdded.isbn=this.props.item.isbn;
+                bookAdded.title=this.props.item.title;
+                bookAdded.author=this.props.item.author;
+                bookAdded.publisher=this.props.item.publisher;
+                bookAdded.url=this.props.item.url;
+                bookAdded.rating=this.props.item.rating;
+                bookAdded.borrowedDate=borrowDate;
+                bookAdded.returnDate=returnDate;
+                bookAdded.isRenewed="false"; 
+                var books=[];
+                requestBook(bookAdded);
+                // alert(books.length)
         this.setState({requestIcon:false});
+        }
     }
     changeToRequest=()=>
     {
+        returnBook(this.props.item.isbn)
         this.setState({requestIcon:true});
     }
 

@@ -16,6 +16,8 @@ export var processedData = [];
 var data
 export var search = () => {
     let value = store.getState().search.toLowerCase();
+    processedData = []
+    // let value = document.getElementById('key').value.toLowerCase();
     let value1, value2;
     value1=value
     console.log(value1)
@@ -68,33 +70,19 @@ export var search = () => {
     }
 
 }
-var selectSort = () => {
-    if (document.getElementById("sort").value === "Title") {
-        this.sortTitle();
-    }
-    else if (document.getElementById("sort").value === "Author") {
-        this.sortAuthor();
-    }
-    else if (document.getElementById("sort").value === "Publisher") {
-        this.sortPublish();
-    }
-    else if (document.getElementById("sort").value === "Rating") {
-        this.sortRating();
-    }
-    else alert("Select a valid sort");
-}
-var sortTitle = () => {
+
+export var sortTitle = () => {
     this.flag = !this.flag;
     let i = this.flag;
-    this.state.sortedData.sort(function (a, b) {
-        if (a.title > b.title) {
-            if (i)
-                return -1;
-            else
-                return 1;
-        }
+    processedData.sort(function (a, b) {
         if (a.title < b.title) {
             if (i)
+                return -1;
+            else
+                return 1;
+        }
+        if (a.title > b.title) {
+            if (i)
                 return 1;
             else
                 return -1;
@@ -102,23 +90,22 @@ var sortTitle = () => {
         return 0;
     }
     )
-    processedData = this.state.sortedData;
     // console.log(processedData)
     // console.log("Sorted by Title");
-    this.setState({ temp: 1 })
+    document.getElementById('os').click();
 }
-var sortAuthor = () => {
+export var sortAuthor = () => {
     this.flag = !this.flag;
     let i = this.flag;
-    this.state.sortedData.sort(function (a, b) {
-        if (a.author > b.author) {
-            if (i)
-                return -1;
-            else
-                return 1;
-        }
+    processedData.sort(function (a, b) {
         if (a.author < b.author) {
             if (i)
+                return -1;
+            else
+                return 1;
+        }
+        if (a.author > b.author) {
+            if (i)
                 return 1;
             else
                 return -1;
@@ -126,22 +113,21 @@ var sortAuthor = () => {
         return 0;
     }
     )
-    processedData = this.state.sortedData;
     // console.log(processedData)
     // console.log("Sorted by Author");
-    this.setState({ temp: 1 })
+    document.getElementById('os').click();
 }
-var sortPublish = () => {
+export var sortPublish = () => {
     this.flag = !this.flag;
     let i = this.flag;
-    this.state.sortedData.sort(function (a, b) {
-        if (a.publisher > b.publisher) {
+    processedData.sort(function (a, b) {
+        if (a.publisher < b.publisher) {
             if (i)
                 return -1;
             else
                 return 1;
         }
-        if (a.publisher < b.publisher) {
+        if (a.publisher > b.publisher) {
             if (i)
                 return 1;
             else
@@ -150,15 +136,14 @@ var sortPublish = () => {
         return 0;
     }
     )
-    processedData = this.state.sortedData;
     // console.log(processedData)
     // console.log("Sorted by Publisher");
-    this.setState({ temp: 1 })
+    document.getElementById('os').click();
 }
-var sortRating = () => {
+export var sortRating = () => {
     this.flag = !this.flag;
     let i = this.flag;
-    this.state.sortedData.sort(function (a, b) {
+    processedData.sort(function (a, b) {
         if (a.rating > b.rating) {
             if (i)
                 return -1;
@@ -174,11 +159,43 @@ var sortRating = () => {
         return 0;
     }
     )
-    processedData = this.state.sortedData;
     // console.log(processedData)
     // console.log("Sorted by Rating");
-    this.setState({ temp: 1 })
+    document.getElementById('os').click();
 }
+
+    var fiveRated= () => {
+        processedData = processedData.filter((data) =>
+            data.details.rating === "5")
+        // processedData = this.state.sortedData;
+        console.log(processedData)
+        console.log("Sorted by five rated");
+        this.setState({ temp: 2 })
+    }
+    var fourRated = () =>  {
+        processedData = processedData.filter((data) =>
+            (data.details.rating <= "5") && (data.details.rating >= "4"))
+        // processedData = this.state.sortedData;
+        console.log(processedData)
+        console.log("Sorted by four rated");
+        this.setState({ temp: 2 })
+    }
+    var threeRated = () => {
+        processedData = processedData.filter((data) =>
+            (data.details.rating <= "5") && (data.details.rating >= "3"))
+        // processedData = this.state.sortedData;
+        console.log(processedData)
+        console.log("Sorted by three rated");
+        this.setState({ temp: 2 })
+    }
+    var twoRated = () => {
+        processedData = processedData.filter((data) =>
+            (data.details.rating <= "5") && (data.details.rating >= "2"))
+        // processedData = this.state.sortedData;
+        console.log(processedData)
+        console.log("Sorted by two rated");
+        this.setState({ temp: 2 })
+    }
 
 /*export default class Search extends Component {
     constructor() {

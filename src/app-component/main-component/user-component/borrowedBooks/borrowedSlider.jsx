@@ -3,10 +3,10 @@ import {UserBooks}from './borrowedBook'
 // import axios from 'axios';
 // import {email,mid} from '../../login-component/login'
 import {email} from '../../login-component/login'
+import storeBbooks from '../../../../state/store/storeBbooks';
 var req = require('request');
 // import {BrowserRouter,Route,Link } from 'react-router-dom';
 let id;
-window.bbooks=[];
 class BorrowedSlider extends Component
  { 
     //  constructor(props)
@@ -44,10 +44,10 @@ class BorrowedSlider extends Component
         let outputs=<div>
         <h5 style={{textAlign:'center',color:"#614126", paddingLeft : "10px"}}>You haven't borrowed any books yet!</h5>
         </div>
-        console.log(window.bbooks)
-        if(window.bbooks.length!==0)
+        // console.log(bbooks)
+        if(storeBbooks.getState().bbooks.length!==0)
         {
-            outputs=<UserBooks key={id} list={window.bbooks}/>;
+            outputs=<UserBooks key={id} list={storeBbooks.getState().bbooks}/>;
         }
      return(
     <div className="contained mt-4">

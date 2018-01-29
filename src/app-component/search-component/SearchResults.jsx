@@ -4,12 +4,18 @@ import $ from 'jquery';
 // import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './Search.css';
+import {search,sortTitle,sortAuthor,sortPublish,sortRating} from './Search'
 export var book;
 // let users,
 //     books;
 class SearchResults extends Component {
     constructor(props) {
         super(props);
+
+        this.state={
+        wishlistIcon:true,
+        requestIcon:true
+        }
         // axios
         //     .get('https://api.myjson.com/bins/14x90j')
         //     .then(res => {
@@ -23,11 +29,29 @@ class SearchResults extends Component {
     handle(res) {
         window.selected = res;
     }
+
+        changeToFilled=()=>
+    {
+        this.setState({wishlistIcon:false});
+    }
+    changeToEmpty=()=>
+    {
+        this.setState({wishlistIcon:true});
+    }
+    changeToUndo=()=>
+    {
+        this.setState({requestIcon:false});
+    }
+    changeToRequest=()=>
+    {
+        this.setState({requestIcon:true});
+    } 
+
     render() {
         const a = processedData.map(res => {
             return (
                 <div key={res.isbn} className="col-lg-3 col-md-4 col-sm-6 col-xs-12 mt-3 mb-3">
-                    <Link to="/search/details">
+                    
                         <div
                             id={res.isbn}
                             className="card particular"
@@ -52,6 +76,7 @@ class SearchResults extends Component {
                             <div className="card-block card-text">
                                 {res.title}
                             </div>
+                            <Link to="/search/details">
                             <div className="overlay" style={{ backgroundColor: "rgba(97,65,38,0.9)" }}>
                                 <div className="text container-fluid" style={{ fontSize: '15px' }}>
                                     {res.title}<br />
@@ -69,33 +94,21 @@ class SearchResults extends Component {
                                                     }}></span>
                                         })}
                                     <br />
-                                    <button
-                                        className="btn btn-primary mt-3"
-                                        style={{
-                                            backgroundColor: 'white',
-                                            color: "rgb(205,133,63)"
-                                        }}
-                                        onClick={this.request}>
-                                        <b>Know More</b>
-                                    </button>
-                                </div>
-                                {/*<div className="overlay">
-                            <div className="text container-fluid">                          
-                            <b>{res.details.title}</b><br/><br/>
-                            <b>Author : </b>
-                            {res.details.author}<br/><br/>
-                            <b>Category: </b>
-                            {res.details.category}<br/><br/>
-                            {[1,2,3,4,5].map(d=>{
-                              if(res.details.rating>=d)
-                                return<span className="fa fa-star" style={{color:'white'}}></span>
-                              else 
-                                return<span className="fa fa-star" style={{color:'black'}}></span>
-                            })}
-                            <button className="btn mt-4" style={{backgroundColor:'white', color:'rgb(96, 0, 58)'}} onClick={this.request}><b>Request Book</b></button>*/}
+                                </div>                        
                             </div>
+                            </Link>
+                <div className="buttonOverlay" style={{backgroundColor : "white"}} >
+                <div className="buttonText container-fluid" style={{fontSize:'20px'}}>
+                {this.state.wishlistIcon?<span onClick={this.changeToFilled} className="fa fa-heart-o" style={{color:'#CD853F'}}></span>:<span onClick={this.changeToEmpty} className="fa fa-heart" style={{color:'#CD853F'}}></span>}
+                </div>
+                </div>
+                <div className="requestOverlay" style={{backgroundColor : "white"}} >
+                <div className="requestText container-fluid" style={{fontSize:'20px'}}>
+                {this.state.requestIcon?<span onClick={this.changeToUndo} className="fa fa-plus-circle" style={{color:'#CD853F', marginLeft:'30px'}}></span>: <span onClick={this.changeToRequest} className="fa fa-undo" style={{color:'#CD853F', marginLeft:'30px'}}></span>}
+                </div>
+                </div>
                         </div>
-                    </Link>
+                    
                 </div>
             )
         });
@@ -115,18 +128,37 @@ class SearchResults extends Component {
                     <ol className="breadcrumb" style={{ backgroundColor: "#614126", color: "white" }}  >
                         <h5 >{this.props.divName}<span style={{ float: 'right', cursor: 'pointer', paddingLeft: '70px' }} onClick={this.props.searchCrossClicked}>x</span></h5>
                     </ol>
+                    {processedData.length>1?
                     <section className="sortInline">
                         <span className="sortName">
                             <span>Sort By</span>
                             </span>
                             <ul className="sortTypes">
-                                <li className="sortElement activeSortElement"><a>Relevance</a></li>
-                                <li className="sortElement"><a>Title</a></li>
-                                <li className="sortElement"><a>Author</a></li>
-                                <li className="sortElement"><a>Publisher</a></li>
-                                <li className="sortElement"><a>Rating</a></li>
+                                <li className="sortElement activeSortElement" onClick={(event)=> {
+                                    event.preventDefault();
+                                    event.target.className!=="sortELement activeSortElement"?
+                                    search()
+                                    :null
+                                    }}><a>Default</a></li>
+                                <li className="sortElement" onClick={(event) => {
+                                    event.preventDefault();
+                                    sortTitle();
+                                    }}><a>Title</a></li>
+                                <li className="sortElement" onClick = {(event) => {
+                                    event.preventDefault()
+                                    sortAuthor();
+                                    }}><a>Author</a></li>
+                                <li className="sortElement" onClick={(event)=>{
+                                    event.preventDefault();
+                                    sortPublish();
+                                    }}><a>Publisher</a></li>
+                                <li className="sortElement" onClick = {(event)=> {
+                                    event.preventDefault();
+                                    sortRating();
+                                    }}><a>Rating</a></li>
                             </ul>
-                    </section>
+                
+                    </section>:null}
                     <div className="container-fluid">
                         <div className="row">
                             {a}
