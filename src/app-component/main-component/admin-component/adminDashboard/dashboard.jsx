@@ -35,42 +35,58 @@ class DashBoard extends Component {
          console.log(res);
          this.setState({user:res});
         
-        		}
-        )}
+        		})
+
+                 fetch('http://localhost:3005/books/getBooks',{
+            method:'GET',
+            headers:{'Content-Type':'application/json',
+        'Authorization': localStorage.getItem('token')}
+        })
+        .then((res)=>res.json())
+        .then((res) =>{
+         console.log(res);
+         this.setState({display:res});
+        
+        		})
+    }
 
     // state = {
     //     output: [],
     //     display: []
     // }
     componentDidMount() {
-        axios
-            .get('https://api.myjson.com/bins/14x90j')
-            .then(res => {
-                this.setState({ output: res.data });
-            })
+        // axios
+        //     .get('https://api.myjson.com/bins/14x90j')
+        //     .then(res => {
+        //         this.setState({ output: res.data });
+        //     })
 
-        axios
-            .get('https://api.myjson.com/bins/1a9rkj')
-            .then(result => {
-                this.setState({ display: result.data.booksArray });
-            })
+        // axios
+        //     .get('http://localhost:3005/books/getbooks')
+        //     .then(result => {
+        //         this.setState({ display: result.data.booksArray });
+        //     })
     }
 
     render() {
-        window.users=this.state.user
+        window.users=this.state.user;
+        window.bookies=this.state.display;
+        let booksnum = window.bookies.length;
+        let values=window.users.length;
+        console.log("count " + window.users.length)
         count = 0;
-        const outputs = this
-            .state
-            .output
+        const outputs = this.state.user
             .map((result) => {
                 count = count + 1;
 
                 return (
                     <tr>
-                        <td style={{textAlign:'left'}}>{result.user.name}<span class="badge  badge-pill badge-warning ml-2">{result.borrowedbooks.length}</span></td>
-                        <td style={{textAlign:'left'}}>{result.user.email}</td>
-                        <td style={{textAlign:'left'}}>{result.user.mid}</td>
-                        <td style={{textAlign:'left'}}>{result.user.preferenece[0]}</td>
+                        <td style={{textAlign:'left'}}>{result.name}<span class="badge  badge-pill badge-warning ml-2">{result.borrowedBooks.length}</span></td>
+                        <td style={{textAlign:'left'}}>{result.email}</td>
+                        <td style={{textAlign:'left'}}>{result.mid}</td>
+                        <td style={{textAlign:'left'}}>{result.role}</td>
+                        
+                        {/*<td style={{textAlign:'left'}}>{result.borrowedbooks}</td>*/}
                     </tr>
 
                 );
@@ -164,7 +180,7 @@ class DashBoard extends Component {
                                                         <div className="card-block">
                                                             <h2>
                                                                 <span className="fa fa-user" aria-hidden="true"></span>
-                                                                {window.users.length}
+                                                                {values}
                                                             </h2>
                                                             <h4>
                                                                 Users
@@ -195,7 +211,7 @@ class DashBoard extends Component {
                                                     <div className="card">
                                                         <div className="card-block">
                                                             <h2>
-                                                                <span className="fa fa-pencil" aria-hidden="true"></span>{this.state.display.length}
+                                                                <span className="fa fa-pencil" aria-hidden="true"></span>{booksnum}
                                                             </h2>
                                                             <h4>
                                                                 Books
@@ -258,7 +274,7 @@ class DashBoard extends Component {
                                                         <th style={{textAlign:'left'}}>User Name</th>
                                                         <th style={{textAlign:'left'}}>Email</th>
                                                         <th style={{textAlign:'left'}}>MID</th>
-                                                        <th style={{textAlign:'left'}}>Preferenece(s)</th>
+                                                        <th style={{textAlign:'left'}}>Role</th>
                                                     </tr>
                                                     </thead>
                                                     <tbody >
