@@ -1,9 +1,9 @@
 import React,{Component} from 'react';
 import {UserBooks}from './borrowedBook'
+import {connect} from 'react-redux';
 // import axios from 'axios';
 // import {email,mid} from '../../login-component/login'
 import {email} from '../../login-component/login'
-import storeBbooks from '../../../../state/store/storeBbooks';
 var req = require('request');
 // import {BrowserRouter,Route,Link } from 'react-router-dom';
 let id;
@@ -38,7 +38,7 @@ class BorrowedSlider extends Component
 
  render()
  {
-     let bbooks=storeBbooks.getState().bbooks;
+     let bbooks=this.props.bbooks;
     //  const outputs=window.users.filter(temp=>temp.user.mid===id).map(result=>{
     //     return(<UserBooks key={result.user.mid} list={result.borrowedbooks}/>);
     //  });
@@ -60,6 +60,11 @@ class BorrowedSlider extends Component
      );
  }
 
- }
-export default BorrowedSlider;
+}
+function mapStateToProps(state) {
+    return {
+        bbooks: state.bbooks
+    };
+}
+export default connect(mapStateToProps)(BorrowedSlider);
 

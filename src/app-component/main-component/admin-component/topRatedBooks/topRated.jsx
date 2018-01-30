@@ -2,6 +2,7 @@ import React,{Component}from 'react';
 import EachCategory from './eachCategory';
 // import axios from 'axios';
 import './topRated.css'
+import {connect} from 'react-redux';
 import LoadingEffect from './../../../loading-component/loading';
 import  Category  from './../../../header-component/categoryView';
 class TopBooks extends Component{
@@ -37,7 +38,7 @@ class TopBooks extends Component{
     {
         let counting=0;
         let brr = [];
-        let arr = window.display
+        let arr = this.props.books
   .sort((a, b) => {
                 if (a.category.toUpperCase() > b.category.toUpperCase()) {
                     return 1;
@@ -61,7 +62,7 @@ class TopBooks extends Component{
 
         let k=<div style={{position:'relative',marginTop:'70px',marginBottom:'50px'}}><img src={'https://www.caffeluxxe.com/images/yellow.gif'} /></div>;
                 if (brr.length !==0 ) {
-                let b = window.display;
+                let b = this.props.books;
                  k=brr.map(result=>{
                      counting++;
                     return(
@@ -75,7 +76,7 @@ class TopBooks extends Component{
                 {(this.state.showTop)?<div className="put" style={{paddingBottom:'30px'}}>
                 <h5 className="card-header yoyo" style={{ backgroundColor: "#614126", color: "white", fontSize : "18px" }}>Top Rated Books</h5>
                 {k}
-            </div>:<div className="mt-4"><Category data={window.display} selected={this.state.particularCategory} categoryCrossClicked={this.closeCategory} isSearchClicked={false}/></div>}
+            </div>:<div className="mt-4"><Category data={this.props.books} selected={this.state.particularCategory} categoryCrossClicked={this.closeCategory} isSearchClicked={false}/></div>}
             </div>
                 
                 
@@ -83,4 +84,10 @@ class TopBooks extends Component{
             )
     }
 }
-export default TopBooks;
+function mapStateToProps(state) {
+    return {
+        books:state.books
+    };
+}
+export default connect(mapStateToProps)(TopBooks);
+// export default TopBooks;

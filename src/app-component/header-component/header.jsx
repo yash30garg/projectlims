@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../../logo.svg';
 import '../App.css';
+import {connect} from 'react-redux';
 import Img from 'react-image';
 // import Search from '../search-component/Search'; import './header.css';
 // import PBooks from
@@ -10,7 +11,7 @@ import { authContext } from '../../adalConfig'
 import './header.css'
 import { Link, withRouter } from 'react-router-dom';
 import { user_name } from '../App'
-import { connect } from 'react-redux'
+// import { connect } from 'react-redux'
 import BootHeader from './bootheader'
 import LoadingEffect from '../loading-component/loading'
 // import Footer from '../footer-component/footer'
@@ -71,7 +72,7 @@ class Header extends Component {
 
   render() {
     let brr = [];
-    let arr = window.display
+    let arr = this.props.books
       .sort((a, b) => {
         if (a.category.toUpperCase() > b.category.toUpperCase()) {
           return 1;
@@ -92,7 +93,7 @@ class Header extends Component {
     }
     var titleDup = () => {
       let titleD = []
-      let arr = window.display
+      let arr = this.props.books
         .sort((a, b) => {
           if (a.title.toUpperCase() > b.title.toUpperCase()) {
             return 1;
@@ -117,7 +118,7 @@ class Header extends Component {
     }
     var authorDup = () => {
       let authorD = []
-      let arr = window.display
+      let arr = this.props.books
         .sort((a, b) => {
           if (a.author.toUpperCase() > b.author.toUpperCase()) {
             return 1;
@@ -142,7 +143,7 @@ class Header extends Component {
     }
     var publisherDup = () => {
       let publisherD = []
-      let arr = window.display
+      let arr = this.props.books
         .sort((a, b) => {
           if (a.publisher.toUpperCase() > b.publisher.toUpperCase()) {
             return 1;
@@ -280,5 +281,11 @@ class Header extends Component {
 //     }
 //   }
 // }
-// export default connect(mapDispatchToProps)(withRouter(Header));
-export default Header;
+function mapStateToProps(state) {
+    return {
+        bbooks: state.bbooks,
+        books:state.books
+    };
+}
+export default connect(mapStateToProps)(Header);
+// export default Header;

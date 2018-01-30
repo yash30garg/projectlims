@@ -3,4 +3,4 @@ export const storeBbooks = (bbooks) => {
         type : 'STORE_BBOOKS',
         payload : bbooks
     }
-}
+};
