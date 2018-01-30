@@ -27,6 +27,8 @@ class TopBooks extends Component{
     
     viewMoreClicked=(event,cate)=>
     {
+        window.showDetails=false;
+        window.hideCategory=false;
         this.setState({showTop:false,particularCategory:cate});
     }
     closeCategory=()=>
@@ -38,7 +40,7 @@ class TopBooks extends Component{
     {
         let counting=0;
         let brr = [];
-        let arr = this.props.books
+        let arr = window.display
   .sort((a, b) => {
                 if (a.category.toUpperCase() > b.category.toUpperCase()) {
                     return 1;
@@ -62,7 +64,7 @@ class TopBooks extends Component{
 
         let k=<div style={{position:'relative',marginTop:'70px',marginBottom:'50px'}}><img src={'https://www.caffeluxxe.com/images/yellow.gif'} /></div>;
                 if (brr.length !==0 ) {
-                let b = this.props.books;
+                let b = window.display;
                  k=brr.map(result=>{
                      counting++;
                     return(
@@ -70,13 +72,12 @@ class TopBooks extends Component{
                     );
                 })
             }
-            
             return(
                 <div>
                 {(this.state.showTop)?<div className="put" style={{paddingBottom:'30px'}}>
                 <h5 className="card-header yoyo" style={{ backgroundColor: "#614126", color: "white", fontSize : "18px" }}>Top Rated Books</h5>
                 {k}
-            </div>:<div className="mt-4"><Category data={this.props.books} selected={this.state.particularCategory} categoryCrossClicked={this.closeCategory} isSearchClicked={false}/></div>}
+            </div>:<div className="mt-4"><Category data={window.display} selected={this.state.particularCategory} categoryCrossClicked={this.closeCategory} isSearchClicked={false}/></div>}
             </div>
                 
                 
@@ -84,10 +85,17 @@ class TopBooks extends Component{
             )
     }
 }
-function mapStateToProps(state) {
-    return {
-        books:state.books
-    };
-}
-export default connect(mapStateToProps)(TopBooks);
-// export default TopBooks;
+
+// function mapStateToProps(state) {
+//     return {
+//         bbooks: state.bbooks,
+//         books: state.books
+//     };
+// }
+// function mapStateToProps(state) {
+//     return {
+//         books:state.books
+//     };
+// }
+// export default connect (mapStateToProps)(TopBooks);
+export default TopBooks;

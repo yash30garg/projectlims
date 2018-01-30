@@ -1,6 +1,6 @@
-export const storeBooks = (allBooks) => {
+export const storeBooks = (books) => {
     return{
-        type : 'All_BOOKS',
-        payload : allBooks
+        type : 'STORE_BOOKS',
+        payload : books
     }
 };

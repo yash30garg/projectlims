@@ -21,6 +21,7 @@ import { EachListItem } from './categoryList';
 import {connect} from 'react-redux';
 import $ from 'jquery';
 import BorrowedBooks from './../main-component/admin-component/booksDisplay';
+import Profile from './../main-component/user-component/profileView/prodetails';
 export let controller;
 export var handleController = () => {
     controller=1
@@ -61,6 +62,8 @@ class BootHeader extends Component {
         
 
         }
+        window.showProfile=false;
+        window.hideCategory=true;
     }
     // componentWillMount() {
     //     axios
@@ -81,7 +84,9 @@ class BootHeader extends Component {
             wishlistClicked: false,
             searchClicked: false,
         });
+        window.hideCategory=false;
         window.showDetails=false;
+        window.showProfile=false;
         controller=0;
     }
     closeCategory = () => {
@@ -104,6 +109,7 @@ class BootHeader extends Component {
             passWish: true
         });
         window.showDetails=false;
+        window.showProfile=false;
     }
 
     closeBorrowed = () => {
@@ -127,6 +133,7 @@ class BootHeader extends Component {
             passBorrowed: true
         });
         window.showDetails=false;
+        window.showProfile=false;
     }
 
     closeWishlist = () => {
@@ -152,6 +159,7 @@ class BootHeader extends Component {
             sortedData: store.getState().sorted_Data,
         })
         window.showDetails=false;
+        window.showProfile=false;
         if(store.getState().sorted_Data.length===0)
         this.setState({searchArg: "No Results found for your search: "+ document.getElementById('key').value})
         else
@@ -183,6 +191,7 @@ class BootHeader extends Component {
             searchResults: false,
             searchClicked : false,
         })
+        window.showProfile=false;
     }
     closeDetails=()=>
     {
@@ -198,6 +207,21 @@ class BootHeader extends Component {
             searchClicked:false
         });
        
+    }
+    ProfileFunctions=()=>
+    {
+        window.hideCategory=true;
+        window.showDetails=false;
+            this.setState({
+            landingView: false,
+            categoryClicked: false,
+            borrowedClicked: false,
+            passBorrowed: false,
+            passWish: false,
+            wishlistClicked: false,
+            searchResults: false,
+            searchClicked : false,
+        })
     }
 
 
@@ -251,7 +275,7 @@ class BootHeader extends Component {
         // store.subscribe(()=> {
         //     console.log(store.getState().search)
         // })
-        let arr = this.props.books
+        let arr = window.display
             .sort((a, b) => {
                 if (a.category.toUpperCase() > b.category.toUpperCase()) {
                     return 1;
@@ -362,6 +386,8 @@ class BootHeader extends Component {
                                         <div id="categoryDetailsCross" onClick={this.closeDetails}></div>
                                         <div id="wishlistDetailsCross" onClick={this.openWishlist}></div>
                                         <div id="borrowedDetailsCross" onClick={this.openBorrowedBooks}></div>
+                                        <div id="prefferedDetailsCross" onClick={this.closeDetails}></div>
+                                        <div id="profile" onClick={this.ProfileFunctions}></div>
            <div className="collapse show" id="myBooks">                             
            <a>                             
             <button type="button"
@@ -447,7 +473,7 @@ class BootHeader extends Component {
                                                 
                                                 
                                                 <div className="row">
-                                                    <div className="badge badge-pill badge-warning mr-3">{this.props.books.length}</div>
+                                                    <div className="badge badge-pill badge-warning mr-3">{window.display.length}</div>
                                                 </div>
                                                 
                                             </button>
@@ -457,7 +483,7 @@ class BootHeader extends Component {
 
                                                 return <EachListItem
                                                     key={`boot${r.category}`}
-                                                    completeArray={this.props.books}
+                                                    completeArray={window.display}
                                                     categoryName={r.category}
                                                     openByCategory={this
                                                         .openCategory
@@ -477,7 +503,7 @@ class BootHeader extends Component {
                                             ? <LandingView show={this.state.passBorrowed} wish={this.state.passWish} />
                                             : <Category
                                                 categoryCrossClicked={this.closeCategory}
-                                                data={this.props.books}
+                                                data={window.display}
                                                 selected={this.state.currentlyClicked}
                                                 isSearchClicked={this.state.searchClicked} />}
                                     </div>
@@ -504,6 +530,9 @@ class BootHeader extends Component {
                                     <div>
                                     {window.showDetails?<Details data={window.selected} detailsCrossClicked={this.closeDetails}/>:null}
                                     </div>
+                                    <div>
+                                    {window.showProfile?<Profile/>:null}
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -522,7 +551,7 @@ class BootHeader extends Component {
 function mapStateToProps(state) {
     return {
         bbooks: state.bbooks,
-        books:state.books
+        books: state.books
     };
 }
 export default connect(mapStateToProps)(BootHeader);

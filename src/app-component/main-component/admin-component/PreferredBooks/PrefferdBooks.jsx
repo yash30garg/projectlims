@@ -30,6 +30,7 @@ class PBooks extends Component {
         // if(this.state.books.length===0){
         //     this.getVal();
         // }
+        // window.display=this.props.books;
         bbooks=this.props.bbooks;
         // console.log(this.state.books.length)
         // alert("pf")
@@ -45,8 +46,8 @@ class PBooks extends Component {
             s2,
             s3,
             s4;
-        if (this.props.books.length !== 0 && bbooks !== null) {
-            let b = this.props.books
+        if (window.display.length !== 0 && bbooks !== null) {
+            let b = window.display
                 .filter((res) => res.rating >= 1 && (res.category === "Javascript" || res.category === "javascript"));
             s1 = <div className="carousel-item mt-2">
                 {b
@@ -55,7 +56,7 @@ class PBooks extends Component {
                         return (<EachPrefferedCard key={`pref${r.isbn}`} item={r} data={bbooks}/>);
                     })}
             </div>
-            b = this.props.books
+            b = window.display
                 .filter((res) => res.rating >= 1 && (res.category === "Angular" || res.category === "angular"));
                 if(bbooks.length!==0){
             s2 = <div className="carousel-item mt-2">
@@ -69,7 +70,7 @@ class PBooks extends Component {
                 else{
                     s2=<div></div>
                 }
-            b = this.props.books
+            b = window.display
                 .filter((res) => res.rating >= 1 && 
                 (res.category === "React" || res.category === "react"));
             s3 = <div className="carousel-item mt-2">
@@ -165,7 +166,7 @@ class PBooks extends Component {
 function mapStateToProps(state) {
     return {
         bbooks: state.bbooks,
-        books:state.books
+        books: state.books
     };
 }
 export default connect(mapStateToProps)(PBooks);

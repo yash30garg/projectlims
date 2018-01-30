@@ -69,10 +69,15 @@ class Header extends Component {
     store.dispatch({ type: "STORE_SEARCH", payload: document.getElementById('key').value })
     search()
   }
+  changeProfileShow()
+  {
+    window.showProfile=true;
+    document.getElementById('profile').click();
+  }
 
   render() {
     let brr = [];
-    let arr = this.props.books
+    let arr = window.display
       .sort((a, b) => {
         if (a.category.toUpperCase() > b.category.toUpperCase()) {
           return 1;
@@ -93,7 +98,7 @@ class Header extends Component {
     }
     var titleDup = () => {
       let titleD = []
-      let arr = this.props.books
+      let arr = window.display
         .sort((a, b) => {
           if (a.title.toUpperCase() > b.title.toUpperCase()) {
             return 1;
@@ -118,7 +123,7 @@ class Header extends Component {
     }
     var authorDup = () => {
       let authorD = []
-      let arr = this.props.books
+      let arr = window.display
         .sort((a, b) => {
           if (a.author.toUpperCase() > b.author.toUpperCase()) {
             return 1;
@@ -143,7 +148,7 @@ class Header extends Component {
     }
     var publisherDup = () => {
       let publisherD = []
-      let arr = this.props.books
+      let arr = window.display
         .sort((a, b) => {
           if (a.publisher.toUpperCase() > b.publisher.toUpperCase()) {
             return 1;
@@ -193,10 +198,12 @@ class Header extends Component {
             className="App-logo inset"
             src={require("../../Assets/Images/final_header.jpg")}
             alt="My logo"
-            align="left" onClick={(e) => { e.preventDefault(); window.location = "/#/"; document.getElementById('openHome').click() }} />
+            align="left" onClick={(e) => { e.preventDefault(); window.location = "/#/"; 
+            if(document.getElementById('openHome')!==null) document.getElementById('openHome').click() }} />
 
           <Link to="/">
-            <span onClick = { (e) => {e.preventDefault(); window.location = "/#/"; document.getElementById('openHome').click();} }id="projectTitle" className="navbar-brand" style={{ color: "white", paddingLeft: '15px', fontSize: '23px', marginBottom: "15px" }}>Mindtree Library</span>
+            <span onClick = { (e) => {e.preventDefault(); window.location = "/#/"; 
+            if(document.getElementById('openHome')!==null) document.getElementById('openHome').click();} }id="projectTitle" className="navbar-brand" style={{ color: "white", paddingLeft: '15px', fontSize: '23px', marginBottom: "15px" }}>Mindtree Library</span>
           </Link>
 
           <div className="offset-md-1 col-lg-6 col-md-10">
@@ -248,8 +255,11 @@ class Header extends Component {
                     <span className="dropdown-toggle"></span></div>
                   <ul className="dropdown-menu dropdown-menu-right" style={{ backgroundColor: "#FFF8DC	" }} >
                     <li >
-                      <Link to="/profile"><a href="#" className="dropdown-item" style={{ color: '#614126', borderColor: 'brown' }}><span className="fa fa-user"></span>Profile
-                    </a></Link></li>
+                      {/*<Link to="/profile">*/}
+                      <a href="#" onClick={this.changeProfileShow} className="dropdown-item" style={{ color: '#614126', borderColor: 'brown' }}><span className="fa fa-user"></span>Profile
+                    </a>
+                    {/*</Link>*/}
+                    </li>
                     <div class="dropdown-divider" >
                     </div>
                     <li >
@@ -284,7 +294,7 @@ class Header extends Component {
 function mapStateToProps(state) {
     return {
         bbooks: state.bbooks,
-        books:state.books
+        books: state.books
     };
 }
 export default connect(mapStateToProps)(Header);

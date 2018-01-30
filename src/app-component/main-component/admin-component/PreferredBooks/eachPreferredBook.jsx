@@ -58,6 +58,7 @@ class EachPrefferedCard extends Component{
         window.selected=this.props.item
         window.showDetails=true;
         document.getElementById('detail').click();
+        window.setClickProps="prefferedDetailsCross"
     }
     changeToFilled=()=>
     {
@@ -186,7 +187,8 @@ class EachPrefferedCard extends Component{
 }
 function mapStateToProps(state) {
     return {
-        bbooks: state.bbooks
+        bbooks: state.bbooks,
+        books: state.books
     };
 }
 function matchDispatchToProps(dispatch){

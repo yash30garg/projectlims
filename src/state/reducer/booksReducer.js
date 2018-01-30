@@ -1,6 +1,6 @@
 export default function (state = null, action) {
     switch (action.type) {
-        case 'All_BOOKS':
+        case 'STORE_BOOKS':
             return action.payload;
             break;
     }

@@ -1,5 +1,6 @@
 import React,{Component}from 'react';
 import EachTopCard from './eachTopCard';
+import {connect} from 'react-redux';
 import './topRated.css';
 
 class EachCategory extends Component
@@ -98,4 +99,10 @@ class EachCategory extends Component
     );
     }
 }
+// function mapStateToProps(state) {
+//     return {
+//         books: state.books
+//     };
+// }
 export default EachCategory;
+// export default connect (mapStateToProps)(EachCategory);

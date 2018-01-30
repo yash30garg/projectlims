@@ -25,7 +25,8 @@ import {Provider} from 'react-redux';
 import allReducers from'../state/reducer';
 import {connect} from 'react-redux';
 import {storeBbooks} from '../state/action/bbooksAction'
-import {storeBooks} from '../state/action/booksAction'
+import {storeBooks} from '../state/action/booksAction';
+// import {storeBooks} from '../state/action/booksAction'
 import BookAdd from '../../src/app-component/main-component/admin-component/admin-edit-book/bookadd'
 import ContactUs from '../app-component/footer-component/ContactUs/contactus.jsx';
 import BookEdit from '../app-component/main-component/admin-component/admin-update-book/bookedit.jsx'
@@ -33,9 +34,6 @@ import BookEdit from '../app-component/main-component/admin-component/admin-upda
 export var user_name;
 const store = createStore(allReducers);
 var req = require('request');
-// let res;
-// let users;
-// window.display = '';
 class App extends Component {
   constructor() {
     super();
@@ -45,7 +43,8 @@ class App extends Component {
     this.state = {
       bbooks: null,
       display: [],
-      wishlist: []
+      wishlist: [],
+      flag:false
     }
   }
 
@@ -101,10 +100,11 @@ class App extends Component {
           .then((response) => response.json())
           .then((response) => {
             console.log("booksssssss");
+            console.log(response);
             this.setState({
-              display: response
+              display: response,
+              flag:true
             })
-
           })
         if (res.status === "Exists") {
           this.getBorrowedData();
@@ -139,14 +139,14 @@ class App extends Component {
   render() {
     // alert("app")
     window.wishlist = this.state.wishlist;
+    window.display = this.state.display;
    let bbooks=this.state.bbooks;
    let books=this.state.display;
-    window.display = this.state.display;
-  //  console.log(window.display.length)
-    this.props.storeBbooks(bbooks)
-    this.props.storeBooks(books)
-    // storeBbooks.dispatch({ type: "STORE_BBOOKS", payload: this.state.bbooks })
+   console.log(window.display);
+    // window.display = this.state.display;
     // alert(window.display.length)
+    this.props.storeBooks(books);
+    this.props.storeBbooks(bbooks)
     console.log(authContext._user.profile.given_name);
     user_name = authContext._user.profile.given_name;
     localStorage.setItem('limsuser', JSON.stringify(authContext._user))
@@ -205,7 +205,7 @@ class App extends Component {
 }
 
 function matchDispatchToProps(dispatch){
-    return bindActionCreators({storeBbooks: storeBbooks,storeBooks:storeBooks}, dispatch);
+    return bindActionCreators({storeBbooks: storeBbooks, storeBooks:storeBooks}, dispatch);
 }
 export default connect(null,matchDispatchToProps)(App);
 // export default App;
