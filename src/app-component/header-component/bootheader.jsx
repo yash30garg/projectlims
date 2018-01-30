@@ -63,6 +63,7 @@ class BootHeader extends Component {
 
         }
         window.showProfile=false;
+        window.hideCategory=true;
     }
     // componentWillMount() {
     //     axios
@@ -83,6 +84,7 @@ class BootHeader extends Component {
             wishlistClicked: false,
             searchClicked: false,
         });
+        window.hideCategory=false;
         window.showDetails=false;
         window.showProfile=false;
         controller=0;
@@ -208,6 +210,8 @@ class BootHeader extends Component {
     }
     ProfileFunctions=()=>
     {
+        window.hideCategory=true;
+        window.showDetails=false;
             this.setState({
             landingView: false,
             categoryClicked: false,
@@ -382,6 +386,7 @@ class BootHeader extends Component {
                                         <div id="categoryDetailsCross" onClick={this.closeDetails}></div>
                                         <div id="wishlistDetailsCross" onClick={this.openWishlist}></div>
                                         <div id="borrowedDetailsCross" onClick={this.openBorrowedBooks}></div>
+                                        <div id="prefferedDetailsCross" onClick={this.closeDetails}></div>
                                         <div id="profile" onClick={this.ProfileFunctions}></div>
            <div className="collapse show" id="myBooks">                             
            <a>                             

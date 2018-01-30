@@ -198,10 +198,12 @@ class Header extends Component {
             className="App-logo inset"
             src={require("../../Assets/Images/final_header.jpg")}
             alt="My logo"
-            align="left" onClick={(e) => { e.preventDefault(); window.location = "/#/"; document.getElementById('openHome').click() }} />
+            align="left" onClick={(e) => { e.preventDefault(); window.location = "/#/"; 
+            if(document.getElementById('openHome')!==null) document.getElementById('openHome').click() }} />
 
           <Link to="/">
-            <span onClick = { (e) => {e.preventDefault(); window.location = "/#/"; document.getElementById('openHome').click();} }id="projectTitle" className="navbar-brand" style={{ color: "white", paddingLeft: '15px', fontSize: '23px', marginBottom: "15px" }}>Mindtree Library</span>
+            <span onClick = { (e) => {e.preventDefault(); window.location = "/#/"; 
+            if(document.getElementById('openHome')!==null) document.getElementById('openHome').click();} }id="projectTitle" className="navbar-brand" style={{ color: "white", paddingLeft: '15px', fontSize: '23px', marginBottom: "15px" }}>Mindtree Library</span>
           </Link>
 
           <div className="offset-md-1 col-lg-6 col-md-10">

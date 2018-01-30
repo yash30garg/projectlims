@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 import {controller,handleController} from './bootheader';
 let handle=(data)=>{
 window.selected=data;
- window.showDetails=true;
+window.showDetails=true;
 document.getElementById('detail').click();
  window.setClickProps="categoryDetailsCross"
 }
@@ -150,7 +150,7 @@ if(controller===0) {
     })
 return(
     <div id={`i${this.props.selected.toLowerCase()}`}>
-        {this.props.isSearchClicked===false && (window.showDetails===false)?
+        {this.props.isSearchClicked===false && (window.showDetails===false && window.hideCategory===false)?
     <div className="contained">
         <ol className="breadcrumb" style={{backgroundColor : "#614126", color : "white", height:"45px" , fontSize : "15px"}}  >
         <h5 >{this.props.selected.toUpperCase()} <span style={{float:'right',cursor:'pointer',paddingLeft:'85px'}} id="openHome" onClick={this.props.categoryCrossClicked}>x</span></h5>
@@ -167,9 +167,10 @@ return(
 )
     }
 }
-function mapStateToProps(state) {
-    return {
-        books: state.books
-    };
-}
-export default connect(mapStateToProps)(Category);
+// function mapStateToProps(state) {
+//     return {
+//         books: state.books
+//     };
+// }
+// export default connect(mapStateToProps)(Category);
+export default Category;
