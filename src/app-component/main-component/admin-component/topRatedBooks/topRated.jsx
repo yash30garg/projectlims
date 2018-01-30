@@ -38,6 +38,21 @@ class TopBooks extends Component{
 
     render()
     {
+        console.log("bbooks")
+        if(this.props.bbooks!==null){
+        console.log(this.props.bbooks.length)
+        }
+        // if(this.props.bbooks!==null){
+        // console.log(this.props.bbooks.length)
+        // console.log("2")
+        // }
+        // if(this.props.bbooks===null){
+        //     alert("null")
+        // }
+        // else{
+        // alert(this.props.bbooks.length)
+        // }
+        let bbooks=this.props.bbooks;
         let counting=0;
         let brr = [];
         let arr = window.display
@@ -61,8 +76,11 @@ class TopBooks extends Component{
             }
 
         }
-
-        let k=<div style={{position:'relative',marginTop:'70px',marginBottom:'50px'}}><img src={'https://www.caffeluxxe.com/images/yellow.gif'} /></div>;
+        let k;
+        // alert(bbooks.length)
+        if(this.props.bbooks!==null){
+            // alert(this.props.)
+        k=<div style={{position:'relative',marginTop:'70px',marginBottom:'50px'}}><img src={'https://www.caffeluxxe.com/images/yellow.gif'} /></div>;
                 if (brr.length !==0 ) {
                 let b = window.display;
                  k=brr.map(result=>{
@@ -72,6 +90,7 @@ class TopBooks extends Component{
                     );
                 })
             }
+        }
             return(
                 <div>
                 {(this.state.showTop)?<div className="put" style={{paddingBottom:'30px'}}>
@@ -92,10 +111,11 @@ class TopBooks extends Component{
 //         books: state.books
 //     };
 // }
-// function mapStateToProps(state) {
-//     return {
-//         books:state.books
-//     };
-// }
-// export default connect (mapStateToProps)(TopBooks);
-export default TopBooks;
+function mapStateToProps(state) {
+    return {
+        bbooks:state.bbooks,
+        books:state.books
+    };
+}
+export default connect (mapStateToProps)(TopBooks);
+// export default TopBooks;

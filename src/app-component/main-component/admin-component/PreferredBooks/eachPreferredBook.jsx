@@ -27,7 +27,7 @@ class EachPrefferedCard extends Component{
         // console.log("called")
         // }
         // console.log(props.data)
-        console.log(props.data)
+        // console.log(props.data)
         // bbooks=storeBbooks.getState().bbooks;
         // console.log(bbooks)
             // alert(window.bbooks.length);
