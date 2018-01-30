@@ -22,10 +22,11 @@ import { authContext } from '../adalConfig.js'
 import {bindActionCreators} from 'redux';
 import {createStore} from 'redux';
 import {Provider} from 'react-redux';
-import allReducers from'../state/reducer';
+import allReducers from'../state/reducer'; 
 import {connect} from 'react-redux';
 import {storeBbooks} from '../state/action/bbooksAction'
 import {storeBooks} from '../state/action/booksAction';
+import {storeWbooks} from '../state/action/wbooksAction';
 // import {storeBooks} from '../state/action/booksAction'
 import BookAdd from '../../src/app-component/main-component/admin-component/admin-edit-book/bookadd'
 import ContactUs from '../app-component/footer-component/ContactUs/contactus.jsx';
@@ -141,12 +142,14 @@ class App extends Component {
     window.wishlist = this.state.wishlist;
     window.display = this.state.display;
    let bbooks=this.state.bbooks;
+   let wbooks=this.state.wishlist
    let books=this.state.display;
    console.log(window.display);
     // window.display = this.state.display;
     // alert(window.display.length)
     this.props.storeBooks(books);
     this.props.storeBbooks(bbooks)
+    this.props.storeWbooks(wbooks)
     console.log(authContext._user.profile.given_name);
     user_name = authContext._user.profile.given_name;
     localStorage.setItem('limsuser', JSON.stringify(authContext._user))
@@ -205,7 +208,7 @@ class App extends Component {
 }
 
 function matchDispatchToProps(dispatch){
-    return bindActionCreators({storeBbooks: storeBbooks, storeBooks:storeBooks}, dispatch);
+    return bindActionCreators({storeBbooks: storeBbooks, storeBooks:storeBooks, storeWbooks:storeWbooks}, dispatch);
 }
 export default connect(null,matchDispatchToProps)(App);
 // export default App;

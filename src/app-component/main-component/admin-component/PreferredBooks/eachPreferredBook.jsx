@@ -6,7 +6,7 @@ import {connect} from 'react-redux';
 import {getDates} from '../../../dates';
 import {borrowDate, returnDate} from '../../../dates';
 import requestBook from '../../../mongo/requestBook'
-import ReturnBook from '../../../mongo/returnBook'
+import returnBook from '../../../mongo/returnBook'
 import {storeBbooks} from '../../../../state/action/bbooksAction'
 import {addWishlist} from '../../../mongo/addWishlist'
 import {removeWishlist} from '../../../mongo/removeWishlist'
@@ -115,11 +115,12 @@ class EachPrefferedCard extends Component{
     }
     changeToRequest=()=>
     {
-        // alert("changed");
-        // let val={render(){
-        // return(<ReturnBook isbn={this.props.item.isbn}/>)
-        // }}
-        // returnBook(this.props.item.isbn)
+        (async function(){
+                var data=await returnBook(this.props.item.isbn);
+                console.log(data.data);
+                
+                this.props.storeBbooks(data.data)
+            }).bind(this)()
         this.setState({requestIcon:true});
     }
     render()
