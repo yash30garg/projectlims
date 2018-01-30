@@ -329,7 +329,6 @@ class BootHeader extends Component {
                                             }}
                                             id="categoryDiv"
                                             onClick={this.plusMyClicked}>
-                                            {console.log(window.innerWidth)}
                                             
                                             <div className="col-md-0 fa fa-list-alt" aria-hidden="true"></div>
                                             <div
