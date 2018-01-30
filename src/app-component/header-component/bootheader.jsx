@@ -3,12 +3,13 @@ import axios from 'axios';
 import './bootheader.css';
 import {Link} from 'react-router-dom'
 import {Redirect} from 'react-router'
-import storeBbooks from '../../state/store/storeBbooks'
+// import storeBbooks from '../../state/store/storeBbooks'
 // import Footer from '../footer-component/footer.jsx';
 // import Header from './header.jsx';
 // import Pbooks from '../main-component/admin-component/PreferredBooks/PrefferdBooks.jsx';
 import BorrowedSlider from '../main-component/user-component/borrowedBooks/borrowedSlider.jsx';
 // import Search from '../search-component/Search.jsx';
+import store from '../../state/store/store.js'
 import SearchResults from '../search-component/SearchResults.jsx';
 import Search from '../search-component/Search'
 import Details from './../BookDetails-Component/details';
@@ -17,7 +18,7 @@ import  Category  from './categoryView';
 import WishedBooks from '../main-component/user-component/wishlist/wishlistComponent'
 import LoadingEffect from './../loading-component/loading';
 import { EachListItem } from './categoryList';
-import store from '../../state/store/store.js'
+import {connect} from 'react-redux';
 import $ from 'jquery';
 import BorrowedBooks from './../main-component/admin-component/booksDisplay';
 export let controller;
@@ -239,12 +240,18 @@ class BootHeader extends Component {
 //         if (this.state.redirect) {
 //     return <Redirect push to="/search" />;
 //   }
-
+        let value;
+        if(this.props.bbooks===null){
+            value=0;
+        }
+        else{
+            value=this.props.bbooks.length
+        }
         let brr = [];
         // store.subscribe(()=> {
         //     console.log(store.getState().search)
         // })
-        let arr = window.display
+        let arr = this.props.books
             .sort((a, b) => {
                 if (a.category.toUpperCase() > b.category.toUpperCase()) {
                     return 1;
@@ -369,7 +376,7 @@ class BootHeader extends Component {
                 textAlign: "left", textTransform:'capitalize'
             }}>Borrowed books</div>
             <div className="row">
-                <div className="badge badge-pill badge-warning mr-3">{storeBbooks.getState().bbooks.length}</div>
+                <div className="badge badge-pill badge-warning mr-3">{value}</div>
            
             </div>
         </button>
@@ -441,7 +448,7 @@ class BootHeader extends Component {
                                                 
                                                 
                                                 <div className="row">
-                                                    <div className="badge badge-pill badge-warning mr-3">{window.display.length}</div>
+                                                    <div className="badge badge-pill badge-warning mr-3">{this.props.books.length}</div>
                                                 </div>
                                                 
                                             </button>
@@ -451,7 +458,7 @@ class BootHeader extends Component {
 
                                                 return <EachListItem
                                                     key={`boot${r.category}`}
-                                                    completeArray={window.display}
+                                                    completeArray={this.props.books}
                                                     categoryName={r.category}
                                                     openByCategory={this
                                                         .openCategory
@@ -471,7 +478,7 @@ class BootHeader extends Component {
                                             ? <LandingView show={this.state.passBorrowed} wish={this.state.passWish} />
                                             : <Category
                                                 categoryCrossClicked={this.closeCategory}
-                                                data={window.display}
+                                                data={this.props.books}
                                                 selected={this.state.currentlyClicked}
                                                 isSearchClicked={this.state.searchClicked} />}
                                     </div>
@@ -513,4 +520,11 @@ class BootHeader extends Component {
 
 }
 
-export default BootHeader;
+function mapStateToProps(state) {
+    return {
+        bbooks: state.bbooks,
+        books:state.books
+    };
+}
+export default connect(mapStateToProps)(BootHeader);
+// export default BootHeader;

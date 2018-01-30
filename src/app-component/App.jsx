@@ -35,7 +35,7 @@ const store = createStore(allReducers);
 var req = require('request');
 // let res;
 // let users;
-window.display = '';
+// window.display = '';
 class App extends Component {
   constructor() {
     super();
@@ -140,10 +140,11 @@ class App extends Component {
     // alert("app")
     window.wishlist = this.state.wishlist;
    let bbooks=this.state.bbooks;
+   let books=this.state.display;
     window.display = this.state.display;
-   console.log(window.display.length)
+  //  console.log(window.display.length)
     this.props.storeBbooks(bbooks)
-    this.props.storeBooks(window.display)
+    this.props.storeBooks(books)
     // storeBbooks.dispatch({ type: "STORE_BBOOKS", payload: this.state.bbooks })
     // alert(window.display.length)
     console.log(authContext._user.profile.given_name);
