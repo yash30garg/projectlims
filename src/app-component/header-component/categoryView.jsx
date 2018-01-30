@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import './bootheader.css';
 import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
 import {controller,handleController} from './bootheader';
 let handle=(data)=>{
 window.selected=data;
@@ -167,4 +168,9 @@ return(
 )
     }
 }
-export default Category;
+function mapStateToProps(state) {
+    return {
+        books: state.books
+    };
+}
+export default connect(mapStateToProps)(Category);
