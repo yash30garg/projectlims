@@ -27,6 +27,7 @@ class TopBooks extends Component{
     
     viewMoreClicked=(event,cate)=>
     {
+        window.showDetails=false;
         this.setState({showTop:false,particularCategory:cate});
     }
     closeCategory=()=>
@@ -70,7 +71,6 @@ class TopBooks extends Component{
                     );
                 })
             }
-            
             return(
                 <div>
                 {(this.state.showTop)?<div className="put" style={{paddingBottom:'30px'}}>
@@ -84,10 +84,17 @@ class TopBooks extends Component{
             )
     }
 }
+
+// function mapStateToProps(state) {
+//     return {
+//         bbooks: state.bbooks,
+//         books: state.books
+//     };
+// }
 // function mapStateToProps(state) {
 //     return {
 //         books:state.books
 //     };
 // }
+// export default connect (mapStateToProps)(TopBooks);
 export default TopBooks;
-// export default TopBooks;

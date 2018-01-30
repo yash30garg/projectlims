@@ -131,12 +131,13 @@ class SearchResults extends Component {
                         <h5 >{this.props.divName}<span style={{ float: 'right', cursor: 'pointer', paddingLeft: '70px' }} id="openHome" onClick={this.props.searchCrossClicked}>x</span></h5>
                     </ol>
                     {processedData.length>1?
+                    <div>
                     <section className="sortInline">
                         <span className="sortName">
                             <span>Sort By</span>
                             </span>
                             <ul className="sortTypes">
-                                <li className="sortElement activeSortElement" onClick={(event)=> {
+                                <li id="defaultSearchResults" className="sortElement activeSortElement" onClick={(event)=> {
                                     event.preventDefault();
                                     store.dispatch({type:"STORE_SEARCH",payload: document.getElementById('key').value})
                                     event.target.className!=="sortELement activeSortElement"?
@@ -161,7 +162,22 @@ class SearchResults extends Component {
                                     }}><a>Rating</a></li>
                             </ul>
                 
-                    </section>:null}
+                    </section>
+                    <div className="btn-group setDropdown">
+                        <div className="dropdown">
+                            <select className="btn btn-secondary dropdown-toggle" id="filter" onChange={this.selectFilter} data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                                {/*<div className="dropdown-menu" aria-labelledby="dropdownMenu2">*/}
+                                <option className="dropdown-item" >Filter By</option>
+                                <option className="dropdown-item">5 Rated</option>
+                                <option className="dropdown-item">4 and above Rated </option>
+                                <option className="dropdown-item" >3 and above Rated</option>
+                                <option className="dropdown-item">2 and above Rated</option>
+                            </select>
+                            {/*</div>*/}
+                        </div>
+                    </div>
+                    </div>:null}
                     <div className="container-fluid">
                         <div className="row">
                             {a}

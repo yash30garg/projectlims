@@ -197,6 +197,7 @@ export var sortRating = () => {
         this.setState({ temp: 2 })
     }
 
+
 /*export default class Search extends Component {
     constructor() {
         super();
