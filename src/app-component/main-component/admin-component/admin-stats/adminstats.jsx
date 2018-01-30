@@ -1,30 +1,84 @@
 //   import React, {Component} from 'react';
 import React, { Component } from 'react';
 
-
+import { Link } from 'react-router-dom';
+// import { UserBooks } from './../borrowedBooks';
+import {requireAuth} from '../../../../app-component/isLoggedIn'
 
   var count = 0;
 
   export default class DashBoardStats extends Component {
+ constructor()
+    {
+        super();
 
+        this.state={
+            user:[],
+            output: [],
+        display: []
+        }
+    }
+    	componentWillMount() {
+		requireAuth(window.location.href)
+
+        fetch('http://localhost:3005/user/getUsers',{
+            method:'GET',
+            headers:{'Content-Type':'application/json'}
+        })
+        .then((res)=>res.json())
+        .then((res) =>{
+         console.log(res);
+         this.setState({user:res});
+        
+        		})
+
+                 fetch('http://localhost:3005/books/getBooks',{
+            method:'GET',
+            headers:{'Content-Type':'application/json',
+        'Authorization': localStorage.getItem('token')}
+        })
+        .then((res)=>res.json())
+        .then((res) =>{
+         console.log(res);
+         this.setState({display:res});
+        
+        		})
+    }
    
     render(){
-     count = 0;
+         window.users=this.state.user;
+        window.bookies=this.state.display;
+        let booksnum = window.bookies.length;
+        let total=0;
+        window.users
+            .map((result) => {
+            //    count+=`${result.borrowedBooks.length}`
+            total=total+parseInt(result.borrowedBooks.length);
+              
+        });
+        let booksavail = window.bookies.length-total;
+        let tper = ((booksavail/booksnum)*100).toFixed(1);
+        
+        let rper = ((total/booksnum)*100).toFixed(1);
+        
+        let values=window.users.length;
+    //  count = 0;
         
                 return (
                     <div>
      <div className="list-group">
-                                    <a  class="list-group-item " style={{backgroundColor : "#0275d8", color:"white"}}>
+                                    <a  class="list-group-item " style={{backgroundColor : "rgb(97, 65, 38)", color:"white"}}>
                                         <span class="fa fa-cog" aria-hidden="true"></span>
                                         DashBoard</a>
                                     <a class="list-group-item  list-group-item-action">
                                         <span class="fa fa-list-alt" aria-hidden="true"></span>Total Books<div
                                             className='mov'
                                             style={{
-                                                paddingRight: "170px"
+                                                paddingRight: "175px"
                                             }} />
                                         <span class="badge  badge-pill badge-warning">
                                             {/*{this.state.display.length}*/}
+                                            {booksnum}
                                             </span>
                                     </a>
                                     <a  class="list-group-item  list-group-item-action">
@@ -33,7 +87,7 @@ import React, { Component } from 'react';
                                             style={{
                                                 paddingRight: "150px"
                                             }} />
-                                        <span className="badge badge-pill badge-warning">75</span>
+                                        <span className="badge badge-pill badge-warning">{booksavail}</span>
                                     </a>
                                     <a  class="list-group-item  list-group-item-action">
                                         <span class="fa fa-user" aria-hidden="true"></span>Users<div
@@ -41,14 +95,14 @@ import React, { Component } from 'react';
                                             style={{
                                                 paddingRight: "227px"
                                             }} />
-                                        <span className="badge badge-pill badge-warning mov">{count}</span>
+                                        <span className="badge badge-pill badge-warning mov">{values}</span>
                                     </a>
                                     {/*<a href="!#" class="list-group-item list-group-item-action disabled">Vestibulum at eros</a>*/}
                                 </div>
 
                                 <br />
                                 <div className="card">
-                                    <div className="card-header card-primary">
+                                    <div className="card-header card-primary" style={{backgroundColor : "rgb(97, 65, 38)"}}>
                                         <div className="t">
                                             <span className="fa fa-list" aria-hidden="true"></span>
                                             Books Stats
@@ -57,7 +111,7 @@ import React, { Component } from 'react';
                                     <h6 className="he5">Books Available :</h6>
                                     <div className="p1">
                                         <div class="progress">
-                                            <div class="progress-bar" role="progressbar" style={{ width: "60%" }} aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">60%</div>
+                                            <div class="progress-bar" role="progressbar" style={{ width: `${tper}%` , backgroundColor:"#f0ad4e" }} aria-valuenow={tper} aria-valuemin="0" aria-valuemax="100">{tper}%</div>
                                         </div>
                                     </div>
 
@@ -65,7 +119,7 @@ import React, { Component } from 'react';
                                         Books to be returned :</h6>
                                     <div className="p2">
                                         <div class="progress">
-                                            <div class="progress-bar" role="progressbar" style={{ width: "40%" }} aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">40%</div>
+                                            <div class="progress-bar" role="progressbar" style={{ width: `${rper}%` , backgroundColor:"#f0ad4e" }} aria-valuenow={rper} aria-valuemin="0" aria-valuemax="100">{rper}%</div>
                                         </div>
 
                                     </div>

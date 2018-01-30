@@ -28,6 +28,7 @@ class TopBooks extends Component{
     viewMoreClicked=(event,cate)=>
     {
         window.showDetails=false;
+        window.hideCategory=false;
         this.setState({showTop:false,particularCategory:cate});
     }
     closeCategory=()=>
