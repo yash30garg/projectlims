@@ -5,6 +5,7 @@ import Footer from '../../../../app-component/footer-component/footer.jsx';
 import {requireAuth} from '../../../isLoggedIn.js'
 import {url} from '../../../header-component/header'
 import { Link } from 'react-router-dom';
+import {connect} from 'react-redux';
 import { HashRouter, Route, Switch } from 'react-router-dom';
 import MyWishList from'./MyWishList';
 
@@ -18,7 +19,6 @@ class Profile extends Component {
     return (
     <div style={{backgroundColor : "#FFF8DC", minHeight : "33px"}}>
 {/*<Header />*/}
-<AlternateHeader/>
 <div className="container-fluid"  >
   <br/><nr />
 	<div className="innerwrap">
@@ -34,7 +34,7 @@ class Profile extends Component {
 					<div className="col2 last">
 						<div className="grid clearfix">
 							<div className="col3 first">
-								<h1>{JSON.parse(localStorage.getItem('bbooks')).length}</h1>
+								<h1>{this.props.bbooks.length}</h1>
 								<span>Books Borrowed</span>
 							</div>
 							<div className="col3"><h1>9</h1>
@@ -111,8 +111,12 @@ class Profile extends Component {
 <br />
 <br />
 <br />
-<Footer />
    </div>
     )}
 }
-export default Profile;
+function mapStateToProps(state) {
+    return {
+        bbooks: state.bbooks
+    };
+}
+export default connect(mapStateToProps)(Profile);

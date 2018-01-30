@@ -84,10 +84,17 @@ class TopBooks extends Component{
             )
     }
 }
+
+function mapStateToProps(state) {
+    return {
+        bbooks: state.bbooks,
+        books: state.books
+    };
+}
 // function mapStateToProps(state) {
 //     return {
 //         books:state.books
 //     };
 // }
-export default TopBooks;
+export default connect (mapStateToProps)(TopBooks);
 // export default TopBooks;
