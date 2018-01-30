@@ -1,6 +1,5 @@
 import {combineReducers} from 'redux';
 import BbooksReducer from './bbooksReducer';
-import BooksReducer from './booksReducer'
 // import ActiveUserReducer from './reducer-active-user';
 
 
@@ -9,8 +8,7 @@ import BooksReducer from './booksReducer'
  
 
 const allReducers = combineReducers({
-    bbooks: BbooksReducer,
-    books: BooksReducer
+    bbooks: BbooksReducer
 });
 
 export default allReducers
