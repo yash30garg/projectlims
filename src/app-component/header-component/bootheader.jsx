@@ -3,12 +3,13 @@ import axios from 'axios';
 import './bootheader.css';
 import {Link} from 'react-router-dom'
 import {Redirect} from 'react-router'
-import storeBbooks from '../../state/store/storeBbooks'
+// import storeBbooks from '../../state/store/storeBbooks'
 // import Footer from '../footer-component/footer.jsx';
 // import Header from './header.jsx';
 // import Pbooks from '../main-component/admin-component/PreferredBooks/PrefferdBooks.jsx';
 import BorrowedSlider from '../main-component/user-component/borrowedBooks/borrowedSlider.jsx';
 // import Search from '../search-component/Search.jsx';
+import store from '../../state/store/store.js'
 import SearchResults from '../search-component/SearchResults.jsx';
 import Search from '../search-component/Search'
 import Details from './../BookDetails-Component/details';
@@ -17,19 +18,30 @@ import  Category  from './categoryView';
 import WishedBooks from '../main-component/user-component/wishlist/wishlistComponent'
 import LoadingEffect from './../loading-component/loading';
 import { EachListItem } from './categoryList';
-import store from '../../state/store/store.js'
+import {connect} from 'react-redux';
 import $ from 'jquery';
 import BorrowedBooks from './../main-component/admin-component/booksDisplay';
+import Profile from './../main-component/user-component/profileView/prodetails';
+export let controller;
+export var handleController = () => {
+    controller=1
+}
 var count = 0,
-    plus,
-    check;
+    plusCtgry,
+    checkCtgry,
+    plusMy,
+    checkMy;
 class BootHeader extends Component {
     constructor() {
         super();
-        plus = (
+        plusCtgry = (
             <div className="fa fa-minus"></div>
         );
-        check = "-";
+        plusMy = (
+        <div className="fa fa-minus"></div>
+        );
+        checkCtgry = "-";
+        checkMy = "-";
         this.state = {
             display: [],
             landingView: true,
@@ -39,7 +51,8 @@ class BootHeader extends Component {
             wishlistClicked: false,
             passBorrowed: false,
             passWish: false,
-            plus: plus,
+            plusCtgry: plusCtgry,
+            plusMy: plusMy,
             arrayResults: [],
             searchResults: false,
             searchClicked : false,
@@ -49,6 +62,7 @@ class BootHeader extends Component {
         
 
         }
+        window.showProfile=false;
     }
     // componentWillMount() {
     //     axios
@@ -70,6 +84,8 @@ class BootHeader extends Component {
             searchClicked: false,
         });
         window.showDetails=false;
+        window.showProfile=false;
+        controller=0;
     }
     closeCategory = () => {
         this.setState({
@@ -91,6 +107,7 @@ class BootHeader extends Component {
             passWish: true
         });
         window.showDetails=false;
+        window.showProfile=false;
     }
 
     closeBorrowed = () => {
@@ -114,6 +131,7 @@ class BootHeader extends Component {
             passBorrowed: true
         });
         window.showDetails=false;
+        window.showProfile=false;
     }
 
     closeWishlist = () => {
@@ -139,6 +157,7 @@ class BootHeader extends Component {
             sortedData: store.getState().sorted_Data,
         })
         window.showDetails=false;
+        window.showProfile=false;
         if(store.getState().sorted_Data.length===0)
         this.setState({searchArg: "No Results found for your search: "+ document.getElementById('key').value})
         else
@@ -170,6 +189,7 @@ class BootHeader extends Component {
             searchResults: false,
             searchClicked : false,
         })
+        window.showProfile=false;
     }
     closeDetails=()=>
     {
@@ -186,21 +206,49 @@ class BootHeader extends Component {
         });
        
     }
+    ProfileFunctions=()=>
+    {
+            this.setState({
+            landingView: false,
+            categoryClicked: false,
+            borrowedClicked: false,
+            passBorrowed: false,
+            passWish: false,
+            wishlistClicked: false,
+            searchResults: false,
+            searchClicked : false,
+        })
+    }
 
 
-    plusClicked = () => {
-        if (check === "-") {
-            check = "+";
-            plus = (
+    plusCtgryClicked = () => {
+        if (checkCtgry === "-") {
+            checkCtgry = "+";
+            plusCtgry = (
                 <div className="fa fa-plus"></div>
             )
-            this.setState({ plus: plus });
+            this.setState({ plusCtgry: plusCtgry });
         } else {
-            check = "-";
-            plus = (
+            checkCtgry = "-";
+            plusCtgry = (
                 <div className="fa fa-minus"></div>
             )
-            this.setState({ plus: plus });
+            this.setState({ plusCtgry: plusCtgry });
+        }
+    }
+        plusMyClicked = () => {
+        if (checkMy === "-") {
+            checkMy = "+";
+            plusMy = (
+                <div className="fa fa-plus"></div>
+            )
+            this.setState({ plusMy: plusMy });
+        } else {
+            checkMy = "-";
+            plusMy = (
+                <div className="fa fa-minus"></div>
+            )
+            this.setState({ plusMy: plusMy });
         }
     }
     
@@ -212,7 +260,13 @@ class BootHeader extends Component {
 //         if (this.state.redirect) {
 //     return <Redirect push to="/search" />;
 //   }
-
+        let value;
+        if(this.props.bbooks===null){
+            value=0;
+        }
+        else{
+            value=this.props.bbooks.length
+        }
         let brr = [];
         // store.subscribe(()=> {
         //     console.log(store.getState().search)
@@ -281,14 +335,32 @@ class BootHeader extends Component {
                                 <div className="col-md-3">
 
                                     <div className="list-group">
-                                        <div
-                                            className="list-group-item collor"
+                                                               <div
+                                            className="row col-md-12 list-group-item collor nav-item dropdown nav-link ml-0"
+                                            data-toggle="collapse"
+                                            data-target="#myBooks"
+                                            aria-controls="myBooks"
+                                            aria-expanded="true"
+                                            aria-label="Toggle navigation"
                                             style={{
                                                 backgroundColor: "#614126",
                                                 color: "white"
-                                            }}>
-                                            <span className="fa fa-list-alt" aria-hidden="true"></span>
-                                            My Books</div>
+                                                
+                                            }}
+                                            id="categoryDiv"
+                                            onClick={this.plusMyClicked}>
+                                            
+                                            <div className="col-md-0 fa fa-list-alt" aria-hidden="true"></div>
+                                            <div
+                                                className="col"
+                                                style={{
+                                                    textAlign: "left"
+                                                }}>MyBooks</div>
+                                            <div className="row">
+                                                <div className="mr-1">{this.state.plusMy}</div>
+                                            </div>
+                                        </div>
+
                                         {/*<a>
                                         <button
                                             onClick={this.openBorrowedBooks}
@@ -308,6 +380,10 @@ class BootHeader extends Component {
                                         <div id="topDetailsCross" onClick={this.closeDetails}></div>
                                         <div id="searchDetailsCross" onClick={this.openSearch}></div>
                                         <div id="categoryDetailsCross" onClick={this.closeDetails}></div>
+                                        <div id="wishlistDetailsCross" onClick={this.openWishlist}></div>
+                                        <div id="borrowedDetailsCross" onClick={this.openBorrowedBooks}></div>
+                                        <div id="profile" onClick={this.ProfileFunctions}></div>
+           <div className="collapse show" id="myBooks">                             
            <a>                             
             <button type="button"
             onClick={this.openBorrowedBooks}
@@ -320,7 +396,7 @@ class BootHeader extends Component {
                 textAlign: "left", textTransform:'capitalize'
             }}>Borrowed books</div>
             <div className="row">
-                <div className="badge badge-pill badge-warning mr-3">{storeBbooks.getState().bbooks.length}</div>
+                <div className="badge badge-pill badge-warning mr-3">{value}</div>
            
             </div>
         </button>
@@ -343,7 +419,7 @@ class BootHeader extends Component {
             </div>
         </button>
         </a>
-
+</div>
 
 
 
@@ -364,7 +440,7 @@ class BootHeader extends Component {
                                                 
                                             }}
                                             id="categoryDiv"
-                                            onClick={this.plusClicked}>
+                                            onClick={this.plusCtgryClicked}>
                                             {console.log(window.innerWidth)}
                                             
                                             <div className="col-md-0 fa fa-list-alt" aria-hidden="true"></div>
@@ -374,7 +450,7 @@ class BootHeader extends Component {
                                                     textAlign: "left"
                                                 }}>Categories</div>
                                             <div className="row">
-                                                <div className="mr-1">{this.state.plus}</div>
+                                                <div className="mr-1">{this.state.plusCtgry}</div>
                                             </div>
                                         </div>
 
@@ -449,6 +525,9 @@ class BootHeader extends Component {
                                     <div>
                                     {window.showDetails?<Details data={window.selected} detailsCrossClicked={this.closeDetails}/>:null}
                                     </div>
+                                    <div>
+                                    {window.showProfile?<Profile/>:null}
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -464,4 +543,11 @@ class BootHeader extends Component {
 
 }
 
-export default BootHeader;
+function mapStateToProps(state) {
+    return {
+        bbooks: state.bbooks,
+        books: state.books
+    };
+}
+export default connect(mapStateToProps)(BootHeader);
+// export default BootHeader;

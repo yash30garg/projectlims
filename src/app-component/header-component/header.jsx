@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../../logo.svg';
 import '../App.css';
+import {connect} from 'react-redux';
 import Img from 'react-image';
 // import Search from '../search-component/Search'; import './header.css';
 // import PBooks from
@@ -10,7 +11,7 @@ import { authContext } from '../../adalConfig'
 import './header.css'
 import { Link, withRouter } from 'react-router-dom';
 import { user_name } from '../App'
-import { connect } from 'react-redux'
+// import { connect } from 'react-redux'
 import BootHeader from './bootheader'
 import LoadingEffect from '../loading-component/loading'
 // import Footer from '../footer-component/footer'
@@ -67,6 +68,11 @@ class Header extends Component {
   search(e) {
     store.dispatch({ type: "STORE_SEARCH", payload: document.getElementById('key').value })
     search()
+  }
+  changeProfileShow()
+  {
+    window.showProfile=true;
+    document.getElementById('profile').click();
   }
 
   render() {
@@ -247,8 +253,11 @@ class Header extends Component {
                     <span className="dropdown-toggle"></span></div>
                   <ul className="dropdown-menu dropdown-menu-right" style={{ backgroundColor: "#FFF8DC	" }} >
                     <li >
-                      <Link to="/profile"><a href="#" className="dropdown-item" style={{ color: '#614126', borderColor: 'brown' }}><span className="fa fa-user"></span>Profile
-                    </a></Link></li>
+                      {/*<Link to="/profile">*/}
+                      <a href="#" onClick={this.changeProfileShow} className="dropdown-item" style={{ color: '#614126', borderColor: 'brown' }}><span className="fa fa-user"></span>Profile
+                    </a>
+                    {/*</Link>*/}
+                    </li>
                     <div class="dropdown-divider" >
                     </div>
                     <li >
@@ -280,5 +289,11 @@ class Header extends Component {
 //     }
 //   }
 // }
-// export default connect(mapDispatchToProps)(withRouter(Header));
-export default Header;
+function mapStateToProps(state) {
+    return {
+        bbooks: state.bbooks,
+        books: state.books
+    };
+}
+export default connect(mapStateToProps)(Header);
+// export default Header;

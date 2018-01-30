@@ -2,6 +2,7 @@ import React,{Component}from 'react';
 import EachCategory from './eachCategory';
 // import axios from 'axios';
 import './topRated.css'
+import {connect} from 'react-redux';
 import LoadingEffect from './../../../loading-component/loading';
 import  Category  from './../../../header-component/categoryView';
 class TopBooks extends Component{
@@ -83,4 +84,10 @@ class TopBooks extends Component{
             )
     }
 }
+// function mapStateToProps(state) {
+//     return {
+//         books:state.books
+//     };
+// }
 export default TopBooks;
+// export default TopBooks;

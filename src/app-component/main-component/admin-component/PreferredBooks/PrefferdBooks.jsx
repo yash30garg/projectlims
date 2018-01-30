@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import './PrefferedBooks.css';
-import storeBbooks from '../../../../state/store/storeBbooks';
+import {connect} from 'react-redux';
 import EachPrefferedCard from './eachPreferredBook'
 // import $ from 'jquery'; var preferredBooks = [];
 let bbooks;
@@ -30,7 +30,8 @@ class PBooks extends Component {
         // if(this.state.books.length===0){
         //     this.getVal();
         // }
-        bbooks=storeBbooks.getState().bbooks;
+        // window.display=this.props.books;
+        bbooks=this.props.bbooks;
         // console.log(this.state.books.length)
         // alert("pf")
     //    let bbooks= storeBbooks.getState().bbooks;
@@ -45,7 +46,7 @@ class PBooks extends Component {
             s2,
             s3,
             s4;
-        if (window.display.length !== 0 && bbooks.length !== 0) {
+        if (window.display.length !== 0 && bbooks !== null) {
             let b = window.display
                 .filter((res) => res.rating >= 1 && (res.category === "Javascript" || res.category === "javascript"));
             s1 = <div className="carousel-item mt-2">
@@ -162,4 +163,9 @@ class PBooks extends Component {
         )
     }
 }
-export default PBooks;
+function mapStateToProps(state) {
+    return {
+        bbooks: state.bbooks
+    };
+}
+export default connect(mapStateToProps)(PBooks);

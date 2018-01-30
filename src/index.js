@@ -4,18 +4,21 @@ import './index.css';
 import App from './app-component/App.jsx';
 import axios from 'axios';
 import React, { Component } from 'react'
+import {createStore} from 'redux';
+import {Provider} from 'react-redux';
 import { Provider as AlertProvider } from 'react-alert'
 import AlertTemplate from 'react-alert-template-basic'
 // import registerServiceWorker from './registerServiceWorker';
 import { runWithAdal } from 'react-adal';
 import { authContext } from './adalConfig';
+import allReducers from'./state/reducer';
 // import './server.js'
 
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../node_modules/bootstrap/dist/js/bootstrap.min.js';
 
 import '../node_modules/bootstrap/scss/bootstrap.scss';
-
+const store = createStore(allReducers);
 // var UserDetails = JSON.parse(localStorage.getItem('limsuser'));
 // console.log(UserDetails)
 // let mid=UserDetails.userName.split("@");
@@ -47,7 +50,9 @@ class Root extends Component  {
   render () {
     return (
       <AlertProvider template={AlertTemplate} {...options}>
+      <Provider store={store}>
         <App />
+        </Provider>
       </AlertProvider>
     )
   }

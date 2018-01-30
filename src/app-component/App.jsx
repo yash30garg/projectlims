@@ -9,7 +9,6 @@ import SearchResults from './search-component/SearchResults'
 import { BookDetails } from '../app-component/BookDetails-Component/bookDetails'
 import DashBoard from '../app-component/main-component/admin-component/adminDashboard/dashboard.jsx';
 import Login from './main-component/login-component/login.jsx';
-import storeBbooks from '../state/store/storeBbooks';
 import { HashRouter, Route, Switch } from 'react-router-dom';
 // import { BrowserRouter } from 'react-router-dom';
 import { User } from './main-component/user-component/user';
@@ -20,15 +19,21 @@ import Profile from '../app-component/main-component/user-component/profileView/
 // import BookTor from '../app-component/booktor/booktor.jsx';
 import AboutUs from '../app-component/footer-component/AboutUs/aboutus.jsx';
 import { authContext } from '../adalConfig.js'
+import {bindActionCreators} from 'redux';
+import {createStore} from 'redux';
+import {Provider} from 'react-redux';
+import allReducers from'../state/reducer';
+import {connect} from 'react-redux';
+import {storeBbooks} from '../state/action/bbooksAction'
+import {storeBooks} from '../state/action/booksAction';
+// import {storeBooks} from '../state/action/booksAction'
 import BookAdd from '../../src/app-component/main-component/admin-component/admin-edit-book/bookadd'
 import ContactUs from '../app-component/footer-component/ContactUs/contactus.jsx';
 import BookEdit from '../app-component/main-component/admin-component/admin-update-book/bookedit.jsx'
 // import { AuthenticationContext, adalGetToken, adalFetch } from 'react-adal';
 export var user_name;
+const store = createStore(allReducers);
 var req = require('request');
-// let res;
-// let users;
-window.display = '';
 class App extends Component {
   constructor() {
     super();
@@ -36,9 +41,10 @@ class App extends Component {
     // storeBbooks.dispatch({type:"STORE_BBOOKS",payload: []}) 
     window.history.go(-Backlen);
     this.state = {
-      bbooks: [],
+      bbooks: null,
       display: [],
-      wishlist: []
+      wishlist: [],
+      flag:false
     }
   }
 
@@ -82,7 +88,7 @@ class App extends Component {
       .then((res) => {
         console.log(res)
         localStorage.setItem('token', res.token)
-        localStorage.setItem('role', res.user[0].role)
+        // localStorage.setItem('role', res.user[0].role)
         fetch('http://localhost:3005/books/getBooks',
           {
             method: 'GET',
@@ -94,10 +100,11 @@ class App extends Component {
           .then((response) => response.json())
           .then((response) => {
             console.log("booksssssss");
+            console.log(response);
             this.setState({
-              display: response
+              display: response,
+              flag:true
             })
-
           })
         if (res.status === "Exists") {
           this.getBorrowedData();
@@ -132,10 +139,14 @@ class App extends Component {
   render() {
     // alert("app")
     window.wishlist = this.state.wishlist;
-    // window.bbooks=this.state.bbooks;
     window.display = this.state.display;
-    storeBbooks.dispatch({ type: "STORE_BBOOKS", payload: this.state.bbooks })
+   let bbooks=this.state.bbooks;
+   let books=this.state.display;
+   console.log(window.display);
+    // window.display = this.state.display;
     // alert(window.display.length)
+    this.props.storeBooks(books);
+    this.props.storeBbooks(bbooks)
     console.log(authContext._user.profile.given_name);
     user_name = authContext._user.profile.given_name;
     localStorage.setItem('limsuser', JSON.stringify(authContext._user))
@@ -185,8 +196,6 @@ class App extends Component {
             <Route path="/contactus" exact component={ContactUs} />
             <Route path="/bookadd" exact component={BookAdd} />
             <Route path="/bookedit" exact component={BookEdit} />
-
-
           </Switch>
 
         </div>
@@ -195,4 +204,8 @@ class App extends Component {
   }
 }
 
-export default App;
+function matchDispatchToProps(dispatch){
+    return bindActionCreators({storeBbooks: storeBbooks, storeBooks:storeBooks}, dispatch);
+}
+export default connect(null,matchDispatchToProps)(App);
+// export default App;
