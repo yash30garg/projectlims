@@ -4,7 +4,7 @@ import './PrefferedBooks.css';
 import {connect} from 'react-redux';
 import EachPrefferedCard from './eachPreferredBook'
 // import $ from 'jquery'; var preferredBooks = [];
-let bbooks;
+let bbooks,wbooks;
 class PBooks extends Component {
 
     constructor() {
@@ -32,6 +32,7 @@ class PBooks extends Component {
         // }
         // window.display=this.props.books;
         bbooks=this.props.bbooks;
+        wbooks=this.props.wbooks;
         // console.log(this.state.books.length)
         // alert("pf")
     //    let bbooks= storeBbooks.getState().bbooks;
@@ -46,14 +47,14 @@ class PBooks extends Component {
             s2,
             s3,
             s4;
-        if (window.display.length !== 0 && bbooks !== null) {
+        if (window.display.length !== 0 && bbooks !== null && wbooks!==null) {
             let b = window.display
                 .filter((res) => res.rating >= 1 && (res.category === "Javascript" || res.category === "javascript"));
             s1 = <div className="carousel-item mt-2">
                 {b
                     .slice(0, 6)
                     .map((r) => {
-                        return (<EachPrefferedCard key={`pref${r.isbn}`} item={r} data={bbooks}/>);
+                        return (<EachPrefferedCard key={`pref${r.isbn}`} item={r} Bdata={bbooks} Wdata={wbooks}/>);
                     })}
             </div>
             b = window.display
@@ -63,7 +64,7 @@ class PBooks extends Component {
                 {b
                     .slice(0, 6)
                     .map((r) => {
-                        return (<EachPrefferedCard key={r.isbn} item={r} data={bbooks}/>);
+                        return (<EachPrefferedCard key={r.isbn} item={r} Bdata={bbooks} Wdata={wbooks}/>);
                     })}
             </div>
                 }
@@ -77,7 +78,7 @@ class PBooks extends Component {
                 {b
                     .slice(0, 6)
                     .map((r) => {
-                        return (<EachPrefferedCard key={`book${r.isbn}`} item={r} data={bbooks}/>);
+                        return (<EachPrefferedCard key={`book${r.isbn}`} item={r} Bdata={bbooks} Wdata={wbooks}/>);
                     })}
             </div>
         }
@@ -166,7 +167,8 @@ class PBooks extends Component {
 function mapStateToProps(state) {
     return {
         bbooks: state.bbooks,
-        books: state.books
+        books: state.books,
+        wbooks:state.wbooks
     };
 }
 export default connect(mapStateToProps)(PBooks);

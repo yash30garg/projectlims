@@ -44,7 +44,7 @@ class App extends Component {
     this.state = {
       bbooks: null,
       display: [],
-      wishlist: [],
+      wishlist: null,
       flag:false
     }
   }
@@ -139,7 +139,7 @@ class App extends Component {
 
   render() {
     // alert("app")
-    window.wishlist = this.state.wishlist;
+    // window.wishlist = this.state.wishlist;
     window.display = this.state.display;
    let bbooks=this.state.bbooks;
    let wbooks=this.state.wishlist

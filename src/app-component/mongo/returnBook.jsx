@@ -10,12 +10,5 @@ var data = await fetch('http://localhost:3005/borrowedBooks/deleteBook',{
         })
 var allData=data.json();
 return allData
-    //     .then((res)=>res.json())
-    //     .then((res)=>{
-    //         // storeBbooks.dispatch({type:"STORE_BBOOKS",payload: res.data})
-    //         this.props.storeBbooks(res.data)
-    //         // window.bbooks=res.data;
-    //         // window.bbooks=storeBbooks.getState().bbooks;
-    // })
 }
 export default returnBook;
