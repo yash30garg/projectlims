@@ -1,14 +1,20 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import'./PrefferedBooks.css';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
 import {getDates} from '../../../dates';
 import {borrowDate, returnDate} from '../../../dates';
-import {requestBook} from '../../../mongo/requestBook';
-import {returnBook} from '../../../mongo/returnBook';
-import storeBbooks from '../../../../state/store/storeBbooks';
+import requestBook from '../../../mongo/requestBook'
+import ReturnBook from '../../../mongo/returnBook'
+import {storeBbooks} from '../../../../state/action/bbooksAction'
 import {addWishlist} from '../../../mongo/addWishlist'
 import {removeWishlist} from '../../../mongo/removeWishlist'
 let bbooks;
+let test=()=>{
+    var val=5;
+    return val;
+}
 class EachPrefferedCard extends Component{
     constructor(props)
     {
@@ -24,17 +30,24 @@ class EachPrefferedCard extends Component{
         // bbooks=storeBbooks.getState().bbooks;
         // console.log(bbooks)
             // alert(window.bbooks.length);
+            // console.log(props.data.length)
+            if(props.data.length!==0){
                  props.data.map(res=>{
+                    //  console.log(res)
             if(res.isbn===this.props.item.isbn){   
                 console.log("found")
             reqVal=false;
             }
         })
+            }
         window.wishlist.map(res=>{
             if(res.isbn===this.props.item.isbn)
             wishVal=false;
         })
         this.handle=this.handle.bind(this);
+        this.changeToUndo=this.changeToUndo.bind(this);
+        // requestBook
+        // this.requestBook=this.requestBook.bind(this);
         this.state={
             wishlistIcon:wishVal,
             requestIcon:reqVal
@@ -68,7 +81,10 @@ class EachPrefferedCard extends Component{
     }
     changeToUndo=()=>
     {
-        if(storeBbooks.getState().bbooks.length<4){
+        // let num=test();
+        // alert("in")
+        // alert(num);
+        if(this.props.bbooks.length<4){
             let bookAdded=new Object();
                 bookAdded.isbn=this.props.item.isbn;
                 bookAdded.title=this.props.item.title;
@@ -79,26 +95,41 @@ class EachPrefferedCard extends Component{
                 bookAdded.borrowedDate=borrowDate;
                 bookAdded.returnDate=returnDate;
                 bookAdded.isRenewed="false"; 
-                // var books=[];
-                requestBook(bookAdded);
+                (async function(){
+                    var data=await requestBook(bookAdded);
+                console.log(data.data);
+                this.props.storeBbooks(data.data)
+                // var newD=data.json();
+            }).bind(this)()
+                
+                // var data=requestBook(bookAdded);
+                // var newD = data.then()
+                // console.log(newD);
+                // var newD=data.json();
+                // console.log("data")
+                // console.log(data)
+                // this.props.storeBbooks(data)
                 // alert(books.length)
         this.setState({requestIcon:false});
         }
     }
     changeToRequest=()=>
     {
-        returnBook(this.props.item.isbn)
+        // alert("changed");
+        // let val={render(){
+        // return(<ReturnBook isbn={this.props.item.isbn}/>)
+        // }}
+        // returnBook(this.props.item.isbn)
         this.setState({requestIcon:true});
     }
-
     render()
     {
+        // let a=<ReturnBook/>        
         // console.log(this.props.data)
         //res=this.props.item;
     return (
         <div
-            className="mx-auto col-lg-2 col-md-4 col-sm-6 col-xs-12">
-            
+            className="mx-auto col-lg-2 col-md-4 col-sm-6 col-xs-12">            
             <div
                 className="card-img particular mx-auto"
                 //  onClick={()=>this.handle(res)}
@@ -153,4 +184,12 @@ class EachPrefferedCard extends Component{
     );
     }
 }
-export default EachPrefferedCard;
+function mapStateToProps(state) {
+    return {
+        bbooks: state.bbooks
+    };
+}
+function matchDispatchToProps(dispatch){
+    return bindActionCreators({storeBbooks: storeBbooks}, dispatch);
+}
+export default connect(mapStateToProps,matchDispatchToProps)(EachPrefferedCard);

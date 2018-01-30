@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import './details.css';
+import {connect} from 'react-redux';
 import '../search-component/Search.css';
-import storeBbooks from '../../state/store/storeBbooks'
 import $ from 'jquery';
-import { withAlert } from 'react-alert'
-import {requestBook} from '.././mongo/requestBook'
-import {returnBook} from '.././mongo/returnBook'
+// import { withAlert } from 'react-alert'
+import requestBook from '.././mongo/requestBook'
+import returnBook from '.././mongo/returnBook'
 import {addWishlist} from '.././mongo/addWishlist'
 import {removeWishlist} from '.././mongo/removeWishlist'
 import {getDates} from '../dates'
@@ -62,7 +62,8 @@ class Details extends Component {
             wish: w,
             msg: ""
         };
-        storeBbooks.getState().bbooks
+        // storeBbooks.getState().bbooks
+        this.props.bbooks
             //eslint-disable-next-line            
             .map(res => {
                 if (res.isbn === this.props.data.isbn) {
@@ -209,7 +210,8 @@ class Details extends Component {
     }
 
     renew = () => {
-            storeBbooks.getState().bbooks
+            // storeBbooks.getState().bbooks
+            this.props.bbooks
             //eslint-disable-next-line            
             .map((res) => {
                 if (res.isbn === book.isbn) {
@@ -293,7 +295,7 @@ class Details extends Component {
     }
     
     request = () => {
-            if (storeBbooks.getState().bbooks.length < 4) {
+            if (this.props.bbooks.length < 4) {
                 //eslint-disable-next-line   
                 let bookAdded=new Object();
                 bookAdded.isbn=book.isbn;
@@ -306,7 +308,7 @@ class Details extends Component {
                 bookAdded.returnDate=returnDate;
                 bookAdded.isRenewed="false";            
                 requestBook(bookAdded);
-                this.props.alert.show('Oh look, an alert!')
+                // this.props.alert.show('Oh look, an alert!')
                 a = b = (
                     <div>
                         <button
@@ -368,13 +370,6 @@ class Details extends Component {
                 backgroundColor: "#FFF8DC"
             }}>
                 {this.state.msg}
-                <button
-        onClick={() => {
-          this.props.alert.show('Oh look, an alert!')
-        }}
-      >
-        Show Alert
-      </button>
                 {/*<div
                     className="container"
                     style={{
@@ -526,5 +521,10 @@ class Details extends Component {
     }
 
 }
-export default withAlert(Details);
+function mapStateToProps(state) {
+    return {
+        bbooks: state.bbooks
+    };
+}
+export default connect(mapStateToProps)(Details);
 // <img src={book.details.url} style={{height:"100vh", width:"50vw"}}/>
