@@ -20,6 +20,10 @@ import { EachListItem } from './categoryList';
 import store from '../../state/store/store.js'
 import $ from 'jquery';
 import BorrowedBooks from './../main-component/admin-component/booksDisplay';
+export let controller;
+export var handleController = () => {
+    controller=1
+}
 var count = 0,
     plusCtgry,
     checkCtgry,
@@ -77,6 +81,7 @@ class BootHeader extends Component {
             searchClicked: false,
         });
         window.showDetails=false;
+        controller=0;
     }
     closeCategory = () => {
         this.setState({

@@ -1,12 +1,14 @@
 import React,{Component} from 'react';
 import './bootheader.css';
 import {Link} from 'react-router-dom';
+import {controller,handleController} from './bootheader';
 let handle=(data)=>{
 window.selected=data;
  window.showDetails=true;
 document.getElementById('detail').click();
  window.setClickProps="categoryDetailsCross"
 }
+let filteredArray=[];
  class Category extends Component
 {
     constructor(props)
@@ -14,10 +16,12 @@ document.getElementById('detail').click();
         super(props);
         this.state={
         wishlistIcon:true,
-        requestIcon:true
+        requestIcon:true,
+        a:0,
+        b:11,
+        showButton:false
     }
-    }
-
+}
     changeToFilled=()=>
     {
         this.setState({wishlistIcon:false});
@@ -33,11 +37,27 @@ document.getElementById('detail').click();
     changeToRequest=()=>
     {
         this.setState({requestIcon:true});
-    }   
+    } 
+    next_click_handler=()=>
+    {
+    if(this.state.b<filteredArray.length)
+    {
+        this.setState({a:this.state.a+11});
+        this.setState({b:this.state.b+11});
+    }  
+    }
+    previous_click_handler=()=>
+    {
+    if(this.state.a>=11)
+    {
+        this.setState({a:this.state.a-11});
+        this.setState({b:this.state.b-11});
+    }
+}  
 
     render()
     {
-    let filteredArray=[];
+    
     if(this.props.selected==="all")
     {
           filteredArray=this.props.data.sort((a, b) => {
@@ -52,10 +72,23 @@ document.getElementById('detail').click();
     }
     else
     {
-    filteredArray=this.props.data.filter(r=>r.category.toLowerCase()===this.props.selected.toLowerCase()).sort((a,b)=>{return(b.rating-a.rating)})
-    }
+    filteredArray=this.props.data.filter(r=>r.category.toLowerCase()===this.props.selected.toLowerCase()).sort((a,b)=>{return(b.rating-a.rating)});
+}
+if(controller===0) {
+    handleController();
+    if(filteredArray.length>12)
+        {
+          this.setState({showButton:true});
+        }
+        if(filteredArray.length<12)
+        {
+            this.setState({showButton:false})
+        }
+    this.setState({a:0,b:11})
+    
+}
 
-    let b=filteredArray.map(res=>{   
+    const b=filteredArray.filter((res,index)=>(index>=this.state.a && index<=this.state.b)).map((res,index)=>{   
         return(
          
                 <div
@@ -125,6 +158,10 @@ return(
     <div className="row ml-1 mr-1">
      {b}
     </div>
+    {this.state.showButton?<div className="row ml-1 mr-1" style={{paddingLeft:"40%"}}>
+     <button onClick={this.previous_click_handler} className="btn-primary">Previous</button>
+      <button onClick={this.next_click_handler} className="btn-primary">Next</button>
+    </div>:null}
     </div>:null}
     </div>
 )
