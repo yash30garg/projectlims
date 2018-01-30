@@ -291,7 +291,8 @@ class Header extends Component {
 // }
 function mapStateToProps(state) {
     return {
-        bbooks: state.bbooks
+        bbooks: state.bbooks,
+        books: state.books
     };
 }
 export default connect(mapStateToProps)(Header);
