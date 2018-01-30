@@ -58,6 +58,7 @@ class EachPrefferedCard extends Component{
         window.selected=this.props.item
         window.showDetails=true;
         document.getElementById('detail').click();
+        window.setClickProps="prefferedDetailsCross"
     }
     changeToFilled=()=>
     {

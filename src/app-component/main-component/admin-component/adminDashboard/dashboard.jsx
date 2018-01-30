@@ -75,7 +75,7 @@ class DashBoard extends Component {
         let values=window.users.length;
         console.log("count " + window.users.length)
         count = 0;
-        const outputs = this.state.user
+        const outputs = window.users
             .map((result) => {
                 count = count + 1;
 
@@ -196,7 +196,7 @@ class DashBoard extends Component {
                                                         <div className="card-block">
                                                             <h2>
                                                                 <span className="fa fa-list" aria-hidden="true"></span>
-                                                                23
+                                                                2
                                                             </h2>
                                                             <h4>
                                                                 Edits
@@ -227,7 +227,7 @@ class DashBoard extends Component {
                                                         <div className="card-block">
                                                             <h2>
                                                                 <span className="fa fa-globe" aria-hidden="true"></span>
-                                                                203
+                                                                14
                                                             </h2>
                                                             <h4>
                                                                 Visitors
