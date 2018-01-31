@@ -30,13 +30,20 @@ class Profile extends Component {
 	{
 		document.getElementById("openProfileWishlist").click();
 	}
+	handle=(arg)=>
+	{
+        window.selected=arg;
+        window.showDetails=true;
+        document.getElementById('detail').click();
+        window.setClickProps="profile"
+	}
   
   render() {
 	  let bookName=this.props.bbooks.map((res)=>{
 		  return(
 			  <div className="eachTitle mt-2 mb-2 ml-2">
 			  <span className="fa fa-arrow-right" />
-              <b className="hoverTitle">{res.title}</b>
+              <b className="hoverTitle"  onClick={this.handle.bind(this,res)}>{res.title}</b>
 			  </div>
 		  );
 	  })
@@ -44,7 +51,7 @@ class Profile extends Component {
 		  return(
 			  <div className="eachTitle mt-2 mb-2 ml-2">
 			  <span className="fa fa-arrow-right" />
-              <b className="hoverTitle">{res.title}</b>
+              <b className="hoverTitle"  onClick={this.handle.bind(this,res)}>{res.title}</b>
 			  </div>
 		  );
 	  })
@@ -53,7 +60,7 @@ class Profile extends Component {
     <div className="carders contained"style={{backgroundColor : "#FFF8DC", minHeight : "33px"}}>
 {/*<Header />*/}
         <ol className="breadcrumb" style={{backgroundColor : "#614126", color : "white", height:"50px" , fontSize : "15px"}}  >
-        <h5 >My Profile <span id="openHome" style={{float:'right',cursor:'pointer',paddingLeft:'85px'}} onClick={()=>{document.getElementById(window.setClickProps).click();}}>x</span></h5>
+        <h5 >My Profile <span id="openHome" style={{float:'right',cursor:'pointer',paddingLeft:'85px'}} onClick={this.props.profileCrossClicked}>x</span></h5>
         </ol>
 <div className="container-fluid"  >
   <br/><nr />

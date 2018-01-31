@@ -226,6 +226,21 @@ class BootHeader extends Component {
             searchClicked : false,
         })
     }
+    closeProfile=()=>
+    {
+            window.showDetails=false;
+            window.showProfile=false;
+            this.setState({
+            landingView: true,
+            categoryClicked: true,
+            borrowedClicked: false,
+            passBorrowed: false,
+            wishlistClicked: false,
+            passWish: false,
+            searchResults: false,
+            searchClicked:false
+        });
+    }
 
 
     plusCtgryClicked = () => {
@@ -546,7 +561,7 @@ class BootHeader extends Component {
                                     {window.showDetails?<Details data={window.selected} detailsCrossClicked={this.closeDetails}/>:null}
                                     </div>
                                     <div>
-                                    {window.showProfile?<Profile/>:null}
+                                    {window.showProfile?<Profile profileCrossClicked={this.closeProfile}/>:null}
                                     </div>
                                 </div>
                             </div>
