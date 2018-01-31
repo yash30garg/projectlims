@@ -197,6 +197,7 @@ class BootHeader extends Component {
     closeDetails=()=>
     {
          window.showDetails=false;
+         window.showProfile=false;
             this.setState({
             landingView: true,
             categoryClicked: true,
@@ -209,10 +210,11 @@ class BootHeader extends Component {
         });
        
     }
-    ProfileFunctions=()=>
+    openProfile=()=>
     {
         window.hideCategory=true;
         window.showDetails=false;
+        window.showProfile=true;
             this.setState({
             landingView: false,
             categoryClicked: false,
@@ -223,6 +225,21 @@ class BootHeader extends Component {
             searchResults: false,
             searchClicked : false,
         })
+    }
+    closeProfile=()=>
+    {
+            window.showDetails=false;
+            window.showProfile=false;
+            this.setState({
+            landingView: true,
+            categoryClicked: true,
+            borrowedClicked: false,
+            passBorrowed: false,
+            wishlistClicked: false,
+            passWish: false,
+            searchResults: false,
+            searchClicked:false
+        });
     }
 
 
@@ -397,7 +414,9 @@ class BootHeader extends Component {
                                         <div id="wishlistDetailsCross" onClick={this.openWishlist}></div>
                                         <div id="borrowedDetailsCross" onClick={this.openBorrowedBooks}></div>
                                         <div id="prefferedDetailsCross" onClick={this.closeDetails}></div>
-                                        <div id="profile" onClick={this.ProfileFunctions}></div>
+                                        <div id="profile" onClick={this.openProfile}></div>
+                                        <div id="profileDetailsCross" onClick={this.closeDetails}></div>
+                                        <div id="openProfileWishlist" onClick={this.openWishlist}/>
            <div className="collapse show" id="myBooks">                             
            <a>                             
             <button type="button"
@@ -542,7 +561,7 @@ class BootHeader extends Component {
                                     {window.showDetails?<Details data={window.selected} detailsCrossClicked={this.closeDetails}/>:null}
                                     </div>
                                     <div>
-                                    {window.showProfile?<Profile/>:null}
+                                    {window.showProfile?<Profile profileCrossClicked={this.closeProfile}/>:null}
                                     </div>
                                 </div>
                             </div>

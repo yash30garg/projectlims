@@ -11,7 +11,7 @@ import AdminFooter from '../admin-footer-component/adminFooter';
 import AdminHeader from '../adminheader'
 
 var count =0;
-class BookManage extends Component {
+class ManageAdmin extends Component {
     componentWillMount() {
         requireAuth(window.location.href)
     }
@@ -161,4 +161,4 @@ class BookManage extends Component {
 
 }
 
-export default BookManage;
+export default ManageAdmin;
