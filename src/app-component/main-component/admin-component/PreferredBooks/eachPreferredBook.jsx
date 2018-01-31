@@ -241,18 +241,17 @@ class EachPrefferedCard extends Component{
                         {this.props.item.author}<br/>
                         <b>Category :
                         </b>
-                        {this.props.item.category}<br/> {
-                            //eslint-disable-next-line
-                            [1, 2, 3, 4, 5].map(d => {
+                        {this.props.item.category}<br/> 
+                    
+                        <span className="ml-2">{[1, 2, 3, 4, 5].map(d => {
                             if (this.props.item.rating >= d) 
                                 return <span
-                                key={`goldStar${d}`}
-                                    className="fa fa-star"
+                                    class="fa fa-star"
                                     style={{
                                     color: '#ffd700',
-                                    fontSize:'5px'
+                                    fontSize: '5px'
                                 }}></span>
-                        })}
+                        })}</span>
                     </div>
                 </div>
                 <div className="buttonOverlay" style={{backgroundColor : "white"}} >

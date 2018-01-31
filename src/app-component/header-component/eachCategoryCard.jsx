@@ -218,19 +218,15 @@ render()
                         <b>Author :
                         </b>
                         {this.props.eachValue.author}<br/>
-                        {
-                            //eslint-disable-next-line
-                            [1, 2, 3, 4, 5].map(d => {
-
+                        <span className="ml-2">{[1, 2, 3, 4, 5].map(d => {
                             if (this.props.eachValue.rating >= d) 
                                 return <span
-                                key={`category${this.props.eachValue.isbn}`}
-                                    className="fa fa-star"
+                                    class="fa fa-star"
                                     style={{
                                     color: '#ffd700',
-                                    fontSize:'5px'
+                                    fontSize: '5px'
                                 }}></span>
-                        })}
+                        })}</span>
                     </div>
                 </div>
                 <div className="buttonOverlay" style={{backgroundColor : "white"}} >

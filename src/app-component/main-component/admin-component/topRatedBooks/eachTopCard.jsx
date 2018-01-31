@@ -222,18 +222,16 @@ export class EachTopCard extends Component {
                                 <b>{this.props.item.title}</b><br/>
                                 <b>Author :
                                 </b>
-                                {this.props.item.author}<br/> {//eslint-disable-next-line
-                                [1, 2, 3, 4, 5].map(d => {
+                                {this.props.item.author}<br/>
+                                <span className="ml-2">{[1, 2, 3, 4, 5].map(d => {
                                     if (this.props.item.rating >= d) 
                                         return <span
-                                            key={`gold${d}`}
-                                            className="fa fa-star"
+                                            class="fa fa-star"
                                             style={{
                                             color: '#ffd700',
                                             fontSize: '5px'
                                         }}></span>
-
-                                })}
+                                })}</span>
                             </div>
                         </div>
 
