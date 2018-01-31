@@ -1,5 +1,5 @@
-export let removeWishlist=(isbn)=>{
-            fetch('http://localhost:3005/wishlist/removeWishBook',{
+export async function removeWishlist(isbn){
+var data = await fetch('http://localhost:3005/wishlist/removeWishBook',{
             method: 'PUT',
             headers: {'Content-Type': 'application/json'},
             body:JSON.stringify({
@@ -7,8 +7,7 @@ export let removeWishlist=(isbn)=>{
                 book:isbn
             })
         })
-        .then((res)=>res.json())
-        .then((res)=>{
-            window.wishlist=res;
-        })
+var allData=data.json();
+return allData
 }
+// export default removeWishlist;
