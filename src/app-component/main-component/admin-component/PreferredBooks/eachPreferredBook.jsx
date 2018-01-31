@@ -131,15 +131,6 @@ class EachPrefferedCard extends Component{
                 this.props.storeBbooks(data.data)
                 // var newD=data.json();
             }).bind(this)()
-                
-                // var data=requestBook(bookAdded);
-                // var newD = data.then()
-                // console.log(newD);
-                // var newD=data.json();
-                // console.log("data")
-                // console.log(data)
-                // this.props.storeBbooks(data)
-                // alert(books.length)
         this.setState({requestIcon:false});
         }
     }
