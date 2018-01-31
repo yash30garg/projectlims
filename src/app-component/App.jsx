@@ -107,7 +107,7 @@ class App extends Component {
         console.log(res)
         localStorage.setItem('token', res.token)
         localStorage.setItem('role', res.user[0].role)
-        fetch('http://localhost:3005/books/getBooks',
+        fetch('https://limsreactapi.azurewebsites.net/books/getBooks',
           {
             method: 'GET',
             headers: {
