@@ -6,8 +6,6 @@ import axios from 'axios';
 import React, { Component } from 'react'
 import {createStore} from 'redux';
 import {Provider} from 'react-redux';
-import { Provider as AlertProvider } from 'react-alert'
-import AlertTemplate from 'react-alert-template-basic'
 // import registerServiceWorker from './registerServiceWorker';
 import { runWithAdal } from 'react-adal';
 import { authContext } from './adalConfig';
@@ -40,20 +38,12 @@ const store = createStore(allReducers);
 
 
 // getData();
-const options = {
-  position: 'bottom center',
-  timeout: 5000,
-  offset: '30px',
-  transition: 'scale'
-}
 class Root extends Component  {
   render () {
     return (
-      <AlertProvider template={AlertTemplate} {...options}>
       <Provider store={store}>
         <App />
         </Provider>
-      </AlertProvider>
     )
   }
 }

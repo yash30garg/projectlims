@@ -1,5 +1,6 @@
-export let addWishlist=(book)=>{
-            fetch('http://localhost:3005/wishlist/addWBook',{
+export async function addWishlist(book){
+    
+   var data= await fetch('http://localhost:3005/wishlist/addWBook',{
             method: 'PUT',
             headers: {'Content-Type': 'application/json'},
             body:JSON.stringify({
@@ -7,10 +8,7 @@ export let addWishlist=(book)=>{
                 book:book
             })
         })
-        .then((res)=>res.json())
-        .then((res)=>{
-            // alert(res.length);
-            window.wishlist=res;
-            console.log(res);
-        })
+        var allData=data.json();
+        return allData;
 }
+// export default addWishlist;

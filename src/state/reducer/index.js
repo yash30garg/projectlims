@@ -1,7 +1,7 @@
 import {combineReducers} from 'redux';
 import BbooksReducer from './bbooksReducer';
+import WbooksReducer from './wbooksReducer';
 import BooksReducer from './booksReducer'
-// import ActiveUserReducer from './reducer-active-user';
 
 
 //   We combine all reducers into a single object before updated data is dispatched (sent) to store
@@ -10,7 +10,8 @@ import BooksReducer from './booksReducer'
 
 const allReducers = combineReducers({
     bbooks: BbooksReducer,
-    books: BooksReducer
+    books: BooksReducer,
+    wbooks:WbooksReducer
 });
 
 export default allReducers
