@@ -205,14 +205,14 @@ class App extends Component {
             <Route path="/search/details" exact component={BookDetails} />
             {/*<Route path="/pdetails" exact component={ProductDetails}/>*/}
             {/*<Route path="/admin" exact component={AdminLogin} />  */}
-            {/*<Route path="/adminbooks" exact component={BookAdmin} />
+            <Route path="/adminbooks" exact component={BookAdmin} />
             <Route path="/handleusers" exact component={HandleUsers} />
-            <Route path="/profile" exact component={Profile} />
-            <Route path="/aboutus" exact component={AboutUs} />
-            <Route path="/admindash" exact component={DashBoard} />
+            {/*<Route path="/profile" exact component={Profile} />*/}
+            <Route path="/aboutus" exact component={AboutUs} /> 
             <Route path="/contactus" exact component={ContactUs} />
             <Route path="/bookadd" exact component={BookAdd} />
-            <Route path="/bookedit" exact component={BookEdit} />*/}
+            <Route path="/bookedit" exact component={BookEdit} />
+            <Route path="/admindash" exact component={DashBoard} />
             <Route path="/:id" render={()=> (<div>{window.location.replace('http://localhost:3000/#/')}</div>)}/>
           </Switch>
 
