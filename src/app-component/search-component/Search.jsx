@@ -61,6 +61,7 @@ export var search = () => {
                             data3.category.toLowerCase().indexOf(value2) >= 0) &&
                         value2 !== '').sort((a, b) => { return (b.rating - a.rating) });
                         datay.map((res)=>{
+                            if(processedData.indexOf(res))
                             processedData.push(res)
                         })
                 }
