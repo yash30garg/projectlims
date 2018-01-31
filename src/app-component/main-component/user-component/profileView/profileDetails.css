@@ -1,4 +1,4 @@
-/*
+
 * {
 	margin:0px;
 	padding:0px;
@@ -10,7 +10,7 @@
 
 
 body {
-	background: #E2e2e2;
+	background: #FFF8DC;
 	color: #333;
 	font-weight: normal;
 	font-size: 1em;
@@ -56,18 +56,17 @@ input:focus, textarea:focus, keygen:focus, select:focus {
 	float: right;
 }
 
-/* profile page 
+/* profile page */
 .container {
     padding: 60px 50px 70px;
 }
 
 .innerwrap {
-    width: 1200px;
     margin: 0 auto;
 }
 
 .section1 {
-	background: #fff;
+	background: #FFF8DC;
 	position: relative;
 	border-radius: 2px;
 }
@@ -308,4 +307,4 @@ section.section2 {
   display: block;
   position: relative;
   z-index: 998;
-}*/
+}

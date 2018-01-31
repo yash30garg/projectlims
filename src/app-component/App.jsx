@@ -22,17 +22,18 @@ import { authContext } from '../adalConfig.js'
 import {bindActionCreators} from 'redux';
 import {createStore} from 'redux';
 import {Provider} from 'react-redux';
-import allReducers from'../state/reducer';
+import allReducers from'../state/reducer'; 
 import {connect} from 'react-redux';
 import {storeBbooks} from '../state/action/bbooksAction'
 import {storeBooks} from '../state/action/booksAction';
+import {storeWbooks} from '../state/action/wbooksAction';
 // import {storeBooks} from '../state/action/booksAction'
 import BookAdd from '../../src/app-component/main-component/admin-component/admin-edit-book/bookadd'
 import ContactUs from '../app-component/footer-component/ContactUs/contactus.jsx';
 import BookEdit from '../app-component/main-component/admin-component/admin-update-book/bookedit.jsx'
 import BookManage from '../app-component/main-component/admin-component/admin-manage-users/adminmanage.jsx'
 // import { AuthenticationContext, adalGetToken, adalFetch } from 'react-adal';
-export var user_name;
+export var user_name,url;
 const store = createStore(allReducers);
 var req = require('request');
 class App extends Component {
@@ -44,8 +45,18 @@ class App extends Component {
     this.state = {
       bbooks: null,
       display: [],
-      wishlist: [],
+      wishlist: null,
       flag:false
+    }
+    if(localStorage.getItem('adal.token.renew.statusfa61fc30-ea79-4d93-8038-65273b42c71c')==="Completed"&&localStorage.getItem('limsuser')==="null"&&localStorage.getItem('limsuser')==="")
+    {
+      localStorage.setItem('limsuser', JSON.stringify(authContext._user))
+    localStorage.setItem('user-name', JSON.stringify(authContext._user.profile.given_name))
+    console.log(localStorage.getItem('limsuser'))
+    console.log(localStorage.getItem('adal.access.token.keyfa61fc30-ea79-4d93-8038-65273b42c71c'))
+    // let value ="Bearer" + localStorage.getItem('adal.access.token.keyfa61fc30-ea79-4d93-8038-65273b42c71c')
+    // console.log(`https://graph.microsoft.com/beta/me/photo/${value}`)
+    var UserDetails = JSON.parse(localStorage.getItem('limsuser'))
     }
   }
 
@@ -113,12 +124,14 @@ class App extends Component {
       })
   }
   componentWillMount() {
-    var user = authContext._user;
+    if(localStorage.getItem('limsuser')!==""&&localStorage.getItem('limsuser')!==null) {
+    var user = JSON.parse(localStorage.getItem('limsuser'));
     let mid = user.userName.split("@");
     let id = mid[0].split("M")
     // alert(res[1])
     window.user = id[1];
     this.addUser(user)
+    }
     //     fetch('http://localhost:3005/books/getBooks',
     //     {
     //       method:'GET',
@@ -139,19 +152,21 @@ class App extends Component {
 
   render() {
     // alert("app")
-    window.wishlist = this.state.wishlist;
+    // window.wishlist = this.state.wishlist;
+    if(localStorage.getItem('limsuser')!==""&&localStorage.getItem('limsuser')!==null) {
     window.display = this.state.display;
    let bbooks=this.state.bbooks;
+   let wbooks=this.state.wishlist
    let books=this.state.display;
    console.log(window.display);
     // window.display = this.state.display;
     // alert(window.display.length)
     this.props.storeBooks(books);
     this.props.storeBbooks(bbooks)
-    console.log(authContext._user.profile.given_name);
-    user_name = authContext._user.profile.given_name;
-    localStorage.setItem('limsuser', JSON.stringify(authContext._user))
-    localStorage.setItem('user-name', JSON.stringify(authContext._user.profile.given_name))
+    this.props.storeWbooks(wbooks)
+    console.log(JSON.parse(localStorage.getItem('limsuser')).profile.given_name);
+    user_name = JSON.parse(localStorage.getItem('limsuser')).profile.given_name;
+    localStorage.setItem('user-name', JSON.stringify(JSON.parse(localStorage.getItem('limsuser')).profile.given_name))
     console.log(localStorage.getItem('limsuser'))
     console.log(localStorage.getItem('adal.access.token.keyfa61fc30-ea79-4d93-8038-65273b42c71c'))
     // let value ="Bearer" + localStorage.getItem('adal.access.token.keyfa61fc30-ea79-4d93-8038-65273b42c71c')
@@ -159,6 +174,8 @@ class App extends Component {
     var UserDetails = JSON.parse(localStorage.getItem('limsuser'))
     // this.getData();
     localStorage.setItem('mid', window.user)
+    url = `https://social.mindtree.com/User%20Photos/Profile%20Pictures/m${window.user}_MThumb.jpg?t=63646089488`
+    }
 
     // alert(window.user);
     //  axios.get('https://api.myjson.com/bins/14x90j')
@@ -185,20 +202,25 @@ class App extends Component {
           <Switch>
             <Route path="/login" exact component={Login} />
             <Route path="/" exact component={User} />
-            <Route path="/search" exact component={SearchResults} />
+            {/*<Route path="/search" exact component={SearchResults} />*/}
             <Route path="/search/details" exact component={BookDetails} />
             {/*<Route path="/pdetails" exact component={ProductDetails}/>*/}
             {/*<Route path="/admin" exact component={AdminLogin} />  */}
-            <Route path="/adminbooks" exact component={BookAdmin} />
+            {/*<Route path="/adminbooks" exact component={BookAdmin} />
             <Route path="/handleusers" exact component={HandleUsers} />
             <Route path="/profile" exact component={Profile} />
             <Route path="/aboutus" exact component={AboutUs} />
             <Route path="/admindash" exact component={DashBoard} />
             <Route path="/contactus" exact component={ContactUs} />
             <Route path="/bookadd" exact component={BookAdd} />
+<<<<<<< HEAD
             <Route path="/bookedit" exact component={BookEdit} />
             <Route path="/manageuser" exact component={BookManage} />
               
+=======
+            <Route path="/bookedit" exact component={BookEdit} />*/}
+            <Route path="/:id" render={()=> (<div>{window.location.replace('http://localhost:3000/#/')}</div>)}/>
+>>>>>>> 6f900edb93fd9e39e3e9d288c7d7a81b2f913e31
           </Switch>
 
         </div>
@@ -208,7 +230,7 @@ class App extends Component {
 }
 
 function matchDispatchToProps(dispatch){
-    return bindActionCreators({storeBbooks: storeBbooks, storeBooks:storeBooks}, dispatch);
+    return bindActionCreators({storeBbooks: storeBbooks, storeBooks:storeBooks, storeWbooks:storeWbooks}, dispatch);
 }
 export default connect(null,matchDispatchToProps)(App);
 // export default App;

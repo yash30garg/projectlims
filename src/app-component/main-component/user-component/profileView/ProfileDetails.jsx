@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './prodetails.css';
+import './profileDetails.css';
 import AlternateHeader from '../../../../app-component/header-component/AlternateHeader/AlternateHeader';
 import Footer from '../../../../app-component/footer-component/footer.jsx';
 import {requireAuth} from '../../../isLoggedIn.js'
@@ -27,7 +27,7 @@ class Profile extends Component {
 			<div>
 				<div className="row grid clearfix">
 					<div className="col2 first">
-						<img src={url} alt="" className="center-block img-circle img-responsive outset" style={{height : "150px", width : "150px"}} />
+						<img src={url} alt="" class="center-block img-circle img-responsive outset" style={{height : "150px", width : "150px"}} />
 						<h1>{JSON.parse(localStorage.getItem('limsuser')).profile.name}</h1>
 						<p>{JSON.parse(localStorage.getItem('limsuser')).profile.unique_name}</p>
 						

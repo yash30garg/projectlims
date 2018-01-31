@@ -21,7 +21,8 @@ import { EachListItem } from './categoryList';
 import {connect} from 'react-redux';
 import $ from 'jquery';
 import BorrowedBooks from './../main-component/admin-component/booksDisplay';
-import Profile from './../main-component/user-component/profileView/prodetails';
+import Profile from './../main-component/user-component/profileView/ProfileDetails';
+import '../main-component/user-component/profileView/profileDetails.css'
 export let controller;
 export var handleController = () => {
     controller=1
@@ -258,18 +259,27 @@ class BootHeader extends Component {
     
     componentDidMount() {
         if(window.innerWidth<=500)
+        {
             document.getElementById('categoryDiv').click();
+             document.getElementById('myBooksDiv').click();
+        }
     }
     render() {
 //         if (this.state.redirect) {
 //     return <Redirect push to="/search" />;
 //   }
-        let value;
+        let valueB,valueW;
         if(this.props.bbooks===null){
-            value=0;
+            valueB=0;
         }
         else{
-            value=this.props.bbooks.length
+            valueB=this.props.bbooks.length
+        }
+        if(this.props.wbooks===null){
+            valueW=0;
+        }
+        else{
+            valueW=this.props.wbooks.length
         }
         let brr = [];
         // store.subscribe(()=> {
@@ -351,7 +361,7 @@ class BootHeader extends Component {
                                                 color: "white"
                                                 
                                             }}
-                                            id="categoryDiv"
+                                            id="myBooksDiv"
                                             onClick={this.plusMyClicked}>
                                             
                                             <div className="col-md-0 fa fa-list-alt" aria-hidden="true"></div>
@@ -401,7 +411,7 @@ class BootHeader extends Component {
                 textAlign: "left", textTransform:'capitalize'
             }}>Borrowed books</div>
             <div className="row">
-                <div className="badge badge-pill badge-warning mr-3">{value}</div>
+                <div className="badge badge-pill badge-warning mr-3">{valueB}</div>
            
             </div>
         </button>
@@ -419,7 +429,7 @@ class BootHeader extends Component {
                 textAlign: "left", textTransform:'capitalize'
             }}>Wishlist</div>
             <div className="row">
-                <div className="badge badge-pill badge-warning mr-3">{window.wishlist.length}</div>
+                <div className="badge badge-pill badge-warning mr-3">{valueW}</div>
            
             </div>
         </button>
@@ -503,7 +513,8 @@ class BootHeader extends Component {
                                             ? <LandingView show={this.state.passBorrowed} wish={this.state.passWish} />
                                             : <Category
                                                 categoryCrossClicked={this.closeCategory}
-                                                data={window.display}
+                                                data={this.props.books}
+                                                Bbooks={this.props.bbooks}
                                                 selected={this.state.currentlyClicked}
                                                 isSearchClicked={this.state.searchClicked} />}
                                     </div>
@@ -551,7 +562,8 @@ class BootHeader extends Component {
 function mapStateToProps(state) {
     return {
         bbooks: state.bbooks,
-        books: state.books
+        books: state.books,
+        wbooks:state.wbooks
     };
 }
 export default connect(mapStateToProps)(BootHeader);

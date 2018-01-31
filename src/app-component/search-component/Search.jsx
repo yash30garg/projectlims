@@ -11,6 +11,7 @@ import SearchResults from '../search-component/SearchResults';
 import './Search.css'
 import store from '../../state/store/store.js'
 import BootHeader from '../header-component/bootheader'
+import {changeNotify} from './SearchResults'
 var debounce = require('debounce');
 export var processedData = [];
 var data
@@ -18,6 +19,7 @@ export var search = () => {
     let value = store.getState().search.toLowerCase();
     processedData = []
     // let value = document.getElementById('key').value.toLowerCase();
+    changeNotify();
     let value1, value2;
     value1=value
     console.log(value1)
@@ -164,39 +166,60 @@ export var sortRating = () => {
     document.getElementById('os').click();
 }
 
+export var selectFilter = () => {
+        if (document.getElementById("filter").value === "5 Rated") {
+            fiveRated();
+            document.getElementById('os').click();
+        }
+        else if (document.getElementById("filter").value === "4 and above Rated") {
+            fourRated();
+        }
+        else if (document.getElementById("filter").value === "3 and above Rated") {
+            threeRated();
+        }
+        else if (document.getElementById("filter").value === "2 and above Rated") {
+            twoRated();
+        }
+        else document.getElementById('defaultSearchResults').click();
+    }
+
     var fiveRated= () => {
-        processedData = processedData.filter((data) =>
-            data.details.rating === "5")
+        processedData = store.getState().sorted_Data
+        console.log(store.getState().sorted_Data)
+        console.log(processedData)
+        processedData = processedData.filter((data) => data.rating === 5)
         // processedData = this.state.sortedData;
         console.log(processedData)
         console.log("Sorted by five rated");
-        this.setState({ temp: 2 })
+        document.getElementById('os').click();
     }
     var fourRated = () =>  {
+        processedData = store.getState().sorted_Data
         processedData = processedData.filter((data) =>
-            (data.details.rating <= "5") && (data.details.rating >= "4"))
+            (data.rating <= 5) && (data.rating >= 4))
         // processedData = this.state.sortedData;
         console.log(processedData)
         console.log("Sorted by four rated");
-        this.setState({ temp: 2 })
+        document.getElementById('os').click();
     }
     var threeRated = () => {
+        processedData = store.getState().sorted_Data
         processedData = processedData.filter((data) =>
-            (data.details.rating <= "5") && (data.details.rating >= "3"))
+            (data.rating <= 5) && (data.rating >= 3))
         // processedData = this.state.sortedData;
         console.log(processedData)
         console.log("Sorted by three rated");
-        this.setState({ temp: 2 })
+        document.getElementById('os').click()
     }
     var twoRated = () => {
+        processedData = store.getState().sorted_Data
         processedData = processedData.filter((data) =>
-            (data.details.rating <= "5") && (data.details.rating >= "2"))
+            (data.rating <= 5) && (data.rating >= 2))
         // processedData = this.state.sortedData;
         console.log(processedData)
         console.log("Sorted by two rated");
-        this.setState({ temp: 2 })
+        document.getElementById('os').click();
     }
-
 
 /*export default class Search extends Component {
     constructor() {

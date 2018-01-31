@@ -1,14 +1,47 @@
 import React,{Component} from 'react';
 import './topRated.css';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import {getDates} from '../../../dates';
+import {borrowDate, returnDate} from '../../../dates';
+import requestBook from '../../../mongo/requestBook'
+import returnBook from '../../../mongo/returnBook'
+import {storeBbooks} from '../../../../state/action/bbooksAction'
+import {addWishlist} from '../../../mongo/addWishlist';
+import {storeWbooks} from '../../../../state/action/wbooksAction'
+import {removeWishlist} from '../../../mongo/removeWishlist'
 import {Link} from 'react-router-dom';
 export class EachTopCard extends Component{
     constructor(props)
     {
         super(props);
-        this.hanle = this.handle.bind(this)
+        // console.
+        this.handle = this.handle.bind(this)
+        let reqVal=true,wishVal=true;
+        // console.log("top")
+        // console.log(props.bbooks)
+        if(this.props.bbooks.length!==0){
+                 this.props.bbooks.map(res=>{
+                    //  console.log(res)
+            if(res.isbn===this.props.item.isbn){   
+                // alert("found")
+                // console.log("found")
+            reqVal=false;
+            }
+        })
+    }
+    if(this.props.wbooks.length!==0){
+                 this.props.wbooks.map(res=>{
+                    //  console.log(res)
+            if(res.isbn===this.props.item.isbn){   
+                // console.log("found")
+            wishVal=false;
+            }
+        })
+            }
         this.state={
-        wishlistIcon:true,
-        requestIcon:true
+        wishlistIcon:wishVal,
+        requestIcon:reqVal
         }
     }
     handle=(res)=>{
@@ -20,18 +53,65 @@ export class EachTopCard extends Component{
 
     changeToFilled=()=>
     {
+        var items=new Object();
+        items.isbn=this.props.item.isbn;
+        items.title=this.props.item.title;
+        items.author=this.props.item.author;
+        items.category=this.props.item.category;
+        items.publisher=this.props.item.publisher;
+        items.rating=this.props.item.rating;
+        items.url=this.props.item.url;
+        items.description="";
+        (async function(){
+                    var data=await addWishlist(items);
+                    console.log("data")
+                console.log(data);
+                this.props.storeWbooks(data)
+                // var newD=data.json();
+            }).bind(this)()
         this.setState({wishlistIcon:false});
     }
     changeToEmpty=()=>
     {
+        (async function(){
+                    var data=await removeWishlist(this.props.item.isbn);
+                    console.log("data")
+                console.log(data);
+                this.props.storeWbooks(data)
+                // var newD=data.json();
+            }).bind(this)()
         this.setState({wishlistIcon:true});
     }
     changeToUndo=()=>
     {
+        if(this.props.bbooks.length<4){
+            let bookAdded=new Object();
+                bookAdded.isbn=this.props.item.isbn;
+                bookAdded.title=this.props.item.title;
+                bookAdded.author=this.props.item.author;
+                bookAdded.publisher=this.props.item.publisher;
+                bookAdded.url=this.props.item.url;
+                bookAdded.rating=this.props.item.rating;
+                bookAdded.borrowedDate=borrowDate;
+                bookAdded.returnDate=returnDate;
+                bookAdded.isRenewed="false"; 
+                (async function(){
+                    var data=await requestBook(bookAdded);
+                console.log(data.data);
+                this.props.storeBbooks(data.data)
+                // var newD=data.json();
+            }).bind(this)()
         this.setState({requestIcon:false});
+    }
     }
     changeToRequest=()=>
     {
+        (async function(){
+                var data=await returnBook(this.props.item.isbn);
+                console.log(data.data);
+                
+                this.props.storeBbooks(data.data)
+            }).bind(this)()
         this.setState({requestIcon:true});
     }
 
@@ -101,4 +181,13 @@ export class EachTopCard extends Component{
     )
     }
 }
-export default EachTopCard;
+function mapStateToProps(state) {
+    return {
+        bbooks:state.bbooks,
+        wbooks:state.wbooks
+    };
+}
+function matchDispatchToProps(dispatch){
+    return bindActionCreators({storeBbooks: storeBbooks,storeWbooks:storeWbooks}, dispatch);
+}
+export default connect(mapStateToProps,matchDispatchToProps)(EachTopCard);

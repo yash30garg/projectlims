@@ -99,10 +99,11 @@ class EachCategory extends Component
     );
     }
 }
-// function mapStateToProps(state) {
-//     return {
-//         books: state.books
-//     };
-// }
-export default EachCategory;
-// export default connect (mapStateToProps)(EachCategory);
+function mapStateToProps(state) {
+    return {
+        books: state.books,
+        bbooks:state.bbooks
+    };
+}
+// export default EachCategory;
+export default connect (mapStateToProps)(EachCategory);

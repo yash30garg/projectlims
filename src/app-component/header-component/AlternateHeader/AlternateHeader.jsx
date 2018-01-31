@@ -4,7 +4,8 @@ import '../../App.css';
 import './AlternateHeader.css'
 import { Link, withRouter } from 'react-router-dom';
 import {user_name} from '../../App'
-import {url} from '../header'
+// import {url} from '../header'
+import {url} from '../../App'
 import {authContext} from '../../../adalConfig.js'
 // let user_name = localStorage.getItem('user-name')
 class AlternateHeader extends Component {
