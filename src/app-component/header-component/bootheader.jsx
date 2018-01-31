@@ -259,8 +259,10 @@ class BootHeader extends Component {
     
     componentDidMount() {
         if(window.innerWidth<=500)
+        {
             document.getElementById('categoryDiv').click();
              document.getElementById('myBooksDiv').click();
+        }
     }
     render() {
 //         if (this.state.redirect) {
