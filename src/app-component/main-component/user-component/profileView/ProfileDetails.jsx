@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './prodetails.css';
+import './profileDetails.css';
 import AlternateHeader from '../../../../app-component/header-component/AlternateHeader/AlternateHeader';
 import Footer from '../../../../app-component/footer-component/footer.jsx';
 import {requireAuth} from '../../../isLoggedIn.js'
@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 import {connect} from 'react-redux';
 import { HashRouter, Route, Switch } from 'react-router-dom';
 import MyWishList from'./MyWishList';
+import BorrowedSlider from './../borrowedBooks/borrowedSlider';
 
 class Profile extends Component {
 	componentWillMount() {
@@ -18,8 +19,11 @@ class Profile extends Component {
   render() {
 
     return (
-    <div style={{backgroundColor : "#FFF8DC", minHeight : "33px"}}>
+    <div className="carders contained"style={{backgroundColor : "#FFF8DC", minHeight : "33px"}}>
 {/*<Header />*/}
+        <ol className="breadcrumb" style={{backgroundColor : "#614126", color : "white", height:"50px" , fontSize : "15px"}}  >
+        <h5 >My Profile <span id="openHome" style={{float:'right',cursor:'pointer',paddingLeft:'85px'}} onClick={()=>{document.getElementById(window.setClickProps).click();}}>x</span></h5>
+        </ol>
 <div className="container-fluid"  >
   <br/><nr />
 	<div className="innerwrap">
@@ -27,7 +31,7 @@ class Profile extends Component {
 			<div>
 				<div className="row grid clearfix">
 					<div className="col2 first">
-						<img src={url} alt="" className="center-block img-circle img-responsive outset" style={{height : "150px", width : "150px"}} />
+						<img src={url} alt="" class="center-block img-circle img-responsive outset" style={{height : "150px", width : "150px"}} />
 						<h1>{JSON.parse(localStorage.getItem('limsuser')).profile.name}</h1>
 						<p>{JSON.parse(localStorage.getItem('limsuser')).profile.unique_name}</p>
 						
@@ -62,6 +66,7 @@ class Profile extends Component {
 						<li><i className="fa fa-thumbs-o-up "></i><a href="#tab_default_1" data-toggle="tab"> Reviews</a> </li>
 
 					</ul>
+				
 				</div>
 
 
@@ -71,10 +76,6 @@ class Profile extends Component {
 	</div>
 				
 			</div>
-			<span className="smalltri">
-				
-			<i className="fa fa-star"></i>
-			</span>
 		</section>
 		{/*<section className="section2 clearfix">*/}
 			{/*<div className="grid">*/}

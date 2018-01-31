@@ -21,7 +21,8 @@ import { EachListItem } from './categoryList';
 import {connect} from 'react-redux';
 import $ from 'jquery';
 import BorrowedBooks from './../main-component/admin-component/booksDisplay';
-import Profile from './../main-component/user-component/profileView/prodetails';
+import Profile from './../main-component/user-component/profileView/ProfileDetails';
+import '../main-component/user-component/profileView/profileDetails.css'
 export let controller;
 export var handleController = () => {
     controller=1
@@ -196,6 +197,7 @@ class BootHeader extends Component {
     closeDetails=()=>
     {
          window.showDetails=false;
+         window.showProfile=false;
             this.setState({
             landingView: true,
             categoryClicked: true,
@@ -208,10 +210,11 @@ class BootHeader extends Component {
         });
        
     }
-    ProfileFunctions=()=>
+    openProfile=()=>
     {
         window.hideCategory=true;
         window.showDetails=false;
+        window.showProfile=true;
             this.setState({
             landingView: false,
             categoryClicked: false,
@@ -258,7 +261,10 @@ class BootHeader extends Component {
     
     componentDidMount() {
         if(window.innerWidth<=500)
+        {
             document.getElementById('categoryDiv').click();
+             document.getElementById('myBooksDiv').click();
+        }
     }
     render() {
 //         if (this.state.redirect) {
@@ -357,7 +363,7 @@ class BootHeader extends Component {
                                                 color: "white"
                                                 
                                             }}
-                                            id="categoryDiv"
+                                            id="myBooksDiv"
                                             onClick={this.plusMyClicked}>
                                             
                                             <div className="col-md-0 fa fa-list-alt" aria-hidden="true"></div>
@@ -393,7 +399,8 @@ class BootHeader extends Component {
                                         <div id="wishlistDetailsCross" onClick={this.openWishlist}></div>
                                         <div id="borrowedDetailsCross" onClick={this.openBorrowedBooks}></div>
                                         <div id="prefferedDetailsCross" onClick={this.closeDetails}></div>
-                                        <div id="profile" onClick={this.ProfileFunctions}></div>
+                                        <div id="profile" onClick={this.openProfile}></div>
+                                        <div id="profileDetailsCross" onClick={this.closeDetails}></div>
            <div className="collapse show" id="myBooks">                             
            <a>                             
             <button type="button"
@@ -509,7 +516,8 @@ class BootHeader extends Component {
                                             ? <LandingView show={this.state.passBorrowed} wish={this.state.passWish} />
                                             : <Category
                                                 categoryCrossClicked={this.closeCategory}
-                                                data={window.display}
+                                                data={this.props.books}
+                                                Bbooks={this.props.bbooks}
                                                 selected={this.state.currentlyClicked}
                                                 isSearchClicked={this.state.searchClicked} />}
                                     </div>

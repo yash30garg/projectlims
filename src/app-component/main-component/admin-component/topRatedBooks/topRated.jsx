@@ -78,7 +78,7 @@ class TopBooks extends Component{
         }
         let k;
         // alert(bbooks.length)
-        if(this.props.bbooks!==null){
+        if(this.props.bbooks!==null && this.props.wbooks!==null){
             // alert(this.props.)
         k=<div style={{position:'relative',marginTop:'70px',marginBottom:'50px'}}><img src={'https://www.caffeluxxe.com/images/yellow.gif'} /></div>;
                 if (brr.length !==0 ) {
@@ -114,7 +114,8 @@ class TopBooks extends Component{
 function mapStateToProps(state) {
     return {
         bbooks:state.bbooks,
-        books:state.books
+        books:state.books,
+        wbooks:state.wbooks
     };
 }
 export default connect (mapStateToProps)(TopBooks);

@@ -52,7 +52,7 @@ class HandleUsers extends Component {
                                     aria-haspopup="true"
                                     aria-expanded="false"
                                     style={{ color: 'white', backgroundColor: "#db9917", marginTop: "0px", height: "33px" }}>
-                                    Create Content
+                                    Manage Content
                                         <span className="caret" /></button>
 
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -62,8 +62,10 @@ class HandleUsers extends Component {
                                         <Link to="/bookedit">
                                         <a class="dropdown-item">Edit Book(s)</a>
                                         </Link>
-                                    <a class="dropdown-item">Edit User(s)
-                                        </a>
+                                        <Link to="/manageuser">
+                                        
+                                    <a class="dropdown-item">Manage User(s)</a>
+                                    </Link>
                                 </div>
                             </div>
 
