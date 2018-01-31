@@ -509,7 +509,8 @@ class BootHeader extends Component {
                                             ? <LandingView show={this.state.passBorrowed} wish={this.state.passWish} />
                                             : <Category
                                                 categoryCrossClicked={this.closeCategory}
-                                                data={window.display}
+                                                data={this.props.books}
+                                                Bbooks={this.props.bbooks}
                                                 selected={this.state.currentlyClicked}
                                                 isSearchClicked={this.state.searchClicked} />}
                                     </div>

@@ -7,6 +7,9 @@ import {borrowDate, returnDate} from '../../../dates';
 import requestBook from '../../../mongo/requestBook'
 import returnBook from '../../../mongo/returnBook'
 import {storeBbooks} from '../../../../state/action/bbooksAction'
+import {addWishlist} from '../../../mongo/addWishlist';
+import {storeWbooks} from '../../../../state/action/wbooksAction'
+import {removeWishlist} from '../../../mongo/removeWishlist'
 import {Link} from 'react-router-dom';
 export class EachTopCard extends Component{
     constructor(props)
@@ -14,7 +17,7 @@ export class EachTopCard extends Component{
         super(props);
         // console.
         this.handle = this.handle.bind(this)
-        let reqVal=true;
+        let reqVal=true,wishVal=true;
         // console.log("top")
         // console.log(props.bbooks)
         if(this.props.bbooks.length!==0){
@@ -26,9 +29,18 @@ export class EachTopCard extends Component{
             reqVal=false;
             }
         })
-        }
+    }
+    if(this.props.wbooks.length!==0){
+                 this.props.wbooks.map(res=>{
+                    //  console.log(res)
+            if(res.isbn===this.props.item.isbn){   
+                // console.log("found")
+            wishVal=false;
+            }
+        })
+            }
         this.state={
-        wishlistIcon:true,
+        wishlistIcon:wishVal,
         requestIcon:reqVal
         }
     }
@@ -41,10 +53,33 @@ export class EachTopCard extends Component{
 
     changeToFilled=()=>
     {
+        var items=new Object();
+        items.isbn=this.props.item.isbn;
+        items.title=this.props.item.title;
+        items.author=this.props.item.author;
+        items.category=this.props.item.category;
+        items.publisher=this.props.item.publisher;
+        items.rating=this.props.item.rating;
+        items.url=this.props.item.url;
+        items.description="";
+        (async function(){
+                    var data=await addWishlist(items);
+                    console.log("data")
+                console.log(data);
+                this.props.storeWbooks(data)
+                // var newD=data.json();
+            }).bind(this)()
         this.setState({wishlistIcon:false});
     }
     changeToEmpty=()=>
     {
+        (async function(){
+                    var data=await removeWishlist(this.props.item.isbn);
+                    console.log("data")
+                console.log(data);
+                this.props.storeWbooks(data)
+                // var newD=data.json();
+            }).bind(this)()
         this.setState({wishlistIcon:true});
     }
     changeToUndo=()=>
@@ -148,10 +183,11 @@ export class EachTopCard extends Component{
 }
 function mapStateToProps(state) {
     return {
-        bbooks:state.bbooks
+        bbooks:state.bbooks,
+        wbooks:state.wbooks
     };
 }
 function matchDispatchToProps(dispatch){
-    return bindActionCreators({storeBbooks: storeBbooks}, dispatch);
+    return bindActionCreators({storeBbooks: storeBbooks,storeWbooks:storeWbooks}, dispatch);
 }
 export default connect(mapStateToProps,matchDispatchToProps)(EachTopCard);
