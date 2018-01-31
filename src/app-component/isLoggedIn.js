@@ -1,6 +1,6 @@
 // export var requireAuth = (path) => {
 
-//       if(localStorage.getItem('limsuser')!==null)
+//       if(localStorage.getItem('limsuser')!==null&&localStorage.getItem('adal.token.renew')!=="")
 //         {
 //             if(path==="http://localhost:3000/#/login") {
 //                 window.location = "http://localhost:3000/#/"
@@ -23,10 +23,10 @@
 
 export var requireAuth = (path) => {
 
-      if(localStorage.getItem('limsuser')!==null)
+      if(localStorage.getItem('limsuser')!==null&&localStorage.getItem('adal.token.renew')!=="")
         {
-            if(path==="http://limsreact.azurewebsites.net/#/login") {
-                window.location = "http://limsreact.azurewebsites.net/#/"
+            if(path==="https://limsreact.azurewebsites.net/#/login") {
+                window.location = "https://limsreact.azurewebsites.net/#/"
             }
             else {
                 // console.log(JSON.parse(localStorage.getItem('limsuser')))
@@ -39,7 +39,7 @@ export var requireAuth = (path) => {
         {
             console.log("No")
             // console.log(path)
-            window.location.replace("http://limsreact.azurewebsites.net/#/login")
+            window.location.replace("https://limsreact.azurewebsites.net/#/login")
             // window.locaton = "http://localhost:3000/#/login"
         }
 }

@@ -1,6 +1,8 @@
-
 import React, { Component } from 'react';
 import './login.css';
+import '../../App.css';
+import '../../header-component/header.css'
+import { authContext } from '../../../adalConfig.js';
 // import Rx from 'rxjs/Rx';
 // import Header from '../../header-component/header';
 // import { BrowserRouter, Route, Link } from 'react-router-dom';
@@ -20,7 +22,7 @@ class Login extends Component {
         window.history.go(-Backlen);
 
         // window.location.href = 'http://localhost:3000/#/login'
-        window.location.href='http://limsreact.azurewebsites.net/#/login'
+        window.location.href='https://limsreact.azurewebsites.net/#/login'
 
     }
     state =
@@ -32,6 +34,10 @@ class Login extends Component {
         requireAuth(window.location.href)
     }
 
+    handleLogin = (e) => {
+        e.preventDefault();
+        authContext.login();
+    }
     getUserDetails = (e) => {
         e.preventDefault();
         let email = document.getElementById('Email').value;
@@ -68,14 +74,6 @@ class Login extends Component {
         }
     }
 
-    componentDidMount() {
-        axios.get('https://api.myjson.com/bins/ds48n')
-            .then(res => {
-                this.setState({ display: res.data });
-            })
-        // this.checkAuth();
-    }
-
     render() {
 
 
@@ -97,80 +95,26 @@ class Login extends Component {
                         <div className="header" onClick={handleClick} style={{ fontWeight: "2000px" }}><b>Click Here to Enter</b></div>
                     </div>
                     <div className="login-right">
-                        <div className="h2">Login</div>
-                        {/*<form action="http://limsreactapi.azurewebsites.net/api/" method="post">*/}
+                        <div className="h2">Welcome to LiMS</div>
+                        {/*<form action="https://limsreactapi.azurewebsites.net/api/" method="post">*/}
                         <form onSubmit={this.getUserDetails}>
+                            <div><img
+                                className="App-logo inset"
+                                src={require("../../../Assets/Images/final_header.jpg")}
+                                alt="My logo"
+                                align="center"/></div>
                             <div className="form-group">
-                                <label htmlFor="Email" style={{ color: "#CD853F" }}><b>Email</b></label>
-                                <input type="text" id="Email" name="logemail" style={{ backgroundColor: "#FFF8DC" }} />
-
+                                Login with Mindtree Credentials
                             </div>
                             <div className="form-group">
-                                <label htmlFor="Password" style={{ color: "#CD853F" }}><b>Password</b></label>
-                                <input type="password" id="Password" name="logpassword" style={{ backgroundColor: "#FFF8DC" }} />
+                                <img
+                                onClick = {this.handleLogin}
+                                className="login-button"
+                                src={require("../../../Assets/Images/loginButton.png")}
+                                alt="My logo"
+                                align="center"/>
+                                {/*<button type="submit" className="btn-secondary" style={{ color: "white", backgroundColor: "#DEB887", borderColor: "#A0522D" }}>Login</button>*/}
                             </div>
-                            <div className=" checkbox-container form-group has-warning" style={{ color: "#FFF8DC", textAlign: "left" }}>
-                                <label style={{ color: "red", fontSize: "14px", fontWeight: "bold" }}>
-                                    {this.state.message}
-                                </label>
-                            </div>
-
-                            <div className=" checkbox-container form-group has-warning" style={{ color: "#FFF8DC", textAlign: "left" }}>
-                                <label className="custom-control custom-checkbox">
-                                    <input type="checkbox" className="custom-control-input" style={{ backgroundColor: "brown" }} />
-                                    <span className="custom-control-indicator"></span>
-                                    <div className="custom-control-description" style={{ fontSize: "18px", fontFamily: "times new roman", marginLeft: "0px" }}>I agree with the terms of service.</div>
-                                </label>
-                            </div>
-
-
-                            <div className="button-area">
-                                {/*<Link to="/home">*/}
-                                <button type="submit" className="btn-secondary" style={{ color: "white", backgroundColor: "#DEB887", borderColor: "#A0522D" }}>Login</button>
-                                {/*</Link>*/}
-                                {/*<div className="login-form">
-                        <img src="https://krysiacanvindotorg.files.wordpress.com/2013/02/janko-ferlic-174927.jpg" alt="" onClick={handleClick}></img>
-                        <div className="header" onClick={handleClick} style={{fontWeight : "3000px"}}><b>Click Here to Enter</b></div>
-                    </div>
-                    <div className="login-right">
-                        <div className="h2">Login</div>
-                        <form action="http://limsreactapi.azurewebsites.net/api/" method="post">
-                        <div className="form-group">
-                            <label htmlFor="Email" style={{color:"#CD853F"}}><b>Email</b></label>
-                            <input type="text" id="Email" name="logemail" style={{backgroundColor:"#FFF8DC"}}/>
-                            
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="Password" style={{color:"#CD853F"}}><b>Password</b></label>
-                            <input type="password" id="Password" name="logpassword" style={{backgroundColor:"#FFF8DC "}}/>
-                            
-                        </div>
-                        {/*<div className="checkbox-container">
-                            <input type="checkbox" />
-                            <div className="text-checkbox">     I agree with the terms of service.</div>
-                        </div>*/}
-
-
-
-                                {/*<Link to="/home">*/}
-
-                                {/*</Link>*/}
-                                {/*<div className="login-form">
-					<form action="/" method="post">
-                    <form onSubmit={this.validate}>
-						<input type="text" name="logemail" placeholder="E-mail" required=""/>>
-						<input type="password" name="logpassword" placeholder="Password" required=""/>>
-						<div className="tp">
-							<button type="submit" onClick={this.validate} value="LOGIN NOW">Login Now</button>
-						</div>
-					</form>
-				</div>*/}
-
-                                <Link to="/admindash">
-                                    <button className="btn-secondary" style={{ color: "white", backgroundColor: "#DEB887", borderColor: "#A0522D" }}>Admin</button>
-                                </Link>
-                            </div>
-
                         </form>
                     </div>
                 </div>

@@ -10,7 +10,7 @@
 
 
 body {
-	background: #E2e2e2;
+	background: #FFF8DC;
 	color: #333;
 	font-weight: normal;
 	font-size: 1em;
@@ -62,12 +62,11 @@ input:focus, textarea:focus, keygen:focus, select:focus {
 }
 
 .innerwrap {
-    width: 1200px;
     margin: 0 auto;
 }
 
 .section1 {
-	background: #fff;
+	background: #FFF8DC;
 	position: relative;
 	border-radius: 2px;
 }
