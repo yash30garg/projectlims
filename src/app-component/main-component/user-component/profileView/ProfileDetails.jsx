@@ -16,13 +16,23 @@ class Profile extends Component {
 	{
 		super();
 		this.state={
-			showMore:false
+			showMore:false,
+			isWishFilled:true,
+			isBorrowedFilled:true
 		}
 	}
 	componentWillMount() {
 		if(this.props.wbooks.length>4)
 		{
 			this.setState({showMore:true});
+		}
+	    if(this.props.wbooks.length==0)
+		{
+			this.setState({isWishFilled:false});
+		}
+	    if(this.props.bbooks.length==0)
+		{
+			this.setState({isBorrowedFilled:false});
 		}
 		requireAuth(window.location.href)
 	}
@@ -110,7 +120,7 @@ class Profile extends Component {
 				<h3 className="mt-3">Borrowed Books</h3>
 				<div className="horizontalLine mx-auto mt-3"/>
 				<div className="mt-3">
-                {bookName}
+                {this.state.isBorrowedFilled?<div>{bookName}</div>:<div className="mt-5"><b>No Borrowed book!<br/>Its very easy to borrow a book from kalinga library.</b></div>}
 				</div>
 				</div>
 				</div>
@@ -120,7 +130,7 @@ class Profile extends Component {
 				<h3 className="mt-3">Wished Books</h3>
 				<div className="horizontalLine mx-auto mt-3"/>
 				<div className="mt-3">
-                {wishBookName}
+                {this.state.isWishFilled?<div>{wishBookName}</div>:<div className="mt-5"><b>No wished book!<br/>Don't hesitate Mindtree gives the freedom to wish.</b></div>}
 				</div>
 				{this.state.showMore?<div className="more mr-3" onClick={this.profileWislist}><b>more..</b></div>:null}
 				</div>

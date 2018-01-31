@@ -251,13 +251,13 @@ export class EachTopCard extends Component {
                                             className="fa fa-heart-o"
                                             style={{
                                             color: '#CD853F'
-                                        }}></span>
+                                        }} title="Click to add to wishlist"></span>
                                     : <span
                                         onClick={this.changeToEmpty}
                                         className="fa fa-heart"
                                         style={{
                                         color: '#CD853F'
-                                    }}></span>}
+                                    }} title="Click to remove from wishlist"></span>}
                             </div>
                         </div>
                         <div
@@ -277,14 +277,14 @@ export class EachTopCard extends Component {
                                             style={{
                                             color: '#CD853F',
                                             marginLeft: '30px'
-                                        }}></span>
+                                        }} title="Click to request"></span>
                                     : <span
                                         onClick={this.changeToRequest}
                                         className="fa fa-undo"
                                         style={{
                                         color: '#CD853F',
                                         marginLeft: '30px'
-                                    }}></span>}
+                                    }} title="Click to return"></span>}
                             </div>
                         </div>
                     </div>

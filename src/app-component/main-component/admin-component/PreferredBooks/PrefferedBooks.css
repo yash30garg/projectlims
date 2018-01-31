@@ -61,9 +61,8 @@
   left: 0;
   right: 0;
   overflow: hidden;
-  width: 0;
+  width: 0%;
   height: 20%;
-  transition: .5s ease;
 }
 
 .particular:hover .buttonOverlay {
@@ -92,7 +91,6 @@
   overflow: hidden;
   width: 0;
   height: 20%;
-  transition: .5s ease;
 }
 
 .particular:hover .requestOverlay {
