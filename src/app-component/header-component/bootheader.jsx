@@ -401,6 +401,7 @@ class BootHeader extends Component {
                                         <div id="prefferedDetailsCross" onClick={this.closeDetails}></div>
                                         <div id="profile" onClick={this.openProfile}></div>
                                         <div id="profileDetailsCross" onClick={this.closeDetails}></div>
+                                        <div id="openProfileWishlist" onClick={this.openWishlist}/>
            <div className="collapse show" id="myBooks">                             
            <a>                             
             <button type="button"
