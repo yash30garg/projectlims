@@ -122,7 +122,7 @@ class AdminFooter extends Component {
         </footer >
 
 
-      <div className="footer-bottom" style={{backgroundColor : "#614126"}}>
+      <div className="footer-bottom" style={{backgroundColor : "black"}}>
 
         <div className="container-fluid">
 

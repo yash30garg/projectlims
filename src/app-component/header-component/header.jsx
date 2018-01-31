@@ -80,6 +80,7 @@ class Header extends Component {
   {
     window.showProfile=true;
     document.getElementById('profile').click();
+    window.setClickProps="profileDetailsCross";
   }
 
   render() {

@@ -31,6 +31,7 @@ import {storeWbooks} from '../state/action/wbooksAction';
 import BookAdd from '../../src/app-component/main-component/admin-component/admin-edit-book/bookadd'
 import ContactUs from '../app-component/footer-component/ContactUs/contactus.jsx';
 import BookEdit from '../app-component/main-component/admin-component/admin-update-book/bookedit.jsx'
+import ManageAdmin from '../app-component/main-component/admin-component/admin-manage-users/adminmanage.jsx'
 // import { AuthenticationContext, adalGetToken, adalFetch } from 'react-adal';
 export var user_name,url;
 const store = createStore(allReducers);
@@ -170,7 +171,8 @@ class App extends Component {
     console.log(localStorage.getItem('adal.access.token.keyfa61fc30-ea79-4d93-8038-65273b42c71c'))
     // let value ="Bearer" + localStorage.getItem('adal.access.token.keyfa61fc30-ea79-4d93-8038-65273b42c71c')
     // console.log(`https://graph.microsoft.com/beta/me/photo/${value}`)
-    var UserDetails = JSON.parse(localStorage.getItem('limsuser'))
+    var UserDetails = JSON.parse(localStorage.getItem('limsuser'));
+    console.log(UserDetails);
     // this.getData();
     localStorage.setItem('mid', window.user)
     url = `https://social.mindtree.com/User%20Photos/Profile%20Pictures/m${window.user}_MThumb.jpg?t=63646089488`
@@ -205,14 +207,15 @@ class App extends Component {
             <Route path="/search/details" exact component={BookDetails} />
             {/*<Route path="/pdetails" exact component={ProductDetails}/>*/}
             {/*<Route path="/admin" exact component={AdminLogin} />  */}
-            {/*<Route path="/adminbooks" exact component={BookAdmin} />
+            <Route path="/adminbooks" exact component={BookAdmin} />
             <Route path="/handleusers" exact component={HandleUsers} />
-            <Route path="/profile" exact component={Profile} />
-            <Route path="/aboutus" exact component={AboutUs} />
-            <Route path="/admindash" exact component={DashBoard} />
+            {/*<Route path="/profile" exact component={Profile} />*/}
+            <Route path="/aboutus" exact component={AboutUs} /> 
             <Route path="/contactus" exact component={ContactUs} />
             <Route path="/bookadd" exact component={BookAdd} />
-            <Route path="/bookedit" exact component={BookEdit} />*/}
+            <Route path="/bookedit" exact component={BookEdit} />
+            <Route path="/admindash" exact component={DashBoard} />
+            <Route path="/manageuser" exact component={ManageAdmin} />
             <Route path="/:id" render={()=> (<div>{window.location.replace('http://localhost:3000/#/')}</div>)}/>
           </Switch>
 
