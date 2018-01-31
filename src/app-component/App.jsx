@@ -31,7 +31,7 @@ import {storeWbooks} from '../state/action/wbooksAction';
 import BookAdd from '../../src/app-component/main-component/admin-component/admin-edit-book/bookadd'
 import ContactUs from '../app-component/footer-component/ContactUs/contactus.jsx';
 import BookEdit from '../app-component/main-component/admin-component/admin-update-book/bookedit.jsx'
-import BookManage from '../app-component/main-component/admin-component/admin-manage-users/adminmanage.jsx'
+import ManageAdmin from '../app-component/main-component/admin-component/admin-manage-users/adminmanage.jsx'
 // import { AuthenticationContext, adalGetToken, adalFetch } from 'react-adal';
 export var user_name,url;
 const store = createStore(allReducers);
@@ -214,7 +214,7 @@ class App extends Component {
             <Route path="/bookadd" exact component={BookAdd} />
             <Route path="/bookedit" exact component={BookEdit} />
             <Route path="/admindash" exact component={DashBoard} />
-            <Route path="/manageuser" exact component={BookManage} />
+            <Route path="/manageuser" exact component={ManageAdmin} />
             <Route path="/:id" render={()=> (<div>{window.location.replace('http://localhost:3000/#/')}</div>)}/>
           </Switch>
 
