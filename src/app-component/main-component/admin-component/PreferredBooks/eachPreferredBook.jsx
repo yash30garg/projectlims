@@ -3,6 +3,8 @@ import {Link} from 'react-router-dom';
 import'./PrefferedBooks.css';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
+import { css } from 'glamor'
+import { ToastContainer, toast } from 'react-toastify';
 import {getDates} from '../../../dates';
 import {borrowDate, returnDate} from '../../../dates';
 import requestBook from '../../../mongo/requestBook'
@@ -51,7 +53,7 @@ class EachPrefferedCard extends Component{
         })
             }
         this.handle=this.handle.bind(this);
-        this.changeToUndo=this.changeToUndo.bind(this);
+        this.changeToFilled=this.changeToFilled.bind(this);
         // requestBook
         // this.requestBook=this.requestBook.bind(this);
         this.state={
@@ -88,6 +90,12 @@ class EachPrefferedCard extends Component{
 
         // addWishlist(items);
         this.setState({wishlistIcon:false});
+         toast.success("Success !!!", {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({
+                    background: "brown"
+                })
+            });
     }
     changeToEmpty=()=>
     {
