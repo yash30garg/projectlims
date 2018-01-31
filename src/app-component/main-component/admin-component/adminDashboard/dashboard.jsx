@@ -7,47 +7,48 @@ import AdminFooter from '../admin-footer-component/adminFooter';
 
 import { Link } from 'react-router-dom';
 // import { UserBooks } from './../borrowedBooks';
-import {requireAuth} from '../../../isLoggedIn.js'
+import { requireAuth } from '../../../isLoggedIn.js'
 
 import AdminHeader from '../adminheader'
 
 var count = 0;
 class DashBoard extends Component {
-    constructor()
-    {
+    constructor() {
         super();
 
-        this.state={
-            user:[],
+        this.state = {
+            user: [],
             output: [],
-        display: []
+            display: []
         }
     }
-    	componentWillMount() {
-		requireAuth(window.location.href)
+    componentWillMount() {
+        requireAuth(window.location.href)
 
-        fetch('http://localhost:3005/user/getUsers',{
-            method:'GET',
-            headers:{'Content-Type':'application/json'}
+        fetch('http://localhost:3005/user/getUsers', {
+            method: 'GET',
+            headers: { 'Content-Type': 'application/json' }
         })
-        .then((res)=>res.json())
-        .then((res) =>{
-         console.log(res);
-         this.setState({user:res});
-        
-        		})
+            .then((res) => res.json())
+            .then((res) => {
+                console.log(res);
+                this.setState({ user: res });
 
-                 fetch('http://localhost:3005/books/getBooks',{
-            method:'GET',
-            headers:{'Content-Type':'application/json',
-        'Authorization': localStorage.getItem('token')}
+            })
+
+        fetch('http://localhost:3005/books/getBooks', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': localStorage.getItem('token')
+            }
         })
-        .then((res)=>res.json())
-        .then((res) =>{
-         console.log(res);
-         this.setState({display:res});
-        
-        		})
+            .then((res) => res.json())
+            .then((res) => {
+                console.log(res);
+                this.setState({ display: res });
+
+            })
     }
 
     // state = {
@@ -69,10 +70,10 @@ class DashBoard extends Component {
     }
 
     render() {
-        window.users=this.state.user;
-        window.bookies=this.state.display;
+        window.users = this.state.user;
+        window.bookies = this.state.display;
         let booksnum = window.bookies.length;
-        let values=window.users.length;
+        let values = window.users.length;
         console.log("count " + window.users.length)
         count = 0;
         const outputs = window.users
@@ -81,11 +82,11 @@ class DashBoard extends Component {
 
                 return (
                     <tr>
-                        <td style={{textAlign:'left'}}>{result.name}<span class="badge  badge-pill badge-warning ml-2">{result.borrowedBooks.length}</span></td>
-                        <td style={{textAlign:'left'}}>{result.email}</td>
-                        <td style={{textAlign:'left'}}>{result.mid}</td>
-                        <td style={{textAlign:'left'}}>{result.role}</td>
-                        
+                        <td style={{ textAlign: 'left' }}>{result.name}<span class="badge  badge-pill badge-warning ml-2">{result.borrowedBooks.length}</span></td>
+                        <td style={{ textAlign: 'left' }}>{result.email}</td>
+                        <td style={{ textAlign: 'left' }}>{result.mid}</td>
+                        <td style={{ textAlign: 'left' }}>{result.role}</td>
+
                         {/*<td style={{textAlign:'left'}}>{result.borrowedbooks}</td>*/}
                     </tr>
 
@@ -96,9 +97,9 @@ class DashBoard extends Component {
 
             <div>
 
-     <AdminHeader />
+                <AdminHeader />
 
-                <header id="header" style={{	backgroundColor:'#333333'}}>
+                <header id="header" style={{ backgroundColor: '#333333' }}>
 
                     <div className="conatainer">
                         <div className="row">
@@ -106,40 +107,43 @@ class DashBoard extends Component {
                                 <h3
                                     className="dd"
                                     style={{
-                                        textAlign: "left",marginTop:"7px"
+                                        textAlign: "left", marginTop: "7px"
                                     }}>
-                                    <span className="fa fa-cog" aria-hidden="true"></span>DashBoard 
+                                    <span className="fa fa-cog" aria-hidden="true"></span>DashBoard
                                     <small> Manage LiMS</small>
                                 </h3>
                             </div>
-                        
 
-                                <div className="dropdown create">
-                                    <button
-                                        className="btn default dropdown-toggle"
-                                        type="button"
-                                        id="dropdownMenuButton"
-                                        data-toggle="dropdown"
-                                        aria-haspopup="true"
-                                        aria-expanded="false"
-                                        style={{color:'white',backgroundColor:"#db9917",marginTop:"0px", height : "33px" }}>
-                                        Create Content
+
+                            <div className="dropdown create">
+                                <button
+                                    className="btn default dropdown-toggle"
+                                    type="button"
+                                    id="dropdownMenuButton"
+                                    data-toggle="dropdown"
+                                    aria-haspopup="true"
+                                    aria-expanded="false"
+                                    style={{ color: 'white', backgroundColor: "#db9917", marginTop: "0px", height: "33px" }}>
+                                    Manage Content
                                         <span className="caret" /></button>
 
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <Link to="/bookadd">
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <Link to="/bookadd">
                                         <a class="dropdown-item">Add Book(s)</a>
-                                        </Link>
-                                        <Link to="/bookedit">
+                                    </Link>
+                                    <Link to="/bookedit">
                                         <a class="dropdown-item" >Edit Book(s)</a>
-                                        </Link>
-                                        <a class="dropdown-item" >Edit User(s)
-                                        </a>
-                                    </div>
-                                </div>
+                                    </Link>
+                                    <Link to="/manageuser">
 
+                                        <a class="dropdown-item" >Manage User(s)
+                                        </a>
+                                    </Link>
+                                </div>
                             </div>
-                        
+
+                        </div>
+
                     </div>
                 </header>
 
@@ -158,96 +162,96 @@ class DashBoard extends Component {
                     </div>
                 </section>
 
-               
-                    <div className="container-fluid">
-                        <div className="row">
-                            <div className="col-md-3">
+
+                <div className="container-fluid">
+                    <div className="row">
+                        <div className="col-md-3">
                             <DashBoardStats />
-                           
-                            </div>
-                            <div className="col-md-9">
 
-                                <div className="card">
-                                    <h5 className="card-header">Library Overview</h5>
-                                    <div className="card-body">
+                        </div>
+                        <div className="col-md-9">
 
-                                        <div className="row">
+                            <div className="card">
+                                <h5 className="card-header">Library Overview</h5>
+                                <div className="card-body">
 
-                                            <div className="col-md-3">
-                                                <div className="fu1">
-                                                    <div className="card">
+                                    <div className="row">
 
-                                                        <div className="card-block">
-                                                            <h2>
-                                                                <span className="fa fa-user" aria-hidden="true"></span>
-                                                                {values}
-                                                            </h2>
-                                                            <h4>
-                                                                Users
+                                        <div className="col-md-3">
+                                            <div className="fu1">
+                                                <div className="card">
+
+                                                    <div className="card-block">
+                                                        <h2>
+                                                            <span className="fa fa-user" aria-hidden="true"></span>
+                                                            {values}
+                                                        </h2>
+                                                        <h4>
+                                                            Users
                                                             </h4>
-                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-
-                                            <div className="col-md-3">
-                                                <div className="fu">
-                                                    <div className="card">
-                                                        <div className="card-block">
-                                                            <h2>
-                                                                <span className="fa fa-list" aria-hidden="true"></span>
-                                                                2
-                                                            </h2>
-                                                            <h4>
-                                                                Edits
-                                                            </h4>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div className="col-md-3">
-                                                <div className="fu">
-                                                    <div className="card">
-                                                        <div className="card-block">
-                                                            <h2>
-                                                                <span className="fa fa-pencil" aria-hidden="true"></span>{booksnum}
-                                                            </h2>
-                                                            <h4>
-                                                                Books
-                                                            </h4>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div className="col-md-3">
-                                                <div className="fu2">
-                                                    <div className="card">
-                                                        <div className="card-block">
-                                                            <h2>
-                                                                <span className="fa fa-globe" aria-hidden="true"></span>
-                                                                14
-                                                            </h2>
-                                                            <h4>
-                                                                Visitors
-                                                            </h4>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
                                         </div>
+
+                                        <div className="col-md-3">
+                                            <div className="fu">
+                                                <div className="card">
+                                                    <div className="card-block">
+                                                        <h2>
+                                                            <span className="fa fa-list" aria-hidden="true"></span>
+                                                            2
+                                                            </h2>
+                                                        <h4>
+                                                            Edits
+                                                            </h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div className="col-md-3">
+                                            <div className="fu">
+                                                <div className="card">
+                                                    <div className="card-block">
+                                                        <h2>
+                                                            <span className="fa fa-pencil" aria-hidden="true"></span>{booksnum}
+                                                        </h2>
+                                                        <h4>
+                                                            Books
+                                                            </h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div className="col-md-3">
+                                            <div className="fu2">
+                                                <div className="card">
+                                                    <div className="card-block">
+                                                        <h2>
+                                                            <span className="fa fa-globe" aria-hidden="true"></span>
+                                                            14
+                                                            </h2>
+                                                        <h4>
+                                                            Visitors
+                                                            </h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                     </div>
                                 </div>
+                            </div>
 
-                                <div className="mana">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            Recent Users</div>
-                                        <div class="card-block">
+                            <div className="mana">
+                                <div class="card">
+                                    <div class="card-header">
+                                        Recent Users</div>
+                                    <div class="card-block">
 
-                                            {/*<table class="table table-hover table-responsive ">
+                                        {/*<table class="table table-hover table-responsive ">
                                                 <thead>
                                                     <tr>
                                                         <th style={{textAlign:'center'}}>User Name</th>
@@ -263,31 +267,31 @@ class DashBoard extends Component {
                                                 </tbody>
                                             </table>*/}
 
-                                             <div className="row">
-                                        <div className="col-md-1" />
-                                        <div className="col-md-10">
+                                        <div className="row">
+                                            <div className="col-md-1" />
+                                            <div className="col-md-10">
 
-                                            <div class="table-responsive">
-                                                <table class="table">
-                                                    <thead>
-                                                         <tr>
-                                                        <th style={{textAlign:'left'}}>User Name</th>
-                                                        <th style={{textAlign:'left'}}>Email</th>
-                                                        <th style={{textAlign:'left'}}>MID</th>
-                                                        <th style={{textAlign:'left'}}>Role</th>
-                                                    </tr>
-                                                    </thead>
-                                                    <tbody >
-                                                         {outputs}
-                                                    </tbody>
-                                                </table>
+                                                <div class="table-responsive">
+                                                    <table class="table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th style={{ textAlign: 'left' }}>User Name</th>
+                                                                <th style={{ textAlign: 'left' }}>Email</th>
+                                                                <th style={{ textAlign: 'left' }}>MID</th>
+                                                                <th style={{ textAlign: 'left' }}>Role</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody >
+                                                            {outputs}
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+
+
+
                                             </div>
 
-
-
-                                        </div>
-
-                                        <div className="col-md-1" />
+                                            <div className="col-md-1" />
 
                                         </div>
                                     </div>
@@ -295,18 +299,18 @@ class DashBoard extends Component {
                             </div>
                         </div>
                     </div>
-              
-                <br /><br />
-                
 
-  <div>
+                    <br /><br />
 
 
-       
-</div>
+                    <div>
 
-</div>
-<AdminFooter />
+
+
+                    </div>
+
+                </div>
+                <AdminFooter />
 
             </div>
 

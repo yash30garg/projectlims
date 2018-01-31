@@ -2,7 +2,16 @@ import React,{Component} from 'react';
 import './bootheader.css';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import {getDates} from '.././dates';
+import {borrowDate, returnDate} from '.././dates';
+import requestBook from '../mongo/requestBook'
+import returnBook from '../mongo/returnBook'
+import {storeBbooks} from '../../state/action/bbooksAction'
+import {storeWbooks} from '../../state/action/wbooksAction'
 import {controller,handleController} from './bootheader';
+import {addWishlist} from '../mongo/addWishlist';
+import {removeWishlist} from '../mongo/removeWishlist'
 import EachCategory from './../main-component/admin-component/topRatedBooks/eachCategory';
 let handle=(data)=>{
 window.selected=data;
@@ -16,26 +25,94 @@ document.getElementById('detail').click();
     constructor(props)
     {
         super(props);
+
+        let reqVal=true;
+        let wishVal=true;
+        if(this.props.bbooks!==null && this.props.bbooks.length!==0){
+                 this.props.bbooks.map(res=>{
+                    //  console.log(res)
+            if(res.isbn===this.props.eachValue.isbn){   
+                // console.log("found")
+            reqVal=false;
+            }
+        })
+            }
+            if(this.props.wbooks!==null && this.props.wbooks.length!==0){
+                 this.props.wbooks.map(res=>{
+                    //  console.log(res)
+            if(res.isbn===this.props.eachValue.isbn){   
+                // console.log("found")
+            wishVal=false;
+            }
+        })
+            }
         this.state={
-        wishlistIcon:true,
-        requestIcon:true,
+        wishlistIcon:wishVal,
+        requestIcon:reqVal,
     }
 }
 
     changeToFilled=()=>
     {
+        var items=new Object();
+        items.isbn=this.props.eachValue.isbn;
+        items.title=this.props.eachValue.title;
+        items.author=this.props.eachValue.author;
+        items.category=this.props.eachValue.category;
+        items.publisher=this.props.eachValue.publisher;
+        items.rating=this.props.eachValue.rating;
+        items.url=this.props.eachValue.url;
+        items.description="";
+        // console.log(items);
+        (async function(){
+                    var data=await addWishlist(items);
+                    console.log("data")
+                console.log(data);
+                this.props.storeWbooks(data)
+                // var newD=data.json();
+            }).bind(this)()
         this.setState({wishlistIcon:false});
     }
     changeToEmpty=()=>
     {
+        (async function(){
+                    var data=await removeWishlist(this.props.eachValue.isbn);
+                    console.log("data")
+                console.log(data);
+                this.props.storeWbooks(data)
+                // var newD=data.json();
+            }).bind(this)()
         this.setState({wishlistIcon:true});
     }
     changeToUndo=()=>
     {
+         if(this.props.bbooks.length<4){
+            let bookAdded=new Object();
+                bookAdded.isbn=this.props.eachValue.isbn;
+                bookAdded.title=this.props.eachValue.title;
+                bookAdded.author=this.props.eachValue.author;
+                bookAdded.publisher=this.props.eachValue.publisher;
+                bookAdded.url=this.props.eachValue.url;
+                bookAdded.rating=this.props.eachValue.rating;
+                bookAdded.borrowedDate=borrowDate;
+                bookAdded.returnDate=returnDate;
+                bookAdded.isRenewed="false"; 
+                (async function(){
+                    var data=await requestBook(bookAdded);
+                console.log(data.data);
+                this.props.storeBbooks(data.data)
+                // var newD=data.json();
+            }).bind(this)()
         this.setState({requestIcon:false});
+         }
     }
     changeToRequest=()=>
     {
+        (async function(){
+                var data=await returnBook(this.props.eachValue.isbn);
+                console.log(data.data);
+                this.props.storeBbooks(data.data)
+            }).bind(this)()
         this.setState({requestIcon:true});
     } 
 
@@ -100,4 +177,14 @@ render()
     
 }
 }
-export default EachCategoryCard;
+function mapStateToProps(state) {
+    return {
+        bbooks: state.bbooks,
+        books: state.books,
+        wbooks:state.wbooks
+    };
+}
+function matchDispatchToProps(dispatch){
+    return bindActionCreators({storeBbooks: storeBbooks,storeWbooks:storeWbooks}, dispatch);
+}
+export default connect(mapStateToProps,matchDispatchToProps)(EachCategoryCard);

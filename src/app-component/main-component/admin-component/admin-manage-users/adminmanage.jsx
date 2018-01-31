@@ -3,17 +3,15 @@ import React, { Component } from 'react';
 // import './bookshow.css';
 import { Link } from 'react-router-dom';
 // import SearchResultsAdmin from '../../../search-component/SearchResults.jsx';
-import SearchAdmin from './searchadmin';
 import DashBoardStats from '../admin-stats/adminstats';
-// import './searchdis.css';
 // import Footer from '../../../footer-component/footer.jsx';
-import {requireAuth} from '../../../isLoggedIn.js'
+import {requireAuth} from '../../../../app-component/isLoggedIn'
 import AdminFooter from '../admin-footer-component/adminFooter';
 
 import AdminHeader from '../adminheader'
 
 var count =0;
-class BookAdmin extends Component {
+class ManageAdmin extends Component {
     componentWillMount() {
         requireAuth(window.location.href)
     }
@@ -39,7 +37,7 @@ class BookAdmin extends Component {
                                         textAlign: "left",marginTop:"7px"
                                     }}>
                                     <span className="fa fa-cog" aria-hidden="true"></span>DashBoard 
-                                    <small> Manage Books</small>
+                                    <small> Manage User(s)/Admin(s)</small>
                                 </h3>
                             </div>
                         
@@ -98,17 +96,27 @@ class BookAdmin extends Component {
 
 
                                 <div className="card">
-                                    <h5 className="card-header">Books Overview</h5>
+                                    <h5 className="card-header">Manage User(s) </h5>
                                     <div className="card-body">
 
-                                        <div className="row">
 
                                             <div className="col-md-12">
-                                                <div className="fu1">
-                                                    <SearchAdmin />
-                                                  
+                                               
+                                                   <form>
+                                                   <div class="form-group " style={{ textAlign: "left" }}>
+                                                    Email-Id:
+                                                <input type="text" class="form-control" id="addBookIsbn" />
                                                 </div>
+
+                                                            <div style={{textAlign:'left'}}><button type="button" onClick={this.findBook} class="btn btn-warning" style={{alignContent : "left"}}>Make Admin</button>
+
+                                            <button onClick={this.deleteBook} class="btn btn-danger" style={{marginLeft :'30px'}}>Remove Admin</button>
+                                            
                                             </div>
+                                                    </form>
+                                                  
+                                                
+                                            
 
                                           
 
@@ -153,4 +161,4 @@ class BookAdmin extends Component {
 
 }
 
-export default BookAdmin;
+export default ManageAdmin;
