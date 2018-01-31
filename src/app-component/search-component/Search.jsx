@@ -11,6 +11,7 @@ import SearchResults from '../search-component/SearchResults';
 import './Search.css'
 import store from '../../state/store/store.js'
 import BootHeader from '../header-component/bootheader'
+import {changeNotify} from './SearchResults'
 var debounce = require('debounce');
 export var processedData = [];
 var data
@@ -18,6 +19,7 @@ export var search = () => {
     let value = store.getState().search.toLowerCase();
     processedData = []
     // let value = document.getElementById('key').value.toLowerCase();
+    changeNotify();
     let value1, value2;
     value1=value
     console.log(value1)

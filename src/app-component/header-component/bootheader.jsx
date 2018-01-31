@@ -21,7 +21,8 @@ import { EachListItem } from './categoryList';
 import {connect} from 'react-redux';
 import $ from 'jquery';
 import BorrowedBooks from './../main-component/admin-component/booksDisplay';
-import Profile from './../main-component/user-component/profileView/prodetails';
+import Profile from './../main-component/user-component/profileView/ProfileDetails';
+import '../main-component/user-component/profileView/profileDetails.css'
 export let controller;
 export var handleController = () => {
     controller=1
@@ -259,6 +260,7 @@ class BootHeader extends Component {
     componentDidMount() {
         if(window.innerWidth<=500)
             document.getElementById('categoryDiv').click();
+             document.getElementById('myBooksDiv').click();
     }
     render() {
 //         if (this.state.redirect) {
@@ -357,7 +359,7 @@ class BootHeader extends Component {
                                                 color: "white"
                                                 
                                             }}
-                                            id="categoryDiv"
+                                            id="myBooksDiv"
                                             onClick={this.plusMyClicked}>
                                             
                                             <div className="col-md-0 fa fa-list-alt" aria-hidden="true"></div>

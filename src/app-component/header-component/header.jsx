@@ -211,12 +211,12 @@ class Header extends Component {
               {/*<Link to="/search" style={{ textDecoration: 'none' }}>*/}
               <div className="input-group">
 
-                <input list="browsers" type="text" id="key" className="form-control" style={{ alignSelf: "center" }} placeholder="Search for..." onKeyUp={debounce((this.search), 2000)} autoFocus
+                <input list="browsers" type="text" id="key" className="form-control" style={{ alignSelf: "center" }} placeholder="Search for..." autoFocus
                   onChange={debounce((event) => {
                     event.preventDefault();
                     store.dispatch({ type: "STORE_SEARCH", payload: document.getElementById('key').value })
                     search()
-                  }, 2000)}
+                  }, 1000)}
                   onKeyPress={debounce((event) => {
                     if (event.key === 'Enter') {
                       store.dispatch({ type: "STORE_SEARCH", payload: document.getElementById('key').value })
