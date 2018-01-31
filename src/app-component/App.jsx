@@ -30,6 +30,7 @@ import {storeBooks} from '../state/action/booksAction';
 import BookAdd from '../../src/app-component/main-component/admin-component/admin-edit-book/bookadd'
 import ContactUs from '../app-component/footer-component/ContactUs/contactus.jsx';
 import BookEdit from '../app-component/main-component/admin-component/admin-update-book/bookedit.jsx'
+import BookManage from '../app-component/main-component/admin-component/admin-manage-users/adminmanage.jsx'
 // import { AuthenticationContext, adalGetToken, adalFetch } from 'react-adal';
 export var user_name;
 const store = createStore(allReducers);
@@ -196,6 +197,8 @@ class App extends Component {
             <Route path="/contactus" exact component={ContactUs} />
             <Route path="/bookadd" exact component={BookAdd} />
             <Route path="/bookedit" exact component={BookEdit} />
+            <Route path="/manageuser" exact component={BookManage} />
+              
           </Switch>
 
         </div>

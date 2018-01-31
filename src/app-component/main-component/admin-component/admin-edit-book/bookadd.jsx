@@ -10,7 +10,7 @@ import { requireAuth } from '../../../isLoggedIn.js'
 // import '../../../../../node_modules/@ckeditor/ckeditor5-build-classic/build/ckeditor.js'
 
 import {addBook} from '../../../mongo/addBook'
-import DashBoardStats from '../admin-stats/adminstats'
+
 
 import AdminHeader from '../adminheader'
 
@@ -70,7 +70,7 @@ class BookAdd extends Component {
                                     aria-haspopup="true"
                                     aria-expanded="false"
                                     style={{ color: 'white', backgroundColor: "#db9917", marginTop: "0px", height: "33px" }}>
-                                    Create Content
+                                    Manage Content
                                         <span className="caret" /></button>
 
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -80,8 +80,11 @@ class BookAdd extends Component {
                                     <Link to="/bookedit">
                                         <a class="dropdown-item" href="!#">Edit Book(s)</a>
                                     </Link>
-                                    <a class="dropdown-item" href="!#">Edit User(s)
+                                                                            <Link to="/manageuser">
+
+                                    <a class="dropdown-item" href="!#">Manage User(s)
                                         </a>
+                                        </Link>
                                 </div>
                             </div>
 
@@ -102,7 +105,35 @@ class BookAdd extends Component {
                     <div className="container-fluid">
                         <div className="row">
                             <div className="col-md-3">
-                            <DashBoardStats />
+
+                                <div className="list-group">
+                                    <a href="!#" class="list-group-item active">
+                                        <span class="fa fa-cog" aria-hidden="true" ></span>  DashBoard</a>
+                                    <a href="!#" class="list-group-item  list-group-item-action"> <span class="fa fa-list-alt" aria-hidden="true"></span>Total Books<div className='mov' style={{ paddingRight: "170px" }} /><span class="badge  badge-pill badge-warning">100</span></a>
+                                    <a href="!#" class="list-group-item  list-group-item-action"> <span class="fa fa-pencil" aria-hidden="true"></span>Books available<div className='mov' style={{ paddingRight: "150px" }} /><span className="badge badge-pill badge-warning">75</span></a>
+                                    <a href="!#" class="list-group-item  list-group-item-action"> <span class="fa fa-user" aria-hidden="true"></span>Users<div className='mov' style={{ paddingRight: "227px" }} /><span className="badge badge-pill badge-warning mov">{count}</span></a>
+                                    {/*<a href="!#" class="list-group-item list-group-item-action disabled">Vestibulum at eros</a>*/}
+                                </div>
+
+                                <br />
+                                <div className="card">
+                                    <div className="card-header card-primary"><div className="t">
+                                        <span className="fa fa-list" aria-hidden="true"></span> Books Stats
+                                      </div></div>
+                                    <h6 className="he5">Books Available :</h6>
+                                    <div className="p1">
+                                        <div class="progress">
+                                            <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">75%</div>
+                                        </div>
+                                    </div>
+
+                                    <h6 className="he6"> Books to be returned :</h6>
+                                    <div className="p2">
+                                        <div className="progress">
+                                            <div className="progress-bar" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                                        </div>
+                                    </div>
+                                </div>
 
 
                             </div>
