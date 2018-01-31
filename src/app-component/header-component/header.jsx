@@ -19,8 +19,10 @@ import LoadingEffect from '../loading-component/loading'
 import store from '../../state/store/store.js'
 import { search } from '../search-component/Search'
 import Category from './categoryView';
+import {requireAuth} from '../isLoggedIn.js'
+import {url} from '../App'
 export var key;
-export let url = `https://social.mindtree.com/User%20Photos/Profile%20Pictures/m${localStorage.getItem('mid')}_MThumb.jpg?t=63646089488`;
+// export let url = `https://social.mindtree.com/User%20Photos/Profile%20Pictures/m${localStorage.getItem('mid')}_MThumb.jpg?t=63646089488`;
 // let user_name = localStorage.getItem('user-name')
 var debounce = require('debounce');
 class Header extends Component {
@@ -29,6 +31,10 @@ class Header extends Component {
     this.state = {
       greet: "Hi, ",
       search: '',
+    }
+    if(window.display===""||window.display===undefined)
+    {
+      window.location.replace('/#/login')
     }
   }
 
@@ -64,6 +70,7 @@ class Header extends Component {
     else if (hours >= 16 && hours <= 23) {
       this.setState({ greet: "Good evening, " });
     }
+    requireAuth(window.location.href)
   }
   search(e) {
     store.dispatch({ type: "STORE_SEARCH", payload: document.getElementById('key').value })
@@ -77,6 +84,8 @@ class Header extends Component {
 
   render() {
     let brr = [];
+    console.log(window.display)
+    if(window.display!==""&&window.display!==undefined){
     let arr = window.display
       .sort((a, b) => {
         if (a.category.toUpperCase() > b.category.toUpperCase()) {
@@ -96,6 +105,7 @@ class Header extends Component {
         brr.push(arr[i + 1]);
       }
     }
+    
     var titleDup = () => {
       let titleD = []
       let arr = window.display
@@ -178,7 +188,6 @@ class Header extends Component {
     titleDup();
     publisherDup();
     authorDup();
-
     return (
       <div >
         <nav className="navbar navbar-toggleable-md navbar-light bg-faded" style={{ backgroundColor: "#614126" }}>
@@ -279,6 +288,8 @@ class Header extends Component {
           <BootHeader />
       </div>
         )
+    }
+    return(<div>{requireAuth(window.location.href)}</div>)
   }
 }
 // const mapStateToProps = (state) => {

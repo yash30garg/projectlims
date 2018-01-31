@@ -47,10 +47,10 @@ class Root extends Component  {
     )
   }
 }
-runWithAdal(authContext, () => {
+// runWithAdal(authContext, () => {
 ReactDOM.render(
     
     <Root />, document.getElementById('root')
     );
-});
+// });
 // registerServiceWorker();
