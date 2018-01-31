@@ -2,6 +2,8 @@ import React,{Component} from 'react';
 import './bootheader.css';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
+import { css } from 'glamor'
+import { ToastContainer, toast } from 'react-toastify';
 import {bindActionCreators} from 'redux';
 import {getDates} from '.././dates';
 import {borrowDate, returnDate} from '.././dates';
@@ -54,6 +56,7 @@ document.getElementById('detail').click();
 
     changeToFilled=()=>
     {
+        if(navigator.onLine){
         var items=new Object();
         items.isbn=this.props.eachValue.isbn;
         items.title=this.props.eachValue.title;
@@ -72,9 +75,25 @@ document.getElementById('detail').click();
                 // var newD=data.json();
             }).bind(this)()
         this.setState({wishlistIcon:false});
+        toast.success("Added to WishList !!!", {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({
+                    background: "brown"
+                })
+            });
+    }
+    else{
+        toast.error("You're Not Online !!!", {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({
+                    background: "blue"
+                })
+            });
+    }
     }
     changeToEmpty=()=>
     {
+        if(navigator.onLine){
         (async function(){
                     var data=await removeWishlist(this.props.eachValue.isbn);
                     console.log("data")
@@ -83,9 +102,25 @@ document.getElementById('detail').click();
                 // var newD=data.json();
             }).bind(this)()
         this.setState({wishlistIcon:true});
+        toast.success("Removed from WishList !!!", {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({
+                    background: "brown"
+                })
+            });
+    }
+        else{
+        toast.error("You're Not Online !!!", {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({
+                    background: "blue"
+                })
+            });
+    }
     }
     changeToUndo=()=>
     {
+        if(navigator.onLine){
          if(this.props.bbooks.length<4){
             let bookAdded=new Object();
                 bookAdded.isbn=this.props.eachValue.isbn;
@@ -104,16 +139,55 @@ document.getElementById('detail').click();
                 // var newD=data.json();
             }).bind(this)()
         this.setState({requestIcon:false});
-         }
+          toast.success("Successfully Requested !!!", {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({
+                    background: "brown"
+                })
+            });
+    }
+    else{
+        toast.warn("Oops! You Cannot borrow more books !!!", {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({
+                    background: "red"
+                })
+            });
+    }
+        }
+        else{
+        toast.error("You're Not Online !!!", {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({
+                    background: "blue"
+                })
+            });
+        }
     }
     changeToRequest=()=>
     {
+        if(navigator.onLine){
         (async function(){
                 var data=await returnBook(this.props.eachValue.isbn);
                 console.log(data.data);
                 this.props.storeBbooks(data.data)
             }).bind(this)()
         this.setState({requestIcon:true});
+        toast.warn("Successfully Returned !!!", {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({
+                    background: "brown"
+                })
+            });
+        }
+        else{
+        toast.error("You're Not Online !!!", {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({
+                    background: "blue"
+                })
+            });
+        }
     } 
 
 render()
