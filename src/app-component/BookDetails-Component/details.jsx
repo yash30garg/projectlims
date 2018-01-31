@@ -3,7 +3,6 @@ import './details.css';
 import {connect} from 'react-redux';
 import '../search-component/Search.css';
 import $ from 'jquery';
-// import { withAlert } from 'react-alert'
 import requestBook from '.././mongo/requestBook'
 import returnBook from '.././mongo/returnBook'
 import {addWishlist} from '.././mongo/addWishlist'
@@ -308,7 +307,6 @@ class Details extends Component {
                 bookAdded.returnDate=returnDate;
                 bookAdded.isRenewed="false";            
                 requestBook(bookAdded);
-                // this.props.alert.show('Oh look, an alert!')
                 a = b = (
                     <div>
                         <button

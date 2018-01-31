@@ -4,8 +4,9 @@ import $ from 'jquery';
 // import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './Search.css';
-import {search,sortTitle,sortAuthor,sortPublish,sortRating} from './Search'
+import {search,sortTitle,sortAuthor,sortPublish,sortRating,selectFilter} from './Search'
 import store from '../../state/store/store.js'
+import { ToastContainer, toast } from 'react-toastify';
 export var book;
 // let users,
 //     books;
@@ -26,6 +27,8 @@ class SearchResults extends Component {
         //         const b = users.filter((res) => res.user.mid === "1042948")
         //     });
     }
+
+    notify = () => toast("Wow so easy !");
 
     handle(res) {
         window.selected = res;
@@ -52,6 +55,7 @@ class SearchResults extends Component {
     } 
 
     render() {
+        console.log(processedData)
         const a = processedData.map(res => {
             return (
                 <div key={res.isbn} className="col-lg-3 col-md-4 col-sm-6 col-xs-12 mt-3 mb-3">
@@ -126,24 +130,27 @@ class SearchResults extends Component {
 });
         return (
             <div>
+                <div id="alert" onClick={this.notify}></div>
+                <ToastContainer />
                 {this.props.isSearchClicked ? <div className="contained">
+                    {document.getElementById('alert').click()}
                     <ol className="breadcrumb" style={{ backgroundColor: "#614126", color: "white" }}  >
                         <h5 >{this.props.divName}<span style={{ float: 'right', cursor: 'pointer', paddingLeft: '70px' }} id="openHome" onClick={this.props.searchCrossClicked}>x</span></h5>
                     </ol>
                     {processedData.length>1?
                     <div>
-                    <section className="sortInline">
+                    <section className="sortInline form-group">
                         <span className="sortName">
                             <span>Sort By</span>
                             </span>
                             <ul className="sortTypes">
-                                <li id="defaultSearchResults" className="sortElement activeSortElement" onClick={(event)=> {
+                                <li className="sortElement activeSortElement" onClick={(event)=> {
                                     event.preventDefault();
                                     store.dispatch({type:"STORE_SEARCH",payload: document.getElementById('key').value})
                                     event.target.className!=="sortELement activeSortElement"?
                                     search()
                                     :null
-                                    }}><a>Default</a></li>
+                                    }}><a id="defaultSearchResults">Default</a></li>
                                 <li className="sortElement" onClick={(event) => {
                                     event.preventDefault();
                                     sortTitle();
@@ -163,20 +170,8 @@ class SearchResults extends Component {
                             </ul>
                 
                     </section>
-                    <div className="btn-group setDropdown">
-                        <div className="dropdown">
-                            <select className="btn btn-secondary dropdown-toggle" id="filter" onChange={this.selectFilter} data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-
-                                {/*<div className="dropdown-menu" aria-labelledby="dropdownMenu2">*/}
-                                <option className="dropdown-item" >Filter By</option>
-                                <option className="dropdown-item">5 Rated</option>
-                                <option className="dropdown-item">4 and above Rated </option>
-                                <option className="dropdown-item" >3 and above Rated</option>
-                                <option className="dropdown-item">2 and above Rated</option>
-                            </select>
-                            {/*</div>*/}
-                        </div>
-                    </div>
+                    {/*<div className="offset-md-2"></div>*/}
+                    
                     </div>:null}
                     <div className="container-fluid">
                         <div className="row">
