@@ -359,8 +359,6 @@ li{
 }
 .scrollList
 {
-  height:450px;
-  overflow: hidden;
-  overflow-y: scroll;
+
   
 }
