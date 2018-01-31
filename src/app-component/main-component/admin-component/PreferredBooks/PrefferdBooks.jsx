@@ -147,19 +147,7 @@ class PBooks extends Component {
                         <span className="sr-only arrow">Next</span>
                     </div>
                 </div>
-                <div id="myModal" className="modal">
-                    <span className="close">&times;</span>
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-md-6">
-                                <img alt="" className="modal-content" id="img01" height="500px" width="400px"/>
-                            </div>
-                            <div className="col-md-6">
-                                <div id="caption"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
             </div>
         )
     }
