@@ -62,7 +62,7 @@ class App extends Component {
   }
 
   getBorrowedData() {
-    fetch('http://localhost:3005/borrowedBooks/getBooks', {
+    fetch('https://limsreactapi.azurewebsites.net/borrowedBooks/getBooks', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -89,7 +89,7 @@ class App extends Component {
     console.log("this")
     if(navigator.onLine){
       console.log("Online")
-    fetch('http://localhost:3005/user/addUser', {
+    fetch('https://limsreactapi.azurewebsites.net/user/addUser', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       // form:{mid:"1042932"}
@@ -247,7 +247,7 @@ class App extends Component {
             <Route path="/bookedit" exact component={BookEdit} />
             <Route path="/admindash" exact component={DashBoard} />
             <Route path="/manageuser" exact component={ManageAdmin} />
-            <Route path="/:id" render={()=> (<div>{window.location.replace('http://localhost:3000/#/')}</div>)}/>
+            <Route path="/:id" render={()=> (<div>{window.location.replace('/#/')}</div>)}/>
           </Switch>
 
         </div>
