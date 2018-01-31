@@ -33,6 +33,7 @@ import ContactUs from '../app-component/footer-component/ContactUs/contactus.jsx
 import BookEdit from '../app-component/main-component/admin-component/admin-update-book/bookedit.jsx'
 import BookManage from '../app-component/main-component/admin-component/admin-manage-users/adminmanage.jsx'
 // import { AuthenticationContext, adalGetToken, adalFetch } from 'react-adal';
+import {online} from '../index.js'
 export var user_name,url;
 const store = createStore(allReducers);
 var req = require('request');
@@ -72,6 +73,8 @@ class App extends Component {
       .then((res) => {
         // storeBbooks.dispatch({type:"STORE_BBOOKS",payload: res.data[0]})
         // alert("dispatch")
+        localStorage.setItem('borrowedBooks',JSON.stringify(res.data[0]))
+        localStorage.setItem('wishlist',JSON.stringify(res.data[1]))
         this.setState({
           bbooks: res.data[0],
           wishlist: res.data[1]
@@ -83,6 +86,9 @@ class App extends Component {
   }
 
   addUser = (UserDetails) => {
+    console.log("this")
+    if(navigator.onLine){
+      console.log("Online")
     fetch('http://localhost:3005/user/addUser', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -100,7 +106,7 @@ class App extends Component {
       .then((res) => {
         console.log(res)
         localStorage.setItem('token', res.token)
-        // localStorage.setItem('role', res.user[0].role)
+        localStorage.setItem('role', res.user[0].role)
         fetch('http://localhost:3005/books/getBooks',
           {
             method: 'GET',
@@ -113,6 +119,7 @@ class App extends Component {
           .then((response) => {
             console.log("booksssssss");
             console.log(response);
+            localStorage.setItem('books',JSON.stringify(response))
             this.setState({
               display: response,
               flag:true
@@ -122,6 +129,23 @@ class App extends Component {
           this.getBorrowedData();
         }
       })
+    }
+    else {
+      console.log("Offline")
+      if(JSON.parse(localStorage.getItem('books'))!==""&&JSON.parse(localStorage.getItem('books'))!==null)
+      {
+        this.setState({
+          display: JSON.parse(localStorage.getItem('books')),
+          bbooks: JSON.parse(localStorage.getItem('borrowedBooks')),
+          wishlist: JSON.parse(localStorage.getItem('wishlist'))
+        })
+      }
+      else {
+        sessionStorage.clear();
+        localStorage.clear();
+        window.location.replace('/#/login')
+      }
+    }
   }
   componentWillMount() {
     if(localStorage.getItem('limsuser')!==""&&localStorage.getItem('limsuser')!==null) {
@@ -158,12 +182,19 @@ class App extends Component {
    let bbooks=this.state.bbooks;
    let wbooks=this.state.wishlist
    let books=this.state.display;
-   console.log(window.display);
+   console.log(window.display,bbooks,wbooks,books);
     // window.display = this.state.display;
     // alert(window.display.length)
+    if(navigator.onLine){
     this.props.storeBooks(books);
     this.props.storeBbooks(bbooks)
     this.props.storeWbooks(wbooks)
+  }
+  else {
+    this.props.storeBooks(this.state.display)
+    this.props.storeBbooks(this.state.bbooks)
+    this.props.storeWbooks(this.state.wishlist)
+  }
     console.log(JSON.parse(localStorage.getItem('limsuser')).profile.given_name);
     user_name = JSON.parse(localStorage.getItem('limsuser')).profile.given_name;
     localStorage.setItem('user-name', JSON.stringify(JSON.parse(localStorage.getItem('limsuser')).profile.given_name))

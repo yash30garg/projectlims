@@ -17,6 +17,7 @@ import '../node_modules/bootstrap/dist/js/bootstrap.min.js';
 
 import '../node_modules/bootstrap/scss/bootstrap.scss';
 const store = createStore(allReducers);
+export var online = navigator.onLine
 // var UserDetails = JSON.parse(localStorage.getItem('limsuser'));
 // console.log(UserDetails)
 // let mid=UserDetails.userName.split("@");
@@ -24,7 +25,6 @@ const store = createStore(allReducers);
 // // alert(res[1])
 // window.user=res[1];
 // alert(window.user);
-
 
 // window.display=[];
 
