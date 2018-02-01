@@ -22,6 +22,7 @@ import Category from './categoryView';
 import {requireAuth} from '../isLoggedIn.js'
 import {url} from '../App'
 export var key;
+let route=[];
 // export let url = `https://social.mindtree.com/User%20Photos/Profile%20Pictures/m${localStorage.getItem('mid')}_MThumb.jpg?t=63646089488`;
 // let user_name = localStorage.getItem('user-name')
 var debounce = require('debounce');
@@ -58,6 +59,30 @@ class Header extends Component {
 
   }
   componentWillMount() {
+    route = window.location.hash.split('/')
+    if(route[1]==="search")
+    {
+      window.location= '/#/'
+    }
+    fetch('https://limsreactapi.azurewebsites.net/books/getBooks',
+        // fetch('http://localhost:3005/books/getBooks',
+          {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json',
+            }
+          })
+          .then((response) => response.json())
+          .then((response) => {
+            console.log("booksssssss");
+            console.log(response);
+            localStorage.setItem('books',JSON.stringify(response))
+            window.display=response
+            this.setState({
+              display: response,
+              flag:true
+            })
+          })
     var d = new Date(); // for now
     let hours = d.getHours(); // => 9
 
@@ -72,7 +97,7 @@ class Header extends Component {
     }
     requireAuth(window.location.href)
   }
-  search(e) {
+  search() {
     store.dispatch({ type: "STORE_SEARCH", payload: document.getElementById('key').value })
     search()
   }
@@ -224,8 +249,8 @@ class Header extends Component {
                 <input list="browsers" type="text" id="key" className="form-control" style={{ alignSelf: "center" }} placeholder="Search for..." autoFocus
                   onChange={debounce((event) => {
                     event.preventDefault();
-                    store.dispatch({ type: "STORE_SEARCH", payload: document.getElementById('key').value })
-                    search()
+                    {/*store.dispatch({ type: "STORE_SEARCH", payload: document.getElementById('key').value })*/}
+                    this.search()
                   }, 1000)}
                   onKeyPress={debounce((event) => {
                     if (event.key === 'Enter') {
@@ -265,10 +290,10 @@ class Header extends Component {
                     <span className="dropdown-toggle"></span></div>
                   <ul className="dropdown-menu dropdown-menu-right" style={{ backgroundColor: "#FFF8DC	" }} >
                     <li >
-                      {/*<Link to="/profile">*/}
-                      <a href="#" onClick={this.changeProfileShow} className="dropdown-item" style={{ color: '#614126', borderColor: 'brown' }}><span className="fa fa-user"></span>Profile
+                      <Link to="/profile">
+                      <a className="dropdown-item" style={{ color: '#614126', borderColor: 'brown' }}><span className="fa fa-user"></span>Profile
                     </a>
-                    {/*</Link>*/}
+                    </Link>
                     </li>
                     <div class="dropdown-divider" >
                     </div>
@@ -286,7 +311,7 @@ class Header extends Component {
 
 
         </nav>
-          <BootHeader />
+          {/*<BootHeader />*/}
       </div>
         )
     }

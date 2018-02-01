@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Pbooks from '../main-component/admin-component/PreferredBooks/PrefferdBooks.jsx';
 // import BorrowedSlider from '../main-component/user-component/borrowedBooks/borrowedSlider.jsx';
 import TopBooks from '../main-component/admin-component/topRatedBooks/topRated'
 
-export const LandingView = (props) => {
+export default class LandingView extends Component{
+    render () {
     return (
 
         <div>
@@ -11,7 +12,8 @@ export const LandingView = (props) => {
                 <h5 className="card-header yoyo" style={{ backgroundColor: "#614126", color: "white" }}>What's New</h5>
                 <Pbooks />
             </div>
-            {props.show===false||props.wish===false?<TopBooks/>:null}
+            <TopBooks/>
         </div>
     );
+}
 }

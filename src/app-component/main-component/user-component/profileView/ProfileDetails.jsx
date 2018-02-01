@@ -11,6 +11,9 @@ import { HashRouter, Route, Switch } from 'react-router-dom';
 import MyWishList from'./MyWishList';
 import BorrowedSlider from './../borrowedBooks/borrowedSlider';
 
+
+let bookName, wishBookName;
+
 class Profile extends Component {
 	constructor()
 	{
@@ -22,6 +25,7 @@ class Profile extends Component {
 		}
 	}
 	componentWillMount() {
+	if(this.props.wbooks!==null) {
 		if(this.props.wbooks.length>4)
 		{
 			this.setState({showMore:true});
@@ -34,6 +38,10 @@ class Profile extends Component {
 		{
 			this.setState({isBorrowedFilled:false});
 		}
+	}
+	else if(this.props.wbooks===null) {
+		window.location.replace('/#/')
+	}
 		requireAuth(window.location.href)
 	}
 	profileWislist()
@@ -44,12 +52,14 @@ class Profile extends Component {
 	{
         window.selected=arg;
         window.showDetails=true;
-        document.getElementById('detail').click();
+		window.location="/#/details"
+        // document.getElementById('detail').click();
         window.setClickProps="profile"
 	}
   
   render() {
-	  let bookName=this.props.bbooks.map((res)=>{
+	  if(this.props.bbooks!==null) {
+	  bookName=this.props.bbooks.map((res)=>{
 		  return(
 			  <div className="eachTitle mt-2 mb-2 ml-2">
 			  <span className="fa fa-arrow-right" />
@@ -57,7 +67,13 @@ class Profile extends Component {
 			  </div>
 		  );
 	  })
-	  let wishBookName=this.props.wbooks.slice(0,4).map((res)=>{
+	}
+	else if(this.props.bbooks===null)
+	{
+		window.location.replace('/#/')
+	}
+	if(this.props.wbooks!==null) {
+	  wishBookName=this.props.wbooks.slice(0,4).map((res)=>{
 		  return(
 			  <div className="eachTitle mt-2 mb-2 ml-2">
 			  <span className="fa fa-arrow-right" />
@@ -65,7 +81,10 @@ class Profile extends Component {
 			  </div>
 		  );
 	  })
-
+	}
+	else if(this.props.wbooks===null) {
+		window.location.replace('/#/')
+	}
     return (
     <div className="carders contained"style={{backgroundColor : "#FFF8DC", minHeight : "33px"}}>
 {/*<Header />*/}
@@ -87,10 +106,10 @@ class Profile extends Component {
 					<div className="col2 last">
 						<div className="grid clearfix">
 							<div className="col3 first">
-								<h1>{this.props.bbooks.length}</h1>
+								<h1>{this.props.bbooks!==null?this.props.bbooks.length:null}</h1>
 								<span>Books Borrowed</span>
 							</div>
-							<div className="col3"><h1>{this.props.wbooks.length}</h1>
+							<div className="col3"><h1>{this.props.wbooks!==null?this.props.wbooks.length:null}</h1>
 							<span>Wishlist</span></div>
 						</div>
 					</div>

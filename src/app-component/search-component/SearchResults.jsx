@@ -97,12 +97,12 @@ class SearchResults extends Component {
             <div>
                 <div id="alert" onClick={this.notify}></div>
                 <ToastContainer />
-                {this.props.isSearchClicked ? <div className="contained">
-                    {document.getElementById('alert').click()}
+                <div className="contained mt-4">
+                    {/*{document.getElementById('alert').click()}*/}
                     <ol className="breadcrumb" style={{ backgroundColor: "#614126", color: "white" }}  >
-                        <h5 >{this.props.divName}<span style={{ float: 'right', cursor: 'pointer', paddingLeft: '70px' }} id="openHome" onClick={this.props.searchCrossClicked}>x</span></h5>
+                        <h5 >{this.props.divName}<span style={{ float: 'right', cursor: 'pointer', paddingLeft: '70px' }} id="openHome" onClick={(e)=>{e.preventDefault(); window.location="/#/"}}>x</span></h5>
                     </ol>
-                    {processedData.length > 1 ?
+                    
                         <div>
                             <section className="sortInline form-group">
                                 <span className="sortName">
@@ -135,7 +135,6 @@ class SearchResults extends Component {
                                 </ul>
 
                             </section>
-                            {/*<div className="offset-md-2"></div>*/}
                             <div className="btn-group setDropdown">
 
                                 <select className="form-control" id="filter" onChange={(e) => {
@@ -149,13 +148,13 @@ class SearchResults extends Component {
                                     <option className="dropdown-item">Filtered by 2 and above</option>
                                 </select>
                             </div>
-                        </div> : null}
+                        </div>
                     <div className="container-fluid">
                         <div className="row">
                             {a}
                         </div>
                     </div>
-                </div> : null}
+                </div>
             </div>
 
         );

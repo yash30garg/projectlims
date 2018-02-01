@@ -17,8 +17,9 @@ import {removeWishlist} from '../mongo/removeWishlist'
 import EachCategory from './../main-component/admin-component/topRatedBooks/eachCategory';
 let handle=(data)=>{
 window.selected=data;
+window.location=`/#/details`
 window.showDetails=true;
-document.getElementById('detail').click();
+// document.getElementById('detail').click();
  window.setClickProps="categoryDetailsCross"
 }
 
