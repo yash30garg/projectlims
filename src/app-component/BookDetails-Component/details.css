@@ -13,16 +13,26 @@
       margin-bottom: 20px; } }
 
 .details-btn{
-  /*width: 100%;*/
+  width: 50%;
   /*background-color: rgb(205,133,63);*/
   /*border-color: rgb(205,133,63);*/
   color: rgb(205,133,63);
 }
+.review-card{
+  background-color:  rgb(255, 248, 220);
+}
+.review-input{
+    border: none;
+    border-bottom: 2px solid rgb(97, 65, 38);
+}
+
+
 .preview-pic {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
       -ms-flex-positive: 1;
           flex-grow: 1; }
+
 
 .preview-thumbnail.nav-tabs {
   border: none;
@@ -224,11 +234,59 @@ background:white;
 
 /* Standard syntax */
 @keyframes rf {
-   
     from {
         opacity:0;
         }
     to {
     opacity:1;
     }
+}
+
+* {
+  -webkit-box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  box-sizing:border-box;
+}
+
+*:before, *:after {
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+}
+
+.clearfix {
+  clear:both;
+}
+
+.text-center {text-align:center;}
+
+
+
+/* Rating Star Widgets Style */
+.rating-stars ul {
+  list-style-type:none;
+  padding:0;
+  
+  -moz-user-select:none;
+  -webkit-user-select:none;
+}
+.rating-stars ul > li.star {
+  display:inline-block;
+  
+}
+
+/* Idle State of the stars */
+.rating-stars ul > li.star > i.fa {
+  font-size:1.5em; /* Change the size of the stars */
+  color:#ccc; /* Color on idle state */
+}
+
+/* Hover state of the stars */
+.rating-stars ul > li.star.hover > i.fa {
+  color:#FFCC36;
+}
+
+/* Selected state of the stars */
+.rating-stars ul > li.star.selected > i.fa {
+  color:#FF912C;
 }

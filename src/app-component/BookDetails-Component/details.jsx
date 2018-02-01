@@ -10,6 +10,7 @@ import {css} from 'glamor'
 import {ToastContainer, toast} from 'react-toastify';
 import requestBook from '.././mongo/requestBook'
 import returnBook from '.././mongo/returnBook'
+import renewBook from '.././mongo/renew'
 import {addReview} from '.././mongo/addReview'
 import {addWishlist} from '.././mongo/addWishlist'
 import {removeWishlist} from '.././mongo/removeWishlist'
@@ -18,6 +19,8 @@ import {borrowDate, returnDate} from '../dates'
 var req = require('request');
 let response;
 let book,
+ratingValue,
+    thisBook=null,
     w = null,
     b = null,
     a = null;
@@ -43,6 +46,7 @@ class Details extends Component {
                 .bbooks
                 .map(res => {
                     if (res.isbn === this.props.data.isbn) {
+                        thisBook=res;
                         reqVal = false;
                         if (res.isRenewed === "false") {
                             let retDate = res.returnDate;
@@ -72,7 +76,8 @@ class Details extends Component {
         this.state = {
             req: reqVal,
             wish: wishVal,
-            renew: renewVal
+            renew: renewVal,
+            review:true
         };
     }
     request = () => {
@@ -88,6 +93,7 @@ class Details extends Component {
             bookAdded.borrowedDate = borrowDate;
             bookAdded.returnDate = returnDate;
             bookAdded.isRenewed = "false";
+            thisBook=bookAdded;
             (async function () {
                 var data = await requestBook(bookAdded);
                 console.log(data.data);
@@ -114,20 +120,22 @@ class Details extends Component {
         }
     }
     addReview = () => {
+    alert(ratingValue)
         var item = new Object();
         item.mid = window.user;
-        item.title = document
-            .getElementById("title")
-            .value;
+        item.rating=ratingValue;
         item.description = document
             .getElementById("desc")
             .value;
+            console.log(item);
+            // alert(item.title);
+            // alert(item.description);
             (async function () {
                 var review = await addReview(this.props.data.isbn, item);
                 console.log(review);
             })
             .bind(this)()
-        document.getElementById("title").value="";
+        // document.getElementById("title").value="";
         document.getElementById("desc").value="";
          toast.success("Successfully Added !!!", {
                     position: toast.POSITION.BOTTOM_CENTER,
@@ -210,6 +218,55 @@ class Details extends Component {
             });
         }
     }
+    renew=()=>{
+        if (navigator.onLine) {
+
+        var tested = new Date();
+        // var res=this.props.data;
+        // console.log(res)
+        if(thisBook.isRenewed=="false"){
+        var dates = thisBook
+                            .returnDate
+                            .split("/");
+                        tested.setDate(dates[0]);
+                        tested.setMonth(dates[1] - 1);
+                        tested.setFullYear(dates[2]);
+                        var newDate = new Date(tested.getTime() + (10 * 24 * 60 * 60 * 1000));
+                        var dd1 = newDate.getDate();
+                        var mm1 = newDate.getMonth() + 1; //January is 0!
+                        var yyyy1 = newDate.getFullYear();
+                        thisBook.returnDate = dd1 + '/' + mm1 + '/' + yyyy1;
+                        thisBook.isRenewed=true;
+                        (async function () {
+            var data = await renewBook(thisBook);
+            console.log(data);
+            this
+                .props
+                .storeBbooks(data)
+        }).bind(this)()
+        toast.success("Renewed !!!", {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({background: "brown"})
+            });
+        }
+        else{
+            toast.error("You Cannot Renew Once More !!!", {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({background: "blue"})
+            });
+        }
+        } else {
+            toast.error("You're Not Online !!!", {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({background: "blue"})
+            });
+        }
+    }
+    leaveReview=()=>{
+        this.setState({
+            review:false
+        })
+    }
     /*renew = () => {
             // storeBbooks.getState().bbooks
             this.props.bbooks
@@ -257,9 +314,94 @@ class Details extends Component {
             })
     }*/
     render() {
+        let i;
+        $(document).ready(function(){
+  
+  /* 1. Visualizing things on Hover - See next part for action on click */
+  $('#stars li').on('mouseover', function(){
+    var onStar = parseInt($(this).data('value'), 10); // The star currently mouse on
+   
+    // Now highlight all the stars that's not after the current hovered star
+    $(this).parent().children('li.star').each(function(e){
+      if (e < onStar) {
+        $(this).addClass('hover');
+      }
+      else {
+        $(this).removeClass('hover');
+      }
+    });
+    
+  }).on('mouseout', function(){
+    $(this).parent().children('li.star').each(function(e){
+      $(this).removeClass('hover');
+    });
+  });
+  
+  
+  /* 2. Action to perform on click */
+  $('#stars li').on('click', function(){
+    var onStar = parseInt($(this).data('value'), 10); // The star currently selected
+    var stars = $(this).parent().children('li.star');
+    
+    for (i = 0; i < stars.length; i++) {
+      $(stars[i]).removeClass('selected');
+    }
+    
+    for (i = 0; i < onStar; i++) {
+      $(stars[i]).addClass('selected');
+    }
+    
+    // JUST RESPONSE (Not needed)
+    ratingValue = parseInt($('#stars li.selected').last().data('value'), 10);
+    alert(ratingValue)
+    var msg = "";
+    if (ratingValue > 1) {
+        msg = "Thanks! You rated this " + ratingValue + " stars.";
+    }
+    else {
+        msg = "We will improve ourselves. You rated this " + ratingValue + " stars.";
+    }
+    
+  });
+  
+  
+});
+
         book = this.props.data;
+        var cardReview=(<div style={{backgroundColor:"rgb(255, 248, 220)",marginLeft:"7%", marginRight:"5%"}}>  
+                            
+                            <textarea rows="2" cols="50" className="review-input ml-2 mr-3" style={{backgroundColor:"rgb(255, 248, 220)", width:"95%"}} placeholder="Description" id="desc"/>   
+                            <div class='rating-widget ml-2 mt-3' style={{float:"left"}}>
+                            <div class='rating-stars text-left'>
+                                <ul id='stars'>
+                                <li class='star' title='Poor' data-value='1'>
+                                    <i class='fa fa-star fa-fw'></i>
+                                </li>
+                                <li class='star' title='Fair' data-value='2'>
+                                    <i class='fa fa-star fa-fw'></i>
+                                </li>
+                                <li class='star' title='Good' data-value='3'>
+                                    <i class='fa fa-star fa-fw'></i>
+                                </li>
+                                <li class='star' title='Excellent' data-value='4'>
+                                    <i class='fa fa-star fa-fw'></i>
+                                </li>
+                                <li class='star' title='WOW!!!' data-value='5'>
+                                    <i class='fa fa-star fa-fw'></i>
+                                </li>
+                                </ul>
+                            </div>
+                            </div>
+                            <br/><br/>
+                            <div className="text-left">
+                            <button className="btn  details-btn col-md-2 mt-1 ml-2 mr-2" style={{borderColor: "rgb(205,133,63)", width:"95%"}} onClick={this.addReview}><div className="fa fa-pencil fa-lg"></div><b>Add</b> </button> 
+                            </div>  
+                            </div> 
+                         );
+        let reviewData=(<h5 className="text-left ml-2">This Book has not been Reviewed Yet</h5>);
+        if(book!==null && book!==undefined)
         return (
-            <div style={{
+            <div className="mt-4" style={{
                 backgroundColor: "#FFF8DC"
             }}>
                 <div className="contained">
@@ -293,18 +435,17 @@ class Details extends Component {
                             padding: "3em"
                         }}>
                             <div class="wrapper row">
-                                <div class="preview col-md-6 col-sm-6 col-xs-6 col-lg-6">
-                                    <img
+                                <div className="col-md-6 col-sm-6 col-xs-6 col-lg-6">
+                                <img
                                         src={book.url}
-                                        className="card-img-top mx-auto row col-md-10 col-sm-10 col-xs-10 col-lg-10"
+                                        className="mx-auto col-md-10 col-sm-10 col-xs-10 col-lg-10"
                                         style={{
-                                        height: "30rem"
+                                        height: "400px"
                                     }}/>
-                                    <div className="row offset-md-1 mt-1">
-
-                                        {this.state.req
+                                    <div className="mt-1 col-md-12 col-sm-12 col-xs-12 col-lg-12">
+                                    {this.state.req
                                             ? <button
-                                                    className="btn details-btn ml-2 col-md-5 col-sm-5 col-xs-5 col-lg-5"
+                                                    className="btn details-btn col-md-5 col-sm-5 col-xs-5 col-lg-5"
                                                     style={{
                                                     borderColor: "rgb(205,133,63)"
                                                 }}
@@ -313,7 +454,7 @@ class Details extends Component {
                                                     <b>Request</b>
                                                 </button>
                                             : <button
-                                                className="btn details-btn ml-2 col-md-5 col-sm-5 col-xs-5 col-lg-5"
+                                                className="btn details-btn col-md-5 col-sm-5 col-xs-5 col-lg-5"
                                                 style={{
                                                 borderColor: "rgb(205,133,63)"
                                             }}
@@ -321,7 +462,7 @@ class Details extends Component {
                                                 <div className="fa fa-undo"></div>
                                                 <b>Return</b>
                                             </button>}
-                                        {this.state.wish
+                                            {this.state.wish
                                             ? <button
                                                     className="btn details-btn col-md-5 col-sm-5 col-xs-5 col-lg-5"
                                                     style={{
@@ -335,16 +476,16 @@ class Details extends Component {
                                                 className="btn details-btn col-md-5 col-sm-5 col-xs-5 col-lg-5"
                                                 style={{
                                                 borderColor: "rgb(205,133,63)"
-                                            }}
-                                                onClick={this.removeWish}>
+                                            }}                                                onClick={this.removeWish}>
                                                 <div className="fa fa-heart fa-lg"></div>
                                                 <b>Remove</b>
                                             </button>}
                                     </div>
-                                    <div className="row offset-md-1">
-                                        {this.state.renew
+                                    <div className="col-md-12 mt-1 col-sm-12 col-xs-12 col-lg-12">
+                                    {this.state.renew
                                             ? <button
-                                                    className="btn details-btn mt-1 ml-2 col-md-10 col-sm-10 col-xs-10 col-lg-10"
+                                                    className="btn details-btn col-md-10 col-sm-10 col-xs-10 col-lg-10"
+                                                    onClick={this.renew}
                                                     style={{
                                                     borderColor: "rgb(205,133,63)",
                                                     width: "100%"
@@ -353,6 +494,7 @@ class Details extends Component {
                                                     <b>Renew</b>
                                                 </button>
                                             : ""}
+
                                     </div>
                                 </div>
                                 <div class="details col-md-6">
@@ -391,61 +533,27 @@ class Details extends Component {
                                             {book.rating}</li>
                                     </ul>
                                 </div>
-                            </div>
-                        </div>
-                        <div
-                            style={{
-                            textAlign: "left"
-                        }}>
-                            <b
-                                className="offset-md-1"
-                                style={{
-                                fontSize: "24px",
-                                color: "rgb(205,133,63)"
-                            }}>
-                                <u>Add a Review</u>
-                            </b>
-                            <form className="form-group">
-                                <b
-                                    className="offset-md-1"
-                                    style={{
-                                    fontSize: "20px",
-                                    color: "rgb(205,133,63)"
-                                }}>Title</b>
-                                <input
-                                    type="text"
-                                    class="form-control  col-md-6 offset-md-1"
-                                    id="title"
-                                    placeholder="Enter Title"/>
-                                <br/>
-                                <b
-                                    className="offset-md-1"
-                                    style={{
-                                    fontSize: "20px",
-                                    color: "rgb(205,133,63)"
-                                }}>Description</b>
-                                <input
-                                    type="text"
-                                    class="form-control  col-md-6 offset-md-1"
-                                    id="desc"
-                                    placeholder="Enter Review"/>
-                                    <div className="ml-5">                                    
-                                    <button
-                                    onClick={this.addReview}
-                                className="btn details-btn mt-1 ml-5 col-md-2 col-sm-2 col-xs-2 col-lg-2"
-                                style={{
-                                borderColor: "rgb(205,133,63)",
-                                width: "100%"
-                            }}>
-                                <b>Add</b>
-                            </button>
-                            </div>
-                            </form>
-                        </div>
+                            </div>   
+                        </div>   
+                                 
+                        <div className="col-md-12 mt-0 mb-5"> 
+
+                            <div className="card review-card" style={{backgroundColor:"rgb(255, 248, 220)",marginLeft:"7%", marginRight:"5%"}}>  
+                            <h3 className="text-left mt-2 ml-2" style={{color:"rgb(205,133,63)"}}>Reviews</h3> 
+                            <br/>     
+                                {reviewData}
+                            {this.state.review?<button className="btn  details-btn col-md-3 mt-2 ml-2 mr-2" style={{borderColor: "rgb(205,133,63)", width:"95%"}} onClick={this.leaveReview}><div className="fa fa-pencil fa-lg"></div><b>Leave A Review</b> </button>:cardReview}
+                            </div>   
+                        </div>      
                     </div>
                 </div>
             </div>
         )
+        else if(book===null || book === undefined){
+            return(
+                window.location="/#/"
+            )
+        }
     }
 }
 function mapStateToProps(state) {
