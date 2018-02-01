@@ -87,7 +87,7 @@ class ManageAdmin extends Component {
           console.log(res)
           if(res==="Done")
           {
-              alert("Role Changed to Admin")
+              alert("Role Changed")
           }
           else{
               alert("An error occurred")
@@ -137,7 +137,7 @@ class ManageAdmin extends Component {
                                 <h3
                                     className="dd"
                                     style={{
-                                        textAlign: "left",marginTop:"7px"
+                                        textAlign: "left",marginTop:"7px",marginLeft:"2%"
                                     }}>
                                     <span className="fa fa-cog" aria-hidden="true"></span>DashBoard 
                                     <small> Manage User(s)/Admin(s)</small>
@@ -222,14 +222,15 @@ class ManageAdmin extends Component {
                                                 className="btn btn-warning" style={{alignContent : "left",display:this.state.validateButton}}>Validate
                                                 </button>
                                             </div>
+                                            <br />
                                             <div>
                                                 <button type="button" onClick={this.changeRoleToAdmin}
-                                                className="btn btn-warning" style={{alignContent : "left",display:this.state.displayAdminButton}}>Change Role to Admin
+                                                className="btn btn-default" style={{alignContent : "left",display:this.state.displayAdminButton, backgroundColor:"#614126", color:"white"}}>Change Role to Admin
                                                 </button>
                                             </div>
                                             <div>
                                                 <button type="button" onClick={this.changeRoleToUser}
-                                                className="btn btn-warning" style={{alignContent : "left",display:this.state.displayUserButton}}>Change Role to User
+                                                className="btn btn-default" style={{alignContent : "left",display:this.state.displayUserButton, backgroundColor:"#614126", color:"white"}}>Change Role to User
                                                 </button>
                                             </div>
                                             
