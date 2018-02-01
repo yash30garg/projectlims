@@ -100,42 +100,7 @@ export default class AboutUs extends Component {
 
 
 
- <div>
-
-       <div class="col-md-1" />
-   
-
-    <div class="row">
-
-        {/*<div class="col-lg-12">
-          <h1 class="my-4" style={{color:"#614126"}}><u>Our Leads</u></h1>
-        </div>*/}
-
-        <div class="col-md-3" />
-
-         <div class="col-md-3">
-    
-          <img class="img img-responsive full-width" src={require('../AboutUs/OurImages/Nitish.jpg')} alt="" height="250" width="250" />
-         
-          <h3>Nitish Bali
-            
-          </h3>
-          <p><b>WebTech Lead</b></p>
-         </div>
-      
-      
-
-
-          <div class="col-md-3">
-          <img class="img img-responsive full-width" src={require("../AboutUs/OurImages/Monika.jpg")} alt="" height="250" width="250" />
-          <h3>Monika Saran
-            
-          </h3>
-          <p><b>WebTech Lead</b></p>
-         </div>
-
-         <div class="col-md-3" />
-    </div>
+ 
 
        
 
@@ -145,7 +110,7 @@ export default class AboutUs extends Component {
 
 
        
-     </div>
+     
 
 </div>
  </div>
@@ -165,5 +130,5 @@ export default class AboutUs extends Component {
 
                 )
     }
-}
 
+}
