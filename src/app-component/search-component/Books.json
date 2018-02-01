@@ -9,7 +9,7 @@
             "publisher":"publisher1",
             "rating":"5",
             "copies":"10",
-            "url":"http://whatpixel.com/images/2017/05/pro-js-for-webdev.jpg "
+            "url":"https://whatpixel.com/images/2017/05/pro-js-for-webdev.jpg "
          }
       },
       {  
@@ -21,7 +21,7 @@
             "publisher":"publisher2",
             "rating":"3",
             "copies":"20",
-            "url":"http://whatpixel.com/images/2016/08/book-cover-pro-typescript.jpg"
+            "url":"https://whatpixel.com/images/2016/08/book-cover-pro-typescript.jpg"
          }
       },
       {  
@@ -33,7 +33,7 @@
             "publisher":"publisher1",
             "rating":"4",
             "copies":"30",
-            "url":"http://whatpixel.com/images/2016/09/reactjs-essentials-book-cover.jpg"
+            "url":"https://whatpixel.com/images/2016/09/reactjs-essentials-book-cover.jpg"
          }
       },
       {  
@@ -81,7 +81,7 @@
             "publisher":"publisher1",
             "rating":"3",
             "copies":"4",
-            "url":"http://www.kidslovepc.com/javascript/images/javascript_book_thomas.jpg"
+            "url":"https://www.kidslovepc.com/javascript/images/javascript_book_thomas.jpg"
          }
       },
       {  
@@ -93,7 +93,7 @@
             "publisher":"publisher2",
             "rating":"2",
             "copies":"13",
-            "url":"http://www.mactale.com/images/javascript-books/JavaScript-Step-by-Step.jpg"
+            "url":"https://www.mactale.com/images/javascript-books/JavaScript-Step-by-Step.jpg"
          }
       },
       {  
@@ -117,7 +117,7 @@
             "publisher":"publisher1",
             "rating":"1",
             "copies":"4",
-            "url":"http://whatpixel.com/images/2017/05/pro-mern-stack.jpg"
+            "url":"https://whatpixel.com/images/2017/05/pro-mern-stack.jpg"
          }
       },
       {  
@@ -153,7 +153,7 @@
             "publisher":"publisher1",
             "rating":"3",
             "copies":"10",
-            "url":"http://whatpixel.com/images/2017/05/nodejs-mongo-angular-book.jpg"
+            "url":"https://whatpixel.com/images/2017/05/nodejs-mongo-angular-book.jpg"
          }
       },
       {  
