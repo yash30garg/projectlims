@@ -2,6 +2,8 @@ import React,{Component} from 'react';
 import './bootheader.css';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
+import { css } from 'glamor'
+import { ToastContainer, toast } from 'react-toastify';
 import {bindActionCreators} from 'redux';
 import {getDates} from '.././dates';
 import {borrowDate, returnDate} from '.././dates';
@@ -54,6 +56,7 @@ document.getElementById('detail').click();
 
     changeToFilled=()=>
     {
+        if(navigator.onLine){
         var items=new Object();
         items.isbn=this.props.eachValue.isbn;
         items.title=this.props.eachValue.title;
@@ -72,9 +75,25 @@ document.getElementById('detail').click();
                 // var newD=data.json();
             }).bind(this)()
         this.setState({wishlistIcon:false});
+        toast.success("Added to WishList !!!", {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({
+                    background: "brown"
+                })
+            });
+    }
+    else{
+        toast.error("You're Not Online !!!", {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({
+                    background: "blue"
+                })
+            });
+    }
     }
     changeToEmpty=()=>
     {
+        if(navigator.onLine){
         (async function(){
                     var data=await removeWishlist(this.props.eachValue.isbn);
                     console.log("data")
@@ -83,9 +102,25 @@ document.getElementById('detail').click();
                 // var newD=data.json();
             }).bind(this)()
         this.setState({wishlistIcon:true});
+        toast.success("Removed from WishList !!!", {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({
+                    background: "brown"
+                })
+            });
+    }
+        else{
+        toast.error("You're Not Online !!!", {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({
+                    background: "blue"
+                })
+            });
+    }
     }
     changeToUndo=()=>
     {
+        if(navigator.onLine){
          if(this.props.bbooks.length<4){
             let bookAdded=new Object();
                 bookAdded.isbn=this.props.eachValue.isbn;
@@ -104,16 +139,55 @@ document.getElementById('detail').click();
                 // var newD=data.json();
             }).bind(this)()
         this.setState({requestIcon:false});
-         }
+          toast.success("Successfully Requested !!!", {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({
+                    background: "brown"
+                })
+            });
+    }
+    else{
+        toast.warn("Oops! You Cannot borrow more books !!!", {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({
+                    background: "red"
+                })
+            });
+    }
+        }
+        else{
+        toast.error("You're Not Online !!!", {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({
+                    background: "blue"
+                })
+            });
+        }
     }
     changeToRequest=()=>
     {
+        if(navigator.onLine){
         (async function(){
                 var data=await returnBook(this.props.eachValue.isbn);
                 console.log(data.data);
                 this.props.storeBbooks(data.data)
             }).bind(this)()
         this.setState({requestIcon:true});
+        toast.warn("Successfully Returned !!!", {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({
+                    background: "brown"
+                })
+            });
+        }
+        else{
+        toast.error("You're Not Online !!!", {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({
+                    background: "blue"
+                })
+            });
+        }
     } 
 
 render()
@@ -144,29 +218,25 @@ render()
                         <b>Author :
                         </b>
                         {this.props.eachValue.author}<br/>
-                        {
-                            //eslint-disable-next-line
-                            [1, 2, 3, 4, 5].map(d => {
-
+                        <span className="ml-2">{[1, 2, 3, 4, 5].map(d => {
                             if (this.props.eachValue.rating >= d) 
                                 return <span
-                                key={`category${this.props.eachValue.isbn}`}
-                                    className="fa fa-star"
+                                    class="fa fa-star"
                                     style={{
                                     color: '#ffd700',
-                                    fontSize:'5px'
+                                    fontSize: '5px'
                                 }}></span>
-                        })}
+                        })}</span>
                     </div>
                 </div>
                 <div className="buttonOverlay" style={{backgroundColor : "white"}} >
                 <div className="buttonText container-fluid" style={{fontSize:'20px'}}>
-                {this.state.wishlistIcon?<span onClick={this.changeToFilled} className="fa fa-heart-o" style={{color:'#CD853F'}}></span>:<span onClick={this.changeToEmpty} className="fa fa-heart" style={{color:'#CD853F'}}></span>}
+                {this.state.wishlistIcon?<span onClick={this.changeToFilled} className="fa fa-heart-o" style={{color:'#CD853F'}} title="Click to add to wishlist"></span>:<span onClick={this.changeToEmpty} className="fa fa-heart" style={{color:'#CD853F'}} title="Click to remove from wishlist"></span>}
                 </div>
                 </div>
                 <div className="requestOverlay" style={{backgroundColor : "white"}} >
                 <div className="requestText container-fluid" style={{fontSize:'20px'}}>
-                {this.state.requestIcon?<span onClick={this.changeToUndo} className="fa fa-plus-circle" style={{color:'#CD853F', marginLeft:'30px'}}></span>: <span onClick={this.changeToRequest} className="fa fa-undo" style={{color:'#CD853F', marginLeft:'30px'}}></span>}
+                {this.state.requestIcon?<span onClick={this.changeToUndo} className="fa fa-plus-circle" style={{color:'#CD853F', marginLeft:'30px'}} title="Click to request"></span>: <span onClick={this.changeToRequest} className="fa fa-undo" style={{color:'#CD853F', marginLeft:'30px'}} title="Click to return"></span>}
                 </div>
                 </div>
                 </div>

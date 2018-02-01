@@ -75,6 +75,7 @@ class EachSearchCard extends Component {
     }
 
     changeToFilled = () => {
+        if(navigator.onLine){
         var items=new Object();
         items.isbn=this.props.eachValue.isbn;
         items.title=this.props.eachValue.title;
@@ -93,9 +94,25 @@ class EachSearchCard extends Component {
                 // var newD=data.json();
             }).bind(this)()
         this.setState({wishlistIcon: false});
+        toast.success("Added to WishList !!!", {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({
+                    background: "brown"
+                })
+            });
+    }
+    else{
+        toast.error("You're Not Online !!!", {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({
+                    background: "blue"
+                })
+            });
+    }
     }
     changeToEmpty = () => {
         // alert("in")
+        if(navigator.onLine){
         (async function(){
                     var data=await removeWishlist(this.props.eachValue.isbn);
                     console.log("data")
@@ -104,8 +121,24 @@ class EachSearchCard extends Component {
                 // var newD=data.json();
             }).bind(this)()
         this.setState({wishlistIcon: true});
+        toast.success("Removed from WishList !!!", {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({
+                    background: "brown"
+                })
+            });
+    }
+        else{
+        toast.error("You're Not Online !!!", {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({
+                    background: "blue"
+                })
+            });
+    }
     }
     changeToUndo = () => {
+        if(navigator.onLine){
         if(this.props.bbooks.length<4){
             let bookAdded=new Object();
                 bookAdded.isbn=this.props.eachValue.isbn;
@@ -124,15 +157,54 @@ class EachSearchCard extends Component {
                 // var newD=data.json();
             }).bind(this)()
         this.setState({requestIcon:false});
-         }
+         toast.success("Successfully Requested !!!", {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({
+                    background: "brown"
+                })
+            });
+    }
+    else{
+        toast.warn("Oops! You Cannot borrow more books !!!", {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({
+                    background: "red"
+                })
+            });
+    }
+        }
+        else{
+        toast.error("You're Not Online !!!", {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({
+                    background: "blue"
+                })
+            });
+        }
     }
     changeToRequest = () => {
+        if(navigator.onLine){
         (async function(){
                 var data=await returnBook(this.props.eachValue.isbn);
                 console.log(data.data);
                 this.props.storeBbooks(data.data)
             }).bind(this)()
         this.setState({requestIcon: true});
+        toast.warn("Successfully Returned !!!", {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({
+                    background: "brown"
+                })
+            });
+        }
+        else{
+        toast.error("You're Not Online !!!", {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({
+                    background: "blue"
+                })
+            });
+        }
     }
     render()
     {
@@ -183,17 +255,16 @@ class EachSearchCard extends Component {
                             {this.props.eachValue.author}<br/>
                             <b>Category:
                             </b>
-                            {this.props.eachValue.category}<br/> {//eslint-disable-next-line
-                            [1, 2, 3, 4, 5].map(d => {
-                                if (this.props.eachValue.rating >= d) 
-                                    return <span
-                                        key={`starred${d}`}
-                                        className="fa fa-star mt-1"
-                                        style={{
-                                        color: '#FFD700',
-                                        fontSize: '13px'
-                                    }}></span>
-                            })}
+                            {this.props.eachValue.category}<br/>
+                        <span className="ml-2">{[1, 2, 3, 4, 5].map(d => {
+                            if (this.props.eachValue.rating >= d) 
+                                return <span
+                                    class="fa fa-star"
+                                    style={{
+                                    color: '#ffd700',
+                                    fontSize: '5px'
+                                }}></span>
+                        })}</span>
                             <br/>
                         </div>
                     </div>
@@ -213,13 +284,13 @@ class EachSearchCard extends Component {
                                         className="fa fa-heart-o"
                                         style={{
                                         color: '#CD853F'
-                                    }}></span>
+                                    }} title="Click to add to wishlist"></span>
                                 : <span
                                     onClick={this.changeToEmpty}
                                     className="fa fa-heart"
                                     style={{
                                     color: '#CD853F'
-                                }}></span>}
+                                }} title="Click to remove from wishlist"></span>}
                         </div>
                     </div>
                     <div
@@ -239,14 +310,14 @@ class EachSearchCard extends Component {
                                         style={{
                                         color: '#CD853F',
                                         marginLeft: '30px'
-                                    }}></span>
+                                    }} title="Click to request"></span>
                                 : <span
                                     onClick={this.changeToRequest}
                                     className="fa fa-undo"
                                     style={{
                                     color: '#CD853F',
                                     marginLeft: '30px'
-                                }}></span>}
+                                }} title="Click to return"></span>}
                         </div>
                     </div>
                 </div>

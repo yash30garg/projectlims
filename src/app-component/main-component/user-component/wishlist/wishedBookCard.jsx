@@ -41,7 +41,8 @@ export const WishedCard = (props) => {
                         {props.data.author}<br/>
                         <b>Category :
                         </b>
-                        {props.data.category}<br/> {[1, 2, 3, 4, 5].map(d => {
+                        {props.data.category}<br/> 
+                        <span className="ml-2">{[1, 2, 3, 4, 5].map(d => {
                             if (props.data.rating >= d) 
                                 return <span
                                     class="fa fa-star"
@@ -49,26 +50,8 @@ export const WishedCard = (props) => {
                                     color: '#ffd700',
                                     fontSize: '5px'
                                 }}></span>
-                            else 
-                                return <span
-                                    class="fa fa-star"
-                                    style={{
-                                    color: 'black',
-                                    fontSize: '5px'
-                                }}></span>
-                        })}
-                        <button
-                            class="btn mt-3"
-                            style={{
-                            backgroundColor: 'white',
-                            color: '#A0522D'
-                        }}>
+                        })}</span>
 
-                            <b
-                                style={{
-                                fontSize: '14px'
-                            }}>Know More</b>
-                        </button>
                     </div>
                 </div>
             </div>
