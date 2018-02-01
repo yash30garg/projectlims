@@ -34,7 +34,7 @@ class SearchResults extends Component {
     }
 
     notify = () => {
-        if (notify === 0&&navigator.onLine) {
+        if (notify === 0&&navigator.onLine&&processedData.length>0) {
             notify = 1;
             toast.success("Is this what you were looking for !!!", {
                 position: toast.POSITION.BOTTOM_CENTER,
@@ -52,6 +52,17 @@ class SearchResults extends Component {
                     background: "blue"
                 })
             });
+        }
+        else if(notify===0&&navigator.onLine&& processedData.length===0)
+        {
+            notify=1;
+            toast.error("Sorry !!! No Search Results Found", {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({
+                    background: "red"
+                })
+            });
+
         }
         // toast.error("Error Notification !", {
         //   position: toast.POSITION.TOP_LEFT
