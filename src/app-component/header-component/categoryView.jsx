@@ -86,8 +86,8 @@ return(
      {b}
     </div>
     {this.state.showButton?<div className="row ml-1 mr-1" style={{paddingLeft:"40%"}}>
-     <button onClick={this.previous_click_handler} className="btn-primary">Previous</button>
-      <button onClick={this.next_click_handler} className="btn-primary">Next</button>
+     <button onClick={this.previous_click_handler} className="btn-primary" style={{backgroundColor:"#614126"}}>Previous</button>
+      <button onClick={this.next_click_handler} className="btn-primary" style={{backgroundColor:"#614126"}}>Next</button>
     </div>:null}
     </div>:null}
     </div>
