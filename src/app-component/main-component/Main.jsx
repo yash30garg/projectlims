@@ -15,14 +15,25 @@ import Details from '../BookDetails-Component/details.jsx'
 
 
 export default class Main extends Component {
+    constructor() {
+        super();
+        this.state = {
+            marginLeft:'-1%'
+        }
+    }
+    componentWillMount() {
+        if(window.innerWidth<=500)
+        {
+            this.setState({marginLeft:'0%'})
+        }
+    }
     render() {
         return(
-            <div>
+            <div style={{overflow:"hidden"}}>
             <Header/>
-            
             <div className="row mainDiv">
                 <div className="col-md-3 mainDiv"><BootHeader/></div>
-                <div className="col-md-9 mainDiv">
+                <div style={{marginLeft:this.state.marginLeft}} className="col-md-9 mainDiv">
                 {/*<User/>*/}
                 <HashRouter>
                 <Switch>

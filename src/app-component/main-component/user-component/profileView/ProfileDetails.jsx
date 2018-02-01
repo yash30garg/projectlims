@@ -86,10 +86,10 @@ class Profile extends Component {
 		window.location.replace('/#/')
 	}
     return (
-    <div className="carders contained"style={{backgroundColor : "#FFF8DC", minHeight : "33px"}}>
+    <div className="carders contained mt-4"style={{backgroundColor : "#FFF8DC", minHeight : "33px"}}>
 {/*<Header />*/}
         <ol className="breadcrumb" style={{backgroundColor : "#614126", color : "white", height:"50px" , fontSize : "15px"}}  >
-        <h5 >My Profile <span id="openHome" style={{float:'right',cursor:'pointer',paddingLeft:'85px'}} onClick={this.props.profileCrossClicked}>x</span></h5>
+        <h5 >My Profile <span id="openHome" style={{float:'right',cursor:'pointer',paddingLeft:'85px'}} onClick={(e)=>{e.preventDefault(); window.location="/#/"}}>x</span></h5>
         </ol>
 <div className="container-fluid"  >
   <br/><nr />
