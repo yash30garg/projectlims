@@ -422,10 +422,9 @@ class Details extends Component {
                                     cursor: 'pointer',
                                     paddingLeft: '85px'
                                 }}
-                                    onClick={() => {
-                                    document
-                                        .getElementById(window.setClickProps)
-                                        .click();
+                                    onClick={(e) => {
+                                   e.preventDefault();
+                                   window.location="/#/"
                                 }}>x</span>
                             </h5>
                         </ol>
