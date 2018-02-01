@@ -2,8 +2,10 @@ import React, {Component} from 'react';
 import './topRated.css';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
+// eslint-disable-next-line
 import {getDates} from '../../../dates';
 import {css} from 'glamor'
+// eslint-disable-next-line
 import {ToastContainer, toast} from 'react-toastify';
 import {borrowDate, returnDate} from '../../../dates';
 import requestBook from '../../../mongo/requestBook'
@@ -12,7 +14,7 @@ import {storeBbooks} from '../../../../state/action/bbooksAction'
 import {addWishlist} from '../../../mongo/addWishlist';
 import {storeWbooks} from '../../../../state/action/wbooksAction'
 import {removeWishlist} from '../../../mongo/removeWishlist'
-import {Link} from 'react-router-dom';
+// import {Link} from 'react-router-dom';
 export class EachTopCard extends Component {
     constructor(props)
     {
@@ -25,10 +27,8 @@ export class EachTopCard extends Component {
             wishVal = true;
         // console.log("top") console.log(props.bbooks)
         if (this.props.bbooks.length !== 0) {
-            this
-                .props
-                .bbooks
-                .map(res => {
+            // eslint-disable-next-line
+            this.props.bbooks.map(res => {
                     //  console.log(res)
                     if (res.isbn === this.props.item.isbn) {
                         // alert("found") console.log("found")
@@ -37,10 +37,8 @@ export class EachTopCard extends Component {
                 })
         }
         if (this.props.wbooks.length !== 0) {
-            this
-                .props
-                .wbooks
-                .map(res => {
+            // eslint-disable-next-line
+            this.props.wbooks.map(res => {
                     //  console.log(res)
                     if (res.isbn === this.props.item.isbn) {
                         // console.log("found")
@@ -64,6 +62,7 @@ export class EachTopCard extends Component {
 
     changeToFilled = () => {
         if (navigator.onLine) {
+            // eslint-disable-next-line
             var items = new Object();
             items.isbn = this.props.item.isbn;
             items.title = this.props.item.title;
@@ -120,6 +119,7 @@ export class EachTopCard extends Component {
     changeToUndo = () => {
         if (navigator.onLine) {
             if (this.props.bbooks.length < 4) {
+                // eslint-disable-next-line
                 let bookAdded = new Object();
                 bookAdded.isbn = this.props.item.isbn;
                 bookAdded.title = this.props.item.title;
@@ -223,6 +223,7 @@ export class EachTopCard extends Component {
                                 <b>Author :
                                 </b>
                                 {this.props.item.author}<br/>
+                                {// eslint-disable-next-line
                                 <span className="ml-2">{[1, 2, 3, 4, 5].map(d => {
                                     if (this.props.item.rating >= d) 
                                         return <span
@@ -231,7 +232,7 @@ export class EachTopCard extends Component {
                                             color: '#ffd700',
                                             fontSize: '5px'
                                         }}></span>
-                                })}</span>
+                                })}</span>}
                             </div>
                         </div>
 

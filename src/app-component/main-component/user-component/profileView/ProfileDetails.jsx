@@ -30,11 +30,11 @@ class Profile extends Component {
 		{
 			this.setState({showMore:true});
 		}
-	    if(this.props.wbooks.length==0)
+	    if(this.props.wbooks.length===0)
 		{
 			this.setState({isWishFilled:false});
 		}
-	    if(this.props.bbooks.length==0)
+	    if(this.props.bbooks.length===0)
 		{
 			this.setState({isBorrowedFilled:false});
 		}

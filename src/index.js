@@ -2,13 +2,13 @@
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './app-component/App.jsx';
-import axios from 'axios';
+// import axios from 'axios';
 import React, { Component } from 'react'
 import {createStore} from 'redux';
 import {Provider} from 'react-redux';
 // import registerServiceWorker from './registerServiceWorker';
-import { runWithAdal } from 'react-adal';
-import { authContext } from './adalConfig';
+// import { runWithAdal } from 'react-adal';
+// import { authContext } from './adalConfig';
 import allReducers from'./state/reducer';
 // import './server.js'
 

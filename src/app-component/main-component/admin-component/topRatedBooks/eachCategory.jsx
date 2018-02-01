@@ -81,7 +81,6 @@ class EachCategory extends Component
                 onClick={(event)=>{
                     event.preventDefault()
                     window.location=`/#/category/${this.props.category}`
-                    {/*this.props.click(event,this.props.category)*/}
                 }}
                 id={this.props.isbn}
                 style={{

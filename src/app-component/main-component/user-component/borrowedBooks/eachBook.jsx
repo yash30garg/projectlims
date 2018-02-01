@@ -1,18 +1,18 @@
 import React,{Component} from 'react'
 import './css/isssuedSlider.css'
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
-import {getDates} from '../../../dates';
-import {css} from 'glamor'
-import {ToastContainer, toast} from 'react-toastify';
-import {borrowDate, returnDate} from '../../../dates';
-import requestBook from '../../../mongo/requestBook'
-import returnBook from '../../../mongo/returnBook'
-import {storeBbooks} from '../../../../state/action/bbooksAction'
-import {addWishlist} from '../../../mongo/addWishlist';
-import {storeWbooks} from '../../../../state/action/wbooksAction'
-import {removeWishlist} from '../../../mongo/removeWishlist'
-import {Link} from 'react-router-dom';
+// import {connect} from 'react-redux';
+// import {bindActionCreators} from 'redux';
+// import {getDates} from '../../../dates';
+// import {css} from 'glamor'
+// import {ToastContainer, toast} from 'react-toastify';
+// import {borrowDate, returnDate} from '../../../dates';
+// import requestBook from '../../../mongo/requestBook'
+// import returnBook from '../../../mongo/returnBook'
+// import {storeBbooks} from '../../../../state/action/bbooksAction'
+// import {addWishlist} from '../../../mongo/addWishlist';
+// import {storeWbooks} from '../../../../state/action/wbooksAction'
+// import {removeWishlist} from '../../../mongo/removeWishlist'
+// import {Link} from 'react-router-dom';
 // import $ from 'jquery';
 let handle = (data) => {
     window.selected = data;
@@ -25,11 +25,9 @@ class Card extends Component{
     constructor(props)
     {
         super(props)
-        {
         this.state={
          wishlistIcon:true,
         requestIcon:true,
-        }
         }
     }
     render()

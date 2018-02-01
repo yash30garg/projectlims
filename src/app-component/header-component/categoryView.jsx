@@ -1,9 +1,9 @@
 import React,{Component} from 'react';
 import './bootheader.css';
-import EachCategoryCard from './eachCategoryCard'
+// import EachCategoryCard from './eachCategoryCard'
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {controller,handleController} from './bootheader';
+// import {controller,handleController} from './bootheader';
 var b, route;
 let handle=(data)=>{
 window.selected=data;

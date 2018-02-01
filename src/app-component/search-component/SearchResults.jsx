@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { processedData } from './Search';
 import $ from 'jquery';
 // import axios from 'axios';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import './Search.css';
 import { search, sortTitle, sortAuthor, sortPublish, sortRating, selectFilter } from './Search'
 import store from '../../state/store/store.js'
@@ -112,6 +112,7 @@ class SearchResults extends Component {
                                     <li className="sortElement activeSortElement" onClick={(event) => {
                                         event.preventDefault();
                                         store.dispatch({ type: "STORE_SEARCH", payload: document.getElementById('key').value })
+                                        // eslint-disable-next-line
                                         event.target.className !== "sortELement activeSortElement" ?
                                             search()
                                             : null

@@ -4,7 +4,6 @@ import Footer from '../footer-component/footer'
 import {User} from './user-component/user'
 import BootHeader from '../header-component/bootheader'
 import { HashRouter, Route, Switch } from 'react-router-dom';
-import store from '../../state/store/store.js'
 
 import Profile from './user-component/profileView/ProfileDetails'
 import Category from '../header-component/categoryView'
@@ -14,7 +13,7 @@ import SearchResults from '../search-component/SearchResults'
 import Details from '../BookDetails-Component/details.jsx'
 import {requireAuth} from '../isLoggedIn.js'
 
-import {processedData} from '../search-component/Search'
+
 
 export default class Main extends Component {
     constructor() {
@@ -47,7 +46,7 @@ export default class Main extends Component {
                 <Route path="/borrowedBooks" exact component={BorrowedSlider}/>
                 <Route path="/wishlist" exact component={WishedBooks}/>
                 <Route path="/profile" exact component={Profile}/>
-                <Route path="/search/:searchValue" exact render={(processedData) => <SearchResults display={processedData}/>} onChange={SearchResults}/>
+                <Route path="/search/:searchValue" exact component={SearchResults} onChange={SearchResults}/>
                 <Route path="/details" exact render = {()=> <Details data={window.selected}/>}/>
                 </Switch>
                 </HashRouter>
@@ -58,5 +57,6 @@ export default class Main extends Component {
         )
         else if(window.login==="no")
         return(<div></div>)
+        else return(<div>{window.login="no"}</div>)
     }
 }

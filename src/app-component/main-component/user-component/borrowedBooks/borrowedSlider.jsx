@@ -3,9 +3,9 @@ import {UserBooks}from './borrowedBook'
 import {connect} from 'react-redux';
 // import axios from 'axios';
 // import {email,mid} from '../../login-component/login'
-import {email} from '../../login-component/login'
+// import {email} from '../../login-component/login'
 import Pbooks from '../../admin-component/PreferredBooks/PrefferdBooks'
-var req = require('request');
+// var req = require('request');
 // import {BrowserRouter,Route,Link } from 'react-router-dom';
 let id;
 class BorrowedSlider extends Component

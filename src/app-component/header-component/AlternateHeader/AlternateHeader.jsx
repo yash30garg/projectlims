@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../../../logo.svg';
 import '../../App.css';
 import './AlternateHeader.css'
-import { Link, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import {user_name} from '../../App'
 // import {url} from '../header'
 import {url} from '../../App'
@@ -74,7 +74,8 @@ if(hours>=4 && hours<12){
               <Link to="/" style={{ textDecoration: 'none' }}>
                 <div className="input-group">
                   <input type="text" id="key" className="form-control" style={{ alignSelf: "center" }} placeholder="Search for..." />
-                  <button className="btn btn-primary" type="button" className="btn btn-primary" style={{ backgroundColor: "#CD853F", borderColor: "#fff" }} >Go!</button>
+                  {// eslint-disable-next-line
+                  <button className="btn btn-primary" type="button" className="btn btn-primary" style={{ backgroundColor: "#CD853F", borderColor: "#fff" }} >Go!</button>}
                 </div>
                 </Link>
               </div>
@@ -87,16 +88,16 @@ if(hours>=4 && hours<12){
               <li className="dropdown " style={{color:"white"}}>
 
                 <div data-toggle="dropdown">{this.state.greet} {user_name}<span style={{paddingRight:"15px"}}></span>
-                <img className="inset" src={url} />
+                <img alt="" className="inset" src={url} />
 
                 <span className="dropdown-toggle"></span></div>
                 <ul className="dropdown-menu dropdown-menu-right" style={{backgroundColor:"#FFF8DC	"}} >
                   <li >
-                    <Link to="/profile"><a href="#" className="dropdown-item" style={{color:'#614126', borderColor:'brown'}}><span className="fa fa-user"></span>Profile
+                    <Link to="/profile"><a className="dropdown-item" style={{color:'#614126', borderColor:'brown'}}><span className="fa fa-user"></span>Profile
                     </a></Link></li>
                       <div class="dropdown-divider" ></div>
                     <li >
-                    <a href="#" onClick={this.logout} className="dropdown-item" style={{color:'#614126', borderColor:'brown' }}><span className="fa fa-lock"></span> Logout</a></li>
+                    <a onClick={this.logout} className="dropdown-item" style={{color:'#614126', borderColor:'brown' }}><span className="fa fa-lock"></span> Logout</a></li>
                 </ul>
               </li>
         
