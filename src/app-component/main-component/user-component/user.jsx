@@ -7,12 +7,19 @@ import Footer from '../../footer-component/footer'
 // import { BorrowedSlider } from './borrowedBooks/borrowedSlider';
 // import {email,mid} from '../login-component/login.jsx';
 import {requireAuth} from '../../isLoggedIn.js'
+import {Link} from 'react-router-dom'
 // let users;
 // window.bbooks='';
 // import {email,mid} from '../login-component/login.jsx'
 // import SearchResults from './SearchResults'
 export class User extends Component
 {
+    constructor() {
+        super();
+        this.state = {
+            goToAdmin:'none'
+        }
+    }
     // constructor(){
     //     super();
     //     axios.get('https://api.myjson.com/bins/14x90j')
@@ -28,6 +35,17 @@ export class User extends Component
 componentWillMount() {
     requireAuth(window.location.href)
 }
+
+    componentDidMount() {
+        if(localStorage.getItem('role')==="admin")
+        {
+            this.setState({goToAdmin:"block"})
+        }
+        else if(localStorage.getItem('role')==="user")
+        {
+            this.setState({goToAdmin:"none"})
+        }
+    }
     render()
     {
         // if(window.bbooks.length!==0){
@@ -41,7 +59,9 @@ componentWillMount() {
             {/*<Pbooks/>*/}
             {/*<BorrowedSlider/>*/}
             <Footer />
-            {/*<input type="button" className="btn btn-primary" value="Go To Admin" style={{position:"fixed",right:"1%",bottom:"0px"}}/>*/}
+            <Link to="/adminDash">
+            <input type="button" className="btn btn-primary" value="Admin" style={{position:"fixed",right:"1%",bottom:"0px",display:this.state.goToAdmin}}/>
+            </Link>
             </div>
         );
     }
