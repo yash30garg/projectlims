@@ -9,7 +9,7 @@
              "publisher":"John Wiley & Sons",
              "rating":5,
              "copies":10,
-             "url" : "http://whatpixel.com/images/2017/05/pro-js-for-webdev.jpg"
+             "url" : "https://whatpixel.com/images/2017/05/pro-js-for-webdev.jpg"
         }
 
     },
@@ -23,7 +23,7 @@
              "publisher":"Apress1484232496",
              "rating":3,
              "copies":20,
-             "url": "http://whatpixel.com/images/2016/08/book-cover-pro-typescript.jpg"
+             "url": "https://whatpixel.com/images/2016/08/book-cover-pro-typescript.jpg"
        }
 
     },
@@ -37,7 +37,7 @@
              "publisher":"Packt Publishing",
              "rating":4,
              "copies":30,
-             "url":"http://whatpixel.com/images/2016/09/reactjs-essentials-book-cover.jpg"
+             "url":"https://whatpixel.com/images/2016/09/reactjs-essentials-book-cover.jpg"
        }
 
     },
@@ -52,7 +52,7 @@
              "publisher":"O'Reilly Media",
              "rating":2,
              "copies":40,
-             "url":"http://whatpixel.com/images/2016/09/react-up-and-running.jpg"
+             "url":"https://whatpixel.com/images/2016/09/react-up-and-running.jpg"
        }
 
     },
@@ -97,7 +97,7 @@
              "publisher":"McGraw Hill Professional",
              "rating":3,
              "copies":4,
-             "url" : "http://www.kidslovepc.com/javascript/images/javascript_book_thomas.jpg"
+             "url" : "https://www.kidslovepc.com/javascript/images/javascript_book_thomas.jpg"
        }
 
     },
@@ -112,7 +112,7 @@
              "publisher":"Microsoft",
              "rating":2,
              "copies":13,
-             "url" : "http://www.mactale.com/images/javascript-books/JavaScript-Step-by-Step.jpg"
+             "url" : "https://www.mactale.com/images/javascript-books/JavaScript-Step-by-Step.jpg"
        }
 
     },
@@ -142,7 +142,7 @@
              "publisher":"Apress",
              "rating":1,
              "copies":4,
-             "url" : "http://whatpixel.com/images/2017/05/pro-mern-stack.jpg"
+             "url" : "https://whatpixel.com/images/2017/05/pro-mern-stack.jpg"
        }
 
     },
@@ -202,7 +202,7 @@
              "publisher":"Addison-Wesley Professiona",
              "rating":2,
              "copies":15,
-             "url" : "http://whatpixel.com/images/2017/05/nodejs-mongo-angular-book.jpg"
+             "url" : "https://whatpixel.com/images/2017/05/nodejs-mongo-angular-book.jpg"
        }
 
     },
