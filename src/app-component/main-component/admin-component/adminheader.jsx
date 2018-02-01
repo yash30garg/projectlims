@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 
+import {authContext} from '../../../adalConfig.js'
+
  class AdminHeader extends Component {
-    
+    logout = (e) => {
+        e.preventDefault();
+        sessionStorage.clear();
+        localStorage.clear();
+        authContext.logOut();
+    }
 render()
 {
 
@@ -73,12 +80,12 @@ return (
                         <ul class="navbar-nav navbar-right">
                             <li class="nav-item active">
                                 <a class="nav-link" href="!#">
-                                    Welcome Anirudh,
+                                    Welcome {localStorage.getItem('user-name').split('"')[1]},
                                     {/*<span class="sr-only">(current)</span>*/}
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="!#" style={{color:"white"}}>Logout</a>
+                                <a class="nav-link" onClick={this.logout} style={{color:"white"}}>Logout</a>
                             </li>
                         </ul>
 

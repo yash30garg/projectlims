@@ -42,7 +42,7 @@ class ManageAdmin extends Component {
 
     
     findUser = () => {
-    fetch('http://localhost:3005/user/findUser', {
+    fetch('https://limsreactapi.azurewebsites.net/user/findUser', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       // form:{mid:"1042932"}
@@ -73,7 +73,7 @@ class ManageAdmin extends Component {
   }
        
        changeRoleToAdmin = () => {
-           fetch('http://localhost:3005/user/editRole', {
+           fetch('http://limsreactapi.azurewebsites.net/user/editRole', {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       // form:{mid:"1042932"}
@@ -96,7 +96,7 @@ class ManageAdmin extends Component {
        }
 
        changeRoleToUser = () => {
-           fetch('http://localhost:3005/user/editRole', {
+           fetch('http://limsreactapi.azurewebsites.net/user/editRole', {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       // form:{mid:"1042932"}
