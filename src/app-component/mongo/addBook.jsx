@@ -1,5 +1,5 @@
 export var addBook = (bookDetails) => {
-        fetch('http://localhost:3005/addBook/addBook', {
+        fetch('https://limsreactapi.azurewebsites.net/addbook/addBook', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             // form:{mid:"1042932"}
