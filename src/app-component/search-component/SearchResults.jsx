@@ -147,7 +147,6 @@ class SearchResults extends Component {
                                     <option className="dropdown-item">Filtered By 4 and above </option>
                                     <option className="dropdown-item" >Filtered by 3 and above</option>
                                     <option className="dropdown-item">Filtered by 2 and above</option>
-                                    <option className="dropdown-item"><input type="text" placeholder="By Year" id="filterByYear" /></option>
                                 </select>
                             </div>
                         </div> : null}
