@@ -8,6 +8,7 @@ import '../search-component/Search.css';
 import $ from 'jquery';
 import requestBook from '.././mongo/requestBook'
 import returnBook from '.././mongo/returnBook'
+import {addReview} from '.././mongo/addReview'
 import {addWishlist} from '.././mongo/addWishlist'
 import {removeWishlist} from '.././mongo/removeWishlist'
 import {getDates} from '../dates'
@@ -28,7 +29,7 @@ class Details extends Component {
         // var timeDiff = Math.abs(date2.getTime() - date1.getTime()); var diffDays =
         // Math.ceil(timeDiff / (1000 * 3600 * 24)); alert(diffDays);
         let reqVal = true,
-            renewVal= false,
+            renewVal = false,
             wishVal = true;
         let today = borrowDate;
         let days = today.split("/");
@@ -45,12 +46,12 @@ class Details extends Component {
                             let retDate = res.returnDate;
                             days = retDate.split("/");
                             retDate = days[1] + "/" + days[0] + "/" + days[2];
-                            let date1= new Date(today);
-                            let date2= new Date(retDate)
-                            var timeDiff = Math.abs(date2.getTime() - date1.getTime()); 
-                            var diffDays =Math.ceil(timeDiff / (1000 * 3600 * 24)); 
-                            if(diffDays<=2){
-                                renewVal=true;
+                            let date1 = new Date(today);
+                            let date2 = new Date(retDate)
+                            var timeDiff = Math.abs(date2.getTime() - date1.getTime());
+                            var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+                            if (diffDays <= 2) {
+                                renewVal = true;
                             }
                         }
                     }
@@ -94,7 +95,24 @@ class Details extends Component {
             this.setState({req: false})
         }
     }
-    changeDate = () => {}
+    addReview = () => {
+        var item = new Object();
+        item.mid = window.user;
+        item.title = document
+            .getElementById("title")
+            .value;
+        item.description = document
+            .getElementById("desc")
+            .value;
+            (async function () {
+                var review = await addReview(this.props.data.isbn, item);
+                console.log(review);
+            })
+            .bind(this)()
+        document.getElementById("title").value="";
+        document.getElementById("desc").value="";
+    }
+
     return = () => {
         (async function () {
             var data = await returnBook(this.props.data.isbn);
@@ -105,6 +123,7 @@ class Details extends Component {
         }).bind(this)()
         this.setState({req: true})
     }
+
     addWish = () => {
         var items = new Object();
         items.isbn = this.props.data.isbn;
@@ -125,6 +144,7 @@ class Details extends Component {
         }).bind(this)()
         this.setState({wish: false});
     }
+
     removeWish = () => {
         (async function () {
             var data = await removeWishlist(this.props.data.isbn);
@@ -219,80 +239,66 @@ class Details extends Component {
                             padding: "3em"
                         }}>
                             <div class="wrapper row">
-                                <div class="preview col-md-6">
-                                    <div
+                                <div class="preview col-md-6 col-sm-6 col-xs-6 col-lg-6">
+                                    <img
+                                        src={book.url}
+                                        className="card-img-top mx-auto row col-md-10 col-sm-10 col-xs-10 col-lg-10"
                                         style={{
-                                        width: "100%"
-                                    }}>
-                                        <img
-                                            src={book.url}
-                                            className="card-img-top mx-auto"
-                                            style={{
-                                            width: "70%",
-                                            height: "25rem"
-                                        }}/>
-                                        <center>
-                                            <div
-                                                className="mt-1"
+                                        height: "30rem"
+                                    }}/>
+                                    <div className="row offset-md-1 mt-1">
+
+                                        {this.state.req
+                                            ? <button
+                                                    className="btn details-btn ml-2 col-md-5 col-sm-5 col-xs-5 col-lg-5"
+                                                    style={{
+                                                    borderColor: "rgb(205,133,63)"
+                                                }}
+                                                    onClick={this.request}>
+                                                    <div className="fa fa-plus-circle"></div>
+                                                    <b>Request</b>
+                                                </button>
+                                            : <button
+                                                className="btn details-btn ml-2 col-md-5 col-sm-5 col-xs-5 col-lg-5"
                                                 style={{
-                                                width: "70%"
-                                            }}>
-                                                {this.state.req
-                                                    ? <button
-                                                            className="btn details-btn"
-                                                            style={{
-                                                            borderColor: "rgb(205,133,63)"
-                                                        }}
-                                                            onClick={this.request}>
-                                                            <div className="fa fa-plus-circle"></div>
-                                                            <b>Request</b>
-                                                        </button>
-                                                    : <button
-                                                        className="btn details-btn"
-                                                        style={{
-                                                        borderColor: "rgb(205,133,63)"
-                                                    }}
-                                                        onClick={this.return}>
-                                                        <div className="fa fa-undo"></div>
-                                                        <b>Return</b>
-                                                    </button>}
-                                                {this.state.wish
-                                                    ? <button
-                                                            className="btn details-btn"
-                                                            style={{
-                                                            borderColor: "rgb(205,133,63)"
-                                                        }}
-                                                            onClick={this.addWish}>
-                                                            <div className="fa fa-heart-o fa-lg"></div>
-                                                            <b>Add</b>
-                                                        </button>
-                                                    : <button
-                                                        className="btn details-btn"
-                                                        style={{
-                                                        borderColor: "rgb(205,133,63)"
-                                                    }}
-                                                        onClick={this.removeWish}>
-                                                        <div className="fa fa-heart fa-lg"></div>
-                                                        <b>Remove</b>
-                                                    </button>}
-                                            </div>
-                                            <div
+                                                borderColor: "rgb(205,133,63)"
+                                            }}
+                                                onClick={this.return}>
+                                                <div className="fa fa-undo"></div>
+                                                <b>Return</b>
+                                            </button>}
+                                        {this.state.wish
+                                            ? <button
+                                                    className="btn details-btn col-md-5 col-sm-5 col-xs-5 col-lg-5"
+                                                    style={{
+                                                    borderColor: "rgb(205,133,63)"
+                                                }}
+                                                    onClick={this.addWish}>
+                                                    <div className="fa fa-heart-o fa-lg"></div>
+                                                    <b>Add</b>
+                                                </button>
+                                            : <button
+                                                className="btn details-btn col-md-5 col-sm-5 col-xs-5 col-lg-5"
                                                 style={{
-                                                width: "70%"
-                                            }}>
-                                                {this.state.renew
-                                                    ? <button
-                                                            className="btn details-btn mt-1"
-                                                            style={{
-                                                            borderColor: "rgb(205,133,63)",
-                                                            width: "100%"
-                                                        }}>
-                                                            <div className="fa fa-refresh"></div>
-                                                            <b>Renew</b>
-                                                        </button>
-                                                    : ""}
-                                            </div>
-                                        </center>
+                                                borderColor: "rgb(205,133,63)"
+                                            }}
+                                                onClick={this.removeWish}>
+                                                <div className="fa fa-heart fa-lg"></div>
+                                                <b>Remove</b>
+                                            </button>}
+                                    </div>
+                                    <div className="row offset-md-1">
+                                        {this.state.renew
+                                            ? <button
+                                                    className="btn details-btn mt-1 ml-2 col-md-10 col-sm-10 col-xs-10 col-lg-10"
+                                                    style={{
+                                                    borderColor: "rgb(205,133,63)",
+                                                    width: "100%"
+                                                }}>
+                                                    <div className="fa fa-refresh"></div>
+                                                    <b>Renew</b>
+                                                </button>
+                                            : ""}
                                     </div>
                                 </div>
                                 <div class="details col-md-6">
@@ -332,6 +338,55 @@ class Details extends Component {
                                     </ul>
                                 </div>
                             </div>
+                        </div>
+                        <div
+                            style={{
+                            textAlign: "left"
+                        }}>
+                            <b
+                                className="offset-md-1"
+                                style={{
+                                fontSize: "24px",
+                                color: "rgb(205,133,63)"
+                            }}>
+                                <u>Add a Review</u>
+                            </b>
+                            <form className="form-group">
+                                <b
+                                    className="offset-md-1"
+                                    style={{
+                                    fontSize: "20px",
+                                    color: "rgb(205,133,63)"
+                                }}>Title</b>
+                                <input
+                                    type="text"
+                                    class="form-control  col-md-6 offset-md-1"
+                                    id="title"
+                                    placeholder="Enter Title"/>
+                                <br/>
+                                <b
+                                    className="offset-md-1"
+                                    style={{
+                                    fontSize: "20px",
+                                    color: "rgb(205,133,63)"
+                                }}>Description</b>
+                                <input
+                                    type="text"
+                                    class="form-control  col-md-6 offset-md-1"
+                                    id="desc"
+                                    placeholder="Enter Review"/>
+                                    <div className="ml-5">                                    
+                                    <button
+                                    onClick={this.addReview}
+                                className="btn details-btn mt-1 ml-5 col-md-2 col-sm-2 col-xs-2 col-lg-2"
+                                style={{
+                                borderColor: "rgb(205,133,63)",
+                                width: "100%"
+                            }}>
+                                <b>Add</b>
+                            </button>
+                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>
