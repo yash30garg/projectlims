@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import Footer from '../footer.jsx';
 import AlternateHeader from '../../header-component/AlternateHeader/AlternateHeader.jsx';
+
 // import $ from 'jquery';
 import { requireAuth } from '../../isLoggedIn'
 
