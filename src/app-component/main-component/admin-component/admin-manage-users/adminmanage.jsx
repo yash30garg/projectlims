@@ -10,7 +10,7 @@ import AdminFooter from '../admin-footer-component/adminFooter';
 
 import AdminHeader from '../adminheader'
 
-var count =0;
+// var count =0;
 class ManageAdmin extends Component {
     constructor()
     {

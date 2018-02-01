@@ -4,9 +4,9 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {storeReviews} from '../../state/action/reviewAction';
 import {css} from 'glamor'
-import {ToastContainer, toast} from 'react-toastify';
+import {toast} from 'react-toastify';
 import {addReview} from '.././mongo/addReview'
-import {getReview} from '.././mongo/getReview'
+// import {getReview} from '.././mongo/getReview'
 let ratingValue,reviewData;
 class Reviews extends Component{
     constructor(){
@@ -23,6 +23,7 @@ class Reviews extends Component{
 
     addReview = () => {
     // alert(ratingValue)
+    // eslint-disable-next-line
         var item = new Object();
         item.mid = window.user;
         item.rating=ratingValue;
@@ -165,7 +166,7 @@ class Reviews extends Component{
     }
 }
 function mapStateToProps(state) {
-    return {reviews:state.reviews};
+    return {bbooks: state.bbooks, wbooks: state.wbooks,reviews:state.reviews};
 }
 function matchDispatchToProps(dispatch) {
     return bindActionCreators({

@@ -1,5 +1,4 @@
 // import storeBbooks from '../../state/store/storeBbooks'; 
-let response;
 async function renewBook(newBook){
     
    var data= await fetch('http://localhost:3005/borrowedBooks/renewDate',{

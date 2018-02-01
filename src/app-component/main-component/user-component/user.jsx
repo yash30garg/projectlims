@@ -1,17 +1,17 @@
 import React, {Component}from 'react';
 // import BootHeader from './../../header-component/bootheader.jsx';
-import Header from '../../header-component/header'
+// import Header from '../../header-component/header'
 // import Pbooks from '../admin-component/PreferredBooks/PrefferdBooks.jsx';
-import Footer from '../../footer-component/footer'
+// import Footer from '../../footer-component/footer'
 // import axios from 'axios';
 // import { BorrowedSlider } from './borrowedBooks/borrowedSlider';
 // import {email,mid} from '../login-component/login.jsx';
 import {requireAuth} from '../../isLoggedIn.js'
-import {Link} from 'react-router-dom'
-import { HashRouter, Route, Switch } from 'react-router-dom';
+// import {Link} from 'react-router-dom'
+// import { HashRouter, Route, Switch } from 'react-router-dom';
 
 
-import BootHeader from '../../header-component/bootheader'
+// import BootHeader from '../../header-component/bootheader'
 import LandingView from '../../header-component/landingView'
 // let users;
 // window.bbooks='';

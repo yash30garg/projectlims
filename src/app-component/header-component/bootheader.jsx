@@ -1,32 +1,34 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import './bootheader.css';
 import {Link} from 'react-router-dom'
-import {Redirect} from 'react-router'
+// import {Redirect} from 'react-router'
 // import storeBbooks from '../../state/store/storeBbooks'
 // import Footer from '../footer-component/footer.jsx';
 // import Header from './header.jsx';
 // import Pbooks from '../main-component/admin-component/PreferredBooks/PrefferdBooks.jsx';
-import BorrowedSlider from '../main-component/user-component/borrowedBooks/borrowedSlider.jsx';
+// import BorrowedSlider from '../main-component/user-component/borrowedBooks/borrowedSlider.jsx';
 // import Search from '../search-component/Search.jsx';
 import store from '../../state/store/store.js'
-import SearchResults from '../search-component/SearchResults.jsx';
-import Search from '../search-component/Search'
-import Details from './../BookDetails-Component/details';
-import { LandingView } from './landingView';
-import  Category  from './categoryView';
-import WishedBooks from '../main-component/user-component/wishlist/wishlistComponent'
-import LoadingEffect from './../loading-component/loading';
+// import SearchResults from '../search-component/SearchResults.jsx';
+// import Search from '../search-component/Search'
+// import Details from './../BookDetails-Component/details';
+// import { LandingView } from './landingView';
+// import  Category  from './categoryView';
+// import WishedBooks from '../main-component/user-component/wishlist/wishlistComponent'
+// import LoadingEffect from './../loading-component/loading';
 import { EachListItem } from './categoryList';
 import {connect} from 'react-redux';
-import $ from 'jquery';
-import BorrowedBooks from './../main-component/admin-component/booksDisplay';
-import Profile from './../main-component/user-component/profileView/ProfileDetails';
+// import $ from 'jquery';
+// import BorrowedBooks from './../main-component/admin-component/booksDisplay';
+// import Profile from './../main-component/user-component/profileView/ProfileDetails';
 import '../main-component/user-component/profileView/profileDetails.css'
+import {requireAuth} from '../isLoggedIn.js'
 export let controller;
 export var handleController = () => {
     controller=1
 }
+// eslint-disable-next-line
 var count = 0,
     plusCtgry,
     checkCtgry,
@@ -65,6 +67,9 @@ class BootHeader extends Component {
         }
         window.showProfile=false;
         window.hideCategory=true;
+    }
+    componentWillMount() {
+        requireAuth(window.location.href)
     }
     // componentWillMount() {
     //     axios
@@ -286,6 +291,7 @@ class BootHeader extends Component {
 //         if (this.state.redirect) {
 //     return <Redirect push to="/search" />;
 //   }
+        if(window.login==="yes") {
         let valueB,valueW;
         if(this.props.bbooks===null){
             valueB=0;
@@ -464,7 +470,7 @@ class BootHeader extends Component {
 
 
                                     </div>
-                                    <div className="list-group mt-3 mb-3">
+                                    <div className="list-group mt-3">
                                         <div
                                             className="row col-md-12 list-group-item collor nav-item dropdown nav-link ml-0"
                                             data-toggle="collapse"
@@ -578,6 +584,9 @@ class BootHeader extends Component {
             </div>
 
         )
+    }
+    else if(window.login==="no")
+    return (<div></div>)
 
     }
 

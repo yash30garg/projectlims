@@ -1,18 +1,18 @@
-import React, { Component } from 'react';
-import Rx from 'rxjs';
+// import React, { Component } from 'react';
+// import Rx from 'rxjs';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
-import { Link } from 'react-router-dom';
-import { requireAuth } from '../isLoggedIn.js'
+// import { Link } from 'react-router-dom';
+// import { requireAuth } from '../isLoggedIn.js'
 // import { BrowserRouter, Route, Link } from 'react-router-dom';
 import 'rxjs/add/operator/filter';
-import SearchResults from '../search-component/SearchResults';
+// import SearchResults from '../search-component/SearchResults';
 // import Footer from '../footer-component/footer'
 import './Search.css'
 import store from '../../state/store/store.js'
-import BootHeader from '../header-component/bootheader'
+// import BootHeader from '../header-component/bootheader'
 import {changeNotify} from './SearchResults'
-var debounce = require('debounce');
+// var debounce = require('debounce');
 export var processedData = [];
 var data,value;
 export var search = () => {
@@ -65,6 +65,7 @@ export var search = () => {
                             data3.publisher.toLowerCase().indexOf(value2) >= 0 ||
                             data3.category.toLowerCase().indexOf(value2) >= 0) &&
                         value2 !== '').sort((a, b) => { return (b.rating - a.rating) });
+                        // eslint-disable-next-line
                         datay.map((res)=>{
                             if(processedData.indexOf(res))
                             processedData.push(res)
@@ -178,63 +179,72 @@ export var sortRating = () => {
 }
 
 export var selectFilter = () => {
-        if (document.getElementById("filter").value === "5 Rated") {
+        if (document.getElementById("filter").value === "Filter By 5 Rated") {
             fiveRated();
-            window.location = `/#/search/sorted=${value}`
-            // document.getElementById('os').click();
         }
-        else if (document.getElementById("filter").value === "4 and above Rated") {
+        else if (document.getElementById("filter").value === "Filter By 4 and above") {
             fourRated();
         }
-        else if (document.getElementById("filter").value === "3 and above Rated") {
+        else if (document.getElementById("filter").value === "Filter by 3 and above") {
             threeRated();
         }
-        else if (document.getElementById("filter").value === "2 and above Rated") {
+        else if (document.getElementById("filter").value === "Filter by 2 and above") {
             twoRated();
         }
-        else document.getElementById('defaultSearchResults').click();
+        else if(document.getElementById('filter').value === "Filter By")document.getElementById('defaultSearchResults').click();
     }
 
     var fiveRated= () => {
         processedData = store.getState().sorted_Data
         console.log(store.getState().sorted_Data)
         console.log(processedData)
-        let filter = processedData.filter((data) => data.rating === 5)
-        filter.map((res)=>processedData.push(res))
+        let filter = processedData
+        processedData=[]
+        filter.filter((data) => data.rating === 5)
+        .map((res)=> processedData.push(res))
         // processedData = this.state.sortedData;
+        window.location = `/#/search/5_star=${value}`
         console.log(processedData)
         console.log("Sorted by five rated");
-        window.location = `/#/search/5_star=${value}`
         // document.getElementById('os').click();
     }
     var fourRated = () =>  {
         processedData = store.getState().sorted_Data
-        processedData = processedData.filter((data) =>
+        let filter = processedData
+        processedData=[]
+        filter.filter((data) =>
             (data.rating <= 5) && (data.rating >= 4))
+            .map((res)=> processedData.push(res))
         // processedData = this.state.sortedData;
+        window.location = `/#/search/>4_star=${value}`
         console.log(processedData)
         console.log("Sorted by four rated");
-        window.location = `/#/search/>4_star=${value}`
         // document.getElementById('os').click();
     }
     var threeRated = () => {
         processedData = store.getState().sorted_Data
-        processedData = processedData.filter((data) =>
+        let filter = processedData
+        processedData=[]
+        filter.filter((data) =>
             (data.rating <= 5) && (data.rating >= 3))
+            .map((res)=> processedData.push(res))
         // processedData = this.state.sortedData;
+        window.location = `/#/search/>3_star=${value}`
         console.log(processedData)
         console.log("Sorted by three rated");
-        window.location = `/#/search/>3_star=${value}`
         // document.getElementById('os').click()
     }
     var twoRated = () => {
         processedData = store.getState().sorted_Data
-        processedData = processedData.filter((data) =>
+        let filter = processedData
+        processedData=[]
+        filter.filter((data) =>
             (data.rating <= 5) && (data.rating >= 2))
+            .map((res)=> processedData.push(res))
         // processedData = this.state.sortedData;
+        window.location = `/#/search/>2_star=${value}`
         console.log(processedData)
         console.log("Sorted by two rated");
-        window.location = `/#/search/>2_star=${value}`
         // document.getElementById('os').click();
     }
 

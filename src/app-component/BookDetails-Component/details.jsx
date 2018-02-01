@@ -6,10 +6,9 @@ import {storeBbooks} from '../../state/action/bbooksAction'
 import {storeWbooks} from '../../state/action/wbooksAction'
 import {storeReviews} from '../../state/action/reviewAction';
 import '../search-component/Search.css';
-import $ from 'jquery';
 import {getReview} from '.././mongo/getReview'
 import {css} from 'glamor'
-import {ToastContainer, toast} from 'react-toastify';
+import {toast} from 'react-toastify';
 import Reviews from './reviews';
 import requestBook from '.././mongo/requestBook'
 import returnBook from '.././mongo/returnBook'
@@ -18,14 +17,8 @@ import {addWishlist} from '.././mongo/addWishlist'
 import {removeWishlist} from '.././mongo/removeWishlist'
 import {getDates} from '../dates'
 import {borrowDate, returnDate} from '../dates'
-var req = require('request');
-let response;
 let book,
-reviewData="",
-    thisBook=null,
-    w = null,
-    b = null,
-    a = null;
+    thisBook=null;
 
 class Details extends Component {
     constructor(props) {
@@ -67,6 +60,7 @@ class Details extends Component {
             this
                 .props
                 .bbooks
+                // eslint-disable-next-line
                 .map(res => {
                     if (res.isbn === this.props.data.isbn) {
                         thisBook=res;
@@ -90,6 +84,7 @@ class Details extends Component {
             this
                 .props
                 .wbooks
+                // eslint-disable-next-line
                 .map(res => {
                     if (res.isbn === this.props.data.isbn) {
                         wishVal = false;
@@ -113,6 +108,7 @@ class Details extends Component {
     request = () => {
         if (navigator.onLine) {
         if (this.props.bbooks.length < 4) {
+            // eslint-disable-next-line
             let bookAdded = new Object();
             bookAdded.isbn = this.props.data.isbn;
             bookAdded.title = this.props.data.title;
@@ -173,6 +169,7 @@ class Details extends Component {
 
     addWish = () => {
          if (navigator.onLine) {
+             // eslint-disable-next-line
         var items = new Object();
         items.isbn = this.props.data.isbn;
         items.title = this.props.data.title;
@@ -231,7 +228,7 @@ class Details extends Component {
         var tested = new Date();
         // var res=this.props.data;
         // console.log(res)
-        if(thisBook.isRenewed=="false"){
+        if(thisBook.isRenewed==="false"){
         var dates = thisBook
                             .returnDate
                             .split("/");
@@ -308,6 +305,7 @@ class Details extends Component {
                             <div class="wrapper row">
                                 <div className="col-md-6 col-sm-6 col-xs-6 col-lg-6">
                                 <img
+                                        alt="Not Available"
                                         src={book.url}
                                         className="mx-auto col-md-10 col-sm-10 col-xs-10 col-lg-10"
                                         style={{

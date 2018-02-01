@@ -4,7 +4,6 @@ import Footer from '../footer-component/footer'
 import {User} from './user-component/user'
 import BootHeader from '../header-component/bootheader'
 import { HashRouter, Route, Switch } from 'react-router-dom';
-import store from '../../state/store/store.js'
 
 import Profile from './user-component/profileView/ProfileDetails'
 import Category from '../header-component/categoryView'
@@ -12,17 +11,33 @@ import BorrowedSlider from './user-component/borrowedBooks/borrowedSlider'
 import WishedBooks from './user-component/wishlist/wishlistComponent'
 import SearchResults from '../search-component/SearchResults'
 import Details from '../BookDetails-Component/details.jsx'
+import AboutUs from '../footer-component/AboutUs/aboutus'
+import {requireAuth} from '../isLoggedIn.js'
+
 
 
 export default class Main extends Component {
+    constructor() {
+        super();
+        this.state = {
+            marginLeft:'-1%'
+        }
+    }
+    componentWillMount() {
+        requireAuth(window.location.href)
+        if(window.innerWidth<=500)
+        {
+            this.setState({marginLeft:'0%'})
+        }
+    }
     render() {
+        if(window.login==="yes"&& window.location.hash !== "#/aboutus"&&window.location.hash !=="#/contactus")
         return(
-            <div>
+            <div style={{overflow:"hidden"}}>
             <Header/>
-            
             <div className="row mainDiv">
                 <div className="col-md-3 mainDiv"><BootHeader/></div>
-                <div className="col-md-9 mainDiv">
+                <div style={{marginLeft:this.state.marginLeft}} className="col-md-9 mainDiv">
                 {/*<User/>*/}
                 <HashRouter>
                 <Switch>
@@ -32,7 +47,7 @@ export default class Main extends Component {
                 <Route path="/borrowedBooks" exact component={BorrowedSlider}/>
                 <Route path="/wishlist" exact component={WishedBooks}/>
                 <Route path="/profile" exact component={Profile}/>
-                <Route path="/search/:searchValue" exact component={SearchResults} onChange={SearchResults} onEnter={SearchResults}/>
+                <Route path="/search/:searchValue" exact component={SearchResults} onChange={SearchResults}/>
                 <Route path="/details" exact render = {()=> <Details data={window.selected}/>}/>
                 </Switch>
                 </HashRouter>
@@ -41,5 +56,14 @@ export default class Main extends Component {
             <Footer/>
             </div>
         )
+        else if(window.login==="no")
+        return(<div></div>)
+        else if(window.location.hash==="#/aboutus")
+        {
+            return(
+            <Route path="/aboutus" exact component={AboutUs}/>
+            )
+        }
+        else return(<div>{window.login="no"}</div>)
     }
 }

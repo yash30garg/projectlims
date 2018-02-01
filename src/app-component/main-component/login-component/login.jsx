@@ -6,8 +6,8 @@ import { authContext } from '../../../adalConfig.js';
 // import Rx from 'rxjs/Rx';
 // import Header from '../../header-component/header';
 // import { BrowserRouter, Route, Link } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-import axios from 'axios';
+// import { Link } from 'react-router-dom';
+// import axios from 'axios';
 import { requireAuth } from '../../isLoggedIn.js'
 var req = require('request');
 // import Form from 'react-validation/build/form';

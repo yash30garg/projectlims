@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import './profileDetails.css';
-import AlternateHeader from '../../../../app-component/header-component/AlternateHeader/AlternateHeader';
-import Footer from '../../../../app-component/footer-component/footer.jsx';
+// import AlternateHeader from '../../../../app-component/header-component/AlternateHeader/AlternateHeader';
+// import Footer from '../../../../app-component/footer-component/footer.jsx';
 import {requireAuth} from '../../../isLoggedIn.js'
 // import {url} from '../../../header-component/header'
 import {url} from '../../../App'
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import {connect} from 'react-redux';
-import { HashRouter, Route, Switch } from 'react-router-dom';
+// import { HashRouter, Route, Switch } from 'react-router-dom';
+import { Route } from 'react-router-dom'
 import MyWishList from'./MyWishList';
-import BorrowedSlider from './../borrowedBooks/borrowedSlider';
+// import BorrowedSlider from './../borrowedBooks/borrowedSlider';
 
 
 let bookName, wishBookName;
@@ -30,11 +31,11 @@ class Profile extends Component {
 		{
 			this.setState({showMore:true});
 		}
-	    if(this.props.wbooks.length==0)
+	    if(this.props.wbooks.length===0)
 		{
 			this.setState({isWishFilled:false});
 		}
-	    if(this.props.bbooks.length==0)
+	    if(this.props.bbooks.length===0)
 		{
 			this.setState({isBorrowedFilled:false});
 		}
@@ -86,10 +87,10 @@ class Profile extends Component {
 		window.location.replace('/#/')
 	}
     return (
-    <div className="carders contained"style={{backgroundColor : "#FFF8DC", minHeight : "33px"}}>
+    <div className="carders contained mt-4"style={{backgroundColor : "#FFF8DC", minHeight : "33px"}}>
 {/*<Header />*/}
         <ol className="breadcrumb" style={{backgroundColor : "#614126", color : "white", height:"50px" , fontSize : "15px"}}  >
-        <h5 >My Profile <span id="openHome" style={{float:'right',cursor:'pointer',paddingLeft:'85px'}} onClick={this.props.profileCrossClicked}>x</span></h5>
+        <h5 >My Profile <span id="openHome" style={{float:'right',cursor:'pointer',paddingLeft:'85px'}} onClick={(e)=>{e.preventDefault(); window.location="/#/"}}>x</span></h5>
         </ol>
 <div className="container-fluid"  >
   <br/><nr />

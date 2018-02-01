@@ -2,18 +2,13 @@ import React,{Component} from 'react'
 import './css/isssuedSlider.css'
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {getDates} from '../../../dates';
 import {css} from 'glamor'
-import {ToastContainer, toast} from 'react-toastify';
-import {borrowDate, returnDate} from '../../../dates';
-import requestBook from '../../../mongo/requestBook'
+import {toast} from 'react-toastify';
 import returnBook from '../../../mongo/returnBook'
 import {storeBbooks} from '../../../../state/action/bbooksAction'
 import {addWishlist} from '../../../mongo/addWishlist';
 import {storeWbooks} from '../../../../state/action/wbooksAction'
 import {removeWishlist} from '../../../mongo/removeWishlist'
-import {Link} from 'react-router-dom';
-// import $ from 'jquery';
 let handle = (data) => {
     window.selected = data;
     window.showDetails=true;
@@ -32,6 +27,7 @@ class Card extends Component{
             this
                 .props
                 .bbooks
+                // eslint-disable-next-line
                 .map(res => {
                     //  console.log(res)
                     if (res.isbn === this.props.data.isbn) {
@@ -44,6 +40,7 @@ class Card extends Component{
             this
                 .props
                 .wbooks
+                // eslint-disable-next-line
                 .map(res => {
                     //  console.log(res)
                     if (res.isbn === this.props.data.isbn) {
@@ -106,6 +103,7 @@ changeToRequest = () => {
 
     changeToFilled = () => {
         if (navigator.onLine) {
+            // eslint-disable-next-line
             var items = new Object();
             items.isbn = this.props.data.isbn;
             items.title = this.props.data.title;

@@ -1,11 +1,11 @@
 //   import React, {Component} from 'react';
 import React, { Component } from 'react';
 
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 // import { UserBooks } from './../borrowedBooks';
 import {requireAuth} from '../../../../app-component/isLoggedIn'
 
-  var count = 0;
+//   var count = 0;
 
   export default class DashBoardStats extends Component {
  constructor()
@@ -51,9 +51,10 @@ import {requireAuth} from '../../../../app-component/isLoggedIn'
         let booksnum = window.bookies.length;
         let total=0;
         window.users
+        // eslint-disable-next-line
             .map((result) => {
             //    count+=`${result.borrowedBooks.length}`
-            total=total+parseInt(result.borrowedBooks.length);
+            total=total+parseInt(result.borrowedBooks.length,10);
               
         });
         let booksavail = window.bookies.length-total;

@@ -79,7 +79,8 @@ class EachCategory extends Component
             <div
                 className="card-img viewMoreCard mx-auto"
                 onClick={(event)=>{
-                    this.props.click(event,this.props.category)
+                    event.preventDefault()
+                    window.location=`/#/category/${this.props.category}`
                 }}
                 id={this.props.isbn}
                 style={{

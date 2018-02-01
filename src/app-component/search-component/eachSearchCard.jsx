@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import {processedData} from './Search';
+// import {processedData} from './Search';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {getDates} from '../dates';
+// import {getDates} from '../dates';
 import {borrowDate, returnDate} from '../dates';
 import {storeBbooks} from '../../state/action/bbooksAction'
 import {storeWbooks} from '../../state/action/wbooksAction'
@@ -10,19 +10,20 @@ import requestBook from '../mongo/requestBook'
 import returnBook from '../mongo/returnBook'
 import {addWishlist} from '../mongo/addWishlist';
 import {removeWishlist} from '../mongo/removeWishlist'
-import $ from 'jquery';
+// import $ from 'jquery';
 // import axios from 'axios';
-import {Link} from 'react-router-dom';
+// import {Link} from 'react-router-dom';
 import './Search.css';
-import {
-    search,
-    sortTitle,
-    sortAuthor,
-    sortPublish,
-    sortRating,
-    selectFilter
-} from './Search'
-import store from '../../state/store/store.js'
+// import {
+//     search,
+//     sortTitle,
+//     sortAuthor,
+//     sortPublish,
+//     sortRating,
+//     selectFilter
+// } from './Search'
+// import store from '../../state/store/store.js'
+// eslint-disable-next-line
 import {ToastContainer, toast} from 'react-toastify';
 import {css} from 'glamor'
 export var book,
@@ -40,6 +41,7 @@ class EachSearchCard extends Component {
             this
                 .props
                 .bbooks
+                // eslint-disable-next-line
                 .map(res => {
                     //  console.log(res)
                     if (res.isbn === this.props.eachValue.isbn) {
@@ -52,6 +54,7 @@ class EachSearchCard extends Component {
             this
                 .props
                 .wbooks
+                // eslint-disable-next-line
                 .map(res => {
                     //  console.log(res)
                     if (res.isbn === this.props.eachValue.isbn) {
@@ -75,6 +78,7 @@ class EachSearchCard extends Component {
 
     changeToFilled = () => {
         if(navigator.onLine){
+            // eslint-disable-next-line
         var items=new Object();
         items.isbn=this.props.eachValue.isbn;
         items.title=this.props.eachValue.title;
@@ -139,6 +143,7 @@ class EachSearchCard extends Component {
     changeToUndo = () => {
         if(navigator.onLine){
         if(this.props.bbooks.length<4){
+            // eslint-disable-next-line
             let bookAdded=new Object();
                 bookAdded.isbn=this.props.eachValue.isbn;
                 bookAdded.title=this.props.eachValue.title;
@@ -255,7 +260,9 @@ class EachSearchCard extends Component {
                             <b>Category:
                             </b>
                             {this.props.eachValue.category}<br/>
-                        <span className="ml-2">{[1, 2, 3, 4, 5].map(d => {
+                        <span className="ml-2">{[1, 2, 3, 4, 5]
+                            // eslint-disable-next-line
+                            .map(d => {
                             if (this.props.eachValue.rating >= d) 
                                 return <span
                                     class="fa fa-star"

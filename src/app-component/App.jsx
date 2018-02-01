@@ -1,26 +1,22 @@
 import React, { Component } from 'react';
 import './App.css';
 // import Search from './search-component/Search'
-import SearchResults from './search-component/SearchResults'
 // import Admin from './main-component/admin-component/admin'
 // import SearchResults from '../app-component/search-component/SearchResults.jsx';
 // import BootHeader from '../app-component/header-component/bootheader.jsx';
 // import Pages from '../app-component/main-component/admin-component/adminDashboard/pages.jsx';
-import { BookDetails } from '../app-component/BookDetails-Component/bookDetails'
 import DashBoard from '../app-component/main-component/admin-component/adminDashboard/dashboard.jsx';
 import Login from './main-component/login-component/login.jsx';
 import { HashRouter, Route, Switch } from 'react-router-dom';
 // import { BrowserRouter } from 'react-router-dom';
-import { User } from './main-component/user-component/user';
-import axios from 'axios';
 import BookAdmin from '../app-component/main-component/admin-component/BookHandler/bookshow.jsx';
 import HandleUsers from '../app-component/main-component/admin-component/adminDashboard/handleusers.jsx';
-import Profile from '../app-component/main-component/user-component/profileView/prodetails.jsx';
 // import BookTor from '../app-component/booktor/booktor.jsx';
-import AboutUs from '../app-component/footer-component/AboutUs/aboutus.jsx';
+// import AboutUs from '../app-component/footer-component/AboutUs/aboutus.jsx';
 import { authContext } from '../adalConfig.js'
 import {bindActionCreators} from 'redux';
 import {createStore} from 'redux';
+// eslint-disable-next-line
 import {Provider} from 'react-redux';
 import allReducers from'../state/reducer'; 
 import {connect} from 'react-redux';
@@ -29,14 +25,17 @@ import {storeBooks} from '../state/action/booksAction';
 import {storeWbooks} from '../state/action/wbooksAction';
 // import {storeBooks} from '../state/action/booksAction'
 import BookAdd from '../../src/app-component/main-component/admin-component/admin-edit-book/bookadd'
-import ContactUs from '../app-component/footer-component/ContactUs/contactus.jsx';
+// import ContactUs from '../app-component/footer-component/ContactUs/contactus.jsx';
 import BookEdit from '../app-component/main-component/admin-component/admin-update-book/bookedit.jsx'
 import ManageAdmin from '../app-component/main-component/admin-component/admin-manage-users/adminmanage.jsx'
 import Main from './main-component/Main'
 // import { AuthenticationContext, adalGetToken, adalFetch } from 'react-adal';
+// eslint-disable-next-line
 import {online} from '../index.js'
 export var user_name,url;
+// eslint-disable-next-line
 const store = createStore(allReducers);
+// eslint-disable-next-line
 var req = require('request');
 class App extends Component {
   constructor() {
@@ -58,6 +57,7 @@ class App extends Component {
     console.log(localStorage.getItem('adal.access.token.keyfa61fc30-ea79-4d93-8038-65273b42c71c'))
     // let value ="Bearer" + localStorage.getItem('adal.access.token.keyfa61fc30-ea79-4d93-8038-65273b42c71c')
     // console.log(`https://graph.microsoft.com/beta/me/photo/${value}`)
+    // eslint-disable-next-line
     var UserDetails = JSON.parse(localStorage.getItem('limsuser'))
     }
   }
@@ -246,8 +246,8 @@ class App extends Component {
             <Route path="/adminbooks" exact component={BookAdmin} />
             <Route path="/handleusers" exact component={HandleUsers} />
             {/*<Route path="/profile" exact component={Profile} />*/}
-            <Route path="/aboutus" exact component={AboutUs} /> 
-            <Route path="/contactus" exact component={ContactUs} />
+            {/*<Route path="/aboutus" exact component={AboutUs} /> */}
+            {/*<Route path="/contactus" exact component={ContactUs} />*/}
             <Route path="/bookadd" exact component={BookAdd} />
             <Route path="/bookedit" exact component={BookEdit} />
             <Route path="/admindash" exact component={DashBoard} />

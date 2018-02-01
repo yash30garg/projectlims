@@ -1,17 +1,14 @@
 import React,{Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {getDates} from '../../../dates';
 import {css} from 'glamor'
-import {ToastContainer, toast} from 'react-toastify';
+import {toast} from 'react-toastify';
 import {borrowDate, returnDate} from '../../../dates';
 import requestBook from '../../../mongo/requestBook'
 import returnBook from '../../../mongo/returnBook'
 import {storeBbooks} from '../../../../state/action/bbooksAction'
-import {addWishlist} from '../../../mongo/addWishlist';
 import {storeWbooks} from '../../../../state/action/wbooksAction'
 import {removeWishlist} from '../../../mongo/removeWishlist'
-import {Link} from 'react-router-dom';
 
 let handle = (data) => {
     window.selected = data;
@@ -24,29 +21,33 @@ class WishedCard extends Component{
     constructor(props)
     {
         super(props);
-            let reqVal = true,
-            wishVal = true;
+        // eslint-disable-next-line
+            let reqVal = true,wishVal = true;
         // console.log("top") console.log(props.bbooks)
-        if (this.props.bbooks!==null && this.props.bbooks.length !== 0) {
+        if (this.props.bbooks!==undefined&&this.props.bbooks.length !== 0) {
             this
                 .props
                 .bbooks
+                // eslint-disable-next-line
                 .map(res => {
                     //  console.log(res)
                     if (res.isbn === this.props.data.isbn) {
                         // alert("found") console.log("found")
+                        // eslint-disable-next-line
                         reqVal = false;
                     }
                 })
         }
-        if (this.props.wbooks!==null && this.props.wbooks.length !== 0) {
+        if (this.props.wbooks!==undefined && this.props.wbooks.length !== 0) {
             this
                 .props
                 .wbooks
+                // eslint-disable-next-line
                 .map(res => {
                     //  console.log(res)
                     if (res.isbn === this.props.data.isbn) {
                         // console.log("found")
+                        // eslint-disable-next-line
                         wishVal = false;
                     }
                 })
@@ -104,6 +105,7 @@ changeToRequest = () => {
     changeToUndo = () => {
         if (navigator.onLine) {
             if (this.props.bbooks.length < 4) {
+                // eslint-disable-next-line
                 let bookAdded = new Object();
                 bookAdded.isbn = this.props.data.isbn;
                 bookAdded.title = this.props.data.title;
@@ -175,7 +177,9 @@ changeToRequest = () => {
                         <b>Category :
                         </b>
                         {this.props.data.category}<br/> 
-                        <span className="ml-2">{[1, 2, 3, 4, 5].map(d => {
+                        <span className="ml-2">{[1, 2, 3, 4, 5]
+                            // eslint-disable-next-line
+                            .map(d => {
                             if (this.props.data.rating >= d) 
                                 return <span
                                     class="fa fa-star"

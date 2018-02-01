@@ -52,7 +52,9 @@ class TopBooks extends Component{
         // else{
         // alert(this.props.bbooks.length)
         // }
-        let bbooks=this.props.bbooks;
+
+        
+        // let bbooks=this.props.bbooks;
         let counting=0;
         let brr = [];
         let arr = window.display
@@ -80,7 +82,7 @@ class TopBooks extends Component{
         // alert(bbooks.length)
         if(this.props.bbooks!==null && this.props.wbooks!==null){
             // alert(this.props.)
-        k=<div style={{position:'relative',marginTop:'70px',marginBottom:'50px'}}><img src={require('../../../../Assets/Images/yellowLoader.gif')} /></div>;
+        k=<div style={{position:'relative',marginTop:'70px',marginBottom:'50px'}}><img alt={<LoadingEffect/>} src={require('../../../../Assets/Images/yellowLoader.gif')} /></div>;
                 if (brr.length !==0 ) {
                 let b = window.display;
                  k=brr.map(result=>{

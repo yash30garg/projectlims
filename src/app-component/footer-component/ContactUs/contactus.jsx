@@ -42,10 +42,10 @@ export default class ContactUs extends Component {
     <div class="contact_us_right">
       
       <div class="contact_us_icons">
-        <a href="#"><div class="icon icon_facebook"></div></a> 
-        <a href="#"><div class="icon icon_twitter"></div></a> 
-        <a href="#"><div class="icon icon_google_plus"></div></a> 
-        <a href="#"><div class="icon icon_linkedin"></div></a> 
+        <a href="!#"><div class="icon icon_facebook"></div></a> 
+        <a href="!#"><div class="icon icon_twitter"></div></a> 
+        <a href="!#"><div class="icon icon_google_plus"></div></a> 
+        <a href="!#"><div class="icon icon_linkedin"></div></a> 
       </div>   
       
     </div>

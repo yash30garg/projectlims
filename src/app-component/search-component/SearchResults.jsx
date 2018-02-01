@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { processedData } from './Search';
 import $ from 'jquery';
 // import axios from 'axios';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import './Search.css';
 import { search, sortTitle, sortAuthor, sortPublish, sortRating, selectFilter } from './Search'
 import store from '../../state/store/store.js'
@@ -112,6 +112,7 @@ class SearchResults extends Component {
                                     <li className="sortElement activeSortElement" onClick={(event) => {
                                         event.preventDefault();
                                         store.dispatch({ type: "STORE_SEARCH", payload: document.getElementById('key').value })
+                                        // eslint-disable-next-line
                                         event.target.className !== "sortELement activeSortElement" ?
                                             search()
                                             : null
@@ -142,10 +143,10 @@ class SearchResults extends Component {
                                     selectFilter()
                                 }} data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span className="dropdown-toggle"></span>
                                     <option className="dropdown-item" >Filter By</option>
-                                    <option className="dropdown-item">Filtered By 5 Rated</option>
-                                    <option className="dropdown-item">Filtered By 4 and above </option>
-                                    <option className="dropdown-item" >Filtered by 3 and above</option>
-                                    <option className="dropdown-item">Filtered by 2 and above</option>
+                                    <option className="dropdown-item">Filter By 5 Rated</option>
+                                    <option className="dropdown-item">Filter By 4 and above</option>
+                                    <option className="dropdown-item" >Filter by 3 and above</option>
+                                    <option className="dropdown-item">Filter by 2 and above</option>
                                 </select>
                             </div>
                         </div>
