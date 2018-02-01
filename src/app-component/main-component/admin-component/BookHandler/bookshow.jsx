@@ -36,7 +36,7 @@ class BookAdmin extends Component {
                                 <h3
                                     className="dd"
                                     style={{
-                                        textAlign: "left",marginTop:"7px"
+                                        textAlign: "left",marginTop:"7px",marginLeft:"2%"
                                     }}>
                                     <span className="fa fa-cog" aria-hidden="true"></span>DashBoard 
                                     <small> Manage Books</small>
