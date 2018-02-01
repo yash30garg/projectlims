@@ -171,7 +171,8 @@ class App extends Component {
     console.log(localStorage.getItem('adal.access.token.keyfa61fc30-ea79-4d93-8038-65273b42c71c'))
     // let value ="Bearer" + localStorage.getItem('adal.access.token.keyfa61fc30-ea79-4d93-8038-65273b42c71c')
     // console.log(`https://graph.microsoft.com/beta/me/photo/${value}`)
-    var UserDetails = JSON.parse(localStorage.getItem('limsuser'))
+    var UserDetails = JSON.parse(localStorage.getItem('limsuser'));
+    console.log(UserDetails);
     // this.getData();
     localStorage.setItem('mid', window.user)
     url = `https://social.mindtree.com/User%20Photos/Profile%20Pictures/m${window.user}_MThumb.jpg?t=63646089488`

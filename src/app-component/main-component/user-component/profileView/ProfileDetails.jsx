@@ -9,17 +9,59 @@ import { Link } from 'react-router-dom';
 import {connect} from 'react-redux';
 import { HashRouter, Route, Switch } from 'react-router-dom';
 import MyWishList from'./MyWishList';
+import BorrowedSlider from './../borrowedBooks/borrowedSlider';
 
 class Profile extends Component {
+	constructor()
+	{
+		super();
+		this.state={
+			showMore:false
+		}
+	}
 	componentWillMount() {
+		if(this.props.wbooks.length>4)
+		{
+			this.setState({showMore:true});
+		}
 		requireAuth(window.location.href)
+	}
+	profileWislist()
+	{
+		document.getElementById("openProfileWishlist").click();
+	}
+	handle=(arg)=>
+	{
+        window.selected=arg;
+        window.showDetails=true;
+        document.getElementById('detail').click();
+        window.setClickProps="profile"
 	}
   
   render() {
+	  let bookName=this.props.bbooks.map((res)=>{
+		  return(
+			  <div className="eachTitle mt-2 mb-2 ml-2">
+			  <span className="fa fa-arrow-right" />
+              <b className="hoverTitle"  onClick={this.handle.bind(this,res)}>{res.title}</b>
+			  </div>
+		  );
+	  })
+	  let wishBookName=this.props.wbooks.slice(0,4).map((res)=>{
+		  return(
+			  <div className="eachTitle mt-2 mb-2 ml-2">
+			  <span className="fa fa-arrow-right" />
+              <b className="hoverTitle"  onClick={this.handle.bind(this,res)}>{res.title}</b>
+			  </div>
+		  );
+	  })
 
     return (
-    <div style={{backgroundColor : "#FFF8DC", minHeight : "33px"}}>
+    <div className="carders contained"style={{backgroundColor : "#FFF8DC", minHeight : "33px"}}>
 {/*<Header />*/}
+        <ol className="breadcrumb" style={{backgroundColor : "#614126", color : "white", height:"50px" , fontSize : "15px"}}  >
+        <h5 >My Profile <span id="openHome" style={{float:'right',cursor:'pointer',paddingLeft:'85px'}} onClick={this.props.profileCrossClicked}>x</span></h5>
+        </ol>
 <div className="container-fluid"  >
   <br/><nr />
 	<div className="innerwrap">
@@ -38,30 +80,51 @@ class Profile extends Component {
 								<h1>{this.props.bbooks.length}</h1>
 								<span>Books Borrowed</span>
 							</div>
-							<div className="col3"><h1>9</h1>
+							<div className="col3"><h1>{this.props.wbooks.length}</h1>
 							<span>Wishlist</span></div>
-							<div className="col3 last"><h1>12</h1>
-							<span>Books Requested</span></div>
 						</div>
 					</div>
 				</div>
-				<div className="container" style={{minHeight : "33px"}}>
+				{/*<div className="container" style={{minHeight : "33px"}}>
 					<ul className="row2tab clearfix">
 
-						{/*<li><i className="fa fa-list-alt"></i> My Books </li>
+						<li><i className="fa fa-list-alt"></i> My Books </li>
 						<Link to="/mywishlist">
 						<li><i className="fa fa-heart"></i> My WishList </li>
 						</Link>
 						<li><i className="fa fa-check"></i> My Requests </li>
-						<li><i className="fa fa-thumbs-o-up "></i> Reviews </li>*/}
+						<li><i className="fa fa-thumbs-o-up "></i> Reviews </li>
 
 						<li><i className="fa fa-list-alt"></i> <a href="#tab_default_1" data-toggle="tab" >My Books</a> </li>
 						<li><i className="fa fa-heart"></i> <a href="#tab_default_1" data-toggle="tab" >
-    My WishList</a> </li>
+    					My WishList</a> </li>
 						<li><i className="fa fa-check"></i><a href="#tab_default_1" data-toggle="tab"> My Requests </a></li>
 						<li><i className="fa fa-thumbs-o-up "></i><a href="#tab_default_1" data-toggle="tab"> Reviews</a> </li>
 
 					</ul>
+				
+				</div>*/}
+				<div className="row">
+				<div className="col-md-6 mt-5">
+				<div className="detailsCard">
+				<h3 className="mt-3">Borrowed Books</h3>
+				<div className="horizontalLine mx-auto mt-3"/>
+				<div className="mt-3">
+                {bookName}
+				</div>
+				</div>
+				</div>
+
+				<div className="col-md-6 mt-5">
+				<div className="detailsCard">
+				<h3 className="mt-3">Wished Books</h3>
+				<div className="horizontalLine mx-auto mt-3"/>
+				<div className="mt-3">
+                {wishBookName}
+				</div>
+				{this.state.showMore?<div className="more mr-3" onClick={this.profileWislist}><b>more..</b></div>:null}
+				</div>
+				</div>
 				</div>
 
 
@@ -71,10 +134,6 @@ class Profile extends Component {
 	</div>
 				
 			</div>
-			<span className="smalltri">
-				
-			<i className="fa fa-star"></i>
-			</span>
 		</section>
 		{/*<section className="section2 clearfix">*/}
 			{/*<div className="grid">*/}
@@ -117,7 +176,8 @@ class Profile extends Component {
 }
 function mapStateToProps(state) {
     return {
-        bbooks: state.bbooks
+        bbooks: state.bbooks,
+		wbooks:state.wbooks
     };
 }
 export default connect(mapStateToProps)(Profile);
