@@ -5,7 +5,7 @@ import Details from './details';
 import AlternateHeader from '../../app-component/header-component/AlternateHeader/AlternateHeader.jsx';
 import {requireAuth} from '../isLoggedIn.js'
 // let val;
-export class BookDetails extends Component{
+export default class BookDetails extends Component{
     componentWillMount() {
         requireAuth(window.location.href)
     }

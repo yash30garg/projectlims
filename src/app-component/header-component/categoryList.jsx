@@ -6,8 +6,7 @@ export const EachListItem = (props) => {
         <a>
     {/*  id={`i${props.categoryName}`} href='#' style={{textDecoration:'none'}}*/}
         <button type="button"
-            onClick={props
-            .openByCategory}
+            onClick={(e)=> {e.preventDefault(); window.location = `/#/category/${props.categoryName.toLowerCase()}`}}
             className="btnl default  list-group-item list-group-item-action default ml-0"
             style={{
             background: " #FFF8DC"

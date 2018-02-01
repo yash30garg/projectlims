@@ -193,6 +193,7 @@ class BootHeader extends Component {
             searchClicked : false,
         })
         window.showProfile=false;
+        window.location="/#/details"
     }
     closeDetails=()=>
     {
@@ -363,7 +364,7 @@ class BootHeader extends Component {
                     <section id="main">
                         <div className="container-fluid">
                             <div className="row">
-                                <div className="col-md-3">
+                                <div className="col-md-12">
 
                                     <div className="list-group">
                                                                <div
@@ -405,7 +406,7 @@ class BootHeader extends Component {
                                         </button>
                                         </a>*/}
 
-                                        <div id="os" onClick={this.openSearch} ></div>
+                                        <Link to="/search"><div id="os" onClick={this.openSearch} ></div></Link>
                                         <div id="cs" onClick={this.closeSearch}></div>
                                         <div id="detail" onClick={this.openDetails}></div>
                                         <div id="topDetailsCross" onClick={this.closeDetails}></div>
@@ -417,7 +418,8 @@ class BootHeader extends Component {
                                         <div id="profile" onClick={this.openProfile}></div>
                                         <div id="profileDetailsCross" onClick={this.closeDetails}></div>
                                         <div id="openProfileWishlist" onClick={this.openWishlist}/>
-           <div className="collapse show" id="myBooks">                             
+           <div className="collapse show" id="myBooks">
+           <Link to="/borrowedBooks">                                 
            <a>                             
             <button type="button"
             onClick={this.openBorrowedBooks}
@@ -435,7 +437,8 @@ class BootHeader extends Component {
             </div>
         </button>
         </a>
-
+        </Link>
+        <Link to="/wishlist">
         <a>
             <button type="button"
             onClick={this.openWishlist}
@@ -453,6 +456,7 @@ class BootHeader extends Component {
             </div>
         </button>
         </a>
+        </Link>
 </div>
 
 
@@ -489,7 +493,7 @@ class BootHeader extends Component {
                                         </div>
 
                                         <div className="collapse show scrollList" id="navbaDropdown">
-                                           
+                                           <Link to="/category/all">
                                             <a>
                                             <button type="button" onClick={this.openCategory.bind(this, 'all')} className="btnl default list-group-item list-group-item-action ml-0"
                                                 style={{background: " #FFF8DC"}}>
@@ -507,6 +511,7 @@ class BootHeader extends Component {
                                                 
                                             </button>
                                             </a>
+                                            </Link>
                                             
                                             {brr.map((r) => {
 
@@ -526,7 +531,7 @@ class BootHeader extends Component {
                                     </div>
                                 </div>
 
-                                <div className="col-md-9">
+                                {/*<div className="col-md-9">
                                     <div>
                                         {this.state.landingView && this.state.categoryClicked
                                             ? <LandingView show={this.state.passBorrowed} wish={this.state.passWish} />
@@ -563,7 +568,7 @@ class BootHeader extends Component {
                                     <div>
                                     {window.showProfile?<Profile profileCrossClicked={this.closeProfile}/>:null}
                                     </div>
-                                </div>
+                                </div>*/}
                             </div>
                         </div>
                     </section>

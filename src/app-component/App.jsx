@@ -32,6 +32,7 @@ import BookAdd from '../../src/app-component/main-component/admin-component/admi
 import ContactUs from '../app-component/footer-component/ContactUs/contactus.jsx';
 import BookEdit from '../app-component/main-component/admin-component/admin-update-book/bookedit.jsx'
 import ManageAdmin from '../app-component/main-component/admin-component/admin-manage-users/adminmanage.jsx'
+import Main from './main-component/Main'
 // import { AuthenticationContext, adalGetToken, adalFetch } from 'react-adal';
 import {online} from '../index.js'
 export var user_name,url;
@@ -63,6 +64,7 @@ class App extends Component {
 
   getBorrowedData() {
     fetch('https://limsreactapi.azurewebsites.net/borrowedBooks/getBooks', {
+    // fetch('http://localhost:3005/borrowedBooks/getBooks', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -90,6 +92,7 @@ class App extends Component {
     if(navigator.onLine){
       console.log("Online")
     fetch('https://limsreactapi.azurewebsites.net/user/addUser', {
+    // fetch('http://localhost:3005/user/addUser', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       // form:{mid:"1042932"}
@@ -108,6 +111,7 @@ class App extends Component {
         localStorage.setItem('token', res.token)
         localStorage.setItem('role', res.user[0].role)
         fetch('https://limsreactapi.azurewebsites.net/books/getBooks',
+        // fetch('http://localhost:3005/books/getBooks',
           {
             method: 'GET',
             headers: {
@@ -231,11 +235,12 @@ class App extends Component {
     return (
       <HashRouter basename="/">
         <div className="App" id="App">
+          <Main/>
           <Switch>
             <Route path="/login" exact component={Login} />
-            <Route path="/" exact component={User} />
+            {/*<Route path="/" exact component={User} />*/}
             {/*<Route path="/search" exact component={SearchResults} />*/}
-            <Route path="/search/details" exact component={BookDetails} />
+            {/*<Route path="/search/details" exact component={BookDetails} />*/}
             {/*<Route path="/pdetails" exact component={ProductDetails}/>*/}
             {/*<Route path="/admin" exact component={AdminLogin} />  */}
             <Route path="/adminbooks" exact component={BookAdmin} />
@@ -247,7 +252,7 @@ class App extends Component {
             <Route path="/bookedit" exact component={BookEdit} />
             <Route path="/admindash" exact component={DashBoard} />
             <Route path="/manageuser" exact component={ManageAdmin} />
-            <Route path="/:id" render={()=> (<div>{window.location.replace('/#/')}</div>)}/>
+            {/*<Route path="/:id" render={()=> (<div>{window.location.replace('/#/')}</div>)}/>*/}
           </Switch>
 
         </div>

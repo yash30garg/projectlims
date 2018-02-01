@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 // import axios from 'axios';
 // import {email,mid} from '../../login-component/login'
 import {email} from '../../login-component/login'
+import Pbooks from '../../admin-component/PreferredBooks/PrefferdBooks'
 var req = require('request');
 // import {BrowserRouter,Route,Link } from 'react-router-dom';
 let id;
@@ -46,16 +47,25 @@ class BorrowedSlider extends Component
         <h5 style={{textAlign:'center',color:"#614126", paddingLeft : "10px"}}>You haven't borrowed any books yet!</h5>
         </div>
         // console.log(bbooks)
+        if(bbooks!==null) {
         if(bbooks.length!==0)
         {
             outputs=<UserBooks key={id} list={bbooks}/>;
         }
+        }
+        else window.location = '/#/'
      return(
+         <div className="mt-4">
+             <div className="contained" >
+                <h5 className="card-header yoyo" style={{ backgroundColor: "#614126", color: "white" }}>What's New</h5>
+                <Pbooks />
+            </div>
     <div className="contained mt-4">
         <ol className="breadcrumb" style={{backgroundColor:'	#614126', color : "white"}}>
-        <h5>Books to be returned/renewed <span id="openHome" onClick={this.props.borrowCrossClicked} style={{float:'right',cursor:'pointer',paddingLeft:'70px'}}>x</span> </h5>
+        <h5>Books to be returned/renewed <span id="openHome" onClick={(e)=>{e.preventDefault(); window.location='/#/'}} style={{float:'right',cursor:'pointer',paddingLeft:'70px'}}>x</span> </h5>
         </ol>
      {outputs}
+    </div>
     </div>
      );
  }

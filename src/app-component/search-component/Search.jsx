@@ -14,15 +14,14 @@ import BootHeader from '../header-component/bootheader'
 import {changeNotify} from './SearchResults'
 var debounce = require('debounce');
 export var processedData = [];
-var data
+var data,value;
 export var search = () => {
-    let value = store.getState().search.toLowerCase();
+    value = store.getState().search.toLowerCase();
     processedData = []
     // let value = document.getElementById('key').value.toLowerCase();
     changeNotify();
     let value1, value2;
     value1=value
-    console.log(value1)
     if (value.indexOf('&') > -1) {
         console.log("I am Here")
         value1 = value.substring(0, value.indexOf('&')-1)
@@ -34,8 +33,14 @@ export var search = () => {
         value1 = value.substring(0,value.indexOf('and')-1)
         value2 = value.substring(value.indexOf('and')+4,value.length)
     }
+    else if(value.indexOf(',')>-1)
+    {
+        console.log(',')
+        value1 = value.substring(0,value.indexOf(','))
+        value2 = value.substring(value.indexOf(',')+2, value.length)
+    }
     if (value === "")
-        document.getElementById('cs').click();
+        window.location = '/#/';
     else {
         // Rx.Observable.fromPromise(fetch('https://api.myjson.com/bins/1a9rkj'))
         //     .flatMap((response) => response.json())
@@ -68,7 +73,8 @@ export var search = () => {
                 datax = processedData
                 store.dispatch({ type: "STORE_SORTED_DATA", payload: datax })
                 console.log(store.getState().sorted_Data)
-                document.getElementById('os').click();
+                window.location = `/#/search/${value}`
+                // document.getElementById('os').click();
             // })
     }
 
@@ -95,7 +101,8 @@ export var sortTitle = () => {
     )
     // console.log(processedData)
     // console.log("Sorted by Title");
-    document.getElementById('os').click();
+    window.location = `/#/search/title=${value}`    
+    // document.getElementById('os').click();
 }
 export var sortAuthor = () => {
     this.flag = !this.flag;
@@ -118,7 +125,8 @@ export var sortAuthor = () => {
     )
     // console.log(processedData)
     // console.log("Sorted by Author");
-    document.getElementById('os').click();
+    window.location = `/#/search/author=${value}`
+    // document.getElementById('os').click();
 }
 export var sortPublish = () => {
     this.flag = !this.flag;
@@ -140,8 +148,9 @@ export var sortPublish = () => {
     }
     )
     // console.log(processedData)
+    window.location = `/#/search/publish=${value}`
     // console.log("Sorted by Publisher");
-    document.getElementById('os').click();
+    // document.getElementById('os').click();
 }
 export var sortRating = () => {
     this.flag = !this.flag;
@@ -163,14 +172,16 @@ export var sortRating = () => {
     }
     )
     // console.log(processedData)
+    window.location = `/#/search/rating=${value}`
     // console.log("Sorted by Rating");
-    document.getElementById('os').click();
+    // document.getElementById('os').click();
 }
 
 export var selectFilter = () => {
         if (document.getElementById("filter").value === "5 Rated") {
             fiveRated();
-            document.getElementById('os').click();
+            window.location = `/#/search/sorted=${value}`
+            // document.getElementById('os').click();
         }
         else if (document.getElementById("filter").value === "4 and above Rated") {
             fourRated();
@@ -188,11 +199,13 @@ export var selectFilter = () => {
         processedData = store.getState().sorted_Data
         console.log(store.getState().sorted_Data)
         console.log(processedData)
-        processedData = processedData.filter((data) => data.rating === 5)
+        let filter = processedData.filter((data) => data.rating === 5)
+        filter.map((res)=>processedData.push(res))
         // processedData = this.state.sortedData;
         console.log(processedData)
         console.log("Sorted by five rated");
-        document.getElementById('os').click();
+        window.location = `/#/search/5_star=${value}`
+        // document.getElementById('os').click();
     }
     var fourRated = () =>  {
         processedData = store.getState().sorted_Data
@@ -201,7 +214,8 @@ export var selectFilter = () => {
         // processedData = this.state.sortedData;
         console.log(processedData)
         console.log("Sorted by four rated");
-        document.getElementById('os').click();
+        window.location = `/#/search/>4_star=${value}`
+        // document.getElementById('os').click();
     }
     var threeRated = () => {
         processedData = store.getState().sorted_Data
@@ -210,7 +224,8 @@ export var selectFilter = () => {
         // processedData = this.state.sortedData;
         console.log(processedData)
         console.log("Sorted by three rated");
-        document.getElementById('os').click()
+        window.location = `/#/search/>3_star=${value}`
+        // document.getElementById('os').click()
     }
     var twoRated = () => {
         processedData = store.getState().sorted_Data
@@ -219,7 +234,8 @@ export var selectFilter = () => {
         // processedData = this.state.sortedData;
         console.log(processedData)
         console.log("Sorted by two rated");
-        document.getElementById('os').click();
+        window.location = `/#/search/>2_star=${value}`
+        // document.getElementById('os').click();
     }
 
 /*export default class Search extends Component {
