@@ -359,13 +359,13 @@ li{
 }
 
 
-/*.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
     background-color: #614126 !important;
-/*.scrollList
+}
+
+.scrollList
 {
 height: 450px;
 overflow: hidden;
 overflow-y: scroll;
-  
-
-}*/
+}
