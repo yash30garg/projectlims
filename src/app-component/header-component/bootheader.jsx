@@ -1,33 +1,34 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import './bootheader.css';
 import {Link} from 'react-router-dom'
-import {Redirect} from 'react-router'
+// import {Redirect} from 'react-router'
 // import storeBbooks from '../../state/store/storeBbooks'
 // import Footer from '../footer-component/footer.jsx';
 // import Header from './header.jsx';
 // import Pbooks from '../main-component/admin-component/PreferredBooks/PrefferdBooks.jsx';
-import BorrowedSlider from '../main-component/user-component/borrowedBooks/borrowedSlider.jsx';
+// import BorrowedSlider from '../main-component/user-component/borrowedBooks/borrowedSlider.jsx';
 // import Search from '../search-component/Search.jsx';
 import store from '../../state/store/store.js'
-import SearchResults from '../search-component/SearchResults.jsx';
-import Search from '../search-component/Search'
-import Details from './../BookDetails-Component/details';
-import { LandingView } from './landingView';
-import  Category  from './categoryView';
-import WishedBooks from '../main-component/user-component/wishlist/wishlistComponent'
-import LoadingEffect from './../loading-component/loading';
+// import SearchResults from '../search-component/SearchResults.jsx';
+// import Search from '../search-component/Search'
+// import Details from './../BookDetails-Component/details';
+// import { LandingView } from './landingView';
+// import  Category  from './categoryView';
+// import WishedBooks from '../main-component/user-component/wishlist/wishlistComponent'
+// import LoadingEffect from './../loading-component/loading';
 import { EachListItem } from './categoryList';
 import {connect} from 'react-redux';
-import $ from 'jquery';
-import BorrowedBooks from './../main-component/admin-component/booksDisplay';
-import Profile from './../main-component/user-component/profileView/ProfileDetails';
+// import $ from 'jquery';
+// import BorrowedBooks from './../main-component/admin-component/booksDisplay';
+// import Profile from './../main-component/user-component/profileView/ProfileDetails';
 import '../main-component/user-component/profileView/profileDetails.css'
 import {requireAuth} from '../isLoggedIn.js'
 export let controller;
 export var handleController = () => {
     controller=1
 }
+// eslint-disable-next-line
 var count = 0,
     plusCtgry,
     checkCtgry,

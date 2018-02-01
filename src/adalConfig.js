@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 import { AuthenticationContext, adalFetch } from 'react-adal';
 
 

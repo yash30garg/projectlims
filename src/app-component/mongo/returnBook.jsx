@@ -1,4 +1,4 @@
-let response;
+
 async function returnBook(isbn){
 var data = await fetch('https://limsreactapi.azurewebsites.net/borrowedBooks/deleteBook',{
             method: 'PUT',

@@ -9,16 +9,16 @@ import Img from 'react-image';
 // Footer from '../footer-component/footer.jsx';
 import { authContext } from '../../adalConfig'
 import './header.css'
-import { Link, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { user_name } from '../App'
 // import { connect } from 'react-redux'
-import BootHeader from './bootheader'
+// import BootHeader from './bootheader'
 import LoadingEffect from '../loading-component/loading'
 // import Footer from '../footer-component/footer'
 // import {storeSearch} from '../../state/action/searchAction.js'
 import store from '../../state/store/store.js'
 import { search } from '../search-component/Search'
-import Category from './categoryView';
+// import Category from './categoryView';
 import {requireAuth} from '../isLoggedIn.js'
 import {url} from '../App'
 export var key;
@@ -153,7 +153,9 @@ class Header extends Component {
           titleD.push(arr[i + 1]);
         }
       }
-      titleD.map((res) => {
+      titleD
+      // eslint-disable-next-line
+      .map((res) => {
         listCategory.push(<option value={res.title}></option>)
       })
     }
@@ -178,7 +180,9 @@ class Header extends Component {
           authorD.push(arr[i + 1]);
         }
       }
-      authorD.map((res) => {
+      authorD
+      // eslint-disable-next-line
+      .map((res) => {
         listCategory.push(<option value={res.author}></option>)
       })
     }
@@ -203,12 +207,16 @@ class Header extends Component {
           publisherD.push(arr[i + 1]);
         }
       }
-      publisherD.map((res) => {
+      publisherD
+      // eslint-disable-next-line
+      .map((res) => {
         listCategory.push(<option value={res.publisher}></option>)
       })
     }
     let listCategory = [];
-    brr.map(res => {
+    brr
+    // eslint-disable-next-line
+    .map(res => {
       listCategory.push(<option value={res.category}></option>)
     })
     titleDup();
@@ -249,7 +257,6 @@ class Header extends Component {
                 <input list="browsers" type="text" id="key" className="form-control" style={{ alignSelf: "center" }} placeholder="Search for..." autoFocus
                   onChange={debounce((event) => {
                     event.preventDefault();
-                    {/*store.dispatch({ type: "STORE_SEARCH", payload: document.getElementById('key').value })*/}
                     this.search()
                   }, 1000)}
                   onKeyPress={debounce((event) => {
@@ -269,6 +276,7 @@ class Header extends Component {
                     store.dispatch({ type: "STORE_SEARCH", payload: document.getElementById('key').value })
                     search()
                   }}
+                  // eslint-disable-next-line
                   type="button" className="btn btn-primary" style={{ backgroundColor: "#CD853F", borderColor: "#fff" }} >Go!</button>
               </div>
               {/*</Link>*/}
@@ -298,7 +306,7 @@ class Header extends Component {
                     <div class="dropdown-divider" >
                     </div>
                     <li >
-                      <a href="#" onClick={this.logout} className="dropdown-item" style={{ color: '#614126', borderColor: 'brown' }}><span className="fa fa-lock"></span> Logout</a></li>
+                      <a href="!#" onClick={this.logout} className="dropdown-item" style={{ color: '#614126', borderColor: 'brown' }}><span className="fa fa-lock"></span> Logout</a></li>
                   </ul>
               </li>
 

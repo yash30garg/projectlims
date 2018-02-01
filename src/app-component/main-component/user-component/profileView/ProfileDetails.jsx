@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import './profileDetails.css';
-import AlternateHeader from '../../../../app-component/header-component/AlternateHeader/AlternateHeader';
-import Footer from '../../../../app-component/footer-component/footer.jsx';
+// import AlternateHeader from '../../../../app-component/header-component/AlternateHeader/AlternateHeader';
+// import Footer from '../../../../app-component/footer-component/footer.jsx';
 import {requireAuth} from '../../../isLoggedIn.js'
 // import {url} from '../../../header-component/header'
 import {url} from '../../../App'
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import {connect} from 'react-redux';
-import { HashRouter, Route, Switch } from 'react-router-dom';
+// import { HashRouter, Route, Switch } from 'react-router-dom';
+import { Route } from 'react-router-dom'
 import MyWishList from'./MyWishList';
-import BorrowedSlider from './../borrowedBooks/borrowedSlider';
+// import BorrowedSlider from './../borrowedBooks/borrowedSlider';
 
 
 let bookName, wishBookName;

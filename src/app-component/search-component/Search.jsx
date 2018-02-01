@@ -1,18 +1,18 @@
-import React, { Component } from 'react';
-import Rx from 'rxjs';
+// import React, { Component } from 'react';
+// import Rx from 'rxjs';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
-import { Link } from 'react-router-dom';
-import { requireAuth } from '../isLoggedIn.js'
+// import { Link } from 'react-router-dom';
+// import { requireAuth } from '../isLoggedIn.js'
 // import { BrowserRouter, Route, Link } from 'react-router-dom';
 import 'rxjs/add/operator/filter';
-import SearchResults from '../search-component/SearchResults';
+// import SearchResults from '../search-component/SearchResults';
 // import Footer from '../footer-component/footer'
 import './Search.css'
 import store from '../../state/store/store.js'
-import BootHeader from '../header-component/bootheader'
+// import BootHeader from '../header-component/bootheader'
 import {changeNotify} from './SearchResults'
-var debounce = require('debounce');
+// var debounce = require('debounce');
 export var processedData = [];
 var data,value;
 export var search = () => {
@@ -65,6 +65,7 @@ export var search = () => {
                             data3.publisher.toLowerCase().indexOf(value2) >= 0 ||
                             data3.category.toLowerCase().indexOf(value2) >= 0) &&
                         value2 !== '').sort((a, b) => { return (b.rating - a.rating) });
+                        // eslint-disable-next-line
                         datay.map((res)=>{
                             if(processedData.indexOf(res))
                             processedData.push(res)

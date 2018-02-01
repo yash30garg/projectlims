@@ -13,7 +13,7 @@ import AdminHeader from '../adminheader'
 var debounce = require('debounce');
 
 
-var count = 0;
+// var count = 0;
 class HandleUsers extends Component {
     componentWillMount() {
         requireAuth(window.location.href)

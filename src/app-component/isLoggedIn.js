@@ -35,7 +35,7 @@ export var requireAuth = (path) => {
             else {
                 // console.log(JSON.parse(localStorage.getItem('limsuser')))
                 console.log("yes")
-                 window.login=="yes"
+                 window.login="yes"
                 // console.log(path)
                 window.location = path
             }

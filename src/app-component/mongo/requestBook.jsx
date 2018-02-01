@@ -1,5 +1,5 @@
 // import storeBbooks from '../../state/store/storeBbooks'; 
-let response;
+// let response;
 async function requestBook(newBook){
     
    var data= await fetch('https://limsreactapi.azurewebsites.net/borrowedBooks/addBook',{

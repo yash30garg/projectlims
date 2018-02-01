@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
+// import {Link} from 'react-router-dom';
 import'./PrefferedBooks.css';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import { css } from 'glamor'
+// eslint-disable-next-line
 import { ToastContainer, toast } from 'react-toastify';
 import {getDates} from '../../../dates';
 import {borrowDate, returnDate} from '../../../dates';
@@ -13,11 +14,12 @@ import {storeBbooks} from '../../../../state/action/bbooksAction'
 import {addWishlist} from '../../../mongo/addWishlist';
 import {storeWbooks} from '../../../../state/action/wbooksAction'
 import {removeWishlist} from '../../../mongo/removeWishlist'
+// eslint-disable-next-line
 let bbooks;
-let test=()=>{
-    var val=5;
-    return val;
-}
+// let test=()=>{
+//     var val=5;
+//     return val;
+// }
 class EachPrefferedCard extends Component{
     constructor(props)
     {
@@ -35,6 +37,7 @@ class EachPrefferedCard extends Component{
             // alert(window.bbooks.length);
             // console.log(props.data.length)
             if( props.Bdata!==null && props.Bdata.length!==0){
+                // eslint-disable-next-line
                  props.Bdata.map(res=>{
                     //  console.log(res)
             if(res.isbn===this.props.item.isbn){   
@@ -44,6 +47,7 @@ class EachPrefferedCard extends Component{
         })
             }
             if(props.Wdata!==null && props.Wdata.length!==0){
+                // eslint-disable-next-line
                  props.Wdata.map(res=>{
                     //  console.log(res)
             if(res.isbn===this.props.item.isbn){   
@@ -72,6 +76,7 @@ class EachPrefferedCard extends Component{
     changeToFilled=()=>
     {
         if(navigator.onLine){
+            // eslint-disable-next-line
         var items=new Object();
         items.isbn=this.props.item.isbn;
         items.title=this.props.item.title;
@@ -143,6 +148,7 @@ class EachPrefferedCard extends Component{
         // alert(num);
         if(navigator.onLine){
         if(this.props.bbooks.length<4){
+            // eslint-disable-next-line
             let bookAdded=new Object();
                 bookAdded.isbn=this.props.item.isbn;
                 bookAdded.title=this.props.item.title;
@@ -244,7 +250,9 @@ class EachPrefferedCard extends Component{
                         </b>
                         {this.props.item.category}<br/> 
                     
-                        <span className="ml-2">{[1, 2, 3, 4, 5].map(d => {
+                        <span className="ml-2">{[1, 2, 3, 4, 5]
+                            // eslint-disable-next-line
+                            .map(d => {
                             if (this.props.item.rating >= d) 
                                 return <span
                                     class="fa fa-star"
