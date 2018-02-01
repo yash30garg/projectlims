@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Footer from '../footer.jsx';
-import AlternateHeader from '../../header-component/AlternateHeader/AlternateHeader';
+import Header from '../../header-component/header';
 import './contactus.css';
 // import $ from 'jquery';
 import { requireAuth } from '../../../app-component/isLoggedIn';
@@ -21,7 +21,7 @@ export default class ContactUs extends Component {
       <div style={{ background:'#FFF8DC'}}>
     
       
-<AlternateHeader />
+<Header />
 
 <br />
   
