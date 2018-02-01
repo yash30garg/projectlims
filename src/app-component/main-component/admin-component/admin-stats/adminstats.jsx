@@ -93,7 +93,7 @@ import {requireAuth} from '../../../../app-component/isLoggedIn'
                                         <span class="fa fa-user" aria-hidden="true"></span>Users<div
                                             className='mov'
                                             style={{
-                                                marginRight:"10%"
+                                                marginRight:"68%"
                                             }} />
                                         <span className="badge badge-pill badge-warning mov">{values}</span>
                                     </a>
@@ -102,7 +102,7 @@ import {requireAuth} from '../../../../app-component/isLoggedIn'
 
                                 <br />
                                 <div className="card">
-                                    <div className="card-header card-primary" style={{backgroundColor : "rgb(97, 65, 38)"}}>
+                                    <div className="card-header card-primary" style={{backgroundColor : "rgb(97, 65, 38)",textAlign:"left"}}>
                                         <div className="t">
                                             <span className="fa fa-list" aria-hidden="true"></span>
                                             Books Stats
