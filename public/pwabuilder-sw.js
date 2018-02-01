@@ -12,15 +12,15 @@ self.addEventListener('install', function(cacheevent) {
 });
 //If any fetch fails, it will look for the request in the cache and serve it from there first
 self.addEventListener('fetch', function(cacheevent) {
-  var updateCache = function(request){
-    return caches.open('pwabuilder-offline').then(function (cache) {
-      return fetch(request).then(function (response) {
-        console.log('[PWA Builder] add page to offline'+response.url)
-        return cache.put(request, response);
-      });
-    });
-  };
-  cacheevent.waitUntil(updateCache(cacheevent.request));
+  // var updateCache = function(request){
+  //   return caches.open('pwabuilder-offline').then(function (cache) {
+  //     return fetch(request).then(function (response) {
+  //       console.log('[PWA Builder] add page to offline'+response.url)
+  //       return cache.put(request, response);
+  //     });
+  //   });
+  // };
+  // cacheevent.waitUntil(updateCache(cacheevent.request));
   cacheevent.respondWith(
     fetch(cacheevent.request).catch(function(error) {
       console.log( '[PWA Builder] Network request Failed. Serving content from cache: ' + error );
