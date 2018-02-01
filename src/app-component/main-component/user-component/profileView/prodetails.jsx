@@ -79,10 +79,10 @@ class Profile extends Component {
 		{/*<section className="section2 clearfix">*/}
 			{/*<div className="grid">*/}
 				{/*<div className="col3 first">
-					<div className="postcont"><img src="http://www.ohmyindia.com/wp-content/uploads/2017/09/dhoni8.jpg" alt="" />
+					<div className="postcont"><img src="https://www.ohmyindia.com/wp-content/uploads/2017/09/dhoni8.jpg" alt="" />
 					</div>*/}
 					{/*<div className="profileinfo">
-						<img src="http://images.contactmusic.com/newsimages/david_beckham_1133321.jpg" alt="" />
+						<img src="https://images.contactmusic.com/newsimages/david_beckham_1133321.jpg" alt="" />
 						<p>MS Dhoni has hit most sixes for India in international cricket</p>
 						<span>Read more <i className="fa fa-angle-right"></i></span>
 					</div>
@@ -97,10 +97,10 @@ class Profile extends Component {
 					</div>
 				</div>*/}
 				{/*<div className="col3 last">
-					<div className="postcont"><img src="http://ste.india.com/sites/default/files/2017/07/06/607698-ms-dhoni-pc-pti4.jpg" alt="" />
+					<div className="postcont"><img src="https://ste.india.com/sites/default/files/2017/07/06/607698-ms-dhoni-pc-pti4.jpg" alt="" />
 					</div>*/}
 					{/*<div className="profileinfo">
-						<img src="http://images.contactmusic.com/newsimages/david_beckham_1133321.jpg" alt="" />
+						<img src="https://images.contactmusic.com/newsimages/david_beckham_1133321.jpg" alt="" />
 						<p>MS Dhoni has captained most number of intl. matches (334)</p>
 						<span>Read more <i className="fa fa-angle-right"></i></span>
 					</div>*/}

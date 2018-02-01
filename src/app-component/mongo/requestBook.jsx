@@ -2,7 +2,7 @@
 let response;
 async function requestBook(newBook){
     
-   var data= await fetch('http://localhost:3005/borrowedBooks/addBook',{
+   var data= await fetch('https://limsreactapi.azurewebsites.net/borrowedBooks/addBook',{
             method: 'PUT',
             headers: {'Content-Type': 'application/json'},
             body:JSON.stringify({

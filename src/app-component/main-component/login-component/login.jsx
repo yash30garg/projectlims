@@ -47,7 +47,7 @@ class Login extends Component {
         }
         else {
             req.post({
-                url: 'http://localhost:3005/api/',
+                url: 'https://limsreactapi.azurewebsites.net/api/',
                 form: { email: email, password: password },
                 headers: new Headers({ "Content-Type": "application/json" }),
                 method: 'POST'
@@ -60,7 +60,8 @@ class Login extends Component {
                         let userDetails = response.data[0]
                         console.log("Login Successful")
                         localStorage.setItem('limsuser', JSON.stringify(userDetails));
-                        window.location = "http://localhost:3000/#/"
+                        // window.location = "http://localhost:3000/#/"
+                        window.location = "https://limsreactapi.azurewebsites.net/#/"
                     }
                     else if (JSON.parse(body).status === 400) {
                         this.setState({ message: JSON.parse(body).message })

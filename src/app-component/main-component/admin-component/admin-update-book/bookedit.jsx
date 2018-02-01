@@ -22,7 +22,7 @@ class BookEdit extends Component {
 
     findBook = (e) => {
         e.preventDefault();
-        fetch('http://localhost:3005/admineditbook/findBook', {
+        fetch('https://limsreactapi.azurewebsites.net/admineditbook/findBook', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             // form:{mid:"1042932"}
@@ -53,7 +53,7 @@ class BookEdit extends Component {
     }
     deleteBook = (e) => {
         e.preventDefault();
-                    fetch('http://localhost:3005/admindeletebook/removeBook', {
+                    fetch('https://limsreactapi.azurewebsites.net/admindeletebook/removeBook', {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             // form:{mid:"1042932"}
@@ -84,7 +84,7 @@ class BookEdit extends Component {
                                 <h3
                                     className="dd"
                                     style={{
-                                        textAlign: "left", marginTop: "7px"
+                                        textAlign: "left", marginTop: "7px",marginLeft:"2%"
                                     }}>
                                     <span className="fa fa-cog" aria-hidden="true"></span>DashBoard
                                     <small> Edit Books</small>

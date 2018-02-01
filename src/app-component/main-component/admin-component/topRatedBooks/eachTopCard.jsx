@@ -222,18 +222,16 @@ export class EachTopCard extends Component {
                                 <b>{this.props.item.title}</b><br/>
                                 <b>Author :
                                 </b>
-                                {this.props.item.author}<br/> {//eslint-disable-next-line
-                                [1, 2, 3, 4, 5].map(d => {
+                                {this.props.item.author}<br/>
+                                <span className="ml-2">{[1, 2, 3, 4, 5].map(d => {
                                     if (this.props.item.rating >= d) 
                                         return <span
-                                            key={`gold${d}`}
-                                            className="fa fa-star"
+                                            class="fa fa-star"
                                             style={{
                                             color: '#ffd700',
                                             fontSize: '5px'
                                         }}></span>
-
-                                })}
+                                })}</span>
                             </div>
                         </div>
 
@@ -253,13 +251,13 @@ export class EachTopCard extends Component {
                                             className="fa fa-heart-o"
                                             style={{
                                             color: '#CD853F'
-                                        }}></span>
+                                        }} title="Click to add to wishlist"></span>
                                     : <span
                                         onClick={this.changeToEmpty}
                                         className="fa fa-heart"
                                         style={{
                                         color: '#CD853F'
-                                    }}></span>}
+                                    }} title="Click to remove from wishlist"></span>}
                             </div>
                         </div>
                         <div
@@ -279,14 +277,14 @@ export class EachTopCard extends Component {
                                             style={{
                                             color: '#CD853F',
                                             marginLeft: '30px'
-                                        }}></span>
+                                        }} title="Click to request"></span>
                                     : <span
                                         onClick={this.changeToRequest}
                                         className="fa fa-undo"
                                         style={{
                                         color: '#CD853F',
                                         marginLeft: '30px'
-                                    }}></span>}
+                                    }} title="Click to return"></span>}
                             </div>
                         </div>
                     </div>

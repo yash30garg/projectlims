@@ -21,7 +21,7 @@ import {requireAuth} from '../../../../app-component/isLoggedIn'
     	componentWillMount() {
 		requireAuth(window.location.href)
 
-        fetch('http://localhost:3005/user/getUsers',{
+        fetch('https://limsreactapi.azurewebsites.net/user/getUsers',{
             method:'GET',
             headers:{'Content-Type':'application/json'}
         })
@@ -32,7 +32,7 @@ import {requireAuth} from '../../../../app-component/isLoggedIn'
         
         		})
 
-                 fetch('http://localhost:3005/books/getBooks',{
+                 fetch('https://limsreactapi.azurewebsites.net/books/getBooks',{
             method:'GET',
             headers:{'Content-Type':'application/json',
         'Authorization': localStorage.getItem('token')}
@@ -93,7 +93,7 @@ import {requireAuth} from '../../../../app-component/isLoggedIn'
                                         <span class="fa fa-user" aria-hidden="true"></span>Users<div
                                             className='mov'
                                             style={{
-                                                paddingRight: "227px"
+                                                marginRight:"68%"
                                             }} />
                                         <span className="badge badge-pill badge-warning mov">{values}</span>
                                     </a>
@@ -102,7 +102,7 @@ import {requireAuth} from '../../../../app-component/isLoggedIn'
 
                                 <br />
                                 <div className="card">
-                                    <div className="card-header card-primary" style={{backgroundColor : "rgb(97, 65, 38)"}}>
+                                    <div className="card-header card-primary" style={{backgroundColor : "rgb(97, 65, 38)",textAlign:"left"}}>
                                         <div className="t">
                                             <span className="fa fa-list" aria-hidden="true"></span>
                                             Books Stats

@@ -255,17 +255,16 @@ class EachSearchCard extends Component {
                             {this.props.eachValue.author}<br/>
                             <b>Category:
                             </b>
-                            {this.props.eachValue.category}<br/> {//eslint-disable-next-line
-                            [1, 2, 3, 4, 5].map(d => {
-                                if (this.props.eachValue.rating >= d) 
-                                    return <span
-                                        key={`starred${d}`}
-                                        className="fa fa-star mt-1"
-                                        style={{
-                                        color: '#FFD700',
-                                        fontSize: '13px'
-                                    }}></span>
-                            })}
+                            {this.props.eachValue.category}<br/>
+                        <span className="ml-2">{[1, 2, 3, 4, 5].map(d => {
+                            if (this.props.eachValue.rating >= d) 
+                                return <span
+                                    class="fa fa-star"
+                                    style={{
+                                    color: '#ffd700',
+                                    fontSize: '5px'
+                                }}></span>
+                        })}</span>
                             <br/>
                         </div>
                     </div>
@@ -285,13 +284,13 @@ class EachSearchCard extends Component {
                                         className="fa fa-heart-o"
                                         style={{
                                         color: '#CD853F'
-                                    }}></span>
+                                    }} title="Click to add to wishlist"></span>
                                 : <span
                                     onClick={this.changeToEmpty}
                                     className="fa fa-heart"
                                     style={{
                                     color: '#CD853F'
-                                }}></span>}
+                                }} title="Click to remove from wishlist"></span>}
                         </div>
                     </div>
                     <div
@@ -311,14 +310,14 @@ class EachSearchCard extends Component {
                                         style={{
                                         color: '#CD853F',
                                         marginLeft: '30px'
-                                    }}></span>
+                                    }} title="Click to request"></span>
                                 : <span
                                     onClick={this.changeToRequest}
                                     className="fa fa-undo"
                                     style={{
                                     color: '#CD853F',
                                     marginLeft: '30px'
-                                }}></span>}
+                                }} title="Click to return"></span>}
                         </div>
                     </div>
                 </div>

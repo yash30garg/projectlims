@@ -25,7 +25,7 @@ class DashBoard extends Component {
     componentWillMount() {
         requireAuth(window.location.href)
 
-        fetch('http://localhost:3005/user/getUsers', {
+        fetch('https://limsreactapi.azurewebsites.net/user/getUsers', {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' }
         })
@@ -36,7 +36,7 @@ class DashBoard extends Component {
 
             })
 
-        fetch('http://localhost:3005/books/getBooks', {
+        fetch('https://limsreactapi.azurewebsites.net/books/getBooks', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -63,7 +63,7 @@ class DashBoard extends Component {
         //     })
 
         // axios
-        //     .get('http://localhost:3005/books/getbooks')
+        //     .get('https://limsreactapi.azurewebsites.net/books/getbooks')
         //     .then(result => {
         //         this.setState({ display: result.data.booksArray });
         //     })
@@ -107,7 +107,7 @@ class DashBoard extends Component {
                                 <h3
                                     className="dd"
                                     style={{
-                                        textAlign: "left", marginTop: "7px"
+                                        textAlign: "left", marginTop: "7px", marginLeft : "2%"
                                     }}>
                                     <span className="fa fa-cog" aria-hidden="true"></span>DashBoard
                                     <small> Manage LiMS</small>
@@ -123,7 +123,7 @@ class DashBoard extends Component {
                                     data-toggle="dropdown"
                                     aria-haspopup="true"
                                     aria-expanded="false"
-                                    style={{ color: 'white', backgroundColor: "#db9917", marginTop: "0px", height: "33px" }}>
+                                    style={{ color: 'white', backgroundColor: "#db9917", marginTop: "0px", height: "33px", marginLeft:"22%" }}>
                                     Manage Content
                                         <span className="caret" /></button>
 

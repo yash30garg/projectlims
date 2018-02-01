@@ -15,7 +15,7 @@ let filteredArray=[];
         wishlistIcon:true,
         requestIcon:true,
         a:0,
-        b:11,
+        b:17,
         showButton:false
     }
 } 
@@ -23,16 +23,16 @@ let filteredArray=[];
     {
     if(this.state.b<filteredArray.length)
     {
-        this.setState({a:this.state.a+11});
-        this.setState({b:this.state.b+11});
+        this.setState({a:this.state.a+17});
+        this.setState({b:this.state.b+17});
     }  
     }
     previous_click_handler=()=>
     {
-    if(this.state.a>=11)
+    if(this.state.a>=17)
     {
-        this.setState({a:this.state.a-11});
-        this.setState({b:this.state.b-11});
+        this.setState({a:this.state.a-17});
+        this.setState({b:this.state.b-17});
     }
 }  
 
@@ -56,15 +56,15 @@ let filteredArray=[];
 }
 if(controller===0) {
     handleController();
-    if(filteredArray.length>12)
+    if(filteredArray.length>18)
         {
           this.setState({showButton:true});
         }
-        if(filteredArray.length<12)
+        if(filteredArray.length<18)
         {
             this.setState({showButton:false})
         }
-    this.setState({a:0,b:11})
+    this.setState({a:0,b:17})
     
 }
 
@@ -86,8 +86,8 @@ return(
      {b}
     </div>
     {this.state.showButton?<div className="row ml-1 mr-1" style={{paddingLeft:"40%"}}>
-     <button onClick={this.previous_click_handler} className="btn-primary">Previous</button>
-      <button onClick={this.next_click_handler} className="btn-primary">Next</button>
+     <button onClick={this.previous_click_handler} className="btn-primary" style={{backgroundColor:"#614126"}}>Previous</button>
+      <button onClick={this.next_click_handler} className="btn-primary" style={{backgroundColor:"#614126"}}>Next</button>
     </div>:null}
     </div>:null}
     </div>
