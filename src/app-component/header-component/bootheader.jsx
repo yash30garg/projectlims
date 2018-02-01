@@ -424,11 +424,10 @@ class BootHeader extends Component {
                                         <div id="profile" onClick={this.openProfile}></div>
                                         <div id="profileDetailsCross" onClick={this.closeDetails}></div>
                                         <div id="openProfileWishlist" onClick={this.openWishlist}/>
-           <div className="collapse show" id="myBooks">
-           <Link to="/borrowedBooks">                                 
+           <div className="collapse show" id="myBooks">                              
            <a>                             
             <button type="button"
-            onClick={this.openBorrowedBooks}
+            onClick={(e)=>{e.preventDefault(); window.location="/#/borrowedBooks"}}
             className="btnl default  list-group-item list-group-item-action default ml-0"
             style={{
             background: " #FFF8DC"
@@ -443,11 +442,9 @@ class BootHeader extends Component {
             </div>
         </button>
         </a>
-        </Link>
-        <Link to="/wishlist">
         <a>
             <button type="button"
-            onClick={this.openWishlist}
+            onClick={(e)=>{e.preventDefault(); window.location ="/#/wishlist"}}
             className="btnl default  list-group-item list-group-item-action default ml-0"
             style={{
             background: " #FFF8DC"
@@ -462,7 +459,6 @@ class BootHeader extends Component {
             </div>
         </button>
         </a>
-        </Link>
 </div>
 
 
@@ -499,9 +495,8 @@ class BootHeader extends Component {
                                         </div>
 
                                         <div className="collapse show scrollList" id="navbaDropdown">
-                                           <Link to="/category/all">
                                             <a>
-                                            <button type="button" onClick={this.openCategory.bind(this, 'all')} className="btnl default list-group-item list-group-item-action ml-0"
+                                            <button type="button" onClick={(e)=>{e.preventDefault(); window.location = '/#/category/all'}} className="btnl default list-group-item list-group-item-action ml-0"
                                                 style={{background: " #FFF8DC"}}>
 
 
@@ -517,7 +512,6 @@ class BootHeader extends Component {
                                                 
                                             </button>
                                             </a>
-                                            </Link>
                                             
                                             {brr.map((r) => {
 

@@ -98,7 +98,7 @@ class SearchResults extends Component {
                 <div id="alert" onClick={this.notify}></div>
                 <ToastContainer />
                 <div className="contained mt-4">
-                    {/*{document.getElementById('alert').click()}*/}
+                    {this.notify}
                     <ol className="breadcrumb" style={{ backgroundColor: "#614126", color: "white" }}  >
                         <h5 >{this.props.divName}<span style={{ float: 'right', cursor: 'pointer', paddingLeft: '70px' }} id="openHome" onClick={(e)=>{e.preventDefault(); window.location="/#/"}}>x</span></h5>
                     </ol>
