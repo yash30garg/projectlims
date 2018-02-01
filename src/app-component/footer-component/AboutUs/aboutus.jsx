@@ -32,7 +32,7 @@ export default class AboutUs extends Component {
         {/*  <img src="https://www.cafecoffeeday.com/sites/default/files/About-Us.jpg" width="1300" height="250" />*/}
           <h1 class="my-4" style={{color:"#614126"}}><big><u>Meet Our Team </u></big></h1>
 
-
+<br/>
 
           <div class="row">
             
@@ -98,21 +98,48 @@ export default class AboutUs extends Component {
           <p><b> Developer</b></p>
         </div>
 
+</div>
 
 
  
+ <h1 class="my-4" style={{color:"#614126"}}><big><u> Our Leads </u></big></h1>
+
+   
+            
+              <br />
+             
+  
+
+
+<div class="row">
+<div class="col-md-3"/>
+<div class="col-md-3">
+          <img class="img img-responsive full-width" src={require('../AboutUs/OurImages/Nitish.jpg') } alt="" height="350" width="350" />
+          <h3> Nitish Bali
+            
+          </h3>
+          <p><b> WebTech Lead</b></p>
+        </div>
+
 
        
-
+    <div class="col-md-3">
     
+          <img class="img img-responsive full-width" src={require('../AboutUs/OurImages/Monika.jpg') } alt="" height="350" width="350" />
+          <h3> Monika Saran
+            
+          </h3>
+          <p><b> WebTech Lead</b></p>
+        </div>
+        <div class="col-md-3"/>
 
 
-
+</div>
 
        
      
 
-</div>
+
  </div>
    
     
