@@ -145,9 +145,8 @@ export default class AboutUs extends Component {
        
      </div>
 
-</div>
- </div>
-   
+     </div>
+     </div>
     
     <Footer />
 
