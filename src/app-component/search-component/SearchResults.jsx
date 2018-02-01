@@ -142,10 +142,10 @@ class SearchResults extends Component {
                                     selectFilter()
                                 }} data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span className="dropdown-toggle"></span>
                                     <option className="dropdown-item" >Filter By</option>
-                                    <option className="dropdown-item">Filtered By 5 Rated</option>
-                                    <option className="dropdown-item">Filtered By 4 and above </option>
-                                    <option className="dropdown-item" >Filtered by 3 and above</option>
-                                    <option className="dropdown-item">Filtered by 2 and above</option>
+                                    <option className="dropdown-item">Filter By 5 Rated</option>
+                                    <option className="dropdown-item">Filter By 4 and above</option>
+                                    <option className="dropdown-item" >Filter by 3 and above</option>
+                                    <option className="dropdown-item">Filter by 2 and above</option>
                                 </select>
                             </div>
                         </div>

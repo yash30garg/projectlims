@@ -178,63 +178,72 @@ export var sortRating = () => {
 }
 
 export var selectFilter = () => {
-        if (document.getElementById("filter").value === "5 Rated") {
+        if (document.getElementById("filter").value === "Filter By 5 Rated") {
             fiveRated();
-            window.location = `/#/search/sorted=${value}`
-            // document.getElementById('os').click();
         }
-        else if (document.getElementById("filter").value === "4 and above Rated") {
+        else if (document.getElementById("filter").value === "Filter By 4 and above") {
             fourRated();
         }
-        else if (document.getElementById("filter").value === "3 and above Rated") {
+        else if (document.getElementById("filter").value === "Filter by 3 and above") {
             threeRated();
         }
-        else if (document.getElementById("filter").value === "2 and above Rated") {
+        else if (document.getElementById("filter").value === "Filter by 2 and above") {
             twoRated();
         }
-        else document.getElementById('defaultSearchResults').click();
+        else if(document.getElementById('filter').value === "Filter By")document.getElementById('defaultSearchResults').click();
     }
 
     var fiveRated= () => {
         processedData = store.getState().sorted_Data
         console.log(store.getState().sorted_Data)
         console.log(processedData)
-        let filter = processedData.filter((data) => data.rating === 5)
-        filter.map((res)=>processedData.push(res))
+        let filter = processedData
+        processedData=[]
+        filter.filter((data) => data.rating === 5)
+        .map((res)=> processedData.push(res))
         // processedData = this.state.sortedData;
+        window.location = `/#/search/5_star=${value}`
         console.log(processedData)
         console.log("Sorted by five rated");
-        window.location = `/#/search/5_star=${value}`
         // document.getElementById('os').click();
     }
     var fourRated = () =>  {
         processedData = store.getState().sorted_Data
-        processedData = processedData.filter((data) =>
+        let filter = processedData
+        processedData=[]
+        filter.filter((data) =>
             (data.rating <= 5) && (data.rating >= 4))
+            .map((res)=> processedData.push(res))
         // processedData = this.state.sortedData;
+        window.location = `/#/search/>4_star=${value}`
         console.log(processedData)
         console.log("Sorted by four rated");
-        window.location = `/#/search/>4_star=${value}`
         // document.getElementById('os').click();
     }
     var threeRated = () => {
         processedData = store.getState().sorted_Data
-        processedData = processedData.filter((data) =>
+        let filter = processedData
+        processedData=[]
+        filter.filter((data) =>
             (data.rating <= 5) && (data.rating >= 3))
+            .map((res)=> processedData.push(res))
         // processedData = this.state.sortedData;
+        window.location = `/#/search/>3_star=${value}`
         console.log(processedData)
         console.log("Sorted by three rated");
-        window.location = `/#/search/>3_star=${value}`
         // document.getElementById('os').click()
     }
     var twoRated = () => {
         processedData = store.getState().sorted_Data
-        processedData = processedData.filter((data) =>
+        let filter = processedData
+        processedData=[]
+        filter.filter((data) =>
             (data.rating <= 5) && (data.rating >= 2))
+            .map((res)=> processedData.push(res))
         // processedData = this.state.sortedData;
+        window.location = `/#/search/>2_star=${value}`
         console.log(processedData)
         console.log("Sorted by two rated");
-        window.location = `/#/search/>2_star=${value}`
         // document.getElementById('os').click();
     }
 

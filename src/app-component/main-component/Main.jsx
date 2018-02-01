@@ -12,7 +12,9 @@ import BorrowedSlider from './user-component/borrowedBooks/borrowedSlider'
 import WishedBooks from './user-component/wishlist/wishlistComponent'
 import SearchResults from '../search-component/SearchResults'
 import Details from '../BookDetails-Component/details.jsx'
+import {requireAuth} from '../isLoggedIn.js'
 
+import {processedData} from '../search-component/Search'
 
 export default class Main extends Component {
     constructor() {
@@ -22,12 +24,14 @@ export default class Main extends Component {
         }
     }
     componentWillMount() {
+        requireAuth(window.location.href)
         if(window.innerWidth<=500)
         {
             this.setState({marginLeft:'0%'})
         }
     }
     render() {
+        if(window.login==="yes")
         return(
             <div style={{overflow:"hidden"}}>
             <Header/>
@@ -43,7 +47,7 @@ export default class Main extends Component {
                 <Route path="/borrowedBooks" exact component={BorrowedSlider}/>
                 <Route path="/wishlist" exact component={WishedBooks}/>
                 <Route path="/profile" exact component={Profile}/>
-                <Route path="/search/:searchValue" exact component={SearchResults} onChange={SearchResults} onEnter={SearchResults}/>
+                <Route path="/search/:searchValue" exact render={(processedData) => <SearchResults display={processedData}/>} onChange={SearchResults}/>
                 <Route path="/details" exact render = {()=> <Details data={window.selected}/>}/>
                 </Switch>
                 </HashRouter>
@@ -52,5 +56,7 @@ export default class Main extends Component {
             <Footer/>
             </div>
         )
+        else if(window.login==="no")
+        return(<div></div>)
     }
 }

@@ -23,6 +23,7 @@ import $ from 'jquery';
 import BorrowedBooks from './../main-component/admin-component/booksDisplay';
 import Profile from './../main-component/user-component/profileView/ProfileDetails';
 import '../main-component/user-component/profileView/profileDetails.css'
+import {requireAuth} from '../isLoggedIn.js'
 export let controller;
 export var handleController = () => {
     controller=1
@@ -65,6 +66,9 @@ class BootHeader extends Component {
         }
         window.showProfile=false;
         window.hideCategory=true;
+    }
+    componentWillMount() {
+        requireAuth(window.location.href)
     }
     // componentWillMount() {
     //     axios
@@ -286,6 +290,7 @@ class BootHeader extends Component {
 //         if (this.state.redirect) {
 //     return <Redirect push to="/search" />;
 //   }
+        if(window.login==="yes") {
         let valueB,valueW;
         if(this.props.bbooks===null){
             valueB=0;
@@ -578,6 +583,9 @@ class BootHeader extends Component {
             </div>
 
         )
+    }
+    else if(window.login==="no")
+    return (<div></div>)
 
     }
 
