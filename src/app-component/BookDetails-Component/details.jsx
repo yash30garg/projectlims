@@ -6,6 +6,8 @@ import {storeBbooks} from '../../state/action/bbooksAction'
 import {storeWbooks} from '../../state/action/wbooksAction'
 import '../search-component/Search.css';
 import $ from 'jquery';
+import {css} from 'glamor'
+import {ToastContainer, toast} from 'react-toastify';
 import requestBook from '.././mongo/requestBook'
 import returnBook from '.././mongo/returnBook'
 import {addReview} from '.././mongo/addReview'
@@ -74,6 +76,7 @@ class Details extends Component {
         };
     }
     request = () => {
+        if (navigator.onLine) {
         if (this.props.bbooks.length < 4) {
             let bookAdded = new Object();
             bookAdded.isbn = this.props.data.isbn;
@@ -93,6 +96,21 @@ class Details extends Component {
                     .storeBbooks(data.data)
             }).bind(this)()
             this.setState({req: false})
+        toast.success("Successfully Requested !!!", {
+                    position: toast.POSITION.BOTTOM_CENTER,
+                    className: css({background: "brown"})
+                });
+            } else {
+                toast.warn("Oops! You Cannot borrow more books !!!", {
+                    position: toast.POSITION.BOTTOM_CENTER,
+                    className: css({background: "red"})
+                });
+            }
+        } else {
+            toast.error("You're Not Online !!!", {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({background: "blue"})
+            });
         }
     }
     addReview = () => {
@@ -111,9 +129,13 @@ class Details extends Component {
             .bind(this)()
         document.getElementById("title").value="";
         document.getElementById("desc").value="";
+         toast.success("Successfully Added !!!", {
+                    position: toast.POSITION.BOTTOM_CENTER,
+                    className: css({background: "brown"})
+                });
     }
-
     return = () => {
+        if (navigator.onLine) {
         (async function () {
             var data = await returnBook(this.props.data.isbn);
             console.log(data.data);
@@ -122,9 +144,20 @@ class Details extends Component {
                 .storeBbooks(data.data)
         }).bind(this)()
         this.setState({req: true})
+         toast.warn("Successfully Returned !!!", {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({background: "brown"})
+            });
+        } else {
+            toast.error("You're Not Online !!!", {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({background: "blue"})
+            });
+        }
     }
 
     addWish = () => {
+         if (navigator.onLine) {
         var items = new Object();
         items.isbn = this.props.data.isbn;
         items.title = this.props.data.title;
@@ -143,9 +176,20 @@ class Details extends Component {
                 .storeWbooks(data)
         }).bind(this)()
         this.setState({wish: false});
+        toast.success("Added to WishList !!!", {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({background: "brown"})
+            });
+        } else {
+            toast.error("You're Not Online !!!", {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({background: "blue"})
+            });
+        }
     }
 
     removeWish = () => {
+         if (navigator.onLine) {
         (async function () {
             var data = await removeWishlist(this.props.data.isbn);
             console.log("data")
@@ -155,6 +199,16 @@ class Details extends Component {
                 .storeWbooks(data)
         }).bind(this)()
         this.setState({wish: true});
+        toast.success("Removed from WishList !!!", {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({background: "brown"})
+            });
+        } else {
+            toast.error("You're Not Online !!!", {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({background: "blue"})
+            });
+        }
     }
     /*renew = () => {
             // storeBbooks.getState().bbooks
