@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react';
 import Footer from '../footer.jsx';
 import AlternateHeader from '../../header-component/AlternateHeader/AlternateHeader.jsx';
@@ -163,3 +164,4 @@ export default class AboutUs extends Component {
                 )
     }
 }
+

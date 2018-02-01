@@ -226,6 +226,21 @@ class BootHeader extends Component {
             searchClicked : false,
         })
     }
+    closeProfile=()=>
+    {
+            window.showDetails=false;
+            window.showProfile=false;
+            this.setState({
+            landingView: true,
+            categoryClicked: true,
+            borrowedClicked: false,
+            passBorrowed: false,
+            wishlistClicked: false,
+            passWish: false,
+            searchResults: false,
+            searchClicked:false
+        });
+    }
 
 
     plusCtgryClicked = () => {
@@ -401,6 +416,7 @@ class BootHeader extends Component {
                                         <div id="prefferedDetailsCross" onClick={this.closeDetails}></div>
                                         <div id="profile" onClick={this.openProfile}></div>
                                         <div id="profileDetailsCross" onClick={this.closeDetails}></div>
+                                        <div id="openProfileWishlist" onClick={this.openWishlist}/>
            <div className="collapse show" id="myBooks">                             
            <a>                             
             <button type="button"
@@ -472,7 +488,7 @@ class BootHeader extends Component {
                                             </div>
                                         </div>
 
-                                        <div className="collapse show" id="navbaDropdown">
+                                        <div className="collapse show scrollList" id="navbaDropdown">
                                            
                                             <a>
                                             <button type="button" onClick={this.openCategory.bind(this, 'all')} className="btnl default list-group-item list-group-item-action ml-0"
@@ -545,7 +561,7 @@ class BootHeader extends Component {
                                     {window.showDetails?<Details data={window.selected} detailsCrossClicked={this.closeDetails}/>:null}
                                     </div>
                                     <div>
-                                    {window.showProfile?<Profile/>:null}
+                                    {window.showProfile?<Profile profileCrossClicked={this.closeProfile}/>:null}
                                     </div>
                                 </div>
                             </div>

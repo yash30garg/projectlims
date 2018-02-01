@@ -34,12 +34,22 @@ class SearchResults extends Component {
     }
 
     notify = () => {
-        if (notify === 0) {
+        if (notify === 0&&navigator.onLine) {
             notify = 1;
             toast.success("Is this what you were looking for !!!", {
                 position: toast.POSITION.BOTTOM_CENTER,
                 className: css({
                     background: "brown"
+                })
+            });
+        }
+        else if(notify===0&&!navigator.onLine)
+        {
+            notify=1;
+            toast.error("You're Not Online !!!", {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({
+                    background: "blue"
                 })
             });
         }

@@ -3,6 +3,7 @@ import { AuthenticationContext, adalFetch } from 'react-adal';
 
 // // To login through https://limsreact.azurewebsites.net/#/, use this adalConfig variable
 
+
 export const adalConfig = {
   tenant: '85c997b9-f494-46b3-a11d-772983cf6f11',
   clientId: '859c085f-f3d7-40d9-8994-cfebc8407fde',
@@ -12,6 +13,17 @@ export const adalConfig = {
   postLogoutRedirectUri : "http://limsreact.azurewebsites.net/#/login",
   cacheLocation: 'localStorage',
 };
+
+// // export const adalConfig = {
+// //   tenant: '85c997b9-f494-46b3-a11d-772983cf6f11',
+// //   clientId: '859c085f-f3d7-40d9-8994-cfebc8407fde',
+// //   endpoints: {
+// //     api: 'ce0a0b3e-fda3-4d28-a317-721943b90577',
+// //   },
+// //   postLogoutRedirectUri : "https://limsreact.azurewebsites.net/#/login",
+// //   cacheLocation: 'localStorage',
+// // };
+
 
 // // To login through http://localhost:3000, use this adalConfig variable
 // export const adalConfig = {

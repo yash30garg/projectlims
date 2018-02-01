@@ -70,6 +70,7 @@ class EachPrefferedCard extends Component{
     }
     changeToFilled=()=>
     {
+        if(navigator.onLine){
         var items=new Object();
         items.isbn=this.props.item.isbn;
         items.title=this.props.item.title;
@@ -90,16 +91,26 @@ class EachPrefferedCard extends Component{
 
         // addWishlist(items);
         this.setState({wishlistIcon:false});
-         toast.success("Success !!!", {
+         toast.success("Added to WishList !!!", {
                 position: toast.POSITION.BOTTOM_CENTER,
                 className: css({
                     background: "brown"
                 })
             });
     }
+    else{
+        toast.error("You're Not Online !!!", {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({
+                    background: "blue"
+                })
+            });
+    }
+    }
     changeToEmpty=()=>
     {
         // removeWishlist(this.props.item.isbn);
+        if(navigator.onLine){
         (async function(){
                     var data=await removeWishlist(this.props.item.isbn);
                     console.log("data")
@@ -108,12 +119,28 @@ class EachPrefferedCard extends Component{
                 // var newD=data.json();
             }).bind(this)()
         this.setState({wishlistIcon:true});
+        toast.success("Removed from WishList !!!", {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({
+                    background: "brown"
+                })
+            });
+    }
+        else{
+        toast.error("You're Not Online !!!", {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({
+                    background: "blue"
+                })
+            });
+    }
     }
     changeToUndo=()=>
     {
         // let num=test();
         // alert("in")
         // alert(num);
+        if(navigator.onLine){
         if(this.props.bbooks.length<4){
             let bookAdded=new Object();
                 bookAdded.isbn=this.props.item.isbn;
@@ -131,20 +158,35 @@ class EachPrefferedCard extends Component{
                 this.props.storeBbooks(data.data)
                 // var newD=data.json();
             }).bind(this)()
-                
-                // var data=requestBook(bookAdded);
-                // var newD = data.then()
-                // console.log(newD);
-                // var newD=data.json();
-                // console.log("data")
-                // console.log(data)
-                // this.props.storeBbooks(data)
-                // alert(books.length)
         this.setState({requestIcon:false});
+        toast.success("Successfully Requested !!!", {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({
+                    background: "brown"
+                })
+            });
+    }
+    else{
+        toast.warn("Oops! You Cannot borrow more books !!!", {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({
+                    background: "red"
+                })
+            });
+    }
+        }
+        else{
+        toast.error("You're Not Online !!!", {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({
+                    background: "blue"
+                })
+            });
         }
     }
     changeToRequest=()=>
     {
+        if(navigator.onLine){
         (async function(){
                 var data=await returnBook(this.props.item.isbn);
                 console.log(data.data);
@@ -152,6 +194,21 @@ class EachPrefferedCard extends Component{
                 this.props.storeBbooks(data.data)
             }).bind(this)()
         this.setState({requestIcon:true});
+        toast.warn("Successfully Returned !!!", {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({
+                    background: "brown"
+                })
+            });
+        }
+        else{
+        toast.error("You're Not Online !!!", {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({
+                    background: "blue"
+                })
+            });
+        }
     }
     render()
     {
@@ -184,28 +241,27 @@ class EachPrefferedCard extends Component{
                         {this.props.item.author}<br/>
                         <b>Category :
                         </b>
-                        {this.props.item.category}<br/> {
-                            //eslint-disable-next-line
-                            [1, 2, 3, 4, 5].map(d => {
+                        {this.props.item.category}<br/> 
+                    
+                        <span className="ml-2">{[1, 2, 3, 4, 5].map(d => {
                             if (this.props.item.rating >= d) 
                                 return <span
-                                key={`goldStar${d}`}
-                                    className="fa fa-star"
+                                    class="fa fa-star"
                                     style={{
                                     color: '#ffd700',
-                                    fontSize:'5px'
+                                    fontSize: '5px'
                                 }}></span>
-                        })}
+                        })}</span>
                     </div>
                 </div>
                 <div className="buttonOverlay" style={{backgroundColor : "white"}} >
                 <div className="buttonText container-fluid" style={{fontSize:'20px'}}>
-                {this.state.wishlistIcon?<span onClick={this.changeToFilled} className="fa fa-heart-o" style={{color:'#CD853F'}}></span>:<span onClick={this.changeToEmpty} className="fa fa-heart" style={{color:'#CD853F'}}></span>}
+                {this.state.wishlistIcon?<span onClick={this.changeToFilled} className="fa fa-heart-o" style={{color:'#CD853F'}} title="Click to add to wishlist"></span>:<span onClick={this.changeToEmpty} className="fa fa-heart" style={{color:'#CD853F'}} title="Click to remove from wishlist"></span>}
                 </div>
                 </div>
                 <div className="requestOverlay" style={{backgroundColor : "white"}} >
                 <div className="requestText container-fluid" style={{fontSize:'20px'}}>
-                {this.state.requestIcon?<span onClick={this.changeToUndo} className="fa fa-plus-circle" style={{color:'#CD853F', marginLeft:'30px'}}></span>: <span onClick={this.changeToRequest} className="fa fa-undo" style={{color:'#CD853F', marginLeft:'30px'}}></span>}
+                {this.state.requestIcon?<span onClick={this.changeToUndo} className="fa fa-plus-circle" style={{color:'#CD853F', marginLeft:'30px'}} title="Click to request"></span>: <span onClick={this.changeToRequest} className="fa fa-undo" style={{color:'#CD853F', marginLeft:'30px'}} title="Click to return"></span>}
                 </div>
                 </div>
                 

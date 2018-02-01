@@ -1,5 +1,5 @@
 export async function removeWishlist(isbn){
-var data = await fetch('http://localhost:3005/wishlist/removeWishBook',{
+var data = await fetch('https://limsreactapi.azurewebsites.net/wishlist/removeWishBook',{
             method: 'PUT',
             headers: {'Content-Type': 'application/json'},
             body:JSON.stringify({

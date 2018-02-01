@@ -11,7 +11,7 @@
 
 body {
 	background: #FFF8DC;
-	color: #333;
+	color: #614126;
 	font-weight: normal;
 	font-size: 1em;
 	font-family: 'Roboto', Arial, sans-serif;
@@ -43,7 +43,7 @@ input:focus, textarea:focus, keygen:focus, select:focus {
 }
 
 .grid .col3 {
-	width: 32%;
+	width: 45%;
 	float: left;
 	margin-right: 11px;
 }
@@ -118,7 +118,7 @@ input:focus, textarea:focus, keygen:focus, select:focus {
     font-size: 14px;
 }
 .section1 .col2.last .col3 h1 {
-    color: #FB4C22;
+color: #614126;
 }
 
 .section1 .col2.last .col3 {
@@ -208,7 +208,7 @@ section.section2 {
     margin-bottom: 18px;
 }
 .section2 .col3.center .profileinfo img {
-    border: 3px solid #FB4C22;
+    border: 3px solid #614126;
 
 }
 .section2 .profileinfo p {
@@ -288,4 +288,44 @@ section.section2 {
 		font-size: 18px;
 	}
 	
+}
+.eachTitle{
+	color: #614126;
+	text-align: left;
+	padding-left: 10px;
+	font-size: 15px;
+}
+.hoverTitle:hover{
+	cursor: pointer;
+    border: 1px solid #eee;
+    box-shadow:0 5px 5px #ccc;
+}
+.detailsCard
+{
+	color: #614126;
+	 border: 1px solid #eee;
+    box-shadow:0 5px 5px #ccc;
+	width:90%;
+	margin-left: 5%;
+	background-color: white;
+	height: 250px;
+
+}
+.detailsCard .horizontalLine
+{
+	border: 1px solid burlywood;
+	height: 1px;
+	width: 70%;
+	opacity: 0.5;
+
+}
+.more{
+	text-align: right;
+	font-size: 15px;
+    cursor: pointer;
+
+
+}
+.more:hover{
+	text-decoration: underline;
 }
