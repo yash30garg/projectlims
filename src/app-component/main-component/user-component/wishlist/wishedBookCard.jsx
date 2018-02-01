@@ -31,7 +31,7 @@ class WishedCard extends Component{
         // eslint-disable-next-line
             let reqVal = true,wishVal = true;
         // console.log("top") console.log(props.bbooks)
-        if (this.props.bbooks.length !== 0) {
+        if (this.props.bbooks!==undefined&&this.props.bbooks.length !== 0) {
             this
                 .props
                 .bbooks
@@ -45,7 +45,7 @@ class WishedCard extends Component{
                     }
                 })
         }
-        if (this.props.wbooks.length !== 0) {
+        if (this.props.wbooks!==undefined && this.props.wbooks.length !== 0) {
             this
                 .props
                 .wbooks
