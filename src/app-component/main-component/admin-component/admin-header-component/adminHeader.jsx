@@ -58,7 +58,7 @@ class Header extends Component {
                         <ul class="navbar-nav navbar-right">
                             <li class="nav-item active">
                                 <a class="nav-link" href="!#">
-                                    Welcome Anirudh,
+                                    Welcome {localStorage.getItem('user-name'),
                                     {/*<span class="sr-only">(current)</span>*/}
                                 </a>
                             </li>
