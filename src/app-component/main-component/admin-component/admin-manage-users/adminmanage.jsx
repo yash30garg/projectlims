@@ -87,7 +87,7 @@ class ManageAdmin extends Component {
           console.log(res)
           if(res==="Done")
           {
-              alert("Role Changed to Admin")
+              alert("Role Changed")
           }
           else{
               alert("An error occurred")

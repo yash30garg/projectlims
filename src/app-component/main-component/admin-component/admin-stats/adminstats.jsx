@@ -93,7 +93,7 @@ import {requireAuth} from '../../../../app-component/isLoggedIn'
                                         <span class="fa fa-user" aria-hidden="true"></span>Users<div
                                             className='mov'
                                             style={{
-                                                marginRight:"100%"
+                                                marginRight:"10%"
                                             }} />
                                         <span className="badge badge-pill badge-warning mov">{values}</span>
                                     </a>
