@@ -1,0 +1,134 @@
+
+import React, { Component } from 'react';
+import Footer from '../footer.jsx';
+import AlternateHeader from '../../header-component/AlternateHeader/AlternateHeader.jsx';
+
+// import $ from 'jquery';
+import { requireAuth } from '../../isLoggedIn'
+
+export default class AboutUs extends Component {
+
+    componentWillMount() {
+        requireAuth(window.location.href)
+    }
+    componentDidMount() {
+
+
+
+    }
+    render() {
+        return (
+            
+      
+      <div style={{ background:'#FFF8DC'}}>
+    
+      
+<AlternateHeader />
+  
+  
+
+
+        <div class="container-fluid">
+        {/*  <img src="https://www.cafecoffeeday.com/sites/default/files/About-Us.jpg" width="1300" height="250" />*/}
+          <h1 class="my-4" style={{color:"#614126"}}><big><u>Meet Our Team </u></big></h1>
+
+
+
+          <div class="row">
+            
+              <br /><br />
+             
+    
+
+         <div class="col-md-1" />
+
+
+
+
+<div class="col-md-2">
+          <img class="img img-responsive full-width" src={require('../AboutUs/OurImages/Yash.jpg') } alt="" height="250" width="250" />
+          <h3> Yash Garg
+            
+          </h3>
+          <p><b> Developer</b></p>
+        </div>
+        
+
+
+
+<div class="col-md-2">
+          <img class="img img-responsive full-width" src={require('../AboutUs/OurImages/chaitanya.jpg')} alt="" height="250" width="250" />
+          <h3>Chaitanya Boyapati 
+           
+          </h3>
+          
+          <p><b> Developer</b></p>
+        </div>
+
+
+
+        
+
+
+<div class="col-md-2">
+          <img class="img img-responsive full-width" src={require( '../AboutUs/OurImages/aish.jpg')} alt="" height="250" width="250"/>
+          <h3>Aishwarya Sinha
+            
+          </h3>
+          <p><b> Developer</b></p>
+        
+        </div>
+
+ 
+
+   
+        <div class="col-md-2">
+          <img class="img img-responsive full-width" src={require('../AboutUs/OurImages/anirudh.jpg')} alt="" height="250" width="250"/>
+          <h3>Anirudh A.S. 
+           
+          </h3>
+          <p><b> Developer</b></p>
+          </div>
+
+ <div class="col-md-2">
+          <img class="img img-responsive full-width" src={require('../AboutUs/OurImages/ankit.jpg')} alt="" height="250" width="250" />
+          <h3>Ankit Gupta
+            
+          </h3>
+          <p><b> Developer</b></p>
+        </div>
+
+
+
+ 
+
+       
+
+    
+
+
+
+
+       
+     
+
+</div>
+ </div>
+   
+    
+    <Footer />
+
+
+
+ </div>
+ 
+ 
+
+   
+                
+                
+
+                )
+    }
+
+}

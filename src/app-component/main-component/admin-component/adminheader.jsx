@@ -4,6 +4,19 @@ import {Link} from 'react-router-dom';
 import {authContext} from '../../../adalConfig.js'
 
  class AdminHeader extends Component {
+
+    componentWillMount() {
+        if(localStorage.getItem('role')==="admin")
+        {
+            console.log(localStorage.getItem('role'))
+            window.location = window.location.href
+        }
+        else if(localStorage.getItem('role')==="user")
+        {
+            window.location.replace('/#/')
+        }
+    }
+
     logout = (e) => {
         e.preventDefault();
         sessionStorage.clear();

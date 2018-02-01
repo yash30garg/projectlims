@@ -34,6 +34,12 @@ export var search = () => {
         value1 = value.substring(0,value.indexOf('and')-1)
         value2 = value.substring(value.indexOf('and')+4,value.length)
     }
+    else if(value.indexOf(',')>-1)
+    {
+        console.log(',')
+        value1 = value.substring(0,value.indexOf(','))
+        value2 = value.substring(value.indexOf(',')+2, value.length)
+    }
     if (value === "")
         document.getElementById('cs').click();
     else {
