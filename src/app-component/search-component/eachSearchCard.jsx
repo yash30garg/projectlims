@@ -68,9 +68,8 @@ class EachSearchCard extends Component {
     handle(res) {
         window.selected = res;
         window.showDetails = true;
-        document
-            .getElementById('detail')
-            .click();
+        window.location="/#/details"
+        // document.getElementById('detail').click();
         window.setClickProps = "searchDetailsCross"
     }
 

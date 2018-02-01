@@ -34,7 +34,7 @@ class EachPrefferedCard extends Component{
         // console.log(bbooks)
             // alert(window.bbooks.length);
             // console.log(props.data.length)
-            if(props.Bdata.length!==0){
+            if( props.Bdata!==null && props.Bdata.length!==0){
                  props.Bdata.map(res=>{
                     //  console.log(res)
             if(res.isbn===this.props.item.isbn){   
@@ -43,7 +43,7 @@ class EachPrefferedCard extends Component{
             }
         })
             }
-            if(props.Wdata.length!==0){
+            if(props.Wdata!==null && props.Wdata.length!==0){
                  props.Wdata.map(res=>{
                     //  console.log(res)
             if(res.isbn===this.props.item.isbn){   
@@ -65,7 +65,8 @@ class EachPrefferedCard extends Component{
     handle(){
         window.selected=this.props.item
         window.showDetails=true;
-        document.getElementById('detail').click();
+        window.location="/#/details"
+        // document.getElementById('detail').click();
         window.setClickProps="prefferedDetailsCross"
     }
     changeToFilled=()=>

@@ -1,5 +1,5 @@
 import React,{ Component } from 'react';
-import {WishedCard} from './wishedBookCard'
+import WishedCard from './wishedBookCard'
 import {connect} from 'react-redux';
 class WishedBooks extends Component
 {
@@ -9,7 +9,7 @@ class WishedBooks extends Component
         let x=<div>
         <h2 style={{textAlign:'center',color:"#614126", fontSize : "20px"}}>You have no items in your wishlist. Start adding!!</h2><img alt="" src="https://static1.squarespace.com/static/56b46411356fb0307ba84bd3/t/57e980e2e4fcb54af2a38dc6/1474920680832/" />
         </div>
-        if(wishlist.length!==0)
+        if(wishlist!==null && wishlist.length!==0)
         {
 
         x=<div className="row mb-5">
@@ -26,7 +26,7 @@ class WishedBooks extends Component
         return(
     <div className="contained mt-4">
         <ol className="breadcrumb" style={{backgroundColor : '	#614126', color : "white"}}>
-        <h5>My Wishlist<span onClick={this.props.wishCrossClicked} style={{float:'right',cursor:'pointer',paddingLeft:'70px'}}>x</span> </h5>
+        <h5>My Wishlist<span onClick={(e)=>{e.preventDefault(); window.location="/#/"}} style={{float:'right',cursor:'pointer',paddingLeft:'70px'}}>x</span> </h5>
         </ol>
         
      {x}

@@ -8,6 +8,11 @@ import Footer from '../../footer-component/footer'
 // import {email,mid} from '../login-component/login.jsx';
 import {requireAuth} from '../../isLoggedIn.js'
 import {Link} from 'react-router-dom'
+import { HashRouter, Route, Switch } from 'react-router-dom';
+
+
+import BootHeader from '../../header-component/bootheader'
+import LandingView from '../../header-component/landingView'
 // let users;
 // window.bbooks='';
 // import {email,mid} from '../login-component/login.jsx'
@@ -55,13 +60,13 @@ componentWillMount() {
         return(
             <div>
             {/*<BootHeader />*/}
-            <Header/>
+            {/*<Header/>*/}
             {/*<Pbooks/>*/}
             {/*<BorrowedSlider/>*/}
-            <Footer />
-            <Link to="/adminDash">
-            <input type="button" className="btn btn-primary" value="Admin" style={{position:"fixed",right:"1%",bottom:"0px",display:this.state.goToAdmin}}/>
-            </Link>
+            {/*<Footer />*/}
+            <div className="contained mt-4" >
+                <LandingView/>
+            </div>
             </div>
         );
     }
