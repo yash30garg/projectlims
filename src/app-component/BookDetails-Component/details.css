@@ -13,10 +13,10 @@
       margin-bottom: 20px; } }
 
 .details-btn{
+  /*width: 100%;*/
   /*background-color: rgb(205,133,63);*/
   /*border-color: rgb(205,133,63);*/
   color: rgb(205,133,63);
-  width: 50%;
 }
 .preview-pic {
   -webkit-box-flex: 1;
