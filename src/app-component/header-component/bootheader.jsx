@@ -488,7 +488,7 @@ class BootHeader extends Component {
                                             </div>
                                         </div>
 
-                                        <div className="collapse show" id="navbaDropdown">
+                                        <div className="collapse show scrollList" id="navbaDropdown">
                                            
                                             <a>
                                             <button type="button" onClick={this.openCategory.bind(this, 'all')} className="btnl default list-group-item list-group-item-action ml-0"

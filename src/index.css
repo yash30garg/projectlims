@@ -6,3 +6,23 @@ body {
   min-height: 100vh;
   flex-direction: column;
 }
+/*::-webkit-scrollbar {
+    width: 8px;
+}*/
+
+
+/*::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px #afa577; 
+    border-radius: 100px;
+}*/
+ 
+
+/*::-webkit-scrollbar-thumb {
+    background: #CD853F; 
+    border-radius: 10px;
+}*/
+
+
+/*::-webkit-scrollbar-thumb:hover {
+    background: #614126; 
+}*/

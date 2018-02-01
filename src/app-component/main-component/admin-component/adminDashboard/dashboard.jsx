@@ -25,7 +25,7 @@ class DashBoard extends Component {
     componentWillMount() {
         requireAuth(window.location.href)
 
-        fetch('http://localhost:3005/user/getUsers', {
+        fetch('https://limsreactapi.azurewebsites.net/user/getUsers', {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' }
         })
@@ -36,7 +36,7 @@ class DashBoard extends Component {
 
             })
 
-        fetch('http://localhost:3005/books/getBooks', {
+        fetch('https://limsreactapi.azurewebsites.net/books/getBooks', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -63,7 +63,7 @@ class DashBoard extends Component {
         //     })
 
         // axios
-        //     .get('http://localhost:3005/books/getbooks')
+        //     .get('https://limsreactapi.azurewebsites.net/books/getbooks')
         //     .then(result => {
         //         this.setState({ display: result.data.booksArray });
         //     })

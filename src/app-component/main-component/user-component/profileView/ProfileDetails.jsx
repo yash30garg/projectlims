@@ -16,13 +16,23 @@ class Profile extends Component {
 	{
 		super();
 		this.state={
-			showMore:false
+			showMore:false,
+			isWishFilled:true,
+			isBorrowedFilled:true
 		}
 	}
 	componentWillMount() {
 		if(this.props.wbooks.length>4)
 		{
 			this.setState({showMore:true});
+		}
+	    if(this.props.wbooks.length==0)
+		{
+			this.setState({isWishFilled:false});
+		}
+	    if(this.props.bbooks.length==0)
+		{
+			this.setState({isBorrowedFilled:false});
 		}
 		requireAuth(window.location.href)
 	}
@@ -110,7 +120,7 @@ class Profile extends Component {
 				<h3 className="mt-3">Borrowed Books</h3>
 				<div className="horizontalLine mx-auto mt-3"/>
 				<div className="mt-3">
-                {bookName}
+                {this.state.isBorrowedFilled?<div>{bookName}</div>:<div className="mt-5"><b>No Borrowed book!<br/>Its very easy to borrow a book from kalinga library.</b></div>}
 				</div>
 				</div>
 				</div>
@@ -120,7 +130,7 @@ class Profile extends Component {
 				<h3 className="mt-3">Wished Books</h3>
 				<div className="horizontalLine mx-auto mt-3"/>
 				<div className="mt-3">
-                {wishBookName}
+                {this.state.isWishFilled?<div>{wishBookName}</div>:<div className="mt-5"><b>No wished book!<br/>Don't hesitate Mindtree gives the freedom to wish.</b></div>}
 				</div>
 				{this.state.showMore?<div className="more mr-3" onClick={this.profileWislist}><b>more..</b></div>:null}
 				</div>
@@ -138,10 +148,10 @@ class Profile extends Component {
 		{/*<section className="section2 clearfix">*/}
 			{/*<div className="grid">*/}
 				{/*<div className="col3 first">
-					<div className="postcont"><img src="http://www.ohmyindia.com/wp-content/uploads/2017/09/dhoni8.jpg" alt="" />
+					<div className="postcont"><img src="https://www.ohmyindia.com/wp-content/uploads/2017/09/dhoni8.jpg" alt="" />
 					</div>*/}
 					{/*<div className="profileinfo">
-						<img src="http://images.contactmusic.com/newsimages/david_beckham_1133321.jpg" alt="" />
+						<img src="https://images.contactmusic.com/newsimages/david_beckham_1133321.jpg" alt="" />
 						<p>MS Dhoni has hit most sixes for India in international cricket</p>
 						<span>Read more <i className="fa fa-angle-right"></i></span>
 					</div>
@@ -156,10 +166,10 @@ class Profile extends Component {
 					</div>
 				</div>*/}
 				{/*<div className="col3 last">
-					<div className="postcont"><img src="http://ste.india.com/sites/default/files/2017/07/06/607698-ms-dhoni-pc-pti4.jpg" alt="" />
+					<div className="postcont"><img src="https://ste.india.com/sites/default/files/2017/07/06/607698-ms-dhoni-pc-pti4.jpg" alt="" />
 					</div>*/}
 					{/*<div className="profileinfo">
-						<img src="http://images.contactmusic.com/newsimages/david_beckham_1133321.jpg" alt="" />
+						<img src="https://images.contactmusic.com/newsimages/david_beckham_1133321.jpg" alt="" />
 						<p>MS Dhoni has captained most number of intl. matches (334)</p>
 						<span>Read more <i className="fa fa-angle-right"></i></span>
 					</div>*/}

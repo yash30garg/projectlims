@@ -24,32 +24,34 @@ class Details extends Component {
         super(props);
         getDates();
 
-//         var date1 = new Date(borrowDate);
-// var date2 = new Date(returnDate);
-// var timeDiff = Math.abs(date2.getTime() - date1.getTime());
-// var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
-// alert(diffDays);
+        //         var date1 = new Date(borrowDate); var date2 = new Date(returnDate);
+        // var timeDiff = Math.abs(date2.getTime() - date1.getTime()); var diffDays =
+        // Math.ceil(timeDiff / (1000 * 3600 * 24)); alert(diffDays);
         let reqVal = true,
+            renewVal= false,
             wishVal = true;
         let today = borrowDate;
-        let days=today.split("/");
-        today=days[1]+"/"+days[0]+"/"+days[2];
+        let days = today.split("/");
+        today = days[1] + "/" + days[0] + "/" + days[2];
 
         if (this.props.bbooks !== null && this.props.bbooks.length !== 0) {
-                   alert("in")
             this
                 .props
                 .bbooks
                 .map(res => {
                     if (res.isbn === this.props.data.isbn) {
                         reqVal = false;
-                        // alert(res.isRenewed)
-                        if(res.isRenewed==="false"){
-                            // alert(res.returnDate)
-                            let retDate=res.returnDate;
-                            days=retDate.split("/");
-                            retDate=days[1]+"/"+days[0]+"/"+days[2];
-                            // alert(retDate);
+                        if (res.isRenewed === "false") {
+                            let retDate = res.returnDate;
+                            days = retDate.split("/");
+                            retDate = days[1] + "/" + days[0] + "/" + days[2];
+                            let date1= new Date(today);
+                            let date2= new Date(retDate)
+                            var timeDiff = Math.abs(date2.getTime() - date1.getTime()); 
+                            var diffDays =Math.ceil(timeDiff / (1000 * 3600 * 24)); 
+                            if(diffDays<=2){
+                                renewVal=true;
+                            }
                         }
                     }
                 })
@@ -67,7 +69,7 @@ class Details extends Component {
         this.state = {
             req: reqVal,
             wish: wishVal,
-            renew:true
+            renew: renewVal
         };
     }
     request = () => {
@@ -92,8 +94,7 @@ class Details extends Component {
             this.setState({req: false})
         }
     }
-    changeDate=()=>{
-    }
+    changeDate = () => {}
     return = () => {
         (async function () {
             var data = await returnBook(this.props.data.isbn);
@@ -231,59 +232,66 @@ class Details extends Component {
                                             height: "25rem"
                                         }}/>
                                         <center>
-                                        <div className="mt-1" style={{width:"70%"}}>
-                                            {this.state.req
-                                                ? <button
+                                            <div
+                                                className="mt-1"
+                                                style={{
+                                                width: "70%"
+                                            }}>
+                                                {this.state.req
+                                                    ? <button
+                                                            className="btn details-btn"
+                                                            style={{
+                                                            borderColor: "rgb(205,133,63)"
+                                                        }}
+                                                            onClick={this.request}>
+                                                            <div className="fa fa-plus-circle"></div>
+                                                            <b>Request</b>
+                                                        </button>
+                                                    : <button
                                                         className="btn details-btn"
                                                         style={{
                                                         borderColor: "rgb(205,133,63)"
                                                     }}
-                                                        onClick={this.request}>
-                                                        <div className="fa fa-plus-circle"></div>
-                                                        <b>Request</b>
-                                                    </button>
-                                                : <button
-                                                    className="btn details-btn"
-                                                    style={{
-                                                    borderColor: "rgb(205,133,63)"
-                                                }}
-                                                    onClick={this.return}>
-                                                    <div className="fa fa-undo"></div>
-                                                    <b>Return</b>
-                                                </button>}
-                                            {this.state.wish
-                                                ? <button
+                                                        onClick={this.return}>
+                                                        <div className="fa fa-undo"></div>
+                                                        <b>Return</b>
+                                                    </button>}
+                                                {this.state.wish
+                                                    ? <button
+                                                            className="btn details-btn"
+                                                            style={{
+                                                            borderColor: "rgb(205,133,63)"
+                                                        }}
+                                                            onClick={this.addWish}>
+                                                            <div className="fa fa-heart-o fa-lg"></div>
+                                                            <b>Add</b>
+                                                        </button>
+                                                    : <button
                                                         className="btn details-btn"
                                                         style={{
                                                         borderColor: "rgb(205,133,63)"
                                                     }}
-                                                        onClick={this.addWish}>
-                                                        <div className="fa fa-heart-o fa-lg"></div>
-                                                        <b>Add</b>
-                                                    </button>
-                                                : <button
-                                                    className="btn details-btn"
-                                                    style={{
-                                                    borderColor: "rgb(205,133,63)"
-                                                }}
-                                                    onClick={this.removeWish}>
-                                                    <div className="fa fa-heart fa-lg"></div>
-                                                    <b>Remove</b>
-                                                </button>}
-                                        </div>
-                                        <div style={{width:"70%"}}>
-                                        {this.state.renew
-                                            ? <button
-                                            className="btn details-btn mt-1"
-                                                    style={{
-                                                    borderColor: "rgb(205,133,63)",
-                                                    width: "100%"
-                                                }}>
-                                                <div className="fa fa-refresh"></div>
-                                                <b>Renew</b>
-                                                </button>
-                                            : ""}
-                                        </div>
+                                                        onClick={this.removeWish}>
+                                                        <div className="fa fa-heart fa-lg"></div>
+                                                        <b>Remove</b>
+                                                    </button>}
+                                            </div>
+                                            <div
+                                                style={{
+                                                width: "70%"
+                                            }}>
+                                                {this.state.renew
+                                                    ? <button
+                                                            className="btn details-btn mt-1"
+                                                            style={{
+                                                            borderColor: "rgb(205,133,63)",
+                                                            width: "100%"
+                                                        }}>
+                                                            <div className="fa fa-refresh"></div>
+                                                            <b>Renew</b>
+                                                        </button>
+                                                    : ""}
+                                            </div>
                                         </center>
                                     </div>
                                 </div>

@@ -48,39 +48,51 @@ class PBooks extends Component {
             s3,
             s4;
         if (window.display.length !== 0 && bbooks !== null && wbooks!==null) {
-            let b = window.display
-                .filter((res) => res.rating >= 1 && (res.category === "Javascript" || res.category === "javascript"));
+            let b = window.display.length;
+            if(b-6>=0)
+            {
             s1 = <div className="carousel-item mt-2">
-                {b
-                    .slice(0, 6)
+                {window.display
+                    .slice(b-6,b)
                     .map((r) => {
                         return (<EachPrefferedCard key={`pref${r.isbn}`} item={r} Bdata={bbooks} Wdata={wbooks}/>);
                     })}
             </div>
-            b = window.display
-                .filter((res) => res.rating >= 1 && (res.category === "Angular" || res.category === "angular"));
-                if(bbooks.length!==0){
+            }
+            b = window.display.length;
+            if(b-12>=0)
+            {    
             s2 = <div className="carousel-item mt-2">
-                {b
-                    .slice(0, 6)
+                {window.display
+                    .slice(b-12, b-6)
                     .map((r) => {
                         return (<EachPrefferedCard key={r.isbn} item={r} Bdata={bbooks} Wdata={wbooks}/>);
                     })}
             </div>
-                }
-                else{
-                    s2=<div></div>
-                }
-            b = window.display
-                .filter((res) => res.rating >= 1 && 
-                (res.category === "React" || res.category === "react"));
+            }
+                
+            b = window.display.length;
+            if(b-18>=0)
+            {
             s3 = <div className="carousel-item mt-2">
-                {b
-                    .slice(0, 6)
+                {window.display
+                    .slice(b-18, b-12)
                     .map((r) => {
                         return (<EachPrefferedCard key={`book${r.isbn}`} item={r} Bdata={bbooks} Wdata={wbooks}/>);
                     })}
             </div>
+            }
+            b = window.display.length;
+            if(b-24>=0)
+            {
+            s4 = <div className="carousel-item mt-2">
+                {window.display
+                    .slice(b-24, b-18)
+                    .map((r) => {
+                        return (<EachPrefferedCard key={`book${r.isbn}`} item={r} Bdata={bbooks} Wdata={wbooks}/>);
+                    })}
+            </div>
+            }
         }
         return (
             <div>
