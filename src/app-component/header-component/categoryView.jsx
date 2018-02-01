@@ -80,7 +80,7 @@ let filteredArray=[];
                 style={{
                     height:"13rem", width:"160px"
             }}>
-            <Link to="/search/details">
+            <Link to="/details">
                 <img
                     alt=""
                     className="mx-auto"
