@@ -21,7 +21,7 @@ import {requireAuth} from '../../../../app-component/isLoggedIn'
     	componentWillMount() {
 		requireAuth(window.location.href)
 
-        fetch('http://localhost:3005/user/getUsers',{
+        fetch('https://limsreactapi.azurewebsites.net/user/getUsers',{
             method:'GET',
             headers:{'Content-Type':'application/json'}
         })
@@ -32,7 +32,7 @@ import {requireAuth} from '../../../../app-component/isLoggedIn'
         
         		})
 
-                 fetch('http://localhost:3005/books/getBooks',{
+                 fetch('https://limsreactapi.azurewebsites.net/books/getBooks',{
             method:'GET',
             headers:{'Content-Type':'application/json',
         'Authorization': localStorage.getItem('token')}
