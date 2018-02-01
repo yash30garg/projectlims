@@ -60,7 +60,8 @@ class Login extends Component {
                         let userDetails = response.data[0]
                         console.log("Login Successful")
                         localStorage.setItem('limsuser', JSON.stringify(userDetails));
-                        window.location = "http://localhost:3000/#/"
+                        // window.location = "http://localhost:3000/#/"
+                        window.location = "https://limsreactapi.azurewebsites.net/#/"
                     }
                     else if (JSON.parse(body).status === 400) {
                         this.setState({ message: JSON.parse(body).message })
