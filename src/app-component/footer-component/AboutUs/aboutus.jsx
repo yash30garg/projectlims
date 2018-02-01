@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import Footer from '../footer.jsx';
 import AlternateHeader from '../../header-component/AlternateHeader/AlternateHeader.jsx';
-import './aboutus.css';
+//import './aboutus.css';
 // import $ from 'jquery';
 import { requireAuth } from '../../isLoggedIn'
 

@@ -80,7 +80,7 @@ class TopBooks extends Component{
         // alert(bbooks.length)
         if(this.props.bbooks!==null && this.props.wbooks!==null){
             // alert(this.props.)
-        k=<div style={{position:'relative',marginTop:'70px',marginBottom:'50px'}}><img src={'https://www.caffeluxxe.com/images/yellow.gif'} /></div>;
+        k=<div style={{position:'relative',marginTop:'70px',marginBottom:'50px'}}><img src={require('../../../../Assets/Images/yellowLoader.gif')} /></div>;
                 if (brr.length !==0 ) {
                 let b = window.display;
                  k=brr.map(result=>{
@@ -94,7 +94,7 @@ class TopBooks extends Component{
             return(
                 <div>
                 {(this.state.showTop)?<div className="put" style={{paddingBottom:'30px'}}>
-                <h5 className="card-header yoyo" style={{ backgroundColor: "#614126", color: "white", fontSize : "18px" }}>Top Rated Books</h5>
+                <h5 id="top_books_header" className="card-header yoyo" style={{ backgroundColor: "#614126", color: "white", fontSize : "18px" }}>Top Rated Books</h5>
                 {k}
             </div>:<div className="mt-4"><Category data={window.display} selected={this.state.particularCategory} categoryCrossClicked={this.closeCategory} isSearchClicked={false}/></div>}
             </div>
