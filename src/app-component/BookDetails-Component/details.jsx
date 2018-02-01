@@ -4,14 +4,16 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {storeBbooks} from '../../state/action/bbooksAction'
 import {storeWbooks} from '../../state/action/wbooksAction'
+import {storeReviews} from '../../state/action/reviewAction';
 import '../search-component/Search.css';
 import $ from 'jquery';
+import {getReview} from '.././mongo/getReview'
 import {css} from 'glamor'
 import {ToastContainer, toast} from 'react-toastify';
+import Reviews from './reviews';
 import requestBook from '.././mongo/requestBook'
 import returnBook from '.././mongo/returnBook'
 import renewBook from '.././mongo/renew'
-import {addReview} from '.././mongo/addReview'
 import {addWishlist} from '.././mongo/addWishlist'
 import {removeWishlist} from '.././mongo/removeWishlist'
 import {getDates} from '../dates'
@@ -19,7 +21,7 @@ import {borrowDate, returnDate} from '../dates'
 var req = require('request');
 let response;
 let book,
-ratingValue,
+reviewData="",
     thisBook=null,
     w = null,
     b = null,
@@ -29,7 +31,28 @@ class Details extends Component {
     constructor(props) {
         super(props);
         getDates();
-
+        let check=0;
+        (async function () {
+            var values = await getReview(this.props.data.isbn);
+            if(values[0].reviews.length===0){
+                check=1;
+                this
+                .props
+                .storeBbooks(null)
+            }
+            else{
+                 this
+                .props
+                .storeBbooks(values[0].reviews)
+                check=1;
+            }
+            if(check===1){
+            this.state={
+                flag:1
+            }
+        }
+        }).bind(this)()
+        
         //         var date1 = new Date(borrowDate); var date2 = new Date(returnDate);
         // var timeDiff = Math.abs(date2.getTime() - date1.getTime()); var diffDays =
         // Math.ceil(timeDiff / (1000 * 3600 * 24)); alert(diffDays);
@@ -76,10 +99,17 @@ class Details extends Component {
         this.state = {
             req: reqVal,
             wish: wishVal,
+            flag:0,
             renew: renewVal,
             review:true
         };
     }
+    // getReviews=()=>{
+
+    // }
+    // componentWillMount(){
+    //     this.getReviews
+    // }
     request = () => {
         if (navigator.onLine) {
         if (this.props.bbooks.length < 4) {
@@ -118,29 +148,6 @@ class Details extends Component {
                 className: css({background: "blue"})
             });
         }
-    }
-    addReview = () => {
-    alert(ratingValue)
-        var item = new Object();
-        item.mid = window.user;
-        item.rating=ratingValue;
-        item.description = document
-            .getElementById("desc")
-            .value;
-            console.log(item);
-            // alert(item.title);
-            // alert(item.description);
-            (async function () {
-                var review = await addReview(this.props.data.isbn, item);
-                console.log(review);
-            })
-            .bind(this)()
-        // document.getElementById("title").value="";
-        document.getElementById("desc").value="";
-         toast.success("Successfully Added !!!", {
-                    position: toast.POSITION.BOTTOM_CENTER,
-                    className: css({background: "brown"})
-                });
     }
     return = () => {
         if (navigator.onLine) {
@@ -262,143 +269,8 @@ class Details extends Component {
             });
         }
     }
-    leaveReview=()=>{
-        this.setState({
-            review:false
-        })
-    }
-    /*renew = () => {
-            // storeBbooks.getState().bbooks
-            this.props.bbooks
-            //eslint-disable-next-line
-            .map((res) => {
-                if (res.isbn === book.isbn) {
-                    let val;
-                    if (res.isRenewed === false) {
-                        res.isRenewed = true;
-                        var dates = res
-                            .returnDate
-                            .split("/");
-                        var tested = new Date();
-                        tested.setDate(dates[0]);
-                        tested.setMonth(dates[1] - 1);
-                        tested.setFullYear(dates[2]);
-                        var newDate = new Date(tested.getTime() + (10 * 24 * 60 * 60 * 1000));
-                        var dd1 = newDate.getDate();
-                        var mm1 = newDate.getMonth() + 1; //January is 0!
-                        var yyyy1 = newDate.getFullYear();
-                        res.returnDate = dd1 + '/' + mm1 + '/' + yyyy1;
-                        val = (
-                              <div class="alert notify alert-success ml-1 mt-1" role="alert">
-
-                                <strong>Success! &nbsp;
-                                </strong>
-                                &nbsp;The Book was successfully renewed for you. &nbsp;
-                                <strong>
-                                    &nbsp;Happy Reading!!</strong>
-                            </div>
-                        )
-                    } else {
-                        val = (
-                            <div class="alert notify alert-warning ml-1 mt-1" role="alert">
-                                <strong>Sorry!&nbsp;
-                                </strong>
-                                &nbsp;You cannot renew the book once more. &nbsp;
-                                <strong>
-                                    &nbsp; Happy Reading!!</strong>
-                            </div>
-                        )
-                    }
-                    this.setState({ msg: val })
-                }
-            })
-    }*/
     render() {
-        let i;
-        $(document).ready(function(){
-  
-  /* 1. Visualizing things on Hover - See next part for action on click */
-  $('#stars li').on('mouseover', function(){
-    var onStar = parseInt($(this).data('value'), 10); // The star currently mouse on
-   
-    // Now highlight all the stars that's not after the current hovered star
-    $(this).parent().children('li.star').each(function(e){
-      if (e < onStar) {
-        $(this).addClass('hover');
-      }
-      else {
-        $(this).removeClass('hover');
-      }
-    });
-    
-  }).on('mouseout', function(){
-    $(this).parent().children('li.star').each(function(e){
-      $(this).removeClass('hover');
-    });
-  });
-  
-  
-  /* 2. Action to perform on click */
-  $('#stars li').on('click', function(){
-    var onStar = parseInt($(this).data('value'), 10); // The star currently selected
-    var stars = $(this).parent().children('li.star');
-    
-    for (i = 0; i < stars.length; i++) {
-      $(stars[i]).removeClass('selected');
-    }
-    
-    for (i = 0; i < onStar; i++) {
-      $(stars[i]).addClass('selected');
-    }
-    
-    // JUST RESPONSE (Not needed)
-    ratingValue = parseInt($('#stars li.selected').last().data('value'), 10);
-    alert(ratingValue)
-    var msg = "";
-    if (ratingValue > 1) {
-        msg = "Thanks! You rated this " + ratingValue + " stars.";
-    }
-    else {
-        msg = "We will improve ourselves. You rated this " + ratingValue + " stars.";
-    }
-    
-  });
-  
-  
-});
-
-        book = this.props.data;
-        var cardReview=(<div style={{backgroundColor:"rgb(255, 248, 220)",marginLeft:"7%", marginRight:"5%"}}>  
-                            
-                            <textarea rows="2" cols="50" className="review-input ml-2 mr-3" style={{backgroundColor:"rgb(255, 248, 220)", width:"95%"}} placeholder="Description" id="desc"/>   
-                            <div class='rating-widget ml-2 mt-3' style={{float:"left"}}>
-                            <div class='rating-stars text-left'>
-                                <ul id='stars'>
-                                <li class='star' title='Poor' data-value='1'>
-                                    <i class='fa fa-star fa-fw'></i>
-                                </li>
-                                <li class='star' title='Fair' data-value='2'>
-                                    <i class='fa fa-star fa-fw'></i>
-                                </li>
-                                <li class='star' title='Good' data-value='3'>
-                                    <i class='fa fa-star fa-fw'></i>
-                                </li>
-                                <li class='star' title='Excellent' data-value='4'>
-                                    <i class='fa fa-star fa-fw'></i>
-                                </li>
-                                <li class='star' title='WOW!!!' data-value='5'>
-                                    <i class='fa fa-star fa-fw'></i>
-                                </li>
-                                </ul>
-                            </div>
-                            </div>
-                            <br/><br/>
-                            <div className="text-left">
-                            <button className="btn  details-btn col-md-2 mt-1 ml-2 mr-2" style={{borderColor: "rgb(205,133,63)", width:"95%"}} onClick={this.addReview}><div className="fa fa-pencil fa-lg"></div><b>Add</b> </button> 
-                            </div>  
-                            </div> 
-                         );
-        let reviewData=(<h5 className="text-left ml-2">This Book has not been Reviewed Yet</h5>);
+        book = this.props.data;    
         if(book!==null && book!==undefined)
         return (
             <div className="mt-4" style={{
@@ -446,6 +318,7 @@ class Details extends Component {
                                             ? <button
                                                     className="btn details-btn col-md-5 col-sm-5 col-xs-5 col-lg-5"
                                                     style={{
+                                                        overflow:"hidden",
                                                     borderColor: "rgb(205,133,63)"
                                                 }}
                                                     onClick={this.request}>
@@ -455,6 +328,7 @@ class Details extends Component {
                                             : <button
                                                 className="btn details-btn col-md-5 col-sm-5 col-xs-5 col-lg-5"
                                                 style={{
+                                                    overflow:"hidden",
                                                 borderColor: "rgb(205,133,63)"
                                             }}
                                                 onClick={this.return}>
@@ -465,6 +339,7 @@ class Details extends Component {
                                             ? <button
                                                     className="btn details-btn col-md-5 col-sm-5 col-xs-5 col-lg-5"
                                                     style={{
+                                                        overflow:"hidden",
                                                     borderColor: "rgb(205,133,63)"
                                                 }}
                                                     onClick={this.addWish}>
@@ -474,6 +349,7 @@ class Details extends Component {
                                             : <button
                                                 className="btn details-btn col-md-5 col-sm-5 col-xs-5 col-lg-5"
                                                 style={{
+                                                    overflow:"hidden",
                                                 borderColor: "rgb(205,133,63)"
                                             }}                                                onClick={this.removeWish}>
                                                 <div className="fa fa-heart fa-lg"></div>
@@ -486,6 +362,7 @@ class Details extends Component {
                                                     className="btn details-btn col-md-10 col-sm-10 col-xs-10 col-lg-10"
                                                     onClick={this.renew}
                                                     style={{
+                                                        overflow:"hidden",
                                                     borderColor: "rgb(205,133,63)",
                                                     width: "100%"
                                                 }}>
@@ -534,16 +411,7 @@ class Details extends Component {
                                 </div>
                             </div>   
                         </div>   
-                                 
-                        <div className="col-md-12 mt-0 mb-5"> 
-
-                            <div className="card review-card" style={{backgroundColor:"rgb(255, 248, 220)",marginLeft:"7%", marginRight:"5%"}}>  
-                            <h3 className="text-left mt-2 ml-2" style={{color:"rgb(205,133,63)"}}>Reviews</h3> 
-                            <br/>     
-                                {reviewData}
-                            {this.state.review?<button className="btn  details-btn col-md-3 mt-2 ml-2 mr-2" style={{borderColor: "rgb(205,133,63)", width:"95%"}} onClick={this.leaveReview}><div className="fa fa-pencil fa-lg"></div><b>Leave A Review</b> </button>:cardReview}
-                            </div>   
-                        </div>      
+                    <Reviews data={this.props.data} revData={this.props.reviews}/>    
                     </div>
                 </div>
             </div>
@@ -556,12 +424,13 @@ class Details extends Component {
     }
 }
 function mapStateToProps(state) {
-    return {bbooks: state.bbooks, books: state.books, wbooks: state.wbooks};
+    return {bbooks: state.bbooks, books: state.books, wbooks: state.wbooks, reviews:state.reviews};
 }
 function matchDispatchToProps(dispatch) {
     return bindActionCreators({
         storeBbooks: storeBbooks,
-        storeWbooks: storeWbooks
+        storeWbooks: storeWbooks,
+        storeReviews:storeReviews
     }, dispatch);
 }
 export default connect(mapStateToProps, matchDispatchToProps)(Details);

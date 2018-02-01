@@ -24,14 +24,10 @@ class WishedCard extends Component{
     constructor(props)
     {
         super(props);
-        this.state={
-         wishlistIcon:true,
-        requestIcon:true,
-    }
             let reqVal = true,
             wishVal = true;
         // console.log("top") console.log(props.bbooks)
-        if (this.props.bbooks.length !== 0) {
+        if (this.props.bbooks!==null && this.props.bbooks.length !== 0) {
             this
                 .props
                 .bbooks
@@ -43,7 +39,7 @@ class WishedCard extends Component{
                     }
                 })
         }
-        if (this.props.wbooks.length !== 0) {
+        if (this.props.wbooks!==null && this.props.wbooks.length !== 0) {
             this
                 .props
                 .wbooks
@@ -55,8 +51,95 @@ class WishedCard extends Component{
                     }
                 })
         }
+        this.state={
+         wishlistIcon:wishVal,
+        requestIcon:reqVal,
     }
-    
+}
+changeToRequest = () => {
+        if (navigator.onLine) {
+            (async function () {
+                var data = await returnBook(this.props.data.isbn);
+                console.log(data.data);
+
+                this
+                    .props
+                    .storeBbooks(data.data)
+            }).bind(this)()
+            this.setState({requestIcon: true});
+            toast.warn("Successfully Returned !!!", {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({background: "brown"})
+            });
+        } else {
+            toast.error("You're Not Online !!!", {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({background: "blue"})
+            });
+        }
+    }
+    changeToEmpty = () => {
+        if (navigator.onLine) {
+            (async function () {
+                var data = await removeWishlist(this.props.data.isbn);
+                console.log("data")
+                console.log(data);
+                this
+                    .props
+                    .storeWbooks(data)
+                // var newD=data.json();
+            }).bind(this)()
+            this.setState({wishlistIcon: true});
+            toast.success("Removed from WishList !!!", {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({background: "brown"})
+            });
+        } else {
+            toast.error("You're Not Online !!!", {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({background: "blue"})
+            });
+        }
+    }
+    changeToUndo = () => {
+        if (navigator.onLine) {
+            if (this.props.bbooks.length < 4) {
+                let bookAdded = new Object();
+                bookAdded.isbn = this.props.data.isbn;
+                bookAdded.title = this.props.data.title;
+                bookAdded.author = this.props.data.author;
+                bookAdded.publisher = this.props.data.publisher;
+                bookAdded.url = this.props.data.url;
+                bookAdded.rating = this.props.data.rating;
+                bookAdded.borrowedDate = borrowDate;
+                bookAdded.returnDate = returnDate;
+                bookAdded.isRenewed = "false";
+                (async function () {
+                    var data = await requestBook(bookAdded);
+                    console.log(data.data);
+                    this
+                        .props
+                        .storeBbooks(data.data)
+                    // var newD=data.json();
+                }).bind(this)()
+                this.setState({requestIcon: false});
+                toast.success("Successfully Requested !!!", {
+                    position: toast.POSITION.BOTTOM_CENTER,
+                    className: css({background: "brown"})
+                });
+            } else {
+                toast.warn("Oops! You Cannot borrow more books !!!", {
+                    position: toast.POSITION.BOTTOM_CENTER,
+                    className: css({background: "red"})
+                });
+            }
+        } else {
+            toast.error("You're Not Online !!!", {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({background: "blue"})
+            });
+        }
+    }
     render(){
     let res = this.props.data;
     return (
@@ -119,4 +202,13 @@ class WishedCard extends Component{
     );
     }
 }
-export default WishedCard;
+function mapStateToProps(state) {
+    return {bbooks: state.bbooks, wbooks: state.wbooks};
+}
+function matchDispatchToProps(dispatch) {
+    return bindActionCreators({
+        storeBbooks: storeBbooks,
+        storeWbooks: storeWbooks
+    }, dispatch);
+}
+export default connect(mapStateToProps, matchDispatchToProps)(WishedCard);
