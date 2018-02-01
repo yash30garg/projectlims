@@ -62,8 +62,8 @@ class App extends Component {
   }
 
   getBorrowedData() {
-    // fetch('https://limsreactapi.azurewebsites.net/borrowedBooks/getBooks', {
-    fetch('http://localhost:3005/borrowedBooks/getBooks', {
+    fetch('https://limsreactapi.azurewebsites.net/borrowedBooks/getBooks', {
+    // fetch('http://localhost:3005/borrowedBooks/getBooks', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -90,8 +90,8 @@ class App extends Component {
     console.log("this")
     if(navigator.onLine){
       console.log("Online")
-    // fetch('https://limsreactapi.azurewebsites.net/user/addUser', {
-    fetch('http://localhost:3005/user/addUser', {
+    fetch('https://limsreactapi.azurewebsites.net/user/addUser', {
+    // fetch('http://localhost:3005/user/addUser', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       // form:{mid:"1042932"}
@@ -109,8 +109,8 @@ class App extends Component {
         console.log(res)
         localStorage.setItem('token', res.token)
         localStorage.setItem('role', res.user[0].role)
-        // fetch('https://limsreactapi.azurewebsites.net/books/getBooks',
-        fetch('http://localhost:3005/books/getBooks',
+        fetch('https://limsreactapi.azurewebsites.net/books/getBooks',
+        // fetch('http://localhost:3005/books/getBooks',
           {
             method: 'GET',
             headers: {
