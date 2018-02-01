@@ -47,7 +47,7 @@ class Login extends Component {
         }
         else {
             req.post({
-                url: 'http://localhost:3005/api/',
+                url: 'https://limsreactapi.azurewebsites.net/api/',
                 form: { email: email, password: password },
                 headers: new Headers({ "Content-Type": "application/json" }),
                 method: 'POST'

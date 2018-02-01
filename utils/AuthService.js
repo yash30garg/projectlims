@@ -1,6 +1,6 @@
 export default class AuthService {
   constructor(domain) {
-    this.domain = domain || 'http://localhost:3005/api'
+    this.domain = domain || 'https://limsreactapi.azurewebsites.net/api'
     this.fetch = this.fetch.bind(this)
     this.login = this.login.bind(this)
     this.getProfile = this.getProfile.bind(this)
