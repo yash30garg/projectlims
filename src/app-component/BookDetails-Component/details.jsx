@@ -307,9 +307,9 @@ class Details extends Component {
                                 <img
                                         alt="Not Available"
                                         src={book.url}
-                                        className="mx-auto col-md-10 col-sm-10 col-xs-10 col-lg-10"
+                                        className="detailBook mx-auto col-md-10 col-sm-10 col-xs-10 col-lg-10"
                                         style={{
-                                        height: "400px"
+                                        
                                     }}/>
                                     <div className="mt-1 col-md-12 col-sm-12 col-xs-12 col-lg-12">
                                     {this.state.req
