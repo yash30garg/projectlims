@@ -22,31 +22,27 @@ class Reviews extends Component{
     }
 
     addReview = () => {
-    // alert(ratingValue)
     // eslint-disable-next-line
         var item = new Object();
         item.mid = window.user;
+        // var name=localStorage.getItem('user-name');
+        // var names=name.split("")
+        item.name=localStorage.getItem('user-name').split('"')[1]
         item.rating=ratingValue;
-        alert(ratingValue)
-        alert(item.rating)
-        item.title=document.getElementById("title").value;
         item.description = document
             .getElementById("desc")
             .value;
-            console.log(item);
-            // alert(item.title);
+
             var review;
-            // alert(item.description);
             (async function () {
                 review = await addReview(this.props.data.isbn, item);
-                console.log(review);
-            })
-            .bind(this)()
-             this
+                this
                 .props
                 .storeReviews(review)
+            })
+            .bind(this)();
+              
         document.getElementById("desc").value="";
-        document.getElementById("title").value="";
         this.setState({
             review:false
         })
@@ -62,25 +58,37 @@ class Reviews extends Component{
         })
     }
     render(){
-        if(this.props.revData===null){
+        if(this.props.reviews===null){
             reviewData=(<h5 className="text-left ml-4">This Book Has not been reviewd yet. Add a Review Now</h5>)
         }
         else{
-            alert()
-            var values=this.props.revData.map((res)=>{
+            var values=this.props.reviews.map((res)=>{
                 return(
-                    <li>
-                    <h6>
-                    {res.title}
-                    </h6>
-                    <div>{res.description}
-                    <br/>
-                    {res.rating} stars by {res.mid}
+                    <div className="card review-card ml-3 mb-4">
+                    <div className="text-left ml-3 mt-3 mb-0">
+                    <ul>
+                    <li><h5>{res.name} says:</h5></li>
+                    <li>{res.description}</li>
+                    <li className="mt-2 mb-0">
+                    {//eslint-disable-next-line
+                                            [1, 2, 3, 4, 5].map(d => {
+
+                                                if (res.rating >= d) 
+                                                    return <span
+                                                        key={`review${this.props.data.isbn}`}
+                                                        className="fa fa-star"
+                                                        style={{
+                                                        color: '#ffd700',
+                                                        fontSize: '16px'
+                                                    }}></span>
+                                            })}
+                   </li>
+                    </ul>
                     </div>
-                    </li>
+                    </div>
                 )
             })
-            reviewData=(<div className="text-left ml-4">
+            reviewData=(<div className="text-left ml-4 mr-4">
                         {values}
                         </div>)
         }
@@ -120,12 +128,10 @@ class Reviews extends Component{
     ratingValue = parseInt($('#stars li.selected').last().data('value'), 10);
   });
 });
-        var cardReview=(<div style={{backgroundColor:"rgb(255, 248, 220)", marginRight:"5%"}}>  
-        <h6 className="text-left mb-1 ml-2"><b><u>Title</u></b></h6>
-                            <input type="text" className="review-input ml-2 mr-3" style={{backgroundColor:"rgb(255, 248, 220)", width:"95%"}} placeholder="Title" id="title"/>   
-        <h6 className="text-left mt-3 mb-2 ml-2"><b><u>Description</u></b></h6>
-                            <textarea rows="1" cols="50" className="review-input ml-2 mr-3" style={{backgroundColor:"rgb(255, 248, 220)", width:"95%"}} placeholder="Description" id="desc"/>   
-                            <div class='rating-widget ml-3 mt-3'>
+        var cardReview=(<div className="card review-card ml-5" style={{backgroundColor:"rgb(255, 248, 220)", marginRight:"5%"}}>  
+        <h5 className="text-left mt-4 mb-2 ml-3"><b><u>Description</u></b></h5>
+                            <textarea rows="2" cols="50" className="review-input mt-3 ml-3 mr-3" style={{backgroundColor:"rgb(255, 248, 220)", width:"95%"}} placeholder="Description" id="desc"/>   
+                            <div class='rating-widget ml-4 mt-3'>
                             <div class='rating-stars text-left'>
                                 <ul id='stars'>
                                 <li class='star' title='Poor' data-value='1'>
@@ -146,8 +152,7 @@ class Reviews extends Component{
                                 </ul>
                             </div>
                             </div>
-                            <br/><br/>
-                            <div className="text-left">
+                            <div className="text-right">
                             <button className="btn  details-btn col-md-2 col-xs-2 col-sm-2 col-lg-2 mt-1 ml-2 mr-2" style={{borderColor: "rgb(205,133,63)", width:"95%",overflow:"hidden",fontSize:"auto"}} onClick={this.addReview}><div className="fa fa-pencil fa-lg"></div><b>Add</b> </button> 
                             <button className="btn  details-btn col-md-2 col-xs-2 col-sm-2 col-lg-2 mt-1 ml-2 mr-2" style={{borderColor: "rgb(205,133,63)", width:"95%",overflow:"hidden"}} onClick={this.close}><div className="fa fa-times fa-lg"></div><b>Cancel</b> </button> 
                             </div>  
@@ -158,8 +163,10 @@ class Reviews extends Component{
             <div className="card review-card" style={{backgroundColor:"rgb(255, 248, 220)",marginLeft:"7%", marginRight:"5%"}}>  
                             <h3 className="col-md-6 text-left mt-2 ml-2" style={{color:"rgb(205,133,63)"}}>Reviews</h3> 
                             <br/>     
-                            {reviewData}<br/>
+                            {reviewData}
+                            <div className="text-right">
                             {this.state.review?cardReview:<button className="btn  details-btn col-md-3 col-xs-3 col-sm-3 col-lg-3 mt-2 ml-2 mr-2" style={{borderColor: "rgb(205,133,63)", width:"95%",overflow:"hidden"}} onClick={this.leaveReview}><div className="fa fa-pencil fa-lg"></div><b>Leave A Review</b> </button>}
+                            </div>
                             </div> 
             </div>
         )
