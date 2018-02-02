@@ -4,6 +4,7 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {storeReviews} from '../../state/action/reviewAction';
 import {css} from 'glamor'
+import {borrowDate} from '../dates'
 import {toast} from 'react-toastify';
 import {addReview} from '.././mongo/addReview'
 // import {getReview} from '.././mongo/getReview'
@@ -29,6 +30,7 @@ class Reviews extends Component{
         // var names=name.split("")
         item.name=localStorage.getItem('user-name').split('"')[1]
         item.rating=ratingValue;
+        item.date=borrowDate;
         item.description = document
             .getElementById("desc")
             .value;
@@ -67,8 +69,10 @@ class Reviews extends Component{
                     <div className="card review-card ml-3 mb-4">
                     <div className="text-left ml-3 mt-3 mb-0">
                     <ul>
-                    <li><h5>{res.name} says:</h5></li>
-                    <li>{res.description}</li>
+                    <li><b style={{fontSize:"24px"}}>{res.name} says:</b>
+                    </li>
+                    <br/>
+                    <li style={{fontSize:"18px"}}>{res.description}</li>
                     <li className="mt-2 mb-0">
                     {//eslint-disable-next-line
                                             [1, 2, 3, 4, 5].map(d => {
@@ -82,6 +86,7 @@ class Reviews extends Component{
                                                         fontSize: '16px'
                                                     }}></span>
                                             })}
+                   <span className="mr-3" style={{color:"rgb(169,169,169)", float:"left",fontSize:"16px",position:"absolute",right:"1%", bottom:"2%"}}>{res.date}</span>
                    </li>
                     </ul>
                     </div>
