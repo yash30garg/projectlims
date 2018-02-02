@@ -8,7 +8,7 @@
 //             }
 //             else {
 //                 // console.log(JSON.parse(localStorage.getItem('limsuser')))
-//                 console.log("yes")
+//                 // console.log("yes")
 //                 window.login="yes"
 //                 // console.log(path)
 //                 window.location = path
@@ -16,7 +16,7 @@
 //         }
 //         else
 //         {
-//             console.log("No")
+//             // console.log("No")
 //             window.login="no"
 //             // console.log(path)
 //             window.location.replace("http://localhost:3000/#/login")
@@ -34,7 +34,7 @@ export var requireAuth = (path) => {
             }
             else {
                 // console.log(JSON.parse(localStorage.getItem('limsuser')))
-                console.log("yes")
+                // console.log("yes")
                  window.login="yes"
                 // console.log(path)
                 window.location = path
@@ -42,7 +42,7 @@ export var requireAuth = (path) => {
         }
         else
         {
-            console.log("No")
+            // console.log("No")
              window.login="no"
             // console.log(path)
             window.location.replace("https://limsreact.azurewebsites.net/#/login")
