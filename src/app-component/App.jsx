@@ -152,7 +152,7 @@ class App extends Component {
     }
   }
   componentWillMount() {
-    if(localStorage.getItem('limsuser')!==""&&localStorage.getItem('limsuser')!==null) {
+    if(localStorage.getItem('limsuser')!==""&&localStorage.getItem('limsuser')!==null&&window.login==="yes") {
     var user = JSON.parse(localStorage.getItem('limsuser'));
     let mid = user.userName.split("@");
     let id = mid[0].split("M")
@@ -181,7 +181,7 @@ class App extends Component {
   render() {
     // alert("app")
     // window.wishlist = this.state.wishlist;
-    if(localStorage.getItem('limsuser')!==""&&localStorage.getItem('limsuser')!==null) {
+    if(localStorage.getItem('limsuser')!==""&&localStorage.getItem('limsuser')!==null&&window.login==="yes") {
     window.display = this.state.display;
    let bbooks=this.state.bbooks;
    let wbooks=this.state.wishlist
