@@ -96,7 +96,7 @@ class SearchResults extends Component {
         });
         return (
             <div>
-                <div id="alert" onClick={this.notify}></div>
+                <img id="alert" alt='' onload={this.notify()} onClick={this.notify}/>
                 <div className="contained mt-4">
                     {/*{document.getElementById('alert').click()}*/}
                     <ol className="breadcrumb" style={{ backgroundColor: "#614126", color: "white" }}  >
