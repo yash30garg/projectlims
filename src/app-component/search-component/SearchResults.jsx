@@ -28,7 +28,7 @@ class SearchResults extends Component {
         //     .then(res => {
         //         this.setState({output: res.data});
         //         users = this.state.output;
-        //         console.log(users)
+        //         //console.log((users)
         //         const b = users.filter((res) => res.user.mid === "1042948")
         //     });
     }
@@ -77,7 +77,7 @@ class SearchResults extends Component {
 
 
     render() {
-        console.log(processedData)
+        //console.log((processedData)
         const a = processedData.map(res => {
             return (
                 <EachSearchCard eachValue={res}/>
@@ -98,7 +98,7 @@ class SearchResults extends Component {
                 <div id="alert" onClick={this.notify}></div>
                 <ToastContainer />
                 <div className="contained mt-4">
-                    {this.notify}
+                    {/*{document.getElementById('alert').click()}*/}
                     <ol className="breadcrumb" style={{ backgroundColor: "#614126", color: "white" }}  >
                         <h5 >{this.props.divName}<span style={{ float: 'right', cursor: 'pointer', paddingLeft: '70px' }} id="openHome" onClick={(e)=>{e.preventDefault(); window.location="/#/"}}>x</span></h5>
                     </ol>

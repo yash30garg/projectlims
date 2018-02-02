@@ -34,10 +34,14 @@ class BookEdit extends Component {
             .then((res) => res.json())
             .then((res) => {
                 if (res === "Book Doesn't Exist, Add It !!!")
-                    alert(res)
+                {
+                    return res
+                }
+                    // alert(res)
+
                 else {
-                    alert(res[0])
-                    console.log(res)
+                    // alert(res[0])
+                    //console.log((res)
                     document.getElementById('editBookIsbn').value = res[0].isbn;
                     document.getElementById('editBookTitle').value = res[0].title;
                     document.getElementById('editBookAuthor').value = res[0].author;
@@ -62,10 +66,16 @@ class BookEdit extends Component {
             })
         }).then((res)=>res.json())
         .then((res)=> {
-            console.log(res)
+            //console.log((res)
             if(res === "Book Deleted")
-            alert("Book Deleted")
-            else{alert("Book Not Deleted")}
+            {
+                return res
+            }
+            // alert("Book Deleted")
+            else{
+                return res;
+                // alert("Book Not Deleted")
+        }
         })
 }
     render() {

@@ -31,7 +31,7 @@ class DashBoard extends Component {
         })
             .then((res) => res.json())
             .then((res) => {
-                console.log(res);
+                //console.log((res);
                 this.setState({ user: res });
 
             })
@@ -45,7 +45,7 @@ class DashBoard extends Component {
         })
             .then((res) => res.json())
             .then((res) => {
-                console.log(res);
+                //console.log((res);
                 this.setState({ display: res });
 
             })
@@ -74,7 +74,7 @@ class DashBoard extends Component {
         window.bookies = this.state.display;
         let booksnum = window.bookies.length;
         let values = window.users.length;
-        console.log("count " + window.users.length)
+        //console.log(("count " + window.users.length)
         count = 0;
         const outputs = window.users
             .map((result) => {

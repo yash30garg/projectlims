@@ -44,7 +44,7 @@ class BorrowedSlider extends Component
     //     return(<UserBooks key={result.user.mid} list={result.borrowedbooks}/>);
     //  });
         let outputs=<div>
-        <h5 style={{textAlign:'center',color:"#614126", paddingLeft : "10px"}}>You haven't borrowed any books yet!</h5>
+        <h5 className="borrowedText" style={{textAlign:'center',color:"#614126"}}>You haven't borrowed any books yet!</h5>
         </div>
         // console.log(bbooks)
         if(bbooks!==null) {

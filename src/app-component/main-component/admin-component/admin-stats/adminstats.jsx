@@ -27,7 +27,7 @@ import {requireAuth} from '../../../../app-component/isLoggedIn'
         })
         .then((res)=>res.json())
         .then((res) =>{
-         console.log(res);
+         //console.log((res);
          this.setState({user:res});
         
         		})
@@ -39,7 +39,7 @@ import {requireAuth} from '../../../../app-component/isLoggedIn'
         })
         .then((res)=>res.json())
         .then((res) =>{
-         console.log(res);
+         //console.log((res);
          this.setState({display:res});
         
         		})

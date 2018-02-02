@@ -24,18 +24,18 @@ export default class SearchAdmin extends Component {
             .flatMap((response) => response.json())
             .subscribe(values => {
                 this.setState({ data: values })
-                console.log(this.state.data.booksArray);
+                //console.log((this.state.data.booksArray);
             })
     }
     search = (event) => {
         let value = document.getElementById("search").value.toLowerCase();
-        console.log(document.getElementById("search").value)
+        //console.log((document.getElementById("search").value)
 
-        console.log(this.state.data)
+        //console.log((this.state.data)
 
         this.setState({ searchTerm: document.getElementById("search").value.toLowerCase() })
 
-        console.log(this.state.data)
+        //console.log((this.state.data)
         this.datax = this.state.data.booksArray.filter((data3) =>
             (data3.title.toLowerCase().indexOf(value) >= 0 ||
                 data3.author.toLowerCase().indexOf(value) >= 0 ||
@@ -44,18 +44,18 @@ export default class SearchAdmin extends Component {
             value !== '');
         this.dataOrg = this.datax;
         processedData = this.datax;
-        console.log(processedData)
+        //console.log((processedData)
 
 
         this.setState({ sortedData: this.datax })
-        // console.log(this.state.sortedData)
+        // //console.log((this.state.sortedData)
 
 
-        console.log(this.state.sortedData)
+        //console.log((this.state.sortedData)
         this.setState({ sortedData: this.datax })
-        // console.log(this.state.sortedData)
+        // //console.log((this.state.sortedData)
 
-        console.log(this.state.sortedData)
+        //console.log((this.state.sortedData)
         event.preventDefault();
 
 
@@ -74,7 +74,7 @@ export default class SearchAdmin extends Component {
         else if (document.getElementById("sort").value === "Rating") {
             this.sortRating();
         }
-        else alert("Select a valid sort");
+        // else alert("Select a valid sort");
     }
     selectFilter = () => {
         if (document.getElementById("filter").value === "5 Rated") {
@@ -89,7 +89,7 @@ export default class SearchAdmin extends Component {
         else if (document.getElementById("filter").value === "2 and above Rated") {
             this.twoRated();
         }
-        else alert("Select a valid Filter");
+        // else alert("Select a valid Filter");
     }
     sortTitle() {
         this.flag = !this.flag;
@@ -111,8 +111,8 @@ export default class SearchAdmin extends Component {
         }
         )
         processedData = this.state.sortedData;
-        console.log(processedData)
-        console.log("Sorted by Title");
+        //console.log((processedData)
+        //console.log(("Sorted by Title");
         this.setState({ temp: 1 })
     }
     sortAuthor() {
@@ -135,8 +135,8 @@ export default class SearchAdmin extends Component {
         }
         )
         processedData = this.state.sortedData;
-        console.log(processedData)
-        console.log("Sorted by Author");
+        //console.log((processedData)
+        //console.log(("Sorted by Author");
         this.setState({ temp: 1 })
     }
     sortPublish() {
@@ -159,8 +159,8 @@ export default class SearchAdmin extends Component {
         }
         )
         processedData = this.state.sortedData;
-        console.log(processedData)
-        console.log("Sorted by Publisher");
+        //console.log((processedData)
+        //console.log(("Sorted by Publisher");
         this.setState({ temp: 1 })
     }
     sortRating() {
@@ -183,40 +183,40 @@ export default class SearchAdmin extends Component {
         }
         )
         processedData = this.state.sortedData;
-        console.log(processedData)
-        console.log("Sorted by Rating");
+        //console.log((processedData)
+        //console.log(("Sorted by Rating");
         this.setState({ temp: 1 })
     }
     fiveRated() {
         processedData = processedData.filter((data) =>
             data.rating === "5")
         // processedData = this.state.sortedData;
-        console.log(processedData)
-        console.log("Sorted by five rated");
+        //console.log((processedData)
+        //console.log(("Sorted by five rated");
         this.setState({ temp: 2 })
     }
     fourRated() {
         processedData = processedData.filter((data) =>
             (data.rating <= "5") && (data.rating >= "4"))
         // processedData = this.state.sortedData;
-        console.log(processedData)
-        console.log("Sorted by four rated");
+        //console.log((processedData)
+        //console.log(("Sorted by four rated");
         this.setState({ temp: 2 })
     }
     threeRated() {
         processedData = processedData.filter((data) =>
             (data.rating <= "5") && (data.rating >= "3"))
         // processedData = this.state.sortedData;
-        console.log(processedData)
-        console.log("Sorted by three rated");
+        //console.log((processedData)
+        //console.log(("Sorted by three rated");
         this.setState({ temp: 2 })
     }
     twoRated() {
         processedData = processedData.filter((data) =>
             (data.rating <= "5") && (data.rating >= "2"))
         // processedData = this.state.sortedData;
-        console.log(processedData)
-        console.log("Sorted by two rated");
+        //console.log((processedData)
+        //console.log(("Sorted by two rated");
         this.setState({ temp: 2 })
     }
     back() {

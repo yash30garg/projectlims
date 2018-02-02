@@ -43,9 +43,9 @@ class EachSearchCard extends Component {
                 .bbooks
                 // eslint-disable-next-line
                 .map(res => {
-                    //  console.log(res)
+                    //  //console.log((res)
                     if (res.isbn === this.props.eachValue.isbn) {
-                        // console.log("found")
+                        // //console.log(("found")
                         reqVal = false;
                     }
                 })
@@ -56,9 +56,9 @@ class EachSearchCard extends Component {
                 .wbooks
                 // eslint-disable-next-line
                 .map(res => {
-                    //  console.log(res)
+                    //  //console.log((res)
                     if (res.isbn === this.props.eachValue.isbn) {
-                        // console.log("found")
+                        // //console.log(("found")
                         wishVal = false;
                     }
                 })
@@ -88,11 +88,11 @@ class EachSearchCard extends Component {
         items.rating=this.props.eachValue.rating;
         items.url=this.props.eachValue.url;
         items.description="";
-        // console.log(items);
+        // //console.log((items);
         (async function(){
                     var data=await addWishlist(items);
-                    console.log("data")
-                console.log(data);
+                    //console.log(("data")
+                //console.log((data);
                 this.props.storeWbooks(data)
                 // var newD=data.json();
             }).bind(this)()
@@ -118,8 +118,8 @@ class EachSearchCard extends Component {
         if(navigator.onLine){
         (async function(){
                     var data=await removeWishlist(this.props.eachValue.isbn);
-                    console.log("data")
-                console.log(data);
+                    //console.log(("data")
+                //console.log((data);
                 this.props.storeWbooks(data)
                 // var newD=data.json();
             }).bind(this)()
@@ -156,7 +156,7 @@ class EachSearchCard extends Component {
                 bookAdded.isRenewed="false"; 
                 (async function(){
                     var data=await requestBook(bookAdded);
-                console.log(data.data);
+                //console.log((data.data);
                 this.props.storeBbooks(data.data)
                 // var newD=data.json();
             }).bind(this)()
@@ -190,7 +190,7 @@ class EachSearchCard extends Component {
         if(navigator.onLine){
         (async function(){
                 var data=await returnBook(this.props.eachValue.isbn);
-                console.log(data.data);
+                //console.log((data.data);
                 this.props.storeBbooks(data.data)
             }).bind(this)()
         this.setState({requestIcon: true});

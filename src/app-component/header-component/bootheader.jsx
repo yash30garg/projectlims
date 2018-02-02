@@ -307,7 +307,7 @@ class BootHeader extends Component {
         }
         let brr = [];
         // store.subscribe(()=> {
-        //     console.log(store.getState().search)
+        //     //console.log((store.getState().search)
         // })
         let arr = window.display
             .sort((a, b) => {
@@ -466,7 +466,7 @@ class BootHeader extends Component {
 
 
                                     </div>
-                                    <div className="list-group mt-3">
+                                <div className="list-group mt-3" style={{marginBottom:"-45px"}}>
                                         <div
                                             className="row col-md-12 list-group-item collor nav-item dropdown nav-link ml-0"
                                             data-toggle="collapse"
@@ -481,7 +481,6 @@ class BootHeader extends Component {
                                             }}
                                             id="categoryDiv"
                                             onClick={this.plusCtgryClicked}>
-                                            {console.log(window.innerWidth)}
                                             
                                             <div className="col-md-0 fa fa-list-alt" aria-hidden="true"></div>
                                             <div

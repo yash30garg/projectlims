@@ -23,19 +23,19 @@ export var search = () => {
     let value1, value2;
     value1=value
     if (value.indexOf('&') > -1) {
-        console.log("I am Here")
+        //console.log(("I am Here")
         value1 = value.substring(0, value.indexOf('&')-1)
         value2 = value.substring(value.indexOf('&') + 2, value.length)
-        console.log(value1 + " : " + value2)
+        //console.log((value1 + " : " + value2)
     }
     else if(value.indexOf('and')>-1) {
-        console.log('and')
+        //console.log(('and')
         value1 = value.substring(0,value.indexOf('and')-1)
         value2 = value.substring(value.indexOf('and')+4,value.length)
     }
     else if(value.indexOf(',')>-1)
     {
-        console.log(',')
+        //console.log((',')
         value1 = value.substring(0,value.indexOf(','))
         value2 = value.substring(value.indexOf(',')+2, value.length)
     }
@@ -49,14 +49,14 @@ export var search = () => {
                 data = window.display;
 
 
-                // console.log(this.state.data)
+                // //console.log((this.state.data)
                 var datax = data.filter((data3) =>
                     (data3.title.toLowerCase().indexOf(value1) >= 0 ||
                         data3.author.toLowerCase().indexOf(value1) >= 0 ||
                         data3.publisher.toLowerCase().indexOf(value1) >= 0 ||
                         data3.category.toLowerCase().indexOf(value1) >= 0) &&
                     value1 !== '').sort((a, b) => { return (b.rating - a.rating) });
-                    console.log(value2)
+                    //console.log((value2)
                     processedData = datax
                 if (value2 !== "") {
                    var datay = data.filter((data3) =>
@@ -73,7 +73,7 @@ export var search = () => {
                 }
                 datax = processedData
                 store.dispatch({ type: "STORE_SORTED_DATA", payload: datax })
-                console.log(store.getState().sorted_Data)
+                //console.log((store.getState().sorted_Data)
                 window.location = `/#/search/${value}`
                 // document.getElementById('os').click();
             // })
@@ -100,8 +100,8 @@ export var sortTitle = () => {
         return 0;
     }
     )
-    // console.log(processedData)
-    // console.log("Sorted by Title");
+    // //console.log((processedData)
+    // //console.log(("Sorted by Title");
     window.location = `/#/search/title=${value}`    
     // document.getElementById('os').click();
 }
@@ -124,8 +124,8 @@ export var sortAuthor = () => {
         return 0;
     }
     )
-    // console.log(processedData)
-    // console.log("Sorted by Author");
+    // //console.log((processedData)
+    // //console.log(("Sorted by Author");
     window.location = `/#/search/author=${value}`
     // document.getElementById('os').click();
 }
@@ -148,9 +148,9 @@ export var sortPublish = () => {
         return 0;
     }
     )
-    // console.log(processedData)
+    // //console.log((processedData)
     window.location = `/#/search/publish=${value}`
-    // console.log("Sorted by Publisher");
+    // //console.log(("Sorted by Publisher");
     // document.getElementById('os').click();
 }
 export var sortRating = () => {
@@ -172,9 +172,9 @@ export var sortRating = () => {
         return 0;
     }
     )
-    // console.log(processedData)
+    // //console.log((processedData)
     window.location = `/#/search/rating=${value}`
-    // console.log("Sorted by Rating");
+    // //console.log(("Sorted by Rating");
     // document.getElementById('os').click();
 }
 
@@ -196,16 +196,16 @@ export var selectFilter = () => {
 
     var fiveRated= () => {
         processedData = store.getState().sorted_Data
-        console.log(store.getState().sorted_Data)
-        console.log(processedData)
+        //console.log((store.getState().sorted_Data)
+        //console.log((processedData)
         let filter = processedData
         processedData=[]
         filter.filter((data) => data.rating === 5)
         .map((res)=> processedData.push(res))
         // processedData = this.state.sortedData;
         window.location = `/#/search/5_star=${value}`
-        console.log(processedData)
-        console.log("Sorted by five rated");
+        //console.log((processedData)
+        //console.log(("Sorted by five rated");
         // document.getElementById('os').click();
     }
     var fourRated = () =>  {
@@ -217,8 +217,8 @@ export var selectFilter = () => {
             .map((res)=> processedData.push(res))
         // processedData = this.state.sortedData;
         window.location = `/#/search/>4_star=${value}`
-        console.log(processedData)
-        console.log("Sorted by four rated");
+        //console.log((processedData)
+        //console.log(("Sorted by four rated");
         // document.getElementById('os').click();
     }
     var threeRated = () => {
@@ -230,8 +230,8 @@ export var selectFilter = () => {
             .map((res)=> processedData.push(res))
         // processedData = this.state.sortedData;
         window.location = `/#/search/>3_star=${value}`
-        console.log(processedData)
-        console.log("Sorted by three rated");
+        //console.log((processedData)
+        //console.log(("Sorted by three rated");
         // document.getElementById('os').click()
     }
     var twoRated = () => {
@@ -243,8 +243,8 @@ export var selectFilter = () => {
             .map((res)=> processedData.push(res))
         // processedData = this.state.sortedData;
         window.location = `/#/search/>2_star=${value}`
-        console.log(processedData)
-        console.log("Sorted by two rated");
+        //console.log((processedData)
+        //console.log(("Sorted by two rated");
         // document.getElementById('os').click();
     }
 
@@ -256,9 +256,9 @@ export var selectFilter = () => {
             .subscribe(values => {
                 data = values;
                 let value = store.getState().search;
-                console.log(value)
+                //console.log((value)
 
-                // console.log(this.state.data)
+                // //console.log((this.state.data)
                 var datax = data.booksArray.filter((data3) =>
                     (data3.title.toLowerCase().indexOf(value) >= 0 ||
                         data3.author.toLowerCase().indexOf(value) >= 0 ||
@@ -267,7 +267,7 @@ export var selectFilter = () => {
                     value !== '').sort((a, b) => { return (b.rating - a.rating) });
                 processedData = datax
                 store.dispatch({ type: "STORE_SORTED_DATA", payload: datax })
-                console.log(store.getState().sorted_Data)
+                //console.log((store.getState().sorted_Data)
                 {
                     <BootHeader landingView={false}
                         categoryClicked={false}
