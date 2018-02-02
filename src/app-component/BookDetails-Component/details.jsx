@@ -8,7 +8,8 @@ import {storeReviews} from '../../state/action/reviewAction';
 import '../search-component/Search.css';
 import {getReview} from '.././mongo/getReview'
 import {css} from 'glamor'
-import {toast} from 'react-toastify';
+// eslint-disable-next-line
+import {ToastContainer,toast} from 'react-toastify';
 import Reviews from './reviews';
 import requestBook from '.././mongo/requestBook'
 import returnBook from '.././mongo/returnBook'
@@ -403,7 +404,7 @@ class Details extends Component {
                                 </div>
                             </div>   
                         </div>   
-                    <Reviews data={this.props.data} revData={this.props.reviews}/>    
+                     <Reviews data={this.props.data} revData={this.props.reviews}/>  
                     </div>
                 </div>
             </div>
