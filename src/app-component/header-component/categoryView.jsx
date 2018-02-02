@@ -27,6 +27,7 @@ let filteredArray=[];
         display:''
     }
     route = window.location.hash.split('/')
+    if(route[1]==="category") {
     this.setState({category:route[2]})
     fetch('https://limsreactapi.azurewebsites.net/books/getBooks',
         // fetch('http://localhost:3005/books/getBooks',
@@ -77,8 +78,10 @@ let filteredArray=[];
     })
      })
           })
+    }
 } 
 componentWillMount() {
+    if(route[1]==="category")
     this.setState({category:route[2]})
 }
     next_click_handler=()=>
@@ -188,7 +191,7 @@ changeInHash = () => {
     //     )
 
     // })
-
+if(route[1]==="category"){
 var checkURLchange = (currentURL) =>{
     if(window.location.href !== oldURL){
         oldURL = window.location.href;
@@ -220,6 +223,12 @@ return(
     </div>
     </div>
 )
+}
+else {
+    return(
+        <div>{window.locatio="/#/"}</div>
+    )
+}
     }
 }
 function mapStateToProps(state) {
