@@ -144,7 +144,7 @@ class Details extends Component {
     }
 
     removeWishlist = () => {
-        console.log(book);
+        //console.log((book);
         let index = -1,
             i = 0;
         const ind = window
@@ -176,7 +176,7 @@ class Details extends Component {
     }
 
     removeRequest = () => {
-        console.log(book);
+        //console.log((book);
         let index = -1,
             i = 0;
         const ind = window
@@ -235,7 +235,7 @@ class Details extends Component {
             .wishlist
             .push(book);
 
-        console.log(window.wishlist);
+        //console.log((window.wishlist);
         this.setState({wish: w, msg: val})
     }
 
@@ -245,7 +245,7 @@ class Details extends Component {
                 window
                     .bbooks
                     .push(book)
-                console.log(window.bbooks);
+                //console.log((window.bbooks);
                 let a = b = (
                     <button
                         className="btn btn-primary mt-3"

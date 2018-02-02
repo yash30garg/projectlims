@@ -36,7 +36,7 @@ export default class Main extends Component {
         return(
             <div style={{overflow:"hidden"}}>
             <Header/>
-            <div className="row mainDiv">
+            <div className="row mainDiv mb-4">
                 <div className="col-md-3 mainDiv"><BootHeader/></div>
                 <div style={{marginLeft:this.state.marginLeft}} className="col-md-9 mainDiv">
                 {/*<User/>*/}

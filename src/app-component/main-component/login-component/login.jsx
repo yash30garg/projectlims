@@ -54,23 +54,23 @@ class Login extends Component {
             },
 
                 function (er, r, body) {
-                    console.log(body)
+                    //console.log((body)
                     if (JSON.parse(body).status === 200) {
                         let response = JSON.parse(body)
                         let userDetails = response.data[0]
-                        console.log("Login Successful")
+                        //console.log(("Login Successful")
                         localStorage.setItem('limsuser', JSON.stringify(userDetails));
                         // window.location = "http://localhost:3000/#/"
                         window.location = "https://limsreactapi.azurewebsites.net/#/"
                     }
                     else if (JSON.parse(body).status === 400) {
                         this.setState({ message: JSON.parse(body).message })
-                        console.log(r.statusCode)
+                        //console.log((r.statusCode)
                     }
 
 
 
-                    // console.log(JSON.parse(body));
+                    // //console.log((JSON.parse(body));
                 }.bind(this));
         }
     }

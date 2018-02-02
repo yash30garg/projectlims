@@ -38,13 +38,13 @@ class TopBooks extends Component{
 
     render()
     {
-        console.log("bbooks")
+        //console.log(("bbooks")
         if(this.props.bbooks!==null){
-        console.log(this.props.bbooks.length)
+        //console.log((this.props.bbooks.length)
         }
         // if(this.props.bbooks!==null){
-        // console.log(this.props.bbooks.length)
-        // console.log("2")
+        // //console.log((this.props.bbooks.length)
+        // //console.log(("2")
         // }
         // if(this.props.bbooks===null){
         //     alert("null")

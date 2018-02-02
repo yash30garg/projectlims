@@ -41,7 +41,7 @@ class Header extends Component {
 
   handle() {
     key = document.getElementById("key").value
-    console.log(key)
+    //console.log((key)
   }
 
   logout(e) {
@@ -74,8 +74,8 @@ class Header extends Component {
           })
           .then((response) => response.json())
           .then((response) => {
-            console.log("booksssssss");
-            console.log(response);
+            //console.log(("booksssssss");
+            //console.log((response);
             localStorage.setItem('books',JSON.stringify(response))
             window.display=response
             this.setState({
@@ -110,7 +110,7 @@ class Header extends Component {
 
   render() {
     let brr = [];
-    console.log(window.display)
+    //console.log((window.display)
     if(window.display!==""&&window.display!==undefined){
     let arr = window.display
       .sort((a, b) => {

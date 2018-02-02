@@ -138,7 +138,7 @@ export default class AboutUs extends Component {
 
 
 <div className="row">
-<div className="col-md-1"/>
+<div className="col-md-3"/>
 <div className="col-md-3">
 <div className="card mb-4" style={{borderRadius:'30px',width:'354px',height:'420px',backgroundColor:'#FFF8DC'}}>
         <center>  <img className="img img-responsive full-width" src={require('../AboutUs/OurImages/Nitish.jpg') } alt="" height="350" width="350" style={{borderTopLeftRadius:'30px',borderTopRightRadius:'30px',borderBottomLeftRadius:'30px',borderBottomRightRadius:'30px'}}/>
@@ -150,7 +150,6 @@ export default class AboutUs extends Component {
         </div>
 
 </div>
-<div className="col-md-3"></div>
        
     <div className="col-md-3" style={{borderRadius:'30px'}}>
     <div className="card" style={{borderRadius:'30px',width:'354px',height:'420px',backgroundColor:'#FFF8DC'}} >
@@ -162,7 +161,7 @@ export default class AboutUs extends Component {
           </center>
         </div>
         </div>
-        <div className="col-md-1"/>
+        <div className="col-md-3"/>
 
 
 </div>

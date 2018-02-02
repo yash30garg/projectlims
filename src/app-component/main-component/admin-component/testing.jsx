@@ -14,7 +14,7 @@ class Books extends Component {
         this.setState({
           books : responseJson.booksArray
         })
-        console.log(this.state.books)
+        //console.log((this.state.books)
       })
     }
   render() {

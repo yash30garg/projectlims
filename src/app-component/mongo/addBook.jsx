@@ -20,6 +20,7 @@ export var addBook = (bookDetails) => {
             .then((res) => res.json())
             .then((res) => {
                 if (res === "Exists")
-                    alert("Book Already Exists")
+                    return res
+                    // alert("Book Already Exists")
             })
     }
