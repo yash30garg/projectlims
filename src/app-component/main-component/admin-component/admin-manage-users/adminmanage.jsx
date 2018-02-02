@@ -34,7 +34,7 @@ class ManageAdmin extends Component {
         })
             .then((res) => res.json())
             .then((res) => {
-                console.log(res);
+                //console.log((res);
                 this.setState({ user: res });
 
             })
@@ -52,16 +52,16 @@ class ManageAdmin extends Component {
     })
       .then((res) => res.json())
       .then((res) => {
-          console.log(res.length,res)
+          //console.log((res.length,res)
         if(res.length===1&&res[0].role==="user")
         {
-            console.log("user")
+            //console.log(("user")
             this.setState({displayAdminButton:"block",
                             displayUserButton:"none"})
         }
         else if(res.length===1&&res[0].role==="admin")
         {
-            console.log('admin')
+            //console.log(('admin')
             this.setState({displayUserButton:"block",
                             displayAdminButton:"none"})
         }
@@ -84,13 +84,15 @@ class ManageAdmin extends Component {
     })
       .then((res) => res.json())
       .then((res) => {
-          console.log(res)
+          //console.log((res)
           if(res==="Done")
           {
-              alert("Role Changed")
+              return res
+            //   alert("Role Changed")
           }
           else{
-              alert("An error occurred")
+              return res
+            //   alert("An error occurred")
           }
       })
        }
@@ -107,13 +109,15 @@ class ManageAdmin extends Component {
     })
       .then((res) => res.json())
       .then((res) => {
-          console.log(res)
+          //console.log((res)
           if(res==="Done")
           {
-              alert("Changed to User")
+              return res
+            //   alert("Changed to User")
           }
           else{
-              alert("An error occurred")
+              return res
+            //   alert("An error occurred")
           }
       })
        }

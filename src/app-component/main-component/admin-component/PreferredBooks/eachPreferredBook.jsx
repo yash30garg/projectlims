@@ -28,20 +28,20 @@ class EachPrefferedCard extends Component{
         let reqVal=true
         let wishVal=true
         // if(props.data.length!==0){
-        // console.log("called")
+        // //console.log(("called")
         // }
-        // console.log(props.data)
-        // console.log(props.data)
+        // //console.log((props.data)
+        // //console.log((props.data)
         // bbooks=storeBbooks.getState().bbooks;
-        // console.log(bbooks)
+        // //console.log((bbooks)
             // alert(window.bbooks.length);
-            // console.log(props.data.length)
+            // //console.log((props.data.length)
             if( props.Bdata!==null && props.Bdata.length!==0){
                 // eslint-disable-next-line
                  props.Bdata.map(res=>{
-                    //  console.log(res)
+                    //  //console.log((res)
             if(res.isbn===this.props.item.isbn){   
-                // console.log("found")
+                // //console.log(("found")
             reqVal=false;
             }
         })
@@ -49,9 +49,9 @@ class EachPrefferedCard extends Component{
             if(props.Wdata!==null && props.Wdata.length!==0){
                 // eslint-disable-next-line
                  props.Wdata.map(res=>{
-                    //  console.log(res)
+                    //  //console.log((res)
             if(res.isbn===this.props.item.isbn){   
-                // console.log("found")
+                // //console.log(("found")
             wishVal=false;
             }
         })
@@ -86,11 +86,11 @@ class EachPrefferedCard extends Component{
         items.rating=this.props.item.rating;
         items.url=this.props.item.url;
         items.description="";
-        // console.log(items);
+        // //console.log((items);
         (async function(){
                     var data=await addWishlist(items);
-                    console.log("data")
-                console.log(data);
+                    //console.log(("data")
+                //console.log((data);
                 this.props.storeWbooks(data)
                 // var newD=data.json();
             }).bind(this)()
@@ -119,8 +119,8 @@ class EachPrefferedCard extends Component{
         if(navigator.onLine){
         (async function(){
                     var data=await removeWishlist(this.props.item.isbn);
-                    console.log("data")
-                console.log(data);
+                    //console.log(("data")
+                //console.log((data);
                 this.props.storeWbooks(data)
                 // var newD=data.json();
             }).bind(this)()
@@ -161,7 +161,7 @@ class EachPrefferedCard extends Component{
                 bookAdded.isRenewed="false"; 
                 (async function(){
                     var data=await requestBook(bookAdded);
-                console.log(data.data);
+                //console.log((data.data);
                 this.props.storeBbooks(data.data)
                 // var newD=data.json();
             }).bind(this)()
@@ -196,7 +196,7 @@ class EachPrefferedCard extends Component{
         if(navigator.onLine){
         (async function(){
                 var data=await returnBook(this.props.item.isbn);
-                console.log(data.data);
+                //console.log((data.data);
                 
                 this.props.storeBbooks(data.data)
             }).bind(this)()
@@ -220,7 +220,7 @@ class EachPrefferedCard extends Component{
     render()
     {
         // let a=<ReturnBook/>        
-        // console.log(this.props.data)
+        // //console.log((this.props.data)
         //res=this.props.item;
     return (
         <div

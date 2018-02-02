@@ -67,8 +67,8 @@ const isCallback = authContext.isCallback(window.location.hash);
 authContext.handleWindowCallback();	
 
 if (isCallback && !authContext.getLoginError()) {
-  console.log('Check Login');
+  //console.log(('Check Login');
   window.location = authContext._getItem(authContext.CONSTANTS.STORAGE.LOGIN_REQUEST);
   localStorage.setItem('limsuser',JSON.stringify(authContext._user))
-  console.log(authContext)
+  //console.log((authContext)
 }

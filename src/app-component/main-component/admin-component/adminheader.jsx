@@ -8,7 +8,7 @@ import {authContext} from '../../../adalConfig.js'
     componentWillMount() {
         if(localStorage.getItem('role')==="admin")
         {
-            console.log(localStorage.getItem('role'))
+            //console.log((localStorage.getItem('role'))
             window.location = window.location.href
         }
         else if(localStorage.getItem('role')==="user")

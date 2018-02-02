@@ -5,7 +5,7 @@ self.addEventListener('install', function(cacheevent) {
   cacheevent.waitUntil(
     fetch(indexPage).then(function(response) {
       return caches.open('pwabuilder-offline').then(function(cache) {
-        console.log('[PWA Builder] Cached index page during Install'+ response.url);
+        //console.log('[PWA Builder] Cached index page during Install'+ response.url);
         return cache.put(indexPage, response);
       });
   }));
@@ -15,7 +15,7 @@ self.addEventListener('fetch', function(cacheevent) {
   // var updateCache = function(request){
   //   return caches.open('pwabuilder-offline').then(function (cache) {
   //     return fetch(request).then(function (response) {
-  //       console.log('[PWA Builder] add page to offline'+response.url)
+  //       //console.log('[PWA Builder] add page to offline'+response.url)
   //       return cache.put(request, response);
   //     });
   //   });
@@ -23,7 +23,7 @@ self.addEventListener('fetch', function(cacheevent) {
   // cacheevent.waitUntil(updateCache(cacheevent.request));
   cacheevent.respondWith(
     fetch(cacheevent.request).catch(function(error) {
-      console.log( '[PWA Builder] Network request Failed. Serving content from cache: ' + error );
+      //console.log( '[PWA Builder] Network request Failed. Serving content from cache: ' + error );
       //Check to see if you have it in the cache
       //Return response
       //If not in the cache, then return error page
