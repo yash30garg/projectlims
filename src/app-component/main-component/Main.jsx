@@ -4,7 +4,7 @@ import Footer from '../footer-component/footer'
 import {User} from './user-component/user'
 import BootHeader from '../header-component/bootheader'
 import { HashRouter, Route, Switch } from 'react-router-dom';
-
+import {ToastContainer} from 'react-toastify';
 import Profile from './user-component/profileView/ProfileDetails'
 import Category from '../header-component/categoryView'
 import BorrowedSlider from './user-component/borrowedBooks/borrowedSlider'
@@ -52,6 +52,7 @@ export default class Main extends Component {
                 <Route path="/details" exact render = {()=> <Details data={window.selected}/>}/>
                 </Switch>
                 </HashRouter>
+                <ToastContainer/>
                 </div>
             </div>
             <Footer/>

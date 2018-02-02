@@ -6,6 +6,7 @@ import $ from 'jquery';
 import './Search.css';
 import { search, sortTitle, sortAuthor, sortPublish, sortRating, selectFilter } from './Search'
 import store from '../../state/store/store.js'
+// eslint-disable-next-line
 import { ToastContainer, toast } from 'react-toastify';
 import { css } from 'glamor'
 import EachSearchCard from './eachSearchCard';
@@ -96,7 +97,6 @@ class SearchResults extends Component {
         return (
             <div>
                 <div id="alert" onClick={this.notify}></div>
-                <ToastContainer />
                 <div className="contained mt-4">
                     {/*{document.getElementById('alert').click()}*/}
                     <ol className="breadcrumb" style={{ backgroundColor: "#614126", color: "white" }}  >
