@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import './bootheader.css';
-// import EachCategoryCard from './eachCategoryCard'
+import EachCategoryCard from './eachCategoryCard'
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 // import {controller,handleController} from './bootheader';
@@ -66,54 +66,9 @@ let filteredArray=[];
     filteredArray=window.display.filter(r=>r.category.toLowerCase()===this.state.category.toLowerCase()).sort((a,b)=>{return(b.rating-a.rating)})
     }
     console.log(filteredArray)
-     this.setState({cb:filteredArray.map(res=>{   
+     this.setState({cb:filteredArray.filter((res,index)=>(index>=this.state.a && index<=this.state.b)).map((res,index)=>{   
         return(
-         
-                <div
-                key={`filter${res.isbn}`}
-                onClick={()=>handle(res)}
-                className="col-lg-2 col-md-4 col-sm-4 col-xs-4 mt-2 mb-3">
-            
-        <div
-                className="card-img particular mx-auto"
-                id={res.isbn}
-                style={{
-                    height:"13rem", width:"160px"
-            }}>
-            <Link to="/details">
-                <img
-                    alt=""
-                    className="mx-auto"
-                    src={res.url}
-                    height="160px"
-                    width="100%"/>
-                   <div className="card-block card-text" style={{width:"160px", fontSize:"14px"}}>
-                    {res.title}
-                    </div>
-                     <div className="overlay" style={{backgroundColor: "rgba(97,65,38,0.9)"}}>
-                    <div className="text container-fluid" style={{fontSize:'13px'}}>
-                        <b>{res.title}</b><br/>
-                        <b>Author :
-                        </b>
-                        {res.author}<br/>
-                        {
-                            //eslint-disable-next-line
-                            [1, 2, 3, 4, 5].map(d => {
-
-                            if (res.rating >= d) 
-                                return <span
-                                key={`category${res.isbn}`}
-                                    className="fa fa-star"
-                                    style={{
-                                    color: '#ffd700',
-                                    fontSize:'5px'
-                                }}></span>
-                        })}
-                    </div>
-                </div>
-                </Link>
-                </div>
-</div>
+            <EachCategoryCard key={`filter${res.isbn}`} eachValue={res}/>
 
         )
 
@@ -173,13 +128,13 @@ componentWillMount() {
     
 // }
 
-//     const b=filteredArray.filter((res,index)=>(index>=this.state.a && index<=this.state.b)).map((res,index)=>{   
-//         return(
-//             <EachCategoryCard key={`filter${res.isbn}`} eachValue={res}/>
+    // const b=filteredArray.filter((res,index)=>(index>=this.state.a && index<=this.state.b)).map((res,index)=>{   
+    //     return(
+    //         <EachCategoryCard key={`filter${res.isbn}`} eachValue={res}/>
 
-//         )
+    //     )
 
-//     })
+    // })
 return(
     <div id={`i${this.state.category.toLowerCase()}`} className="mainDiv">
         <br/>

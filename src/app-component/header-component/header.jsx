@@ -303,7 +303,7 @@ class Header extends Component {
                     </a>
                     </Link>
                     </li>
-                    <div class="dropdown-divider" >
+                    <div className="dropdown-divider" >
                     </div>
                     <li >
                       <a href="!#" onClick={this.logout} className="dropdown-item" style={{ color: '#614126', borderColor: 'brown' }}><span className="fa fa-lock"></span> Logout</a></li>

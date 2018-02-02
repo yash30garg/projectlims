@@ -12,7 +12,7 @@ import { HashRouter, Route, Switch } from 'react-router-dom';
 import BookAdmin from '../app-component/main-component/admin-component/BookHandler/bookshow.jsx';
 import HandleUsers from '../app-component/main-component/admin-component/adminDashboard/handleusers.jsx';
 // import BookTor from '../app-component/booktor/booktor.jsx';
-import AboutUs from '../app-component/footer-component/AboutUs/aboutus.jsx';
+// import AboutUs from '../app-component/footer-component/AboutUs/aboutus.jsx';
 import { authContext } from '../adalConfig.js'
 import {bindActionCreators} from 'redux';
 import {createStore} from 'redux';
@@ -25,7 +25,7 @@ import {storeBooks} from '../state/action/booksAction';
 import {storeWbooks} from '../state/action/wbooksAction';
 // import {storeBooks} from '../state/action/booksAction'
 import BookAdd from '../../src/app-component/main-component/admin-component/admin-edit-book/bookadd'
-import ContactUs from '../app-component/footer-component/ContactUs/contactus.jsx';
+// import ContactUs from '../app-component/footer-component/ContactUs/contactus.jsx';
 import BookEdit from '../app-component/main-component/admin-component/admin-update-book/bookedit.jsx'
 import ManageAdmin from '../app-component/main-component/admin-component/admin-manage-users/adminmanage.jsx'
 import Main from './main-component/Main'
@@ -246,8 +246,8 @@ class App extends Component {
             <Route path="/adminbooks" exact component={BookAdmin} />
             <Route path="/handleusers" exact component={HandleUsers} />
             {/*<Route path="/profile" exact component={Profile} />*/}
-            <Route path="/aboutus" exact component={AboutUs} /> 
-            <Route path="/contactus" exact component={ContactUs} />
+            {/*<Route path="/aboutus" exact component={AboutUs} /> */}
+            {/*<Route path="/contactus" exact component={ContactUs} />*/}
             <Route path="/bookadd" exact component={BookAdd} />
             <Route path="/bookedit" exact component={BookEdit} />
             <Route path="/admindash" exact component={DashBoard} />

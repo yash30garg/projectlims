@@ -11,6 +11,8 @@ import BorrowedSlider from './user-component/borrowedBooks/borrowedSlider'
 import WishedBooks from './user-component/wishlist/wishlistComponent'
 import SearchResults from '../search-component/SearchResults'
 import Details from '../BookDetails-Component/details.jsx'
+import AboutUs from '../footer-component/AboutUs/aboutus'
+import ContactUs from '../footer-component/ContactUs/contactus'
 import {requireAuth} from '../isLoggedIn.js'
 
 
@@ -30,7 +32,7 @@ export default class Main extends Component {
         }
     }
     render() {
-        if(window.login==="yes")
+        if(window.login==="yes"&& window.location.hash !== "#/aboutus"&&window.location.hash !=="#/contactus")
         return(
             <div style={{overflow:"hidden"}}>
             <Header/>
@@ -57,6 +59,18 @@ export default class Main extends Component {
         )
         else if(window.login==="no")
         return(<div></div>)
+        else if(window.location.hash==="#/aboutus")
+        {
+            return(
+            <Route path="/aboutus" exact component={AboutUs}/>
+            )
+        }
+        else if(window.location.hash==="#/contactus")
+        {
+            return(
+                <Route path="/contactus" exact component={ContactUs}/>
+            )
+        }
         else return(<div>{window.login="no"}</div>)
     }
 }

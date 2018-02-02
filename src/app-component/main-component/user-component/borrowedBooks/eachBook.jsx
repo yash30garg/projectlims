@@ -1,19 +1,14 @@
 import React,{Component} from 'react'
 import './css/isssuedSlider.css'
-// import {connect} from 'react-redux';
-// import {bindActionCreators} from 'redux';
-// import {getDates} from '../../../dates';
-// import {css} from 'glamor'
-// import {ToastContainer, toast} from 'react-toastify';
-// import {borrowDate, returnDate} from '../../../dates';
-// import requestBook from '../../../mongo/requestBook'
-// import returnBook from '../../../mongo/returnBook'
-// import {storeBbooks} from '../../../../state/action/bbooksAction'
-// import {addWishlist} from '../../../mongo/addWishlist';
-// import {storeWbooks} from '../../../../state/action/wbooksAction'
-// import {removeWishlist} from '../../../mongo/removeWishlist'
-// import {Link} from 'react-router-dom';
-// import $ from 'jquery';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import {css} from 'glamor'
+import {toast} from 'react-toastify';
+import returnBook from '../../../mongo/returnBook'
+import {storeBbooks} from '../../../../state/action/bbooksAction'
+import {addWishlist} from '../../../mongo/addWishlist';
+import {storeWbooks} from '../../../../state/action/wbooksAction'
+import {removeWishlist} from '../../../mongo/removeWishlist'
 let handle = (data) => {
     window.selected = data;
     window.showDetails=true;
@@ -25,9 +20,118 @@ class Card extends Component{
     constructor(props)
     {
         super(props)
+        {
+            let reqVal = true,
+            wishVal = true;
+             if (this.props.bbooks!==null && this.props.bbooks.length !== 0) {
+            this
+                .props
+                .bbooks
+                // eslint-disable-next-line
+                .map(res => {
+                    //  console.log(res)
+                    if (res.isbn === this.props.data.isbn) {
+                        // alert("found") console.log("found")
+                        reqVal = false;
+                    }
+                })
+        }
+        if (this.props.wbooks!==null && this.props.wbooks.length !== 0) {
+            this
+                .props
+                .wbooks
+                // eslint-disable-next-line
+                .map(res => {
+                    //  console.log(res)
+                    if (res.isbn === this.props.data.isbn) {
+                        // console.log("found")
+                        wishVal = false;
+                    }
+                })
+        }
         this.state={
-         wishlistIcon:true,
-        requestIcon:true,
+         wishlistIcon:wishVal,
+        requestIcon:reqVal,
+        }
+        }
+    }
+     changeToEmpty = () => {
+        if (navigator.onLine) {
+            (async function () {
+                var data = await removeWishlist(this.props.data.isbn);
+                console.log("data")
+                console.log(data);
+                this
+                    .props
+                    .storeWbooks(data)
+                // var newD=data.json();
+            }).bind(this)()
+            this.setState({wishlistIcon: true});
+            toast.success("Removed from WishList !!!", {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({background: "brown"})
+            });
+        } else {
+            toast.error("You're Not Online !!!", {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({background: "blue"})
+            });
+        }
+    }
+changeToRequest = () => {
+        if (navigator.onLine) {
+            (async function () {
+                var data = await returnBook(this.props.data.isbn);
+                console.log(data.data);
+
+                this
+                    .props
+                    .storeBbooks(data.data)
+            }).bind(this)()
+            this.setState({requestIcon: true});
+            toast.warn("Successfully Returned !!!", {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({background: "brown"})
+            });
+        } else {
+            toast.error("You're Not Online !!!", {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({background: "blue"})
+            });
+        }
+    }
+
+    changeToFilled = () => {
+        if (navigator.onLine) {
+            // eslint-disable-next-line
+            var items = new Object();
+            items.isbn = this.props.data.isbn;
+            items.title = this.props.data.title;
+            items.author = this.props.data.author;
+            items.category = this.props.data.category;
+            items.publisher = this.props.data.publisher;
+            items.rating = this.props.data.rating;
+            items.url = this.props.data.url;
+            items.description = "";
+            (async function () {
+                var data = await addWishlist(items);
+                console.log("data")
+                console.log(data);
+                this
+                    .props
+                    .storeWbooks(data)
+                // var newD=data.json();
+            }).bind(this)()
+            this.setState({wishlistIcon: false});
+            toast.success("Added to WishList !!!", {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({background: "brown"})
+            });
+        } else {
+            toast.error("You're Not Online !!!", {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({background: "blue"})
+            });
         }
     }
     render()
@@ -78,4 +182,13 @@ class Card extends Component{
     }
 
 }
-export default Card;
+function mapStateToProps(state) {
+    return {bbooks: state.bbooks, wbooks: state.wbooks};
+}
+function matchDispatchToProps(dispatch) {
+    return bindActionCreators({
+        storeBbooks: storeBbooks,
+        storeWbooks: storeWbooks
+    }, dispatch);
+}
+export default connect(mapStateToProps, matchDispatchToProps)(Card);

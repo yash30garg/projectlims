@@ -290,3 +290,12 @@ box-sizing: border-box;
 .rating-stars ul > li.star.selected > i.fa {
   color:#FF912C;
 }
+.detailBook{
+  height:400px;
+}
+@media only screen and (max-width: 500px) {
+    .detailBook {
+        height:250px;
+        width:100%;
+    }
+}
