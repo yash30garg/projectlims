@@ -273,9 +273,7 @@ class EachPrefferedCard extends Component{
                 {this.state.requestIcon?<span onClick={this.changeToUndo} className="fa fa-plus-circle" style={{color:'#CD853F', marginLeft:'30px'}} title="Click to request"></span>: <span onClick={this.changeToRequest} className="fa fa-undo" style={{color:'#CD853F', marginLeft:'30px'}} title="Click to return"></span>}
                 </div>
                 </div>
-                
-            </div>
-            
+            </div>      
         </div>
     );
     }

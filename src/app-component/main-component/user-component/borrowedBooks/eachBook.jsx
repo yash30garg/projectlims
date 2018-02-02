@@ -3,7 +3,8 @@ import './css/isssuedSlider.css'
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {css} from 'glamor'
-import {toast} from 'react-toastify';
+// eslint-disable-next-line
+import {ToastContainer,toast} from 'react-toastify';
 import returnBook from '../../../mongo/returnBook'
 import {storeBbooks} from '../../../../state/action/bbooksAction'
 import {addWishlist} from '../../../mongo/addWishlist';

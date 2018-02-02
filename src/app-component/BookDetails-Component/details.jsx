@@ -8,7 +8,8 @@ import {storeReviews} from '../../state/action/reviewAction';
 import '../search-component/Search.css';
 import {getReview} from '.././mongo/getReview'
 import {css} from 'glamor'
-import {toast} from 'react-toastify';
+// eslint-disable-next-line
+import {ToastContainer,toast} from 'react-toastify';
 import Reviews from './reviews';
 import requestBook from '.././mongo/requestBook'
 import returnBook from '.././mongo/returnBook'
@@ -27,16 +28,19 @@ class Details extends Component {
         let check=0;
         (async function () {
             var values = await getReview(this.props.data.isbn);
-            if(values[0].reviews.length===0){
-                check=1;
-                this
-                .props
-                .storeBbooks(null)
+            if(values===null){
+                this.props.storeReviews(null)
             }
+            // if(values[0].reviews.length===0){
+            //     check=1;
+            //     this
+            //     .props
+            //     .storeReviews(null)
+            // }
             else{
                  this
                 .props
-                .storeBbooks(values[0].reviews)
+                .storeReviews(values)
                 check=1;
             }
             if(check===1){
@@ -122,7 +126,6 @@ class Details extends Component {
             thisBook=bookAdded;
             (async function () {
                 var data = await requestBook(bookAdded);
-                console.log(data.data);
                 this
                     .props
                     .storeBbooks(data.data)
@@ -149,7 +152,6 @@ class Details extends Component {
         if (navigator.onLine) {
         (async function () {
             var data = await returnBook(this.props.data.isbn);
-            console.log(data.data);
             this
                 .props
                 .storeBbooks(data.data)
@@ -181,8 +183,6 @@ class Details extends Component {
         items.description = "";
         (async function () {
             var data = await addWishlist(items);
-            console.log("data")
-            console.log(data);
             this
                 .props
                 .storeWbooks(data)
@@ -204,8 +204,6 @@ class Details extends Component {
          if (navigator.onLine) {
         (async function () {
             var data = await removeWishlist(this.props.data.isbn);
-            console.log("data")
-            console.log(data);
             this
                 .props
                 .storeWbooks(data)
@@ -226,8 +224,6 @@ class Details extends Component {
         if (navigator.onLine) {
 
         var tested = new Date();
-        // var res=this.props.data;
-        // console.log(res)
         if(thisBook.isRenewed==="false"){
         var dates = thisBook
                             .returnDate
@@ -243,7 +239,6 @@ class Details extends Component {
                         thisBook.isRenewed=true;
                         (async function () {
             var data = await renewBook(thisBook);
-            console.log(data);
             this
                 .props
                 .storeBbooks(data)
@@ -409,7 +404,7 @@ class Details extends Component {
                                 </div>
                             </div>   
                         </div>   
-                    <Reviews data={this.props.data} revData={this.props.reviews}/>    
+                     <Reviews data={this.props.data} revData={this.props.reviews}/>  
                     </div>
                 </div>
             </div>

@@ -20,7 +20,6 @@ export class EachTopCard extends Component {
     constructor(props)
     {
         super(props);
-        // console.
         this.handle = this
             .handle
             .bind(this)
@@ -295,7 +294,6 @@ export class EachTopCard extends Component {
                         </div>
                     </div>
                 </div>
-
             </div>
         )
     }

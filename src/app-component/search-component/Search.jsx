@@ -14,7 +14,8 @@ import store from '../../state/store/store.js'
 import {changeNotify} from './SearchResults'
 // var debounce = require('debounce');
 export var processedData = [];
-var data,value;
+var data;
+export var value;
 export var search = () => {
     value = store.getState().search.toLowerCase();
     processedData = []

@@ -1,20 +1,21 @@
 import React,{Component} from 'react';
 import './bootheader.css';
-import {Link} from 'react-router-dom';
+// import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import { css } from 'glamor'
+// eslint-disable-next-line
 import { ToastContainer, toast } from 'react-toastify';
 import {bindActionCreators} from 'redux';
-import {getDates} from '.././dates';
+// import {getDates} from '.././dates';
 import {borrowDate, returnDate} from '.././dates';
 import requestBook from '../mongo/requestBook'
 import returnBook from '../mongo/returnBook'
 import {storeBbooks} from '../../state/action/bbooksAction'
 import {storeWbooks} from '../../state/action/wbooksAction'
-import {controller,handleController} from './bootheader';
+// import {controller,handleController} from './bootheader';
 import {addWishlist} from '../mongo/addWishlist';
 import {removeWishlist} from '../mongo/removeWishlist'
-import EachCategory from './../main-component/admin-component/topRatedBooks/eachCategory';
+// import EachCategory from './../main-component/admin-component/topRatedBooks/eachCategory';
 let handle=(data)=>{
 window.selected=data;
 window.location=`/#/details`
@@ -32,7 +33,9 @@ window.showDetails=true;
         let reqVal=true;
         let wishVal=true;
         if(this.props.bbooks!==null && this.props.bbooks.length!==0){
-                 this.props.bbooks.map(res=>{
+                 this.props.bbooks
+                 // eslint-disable-next-line
+                 .map(res=>{
                     //  console.log(res)
             if(res.isbn===this.props.eachValue.isbn){   
                 // console.log("found")
@@ -41,7 +44,9 @@ window.showDetails=true;
         })
             }
             if(this.props.wbooks!==null && this.props.wbooks.length!==0){
-                 this.props.wbooks.map(res=>{
+                 this.props.wbooks
+                 // eslint-disable-next-line
+                 .map(res=>{
                     //  console.log(res)
             if(res.isbn===this.props.eachValue.isbn){   
                 // console.log("found")
@@ -58,6 +63,7 @@ window.showDetails=true;
     changeToFilled=()=>
     {
         if(navigator.onLine){
+            // eslint-disable-next-line
         var items=new Object();
         items.isbn=this.props.eachValue.isbn;
         items.title=this.props.eachValue.title;
@@ -123,6 +129,7 @@ window.showDetails=true;
     {
         if(navigator.onLine){
          if(this.props.bbooks.length<4){
+             // eslint-disable-next-line
             let bookAdded=new Object();
                 bookAdded.isbn=this.props.eachValue.isbn;
                 bookAdded.title=this.props.eachValue.title;
@@ -219,7 +226,9 @@ render()
                         <b>Author :
                         </b>
                         {this.props.eachValue.author}<br/>
-                        <span className="ml-2">{[1, 2, 3, 4, 5].map(d => {
+                        <span className="ml-2">{[1, 2, 3, 4, 5]
+                            // eslint-disable-next-line
+                            .map(d => {
                             if (this.props.eachValue.rating >= d) 
                                 return <span
                                     class="fa fa-star"
