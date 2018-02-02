@@ -6,7 +6,7 @@ import {connect} from 'react-redux';
 // import {controller,handleController} from './bootheader';
 var route;
 // eslint-disable-next-line
-var oldURL = "", currentURL = window.location.href;
+var oldURL = "", currentURL = window.location.href, flag=0;;
 // let handle=(data)=>{
 // window.selected=data;
 // }
@@ -26,6 +26,7 @@ let filteredArray=[];
         category:'',
         display:''
     }
+    flag=0;
     route = window.location.hash.split('/')
     if(route[1]==="category") {
     this.setState({category:route[2]})
@@ -90,7 +91,7 @@ componentWillMount() {
     {
         this.setState({a:this.state.a+17});
         this.setState({b:this.state.b+17});
-        this.changeInHash();
+        this.paginationCat()
     }  
     }
     previous_click_handler=()=>
@@ -99,7 +100,7 @@ componentWillMount() {
     {
         this.setState({a:this.state.a-17});
         this.setState({b:this.state.b-17});
-        this.changeInHash();
+        this.paginationCat();
     }
 }  
 changeInHash = () => {
@@ -152,6 +153,20 @@ changeInHash = () => {
           })
 }
 
+paginationCat = () => {
+    this.setState({cb:filteredArray.filter((res,index)=>(index>=this.state.a && index<=this.state.b)).map((res,index)=>{   
+        return(
+            <EachCategoryCard key={`filter${res.isbn}`} eachValue={res}/>
+
+        )
+
+    })
+     })
+}
+
+componentDidMount() {
+    flag=1;
+}
     render()
     {
 //     if(route[2]==="all")
@@ -191,7 +206,7 @@ changeInHash = () => {
     //     )
 
     // })
-if(route[1]==="category"){
+if(route[1]==="category"&&route[2]!==undefined){
 var checkURLchange = (currentURL) =>{
     if(window.location.href !== oldURL){
         oldURL = window.location.href;
@@ -203,7 +218,7 @@ var checkURLchange = (currentURL) =>{
         checkURLchange(window.location.href);
     }, 1000);
 }
-
+if(flag===1)
 checkURLchange();
 
 return(
