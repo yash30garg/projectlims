@@ -2,7 +2,8 @@ import React,{Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {css} from 'glamor'
-import {toast} from 'react-toastify';
+// eslint-disable-next-line
+import {ToastContainer,toast} from 'react-toastify';
 import {borrowDate, returnDate} from '../../../dates';
 import requestBook from '../../../mongo/requestBook'
 import returnBook from '../../../mongo/returnBook'

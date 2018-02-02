@@ -6,9 +6,11 @@ import $ from 'jquery';
 import './Search.css';
 import { search, sortTitle, sortAuthor, sortPublish, sortRating, selectFilter } from './Search'
 import store from '../../state/store/store.js'
+// eslint-disable-next-line
 import { ToastContainer, toast } from 'react-toastify';
 import { css } from 'glamor'
 import EachSearchCard from './eachSearchCard';
+import {value} from './Search'
 export var book, notify = 0;
 // let users,
 //     books;
@@ -21,8 +23,10 @@ class SearchResults extends Component {
 
         this.state = {
             wishlistIcon: true,
-            requestIcon: true
+            requestIcon: true,
+            divName:''
         }
+
         // axios
         //     .get('https://api.myjson.com/bins/14x90j')
         //     .then(res => {
@@ -33,9 +37,29 @@ class SearchResults extends Component {
         //     });
     }
 
+    divisionName = () => {
+        if(processedData.length>0&&navigator.onLine)
+        {
+            this.setState({divName:`Showing search results for ${value}`})
+        }
+        else if(processedData.length===0&&navigator.onLine)
+        {
+            this.setState({divName:`No search results found for ${value}`})
+        }
+        else if(processedData.length>0&&!navigator.onLine)
+        {
+            this.setState({divName:`Offline Results for ${value}`})
+        }
+        else if(processedData.length===0&&!navigator.onLine)
+        {
+            this.setState({divName:`No offline Results for ${value}`})
+        }
+    }
+
     notify = () => {
         if (notify === 0&&navigator.onLine&&processedData.length>0) {
             notify = 1;
+            this.divisionName();
             toast.success("Is this what you were looking for !!!", {
                 position: toast.POSITION.BOTTOM_CENTER,
                 className: css({
@@ -46,6 +70,7 @@ class SearchResults extends Component {
         else if(notify===0&&!navigator.onLine)
         {
             notify=1;
+            this.divisionName()
             toast.error("You're Not Online !!!", {
                 position: toast.POSITION.BOTTOM_CENTER,
                 className: css({
@@ -56,6 +81,7 @@ class SearchResults extends Component {
         else if(notify===0&&navigator.onLine&& processedData.length===0)
         {
             notify=1;
+            this.divisionName()
             toast.error("Sorry !!! No Search Results Found", {
                 position: toast.POSITION.BOTTOM_CENTER,
                 className: css({
@@ -64,6 +90,7 @@ class SearchResults extends Component {
             });
 
         }
+        // this.divisionName()
         // toast.error("Error Notification !", {
         //   position: toast.POSITION.TOP_LEFT
         // });
@@ -95,12 +122,11 @@ class SearchResults extends Component {
         });
         return (
             <div>
-                <div id="alert" onClick={this.notify}></div>
-                <ToastContainer />
+                <img id="alert" alt='' onload={this.notify()} onClick={this.notify}/>
                 <div className="contained mt-4">
                     {/*{document.getElementById('alert').click()}*/}
                     <ol className="breadcrumb" style={{ backgroundColor: "#614126", color: "white" }}  >
-                        <h5 >{this.props.divName}<span style={{ float: 'right', cursor: 'pointer', paddingLeft: '70px' }} id="openHome" onClick={(e)=>{e.preventDefault(); window.location="/#/"}}>x</span></h5>
+                        <h5 >{this.state.divName}<span style={{ float: 'right', cursor: 'pointer', paddingLeft: '70px' }} id="openHome" onClick={(e)=>{e.preventDefault(); window.location="/#/"}}>x</span></h5>
                     </ol>
                     
                         <div>
