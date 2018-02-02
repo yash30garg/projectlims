@@ -13,8 +13,8 @@ import SearchResults from '../search-component/SearchResults'
 import Details from '../BookDetails-Component/details.jsx'
 import AboutUs from '../footer-component/AboutUs/aboutus'
 import ContactUs from '../footer-component/ContactUs/contactus'
+import Dashboard from './admin-component/adminDashboard/dashboard'
 import {requireAuth} from '../isLoggedIn.js'
-
 
 
 export default class Main extends Component {
@@ -69,6 +69,12 @@ export default class Main extends Component {
         {
             return(
                 <Route path="/contactus" exact component={ContactUs}/>
+            )
+        }
+        else if(window.location.hash==="#/adminDash")
+        {
+            return(
+                <Route path="/adminDash" exact component = {Dashboard}/>
             )
         }
         else return(<div>{window.login="no"}</div>)

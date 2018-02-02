@@ -68,6 +68,17 @@ authContext.handleWindowCallback();
 
 if (isCallback && !authContext.getLoginError()) {
   //console.log(('Check Login');
+  fetch('https://limsreactapi.azurewebsites.net/books/getBooks',
+        // fetch('http://localhost:3005/books/getBooks',
+          {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json',
+            }
+          }).then((res)=>res.json()).then((res)=>{
+            window.display=res
+            localStorage.setItem('books',res)
+        })
   window.location = authContext._getItem(authContext.CONSTANTS.STORAGE.LOGIN_REQUEST);
   localStorage.setItem('limsuser',JSON.stringify(authContext._user))
   //console.log((authContext)
