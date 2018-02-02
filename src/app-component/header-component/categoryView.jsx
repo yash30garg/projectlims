@@ -6,7 +6,7 @@ import {connect} from 'react-redux';
 // import {controller,handleController} from './bootheader';
 var route;
 // eslint-disable-next-line
-var oldURL = "", currentURL = window.location.href;
+var oldURL = "", currentURL = window.location.href, flag=0;;
 // let handle=(data)=>{
 // window.selected=data;
 // }
@@ -26,6 +26,7 @@ let filteredArray=[];
         category:'',
         display:''
     }
+    flag=0;
     route = window.location.hash.split('/')
     if(route[1]==="category") {
     this.setState({category:route[2]})
@@ -152,6 +153,9 @@ changeInHash = () => {
           })
 }
 
+componentDidMount() {
+    flag=1;
+}
     render()
     {
 //     if(route[2]==="all")
@@ -203,7 +207,7 @@ var checkURLchange = (currentURL) =>{
         checkURLchange(window.location.href);
     }, 1000);
 }
-
+if(flag===1)
 checkURLchange();
 
 return(
