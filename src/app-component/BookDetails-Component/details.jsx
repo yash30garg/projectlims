@@ -19,6 +19,7 @@ import {removeWishlist} from '.././mongo/removeWishlist'
 import {getDates} from '../dates'
 import {borrowDate, returnDate} from '../dates'
 let book,
+stars=0,
     thisBook=null;
 
 class Details extends Component {
@@ -26,6 +27,7 @@ class Details extends Component {
         super(props);
         getDates();
         let check=0;
+        this.props.storeReviews(null);
         (async function () {
             var values = await getReview(this.props.data.isbn);
             if(values===null){
@@ -262,6 +264,42 @@ class Details extends Component {
         }
     }
     render() {
+        if(this.props.reviews===null){
+            stars=(<div className="mt-3 ml-3" style={{
+                                                        color: 'rgb(205,133,63)',
+                                                        fontSize: '22px'
+                                                    }}>There are no ratings</div>)
+        }
+        else{
+            var rating=0,count=0;
+            //eslint-disable-next-line
+            this.props.reviews.map(d=>{
+                rating=rating + d.rating;
+                count++;
+            })
+            var newRating=rating/count;
+            newRating=Math.round( newRating * 10 ) / 10
+            stars=<div>
+            <h2 className="bold padding-bottom-7">{newRating}<small>/5</small></h2>
+                                          {  [1, 2, 3, 4, 5].map(d => {
+                                                if (newRating >= d) {
+                                                    return <span
+                                                        key={`category${this.props.data.isbn}`}
+                                                        className="fa fa-star"
+                                                        style={{
+                                                        color: '#ffd700',
+                                                        fontSize: '22px'
+                                                    }}></span>}
+                                            else{
+                                                return <span
+                                                        key={`category${this.props.data.isbn}`}
+                                                        className="fa fa-star"
+                                                        style={{
+                                                        fontSize: '22px'
+                                                    }}></span>
+                                            }
+                                            })}</div>
+        }
         book = this.props.data;    
         if(book!==null && book!==undefined)
         return (
@@ -293,16 +331,13 @@ class Details extends Component {
                             </h5>
                         </ol>
                         <div
-                            class="container-fluid"
-                            style={{
-                            padding: "3em"
-                        }}>
+                            class="aboveDiv">
                             <div class="wrapper row">
-                                <div className="col-md-6 col-sm-6 col-xs-6 col-lg-6">
+                                <div className="col-md-4 col-sm-6 col-xs-6 col-lg-4">
                                 <img
                                         alt="Not Available"
                                         src={book.url}
-                                        className="detailBook mx-auto col-md-10 col-sm-10 col-xs-10 col-lg-10"
+                                        className="detailBook mx-auto"
                                         style={{
                                         
                                     }}/>
@@ -311,8 +346,8 @@ class Details extends Component {
                                             ? <button
                                                     className="btn details-btn col-md-5 col-sm-5 col-xs-5 col-lg-5"
                                                     style={{
+                                                        borderColor: "rgb(205,133,63)", 
                                                         overflow:"hidden",
-                                                    borderColor: "rgb(205,133,63)"
                                                 }}
                                                     onClick={this.request}>
                                                     <div className="fa fa-plus-circle"></div>
@@ -366,24 +401,16 @@ class Details extends Component {
 
                                     </div>
                                 </div>
-                                <div class="details col-md-6">
-                                    <h3 class="product-title">{book.title}</h3>
+                                <div class="details col-md-8 col-lg-8">
+                                   <div className="rating-block">
+                                   <h4>Average User Rating</h4>
                                     <div class="rating">
                                         <div className="stars mt-3 ml-3">
-                                            {//eslint-disable-next-line
-                                            [1, 2, 3, 4, 5].map(d => {
-
-                                                if (book.rating >= d) 
-                                                    return <span
-                                                        key={`category${book.isbn}`}
-                                                        className="fa fa-star"
-                                                        style={{
-                                                        color: '#ffd700',
-                                                        fontSize: '22px'
-                                                    }}></span>
-                                            })}
+                                            {stars}
                                         </div>
-                                    </div><br/>
+                                    </div>
+                                    </div>
+                                    <br/>
                                     <ul class="list-group">
                                         <li class="list-group-item">
                                             <b>ISBN :</b>
