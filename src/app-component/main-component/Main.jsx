@@ -21,6 +21,7 @@ import BookEdit from './admin-component/admin-update-book/bookedit.jsx'
 import ManageAdmin from './admin-component/admin-manage-users/adminmanage.jsx'
 import {requireAuth} from '../isLoggedIn.js'
 import {authContext} from '../../adalConfig.js'
+import './Main.css'
 
 export default class Main extends Component {
     constructor() {

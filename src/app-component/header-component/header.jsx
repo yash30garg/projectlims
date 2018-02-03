@@ -224,7 +224,7 @@ class Header extends Component {
     authorDup();
     return (
       <div >
-        <nav className="navbar navbar-toggleable-md navbar-light bg-faded" style={{ backgroundColor: "#614126" }}>
+        <nav id="headerSticky" className="navbar navbar-toggleable-md navbar-light bg-faded" style={{ backgroundColor: "#614126" }}>
           <button style={{ backgroundColor: '#fff' }}
             className="navbar-toggler navbar-toggler-right"
             type="button"
