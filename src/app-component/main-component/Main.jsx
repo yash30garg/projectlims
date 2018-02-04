@@ -21,6 +21,8 @@ import BookEdit from './admin-component/admin-update-book/bookedit.jsx'
 import ManageAdmin from './admin-component/admin-manage-users/adminmanage.jsx'
 import {requireAuth} from '../isLoggedIn.js'
 import {authContext} from '../../adalConfig.js'
+import Delay from 'react-delay'
+import './Main.css'
 
 export default class Main extends Component {
     constructor() {
@@ -64,7 +66,7 @@ export default class Main extends Component {
                 <Route path="/wishlist" exact component={WishedBooks}/>
                 <Route path="/profile" exact component={Profile}/>
                 <Route path="/search/:searchValue" exact component={SearchResults} onChange={SearchResults}/>
-                <Route path="/details" exact render = {()=> <Details data={window.selected}/>}/>
+                <Delay wait={2000}><Route path="/details/:isbn" exact render = {()=> <Details data={window.selected}/>}/></Delay>
                 </Switch>
                 </HashRouter>
                 <ToastContainer/>

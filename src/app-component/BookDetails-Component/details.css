@@ -18,8 +18,14 @@
   /*border-color: rgb(205,133,63);*/
   color: rgb(205,133,63);
 }
+.details-btn:hover{
+  background-color: rgb(205,133,63);
+  color:rgb(255,248,220);
+  transition:all 0.5 ease-in;
+}
 .review-card{
   background-color:  rgb(255, 248, 220);
+  padding:15px 20px 15px 20px;
 }
 .review-input{
     border: none;
@@ -61,7 +67,7 @@
 .carders {
   border: 1px solid #eee;
   box-shadow:0 5px 5px #ccc;
-  line-height: 1.5em; }
+   }
 
 @media screen and (min-width: 997px) {
   .wrapper {
@@ -109,7 +115,7 @@
   display: inline-block;
   vertical-align: middle;
   margin-right: 10px;
-  height: 2em;
+
   width: 2em;
   border-radius: 2px; }
   .color:first-of-type {
@@ -130,7 +136,7 @@
 
 .not-available {
   text-align: center;
-  line-height: 2em; }
+   }
   .not-available:before {
     font-family: fontawesome;
     content: "\f00d";
@@ -169,8 +175,6 @@
             transform: scale(1); } }
 
 /*# sourceMappingURL=style.css.map */
-
-
 
 
 
@@ -291,11 +295,91 @@ box-sizing: border-box;
   color:#FF912C;
 }
 .detailBook{
-  height:400px;
+  height:335px;
+  width: 260px;
 }
+
+.aboveDiv{
+  padding:1em 3em 3em 3em;
+}
+
+
+
+.btn-grey{
+    background-color:#D8D8D8;
+	color:#FFF;
+}
+.rating-block{
+	background-color:rgb(255,248,220);
+	padding:0px 0px 20px 0px;
+	border-radius:3px;
+}
+.bold{
+	font-weight:700;
+}
+.padding-bottom-7{
+	padding-bottom:7px;
+}
+
+.review-block{
+	background-color:#FAFAFA;
+	border:1px solid #EFEFEF;
+	padding:15px;
+	border-radius:3px;
+	margin-bottom:15px;
+}
+.review-block-name{
+	font-size:12px;
+	margin:10px 0;
+}
+.review-block-date{
+	font-size:12px;
+}
+.review-block-rate{
+	font-size:13px;
+	margin-bottom:15px;
+}
+.review-block-title{
+	font-size:15px;
+	font-weight:700;
+	margin-bottom:10px;
+}
+.review-block-description{
+	font-size:13px;
+}
+.prgrsBar
+{
+  width: 300px;
+}
+.eachImage {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  box-shadow:
+    inset 0 0 0 2px rgba(255,255,255,0.6), 
+    0 1px 1px rgba(0,0,0,0.1);
+  background-color: white !important;
+  z-index: 999;
+}
+
+.eachImage img {
+  border-radius: inherit;
+  width: inherit;
+  height: inherit;
+  display: block;
+  position: relative;
+  z-index: 998;
+}
+
+
+
 @media only screen and (max-width: 500px) {
     .detailBook {
         height:250px;
         width:100%;
+    }
+    .prgrsBar
+    {
+      width:140px;
     }
 }

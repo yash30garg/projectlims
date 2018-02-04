@@ -69,7 +69,7 @@ class EachPrefferedCard extends Component{
     handle(){
         window.selected=this.props.item
         window.showDetails=true;
-        window.location="/#/details"
+        window.location=`/#/details/${this.props.item.isbn}`
         // document.getElementById('detail').click();
         window.setClickProps="prefferedDetailsCross"
     }
