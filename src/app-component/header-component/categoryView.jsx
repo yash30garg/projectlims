@@ -3,6 +3,7 @@ import './bootheader.css';
 import EachCategoryCard from './eachCategoryCard'
 // import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
+import LoadingEffect from '../loading-component/loading'
 // import {controller,handleController} from './bootheader';
 var route;
 // eslint-disable-next-line
@@ -24,7 +25,9 @@ let filteredArray=[];
         cb:'',
         showButton:false,
         category:'',
-        display:''
+        display:'',
+        catLength:'',
+        pageNo:1
     }
     flag=0;
     route = window.location.hash.split('/')
@@ -70,7 +73,8 @@ let filteredArray=[];
     filteredArray=window.display.filter(r=>r.category.toLowerCase()===this.state.category.toLowerCase()).sort((a,b)=>{return(b.rating-a.rating)})
     }
     //console.log((filteredArray)
-     this.setState({cb:filteredArray.filter((res,index)=>(index>=this.state.a && index<=this.state.b)).map((res,index)=>{   
+    //  this.setState({cb:filteredArray.filter((res,index)=>(index>=this.state.a && index<=this.state.b)).map((res,index)=>{
+     this.setState({cb:filteredArray.map((res,index)=>{        
         return(
             <EachCategoryCard key={`filter${res.isbn}`} eachValue={res}/>
 
@@ -87,23 +91,26 @@ componentWillMount() {
 }
     next_click_handler=()=>
     {
-    if(this.state.b<filteredArray.length)
+    if(this.state.b<=this.state.cb.length)
     {
-        this.setState({a:this.state.a+17});
-        this.setState({b:this.state.b+17});
-        this.paginationCat()
+        this.setState({a:this.state.a+18});
+        this.setState({b:this.state.b+18,
+        pageNo:this.state.pageNo+1});
+        // this.paginationCat()
     }  
     }
     previous_click_handler=()=>
     {
-    if(this.state.a>=17)
+    if(this.state.a>0)
     {
-        this.setState({a:this.state.a-17});
-        this.setState({b:this.state.b-17});
-        this.paginationCat();
+        this.setState({a:this.state.a-18});
+        this.setState({b:this.state.b-18,
+        pageNo:this.state.pageNo-1});
+        // this.paginationCat();
     }
 }  
 changeInHash = () => {
+    this.setState({a:0,b:17})
     route = window.location.hash.split('/')
     this.setState({category:route[2]})
     fetch('https://limsreactapi.azurewebsites.net/books/getBooks',
@@ -142,7 +149,7 @@ changeInHash = () => {
     {
     filteredArray=window.display.filter(r=>r.category.toLowerCase()===this.state.category.toLowerCase()).sort((a,b)=>{return(b.rating-a.rating)})
     }
-     this.setState({cb:filteredArray.filter((res,index)=>(index>=this.state.a && index<=this.state.b)).map((res,index)=>{   
+     this.setState({cb:filteredArray.map((res,index)=>{   
         return(
             <EachCategoryCard key={`filter${res.isbn}`} eachValue={res}/>
 
@@ -229,12 +236,13 @@ return(
         <h5 >{this.state.category.toUpperCase()} <span style={{float:'right',cursor:'pointer',paddingLeft:'85px'}} id="openHome" onClick={(e)=> {e.preventDefault(); window.location='/#/'}}>x</span></h5>
         </ol>
     <div className="row ml-1 mr-1">
-     {this.state.cb}
+     {this.state.cb!==null&&this.state.cb!==undefined&&this.state.cb!==""?this.state.cb.filter((res,index)=>(index>=this.state.a && index<=this.state.b)):<LoadingEffect/>}
     </div>
-    <div className="row ml-1 mr-1" style={{paddingLeft:"40%"}}>
-     <button onClick={this.previous_click_handler} className="btn-primary" style={{backgroundColor:"#614126"}}>Previous</button>
-      <button onClick={this.next_click_handler} className="btn-primary" style={{backgroundColor:"#614126"}}>Next</button>
-    </div>
+    {this.state.cb.length>18?<div className="row col-md-12">
+     <div className="col-md-4">{this.state.a>0?<button onClick={this.previous_click_handler} className="btn-primary" style={{backgroundColor:"#614126"}}>Previous</button>:null}</div>
+     <div className="col-md-4">{this.state.cb.length>18?<div>{this.state.pageNo}</div>:null}</div>
+      <div className="offset-md-3 col-md-1">{this.state.b<this.state.cb.length-1?<button onClick={this.next_click_handler} className="btn-primary" style={{backgroundColor:"#614126"}}>Next</button>:null}</div>
+    </div>:null}
     </div>
     </div>
 )
