@@ -2,7 +2,11 @@
   "short_name": "LiMS",
   "name": "Library Managament System",
   "icons": [
-    
+    {
+      "src": "/favicon.ico",
+      "sizes":"144x144",
+      "type":"image.png"
+    },
     {
       "src": "screen_icon.png",
       "sizes": "144x144",
