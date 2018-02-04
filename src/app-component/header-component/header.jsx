@@ -109,6 +109,7 @@ class Header extends Component {
   }
 
   render() {
+    window.addEventListener('click',function(e){e.preventDefault(); if((window.location.hash).indexOf('search')<0&&(window.location.hash).indexOf('details')<0&&document.getElementById('key')!==null)document.getElementById('key').value=""})
     let brr = [];
     //console.log((window.display)
     if(window.display!==""&&window.display!==undefined){
@@ -237,10 +238,11 @@ class Header extends Component {
           </button>
 
 
-          <img
+          <Img
             className="App-logo inset"
             src={require("../../Assets/Images/final_header.jpg")}
             alt="My logo"
+            loader = {<LoadingEffect/>}
             align="left" onClick={(e) => { e.preventDefault(); window.location = "/#/"; 
             if(document.getElementById('openHome')!==null) document.getElementById('openHome').click() }} />
 

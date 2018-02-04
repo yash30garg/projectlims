@@ -71,7 +71,7 @@ class EachSearchCard extends Component {
     handle(res) {
         window.selected = res;
         window.showDetails = true;
-        window.location="/#/details"
+        window.location=`/#/details/${res.isbn}`
         // document.getElementById('detail').click();
         window.setClickProps = "searchDetailsCross"
     }
