@@ -4,6 +4,7 @@ import EachCategoryCard from './eachCategoryCard'
 // import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import LoadingEffect from '../loading-component/loading'
+import $ from 'jquery'
 // import {controller,handleController} from './bootheader';
 var route;
 // eslint-disable-next-line
@@ -74,13 +75,7 @@ let filteredArray=[];
     }
     //console.log((filteredArray)
     //  this.setState({cb:filteredArray.filter((res,index)=>(index>=this.state.a && index<=this.state.b)).map((res,index)=>{
-     this.setState({cb:filteredArray.map((res,index)=>{        
-        return(
-            <EachCategoryCard key={`filter${res.isbn}`} eachValue={res}/>
-
-        )
-
-    })
+     this.setState({cb:filteredArray
      })
           })
     }
@@ -149,13 +144,7 @@ changeInHash = () => {
     {
     filteredArray=window.display.filter(r=>r.category.toLowerCase()===this.state.category.toLowerCase()).sort((a,b)=>{return(b.rating-a.rating)})
     }
-     this.setState({cb:filteredArray.map((res,index)=>{   
-        return(
-            <EachCategoryCard key={`filter${res.isbn}`} eachValue={res}/>
-
-        )
-
-    })
+     this.setState({cb:filteredArray
      })
           })
 }
@@ -174,6 +163,96 @@ paginationCat = () => {
 componentDidMount() {
     flag=1;
 }
+
+    sortTitle = () => {
+        this.flag = !this.flag;
+    let i = this.flag;
+    filteredArray=this.state.cb.sort(function (a, b) {
+        if (a.title < b.title) {
+            if (i)
+                return -1;
+            else
+                return 1;
+        }
+        if (a.title > b.title) {
+            if (i)
+                return 1;
+            else
+                return -1;
+        }
+        return 0;
+    }
+    )
+    this.setState({cb:filteredArray})
+}
+
+    sortAuthor = () => {
+    this.flag = !this.flag;
+    let i = this.flag;
+    filteredArray=this.state.cb.sort(function (a, b) {
+        if (a.author < b.author) {
+            if (i)
+                return -1;
+            else
+                return 1;
+        }
+        if (a.author > b.author) {
+            if (i)
+                return 1;
+            else
+                return -1;
+        }
+        return 0;
+    }
+    )
+    this.setState({cb:filteredArray})    
+}
+    sortPublish = () => {
+    this.flag = !this.flag;
+    let i = this.flag;
+    filteredArray=this.state.cb.sort(function (a, b) {
+        if (a.publisher < b.publisher) {
+            if (i)
+                return -1;
+            else
+                return 1;
+        }
+        if (a.publisher > b.publisher) {
+            if (i)
+                return 1;
+            else
+                return -1;
+        }
+        return 0;
+    }
+    )
+        this.setState({cb:filteredArray})
+}
+    sortRating = () => {
+    this.flag = !this.flag;
+    let i = this.flag;
+    filteredArray = this.state.cb.sort(function (a, b) {
+        if (a.rating > b.rating) {
+            if (i)
+                return -1;
+            else
+                return 1;
+        }
+        if (a.rating < b.rating) {
+            if (i)
+                return 1;
+            else
+                return -1;
+        }
+        return 0;
+    }
+    )
+    this.setState({cb:filteredArray})    
+}
+
+    
+
+
     render()
     {
 //     if(route[2]==="all")
@@ -228,6 +307,17 @@ var checkURLchange = (currentURL) =>{
 if(flag===1)
 checkURLchange();
 
+$(document).ready(function () {
+            $('.contained section .sortTypes li a').click(function (e) {
+                e.preventDefault();
+                $('.contained section .sortTypes li.activeSortElement').removeClass('activeSortElement');
+
+                var $parent = $(this).parent();
+                $parent.addClass('activeSortElement');
+                e.preventDefault();
+            });
+        });
+
 return(
     <div id={`i${this.state.category.toLowerCase()}`}>
         <br/>
@@ -235,8 +325,61 @@ return(
         <ol className="breadcrumb" style={{backgroundColor : "#614126", color : "white", height:"45px" , fontSize : "15px"}}  >
         <h5 >{this.state.category.toUpperCase()} <span style={{float:'right',cursor:'pointer',paddingLeft:'85px'}} id="openHome" onClick={(e)=> {e.preventDefault(); window.location='/#/'}}>x</span></h5>
         </ol>
+        {this.state.cb.length>1?<div>
+                            <section className="sortInline form-group">
+                                <span className="sortName">
+                                    <span>Sort By</span>
+                                </span>
+                                <ul className="sortTypes">
+                                    <li className="sortElement activeSortElement" onClick={(event) => {
+                                        event.preventDefault();
+                                        this.changeInHash();
+                                    }}><a id="defaultSearchResults">Default</a></li>
+                                    <li className="sortElement" onClick={(event) => {
+                                        event.preventDefault();
+                                        this.sortTitle();
+                                        {/*this.notifySort();*/}
+                                    }}><a>Title</a></li>
+                                    <li className="sortElement" onClick={(event) => {
+                                        event.preventDefault()
+                                        this.sortAuthor();
+                                        {/*this.notifySort();*/}
+                                    }}><a>Author</a></li>
+                                    <li className="sortElement" onClick={(event) => {
+                                        event.preventDefault();
+                                        this.sortPublish();
+                                        {/*this.notifySort();*/}
+                                    }}><a>Publisher</a></li>
+                                    <li className="sortElement" onClick={(event) => {
+                                        event.preventDefault();
+                                        this.sortRating();
+                                        {/*this.notifySort();*/}
+                                    }}><a>Rating</a></li>
+                                </ul>
+
+                            </section>
+                            <div className="btn-group setDropdown">
+
+                                <select className="form-control" id="filterCat" onChange={(e) => {
+                                    e.preventDefault();
+                                    {/*this.notifyFilter();*/}
+                                }} data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span className="dropdown-toggle"></span>
+                                    <option className="dropdown-item" >Filter By</option>
+                                    <option className="dropdown-item">Filter By 5 Rated</option>
+                                    <option className="dropdown-item">Filter By 4 and above</option>
+                                    <option className="dropdown-item" >Filter by 3 and above</option>
+                                    <option className="dropdown-item">Filter by 2 and above</option>
+                                </select>
+                            </div>
+                        </div>:null}
     <div className="row ml-1 mr-1">
-     {this.state.cb!==null&&this.state.cb!==undefined&&this.state.cb!==""?this.state.cb.filter((res,index)=>(index>=this.state.a && index<=this.state.b)):<LoadingEffect/>}
+     {this.state.cb!==null&&this.state.cb!==undefined&&this.state.cb!==""?this.state.cb.filter((res,index)=>(index>=this.state.a && index<=this.state.b)).map((res,index)=>{        
+        return(
+            <EachCategoryCard key={`filter${res.isbn}`} eachValue={res}/>
+
+        )
+
+    }):<LoadingEffect/>}
     </div>
     {this.state.cb.length>18?<div className="row col-md-12">
      <div className="col-md-4">{this.state.a>0?<button onClick={this.previous_click_handler} className="btn-primary" style={{backgroundColor:"#614126"}}>Previous</button>:null}</div>

@@ -24,7 +24,9 @@ class SearchResults extends Component {
         this.state = {
             wishlistIcon: true,
             requestIcon: true,
-            divName:''
+            divName:'',
+            sortType:'',
+            filterType:'',
         }
 
         // axios
@@ -102,6 +104,65 @@ class SearchResults extends Component {
         // });
     }
 
+    notifySort = () => {
+        if (navigator.onLine&&processedData.length>0) {
+            toast.success("Sorted your search", {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({
+                    background: "brown"
+                })
+            });
+        }
+        else if(!navigator.onLine)
+        {
+            toast.error("You're Not Online !!!", {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({
+                    background: "blue"
+                })
+            });
+        }
+        else if(navigator.onLine&& processedData.length===0)
+        {
+            toast.error("Sorry !!! No Search Results Found", {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({
+                    background: "red"
+                })
+            });
+
+        }
+    }
+    notifyFilter = () => {
+        if (navigator.onLine&&processedData.length>0) {
+            toast.success(`Used ${document.getElementById('filter').value} on your search`, {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({
+                    background: "brown"
+                })
+            });
+        }
+        else if(!navigator.onLine)
+        {
+            toast.error("You're Not Online !!!", {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({
+                    background: "blue"
+                })
+            });
+        }
+        else if(navigator.onLine&& processedData.length===0)
+        {
+            toast.error("Sorry !!! No Search Results Found", {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({
+                    background: "red"
+                })
+            });
+
+        }
+    }
+
 
     render() {
         //console.log((processedData)
@@ -126,10 +187,10 @@ class SearchResults extends Component {
                 <div className="contained mt-4">
                     {/*{document.getElementById('alert').click()}*/}
                     <ol className="breadcrumb" style={{ backgroundColor: "#614126", color: "white" }}  >
-                        <h5 >{this.state.divName}<span style={{ float: 'right', cursor: 'pointer', paddingLeft: '70px' }} id="openHome" onClick={(e)=>{e.preventDefault(); window.location="/#/"}}>x</span></h5>
+                        <h5 >{this.state.divName}<span style={{ float: 'right', cursor: 'pointer', paddingLeft: '70px' }} id="openHome" onClick={(e)=>{e.preventDefault(); document.getElementById('key').value=""; window.location="/#/"}}>x</span></h5>
                     </ol>
                     
-                        <div>
+                        {processedData.length>1?<div>
                             <section className="sortInline form-group">
                                 <span className="sortName">
                                     <span>Sort By</span>
@@ -145,18 +206,22 @@ class SearchResults extends Component {
                                     }}><a id="defaultSearchResults">Default</a></li>
                                     <li className="sortElement" onClick={(event) => {
                                         event.preventDefault();
+                                        this.notifySort();
                                         sortTitle();
                                     }}><a>Title</a></li>
                                     <li className="sortElement" onClick={(event) => {
                                         event.preventDefault()
+                                        this.notifySort();
                                         sortAuthor();
                                     }}><a>Author</a></li>
                                     <li className="sortElement" onClick={(event) => {
                                         event.preventDefault();
+                                        this.notifySort();
                                         sortPublish();
                                     }}><a>Publisher</a></li>
                                     <li className="sortElement" onClick={(event) => {
                                         event.preventDefault();
+                                        this.notifySort();
                                         sortRating();
                                     }}><a>Rating</a></li>
                                 </ul>
@@ -166,6 +231,7 @@ class SearchResults extends Component {
 
                                 <select className="form-control" id="filter" onChange={(e) => {
                                     e.preventDefault();
+                                    this.notifyFilter();
                                     selectFilter()
                                 }} data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span className="dropdown-toggle"></span>
                                     <option className="dropdown-item" >Filter By</option>
@@ -175,7 +241,7 @@ class SearchResults extends Component {
                                     <option className="dropdown-item">Filter by 2 and above</option>
                                 </select>
                             </div>
-                        </div>
+                        </div>:null}
                     <div className="container-fluid">
                         <div className="row">
                             {a}
