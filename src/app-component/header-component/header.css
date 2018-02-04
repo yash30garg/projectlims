@@ -127,3 +127,17 @@ border-color: #fff;
 	/*border: #fff;*/
 
 }
+
+#headerSticky
+{
+    position: fixed;
+    width:100%;
+    top:0;
+    z-index: 99999999;
+}
+@media only screen and (max-width: 900px){
+    #headerSticky{
+       position: static;
+       
+    }
+}

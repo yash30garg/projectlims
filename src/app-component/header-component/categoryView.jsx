@@ -222,9 +222,9 @@ if(flag===1)
 checkURLchange();
 
 return(
-    <div id={`i${this.state.category.toLowerCase()}`} className="mainDiv">
+    <div id={`i${this.state.category.toLowerCase()}`}>
         <br/>
-    <div className="contained mainDiv">
+    <div className="contained">
         <ol className="breadcrumb" style={{backgroundColor : "#614126", color : "white", height:"45px" , fontSize : "15px"}}  >
         <h5 >{this.state.category.toUpperCase()} <span style={{float:'right',cursor:'pointer',paddingLeft:'85px'}} id="openHome" onClick={(e)=> {e.preventDefault(); window.location='/#/'}}>x</span></h5>
         </ol>

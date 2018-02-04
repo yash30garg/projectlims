@@ -225,7 +225,7 @@ class Header extends Component {
     authorDup();
     return (
       <div >
-        <nav className="navbar navbar-toggleable-md navbar-light bg-faded" style={{ backgroundColor: "#614126" }}>
+        <nav id="headerSticky" className="navbar navbar-toggleable-md navbar-light bg-faded" style={{ backgroundColor: "#614126" }}>
           <button style={{ backgroundColor: '#fff' }}
             className="navbar-toggler navbar-toggler-right"
             type="button"
@@ -299,11 +299,11 @@ class Header extends Component {
 
                     <span className="dropdown-toggle"></span></div>
                   <ul className="dropdown-menu dropdown-menu-right" style={{ backgroundColor: "#FFF8DC	" }} >
-                    <li >
-                      <Link to="/profile">
+                    <li onClick={(e)=>{e.preventDefault(); window.location = '/#/profile'}}>
+                      {/*<Link to="/profile">*/}
                       <a className="dropdown-item" style={{ color: '#614126', borderColor: 'brown' }}><span className="fa fa-user"></span>Profile
                     </a>
-                    </Link>
+                    {/*</Link>*/}
                     </li>
                     <div className="dropdown-divider" >
                     </div>
