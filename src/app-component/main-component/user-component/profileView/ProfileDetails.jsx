@@ -53,7 +53,7 @@ class Profile extends Component {
 	{
         window.selected=arg;
         window.showDetails=true;
-		window.location="/#/details"
+		window.location=`/#/details/${arg.isbn}`
         // document.getElementById('detail').click();
         window.setClickProps="profile"
 	}

@@ -109,6 +109,7 @@ class Header extends Component {
   }
 
   render() {
+    window.addEventListener('click',function(e){e.preventDefault(); if((window.location.hash).indexOf('search')<0&&(window.location.hash).indexOf('details')<0&&document.getElementById('key')!==null)document.getElementById('key').value=""})
     let brr = [];
     //console.log((window.display)
     if(window.display!==""&&window.display!==undefined){
@@ -224,7 +225,7 @@ class Header extends Component {
     authorDup();
     return (
       <div >
-        <nav className="navbar navbar-toggleable-md navbar-light bg-faded" style={{ backgroundColor: "#614126" }}>
+        <nav id="headerSticky" className="navbar navbar-toggleable-md navbar-light bg-faded" style={{ backgroundColor: "#614126" }}>
           <button style={{ backgroundColor: '#fff' }}
             className="navbar-toggler navbar-toggler-right"
             type="button"
@@ -237,10 +238,11 @@ class Header extends Component {
           </button>
 
 
-          <img
+          <Img
             className="App-logo inset"
             src={require("../../Assets/Images/final_header.jpg")}
             alt="My logo"
+            loader = {<LoadingEffect/>}
             align="left" onClick={(e) => { e.preventDefault(); window.location = "/#/"; 
             if(document.getElementById('openHome')!==null) document.getElementById('openHome').click() }} />
 
@@ -297,11 +299,11 @@ class Header extends Component {
 
                     <span className="dropdown-toggle"></span></div>
                   <ul className="dropdown-menu dropdown-menu-right" style={{ backgroundColor: "#FFF8DC	" }} >
-                    <li >
-                      <Link to="/profile">
+                    <li onClick={(e)=>{e.preventDefault(); window.location = '/#/profile'}}>
+                      {/*<Link to="/profile">*/}
                       <a className="dropdown-item" style={{ color: '#614126', borderColor: 'brown' }}><span className="fa fa-user"></span>Profile
                     </a>
-                    </Link>
+                    {/*</Link>*/}
                     </li>
                     <div className="dropdown-divider" >
                     </div>

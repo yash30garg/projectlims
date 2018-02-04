@@ -19,15 +19,35 @@ import {removeWishlist} from '.././mongo/removeWishlist'
 import {getDates} from '../dates'
 import {borrowDate, returnDate} from '../dates'
 let book,
-    thisBook=null;
+stars=0,
+    thisBook=null,bookDetails,bookDetailIsbn,borrowShow;
 
 class Details extends Component {
     constructor(props) {
         super(props);
         getDates();
+        borrowShow="";
+        bookDetailIsbn = window.location.hash.split('/')[2]
+        bookDetails = JSON.parse(localStorage.getItem('books')).filter(function(book) { return book.isbn === bookDetailIsbn })
         let check=0;
+        var allBbooks,allWbooks;
+         if(this.props.bbooks===null){
+             var test=JSON.parse(localStorage.getItem('borrowedBooks'));
+             allBbooks=test;
+         }
+         else{
+            allBbooks=this.props.bbooks
+         }
+         if(this.props.wbooks===null){
+             var test1=JSON.parse(localStorage.getItem('wishlist'));
+             allWbooks=test1;
+         }
+         else{
+            allWbooks=this.props.wbooks
+         }
+        this.props.storeReviews(null);
         (async function () {
-            var values = await getReview(this.props.data.isbn);
+            var values = await getReview(bookDetails[0].isbn);
             if(values===null){
                 this.props.storeReviews(null)
             }
@@ -60,15 +80,16 @@ class Details extends Component {
         let days = today.split("/");
         today = days[1] + "/" + days[0] + "/" + days[2];
 
-        if (this.props.bbooks !== null && this.props.bbooks.length !== 0) {
-            this
-                .props
-                .bbooks
+        if (allBbooks !== null && allBbooks !== 0) {
+
+            allBbooks
                 // eslint-disable-next-line
                 .map(res => {
-                    if (res.isbn === this.props.data.isbn) {
+                    if (res.isbn === bookDetails[0].isbn) {
                         thisBook=res;
                         reqVal = false;
+                            borrowShow=(<div style={{fontSize:"18px",color:"rgb(205,133,63)", fontWeight:"bold"}}>Borrowed On : {res.borrowedDate}<br/>Return By : {res.returnDate}</div>)
+                            
                         if (res.isRenewed === "false") {
                             let retDate = res.returnDate;
                             days = retDate.split("/");
@@ -84,13 +105,11 @@ class Details extends Component {
                     }
                 })
         }
-        if (this.props.wbooks !== null && this.props.wbooks.length !== 0) {
-            this
-                .props
-                .wbooks
+        if (allWbooks !== null && allWbooks !== 0) {
+            allWbooks
                 // eslint-disable-next-line
                 .map(res => {
-                    if (res.isbn === this.props.data.isbn) {
+                    if (res.isbn === bookDetails[0].isbn) {
                         wishVal = false;
                     }
                 })
@@ -114,22 +133,24 @@ class Details extends Component {
         if (this.props.bbooks.length < 4) {
             // eslint-disable-next-line
             let bookAdded = new Object();
-            bookAdded.isbn = this.props.data.isbn;
-            bookAdded.title = this.props.data.title;
-            bookAdded.author = this.props.data.author;
-            bookAdded.publisher = this.props.data.publisher;
-            bookAdded.url = this.props.data.url;
-            bookAdded.rating = this.props.data.rating;
+            bookAdded.isbn = bookDetails[0].isbn;
+            bookAdded.title = bookDetails[0].title;
+            bookAdded.author = bookDetails[0].author;
+            bookAdded.publisher = bookDetails[0].publisher;
+            bookAdded.url = bookDetails[0].url;
+            bookAdded.rating = bookDetails[0].rating;
             bookAdded.borrowedDate = borrowDate;
             bookAdded.returnDate = returnDate;
             bookAdded.isRenewed = "false";
             thisBook=bookAdded;
             (async function () {
                 var data = await requestBook(bookAdded);
+                localStorage.setItem('borrowedBooks',JSON.stringify(data.data))
                 this
                     .props
                     .storeBbooks(data.data)
             }).bind(this)()
+             borrowShow=(<div style={{fontSize:"18px",color:"rgb(205,133,63)", fontWeight:"bold"}}>Borrowed On : {bookAdded.borrowedDate}<br/>Return By : {bookAdded.returnDate}</div>)
             this.setState({req: false})
         toast.success("Successfully Requested !!!", {
                     position: toast.POSITION.BOTTOM_CENTER,
@@ -151,11 +172,13 @@ class Details extends Component {
     return = () => {
         if (navigator.onLine) {
         (async function () {
-            var data = await returnBook(this.props.data.isbn);
+            var data = await returnBook(bookDetails[0].isbn);
+            localStorage.setItem('borrowedBooks',JSON.stringify(data.data))
             this
                 .props
                 .storeBbooks(data.data)
         }).bind(this)()
+        borrowShow="";
         this.setState({req: true})
          toast.warn("Successfully Returned !!!", {
                 position: toast.POSITION.BOTTOM_CENTER,
@@ -173,16 +196,17 @@ class Details extends Component {
          if (navigator.onLine) {
              // eslint-disable-next-line
         var items = new Object();
-        items.isbn = this.props.data.isbn;
-        items.title = this.props.data.title;
-        items.author = this.props.data.author;
-        items.category = this.props.data.category;
-        items.publisher = this.props.data.publisher;
-        items.rating = this.props.data.rating;
-        items.url = this.props.data.url;
+        items.isbn = bookDetails[0].isbn;
+        items.title = bookDetails[0].title;
+        items.author = bookDetails[0].author;
+        items.category = bookDetails[0].category;
+        items.publisher = bookDetails[0].publisher;
+        items.rating = bookDetails[0].rating;
+        items.url = bookDetails[0].url;
         items.description = "";
         (async function () {
             var data = await addWishlist(items);
+            localStorage.setItem('wishlist',JSON.stringify(data))
             this
                 .props
                 .storeWbooks(data)
@@ -203,7 +227,8 @@ class Details extends Component {
     removeWish = () => {
          if (navigator.onLine) {
         (async function () {
-            var data = await removeWishlist(this.props.data.isbn);
+            var data = await removeWishlist(bookDetails[0].isbn);
+            localStorage.setItem('wishlist',JSON.stringify(data))
             this
                 .props
                 .storeWbooks(data)
@@ -238,11 +263,16 @@ class Details extends Component {
                         thisBook.returnDate = dd1 + '/' + mm1 + '/' + yyyy1;
                         thisBook.isRenewed=true;
                         (async function () {
+        borrowShow=(<div style={{fontSize:"18px",color:"rgb(205,133,63)", fontWeight:"bold"}}>Borrowed On : {thisBook.borrowedDate}<br/>Return By : {thisBook.returnDate}</div>)
             var data = await renewBook(thisBook);
+            localStorage.setItem('borrowedBooks',JSON.stringify(data))
             this
                 .props
                 .storeBbooks(data)
         }).bind(this)()
+        this.setState({
+            renewVal:false
+        })
         toast.success("Renewed !!!", {
                 position: toast.POSITION.BOTTOM_CENTER,
                 className: css({background: "brown"})
@@ -262,14 +292,50 @@ class Details extends Component {
         }
     }
     render() {
-        book = this.props.data;    
+        if(this.props.reviews===null){
+            stars=(<div className="mt-3 ml-3" style={{
+                                                        color: 'rgb(205,133,63)',
+                                                        fontSize: '22px'
+                                                    }}>There are no ratings</div>)
+        }
+        else{
+            var rating=0,count=0;
+            //eslint-disable-next-line
+            this.props.reviews.map(d=>{
+                rating=rating + d.rating;
+                count++;
+            })
+            var newRating=rating/count;
+            newRating=Math.round( newRating * 10 ) / 10
+            stars=<div>
+            <h2 className="bold padding-bottom-7">{newRating}<small>/5</small></h2>
+                                          {  [1, 2, 3, 4, 5].map(d => {
+                                                if (newRating >= d) {
+                                                    return <span
+                                                        key={`category${bookDetails[0].isbn}`}
+                                                        className="fa fa-star"
+                                                        style={{
+                                                        color: '#ffd700',
+                                                        fontSize: '22px'
+                                                    }}></span>}
+                                            else{
+                                                return <span
+                                                        key={`category${bookDetails[0].isbn}`}
+                                                        className="fa fa-star"
+                                                        style={{
+                                                        fontSize: '22px'
+                                                    }}></span>
+                                            }
+                                            })}</div>
+        }
+        book = bookDetails[0];    
         if(book!==null && book!==undefined)
         return (
             <div className="mt-4" style={{
                 backgroundColor: "#FFF8DC"
             }}>
                 <div className="contained">
-                    <div class="carders">
+                    <div className="carders">
                         <ol
                             className="breadcrumb"
                             style={{
@@ -293,16 +359,13 @@ class Details extends Component {
                             </h5>
                         </ol>
                         <div
-                            class="container-fluid"
-                            style={{
-                            padding: "3em"
-                        }}>
-                            <div class="wrapper row">
-                                <div className="col-md-6 col-sm-6 col-xs-6 col-lg-6">
+                            className="aboveDiv">
+                            <div className="wrapper row">
+                                <div className="col-md-4 col-sm-6 col-xs-6 col-lg-4">
                                 <img
                                         alt="Not Available"
                                         src={book.url}
-                                        className="detailBook mx-auto col-md-10 col-sm-10 col-xs-10 col-lg-10"
+                                        className="detailBook mx-auto"
                                         style={{
                                         
                                     }}/>
@@ -311,8 +374,8 @@ class Details extends Component {
                                             ? <button
                                                     className="btn details-btn col-md-5 col-sm-5 col-xs-5 col-lg-5"
                                                     style={{
+                                                        borderColor: "rgb(205,133,63)", 
                                                         overflow:"hidden",
-                                                    borderColor: "rgb(205,133,63)"
                                                 }}
                                                     onClick={this.request}>
                                                     <div className="fa fa-plus-circle"></div>
@@ -365,46 +428,49 @@ class Details extends Component {
                                             : ""}
 
                                     </div>
+                                   <div className="col-md-12 mt-1 col-sm-12 col-xs-12 col-lg-12">
+                                   {borrowShow}
+                                   </div> 
                                 </div>
-                                <div class="details col-md-6">
-                                    <h3 class="product-title">{book.title}</h3>
-                                    <div class="rating">
+                                <div className="details col-md-8 col-lg-8">
+                                   <div className="rating-block">
+                                   <h4>Average User Rating</h4>
+                                    <div className="rating">
                                         <div className="stars mt-3 ml-3">
-                                            {//eslint-disable-next-line
-                                            [1, 2, 3, 4, 5].map(d => {
-
-                                                if (book.rating >= d) 
-                                                    return <span
-                                                        key={`category${book.isbn}`}
-                                                        className="fa fa-star"
-                                                        style={{
-                                                        color: '#ffd700',
-                                                        fontSize: '22px'
-                                                    }}></span>
-                                            })}
+                                            {stars}
                                         </div>
-                                    </div><br/>
-                                    <ul class="list-group">
-                                        <li class="list-group-item">
+                                    </div>
+                                    </div>
+                                    <br/>
+                                    <div className="row">
+                                    <div className="col-md-3 col-lg-3 col-sm-3 col-lg-3"></div>
+                                    <ul className="col-md-6 col-sm-6 col-xs-6 col-lg-6 ml-4 list-group">
+                                        <li className="list-group-item">
                                             <b>ISBN :</b>
-                                            {book.isbn}</li>
-                                        <li class="list-group-item">
+                                            {book.isbn}
+                                        </li>
+                                        <li className="list-group-item">
                                             <b>Author :</b>
-                                            {book.author}</li>
-                                        <li class="list-group-item">
+                                            {book.author}
+                                        </li>
+                                        <li className="list-group-item">
                                             <b>Publisher :</b>
-                                            {book.publisher}</li>
-                                        <li class="list-group-item">
+                                            {book.publisher}
+                                        </li>
+                                        <li className="list-group-item">
                                             <b>Category :</b>
-                                            {book.category}</li>
-                                        <li class="list-group-item">
+                                            {book.category}
+                                        </li>
+                                        <li className="list-group-item">
                                             <b>Ratings :</b>
-                                            {book.rating}</li>
+                                            {book.rating}
+                                        </li>
                                     </ul>
+                                    </div>
                                 </div>
                             </div>   
                         </div>   
-                     <Reviews data={this.props.data} revData={this.props.reviews}/>  
+                     <Reviews data={bookDetails[0]} revData={this.props.reviews}/>  
                     </div>
                 </div>
             </div>

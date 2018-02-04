@@ -8,20 +8,37 @@ import {borrowDate} from '../dates'
 import {toast} from 'react-toastify';
 import {addReview} from '.././mongo/addReview'
 // import {getReview} from '.././mongo/getReview'
-let ratingValue,reviewData;
+let ratingValue,reviewData,reviewChart;
 class Reviews extends Component{
     constructor(){
         super();
         this.state={
-            review:false
+            review:false,
+            currentNumber:5,
+            showdown:true,
+            showArrow:true
+        }
+    }
+
+    componentDidMount(){
+
+        if(this.props.reviews!==null && this.props.reviews.length<=5)
+        {
+            this.setState({showArrow:false});
         }
     }
     leaveReview=()=>{
-        this.setState({
-            review:true
-        })
+        if(this.state.review===false){
+            this.setState({
+                review:true
+            })
+        }
+        else{
+            this.setState({
+                review:false
+            })
+        }
     }
-
     addReview = () => {
     // eslint-disable-next-line
         var item = new Object();
@@ -29,12 +46,26 @@ class Reviews extends Component{
         // var name=localStorage.getItem('user-name');
         // var names=name.split("")
         item.name=localStorage.getItem('user-name').split('"')[1]
-        item.rating=ratingValue;
+        item.image=`https://social.mindtree.com/User%20Photos/Profile%20Pictures/m${window.user}_MThumb.jpg?t=63646089488`;
         item.date=borrowDate;
+        if(document.getElementById("desc").value===""){
+            document.getElementById("desc").focus();
+            toast.warn("Please add a review", {
+                    position: toast.POSITION.BOTTOM_CENTER,
+                    className: css({background: "blue"})
+                });
+        }
+        else if(ratingValue===undefined){
+          toast.warn("Please add a rating", {
+                    position: toast.POSITION.BOTTOM_CENTER,
+                    className: css({background: "blue"})
+                });  
+        }
+        else{
+        item.rating=ratingValue;
         item.description = document
             .getElementById("desc")
             .value;
-
             var review;
             (async function () {
                 review = await addReview(this.props.data.isbn, item);
@@ -53,28 +84,57 @@ class Reviews extends Component{
                     className: css({background: "brown"})
                 });
     }
-
-    close=()=>{
-        this.setState({
-            review:false
-        })
     }
+    loadMore=()=>
+    {
+        
+        if(this.state.currentNumber<=this.props.reviews.length)
+        {
+            
+            this.setState({
+                currentNumber:this.state.currentNumber+5,
+                              
+            })
+        }
+        
+        else{
+           
+            this.setState({             
+                showdown:false  
+            })
+        }
+    }
+    showLess=()=>
+    {
+        this.setState({currentNumber:5,showdown:true});
+    }
+
     render(){
+        let count=[0,0,0,0,0];
         if(this.props.reviews===null){
-            reviewData=(<h5 className="text-left ml-4">This Book Has not been reviewd yet. Add a Review Now</h5>)
+            reviewChart="";
+            reviewData=(<h5 className="ml-4 mt-3" style={{color:"rgb(169,169,169)"}}>There are no reviews yet. Why don't you add one?</h5>)
         }
         else{
-            var values=this.props.reviews.map((res)=>{
-                return(
+            var chart=this.props.reviews.map((res)=>{
+                count[res.rating-1]++
+            })
+            var values=this.props.reviews.slice(0,this.state.currentNumber).map((res)=>{
+                let siteurl=`https://peoplehub.mindtree.com/Profile/Pages/Profile.aspx?accountname=mindtree\\M${res.mid}`
+                let imageurl = `https://social.mindtree.com/User%20Photos/Profile%20Pictures/m${res.mid}_MThumb.jpg?t=63646089488`
+                return (
                     <div className="card review-card ml-3 mb-4">
-                    <div className="text-left ml-3 mt-3 mb-0">
-                    <ul>
-                    <li><b style={{fontSize:"24px"}}>{res.name} says:</b>
-                    </li>
-                    <br/>
-                    <li style={{fontSize:"18px"}}>{res.description}</li>
-                    <li className="mt-2 mb-0">
-                    {//eslint-disable-next-line
+                    <div class="row">
+						<div class="col-sm-3">
+							<img src={imageurl} onClick={()=>{window.location.href=`https://peoplehub.mindtree.com/Profile/Pages/Profile.aspx?accountname=mindtree\\M${res.mid}`}} className="img-rounded eachImage my-3"/>						
+						</div>
+						<div class="col-sm-9">
+							<div class="review-block-rate">
+                            <b style={{fontSize:"24px"}}>{res.name} says:</b>						
+							</div>
+							<div style={{fontSize:'18px'}} class="review-block-description">{res.description}<div>
+                                {//eslint-disable-next-line
+
                                             [1, 2, 3, 4, 5].map(d => {
 
                                                 if (res.rating >= d) 
@@ -85,15 +145,184 @@ class Reviews extends Component{
                                                         color: '#ffd700',
                                                         fontSize: '16px'
                                                     }}></span>
-                                            })}
-                   <span className="mr-3" style={{color:"rgb(169,169,169)", float:"left",fontSize:"16px",position:"absolute",right:"1%", bottom:"2%"}}>{res.date}</span>
-                   </li>
-                    </ul>
-                    </div>
-                    </div>
+                                            })}</div>
+                                        </div>
+                                        <div className="mr-3" style={{color:"rgb(169,169,169)", float:"left",fontSize:"16px",position:"absolute",right:"1%", bottom:"2%"}}>{res.date}</div>
+                                        </div></div>
+                                        </div>
                 )
             })
-            reviewData=(<div className="text-left ml-4 mr-4">
+            reviewChart=(<div className="row">
+                             <div className="col-md-6 mb-4 ml-4 mt-3">
+
+                                        <div className="pull-left">
+                                            <div
+                                                className="pull-left"
+                                                style={{
+                                                width: "60px",
+                                                lineHeight: "1px"
+                                            }}>
+                                                <div
+                                                    style={{
+                                                    height: "9px"
+                                                }}>5
+                                                    <span className="fa fa-star"></span>
+                                                </div>
+                                            </div>
+                                            <div className="pull-left prgrsBar">
+                                                <div className="progress">
+                                                    <div
+                                                        className="progress-bar bg-success"
+                                                        role="progressbar"
+                                                        style={{
+                                                        width: '100%'
+                                                    }}
+                                                        aria-valuenow="5"
+                                                        aria-valuemin="0"
+                                                        aria-valuemax="5"></div>
+                                                </div>
+                                            </div>
+                                            <div
+                                                className="pull-right"
+                                                style={{
+                                                marginLeft: "10px"
+                                            }}>{count[4]}</div>
+                                        </div>
+                                        <div className="pull-left">
+                                            <div
+                                                className="pull-left"
+                                                style={{
+                                                width: "60px",
+                                                lineHeight: "1px"
+                                            }}>
+                                                <div
+                                                    style={{
+                                                    height: "9px"
+                                                }}>4
+                                                    <span className="fa fa-star"></span>
+                                                </div>
+                                            </div>
+                                            <div className="pull-left prgrsBar">
+                                                <div className="progress">
+                                                    <div
+                                                        className="progress-bar"
+                                                        role="progressbar"
+                                                        style={{
+                                                        width: '80%'
+                                                    }}
+                                                        aria-valuenow="5"
+                                                        aria-valuemin="0"
+                                                        aria-valuemax="5"></div>
+                                                </div>
+                                            </div>
+                                            <div
+                                                className="pull-right"
+                                                style={{
+                                                marginLeft: "10px"
+                                            }}>{count[3]}</div>
+                                        </div>
+                                        <div className="pull-left">
+                                            <div
+                                                className="pull-left"
+                                                style={{
+                                                width: "60px",
+                                                lineHeight: "1px"
+                                            }}>
+                                                <div
+                                                    style={{
+                                                    height: "9px"
+                                                }}>3
+                                                    <span className="fa fa-star"></span>
+                                                </div>
+                                            </div>
+                                            <div className="pull-left prgrsBar">
+                                                <div className="progress">
+                                                    <div
+                                                        className="progress-bar bg-info"
+                                                        role="progressbar"
+                                                        style={{
+                                                        width: '60%'
+                                                    }}
+                                                        aria-valuenow="5"
+                                                        aria-valuemin="0"
+                                                        aria-valuemax="5"></div>
+                                                </div>
+                                            </div>
+                                            <div
+                                                className="pull-right"
+                                                style={{
+                                                marginLeft: "10px"
+                                            }}>{count[2]}</div>
+                                        </div>
+                                        <div className="pull-left">
+                                            <div
+                                                className="pull-left"
+                                                style={{
+                                                width: "60px",
+                                                lineHeight: "1px"
+                                            }}>
+                                                <div
+                                                    style={{
+                                                    height: "9px"
+                                                }}>2
+                                                    <span className="fa fa-star"></span>
+                                                </div>
+                                            </div>
+                                            <div className="pull-left prgrsBar">
+                                                <div className="progress">
+                                                    <div
+                                                        className="progress-bar bg-warning"
+                                                        role="progressbar"
+                                                        style={{
+                                                        width: '40%'
+                                                    }}
+                                                        aria-valuenow="5"
+                                                        aria-valuemin="0"
+                                                        aria-valuemax="5"></div>
+                                                </div>
+                                            </div>
+                                            <div
+                                                className="pull-right"
+                                                style={{
+                                                marginLeft: "10px"
+                                            }}>{count[1]}</div>
+                                        </div>
+                                        <div className="pull-left">
+                                            <div
+                                                className="pull-left"
+                                                style={{
+                                                width: "60px",
+                                                lineHeight: "1px"
+                                            }}>
+                                                <div
+                                                    style={{
+                                                    height: "9px"
+                                                }}>1
+                                                    <span className="fa fa-star"></span>
+                                                </div>
+                                            </div>
+                                            <div className="pull-left prgrsBar">
+                                                <div className="progress">
+                                                    <div
+                                                        className="progress-bar bg-danger"
+                                                        role="progressbar"
+                                                        style={{
+                                                        width: '20%'
+                                                    }}
+                                                        aria-valuenow="5"
+                                                        aria-valuemin="0"
+                                                        aria-valuemax="5"></div>
+                                                </div>
+                                            </div>
+                                            <div
+                                                className="pull-right"
+                                                style={{
+                                                marginLeft: "10px"
+                                            }}>{count[0]}</div>
+                                        </div>
+                                        </div>
+                            </div>)
+            reviewData=(<div className="text-left ml-4 mr-4">                            
                         {values}
                         </div>)
         }
@@ -133,45 +362,57 @@ class Reviews extends Component{
     ratingValue = parseInt($('#stars li.selected').last().data('value'), 10);
   });
 });
-        var cardReview=(<div className="card review-card ml-5" style={{backgroundColor:"rgb(255, 248, 220)", marginRight:"5%"}}>  
+var cardReview=(<div className="card card-review mt-3 mb-5 ml-3" style={{backgroundColor:"rgb(255, 248, 220)", marginRight:"3%"}}>  
         <h5 className="text-left mt-4 mb-2 ml-3"><b><u>Description</u></b></h5>
                             <textarea rows="2" cols="50" className="review-input mt-3 ml-3 mr-3" style={{backgroundColor:"rgb(255, 248, 220)", width:"95%"}} placeholder="Description" id="desc"/>   
-                            <div class='rating-widget ml-4 mt-3'>
-                            <div class='rating-stars text-left'>
+                            <div className='rating-widget ml-4 mt-3'>
+                            <div className='rating-stars text-left'>
                                 <ul id='stars'>
-                                <li class='star' title='Poor' data-value='1'>
-                                    <i class='fa fa-star fa-fw'></i>
+                                <li className='star' title='Poor' data-value='1'>
+                                    <i className='fa fa-star fa-fw'></i>
                                 </li>
-                                <li class='star' title='Fair' data-value='2'>
-                                    <i class='fa fa-star fa-fw'></i>
+                                <li className='star' title='Fair' data-value='2'>
+                                    <i className='fa fa-star fa-fw'></i>
                                 </li>
-                                <li class='star' title='Good' data-value='3'>
-                                    <i class='fa fa-star fa-fw'></i>
+                                <li className='star' title='Good' data-value='3'>
+                                    <i className='fa fa-star fa-fw'></i>
                                 </li>
-                                <li class='star' title='Excellent' data-value='4'>
-                                    <i class='fa fa-star fa-fw'></i>
+                                <li className='star' title='Excellent' data-value='4'>
+                                    <i className='fa fa-star fa-fw'></i>
                                 </li>
-                                <li class='star' title='WOW!!!' data-value='5'>
-                                    <i class='fa fa-star fa-fw'></i>
+                                <li className='star' title='WOW!!!' data-value='5'>
+                                    <i className='fa fa-star fa-fw'></i>
                                 </li>
                                 </ul>
                             </div>
                             </div>
                             <div className="text-right">
-                            <button className="btn  details-btn col-md-2 col-xs-2 col-sm-2 col-lg-2 mt-1 ml-2 mr-2" style={{borderColor: "rgb(205,133,63)", width:"95%",overflow:"hidden",fontSize:"auto"}} onClick={this.addReview}><div className="fa fa-pencil fa-lg"></div><b>Add</b> </button> 
-                            <button className="btn  details-btn col-md-2 col-xs-2 col-sm-2 col-lg-2 mt-1 ml-2 mr-2" style={{borderColor: "rgb(205,133,63)", width:"95%",overflow:"hidden"}} onClick={this.close}><div className="fa fa-times fa-lg"></div><b>Cancel</b> </button> 
+                            <button className="btn  details-btn col-md-2 col-xs-2 col-sm-2 col-lg-2 mt-1 ml-2 mr-2" 
+                            
+                            style={{borderColor: "rgb(205,133,63)", width:"95%",overflow:"hidden",fontSize:"auto"}} onClick={this.addReview}><div className="fa fa-pencil fa-lg"></div><b>Add</b> </button> 
+                            <button className="btn  details-btn col-md-2 col-xs-2 col-sm-2 col-lg-2 mt-1 ml-2 mr-2" onClick={this.leaveReview} style={{borderColor: "rgb(205,133,63)", width:"95%",overflow:"hidden"}}>
+                            <div className="fa fa-times fa-lg"></div><b>Cancel</b> </button> 
                             </div>  
                             </div> 
                          );
         return(
             <div className="col-md-12 mt-0 mb-5">
             <div className="card review-card" style={{backgroundColor:"rgb(255, 248, 220)",marginLeft:"7%", marginRight:"5%"}}>  
-                            <h3 className="col-md-6 text-left mt-2 ml-2" style={{color:"rgb(205,133,63)"}}>Reviews</h3> 
-                            <br/>     
-                            {reviewData}
                             <div className="text-right">
-                            {this.state.review?cardReview:<button className="btn  details-btn col-md-3 col-xs-3 col-sm-3 col-lg-3 mt-2 ml-2 mr-2" style={{borderColor: "rgb(205,133,63)", width:"95%",overflow:"hidden"}} onClick={this.leaveReview}><div className="fa fa-pencil fa-lg"></div><b>Leave A Review</b> </button>}
                             </div>
+                               <div className="row">
+                            <h3 className="col-md-6 text-left mt-3 ml-3" style={{color:"rgb(205,133,63)"}}>Reviews and Ratings<div className="fa fa-pencil hidden-md-up" 
+                            style={{position:"absolute", right:"4%"}}></div></h3>
+                            <div><button className="btn  hidden-sm-down details-btn col-md-3  offset-md-4 col-sm-3 col-lg-3 mt-3 ml-2 mr-2" 
+                            onClick={this.leaveReview} style={{borderColor: "rgb(205,133,63)", width:"95%",position:"absolute",right:"2%", overflow:"hidden"}} 
+                           ><div className="fa fa-pencil fa-lg"></div>
+                            <b>Leave A Review</b> </button>
+                </div>
+                </div> 
+                {reviewChart}
+                {this.state.review?cardReview:""}
+                            {reviewData}
+                            {this.state.showArrow?<div> {this.state.showdown?<div onClick={this.loadMore} style={{color:'#614126', fontSize:'30px'}} className="fa fa-sort-down"></div>:<div onClick={this.showLess} style={{color:'#614126', fontSize:'30px'}} className="fa fa-sort-up"></div>}</div>:null}
                             </div> 
             </div>
         )

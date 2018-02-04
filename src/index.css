@@ -5,7 +5,7 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  background-color: rgb(205,133,63);
+  background-color: rgb(255,248,220);
 }
 ::-webkit-scrollbar {
     width: 8px;
@@ -29,5 +29,5 @@ body {
 }
 
 .mainDiv {
- background-color: rgb(255,248,220)
+ background-color: rgb(255,248,220);
 }
