@@ -53,7 +53,7 @@ export class EachTopCard extends Component {
     handle = (res) => {
         window.selected = res;
         window.showDetails = true;
-        window.location='/#/details'
+        window.location=`/#/details/${res.isbn}`
         // window.location = `/#/details/${JSON.stringify(res)}`
         // document.getElementById('detail').click();
         window.setClickProps = "topDetailsCross"

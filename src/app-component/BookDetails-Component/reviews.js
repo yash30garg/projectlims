@@ -104,8 +104,9 @@ class Reviews extends Component{
 							<div class="review-block-rate">
                             <div><b style={{fontSize:"24px"}}>{res.name} says:</b></div>								
 							</div>
-							
-							<div style={{fontSize:'16px'}} class="review-block-description"><div>{//eslint-disable-next-line
+							<div style={{fontSize:'16px'}} class="review-block-description"><div>
+                                {//eslint-disable-next-line
+
                                             [1, 2, 3, 4, 5].map(d => {
 
                                                 if (res.rating >= d) 
@@ -117,44 +118,10 @@ class Reviews extends Component{
                                                         fontSize: '16px'
                                                     }}></span>
                                             })}</div>
-                            {res.description}</div>
-                    <div className="mr-3" style={{color:"rgb(169,169,169)", float:"left",fontSize:"16px",position:"absolute",right:"1%", bottom:"2%"}}>{res.date}</div>                           
-						</div>
-					</div>					
-                   
-                    </div>
-
-
-
-
-
-
-                //     <div className="card review-card ml-3 mb-4">
-                //     <div className="text-left ml-3 mt-3 mb-0">
-                //     <img src={res.image} height="50px" width="50px"/>
-                //     <ul>
-                //     <li><b style={{fontSize:"24px"}}><a href={url}>{res.name}</a> says:</b>
-                //     </li>
-                //     <br/>
-                //     <li style={{fontSize:"18px"}}>{res.description}</li>
-                //     <li className="mt-2 mb-0">
-                    // {//eslint-disable-next-line
-                    //                         [1, 2, 3, 4, 5].map(d => {
-
-                    //                             if (res.rating >= d) 
-                    //                                 return <span
-                    //                                     key={`review${this.props.data.isbn}`}
-                    //                                     className="fa fa-star"
-                    //                                     style={{
-                    //                                     color: '#ffd700',
-                    //                                     fontSize: '16px'
-                    //                                 }}></span>
-                    //                         })}
-                //    <span className="mr-3" style={{color:"rgb(169,169,169)", float:"left",fontSize:"16px",position:"absolute",right:"1%", bottom:"2%"}}>{res.date}</span>
-                //    </li>
-                //     </ul>
-                //     </div>
-                //     </div>
+                                        </div>
+                                        <div className="mr-3" style={{color:"rgb(169,169,169)", float:"left",fontSize:"16px",position:"absolute",right:"1%", bottom:"2%"}}>{res.date}</div>
+                                        </div></div>
+                                        </div>
                 )
             })
             reviewChart=(<div className="row">
@@ -171,13 +138,13 @@ class Reviews extends Component{
                                                     style={{
                                                     height: "9px"
                                                 }}>5
-                                                    <span class="fa fa-star"></span>
+                                                    <span className="fa fa-star"></span>
                                                 </div>
                                             </div>
                                             <div className="pull-left prgrsBar">
-                                                <div class="progress">
+                                                <div className="progress">
                                                     <div
-                                                        class="progress-bar bg-success"
+                                                        className="progress-bar bg-success"
                                                         role="progressbar"
                                                         style={{
                                                         width: '100%'
@@ -188,14 +155,14 @@ class Reviews extends Component{
                                                 </div>
                                             </div>
                                             <div
-                                                class="pull-right"
+                                                className="pull-right"
                                                 style={{
                                                 marginLeft: "10px"
                                             }}>{count[4]}</div>
                                         </div>
-                                        <div class="pull-left">
+                                        <div className="pull-left">
                                             <div
-                                                class="pull-left"
+                                                className="pull-left"
                                                 style={{
                                                 width: "60px",
                                                 lineHeight: "1px"
@@ -204,13 +171,13 @@ class Reviews extends Component{
                                                     style={{
                                                     height: "9px"
                                                 }}>4
-                                                    <span class="fa fa-star"></span>
+                                                    <span className="fa fa-star"></span>
                                                 </div>
                                             </div>
-                                            <div class="pull-left prgrsBar">
-                                                <div class="progress">
+                                            <div className="pull-left prgrsBar">
+                                                <div className="progress">
                                                     <div
-                                                        class="progress-bar"
+                                                        className="progress-bar"
                                                         role="progressbar"
                                                         style={{
                                                         width: '80%'
@@ -221,14 +188,14 @@ class Reviews extends Component{
                                                 </div>
                                             </div>
                                             <div
-                                                class="pull-right"
+                                                className="pull-right"
                                                 style={{
                                                 marginLeft: "10px"
                                             }}>{count[3]}</div>
                                         </div>
-                                        <div class="pull-left">
+                                        <div className="pull-left">
                                             <div
-                                                class="pull-left"
+                                                className="pull-left"
                                                 style={{
                                                 width: "60px",
                                                 lineHeight: "1px"
@@ -237,13 +204,13 @@ class Reviews extends Component{
                                                     style={{
                                                     height: "9px"
                                                 }}>3
-                                                    <span class="fa fa-star"></span>
+                                                    <span className="fa fa-star"></span>
                                                 </div>
                                             </div>
-                                            <div class="pull-left prgrsBar">
-                                                <div class="progress">
+                                            <div className="pull-left prgrsBar">
+                                                <div className="progress">
                                                     <div
-                                                        class="progress-bar bg-info"
+                                                        className="progress-bar bg-info"
                                                         role="progressbar"
                                                         style={{
                                                         width: '60%'
@@ -254,14 +221,14 @@ class Reviews extends Component{
                                                 </div>
                                             </div>
                                             <div
-                                                class="pull-right"
+                                                className="pull-right"
                                                 style={{
                                                 marginLeft: "10px"
                                             }}>{count[2]}</div>
                                         </div>
-                                        <div class="pull-left">
+                                        <div className="pull-left">
                                             <div
-                                                class="pull-left"
+                                                className="pull-left"
                                                 style={{
                                                 width: "60px",
                                                 lineHeight: "1px"
@@ -270,13 +237,13 @@ class Reviews extends Component{
                                                     style={{
                                                     height: "9px"
                                                 }}>2
-                                                    <span class="fa fa-star"></span>
+                                                    <span className="fa fa-star"></span>
                                                 </div>
                                             </div>
-                                            <div class="pull-left prgrsBar">
-                                                <div class="progress">
+                                            <div className="pull-left prgrsBar">
+                                                <div className="progress">
                                                     <div
-                                                        class="progress-bar bg-warning"
+                                                        className="progress-bar bg-warning"
                                                         role="progressbar"
                                                         style={{
                                                         width: '40%'
@@ -287,14 +254,14 @@ class Reviews extends Component{
                                                 </div>
                                             </div>
                                             <div
-                                                class="pull-right"
+                                                className="pull-right"
                                                 style={{
                                                 marginLeft: "10px"
                                             }}>{count[1]}</div>
                                         </div>
-                                        <div class="pull-left">
+                                        <div className="pull-left">
                                             <div
-                                                class="pull-left"
+                                                className="pull-left"
                                                 style={{
                                                 width: "60px",
                                                 lineHeight: "1px"
@@ -303,13 +270,13 @@ class Reviews extends Component{
                                                     style={{
                                                     height: "9px"
                                                 }}>1
-                                                    <span class="fa fa-star"></span>
+                                                    <span className="fa fa-star"></span>
                                                 </div>
                                             </div>
-                                            <div class="pull-left prgrsBar">
-                                                <div class="progress">
+                                            <div className="pull-left prgrsBar">
+                                                <div className="progress">
                                                     <div
-                                                        class="progress-bar bg-danger"
+                                                        className="progress-bar bg-danger"
                                                         role="progressbar"
                                                         style={{
                                                         width: '20%'
@@ -320,7 +287,7 @@ class Reviews extends Component{
                                                 </div>
                                             </div>
                                             <div
-                                                class="pull-right"
+                                                className="pull-right"
                                                 style={{
                                                 marginLeft: "10px"
                                             }}>{count[0]}</div>
@@ -370,23 +337,23 @@ class Reviews extends Component{
 var cardReview=(<div className="card mt-5 ml-5" style={{backgroundColor:"rgb(255, 248, 220)", marginRight:"5%"}}>  
         <h5 className="text-left mt-4 mb-2 ml-3"><b><u>Description</u></b></h5>
                             <textarea rows="2" cols="50" className="review-input mt-3 ml-3 mr-3" style={{backgroundColor:"rgb(255, 248, 220)", width:"95%"}} placeholder="Description" id="desc"/>   
-                            <div class='rating-widget ml-4 mt-3'>
-                            <div class='rating-stars text-left'>
+                            <div className='rating-widget ml-4 mt-3'>
+                            <div className='rating-stars text-left'>
                                 <ul id='stars'>
-                                <li class='star' title='Poor' data-value='1'>
-                                    <i class='fa fa-star fa-fw'></i>
+                                <li className='star' title='Poor' data-value='1'>
+                                    <i className='fa fa-star fa-fw'></i>
                                 </li>
-                                <li class='star' title='Fair' data-value='2'>
-                                    <i class='fa fa-star fa-fw'></i>
+                                <li className='star' title='Fair' data-value='2'>
+                                    <i className='fa fa-star fa-fw'></i>
                                 </li>
-                                <li class='star' title='Good' data-value='3'>
-                                    <i class='fa fa-star fa-fw'></i>
+                                <li className='star' title='Good' data-value='3'>
+                                    <i className='fa fa-star fa-fw'></i>
                                 </li>
-                                <li class='star' title='Excellent' data-value='4'>
-                                    <i class='fa fa-star fa-fw'></i>
+                                <li className='star' title='Excellent' data-value='4'>
+                                    <i className='fa fa-star fa-fw'></i>
                                 </li>
-                                <li class='star' title='WOW!!!' data-value='5'>
-                                    <i class='fa fa-star fa-fw'></i>
+                                <li className='star' title='WOW!!!' data-value='5'>
+                                    <i className='fa fa-star fa-fw'></i>
                                 </li>
                                 </ul>
                             </div>

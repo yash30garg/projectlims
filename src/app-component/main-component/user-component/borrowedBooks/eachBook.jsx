@@ -13,7 +13,7 @@ import {removeWishlist} from '../../../mongo/removeWishlist'
 let handle = (data) => {
     window.selected = data;
     window.showDetails=true;
-    window.location="/#/details"
+    window.location=`/#/details/${data.isbn}`
     //document.getElementById('detail').click();
     window.setClickProps="borrowedDetailsCross";
 }

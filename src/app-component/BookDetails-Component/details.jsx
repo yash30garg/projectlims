@@ -20,16 +20,18 @@ import {getDates} from '../dates'
 import {borrowDate, returnDate} from '../dates'
 let book,
 stars=0,
-    thisBook=null;
+    thisBook=null,bookDetails,bookDetailIsbn;
 
 class Details extends Component {
     constructor(props) {
         super(props);
         getDates();
+        bookDetailIsbn = window.location.hash.split('/')[2]
+        bookDetails = JSON.parse(localStorage.getItem('books')).filter(function(book) { return book.isbn === bookDetailIsbn })
         let check=0;
         this.props.storeReviews(null);
         (async function () {
-            var values = await getReview(this.props.data.isbn);
+            var values = await getReview(bookDetails[0].isbn);
             if(values===null){
                 this.props.storeReviews(null)
             }
@@ -68,7 +70,7 @@ class Details extends Component {
                 .bbooks
                 // eslint-disable-next-line
                 .map(res => {
-                    if (res.isbn === this.props.data.isbn) {
+                    if (res.isbn === bookDetails[0].isbn) {
                         thisBook=res;
                         reqVal = false;
                         if (res.isRenewed === "false") {
@@ -92,7 +94,7 @@ class Details extends Component {
                 .wbooks
                 // eslint-disable-next-line
                 .map(res => {
-                    if (res.isbn === this.props.data.isbn) {
+                    if (res.isbn === bookDetails[0].isbn) {
                         wishVal = false;
                     }
                 })
@@ -116,12 +118,12 @@ class Details extends Component {
         if (this.props.bbooks.length < 4) {
             // eslint-disable-next-line
             let bookAdded = new Object();
-            bookAdded.isbn = this.props.data.isbn;
-            bookAdded.title = this.props.data.title;
-            bookAdded.author = this.props.data.author;
-            bookAdded.publisher = this.props.data.publisher;
-            bookAdded.url = this.props.data.url;
-            bookAdded.rating = this.props.data.rating;
+            bookAdded.isbn = bookDetails[0].isbn;
+            bookAdded.title = bookDetails[0].title;
+            bookAdded.author = bookDetails[0].author;
+            bookAdded.publisher = bookDetails[0].publisher;
+            bookAdded.url = bookDetails[0].url;
+            bookAdded.rating = bookDetails[0].rating;
             bookAdded.borrowedDate = borrowDate;
             bookAdded.returnDate = returnDate;
             bookAdded.isRenewed = "false";
@@ -153,7 +155,7 @@ class Details extends Component {
     return = () => {
         if (navigator.onLine) {
         (async function () {
-            var data = await returnBook(this.props.data.isbn);
+            var data = await returnBook(bookDetails[0].isbn);
             this
                 .props
                 .storeBbooks(data.data)
@@ -175,13 +177,13 @@ class Details extends Component {
          if (navigator.onLine) {
              // eslint-disable-next-line
         var items = new Object();
-        items.isbn = this.props.data.isbn;
-        items.title = this.props.data.title;
-        items.author = this.props.data.author;
-        items.category = this.props.data.category;
-        items.publisher = this.props.data.publisher;
-        items.rating = this.props.data.rating;
-        items.url = this.props.data.url;
+        items.isbn = bookDetails[0].isbn;
+        items.title = bookDetails[0].title;
+        items.author = bookDetails[0].author;
+        items.category = bookDetails[0].category;
+        items.publisher = bookDetails[0].publisher;
+        items.rating = bookDetails[0].rating;
+        items.url = bookDetails[0].url;
         items.description = "";
         (async function () {
             var data = await addWishlist(items);
@@ -205,7 +207,7 @@ class Details extends Component {
     removeWish = () => {
          if (navigator.onLine) {
         (async function () {
-            var data = await removeWishlist(this.props.data.isbn);
+            var data = await removeWishlist(bookDetails[0].isbn);
             this
                 .props
                 .storeWbooks(data)
@@ -284,7 +286,7 @@ class Details extends Component {
                                           {  [1, 2, 3, 4, 5].map(d => {
                                                 if (newRating >= d) {
                                                     return <span
-                                                        key={`category${this.props.data.isbn}`}
+                                                        key={`category${bookDetails[0].isbn}`}
                                                         className="fa fa-star"
                                                         style={{
                                                         color: '#ffd700',
@@ -292,7 +294,7 @@ class Details extends Component {
                                                     }}></span>}
                                             else{
                                                 return <span
-                                                        key={`category${this.props.data.isbn}`}
+                                                        key={`category${bookDetails[0].isbn}`}
                                                         className="fa fa-star"
                                                         style={{
                                                         fontSize: '22px'
@@ -300,14 +302,14 @@ class Details extends Component {
                                             }
                                             })}</div>
         }
-        book = this.props.data;    
+        book = bookDetails[0];    
         if(book!==null && book!==undefined)
         return (
             <div className="mt-4" style={{
                 backgroundColor: "#FFF8DC"
             }}>
                 <div className="contained">
-                    <div class="carders">
+                    <div className="carders">
                         <ol
                             className="breadcrumb"
                             style={{
@@ -331,8 +333,8 @@ class Details extends Component {
                             </h5>
                         </ol>
                         <div
-                            class="aboveDiv">
-                            <div class="wrapper row">
+                            className="aboveDiv">
+                            <div className="wrapper row">
                                 <div className="col-md-4 col-sm-6 col-xs-6 col-lg-4">
                                 <img
                                         alt="Not Available"
@@ -401,37 +403,37 @@ class Details extends Component {
 
                                     </div>
                                 </div>
-                                <div class="details col-md-8 col-lg-8">
+                                <div className="details col-md-8 col-lg-8">
                                    <div className="rating-block">
                                    <h4>Average User Rating</h4>
-                                    <div class="rating">
+                                    <div className="rating">
                                         <div className="stars mt-3 ml-3">
                                             {stars}
                                         </div>
                                     </div>
                                     </div>
                                     <br/>
-                                    <ul class="list-group">
-                                        <li class="list-group-item">
+                                    <ul className="list-group">
+                                        <li className="list-group-item">
                                             <b>ISBN :</b>
                                             {book.isbn}</li>
-                                        <li class="list-group-item">
+                                        <li className="list-group-item">
                                             <b>Author :</b>
                                             {book.author}</li>
-                                        <li class="list-group-item">
+                                        <li className="list-group-item">
                                             <b>Publisher :</b>
                                             {book.publisher}</li>
-                                        <li class="list-group-item">
+                                        <li className="list-group-item">
                                             <b>Category :</b>
                                             {book.category}</li>
-                                        <li class="list-group-item">
+                                        <li className="list-group-item">
                                             <b>Ratings :</b>
                                             {book.rating}</li>
                                     </ul>
                                 </div>
                             </div>   
                         </div>   
-                     <Reviews data={this.props.data} revData={this.props.reviews}/>  
+                     <Reviews data={bookDetails[0]} revData={this.props.reviews}/>  
                     </div>
                 </div>
             </div>

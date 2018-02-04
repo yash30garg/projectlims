@@ -82,7 +82,9 @@ class TopBooks extends Component{
         // alert(bbooks.length)
         if(this.props.bbooks!==null && this.props.wbooks!==null){
             // alert(this.props.)
-        k=<div style={{position:'relative',marginTop:'70px',marginBottom:'50px'}}><img alt={<LoadingEffect/>} src={require('../../../../Assets/Images/yellowLoader.gif')} /></div>;
+        k=<div style={{position:'relative',marginTop:'70px',marginBottom:'50px'}}><LoadingEffect/>
+        {/*<img alt={<LoadingEffect/>} src={require('../../../../Assets/Images/yellowLoader.gif')} />*/}
+        </div>;
                 if (brr.length !==0 ) {
                 let b = window.display;
                  k=brr.map(result=>{
