@@ -13,10 +13,20 @@ class Reviews extends Component{
     constructor(){
         super();
         this.state={
-            review:false
+            review:false,
+            currentNumber:5,
+            showdown:true,
+            showArrow:true
         }
     }
 
+    componentDidMount(){
+
+        if(this.props.reviews!==null && this.props.reviews.length<=5)
+        {
+            this.setState({showArrow:false});
+        }
+    }
     addReview = () => {
     // eslint-disable-next-line
         var item = new Object();
@@ -49,6 +59,29 @@ class Reviews extends Component{
                     className: css({background: "brown"})
                 });
     }
+    loadMore=()=>
+    {
+        
+        if(this.state.currentNumber<=this.props.reviews.length)
+        {
+            
+            this.setState({
+                currentNumber:this.state.currentNumber+5,
+                              
+            })
+        }
+        
+        else{
+           
+            this.setState({             
+                showdown:false  
+            })
+        }
+    }
+    showLess=()=>
+    {
+        this.setState({currentNumber:5,showdown:true});
+    }
 
     render(){
         let count=[0,0,0,0,0];
@@ -57,19 +90,23 @@ class Reviews extends Component{
             reviewData=(<h5 className="ml-4 mt-3" style={{color:"rgb(169,169,169)"}}>There are no reviews yet. Why don't you add one?</h5>)
         }
         else{
-            var values=this.props.reviews.reverse().map((res)=>{
+            var values=this.props.reviews.slice(0,this.state.currentNumber).map((res)=>{
                 count[res.rating-1]++;
+                let siteurl=`https://peoplehub.mindtree.com/Profile/Pages/Profile.aspx?accountname=mindtree\\M${res.mid}`
+                let imageurl = `https://social.mindtree.com/User%20Photos/Profile%20Pictures/m${res.mid}_MThumb.jpg?t=63646089488`
                 return (
                     <div className="card review-card ml-3 mb-4">
-                    <div className="text-left ml-3 mt-3 mb-0">
-                    <img alt="" src={res.image} height="50px" width="50px"/>
-                    <ul>
-                    <li><b style={{fontSize:"24px"}}>{res.name} says:</b>
-                    </li>
-                    <br/>
-                    <li style={{fontSize:"18px"}}>{res.description}</li>
-                    <li className="mt-2 mb-0">
-                    {//eslint-disable-next-line
+                    <div class="row">
+						<div class="col-sm-3">
+							<a href={siteurl}><img src={imageurl} className="img-rounded eachImage my-3"/></a>							
+						</div>
+						<div class="col-sm-9">
+							<div class="review-block-rate">
+                            <div><b style={{fontSize:"24px"}}>{res.name} says:</b></div>								
+							</div>
+							<div style={{fontSize:'16px'}} class="review-block-description"><div>
+                                {//eslint-disable-next-line
+
                                             [1, 2, 3, 4, 5].map(d => {
 
                                                 if (res.rating >= d) 
@@ -80,12 +117,11 @@ class Reviews extends Component{
                                                         color: '#ffd700',
                                                         fontSize: '16px'
                                                     }}></span>
-                                            })}
-                   <span className="mr-3" style={{color:"rgb(169,169,169)", float:"left",fontSize:"16px",position:"absolute",right:"1%", bottom:"2%"}}>{res.date}</span>
-                   </li>
-                    </ul>
-                    </div>
-                    </div>
+                                            })}</div>
+                                        </div>
+                                        <div className="mr-3" style={{color:"rgb(169,169,169)", float:"left",fontSize:"16px",position:"absolute",right:"1%", bottom:"2%"}}>{res.date}</div>
+                                        </div></div>
+                                        </div>
                 )
             })
             reviewChart=(<div className="row">
@@ -351,6 +387,7 @@ var cardReview=(<div className="card mt-5 ml-5" style={{backgroundColor:"rgb(255
                 {reviewChart}
                 <div className="collapse" id="collapseExample">{cardReview}</div>
                             {reviewData}
+                            {this.state.showArrow?<div> {this.state.showdown?<div onClick={this.loadMore} style={{color:'#614126', fontSize:'30px'}} className="fa fa-sort-down"></div>:<div onClick={this.showLess} style={{color:'#614126', fontSize:'30px'}} className="fa fa-sort-up"></div>}</div>:null}
                             </div> 
             </div>
         )
