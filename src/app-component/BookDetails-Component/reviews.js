@@ -27,6 +27,18 @@ class Reviews extends Component{
             this.setState({showArrow:false});
         }
     }
+    leaveReview=()=>{
+        if(this.state.review===false){
+            this.setState({
+                review:true
+            })
+        }
+        else{
+            this.setState({
+                review:false
+            })
+        }
+    }
     addReview = () => {
     // eslint-disable-next-line
         var item = new Object();
@@ -35,12 +47,25 @@ class Reviews extends Component{
         // var names=name.split("")
         item.name=localStorage.getItem('user-name').split('"')[1]
         item.image=`https://social.mindtree.com/User%20Photos/Profile%20Pictures/m${window.user}_MThumb.jpg?t=63646089488`;
-        item.rating=ratingValue;
         item.date=borrowDate;
+        if(document.getElementById("desc").value===""){
+            document.getElementById("desc").focus();
+            toast.warn("Please add a review", {
+                    position: toast.POSITION.BOTTOM_CENTER,
+                    className: css({background: "blue"})
+                });
+        }
+        else if(ratingValue===undefined){
+          toast.warn("Please add a rating", {
+                    position: toast.POSITION.BOTTOM_CENTER,
+                    className: css({background: "blue"})
+                });  
+        }
+        else{
+        item.rating=ratingValue;
         item.description = document
             .getElementById("desc")
             .value;
-
             var review;
             (async function () {
                 review = await addReview(this.props.data.isbn, item);
@@ -58,6 +83,7 @@ class Reviews extends Component{
                     position: toast.POSITION.BOTTOM_CENTER,
                     className: css({background: "brown"})
                 });
+    }
     }
     loadMore=()=>
     {
@@ -90,21 +116,23 @@ class Reviews extends Component{
             reviewData=(<h5 className="ml-4 mt-3" style={{color:"rgb(169,169,169)"}}>There are no reviews yet. Why don't you add one?</h5>)
         }
         else{
+            var chart=this.props.reviews.map((res)=>{
+                count[res.rating-1]++
+            })
             var values=this.props.reviews.slice(0,this.state.currentNumber).map((res)=>{
-                count[res.rating-1]++;
                 let siteurl=`https://peoplehub.mindtree.com/Profile/Pages/Profile.aspx?accountname=mindtree\\M${res.mid}`
                 let imageurl = `https://social.mindtree.com/User%20Photos/Profile%20Pictures/m${res.mid}_MThumb.jpg?t=63646089488`
                 return (
                     <div className="card review-card ml-3 mb-4">
                     <div class="row">
 						<div class="col-sm-3">
-							<a href={siteurl}><img src={imageurl} className="img-rounded eachImage my-3"/></a>							
+							<img src={imageurl} onClick={()=>{window.location.href=`https://peoplehub.mindtree.com/Profile/Pages/Profile.aspx?accountname=mindtree\\M${res.mid}`}} className="img-rounded eachImage my-3"/>						
 						</div>
 						<div class="col-sm-9">
 							<div class="review-block-rate">
-                            <div><b style={{fontSize:"24px"}}>{res.name} says:</b></div>								
+                            <b style={{fontSize:"24px"}}>{res.name} says:</b>						
 							</div>
-							<div style={{fontSize:'16px'}} class="review-block-description"><div>
+							<div style={{fontSize:'18px'}} class="review-block-description">{res.description}<div>
                                 {//eslint-disable-next-line
 
                                             [1, 2, 3, 4, 5].map(d => {
@@ -334,7 +362,7 @@ class Reviews extends Component{
     ratingValue = parseInt($('#stars li.selected').last().data('value'), 10);
   });
 });
-var cardReview=(<div className="card mt-5 ml-5" style={{backgroundColor:"rgb(255, 248, 220)", marginRight:"5%"}}>  
+var cardReview=(<div className="card card-review mt-3 mb-5 ml-3" style={{backgroundColor:"rgb(255, 248, 220)", marginRight:"3%"}}>  
         <h5 className="text-left mt-4 mb-2 ml-3"><b><u>Description</u></b></h5>
                             <textarea rows="2" cols="50" className="review-input mt-3 ml-3 mr-3" style={{backgroundColor:"rgb(255, 248, 220)", width:"95%"}} placeholder="Description" id="desc"/>   
                             <div className='rating-widget ml-4 mt-3'>
@@ -360,10 +388,9 @@ var cardReview=(<div className="card mt-5 ml-5" style={{backgroundColor:"rgb(255
                             </div>
                             <div className="text-right">
                             <button className="btn  details-btn col-md-2 col-xs-2 col-sm-2 col-lg-2 mt-1 ml-2 mr-2" 
-                            data-toggle="collapse" data-target="#collapseExample" aria-expanded="true" aria-controls="collapseExample"
+                            
                             style={{borderColor: "rgb(205,133,63)", width:"95%",overflow:"hidden",fontSize:"auto"}} onClick={this.addReview}><div className="fa fa-pencil fa-lg"></div><b>Add</b> </button> 
-                            <button className="btn  details-btn col-md-2 col-xs-2 col-sm-2 col-lg-2 mt-1 ml-2 mr-2" style={{borderColor: "rgb(205,133,63)", width:"95%",overflow:"hidden"}} 
-                            data-toggle="collapse" data-target="#collapseExample" aria-expanded="true" aria-controls="collapseExample">
+                            <button className="btn  details-btn col-md-2 col-xs-2 col-sm-2 col-lg-2 mt-1 ml-2 mr-2" onClick={this.leaveReview} style={{borderColor: "rgb(205,133,63)", width:"95%",overflow:"hidden"}}>
                             <div className="fa fa-times fa-lg"></div><b>Cancel</b> </button> 
                             </div>  
                             </div> 
@@ -375,17 +402,15 @@ var cardReview=(<div className="card mt-5 ml-5" style={{backgroundColor:"rgb(255
                             </div>
                                <div className="row">
                             <h3 className="col-md-6 text-left mt-3 ml-3" style={{color:"rgb(205,133,63)"}}>Reviews and Ratings<div className="fa fa-pencil hidden-md-up" 
-                            data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"
                             style={{position:"absolute", right:"4%"}}></div></h3>
                             <div><button className="btn  hidden-sm-down details-btn col-md-3  offset-md-4 col-sm-3 col-lg-3 mt-3 ml-2 mr-2" 
-                            data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"
-                            style={{borderColor: "rgb(205,133,63)", width:"95%",position:"absolute",right:"2%", overflow:"hidden"}} 
+                            onClick={this.leaveReview} style={{borderColor: "rgb(205,133,63)", width:"95%",position:"absolute",right:"2%", overflow:"hidden"}} 
                            ><div className="fa fa-pencil fa-lg"></div>
                             <b>Leave A Review</b> </button>
                 </div>
                 </div> 
                 {reviewChart}
-                <div className="collapse" id="collapseExample">{cardReview}</div>
+                {this.state.review?cardReview:""}
                             {reviewData}
                             {this.state.showArrow?<div> {this.state.showdown?<div onClick={this.loadMore} style={{color:'#614126', fontSize:'30px'}} className="fa fa-sort-down"></div>:<div onClick={this.showLess} style={{color:'#614126', fontSize:'30px'}} className="fa fa-sort-up"></div>}</div>:null}
                             </div> 

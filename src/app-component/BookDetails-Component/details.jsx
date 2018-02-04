@@ -20,7 +20,7 @@ import {getDates} from '../dates'
 import {borrowDate, returnDate} from '../dates'
 let book,
 stars=0,
-    thisBook=null,bookDetails,bookDetailIsbn;
+    thisBook=null,bookDetails,bookDetailIsbn,borrowShow="", returnShow="";
 
 class Details extends Component {
     constructor(props) {
@@ -29,6 +29,21 @@ class Details extends Component {
         bookDetailIsbn = window.location.hash.split('/')[2]
         bookDetails = JSON.parse(localStorage.getItem('books')).filter(function(book) { return book.isbn === bookDetailIsbn })
         let check=0;
+        var allBbooks,allWbooks;
+         if(this.props.bbooks===null){
+             var test=JSON.parse(localStorage.getItem('borrowedBooks'));
+             allBbooks=test;
+         }
+         else{
+            allBbooks=this.props.bbooks
+         }
+         if(this.props.wbooks===null){
+             var test1=JSON.parse(localStorage.getItem('wishlist'));
+             allWbooks=test1;
+         }
+         else{
+            allWbooks=this.props.wbooks
+         }
         this.props.storeReviews(null);
         (async function () {
             var values = await getReview(bookDetails[0].isbn);
@@ -64,15 +79,16 @@ class Details extends Component {
         let days = today.split("/");
         today = days[1] + "/" + days[0] + "/" + days[2];
 
-        if (this.props.bbooks !== null && this.props.bbooks.length !== 0) {
-            this
-                .props
-                .bbooks
+        if (allBbooks !== null && allBbooks !== 0) {
+
+            allBbooks
                 // eslint-disable-next-line
                 .map(res => {
                     if (res.isbn === bookDetails[0].isbn) {
                         thisBook=res;
                         reqVal = false;
+                            borrowShow=(<div>Borrowed On : {res.borrowedDate}</div>)
+                            
                         if (res.isRenewed === "false") {
                             let retDate = res.returnDate;
                             days = retDate.split("/");
@@ -88,10 +104,8 @@ class Details extends Component {
                     }
                 })
         }
-        if (this.props.wbooks !== null && this.props.wbooks.length !== 0) {
-            this
-                .props
-                .wbooks
+        if (allWbooks !== null && allWbooks !== 0) {
+            allWbooks
                 // eslint-disable-next-line
                 .map(res => {
                     if (res.isbn === bookDetails[0].isbn) {
@@ -130,6 +144,7 @@ class Details extends Component {
             thisBook=bookAdded;
             (async function () {
                 var data = await requestBook(bookAdded);
+                localStorage.setItem('borrowedBooks',JSON.stringify(data.data))
                 this
                     .props
                     .storeBbooks(data.data)
@@ -156,6 +171,7 @@ class Details extends Component {
         if (navigator.onLine) {
         (async function () {
             var data = await returnBook(bookDetails[0].isbn);
+            localStorage.setItem('borrowedBooks',JSON.stringify(data.data))
             this
                 .props
                 .storeBbooks(data.data)
@@ -187,6 +203,7 @@ class Details extends Component {
         items.description = "";
         (async function () {
             var data = await addWishlist(items);
+            localStorage.setItem('wishlist',JSON.stringify(data))
             this
                 .props
                 .storeWbooks(data)
@@ -208,6 +225,7 @@ class Details extends Component {
          if (navigator.onLine) {
         (async function () {
             var data = await removeWishlist(bookDetails[0].isbn);
+            localStorage.setItem('wishlist',JSON.stringify(data))
             this
                 .props
                 .storeWbooks(data)
@@ -413,26 +431,36 @@ class Details extends Component {
                                     </div>
                                     </div>
                                     <br/>
-                                    <ul className="list-group">
+                                    <div className="row">
+                                    <div className="col-md-3 col-lg-3 col-sm-3 col-lg-3"></div>
+                                    <ul className="col-md-6 col-sm-6 col-xs-6 col-lg-6 ml-4 list-group">
                                         <li className="list-group-item">
                                             <b>ISBN :</b>
-                                            {book.isbn}</li>
+                                            {book.isbn}
+                                        </li>
                                         <li className="list-group-item">
                                             <b>Author :</b>
-                                            {book.author}</li>
+                                            {book.author}
+                                        </li>
                                         <li className="list-group-item">
                                             <b>Publisher :</b>
-                                            {book.publisher}</li>
+                                            {book.publisher}
+                                        </li>
                                         <li className="list-group-item">
                                             <b>Category :</b>
-                                            {book.category}</li>
+                                            {book.category}
+                                        </li>
                                         <li className="list-group-item">
                                             <b>Ratings :</b>
-                                            {book.rating}</li>
+                                            {book.rating}
+                                        </li>
                                     </ul>
+                                    </div>
                                 </div>
                             </div>   
                         </div>   
+                        {borrowShow}
+                        {returnShow}
                      <Reviews data={bookDetails[0]} revData={this.props.reviews}/>  
                     </div>
                 </div>
