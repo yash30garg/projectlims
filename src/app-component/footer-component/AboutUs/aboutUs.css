@@ -1,0 +1,8 @@
+.heading{
+    padding:100px 0px 50px ;
+}
+@media only screen and (max-width: 800px) {
+    .heading {
+        padding: 20px 0px 0px 0px;
+    }
+}

@@ -18,6 +18,9 @@ import store from '../../state/store/store.js'
 // import WishedBooks from '../main-component/user-component/wishlist/wishlistComponent'
 // import LoadingEffect from './../loading-component/loading';
 import { EachListItem } from './categoryList';
+// eslint-disable-next-line
+import { ToastContainer, toast } from 'react-toastify';
+import {css} from 'glamor'
 import {connect} from 'react-redux';
 // import $ from 'jquery';
 // import BorrowedBooks from './../main-component/admin-component/booksDisplay';
@@ -280,6 +283,27 @@ class BootHeader extends Component {
         }
     }
     
+    notify = (a) => {
+        if (navigator.onLine) {
+            toast.success(`Showing ${a} category`, {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({
+                    background: "brown"
+                })
+            });
+        }
+        else if(!navigator.onLine)
+        {
+            toast.error("You're Not Online !!!", {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({
+                    background: "blue"
+                })
+            });
+        }
+    }
+
+
     componentDidMount() {
         if(window.innerWidth<=500)
         {
@@ -495,7 +519,7 @@ class BootHeader extends Component {
 
                                         <div className="collapse show scrollList" id="navbaDropdown">
                                             <a>
-                                            <button type="button" onClick={(e)=>{e.preventDefault(); window.location = '/#/category/all'}} className="btnl default list-group-item list-group-item-action ml-0"
+                                            <button type="button" onClick={(e)=>{e.preventDefault(); if(navigator.onLine){ this.notify("All"); window.location = '/#/category/all'} else if(!navigator.onLine)this.notify("All");}} className="btnl default list-group-item list-group-item-action ml-0"
                                                 style={{background: " #FFF8DC"}}>
 
 
@@ -518,6 +542,7 @@ class BootHeader extends Component {
                                                     key={`boot${r.category}`}
                                                     completeArray={window.display}
                                                     categoryName={r.category}
+                                                    onClick={(e)=> {e.preventDefault(); this.notify(r.category)}}
                                                     openByCategory={this
                                                         .openCategory
                                                         .bind(this, r.category)} />

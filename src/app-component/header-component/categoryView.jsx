@@ -5,7 +5,11 @@ import EachCategoryCard from './eachCategoryCard'
 import {connect} from 'react-redux';
 import LoadingEffect from '../loading-component/loading'
 import $ from 'jquery'
+import store from '../../state/store/store.js'
 // import {controller,handleController} from './bootheader';
+// eslint-disable-next-line
+import { ToastContainer, toast } from 'react-toastify';
+import { css } from 'glamor'
 var route;
 // eslint-disable-next-line
 var oldURL = "", currentURL = window.location.href, flag=0;;
@@ -77,6 +81,7 @@ let filteredArray=[];
     //  this.setState({cb:filteredArray.filter((res,index)=>(index>=this.state.a && index<=this.state.b)).map((res,index)=>{
      this.setState({cb:filteredArray
      })
+     store.dispatch({type:"STORE_SORTED_DATA", payload: filteredArray})
           })
     }
 } 
@@ -141,11 +146,12 @@ changeInHash = () => {
             });
     }
     else
-    {
+    {if(route[1]==="category" && route[2]!==undefined && route[2]!==null && route[2]!=="")
     filteredArray=window.display.filter(r=>r.category.toLowerCase()===this.state.category.toLowerCase()).sort((a,b)=>{return(b.rating-a.rating)})
     }
      this.setState({cb:filteredArray
      })
+     store.dispatch({type:"STORE_SORTED_DATA",payload: filteredArray})
           })
 }
 
@@ -250,7 +256,116 @@ componentDidMount() {
     this.setState({cb:filteredArray})    
 }
 
-    
+    selectFilter = () => {
+        if (document.getElementById("filterCat").value === "Filter By 5 Rated") {
+            this.fiveRated();
+        }
+        else if (document.getElementById("filterCat").value === "Filter By 4 and above") {
+            this.fourRated();
+        }
+        else if (document.getElementById("filterCat").value === "Filter by 3 and above") {
+            this.threeRated();
+        }
+        else if (document.getElementById("filterCat").value === "Filter by 2 and above") {
+            this.twoRated();
+        }
+        else if(document.getElementById("filterCat").value === "Filter By")document.getElementById('defaultSearchResults').click();
+    }
+
+    fiveRated= () => {
+        filteredArray = store.getState().sorted_Data
+        let filter = filteredArray
+        filteredArray=[]
+        filter.filter((data) => data.rating === 5)
+        .map((res)=> filteredArray.push(res))
+        this.setState({cb:filteredArray})
+    }
+    fourRated = () =>  {
+        filteredArray = store.getState().sorted_Data
+        let filter = filteredArray
+        filteredArray=[]
+        filter.filter((data) =>
+            (data.rating <= 5) && (data.rating >= 4))
+            .map((res)=> filteredArray.push(res))
+            this.setState({cb:filteredArray})
+    }
+    threeRated = () => {
+        filteredArray = store.getState().sorted_Data
+        let filter = filteredArray
+        filteredArray=[]
+        filter.filter((data) =>
+            (data.rating <= 5) && (data.rating >= 3))
+            .map((res)=> filteredArray.push(res))
+            this.setState({cb:filteredArray})
+    }
+    twoRated = () => {
+        filteredArray = store.getState().sorted_Data
+        let filter = filteredArray
+        filteredArray=[]
+        filter.filter((data) =>
+            (data.rating <= 5) && (data.rating >= 2))
+            .map((res)=> filteredArray.push(res))
+            this.setState({cb:filteredArray})
+    }
+
+    notifySort = () => {
+        if (navigator.onLine&&filteredArray.length>0) {
+            toast.success(`Sorted ${this.state.category}`, {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({
+                    background: "brown"
+                })
+            });
+        }
+        else if(!navigator.onLine)
+        {
+            toast.error("You're Not Online !!!", {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({
+                    background: "blue"
+                })
+            });
+        }
+        else if(navigator.onLine&& filteredArray.length===0)
+        {
+            toast.error("Sorry !!! No Search Results Found", {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({
+                    background: "red"
+                })
+            });
+
+        }
+    }
+    notifyFilter = () => {
+        if (navigator.onLine&&filteredArray.length>0) {
+            toast.success(`Used ${document.getElementById('filterCat').value} on ${this.state.category}`, {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({
+                    background: "brown"
+                })
+            });
+        }
+        else if(!navigator.onLine)
+        {
+            toast.error("You're Not Online !!!", {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({
+                    background: "blue"
+                })
+            });
+        }
+        else if(navigator.onLine&& filteredArray.length===0)
+        {
+            toast.error("Sorry !!! No Search Results Found", {
+                position: toast.POSITION.BOTTOM_CENTER,
+                className: css({
+                    background: "red"
+                })
+            });
+
+        }
+    }
 
 
     render()
@@ -333,27 +448,28 @@ return(
                                 <ul className="sortTypes">
                                     <li className="sortElement activeSortElement" onClick={(event) => {
                                         event.preventDefault();
+                                        this.notifySort();
                                         this.changeInHash();
                                     }}><a id="defaultSearchResults">Default</a></li>
                                     <li className="sortElement" onClick={(event) => {
                                         event.preventDefault();
+                                        this.notifySort();
                                         this.sortTitle();
-                                        {/*this.notifySort();*/}
                                     }}><a>Title</a></li>
                                     <li className="sortElement" onClick={(event) => {
                                         event.preventDefault()
+                                        this.notifySort();
                                         this.sortAuthor();
-                                        {/*this.notifySort();*/}
                                     }}><a>Author</a></li>
                                     <li className="sortElement" onClick={(event) => {
                                         event.preventDefault();
+                                        this.notifySort();
                                         this.sortPublish();
-                                        {/*this.notifySort();*/}
                                     }}><a>Publisher</a></li>
                                     <li className="sortElement" onClick={(event) => {
                                         event.preventDefault();
+                                        this.notifySort();
                                         this.sortRating();
-                                        {/*this.notifySort();*/}
                                     }}><a>Rating</a></li>
                                 </ul>
 
@@ -362,7 +478,8 @@ return(
 
                                 <select className="form-control" id="filterCat" onChange={(e) => {
                                     e.preventDefault();
-                                    {/*this.notifyFilter();*/}
+                                    this.notifyFilter();
+                                    this.selectFilter();
                                 }} data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span className="dropdown-toggle"></span>
                                     <option className="dropdown-item" >Filter By</option>
                                     <option className="dropdown-item">Filter By 5 Rated</option>
@@ -380,12 +497,12 @@ return(
         )
 
     }):<LoadingEffect/>}
-    </div>
-    {this.state.cb.length>18?<div className="row col-md-12">
-     <div className="col-md-4">{this.state.a>0?<button onClick={this.previous_click_handler} className="btn-primary" style={{backgroundColor:"#614126"}}>Previous</button>:null}</div>
-     <div className="col-md-4">{this.state.cb.length>18?<div>{this.state.pageNo}</div>:null}</div>
-      <div className="offset-md-3 col-md-1">{this.state.b<this.state.cb.length-1?<button onClick={this.next_click_handler} className="btn-primary" style={{backgroundColor:"#614126"}}>Next</button>:null}</div>
+     {this.state.cb.length>18?<div className="mx-auto">
+     {this.state.cb.length>18?<div style={{fontSize:"24px", color:"#614126"}}><b>{this.state.pageNo}</b></div>:null}
+     <div>{this.state.a<=0?<button className="btn-primary" style={{backgroundColor:"#614126",opacity:"0.2",cursor:"not-allowed"}}>Previous</button>:<button onClick={this.previous_click_handler} className="btn-primary" style={{backgroundColor:"#614126",cursor:'pointer'}}>Previous</button>}     
+      {this.state.b<this.state.cb.length-1?<button onClick={this.next_click_handler} className="btn-primary" style={{backgroundColor:"#614126",cursor:'pointer'}}>Next</button>:<button className="btn-primary" style={{backgroundColor:"#614126",opacity:"0.2",cursor:"not-allowed"}}>Next</button>}</div>
     </div>:null}
+    </div>
     </div>
     </div>
 )
