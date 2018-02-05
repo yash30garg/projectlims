@@ -146,7 +146,7 @@ changeInHash = () => {
             });
     }
     else
-    {
+    {if(route[1]==="category" && route[2]!==undefined && route[2]!==null && route[2]!=="")
     filteredArray=window.display.filter(r=>r.category.toLowerCase()===this.state.category.toLowerCase()).sort((a,b)=>{return(b.rating-a.rating)})
     }
      this.setState({cb:filteredArray
@@ -497,12 +497,12 @@ return(
         )
 
     }):<LoadingEffect/>}
-    </div>
-    {this.state.cb.length>18?<div className="row col-md-12">
-     <div className="col-md-4">{this.state.a>0?<button onClick={this.previous_click_handler} className="btn-primary" style={{backgroundColor:"#614126"}}>Previous</button>:null}</div>
-     <div className="col-md-4">{this.state.cb.length>18?<div>{this.state.pageNo}</div>:null}</div>
-      <div className="offset-md-3 col-md-1">{this.state.b<this.state.cb.length-1?<button onClick={this.next_click_handler} className="btn-primary" style={{backgroundColor:"#614126"}}>Next</button>:null}</div>
+     {this.state.cb.length>18?<div className="mx-auto">
+     {this.state.cb.length>18?<div style={{fontSize:"24px", color:"#614126"}}><b>{this.state.pageNo}</b></div>:null}
+     <div>{this.state.a<=0?<button className="btn-primary" style={{backgroundColor:"#614126",opacity:"0.2",cursor:"not-allowed"}}>Previous</button>:<button onClick={this.previous_click_handler} className="btn-primary" style={{backgroundColor:"#614126",cursor:'pointer'}}>Previous</button>}     
+      {this.state.b<this.state.cb.length-1?<button onClick={this.next_click_handler} className="btn-primary" style={{backgroundColor:"#614126",cursor:'pointer'}}>Next</button>:<button className="btn-primary" style={{backgroundColor:"#614126",opacity:"0.2",cursor:"not-allowed"}}>Next</button>}</div>
     </div>:null}
+    </div>
     </div>
     </div>
 )
