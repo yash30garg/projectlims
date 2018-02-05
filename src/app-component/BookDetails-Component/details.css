@@ -373,7 +373,7 @@ box-sizing: border-box;
 
 
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 900px) {
     .detailBook {
         height:250px;
         width:100%;
@@ -381,5 +381,9 @@ box-sizing: border-box;
     .prgrsBar
     {
       width:140px;
+    }
+    .setHeadingSize
+    {
+      font-size: 23px;
     }
 }
