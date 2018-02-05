@@ -1,7 +1,8 @@
 // import storeBbooks from '../../state/store/storeBbooks'; 
 async function renewBook(newBook){
     
-   var data= await fetch('http://localhost:3005/borrowedBooks/renewDate',{
+   var data= await fetch('http://limsreactapi.azurewebsites.net/borrowedBooks/renewDate',{
+       
             method: 'PUT',
             headers: {'Content-Type': 'application/json'},
             body:JSON.stringify({
