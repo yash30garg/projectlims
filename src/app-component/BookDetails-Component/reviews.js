@@ -98,7 +98,7 @@ class Reviews extends Component{
                     <div className="card review-card ml-3 mb-4">
                     <div class="row">
 						<div class="col-sm-3">
-							<a href={siteurl}><img src={imageurl} className="img-rounded eachImage my-3"/></a>							
+							<a href={siteurl}><img alt="" src={imageurl} className="img-rounded eachImage my-3"/></a>							
 						</div>
 						<div class="col-sm-9">
 							<div class="review-block-rate">
@@ -106,7 +106,6 @@ class Reviews extends Component{
 							</div>
 							<div style={{fontSize:'16px'}} class="review-block-description"><div>
                                 {//eslint-disable-next-line
-
                                             [1, 2, 3, 4, 5].map(d => {
 
                                                 if (res.rating >= d) 
