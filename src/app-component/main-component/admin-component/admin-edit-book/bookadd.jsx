@@ -17,7 +17,7 @@ import DashBoardStats from '../admin-stats/adminstats'
 import AdminHeader from '../adminheader'
 
 // var debounce = require('debounce');
-var count = 0;
+// var count = 0;
 
 class BookAdd extends Component {
     componentWillMount() {
