@@ -354,7 +354,7 @@ class Details extends Component {
                                 }}
                                     onClick={(e) => {
                                    e.preventDefault();
-                                   window.location="/#/"
+                                   window.history.back();
                                 }}>x</span>
                             </h5>
                         </ol>
