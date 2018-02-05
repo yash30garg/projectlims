@@ -110,6 +110,7 @@ class Reviews extends Component{
     }
 
     render(){
+        ratingValue=0;
         let count=[0,0,0,0,0];
         if(this.props.reviews===null){
             reviewChart="";
