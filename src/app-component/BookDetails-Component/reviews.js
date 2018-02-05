@@ -87,7 +87,8 @@ class Reviews extends Component{
     }
     loadMore=()=>
     {
-        
+        if(this.props.reviews!==null)
+        {
         if(this.state.currentNumber<=this.props.reviews.length)
         {
             
@@ -103,6 +104,7 @@ class Reviews extends Component{
                 showdown:false  
             })
         }
+    }
     }
     showLess=()=>
     {
