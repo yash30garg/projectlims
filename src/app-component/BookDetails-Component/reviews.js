@@ -116,18 +116,17 @@ class Reviews extends Component{
             reviewData=(<h5 className="ml-4 mt-3" style={{color:"rgb(169,169,169)"}}>There are no reviews yet. Why don't you add one?</h5>)
         }
         else{
+            //eslint-disable-next-line
             var chart=this.props.reviews.map((res)=>{
                 count[res.rating-1]++
             })
             var values=this.props.reviews.slice(0,this.state.currentNumber).map((res)=>{
-                let siteurl=`https://peoplehub.mindtree.com/Profile/Pages/Profile.aspx?accountname=mindtree\\M${res.mid}`
                 let imageurl = `https://social.mindtree.com/User%20Photos/Profile%20Pictures/m${res.mid}_MThumb.jpg?t=63646089488`
                 return (
                     <div className="card review-card ml-3 mb-4">
                     <div class="row">
 						<div class="col-sm-3">
-							<a href={siteurl}><img alt="" src={imageurl} className="img-rounded eachImage my-3"/></a>
-							<img src={imageurl} onClick={()=>{window.location.href=`https://peoplehub.mindtree.com/Profile/Pages/Profile.aspx?accountname=mindtree\\M${res.mid}`}} className="img-rounded eachImage my-3"/>
+							<img src={imageurl} alt="Not Available" onClick={()=>{window.location.href=`https://peoplehub.mindtree.com/Profile/Pages/Profile.aspx?accountname=mindtree\\M${res.mid}`}} className="img-rounded eachImage my-3"/>
 						</div>
 						<div class="col-sm-9">
 							<div class="review-block-rate">

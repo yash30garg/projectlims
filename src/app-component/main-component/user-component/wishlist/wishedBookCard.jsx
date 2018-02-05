@@ -62,7 +62,6 @@ changeToRequest = () => {
         if (navigator.onLine) {
             (async function () {
                 var data = await returnBook(this.props.data.isbn);
-                console.log(data.data);
 
                 this
                     .props
@@ -84,8 +83,6 @@ changeToRequest = () => {
         if (navigator.onLine) {
             (async function () {
                 var data = await removeWishlist(this.props.data.isbn);
-                console.log("data")
-                console.log(data);
                 this
                     .props
                     .storeWbooks(data)
@@ -119,7 +116,7 @@ changeToRequest = () => {
                 bookAdded.isRenewed = "false";
                 (async function () {
                     var data = await requestBook(bookAdded);
-                    console.log(data.data);
+                    // console.log(data.data);
                     this
                         .props
                         .storeBbooks(data.data)

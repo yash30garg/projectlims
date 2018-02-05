@@ -76,8 +76,6 @@ window.showDetails=true;
         // console.log(items);
         (async function(){
                     var data=await addWishlist(items);
-                    console.log("data")
-                console.log(data);
                 this.props.storeWbooks(data)
                 // var newD=data.json();
             }).bind(this)()
@@ -103,8 +101,6 @@ window.showDetails=true;
         if(navigator.onLine){
         (async function(){
                     var data=await removeWishlist(this.props.eachValue.isbn);
-                    console.log("data")
-                console.log(data);
                 this.props.storeWbooks(data)
                 // var newD=data.json();
             }).bind(this)()
@@ -142,7 +138,6 @@ window.showDetails=true;
                 bookAdded.isRenewed="false"; 
                 (async function(){
                     var data=await requestBook(bookAdded);
-                console.log(data.data);
                 this.props.storeBbooks(data.data)
                 // var newD=data.json();
             }).bind(this)()
@@ -177,7 +172,6 @@ window.showDetails=true;
         if(navigator.onLine){
         (async function(){
                 var data=await returnBook(this.props.eachValue.isbn);
-                console.log(data.data);
                 this.props.storeBbooks(data.data)
             }).bind(this)()
         this.setState({requestIcon:true});

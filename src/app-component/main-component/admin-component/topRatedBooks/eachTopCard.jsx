@@ -15,7 +15,6 @@ import {addWishlist} from '../../../mongo/addWishlist';
 import {storeWbooks} from '../../../../state/action/wbooksAction'
 import {removeWishlist} from '../../../mongo/removeWishlist'
 // import {Link} from 'react-router-dom';
-import $ from 'jquery'
 export class EachTopCard extends Component {
     constructor(props)
     {

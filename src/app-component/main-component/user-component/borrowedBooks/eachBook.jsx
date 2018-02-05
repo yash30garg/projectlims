@@ -60,8 +60,6 @@ class Card extends Component{
         if (navigator.onLine) {
             (async function () {
                 var data = await removeWishlist(this.props.data.isbn);
-                console.log("data")
-                console.log(data);
                 this
                     .props
                     .storeWbooks(data)
@@ -83,7 +81,6 @@ changeToRequest = () => {
         if (navigator.onLine) {
             (async function () {
                 var data = await returnBook(this.props.data.isbn);
-                console.log(data.data);
 
                 this
                     .props
@@ -116,8 +113,6 @@ changeToRequest = () => {
             items.description = "";
             (async function () {
                 var data = await addWishlist(items);
-                console.log("data")
-                console.log(data);
                 this
                     .props
                     .storeWbooks(data)
