@@ -247,8 +247,7 @@ class Header extends Component {
             if(document.getElementById('openHome')!==null) document.getElementById('openHome').click() }} />
 
           <Link to="/">
-            <span onClick = { (e) => {e.preventDefault(); window.location = "/#/"; 
-            if(document.getElementById('openHome')!==null) document.getElementById('openHome').click();} }id="projectTitle" className="navbar-brand" style={{ color: "white", paddingLeft: '15px', fontSize: '23px', marginBottom: "15px" }}>Mindtree Library</span>
+            <span onClick = { (e) => {e.preventDefault(); window.location = "/#/";} }id="projectTitle" className="navbar-brand" style={{ color: "white", paddingLeft: '15px', fontSize: '23px', marginBottom: "15px" }}>Mindtree Library</span>
           </Link>
 
           <div className="offset-md-1 col-lg-6 col-md-10">

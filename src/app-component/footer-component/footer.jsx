@@ -42,9 +42,9 @@ class Footer extends Component {
                   <li className="widget-container-fluid widget_nav_menu">
                     <h1 className="title-widget" style={{textAlign :"left" ,color:'#614126'}}>Useful links</h1>
                     <ul>
-                      <li style={{ textAlign: "left"  }}><a href="http://www.leadthecompetition.in/GK/booksandauthors/latest-books-in-news.html" style={{color:'#CD853F'}}><i className="fa fa-angle-double-right" ></i>  Latest Books and Authors</a></li>
-                      <li style={{ textAlign: "left" }}><a href="http://www.mygpscexam.com/2015/06/best-general-knowledge-books-for-all.html" style={{color:'#CD853F'}}><i className="fa fa-angle-double-right"></i>  Best General Knowledge books</a></li>
-                      <li style={{ textAlign: "left" }}><a href="https://www.infibeam.com/Books-entrance-exams/" style={{color:'#CD853F'}}><i className="fa fa-angle-double-right"></i>  Books for Competitive Exams</a></li>
+                      <li style={{ textAlign: "left"  }}><a onClick={()=>{window.location.href="http://www.leadthecompetition.in/GK/booksandauthors/latest-books-in-news.html"}} style={{color:'#CD853F'}}><i className="fa fa-angle-double-right" ></i>  Latest Books and Authors</a></li>
+                      <li style={{ textAlign: "left" }}><a onClick={()=>{window.location.href="http://www.mygpscexam.com/2015/06/best-general-knowledge-books-for-all.html"}} style={{color:'#CD853F'}}><i className="fa fa-angle-double-right"></i>  Best General Knowledge books</a></li>
+                      <li style={{ textAlign: "left" }}><a onClick={()=>{window.location.href="https://www.infibeam.com/Books-entrance-exams/"}} style={{color:'#CD853F'}}><i className="fa fa-angle-double-right"></i>  Books for Competitive Exams</a></li>
 
    </ul>
   

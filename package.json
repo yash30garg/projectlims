@@ -36,7 +36,7 @@
   },
   "devDependencies": {
     "babel-polyfill": "^6.22.0",
-    "enzyme": "^2.8.2",
+    "enzyme": "^2.9.1",
     "jest": "^22.1.4",
     "prop-types": "^15.6.0",
     "react-page-object": "^1.1.0",

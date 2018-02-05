@@ -87,7 +87,8 @@ class Reviews extends Component{
     }
     loadMore=()=>
     {
-        
+        if(this.props.reviews!==null)
+        {
         if(this.state.currentNumber<=this.props.reviews.length)
         {
             
@@ -104,6 +105,7 @@ class Reviews extends Component{
             })
         }
     }
+    }
     showLess=()=>
     {
         this.setState({currentNumber:5,showdown:true});
@@ -116,17 +118,17 @@ class Reviews extends Component{
             reviewData=(<h5 className="ml-4 mt-3" style={{color:"rgb(169,169,169)"}}>There are no reviews yet. Why don't you add one?</h5>)
         }
         else{
+            //eslint-disable-next-line
             var chart=this.props.reviews.map((res)=>{
                 count[res.rating-1]++
             })
             var values=this.props.reviews.slice(0,this.state.currentNumber).map((res)=>{
-                let siteurl=`https://peoplehub.mindtree.com/Profile/Pages/Profile.aspx?accountname=mindtree\\M${res.mid}`
                 let imageurl = `https://social.mindtree.com/User%20Photos/Profile%20Pictures/m${res.mid}_MThumb.jpg?t=63646089488`
                 return (
                     <div className="card review-card ml-3 mb-4">
                     <div class="row">
 						<div class="col-sm-3">
-							<img src={imageurl} onClick={()=>{window.location.href=`https://peoplehub.mindtree.com/Profile/Pages/Profile.aspx?accountname=mindtree\\M${res.mid}`}} className="img-rounded eachImage my-3"/>						
+							<img src={imageurl} alt="Not Available" onClick={()=>{window.location.href=`https://peoplehub.mindtree.com/Profile/Pages/Profile.aspx?accountname=mindtree\\M${res.mid}`}} className="img-rounded eachImage my-3"/>
 						</div>
 						<div class="col-sm-9">
 							<div class="review-block-rate">
@@ -134,7 +136,6 @@ class Reviews extends Component{
 							</div>
 							<div style={{fontSize:'18px'}} class="review-block-description">{res.description}<div>
                                 {//eslint-disable-next-line
-
                                             [1, 2, 3, 4, 5].map(d => {
 
                                                 if (res.rating >= d) 
@@ -402,7 +403,7 @@ var cardReview=(<div className="card card-review mt-3 mb-5 ml-3" style={{backgro
                             </div>
                                <div className="row">
                             <h3 className="col-md-6 text-left mt-3 ml-3" style={{color:"rgb(205,133,63)"}}>Reviews and Ratings<div className="fa fa-pencil hidden-md-up" 
-                            style={{position:"absolute", right:"4%"}}></div></h3>
+                            onClick={this.leaveReview} style={{position:"absolute", right:"4%"}}></div></h3>
                             <div><button className="btn  hidden-sm-down details-btn col-md-3  offset-md-4 col-sm-3 col-lg-3 mt-3 ml-2 mr-2" 
                             onClick={this.leaveReview} style={{borderColor: "rgb(205,133,63)", width:"95%",position:"absolute",right:"2%", overflow:"hidden"}} 
                            ><div className="fa fa-pencil fa-lg"></div>

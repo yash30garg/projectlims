@@ -15,7 +15,6 @@ import {addWishlist} from '../../../mongo/addWishlist';
 import {storeWbooks} from '../../../../state/action/wbooksAction'
 import {removeWishlist} from '../../../mongo/removeWishlist'
 // import {Link} from 'react-router-dom';
-import $ from 'jquery'
 export class EachTopCard extends Component {
     constructor(props)
     {
@@ -181,9 +180,6 @@ export class EachTopCard extends Component {
     }
 
     render() {
-        $(function () {
-  $('[data-toggle="popover"]').popover()
-})
         let res = this.props.item;
         return (
             <div className="col-lg-2 col-md-6 col-sm-6 col-xs-6 my-3">
@@ -261,7 +257,7 @@ export class EachTopCard extends Component {
                                         className="fa fa-heart"
                                         style={{
                                         color: '#CD853F'
-                                    }} data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"
+                                    }} title="Click to remove from wishlist"
                                     ></span>}
                             </div>
                         </div>

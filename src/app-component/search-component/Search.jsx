@@ -33,13 +33,18 @@ export var search = () => {
         //console.log(('and')
         value1 = value.substring(0,value.indexOf('and')-1)
         value2 = value.substring(value.indexOf('and')+4,value.length)
+            value1.trim();
+    value2.trim();
     }
     else if(value.indexOf(',')>-1)
     {
         //console.log((',')
         value1 = value.substring(0,value.indexOf(','))
         value2 = value.substring(value.indexOf(',')+2, value.length)
+            value1.trim();
+    value2.trim();
     }
+
     if (value === "")
         window.location = '/#/';
     else {
