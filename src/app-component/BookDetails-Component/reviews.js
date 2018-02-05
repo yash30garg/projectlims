@@ -402,7 +402,7 @@ var cardReview=(<div className="card card-review mt-3 mb-5 ml-3" style={{backgro
                             </div>
                                <div className="row">
                             <h3 className="col-md-6 text-left mt-3 ml-3" style={{color:"rgb(205,133,63)"}}>Reviews and Ratings<div className="fa fa-pencil hidden-md-up" 
-                            style={{position:"absolute", right:"4%"}}></div></h3>
+                            onClick={this.leaveReview} style={{position:"absolute", right:"4%"}}></div></h3>
                             <div><button className="btn  hidden-sm-down details-btn col-md-3  offset-md-4 col-sm-3 col-lg-3 mt-3 ml-2 mr-2" 
                             onClick={this.leaveReview} style={{borderColor: "rgb(205,133,63)", width:"95%",position:"absolute",right:"2%", overflow:"hidden"}} 
                            ><div className="fa fa-pencil fa-lg"></div>

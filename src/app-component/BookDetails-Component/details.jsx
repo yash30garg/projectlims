@@ -434,7 +434,7 @@ class Details extends Component {
                                 </div>
                                 <div className="details col-md-8 col-lg-8">
                                    <div className="rating-block">
-                                   <h4>Average User Rating</h4>
+                                   <h4 className="ml-4">Average User Rating</h4>
                                     <div className="rating">
                                         <div className="stars mt-3 ml-3">
                                             {stars}
