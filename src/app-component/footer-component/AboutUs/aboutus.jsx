@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import Footer from '../footer.jsx';
 import Header from '../../header-component/header';
-
+import './aboutUs.css'
 // import $ from 'jquery';
 import { requireAuth } from '../../isLoggedIn'
 
@@ -30,7 +30,7 @@ export default class AboutUs extends Component {
 
         <div className="container-fluid">
         {/*  <img src="https://www.cafecoffeeday.com/sites/default/files/About-Us.jpg" width="1300" height="250" />*/}
-          <h1 className="my-4" style={{color:"#614126"}}><big><u>Meet Our Team </u></big></h1>
+          <h1 className="heading" style={{color:"#614126"}}><big><u>Meet Our Team </u></big></h1>
 
 <br/>
 
@@ -50,7 +50,7 @@ export default class AboutUs extends Component {
       <center>    <img className="img img-responsive full-width" src={require('../AboutUs/OurImages/Yash.jpg') } alt="" height="250" width="250"  style={{borderTopLeftRadius:'30px',borderTopRightRadius:'30px',borderBottomLeftRadius:'30px',borderBottomRightRadius:'30px'}} />
           <h4> Yash Garg </h4>
            <p>   <b> Developer</b></p>
-     <p>  <a href="https://www.facebook.com/yash.garg.5015" style={{ textAlign: "left" ,marginLeft : "0px" ,color:'#CD853F' }}><i className="fa fa-facebook-square fa-3x social-fb" id="social"></i></a>
+     <p>  <a onClick={()=>{window.location.href="https://www.facebook.com/yash.garg.5015"}} style={{ textAlign: "left" ,marginLeft : "0px" ,color:'#CD853F' }}><i className="fa fa-facebook-square fa-3x social-fb" id="social"></i></a>
          </p>
          </center>
       </div>
@@ -67,7 +67,7 @@ export default class AboutUs extends Component {
           </h4>
           
           <p><b> Developer</b></p>
-      <p>     <a href="https://www.facebook.com/chaitanyakumar215" style={{ textAlign: "left" ,marginLeft : "0px" ,color:'#CD853F' }}><i className="fa fa-facebook-square fa-3x social-fb" id="social"></i></a>
+      <p>     <a onClick={()=>{window.location.href="https://www.facebook.com/chaitanyakumar215"}} style={{ textAlign: "left" ,marginLeft : "0px" ,color:'#CD853F' }}><i className="fa fa-facebook-square fa-3x social-fb" id="social"></i></a>
       </p> 
       </center>
        </div>
@@ -93,7 +93,7 @@ export default class AboutUs extends Component {
            
           </h4>
           <p><b> Developer</b></p>
-      <p>    <a href="https://www.facebook.com/AnirudhAS006" style={{ textAlign: "left" ,marginLeft : "0px" ,color:'#CD853F' }}><i className="fa fa-facebook-square fa-3x social-fb" id="social"></i></a>
+      <p>    <a onClick={()=>{window.location.href="https://www.facebook.com/AnirudhAS006"}} style={{ textAlign: "left" ,marginLeft : "0px" ,color:'#CD853F' }}><i className="fa fa-facebook-square fa-3x social-fb" id="social"></i></a>
      </p>   </center>  </div>
 </div>
 
@@ -107,7 +107,7 @@ export default class AboutUs extends Component {
             
           </h4>
           <p><b> Developer</b></p>
-      <p>  <a href="https://www.facebook.com/aishwarya.sinha.566" style={{ textAlign: "left" ,marginLeft : "0px" ,color:'#CD853F' }}><i className="fa fa-facebook-square fa-3x social-fb" id="social"></i></a>
+      <p>  <a onClick={()=>{window.location.href="https://www.facebook.com/aishwarya.sinha.566"}} style={{ textAlign: "left" ,marginLeft : "0px" ,color:'#CD853F' }}><i className="fa fa-facebook-square fa-3x social-fb" id="social"></i></a>
       </p> </center>  </div>
         </div>
 
@@ -121,7 +121,7 @@ export default class AboutUs extends Component {
             
           </h4>
           <p><b> Developer</b></p>
-      <p>    <a href="https://www.facebook.com/profile.php?id=100006149372653" style={{ textAlign: "left" ,marginLeft : "0px" ,color:'#CD853F' }}><i className="fa fa-facebook-square fa-3x social-fb" id="social"></i></a>
+      <p>    <a onClick={()=>{window.location.href="https://www.facebook.com/profile.php?id=100006149372653"}} style={{ textAlign: "left" ,marginLeft : "0px" ,color:'#CD853F' }}><i className="fa fa-facebook-square fa-3x social-fb" id="social"></i></a>
       </p> </center> </div>
 
 </div>

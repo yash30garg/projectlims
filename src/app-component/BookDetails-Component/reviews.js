@@ -126,7 +126,8 @@ class Reviews extends Component{
                     <div className="card review-card ml-3 mb-4">
                     <div class="row">
 						<div class="col-sm-3">
-							<img src={imageurl} onClick={()=>{window.location.href=`https://peoplehub.mindtree.com/Profile/Pages/Profile.aspx?accountname=mindtree\\M${res.mid}`}} className="img-rounded eachImage my-3"/>						
+							<a href={siteurl}><img alt="" src={imageurl} className="img-rounded eachImage my-3"/></a>
+							<img src={imageurl} onClick={()=>{window.location.href=`https://peoplehub.mindtree.com/Profile/Pages/Profile.aspx?accountname=mindtree\\M${res.mid}`}} className="img-rounded eachImage my-3"/>
 						</div>
 						<div class="col-sm-9">
 							<div class="review-block-rate">
@@ -134,7 +135,6 @@ class Reviews extends Component{
 							</div>
 							<div style={{fontSize:'18px'}} class="review-block-description">{res.description}<div>
                                 {//eslint-disable-next-line
-
                                             [1, 2, 3, 4, 5].map(d => {
 
                                                 if (res.rating >= d) 

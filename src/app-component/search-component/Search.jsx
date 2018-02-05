@@ -40,6 +40,8 @@ export var search = () => {
         value1 = value.substring(0,value.indexOf(','))
         value2 = value.substring(value.indexOf(',')+2, value.length)
     }
+    value1.trim();
+    value2.trim();
     if (value === "")
         window.location = '/#/';
     else {
