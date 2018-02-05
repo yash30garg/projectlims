@@ -20,12 +20,13 @@ import {getDates} from '../dates'
 import {borrowDate, returnDate} from '../dates'
 let book,
 stars=0,
-    thisBook=null,bookDetails,bookDetailIsbn,borrowShow="", returnShow="";
+    thisBook=null,bookDetails,bookDetailIsbn,borrowShow;
 
 class Details extends Component {
     constructor(props) {
         super(props);
         getDates();
+        borrowShow="";
         bookDetailIsbn = window.location.hash.split('/')[2]
         bookDetails = JSON.parse(localStorage.getItem('books')).filter(function(book) { return book.isbn === bookDetailIsbn })
         let check=0;
@@ -87,7 +88,7 @@ class Details extends Component {
                     if (res.isbn === bookDetails[0].isbn) {
                         thisBook=res;
                         reqVal = false;
-                            borrowShow=(<div>Borrowed On : {res.borrowedDate}</div>)
+                            borrowShow=(<div style={{fontSize:"18px",color:"rgb(205,133,63)", fontWeight:"bold"}}>Borrowed On : {res.borrowedDate}<br/>Return By : {res.returnDate}</div>)
                             
                         if (res.isRenewed === "false") {
                             let retDate = res.returnDate;
@@ -149,6 +150,7 @@ class Details extends Component {
                     .props
                     .storeBbooks(data.data)
             }).bind(this)()
+             borrowShow=(<div style={{fontSize:"18px",color:"rgb(205,133,63)", fontWeight:"bold"}}>Borrowed On : {bookAdded.borrowedDate}<br/>Return By : {bookAdded.returnDate}</div>)
             this.setState({req: false})
         toast.success("Successfully Requested !!!", {
                     position: toast.POSITION.BOTTOM_CENTER,
@@ -176,6 +178,7 @@ class Details extends Component {
                 .props
                 .storeBbooks(data.data)
         }).bind(this)()
+        borrowShow="";
         this.setState({req: true})
          toast.warn("Successfully Returned !!!", {
                 position: toast.POSITION.BOTTOM_CENTER,
@@ -260,11 +263,16 @@ class Details extends Component {
                         thisBook.returnDate = dd1 + '/' + mm1 + '/' + yyyy1;
                         thisBook.isRenewed=true;
                         (async function () {
+        borrowShow=(<div style={{fontSize:"18px",color:"rgb(205,133,63)", fontWeight:"bold"}}>Borrowed On : {thisBook.borrowedDate}<br/>Return By : {thisBook.returnDate}</div>)
             var data = await renewBook(thisBook);
+            localStorage.setItem('borrowedBooks',JSON.stringify(data))
             this
                 .props
                 .storeBbooks(data)
         }).bind(this)()
+        this.setState({
+            renewVal:false
+        })
         toast.success("Renewed !!!", {
                 position: toast.POSITION.BOTTOM_CENTER,
                 className: css({background: "brown"})
@@ -420,6 +428,9 @@ class Details extends Component {
                                             : ""}
 
                                     </div>
+                                   <div className="col-md-12 mt-1 col-sm-12 col-xs-12 col-lg-12">
+                                   {borrowShow}
+                                   </div> 
                                 </div>
                                 <div className="details col-md-8 col-lg-8">
                                    <div className="rating-block">
@@ -459,8 +470,6 @@ class Details extends Component {
                                 </div>
                             </div>   
                         </div>   
-                        {borrowShow}
-                        {returnShow}
                      <Reviews data={bookDetails[0]} revData={this.props.reviews}/>  
                     </div>
                 </div>
