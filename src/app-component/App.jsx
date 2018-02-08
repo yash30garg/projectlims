@@ -115,7 +115,7 @@ class App extends Component {
           {
             method: 'GET',
             headers: {
-              'Content-Type': 'application/json',
+              'Content-Type': 'application/json',git 
               'Authorization': res.token
             }
           })
